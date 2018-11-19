@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#eeeeee</color>
+    <color name="colorAccent">#009688</color>
+
+    <!-- custom -->
+    <color name="colorMainIcon">#009688</color>
+    <color name="colorSnackbar">#323232</color>
+    <color name="colorBottomSheetBackground">@android:color/white</color>
+    <color name="colorAdaptiveBackground">@android:color/white</color>
+    <color name="colorText">@android:color/black</color>
+    <color name="colorBackgroundShortcut">#f5f5f5</color>
+
+</resources>

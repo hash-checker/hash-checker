@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout android:id="@+id/hash_types"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:foreground="?android:selectableItemBackground"
+        android:orientation="horizontal"
+        android:padding="@dimen/common_margin"
+        app:layout_constraintBottom_toTopOf="@+id/custom_hash"
+        app:layout_constraintEnd_toEndOf="@+id/custom_hash"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/custom_hash">
+
+        <TextView android:id="@+id/selected_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:textSize="@dimen/info_text_size"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="@font/google_sans_regular"
+            tools:text="MD5" />
+
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_arrow_down" />
+
+    </LinearLayout>
+
+    <EditText android:id="@+id/custom_hash"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_margin"
+        android:padding="@dimen/common_padding"
+        android:background="@null"
+        android:ems="10"
+        android:hint="@string/title_custom_hash"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:fontFamily="@font/google_sans_regular"
+        app:layout_constraintBottom_toTopOf="@+id/generated_hash"
+        app:layout_constraintEnd_toEndOf="@+id/generated_hash"
+        app:layout_constraintStart_toStartOf="@+id/generated_hash" />
+
+    <EditText android:id="@+id/generated_hash"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_margin"
+        android:layout_marginEnd="@dimen/common_margin_4"
+        android:layout_marginStart="@dimen/common_margin_4"
+        android:padding="@dimen/common_padding"
+        android:background="@null"
+        android:ems="10"
+        android:hint="@string/title_generated_hash"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:fontFamily="@font/google_sans_regular"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button android:id="@+id/from"
+        style="@style/CircleButton"
+        android:layout_width="@dimen/round_text_view_width"
+        android:layout_height="@dimen/round_button_height"
+        android:layout_marginEnd="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin_2"
+        android:text="@string/from"
+        android:fontFamily="@font/google_sans_regular"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintTop_toTopOf="@+id/guideline_horizontal" />
+
+    <Button android:id="@+id/actions"
+        style="@style/CircleButton"
+        android:layout_width="@dimen/round_text_view_width"
+        android:layout_height="@dimen/round_button_height"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin_2"
+        android:text="@string/action"
+        android:fontFamily="@font/google_sans_regular"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+        app:layout_constraintTop_toTopOf="@+id/guideline_horizontal" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView android:id="@+id/selected_object"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/block_text_height"
+        android:layout_marginEnd="@dimen/common_margin_4"
+        android:layout_marginStart="@dimen/common_margin_4"
+        android:layout_marginTop="@dimen/common_margin_3"
+        android:background="@drawable/background_block"
+        android:maxLines="3"
+        android:gravity="center_vertical"
+        android:scrollbars="vertical"
+        android:text="@string/message_select_object"
+        android:textAlignment="center"
+        android:textSize="@dimen/default_text_size"
+        android:fontFamily="@font/google_sans_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/from" />
+
+</android.support.constraint.ConstraintLayout>

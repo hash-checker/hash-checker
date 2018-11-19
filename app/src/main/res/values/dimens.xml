@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="common_margin_half">4dp</dimen>
+    <dimen name="common_margin">8dp</dimen>
+    <dimen name="common_margin_2">16dp</dimen>
+    <dimen name="common_margin_3">32dp</dimen>
+    <dimen name="common_margin_4">64dp</dimen>
+
+    <dimen name="common_padding">8dp</dimen>
+
+    <dimen name="round_text_view_width">96dp</dimen>
+
+    <dimen name="default_text_size">14sp</dimen>
+    <dimen name="info_text_size">16sp</dimen>
+    <dimen name="style_text_size">18sp</dimen>
+
+    <dimen name="block_text_height">48dp</dimen>
+
+    <dimen name="round_button_height">42dp</dimen>
+    <dimen name="round_padding">4dp</dimen>
+    <dimen name="round_padding_radius">4dp</dimen>
+
+    <dimen name="common_radius_snackbar">8dp</dimen>
+    <dimen name="common_radius_dialog">12dp</dimen>
+    <dimen name="common_radius">16dp</dimen>
+
+</resources>

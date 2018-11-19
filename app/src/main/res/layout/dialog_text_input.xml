@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_dialog">
+
+    <TextView android:id="@+id/text_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:padding="@dimen/common_margin_half"
+        android:text="@string/dialog_title_text"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/style_text_size"
+        android:fontFamily="@font/google_sans_regular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText android:id="@+id/et_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@null"
+        android:fontFamily="@font/google_sans_regular"
+        android:hint="@string/hint_input_text"
+        android:inputType="text"
+        android:padding="@dimen/common_margin_half"
+        app:layout_constraintEnd_toEndOf="@+id/add_text"
+        app:layout_constraintStart_toStartOf="@+id/text_title"
+        app:layout_constraintTop_toBottomOf="@+id/text_title"
+        tools:ignore="TextFields" />
+
+    <Button android:id="@+id/close_dialog"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/common_cancel"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toStartOf="@+id/add_text"
+        app:layout_constraintTop_toBottomOf="@+id/et_text" />
+
+    <Button android:id="@+id/add_text"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/common_add"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/close_dialog" />
+
+</android.support.constraint.ConstraintLayout>

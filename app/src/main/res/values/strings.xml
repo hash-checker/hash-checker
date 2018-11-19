@@ -1,0 +1,63 @@
+<resources>
+
+    <string name="app_name">Hash Checker</string>
+
+    <!-- menu -->
+    <string name="settings_title">Settings</string>
+
+    <!-- messages -->
+    <string name="message_email_app_chooser">Choose app for send a email:</string>
+    <string name="message_exit">Long press on back button to close the application!</string>
+    <string name="message_fill_fields">Fill each field for comparison!</string>
+    <string name="message_match_result">Match!</string>
+    <string name="message_do_not_match_result">Do not match!</string>
+    <string name="message_generate_dialog">Generating hash, please wait…</string>
+    <string name="message_select_object">Tap \"From\" to select needed source type</string>
+    <string name="message_error_start_file_selector">Can\'t find a file manager on your device!</string>
+
+    <!-- commons -->
+    <string name="common_text">Text</string>
+    <string name="common_file">File</string>
+    <string name="common_add">Add</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancel</string>
+
+    <!-- actions -->
+    <string name="from">From</string>
+    <string name="action">Action</string>
+    <string name="exit_now">Exit now!</string>
+    <string name="generate">Generate</string>
+    <string name="compare">Compare</string>
+
+    <!-- titles -->
+    <string name="title_custom_hash">Custom hash</string>
+    <string name="title_generated_hash">Generated hash</string>
+
+    <!-- hints -->
+    <string name="hint_input_text">Type text here</string>
+
+    <!-- settings titles -->
+    <string name="settings_title_generator">Generator</string>
+    <string name="settings_title_app">Application</string>
+    <string name="settings_title_about">About</string>
+    <string name="settings_title_upper_case">Upper case</string>
+    <string name="settings_title_version">Version</string>
+    <string name="settings_title_vibration">Vibration</string>
+
+    <!-- dialog titles -->
+    <string name="dialog_title_text">Add text</string>
+
+    <!-- settings -->
+    <string name="key_vibrate" translatable="false">vibrate</string>
+    <string name="key_upper_case" translatable="false">upper_case</string>
+    <string name="key_version" translatable="false">version</string>
+    <string name="key_last_type_value" translatable="false">last_type_value</string>
+    <string name="key_shortcuts_created" translatable="false">shortcuts_created</string>
+    <string name="key_md5" translatable="false">key_md5</string>
+    <string name="key_sha1" translatable="false">key_sha1</string>
+    <string name="key_sha244" translatable="false">key_sha244</string>
+    <string name="key_sha256" translatable="false">key_sha256</string>
+    <string name="key_sha384" translatable="false">key_sha384</string>
+    <string name="key_sha512" translatable="false">key_sha512</string>
+
+</resources>
