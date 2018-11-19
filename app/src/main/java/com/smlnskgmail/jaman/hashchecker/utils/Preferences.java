@@ -21,7 +21,7 @@ public class Preferences {
     }
 
     public static boolean useUpperCase(@NonNull Context context) {
-        return getBooleanPreference(context, context.getString(R.string.key_upper_case), true);
+        return getBooleanPreference(context, context.getString(R.string.key_upper_case), false);
     }
 
     public static void saveTypeAsLast(@NonNull Context context, @NonNull String value) {
