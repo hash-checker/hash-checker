@@ -7,7 +7,6 @@
         <item name="android:statusBarColor">@color/colorPrimary</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
@@ -24,7 +23,7 @@
 
     <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/large_text_size</item>
         <item name="android:textStyle">bold</item>
     </style>
     
