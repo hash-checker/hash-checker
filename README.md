@@ -1,6 +1,6 @@
 # Hash Checker | [Google Play](https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker)
 
-<p align="center"><img src="media/ic_app.png" alt="VideoforVk" height="200px"></p>
+<p align="center"><img src="media/ic_app.png" height="200px"></p>
 
 **Fast and simple application for generate and comparison hashes**
 
@@ -11,8 +11,8 @@ NOTE: this version does not contain some features of the app from [Google Play](
  - [Author](https://github.com/fartem) info
 
  <p align="center">
-  <img width="710" height="710" src="media/src_01.png">
-  <img width="710" height="710" src="media/src_02.png">
-  <img width="710" height="710" src="media/src_03.png">
-  <img width="710" height="710" src="media/src_04.png">
+  <img width="360" height="640" src="media/src_01.png">
+  <img width="360" height="640" src="media/src_02.png">
+  <img width="360" height="640" src="media/src_03.png">
+  <img width="360" height="640" src="media/src_04.png">
 </p>
