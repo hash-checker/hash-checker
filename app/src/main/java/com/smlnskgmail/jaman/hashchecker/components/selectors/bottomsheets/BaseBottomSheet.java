@@ -14,7 +14,7 @@ public abstract class BaseBottomSheet extends BottomSheetDialogFragment {
 
     public abstract int getLayoutResId();
 
-    public void init() {}
+    public void initUI() {}
 
     @Nullable
     @Override
@@ -25,7 +25,7 @@ public abstract class BaseBottomSheet extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         ButterKnife.bind(this, view);
-        init();
+        initUI();
     }
 
 }

@@ -16,7 +16,7 @@ import butterknife.BindView;
 
 public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
 
-    @BindView(R.id.items) protected RecyclerView types;
+    @BindView(R.id.items_list) protected RecyclerView types;
 
     private List<? extends IBottomSheetItem> items;
 
@@ -37,7 +37,7 @@ public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
     }
 
     @Override
-    public void init() {
+    public void initUI() {
         types.setLayoutManager(new LinearLayoutManager(getContext()));
         ItemsAdapter itemsAdapter = new ItemsAdapter(items) {
             @Override

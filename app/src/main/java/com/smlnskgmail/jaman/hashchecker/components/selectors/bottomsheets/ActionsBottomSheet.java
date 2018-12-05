@@ -21,13 +21,13 @@ public class ActionsBottomSheet extends BaseBottomSheet {
         return R.layout.bottom_sheet_actions;
     }
 
-    @OnClick(R.id.generate)
+    @OnClick(R.id.button_generate)
     public void generate() {
         callback.setClickFromDialog(UserActionTypes.GENERATE_HASH);
         dismiss();
     }
 
-    @OnClick(R.id.compare)
+    @OnClick(R.id.button_compare)
     public void compare() {
         callback.setClickFromDialog(UserActionTypes.COMPARE_HASHES);
         dismiss();

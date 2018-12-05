@@ -8,21 +8,21 @@ import android.text.style.TypefaceSpan;
 
 public class AdaptiveTypefaceSpan extends TypefaceSpan {
 
-    private final Typeface newType;
+    private final Typeface customType;
 
     public AdaptiveTypefaceSpan(String family, Typeface type) {
         super(family);
-        newType = type;
+        customType = type;
     }
 
     @Override
     public void updateDrawState(@NonNull TextPaint ds) {
-        applyCustomTypeFace(ds, newType);
+        applyCustomTypeFace(ds, customType);
     }
 
     @Override
     public void updateMeasureState(@NonNull TextPaint paint) {
-        applyCustomTypeFace(paint, newType);
+        applyCustomTypeFace(paint, customType);
     }
 
     private static void applyCustomTypeFace(Paint paint, Typeface tf) {
@@ -38,6 +38,7 @@ public class AdaptiveTypefaceSpan extends TypefaceSpan {
         if ((fake & Typeface.ITALIC) != 0) {
             paint.setTextSkewX(-0.25f);
         }
+
         paint.setTypeface(tf);
     }
 

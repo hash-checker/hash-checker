@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_dialog">
+    android:background="@drawable/bg_dialog">
 
     <TextView android:id="@+id/text_title"
         android:layout_width="0dp"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText android:id="@+id/et_text"
+    <EditText android:id="@+id/text_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -46,7 +46,7 @@
         android:textStyle="bold"
         android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/add_text"
-        app:layout_constraintTop_toBottomOf="@+id/et_text" />
+        app:layout_constraintTop_toBottomOf="@+id/text_value" />
 
     <Button android:id="@+id/add_text"
         style="@style/ButtonStyle"

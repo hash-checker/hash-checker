@@ -67,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button android:id="@+id/from"
+    <Button android:id="@+id/button_from"
         style="@style/CircleButton"
         android:layout_width="@dimen/round_text_view_width"
         android:layout_height="@dimen/round_button_height"
@@ -109,7 +109,7 @@
         android:layout_marginEnd="@dimen/common_margin_4"
         android:layout_marginStart="@dimen/common_margin_4"
         android:layout_marginTop="@dimen/common_margin_3"
-        android:background="@drawable/background_block"
+        android:background="@drawable/bg_block"
         android:maxLines="3"
         android:gravity="center_vertical"
         android:scrollbars="vertical"
@@ -119,6 +119,6 @@
         android:fontFamily="@font/google_sans_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/from" />
+        app:layout_constraintTop_toBottomOf="@+id/button_from" />
 
 </android.support.constraint.ConstraintLayout>

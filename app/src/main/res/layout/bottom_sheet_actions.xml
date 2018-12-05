@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout android:id="@+id/generate"
+    <LinearLayout android:id="@+id/button_generate"
         style="@style/SelectableLinearLayout"
         android:layout_marginTop="@dimen/common_margin">
 
@@ -18,7 +18,7 @@
 
     </LinearLayout>
 
-    <LinearLayout android:id="@+id/compare"
+    <LinearLayout android:id="@+id/button_compare"
         style="@style/SelectableLinearLayout">
 
         <ImageView android:layout_width="wrap_content"

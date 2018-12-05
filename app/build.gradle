@@ -10,8 +10,8 @@ android {
         applicationId "com.smlnskgmail.jaman.hashchecker"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 24
-        versionName "2.0.0"
+        versionCode 25
+        versionName "2.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary=true
     }
@@ -33,7 +33,6 @@ buildscript {
         maven { url 'https://maven.fabric.io/public' }
         maven { url 'https://plugins.gradle.org/m2/'}
     }
-
     dependencies {
         //noinspection GradleDynamicVersion
         classpath 'com.google.gms:google-services:4.1.0'
@@ -49,6 +48,6 @@ dependencies {
     implementation 'com.android.support:preference-v7:28.0.0'
 
 //    ButterKnife
-    implementation 'com.jakewharton:butterknife:9.0.0-rc1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+    implementation 'com.jakewharton:butterknife:9.0.0-rc2'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc2'
 }

@@ -3,7 +3,9 @@ package com.smlnskgmail.jaman.hashchecker.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.text.InputFilter;
 import android.text.method.ScrollingMovementMethod;
@@ -13,6 +15,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.smlnskgmail.jaman.hashchecker.HashCheckerApplication;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.components.selectors.IMenuItemCallback;
@@ -38,28 +41,21 @@ import butterknife.OnClick;
 public class MainFragment extends BaseFragment implements Generator.IGeneratorResultAvailable,
         Generator.IGeneratorCompleteListener, IMenuItemCallback, IHashTypeSelectListener {
 
+    private static final String TAG_OPENED_BOTTOM_SHEET = "";
+
     @BindView(R.id.hash_types) protected LinearLayout hashTypes;
     @BindView(R.id.custom_hash) protected EditText customHash;
     @BindView(R.id.generated_hash) protected EditText generatedHash;
-    @BindView(R.id.from) protected Button from;
+    @BindView(R.id.button_from) protected Button from;
     @BindView(R.id.selected_object) protected TextView selectedObject;
 
     private View mainScreen;
     private TextView selectedHash;
 
     private Uri fileUri;
-    private String text;
 
     private boolean isText;
     private boolean startWithTextSelection, startWithFileSelection;
-
-    public void setStartWithTextSelection(boolean startWithTextSelection) {
-        this.startWithTextSelection = startWithTextSelection;
-    }
-
-    public void setStartWithFileSelection(boolean startWithFileSelection) {
-        this.startWithFileSelection = startWithFileSelection;
-    }
 
     private void setResult(@NonNull String text, boolean isText) {
         selectedObject.setText(text);
@@ -124,21 +120,21 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
     public void selectHashFromList() {
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet(MainFragment.this, selectedHash.getText().toString());
         generateToBottomSheet.setItems(Arrays.asList(HashTypes.values()));
-        generateToBottomSheet.show(getFragmentManager(), "");
+        generateToBottomSheet.show(getFragmentManager(), TAG_OPENED_BOTTOM_SHEET);
     }
 
-    @OnClick(R.id.from)
+    @OnClick(R.id.button_from)
     public void selectResourceToGenerateHash() {
         ResourcesBottomSheet resourcesBottomSheet = new ResourcesBottomSheet();
         resourcesBottomSheet.setCallback(MainFragment.this);
-        resourcesBottomSheet.show(getActivity().getSupportFragmentManager(), "");
+        resourcesBottomSheet.show(getActivity().getSupportFragmentManager(), TAG_OPENED_BOTTOM_SHEET);
     }
 
     @OnClick(R.id.actions)
     public void selectActionForGeneratedHash() {
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
         actionsBottomSheet.setCallback(MainFragment.this);
-        actionsBottomSheet.show(getActivity().getSupportFragmentManager(), "");
+        actionsBottomSheet.show(getActivity().getSupportFragmentManager(), TAG_OPENED_BOTTOM_SHEET);
     }
 
     @Override
@@ -155,6 +151,16 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
         } else if (startWithFileSelection) {
             setClickFromDialog(UserActionTypes.SEARCH_FILE);
             startWithFileSelection = false;
+        }
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle shortcutsArguments = getArguments();
+        if (shortcutsArguments != null) {
+            startWithTextSelection = shortcutsArguments.getBoolean(HashCheckerApplication.ACTION_TEXT, false);
+            startWithFileSelection = shortcutsArguments.getBoolean(HashCheckerApplication.ACTION_FILE, false);
         }
     }
 
@@ -176,7 +182,6 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
 
     @Override
     public void onResultAvailable(@NonNull String text) {
-        this.text = text;
         setResult(text, true);
     }
 
@@ -209,7 +214,7 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
                 getString(R.string.exit_now), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        AppUtils.closeApp();
+                        AppUtils.closeApp(getActivity());
                     }
                 }, Snackbar.LENGTH_SHORT);
     }
@@ -227,19 +232,8 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
             TextUtils.convertToLowerCase(customHash);
             TextUtils.convertToLowerCase(generatedHash);
         }
-
         customHash.setFilters(fieldFilters);
         generatedHash.setFilters(fieldFilters);
-
-        if (isText) {
-            if (text != null) {
-                setResult(text, true);
-            }
-        } else {
-            if (fileUri != null) {
-                setResult(new File(fileUri.getPath()).getName(), false);
-            }
-        }
     }
 
     @Override

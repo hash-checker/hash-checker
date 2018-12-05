@@ -32,7 +32,7 @@
     </style>
 
     <style name="CircleButton" parent="Theme.Design.Light.BottomSheetDialog">
-        <item name="android:background">@drawable/background_button</item>
+        <item name="android:background">@drawable/bg_button</item>
         <item name="android:foreground">?selectableItemBackground</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@android:color/white</item>
@@ -49,7 +49,7 @@
     </style>
 
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/background_bottom_sheet</item>
+        <item name="android:background">@drawable/bg_bottom_sheet</item>
     </style>
 
     <style name="BottomTextView">

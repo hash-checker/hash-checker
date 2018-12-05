@@ -14,7 +14,7 @@ import butterknife.OnClick;
 
 public class TextInputDialog extends BaseDialog {
 
-    @BindView(R.id.et_text) EditText etText;
+    @BindView(R.id.text_value) EditText textValue;
 
     private Generator.IGeneratorResultAvailable result;
     private String text;
@@ -33,18 +33,18 @@ public class TextInputDialog extends BaseDialog {
 
     @OnClick(R.id.add_text)
     void addText() {
-        result.onResultAvailable(etText.getText().toString());
+        result.onResultAvailable(textValue.getText().toString());
         dismiss();
     }
 
     @Override
     public void initUI() {
-        etText.requestFocus();
+        textValue.requestFocus();
         if (text == null) {
-            etText.setText("");
+            textValue.setText("");
         } else {
-            etText.setText(text);
-            etText.setSelection(text.length());
+            textValue.setText(text);
+            textValue.setSelection(text.length());
         }
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }

@@ -6,7 +6,6 @@
     <string name="settings_title">Settings</string>
 
     <!-- messages -->
-    <string name="message_email_app_chooser">Choose app for send a email:</string>
     <string name="message_exit">Long press on back button to close the application!</string>
     <string name="message_fill_fields">Fill each field for comparison!</string>
     <string name="message_match_result">Match!</string>

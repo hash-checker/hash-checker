@@ -15,7 +15,7 @@ import com.smlnskgmail.jaman.hashchecker.R;
 
 public class UIUtils {
 
-    private static final int SNACKBAR_MAGRIN = 12;
+    private static final int COMMON_SNACKBAR_MAGRIN = 12;
 
     public static void createSnackbar(@NonNull View view, int id, @NonNull String message, @Nullable String actionText,
                                       @Nullable View.OnClickListener action, int length) {
@@ -25,7 +25,6 @@ public class UIUtils {
         } else {
             final Snackbar closableSnackbar = snackbar;
             snackbar.setAction(view.getResources().getString(R.string.common_ok), new View.OnClickListener() {
-
                 @Override
                 public void onClick(View v) {
                     closableSnackbar.dismiss();
@@ -35,8 +34,8 @@ public class UIUtils {
         snackbar.setActionTextColor(ContextCompat.getColor(view.getContext(), R.color.colorAccent));
 
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) snackbar.getView().getLayoutParams();
-        params.setMargins(SNACKBAR_MAGRIN, SNACKBAR_MAGRIN, SNACKBAR_MAGRIN, SNACKBAR_MAGRIN);
-        snackbar.getView().setBackground(ContextCompat.getDrawable(view.getContext(), R.drawable.background_snackbar));
+        params.setMargins(COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN);
+        snackbar.getView().setBackground(ContextCompat.getDrawable(view.getContext(), R.drawable.bg_snackbar));
 
         ((TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text))
                 .setTypeface(ResourcesCompat.getFont(view.getContext(), R.font.google_sans_regular));

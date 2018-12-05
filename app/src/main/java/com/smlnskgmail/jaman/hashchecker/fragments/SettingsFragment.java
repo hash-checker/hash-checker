@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
-import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
@@ -46,14 +45,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         menu.clear();
     }
 
-    public void back() {
-        ((MainActivity) getActivity()).showMainFragment(true, R.anim.slide_in_left, R.anim.slide_out_right);
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            back();
+            getActivity().onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);

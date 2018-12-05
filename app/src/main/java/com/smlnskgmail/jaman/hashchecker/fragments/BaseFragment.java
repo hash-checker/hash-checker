@@ -22,7 +22,7 @@ import com.smlnskgmail.jaman.hashchecker.adaptive.AdaptiveTypefaceSpan;
 
 import butterknife.ButterKnife;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements IResume {
 
     abstract int getLayoutResId();
     abstract int getTitleResId();
@@ -54,6 +54,11 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        resume();
+    }
+
+    @Override
+    public void resume() {
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle(getTitleResId());
         actionBar.setDisplayHomeAsUpEnabled(setBackArrow());

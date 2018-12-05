@@ -25,8 +25,8 @@ public abstract class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.Ite
 
     class ItemsHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.icon) protected ImageView icon;
-        @BindView(R.id.done) protected ImageView done;
+        @BindView(R.id.item_icon) protected ImageView icon;
+        @BindView(R.id.item_additional_icon) protected ImageView done;
 
         ItemsHolder(View itemView) {
             super(itemView);
@@ -45,7 +45,7 @@ public abstract class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.Ite
         void bind(@NonNull final IBottomSheetItem IBottomSheetItem) {
             final Context context = itemView.getContext();
             final HashTypes hashType = (HashTypes) IBottomSheetItem;
-            ((TextView) itemView.findViewById(R.id.type)).setText(hashType.getTypeAsString());
+            ((TextView) itemView.findViewById(R.id.item_title)).setText(hashType.getTypeAsString());
             if (hideMarks()) {
                 done.setVisibility(getSelectedTypeAsString().equals(hashType.getTypeAsString()) ? View.VISIBLE : View.INVISIBLE);
             } else {

@@ -21,13 +21,13 @@ public class ResourcesBottomSheet extends BaseBottomSheet {
         return R.layout.bottom_sheet_from;
     }
 
-    @OnClick(R.id.from_text)
+    @OnClick(R.id.button_select_text)
     public void fromText() {
         callback.setClickFromDialog(UserActionTypes.ENTER_TEXT);
         dismiss();
     }
 
-    @OnClick(R.id.from_file)
+    @OnClick(R.id.button_select_file)
     public void fromFile() {
         callback.setClickFromDialog(UserActionTypes.SEARCH_FILE);
         dismiss();
