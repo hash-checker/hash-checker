@@ -14,6 +14,7 @@ import com.smlnskgmail.jaman.hashchecker.fragments.IResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.MainFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
+                UIUtils.hideKeyboard(this, findViewById(android.R.id.content));
                 showFragment(new SettingsFragment(), true, R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
         }
@@ -64,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
         if (fragment instanceof BaseFragment) {
             ((BaseFragment) fragment).back();
         } else {
-            if (fragment instanceof SettingsFragment){
-                for (Fragment fragmentInApp : getSupportFragmentManager().getFragments()) {
+            if (fragment instanceof SettingsFragment) {
+                for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
                     if (fragmentInApp instanceof IResume) {
                         ((IResume) fragmentInApp).resume();
                     }

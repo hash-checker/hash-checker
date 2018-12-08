@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
@@ -58,6 +60,11 @@ public class UIUtils {
     public static void applyAdaptiveFontWithBoldStyle(@NonNull Context context, @NonNull TextView textView) {
         applyAdaptiveFont(context, textView);
         textView.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular), Typeface.BOLD);
+    }
+
+    public static void hideKeyboard(@NonNull Context context, @NonNull View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
 }
