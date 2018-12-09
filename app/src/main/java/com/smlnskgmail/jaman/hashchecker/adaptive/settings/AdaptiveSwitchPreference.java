@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.support.v7.preference.SwitchPreferenceCompat;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
@@ -28,7 +27,7 @@ public class AdaptiveSwitchPreference extends SwitchPreferenceCompat {
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
-        UIUtils.applyAdaptiveFont(getContext(), (TextView) holder.itemView.findViewById(android.R.id.title));
+        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title));
         super.onBindViewHolder(holder);
     }
 

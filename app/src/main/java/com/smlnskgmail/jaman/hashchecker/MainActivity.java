@@ -1,35 +1,20 @@
 package com.smlnskgmail.jaman.hashchecker;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 
-import com.smlnskgmail.jaman.hashchecker.fragments.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.IResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.MainFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.SettingsFragment;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IBack;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IResume;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.Constants;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String CURRENT_FRAGMENT_TAG = "CURRENT_FRAGMENT";
-
-    private void showFragment(@NonNull Fragment fragment, boolean animate, int in, int out) {
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
-        if (animate) {
-            fragmentTransaction.setCustomAnimations(in, out);
-        }
-        fragmentTransaction.add(android.R.id.content, fragment, CURRENT_FRAGMENT_TAG)
-                .addToBackStack(null)
-                .commit();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +24,14 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle shortcutArguments = new Bundle();
         String action = getIntent().getAction();
-        if (action != null && action.equals(HashCheckerApplication.ACTION_TEXT)) {
-            shortcutArguments.putBoolean(HashCheckerApplication.ACTION_TEXT, true);
-        } else if (action != null && action.equals(HashCheckerApplication.ACTION_FILE)) {
-            shortcutArguments.putBoolean(HashCheckerApplication.ACTION_FILE, true);
+        if (action != null && action.equals(Constants.ShortcutActions.ACTION_TEXT)) {
+            shortcutArguments.putBoolean(Constants.ShortcutActions.ACTION_TEXT, true);
+        } else if (action != null && action.equals(Constants.ShortcutActions.ACTION_FILE)) {
+            shortcutArguments.putBoolean(Constants.ShortcutActions.ACTION_FILE, true);
         }
         mainFragment.setArguments(shortcutArguments);
 
-        showFragment(mainFragment, false, -1, -1);
+        UIUtils.showFragment(getSupportFragmentManager(), mainFragment);
     }
 
     @Override
@@ -54,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.settings:
                 UIUtils.hideKeyboard(this, findViewById(android.R.id.content));
-                showFragment(new SettingsFragment(), true, R.anim.slide_in_right, R.anim.slide_out_left);
+                UIUtils.showFragment(getSupportFragmentManager(), new SettingsFragment());
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -62,18 +47,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(CURRENT_FRAGMENT_TAG);
-        if (fragment instanceof BaseFragment) {
-            ((BaseFragment) fragment).back();
-        } else {
-            if (fragment instanceof SettingsFragment) {
-                for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
-                    if (fragmentInApp instanceof IResume) {
-                        ((IResume) fragmentInApp).resume();
-                    }
-                }
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.TAGS.CURRENT_FRAGMENT_TAG);
+        if (fragment instanceof IBack) {
+            ((IBack) fragment).back();
+        }
+        for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
+            if (fragmentInApp instanceof IResume) {
+                ((IResume) fragmentInApp).resume();
             }
-            super.onBackPressed();
         }
     }
 

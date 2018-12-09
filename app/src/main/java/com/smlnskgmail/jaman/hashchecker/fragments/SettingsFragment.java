@@ -15,8 +15,10 @@ import android.view.View;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IBack;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-public class SettingsFragment extends PreferenceFragmentCompat {
+public class SettingsFragment extends PreferenceFragmentCompat implements IBack {
 
     @SuppressLint("ResourceType")
     @Override
@@ -36,7 +38,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle(R.string.settings_title);
         actionBar.setDisplayHomeAsUpEnabled(true);
-        view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAdaptiveBackground));
+        view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorViewBackground));
         setDividerHeight(0);
     }
 
@@ -48,10 +50,16 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
+            back();
             getActivity().onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void back() {
+        UIUtils.removeFragment(getActivity().getSupportFragmentManager(), this);
     }
 
 }

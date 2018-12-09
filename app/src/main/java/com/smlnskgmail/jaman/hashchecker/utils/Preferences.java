@@ -29,7 +29,8 @@ public class Preferences {
     }
 
     public static String getLastType(@NonNull Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.key_last_type_value), "MD5");
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.key_last_type_value),
+                context.getString(R.string.value_default_hash_type));
     }
 
     public static boolean typeIsSelected(@NonNull Context context, int key) {

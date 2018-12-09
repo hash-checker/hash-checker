@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <solid
-        android:color="@color/colorAdaptiveBackground" />
+    <solid android:color="@color/colorViewBackground" />
 
-    <corners
-        android:radius="@dimen/common_radius_dialog" />
+    <corners android:radius="@dimen/common_radius_dialog" />
 
-    <padding
-        android:left="@dimen/common_margin"
+    <padding android:left="@dimen/common_margin"
         android:top="@dimen/common_margin"
         android:right="@dimen/common_margin"
         android:bottom="@dimen/common_margin" />

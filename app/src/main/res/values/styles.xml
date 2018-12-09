@@ -15,7 +15,7 @@
 
     <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
-        <item name="android:navigationBarColor">@color/colorBottomSheetBackground</item>
+        <item name="android:navigationBarColor">@color/colorViewBackground</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowIsFloating">false</item>

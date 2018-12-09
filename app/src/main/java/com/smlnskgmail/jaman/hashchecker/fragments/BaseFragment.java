@@ -19,10 +19,14 @@ import android.view.ViewGroup;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.adaptive.AdaptiveTypefaceSpan;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IBack;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IResume;
 
 import butterknife.ButterKnife;
 
-public abstract class BaseFragment extends Fragment implements IResume {
+public abstract class BaseFragment extends Fragment implements IBack, IResume {
+
+    private ActionBar actionBar;
 
     abstract int getLayoutResId();
     abstract int getTitleResId();
@@ -30,7 +34,6 @@ public abstract class BaseFragment extends Fragment implements IResume {
     abstract int[] getMenuItemIds();
     abstract boolean setBackArrow();
     abstract void initUI(@NonNull View view);
-    public abstract void back();
 
     @Nullable
     @Override
@@ -59,7 +62,9 @@ public abstract class BaseFragment extends Fragment implements IResume {
 
     @Override
     public void resume() {
-        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        if (actionBar == null) {
+            actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        }
         actionBar.setTitle(getTitleResId());
         actionBar.setDisplayHomeAsUpEnabled(setBackArrow());
     }

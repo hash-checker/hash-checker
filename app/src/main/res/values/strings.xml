@@ -46,17 +46,4 @@
     <!-- dialog titles -->
     <string name="dialog_title_text">Add text</string>
 
-    <!-- settings -->
-    <string name="key_vibrate" translatable="false">vibrate</string>
-    <string name="key_upper_case" translatable="false">upper_case</string>
-    <string name="key_version" translatable="false">version</string>
-    <string name="key_last_type_value" translatable="false">last_type_value</string>
-    <string name="key_shortcuts_created" translatable="false">shortcuts_created</string>
-    <string name="key_md5" translatable="false">key_md5</string>
-    <string name="key_sha1" translatable="false">key_sha1</string>
-    <string name="key_sha244" translatable="false">key_sha244</string>
-    <string name="key_sha256" translatable="false">key_sha256</string>
-    <string name="key_sha384" translatable="false">key_sha384</string>
-    <string name="key_sha512" translatable="false">key_sha512</string>
-
 </resources>

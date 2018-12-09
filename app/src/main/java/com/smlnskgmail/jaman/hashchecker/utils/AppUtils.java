@@ -16,8 +16,6 @@ import com.smlnskgmail.jaman.hashchecker.R;
 
 public class AppUtils {
 
-    public static final int FILE_SELECT_REQUEST = 1;
-
     private static final int VIBRATION_LENGTH = 30;
 
     public static void closeApp(@NonNull Activity activity) {
@@ -29,7 +27,7 @@ public class AppUtils {
             Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             openExplorerIntent.addCategory(Intent.CATEGORY_OPENABLE);
             openExplorerIntent.setType("*/*");
-            fragment.startActivityForResult(openExplorerIntent, FILE_SELECT_REQUEST);
+            fragment.startActivityForResult(openExplorerIntent, Constants.Requests.FILE_SELECT_REQUEST);
         } catch (ActivityNotFoundException e) {
             UIUtils.createSnackbar(mainScreen, R.id.main_screen,
                     fragment.getString(R.string.message_error_start_file_selector), Snackbar.LENGTH_LONG);

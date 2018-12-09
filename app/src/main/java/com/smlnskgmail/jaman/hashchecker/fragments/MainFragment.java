@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.smlnskgmail.jaman.hashchecker.HashCheckerApplication;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.components.selectors.IMenuItemCallback;
@@ -28,6 +27,7 @@ import com.smlnskgmail.jaman.hashchecker.generator.Generator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.Constants;
 import com.smlnskgmail.jaman.hashchecker.utils.Preferences;
 import com.smlnskgmail.jaman.hashchecker.utils.TextUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
@@ -159,15 +159,15 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
         super.onCreate(savedInstanceState);
         Bundle shortcutsArguments = getArguments();
         if (shortcutsArguments != null) {
-            startWithTextSelection = shortcutsArguments.getBoolean(HashCheckerApplication.ACTION_TEXT, false);
-            startWithFileSelection = shortcutsArguments.getBoolean(HashCheckerApplication.ACTION_FILE, false);
+            startWithTextSelection = shortcutsArguments.getBoolean(Constants.ShortcutActions.ACTION_TEXT, false);
+            startWithFileSelection = shortcutsArguments.getBoolean(Constants.ShortcutActions.ACTION_FILE, false);
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == AppUtils.FILE_SELECT_REQUEST && resultCode == Activity.RESULT_OK) {
+        if (requestCode == Constants.Requests.FILE_SELECT_REQUEST && resultCode == Activity.RESULT_OK) {
             if (data != null) {
                 Uri uri = data.getData();
                 if (uri != null) {
@@ -211,17 +211,12 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
     @Override
     public void back() {
         UIUtils.createSnackbar(getView(), R.id.main_screen, getString(R.string.message_exit),
-                getString(R.string.exit_now), new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        AppUtils.closeApp(getActivity());
-                    }
-                }, Snackbar.LENGTH_SHORT);
+                getString(R.string.exit_now), v -> AppUtils.closeApp(getActivity()), Snackbar.LENGTH_SHORT);
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void resume() {
+        super.resume();
         InputFilter[] fieldFilters;
         if (Preferences.useUpperCase(getContext())) {
             fieldFilters = new InputFilter[]{new InputFilter.AllCaps()};
@@ -234,6 +229,15 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
         }
         customHash.setFilters(fieldFilters);
         generatedHash.setFilters(fieldFilters);
+
+        customHash.setSelection(customHash.getText().length());
+        generatedHash.setSelection(generatedHash.getText().length());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        resume();
     }
 
     @Override
