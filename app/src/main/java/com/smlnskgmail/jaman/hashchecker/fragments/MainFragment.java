@@ -235,12 +235,6 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        resume();
-    }
-
-    @Override
     public void onSelect(@NonNull HashTypes hashType) {
         selectedHash.setText(hashType.getTypeAsString());
         Preferences.saveTypeAsLast(getContext(), hashType.getTypeAsString());
