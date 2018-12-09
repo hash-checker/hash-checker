@@ -20,8 +20,6 @@ import com.smlnskgmail.jaman.hashchecker.R;
 
 public class UIUtils {
 
-
-
     private static final int COMMON_SNACKBAR_MAGRIN = 12;
 
     public static void createSnackbar(@NonNull View view, int id, @NonNull String message, @Nullable String actionText,
@@ -56,6 +54,7 @@ public class UIUtils {
     public static void removeFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(fragment).commit();
+        fragmentManager.popBackStackImmediate();
     }
 
     public static void createSnackbar(@NonNull View view, int id, @NonNull String message, int length) {

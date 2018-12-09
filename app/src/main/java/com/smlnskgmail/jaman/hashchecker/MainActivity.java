@@ -58,13 +58,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            AppUtils.closeApp(this);
-            return true;
-        }
-        return super.onKeyLongPress(keyCode, event);
-    }
-
 }

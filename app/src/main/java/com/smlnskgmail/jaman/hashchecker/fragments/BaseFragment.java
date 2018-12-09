@@ -91,7 +91,7 @@ public abstract class BaseFragment extends Fragment implements IBack, IResume {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (setBackArrow()) {
             if (item.getItemId() == android.R.id.home) {
-                back();
+                getActivity().onBackPressed();
                 return true;
             }
         }

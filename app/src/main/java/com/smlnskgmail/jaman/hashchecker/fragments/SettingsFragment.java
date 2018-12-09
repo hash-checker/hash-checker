@@ -50,7 +50,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IBack 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            back();
             getActivity().onBackPressed();
             return true;
         }
