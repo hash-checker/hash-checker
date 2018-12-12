@@ -16,11 +16,11 @@ import butterknife.BindView;
 
 public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
 
-    @BindView(R.id.items_list) protected RecyclerView types;
+    @BindView(R.id.recycler_bottom_sheet_items) protected RecyclerView bottomSheetItems;
 
-    private List<? extends IBottomSheetItem> items;
+    private List<? extends IBottomSheetItem> bottomSheetItemsList;
 
-    public abstract boolean hideMarks();
+    public abstract boolean hideAdditionalIcons();
 
     @Nullable
     public IHashTypeSelectListener callback() {
@@ -32,16 +32,16 @@ public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
         return null;
     }
 
-    public void setItems(@NonNull List<? extends IBottomSheetItem> items) {
-        this.items = items;
+    public void setBottomSheetItemsList(@NonNull List<? extends IBottomSheetItem> bottomSheetItemsList) {
+        this.bottomSheetItemsList = bottomSheetItemsList;
     }
 
     @Override
     public void initUI() {
-        types.setLayoutManager(new LinearLayoutManager(getContext()));
-        ItemsAdapter itemsAdapter = new ItemsAdapter(items) {
+        bottomSheetItems.setLayoutManager(new LinearLayoutManager(getContext()));
+        BottomSheetItemsAdapter bottomSheetItemsAdapter = new BottomSheetItemsAdapter(bottomSheetItemsList) {
             @Override
-            public IHashTypeSelectListener getCallback() {
+            public IHashTypeSelectListener getOnItemSelectedCallback() {
                 return callback();
             }
 
@@ -56,11 +56,11 @@ public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
             }
 
             @Override
-            public boolean hideMarks() {
-                return BaseItemsBottomSheet.this.hideMarks();
+            public boolean hideAdditionalIcon() {
+                return BaseItemsBottomSheet.this.hideAdditionalIcons();
             }
         };
-        types.setAdapter(itemsAdapter);
+        bottomSheetItems.setAdapter(bottomSheetItemsAdapter);
     }
 
 }

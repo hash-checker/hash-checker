@@ -32,7 +32,7 @@ public abstract class BaseDialog extends Dialog {
         getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
     }
 
-    @OnClick(R.id.close_dialog)
+    @OnClick(R.id.dialog_button_close)
     void closeDialog() {
         dismiss();
     }

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <stroke
-        android:width="1dp"
+    <stroke android:width="1dp"
         android:color="@android:color/darker_gray" />
 
-    <padding
-        android:bottom="@dimen/round_padding"
+    <padding android:bottom="@dimen/round_padding"
         android:left="@dimen/round_padding"
         android:right="@dimen/round_padding"
         android:top="@dimen/round_padding" />
 
-    <corners
-        android:bottomLeftRadius="@dimen/round_padding_radius"
+    <corners android:bottomLeftRadius="@dimen/round_padding_radius"
         android:bottomRightRadius="@dimen/round_padding_radius"
         android:topLeftRadius="@dimen/round_padding_radius"
         android:topRightRadius="@dimen/round_padding_radius" />

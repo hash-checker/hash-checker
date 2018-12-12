@@ -10,10 +10,10 @@ import butterknife.OnClick;
 
 public class ResourcesBottomSheet extends BaseBottomSheet {
 
-    private IMenuItemCallback callback;
+    private IMenuItemCallback menuItemCallback;
 
-    public void setCallback(@NonNull IMenuItemCallback callback) {
-        this.callback = callback;
+    public void setMenuItemCallback(@NonNull IMenuItemCallback menuItemCallback) {
+        this.menuItemCallback = menuItemCallback;
     }
 
     @Override
@@ -23,13 +23,13 @@ public class ResourcesBottomSheet extends BaseBottomSheet {
 
     @OnClick(R.id.button_select_text)
     public void fromText() {
-        callback.setClickFromDialog(UserActionTypes.ENTER_TEXT);
+        menuItemCallback.setClickFromDialog(UserActionTypes.ENTER_TEXT);
         dismiss();
     }
 
     @OnClick(R.id.button_select_file)
     public void fromFile() {
-        callback.setClickFromDialog(UserActionTypes.SEARCH_FILE);
+        menuItemCallback.setClickFromDialog(UserActionTypes.SEARCH_FILE);
         dismiss();
     }
 

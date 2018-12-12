@@ -7,17 +7,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout android:id="@+id/hash_types"
+    <LinearLayout android:id="@+id/list_hash_types"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:foreground="?android:selectableItemBackground"
         android:orientation="horizontal"
         android:padding="@dimen/common_margin"
-        app:layout_constraintBottom_toTopOf="@+id/custom_hash"
-        app:layout_constraintEnd_toEndOf="@+id/custom_hash"
+        app:layout_constraintBottom_toTopOf="@+id/field_custom_hash"
+        app:layout_constraintEnd_toEndOf="@+id/field_custom_hash"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/custom_hash">
+        app:layout_constraintStart_toStartOf="@+id/field_custom_hash">
 
         <TextView android:id="@+id/selected_type"
             android:layout_width="0dp"
@@ -35,7 +35,7 @@
 
     </LinearLayout>
 
-    <EditText android:id="@+id/custom_hash"
+    <EditText android:id="@+id/field_custom_hash"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/common_margin"
@@ -46,11 +46,11 @@
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
         android:fontFamily="@font/google_sans_regular"
-        app:layout_constraintBottom_toTopOf="@+id/generated_hash"
-        app:layout_constraintEnd_toEndOf="@+id/generated_hash"
-        app:layout_constraintStart_toStartOf="@+id/generated_hash" />
+        app:layout_constraintBottom_toTopOf="@+id/field_generated_hash"
+        app:layout_constraintEnd_toEndOf="@+id/field_generated_hash"
+        app:layout_constraintStart_toStartOf="@+id/field_generated_hash" />
 
-    <EditText android:id="@+id/generated_hash"
+    <EditText android:id="@+id/field_generated_hash"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/common_margin"
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
         app:layout_constraintTop_toTopOf="@+id/guideline_horizontal" />
 
-    <Button android:id="@+id/actions"
+    <Button android:id="@+id/button_actions"
         style="@style/CircleButton"
         android:layout_width="@dimen/round_text_view_width"
         android:layout_height="@dimen/round_button_height"
@@ -103,14 +103,14 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <TextView android:id="@+id/selected_object"
+    <TextView android:id="@+id/field_selected_object"
         android:layout_width="0dp"
         android:layout_height="@dimen/block_text_height"
         android:layout_marginEnd="@dimen/common_margin_4"
         android:layout_marginStart="@dimen/common_margin_4"
         android:layout_marginTop="@dimen/common_margin_3"
         android:background="@drawable/bg_block"
-        android:maxLines="3"
+        android:maxLines="2"
         android:gravity="center_vertical"
         android:scrollbars="vertical"
         android:text="@string/message_select_object"

@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/bg_dialog">
 
-    <TextView android:id="@+id/text_title"
+    <TextView android:id="@+id/dialog_text_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText android:id="@+id/text_value"
+    <EditText android:id="@+id/dialog_text_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -31,12 +31,12 @@
         android:hint="@string/hint_input_text"
         android:inputType="text"
         android:padding="@dimen/common_margin_half"
-        app:layout_constraintEnd_toEndOf="@+id/add_text"
-        app:layout_constraintStart_toStartOf="@+id/text_title"
-        app:layout_constraintTop_toBottomOf="@+id/text_title"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_text_button_add"
+        app:layout_constraintStart_toStartOf="@+id/dialog_text_title"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_text_title"
         tools:ignore="TextFields" />
 
-    <Button android:id="@+id/close_dialog"
+    <Button android:id="@+id/dialog_button_close"
         style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,10 +45,10 @@
         android:textAllCaps="false"
         android:textStyle="bold"
         android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@+id/add_text"
-        app:layout_constraintTop_toBottomOf="@+id/text_value" />
+        app:layout_constraintEnd_toStartOf="@+id/dialog_text_button_add"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_text_value" />
 
-    <Button android:id="@+id/add_text"
+    <Button android:id="@+id/dialog_text_button_add"
         style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,6 +59,6 @@
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/close_dialog" />
+        app:layout_constraintTop_toTopOf="@+id/dialog_button_close" />
 
 </android.support.constraint.ConstraintLayout>

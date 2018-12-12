@@ -3,14 +3,12 @@ package com.smlnskgmail.jaman.hashchecker;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.MenuItem;
 
 import com.smlnskgmail.jaman.hashchecker.fragments.MainFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IBack;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IResume;
-import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.Constants;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 

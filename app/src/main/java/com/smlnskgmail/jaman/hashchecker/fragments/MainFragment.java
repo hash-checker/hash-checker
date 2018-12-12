@@ -1,6 +1,8 @@
 package com.smlnskgmail.jaman.hashchecker.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -38,19 +40,20 @@ import java.util.Arrays;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainFragment extends BaseFragment implements Generator.IGeneratorResultAvailable,
+public class MainFragment extends BaseFragment implements TextInputDialog.ITextValueEntered,
         Generator.IGeneratorCompleteListener, IMenuItemCallback, IHashTypeSelectListener {
 
     private static final String TAG_OPENED_BOTTOM_SHEET = "";
 
-    @BindView(R.id.hash_types) protected LinearLayout hashTypes;
-    @BindView(R.id.custom_hash) protected EditText customHash;
-    @BindView(R.id.generated_hash) protected EditText generatedHash;
+    @BindView(R.id.list_hash_types) protected LinearLayout hashTypes;
+    @BindView(R.id.field_custom_hash) protected EditText customHash;
+    @BindView(R.id.field_generated_hash) protected EditText generatedHash;
     @BindView(R.id.button_from) protected Button from;
-    @BindView(R.id.selected_object) protected TextView selectedObject;
+    @BindView(R.id.field_selected_object) protected TextView selectedObject;
 
     private View mainScreen;
     private TextView selectedHash;
+    private ProgressDialog progressDialog;
 
     private Uri fileUri;
 
@@ -68,26 +71,29 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
         new TextInputDialog(getContext(), MainFragment.this, currentText).show();
     }
 
+    @SuppressLint("ResourceType")
     private void generate() {
         if (fileUri != null || isText) {
-            HashTypes hashType = HashTypes.parseHashTypeFromString(selectedHash.getText().toString());
+            HashTypes hashType = HashTypes.parseHashTypeFromString(getContext(), selectedHash.getText().toString());
+            progressDialog = UIUtils.getProgressDialog(getContext(), R.string.message_generate_dialog);
+            progressDialog.show();
             if (isText) {
                 new HashCalculator(hashType, getContext(), selectedObject.getText().toString(), MainFragment.this, isText).execute();
             } else {
                 new HashCalculator(hashType, getContext(), fileUri, MainFragment.this, isText).execute();
             }
         } else {
-            UIUtils.createSnackbar(mainScreen, R.id.main_screen, getString(R.string.message_select_object), Snackbar.LENGTH_LONG);
+            UIUtils.createSnackbar(getContext(), mainScreen, getString(R.string.message_select_object), Snackbar.LENGTH_LONG);
         }
     }
 
     private void compare() {
         if (TextUtils.fieldIsNotEmpty(customHash) && TextUtils.fieldIsNotEmpty(generatedHash)) {
             boolean equal = TextUtils.compareText(customHash.getText().toString(), generatedHash.getText().toString());
-            UIUtils.createSnackbar(mainScreen, R.id.main_screen, equal ? getString(R.string.message_match_result) :
+            UIUtils.createSnackbar(getContext(), mainScreen, equal ? getString(R.string.message_match_result) :
                     getString(R.string.message_do_not_match_result), Snackbar.LENGTH_LONG);
         } else {
-            UIUtils.createSnackbar(mainScreen, R.id.main_screen, getString(R.string.message_fill_fields), Snackbar.LENGTH_LONG);
+            UIUtils.createSnackbar(getContext(), mainScreen, getString(R.string.message_fill_fields), Snackbar.LENGTH_LONG);
         }
     }
 
@@ -107,33 +113,33 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
     }
 
     @Override
-    int[] getMenuItemIds() {
+    int[] getMenuItemsIds() {
         return new int[] {R.id.settings};
     }
 
     @Override
-    boolean setBackArrow() {
+    boolean setBackActionIcon() {
         return false;
     }
 
-    @OnClick(R.id.hash_types)
+    @OnClick(R.id.list_hash_types)
     public void selectHashFromList() {
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet(MainFragment.this, selectedHash.getText().toString());
-        generateToBottomSheet.setItems(Arrays.asList(HashTypes.values()));
+        generateToBottomSheet.setBottomSheetItemsList(Arrays.asList(HashTypes.values()));
         generateToBottomSheet.show(getFragmentManager(), TAG_OPENED_BOTTOM_SHEET);
     }
 
     @OnClick(R.id.button_from)
     public void selectResourceToGenerateHash() {
         ResourcesBottomSheet resourcesBottomSheet = new ResourcesBottomSheet();
-        resourcesBottomSheet.setCallback(MainFragment.this);
+        resourcesBottomSheet.setMenuItemCallback(MainFragment.this);
         resourcesBottomSheet.show(getActivity().getSupportFragmentManager(), TAG_OPENED_BOTTOM_SHEET);
     }
 
-    @OnClick(R.id.actions)
+    @OnClick(R.id.button_actions)
     public void selectActionForGeneratedHash() {
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
-        actionsBottomSheet.setCallback(MainFragment.this);
+        actionsBottomSheet.setMenuItemCallback(MainFragment.this);
         actionsBottomSheet.show(getActivity().getSupportFragmentManager(), TAG_OPENED_BOTTOM_SHEET);
     }
 
@@ -181,18 +187,21 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
     }
 
     @Override
-    public void onResultAvailable(@NonNull String text) {
+    public void onTextValueEntered(@NonNull String text) {
         setResult(text, true);
     }
 
     @Override
     public void onGeneratingComplete(@NonNull String hashValue) {
         generatedHash.setText(hashValue);
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
     }
 
     @Override
-    public void setClickFromDialog(@NonNull UserActionTypes clickType) {
-        switch (clickType) {
+    public void setClickFromDialog(@NonNull UserActionTypes userActionTypes) {
+        switch (userActionTypes) {
             case ENTER_TEXT:
                 enterText();
                 break;
@@ -210,34 +219,34 @@ public class MainFragment extends BaseFragment implements Generator.IGeneratorRe
 
     @Override
     public void back() {
-        UIUtils.createSnackbar(getView(), R.id.main_screen, getString(R.string.message_exit),
+        UIUtils.createSnackbar(getContext(), getView().findViewById(R.id.main_screen), getString(R.string.message_exit),
                 getString(R.string.exit_now), v -> AppUtils.closeApp(getActivity()), Snackbar.LENGTH_SHORT);
     }
 
     @Override
     public void resume() {
         super.resume();
-        InputFilter[] fieldFilters;
-        if (Preferences.useUpperCase(getContext())) {
-            fieldFilters = new InputFilter[]{new InputFilter.AllCaps()};
+        boolean useUpperCase = Preferences.useUpperCase(getContext());
+        InputFilter[] fieldFilters = useUpperCase ? new InputFilter[]{new InputFilter.AllCaps()} : new InputFilter[]{};
+        customHash.setFilters(fieldFilters);
+        generatedHash.setFilters(fieldFilters);
+
+        if (useUpperCase) {
             TextUtils.convertToUpperCase(customHash);
             TextUtils.convertToUpperCase(generatedHash);
         } else {
-            fieldFilters = new InputFilter[]{};
             TextUtils.convertToLowerCase(customHash);
             TextUtils.convertToLowerCase(generatedHash);
         }
-        customHash.setFilters(fieldFilters);
-        generatedHash.setFilters(fieldFilters);
 
         customHash.setSelection(customHash.getText().length());
         generatedHash.setSelection(generatedHash.getText().length());
     }
 
     @Override
-    public void onSelect(@NonNull HashTypes hashType) {
-        selectedHash.setText(hashType.getTypeAsString());
-        Preferences.saveTypeAsLast(getContext(), hashType.getTypeAsString());
+    public void onHashTypeSelect(@NonNull HashTypes hashType) {
+        selectedHash.setText(hashType.getTypeAsString(getContext()));
+        Preferences.saveTypeAsLast(getContext(), hashType.getTypeAsString(getContext()));
     }
 
 }

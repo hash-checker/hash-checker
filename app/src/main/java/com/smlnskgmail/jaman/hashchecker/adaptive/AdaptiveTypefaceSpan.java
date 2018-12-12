@@ -10,28 +10,28 @@ public class AdaptiveTypefaceSpan extends TypefaceSpan {
 
     private final Typeface customType;
 
-    public AdaptiveTypefaceSpan(String family, Typeface type) {
+    public AdaptiveTypefaceSpan(@NonNull String family, @NonNull Typeface type) {
         super(family);
         customType = type;
     }
 
     @Override
-    public void updateDrawState(@NonNull TextPaint ds) {
-        applyCustomTypeFace(ds, customType);
+    public void updateDrawState(@NonNull TextPaint textPaint) {
+        applyCustomTypeFace(textPaint, customType);
     }
 
     @Override
-    public void updateMeasureState(@NonNull TextPaint paint) {
-        applyCustomTypeFace(paint, customType);
+    public void updateMeasureState(@NonNull TextPaint textPaint) {
+        applyCustomTypeFace(textPaint, customType);
     }
 
-    private static void applyCustomTypeFace(Paint paint, Typeface tf) {
+    private static void applyCustomTypeFace(@NonNull Paint paint, @NonNull Typeface typeface) {
         int oldStyle;
 
         Typeface old = paint.getTypeface();
         oldStyle = old == null ? 0 : old.getStyle();
 
-        int fake = oldStyle & ~tf.getStyle();
+        int fake = oldStyle & ~typeface.getStyle();
         if ((fake & Typeface.BOLD) != 0) {
             paint.setFakeBoldText(true);
         }
@@ -39,7 +39,7 @@ public class AdaptiveTypefaceSpan extends TypefaceSpan {
             paint.setTextSkewX(-0.25f);
         }
 
-        paint.setTypeface(tf);
+        paint.setTypeface(typeface);
     }
 
 }

@@ -30,7 +30,7 @@ public class Preferences {
 
     public static String getLastType(@NonNull Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.key_last_type_value),
-                context.getString(R.string.value_default_hash_type));
+                context.getString(R.string.hash_type_md5));
     }
 
     public static boolean typeIsSelected(@NonNull Context context, int key) {

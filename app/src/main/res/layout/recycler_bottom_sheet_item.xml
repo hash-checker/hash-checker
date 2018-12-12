@@ -7,17 +7,17 @@
     android:layout_height="wrap_content"
     android:foreground="?android:selectableItemBackground">
 
-    <ImageView android:id="@+id/item_icon"
+    <ImageView android:id="@+id/recycler_bottom_sheet_item_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/item_title"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_bottom_sheet_item_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/item_title"
+        app:layout_constraintTop_toTopOf="@+id/recycler_bottom_sheet_item_title"
         tools:src="@drawable/ic_google_play" />
 
-    <TextView android:id="@+id/item_title"
+    <TextView android:id="@+id/recycler_bottom_sheet_item_title"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginBottom="16dp"
@@ -28,18 +28,18 @@
         android:textSize="@dimen/info_text_size"
         android:fontFamily="@font/google_sans_regular"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/item_additional_icon"
-        app:layout_constraintStart_toEndOf="@+id/item_icon"
+        app:layout_constraintEnd_toStartOf="@+id/recycler_bottom_sheet_item_additional_icon"
+        app:layout_constraintStart_toEndOf="@+id/recycler_bottom_sheet_item_icon"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="MD5" />
 
-    <ImageView android:id="@+id/item_additional_icon"
+    <ImageView android:id="@+id/recycler_bottom_sheet_item_additional_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/item_title"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_bottom_sheet_item_title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/item_title"
+        app:layout_constraintTop_toTopOf="@+id/recycler_bottom_sheet_item_title"
         app:srcCompat="@drawable/ic_done" />
 
 </android.support.constraint.ConstraintLayout>

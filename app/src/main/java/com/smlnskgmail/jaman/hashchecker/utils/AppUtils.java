@@ -22,14 +22,14 @@ public class AppUtils {
         activity.finish();
     }
 
-    public static void searchFile(@NonNull Fragment fragment, @NonNull View mainScreen) {
+    public static void searchFile(@NonNull Fragment fragment, @NonNull View view) {
         try {
             Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             openExplorerIntent.addCategory(Intent.CATEGORY_OPENABLE);
             openExplorerIntent.setType("*/*");
             fragment.startActivityForResult(openExplorerIntent, Constants.Requests.FILE_SELECT_REQUEST);
         } catch (ActivityNotFoundException e) {
-            UIUtils.createSnackbar(mainScreen, R.id.main_screen,
+            UIUtils.createSnackbar(fragment.getContext(), view,
                     fragment.getString(R.string.message_error_start_file_selector), Snackbar.LENGTH_LONG);
         }
     }

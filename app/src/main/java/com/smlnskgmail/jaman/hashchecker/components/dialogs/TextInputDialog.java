@@ -7,23 +7,28 @@ import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.generator.Generator;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class TextInputDialog extends BaseDialog {
 
-    @BindView(R.id.text_value) EditText textValue;
+    public interface ITextValueEntered {
 
-    private Generator.IGeneratorResultAvailable result;
-    private String text;
+        void onTextValueEntered(@NonNull String text);
 
-    public TextInputDialog(@NonNull Context context, @NonNull Generator.IGeneratorResultAvailable result,
-                           @Nullable String text) {
+    }
+
+    @BindView(R.id.dialog_text_value) protected EditText fieldTextValue;
+
+    private ITextValueEntered textValueEntered;
+    private String textValue;
+
+    public TextInputDialog(@NonNull Context context, @NonNull ITextValueEntered textValueEntered,
+                           @Nullable String textValue) {
         super(context);
-        this.result = result;
-        this.text = text;
+        this.textValueEntered = textValueEntered;
+        this.textValue = textValue;
     }
 
     @Override
@@ -31,20 +36,20 @@ public class TextInputDialog extends BaseDialog {
         return R.layout.dialog_text_input;
     }
 
-    @OnClick(R.id.add_text)
+    @OnClick(R.id.dialog_text_button_add)
     void addText() {
-        result.onResultAvailable(textValue.getText().toString());
+        textValueEntered.onTextValueEntered(fieldTextValue.getText().toString());
         dismiss();
     }
 
     @Override
     public void initUI() {
-        textValue.requestFocus();
-        if (text == null) {
-            textValue.setText("");
+        fieldTextValue.requestFocus();
+        if (textValue == null) {
+            fieldTextValue.setText("");
         } else {
-            textValue.setText(text);
-            textValue.setSelection(text.length());
+            fieldTextValue.setText(textValue);
+            fieldTextValue.setSelection(textValue.length());
         }
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }

@@ -31,8 +31,8 @@ public abstract class BaseFragment extends Fragment implements IBack, IResume {
     abstract int getLayoutResId();
     abstract int getTitleResId();
     abstract int getMenuResId();
-    abstract int[] getMenuItemIds();
-    abstract boolean setBackArrow();
+    abstract int[] getMenuItemsIds();
+    abstract boolean setBackActionIcon();
     abstract void initUI(@NonNull View view);
 
     @Nullable
@@ -66,7 +66,7 @@ public abstract class BaseFragment extends Fragment implements IBack, IResume {
             actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         }
         actionBar.setTitle(getTitleResId());
-        actionBar.setDisplayHomeAsUpEnabled(setBackArrow());
+        actionBar.setDisplayHomeAsUpEnabled(setBackActionIcon());
     }
 
     private void applyFontToMenuItem(@NonNull MenuItem menuItem) {
@@ -81,7 +81,7 @@ public abstract class BaseFragment extends Fragment implements IBack, IResume {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
         inflater.inflate(getMenuResId(), menu);
-        for (int itemId: getMenuItemIds()) {
+        for (int itemId: getMenuItemsIds()) {
             MenuItem item = menu.findItem(itemId);
             applyFontToMenuItem(item);
         }
@@ -89,7 +89,7 @@ public abstract class BaseFragment extends Fragment implements IBack, IResume {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (setBackArrow()) {
+        if (setBackActionIcon()) {
             if (item.getItemId() == android.R.id.home) {
                 getActivity().onBackPressed();
                 return true;

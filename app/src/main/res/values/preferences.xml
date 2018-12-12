@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- hash bottomSheetItems -->
+    <string name="hash_type_md5" translatable="false">MD5</string>
+    <string name="hash_type_sha1" translatable="false">SHA-1</string>
+    <string name="hash_type_sha224" translatable="false">SHA-224</string>
+    <string name="hash_type_sha256" translatable="false">SHA-256</string>
+    <string name="hash_type_sha384" translatable="false">SHA-384</string>
+    <string name="hash_type_sha512" translatable="false">SHA-512</string>
+
     <!-- settings -->
     <string name="key_vibrate" translatable="false">vibrate</string>
     <string name="key_upper_case" translatable="false">upper_case</string>
@@ -9,12 +17,9 @@
     <string name="key_shortcuts_created" translatable="false">shortcuts_created</string>
     <string name="key_md5" translatable="false">key_md5</string>
     <string name="key_sha1" translatable="false">key_sha1</string>
-    <string name="key_sha244" translatable="false">key_sha244</string>
+    <string name="key_sha224" translatable="false">key_sha224</string>
     <string name="key_sha256" translatable="false">key_sha256</string>
     <string name="key_sha384" translatable="false">key_sha384</string>
     <string name="key_sha512" translatable="false">key_sha512</string>
-
-    <!-- default values -->
-    <string name="value_default_hash_type" translatable="false">MD5</string>
 
 </resources>

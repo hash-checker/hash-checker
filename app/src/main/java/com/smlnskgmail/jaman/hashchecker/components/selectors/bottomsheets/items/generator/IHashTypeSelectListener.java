@@ -6,6 +6,6 @@ import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 
 public interface IHashTypeSelectListener {
 
-    void onSelect(@NonNull HashTypes hashType);
+    void onHashTypeSelect(@NonNull HashTypes hashType);
 
 }

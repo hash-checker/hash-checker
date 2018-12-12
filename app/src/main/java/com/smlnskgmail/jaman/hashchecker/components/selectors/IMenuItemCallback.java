@@ -4,6 +4,6 @@ import android.support.annotation.NonNull;
 
 public interface IMenuItemCallback {
 
-    void setClickFromDialog(@NonNull UserActionTypes clickType);
+    void setClickFromDialog(@NonNull UserActionTypes userActionTypes);
 
 }
