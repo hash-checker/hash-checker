@@ -18,13 +18,12 @@
 
         <activity android:name=".MainActivity"
             android:label="@string/app_name"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="com.smlnskgmail.jaman.hashchecker.TEXT" />
-                <action android:name="com.smlnskgmail.jaman.hashchecker.FILE" />
+                <action android:name="com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT_SELECTION" />
+                <action android:name="com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FILE_SELECTION" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

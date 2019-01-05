@@ -10,10 +10,10 @@ import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.items
 @SuppressLint("ValidFragment")
 public class GenerateToBottomSheet extends BaseItemsBottomSheet {
 
-    private IHashTypeSelectListener hashTypeSelectListener;
+    private OnHashTypeSelectListener hashTypeSelectListener;
     private String selectedTypeAsString;
 
-    public GenerateToBottomSheet(@NonNull IHashTypeSelectListener hashTypeSelectListener,
+    public GenerateToBottomSheet(@NonNull OnHashTypeSelectListener hashTypeSelectListener,
                                  @NonNull String selectedTypeAsString) {
         this.hashTypeSelectListener = hashTypeSelectListener;
         this.selectedTypeAsString = selectedTypeAsString;
@@ -21,7 +21,7 @@ public class GenerateToBottomSheet extends BaseItemsBottomSheet {
 
     @Nullable
     @Override
-    public IHashTypeSelectListener callback() {
+    public OnHashTypeSelectListener callback() {
         return hashTypeSelectListener;
     }
 

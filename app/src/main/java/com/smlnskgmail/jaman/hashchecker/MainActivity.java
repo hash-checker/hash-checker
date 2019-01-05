@@ -7,8 +7,8 @@ import android.view.MenuItem;
 
 import com.smlnskgmail.jaman.hashchecker.fragments.MainFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.SettingsFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IBack;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IResume;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.Resume;
 import com.smlnskgmail.jaman.hashchecker.utils.Constants;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle shortcutArguments = new Bundle();
         String action = getIntent().getAction();
-        if (action != null && action.equals(Constants.ShortcutActions.ACTION_TEXT)) {
-            shortcutArguments.putBoolean(Constants.ShortcutActions.ACTION_TEXT, true);
-        } else if (action != null && action.equals(Constants.ShortcutActions.ACTION_FILE)) {
-            shortcutArguments.putBoolean(Constants.ShortcutActions.ACTION_FILE, true);
+        if (action != null && action.equals(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION)) {
+            shortcutArguments.putBoolean(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION, true);
+        } else if (action != null && action.equals(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION)) {
+            shortcutArguments.putBoolean(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION, true);
         }
         mainFragment.setArguments(shortcutArguments);
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.settings:
+            case R.id.menu_settings:
                 UIUtils.hideKeyboard(this, findViewById(android.R.id.content));
                 UIUtils.showFragment(getSupportFragmentManager(), new SettingsFragment());
                 break;
@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.TAGS.CURRENT_FRAGMENT_TAG);
-        if (fragment instanceof IBack) {
-            ((IBack) fragment).back();
+        if (fragment instanceof OnNavigationListener) {
+            ((OnNavigationListener) fragment).onBack();
         }
         for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
-            if (fragmentInApp instanceof IResume) {
-                ((IResume) fragmentInApp).resume();
+            if (fragmentInApp instanceof Resume) {
+                ((Resume) fragmentInApp).resume();
             }
         }
     }

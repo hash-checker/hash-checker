@@ -2,8 +2,8 @@ package com.smlnskgmail.jaman.hashchecker.components.selectors;
 
 import android.support.annotation.NonNull;
 
-public interface IMenuItemCallback {
+public interface OnMenuItemClickListener {
 
-    void setClickFromDialog(@NonNull UserActionTypes userActionTypes);
+    void onClick(@NonNull UserActionTypes userActionTypes);
 
 }

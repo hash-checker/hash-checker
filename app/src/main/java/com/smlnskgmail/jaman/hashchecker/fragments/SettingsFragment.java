@@ -15,19 +15,17 @@ import android.view.View;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IBack;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-public class SettingsFragment extends PreferenceFragmentCompat implements IBack {
+public class SettingsFragment extends PreferenceFragmentCompat implements OnNavigationListener {
 
     @SuppressLint("ResourceType")
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.settings);
-
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(), R.drawable.ic_arrow_back));
-
         findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)", BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
     }
 
@@ -38,7 +36,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IBack 
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle(R.string.settings_title);
         actionBar.setDisplayHomeAsUpEnabled(true);
-        view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorViewBackground));
+        view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorCommonBackground));
         setDividerHeight(0);
     }
 
@@ -57,7 +55,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements IBack 
     }
 
     @Override
-    public void back() {
+    public void onBack() {
         UIUtils.removeFragment(getActivity().getSupportFragmentManager(), this);
     }
 

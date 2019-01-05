@@ -9,17 +9,15 @@ import android.support.annotation.NonNull;
 public class HashCalculator extends AsyncTask<Void, Void, Void> {
 
     @SuppressLint("StaticFieldLeak") private Context context;
-    private Generator.IGeneratorCompleteListener onCompleteListener;
+    private Generator.OnGeneratorCompleteListener onCompleteListener;
     private Uri fileUri;
-    private String textValue;
+    private String textValue, result;
+    private HashTypes hashTypes;
 
     private boolean isText;
 
-    private HashTypes hashTypes;
-    private String result;
-
     private HashCalculator(@NonNull HashTypes hashTypes, @NonNull Context context,
-                           @NonNull Generator.IGeneratorCompleteListener onCompleteListener, boolean isText) {
+                           @NonNull Generator.OnGeneratorCompleteListener onCompleteListener, boolean isText) {
         this.hashTypes = hashTypes;
         this.context = context;
         this.onCompleteListener = onCompleteListener;
@@ -27,13 +25,13 @@ public class HashCalculator extends AsyncTask<Void, Void, Void> {
     }
 
     public HashCalculator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull Uri fileUri,
-                          @NonNull Generator.IGeneratorCompleteListener onCompleteListener, boolean isText) {
+                          @NonNull Generator.OnGeneratorCompleteListener onCompleteListener, boolean isText) {
         this(hashTypes, context, onCompleteListener, isText);
         this.fileUri = fileUri;
     }
 
     public HashCalculator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull String textValue,
-                          @NonNull Generator.IGeneratorCompleteListener onCompleteListener, boolean isText) {
+                          @NonNull Generator.OnGeneratorCompleteListener onCompleteListener, boolean isText) {
         this(hashTypes, context, onCompleteListener, isText);
         this.textValue = textValue;
 
@@ -75,7 +73,7 @@ public class HashCalculator extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        onCompleteListener.onGeneratingComplete(result);
+        onCompleteListener.onComplete(result);
     }
 
 }

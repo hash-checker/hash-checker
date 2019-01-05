@@ -6,26 +6,26 @@
     android:orientation="vertical">
 
     <LinearLayout android:id="@+id/button_generate"
-        style="@style/SelectableLinearLayout"
+        style="@style/AppSelectableLinearLayout"
         android:layout_marginTop="@dimen/common_margin">
 
         <ImageView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_generate" />
 
-        <TextView style="@style/BottomTextView"
+        <TextView style="@style/AppBottomTextView"
             android:text="@string/generate" />
 
     </LinearLayout>
 
     <LinearLayout android:id="@+id/button_compare"
-        style="@style/SelectableLinearLayout">
+        style="@style/AppSelectableLinearLayout">
 
         <ImageView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_compare" />
 
-        <TextView style="@style/BottomTextView"
+        <TextView style="@style/AppBottomTextView"
             android:text="@string/compare" />
 
     </LinearLayout>

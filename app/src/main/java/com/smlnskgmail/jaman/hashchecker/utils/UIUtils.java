@@ -25,8 +25,8 @@ public class UIUtils {
 
     private static final int COMMON_SNACKBAR_MAGRIN = 12;
 
-    public static void createSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message,
-                                      @Nullable String actionText, @Nullable View.OnClickListener action, int length) {
+    public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message,
+                                    @Nullable String actionText, @Nullable View.OnClickListener action, int length) {
         Snackbar snackbar = Snackbar.make(parent, message, length);
         if (action != null) {
             snackbar.setAction(actionText, action);
@@ -47,8 +47,8 @@ public class UIUtils {
         snackbar.show();
     }
 
-    public static void createSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message, int length) {
-        createSnackbar(context, parent, message, null, null, length);
+    public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message, int length) {
+        showSnackbar(context, parent, message, null, null, length);
         if (Preferences.getVibrateAccess(context)) {
             AppUtils.vibrate(context);
         }

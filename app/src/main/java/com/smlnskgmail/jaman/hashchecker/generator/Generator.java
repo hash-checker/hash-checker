@@ -10,9 +10,9 @@ import java.security.MessageDigest;
 
 public class Generator {
 
-    public interface IGeneratorCompleteListener {
+    public interface OnGeneratorCompleteListener {
 
-        void onGeneratingComplete(@NonNull String hashValue);
+        void onComplete(@NonNull String hashValue);
 
     }
 

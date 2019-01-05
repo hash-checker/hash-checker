@@ -1,7 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.fragments.interfaces;
 
-public interface IResume {
+public interface OnNavigationListener {
 
-    void resume();
+    void onBack();
 
 }

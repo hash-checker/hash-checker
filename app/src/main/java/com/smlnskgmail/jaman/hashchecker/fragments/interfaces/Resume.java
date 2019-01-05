@@ -1,7 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.fragments.interfaces;
 
-public interface IBack {
+public interface Resume {
 
-    void back();
+    void resume();
 
 }

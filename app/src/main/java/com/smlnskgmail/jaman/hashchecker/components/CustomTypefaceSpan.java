@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.adaptive;
+package com.smlnskgmail.jaman.hashchecker.components;
 
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -6,11 +6,11 @@ import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.style.TypefaceSpan;
 
-public class AdaptiveTypefaceSpan extends TypefaceSpan {
+public class CustomTypefaceSpan extends TypefaceSpan {
 
     private final Typeface customType;
 
-    public AdaptiveTypefaceSpan(@NonNull String family, @NonNull Typeface type) {
+    public CustomTypefaceSpan(@NonNull String family, @NonNull Typeface type) {
         super(family);
         customType = type;
     }
@@ -27,10 +27,8 @@ public class AdaptiveTypefaceSpan extends TypefaceSpan {
 
     private static void applyCustomTypeFace(@NonNull Paint paint, @NonNull Typeface typeface) {
         int oldStyle;
-
         Typeface old = paint.getTypeface();
         oldStyle = old == null ? 0 : old.getStyle();
-
         int fake = oldStyle & ~typeface.getStyle();
         if ((fake & Typeface.BOLD) != 0) {
             paint.setFakeBoldText(true);
@@ -38,7 +36,6 @@ public class AdaptiveTypefaceSpan extends TypefaceSpan {
         if ((fake & Typeface.ITALIC) != 0) {
             paint.setTextSkewX(-0.25f);
         }
-
         paint.setTypeface(typeface);
     }
 

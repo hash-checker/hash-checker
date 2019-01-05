@@ -1,64 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_dialog">
+    android:background="@drawable/bg_dialog"
+    android:orientation="vertical">
 
-    <TextView android:id="@+id/dialog_text_title"
-        android:layout_width="0dp"
+    <TextView style="@style/AppTextViewDialogComponent"
+        android:layout_marginTop="@dimen/common_margin_2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:padding="@dimen/common_margin_half"
         android:text="@string/dialog_title_text"
-        android:textColor="@color/colorText"
-        android:textSize="@dimen/style_text_size"
-        android:fontFamily="@font/google_sans_regular"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/colorDarkText"
+        android:textStyle="bold"
+        android:textSize="@dimen/style_text_size" />
 
     <EditText android:id="@+id/dialog_text_value"
-        android:layout_width="0dp"
+        style="@style/AppTextViewDialogComponent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@null"
-        android:fontFamily="@font/google_sans_regular"
+        android:layout_marginTop="@dimen/common_margin_2"
         android:hint="@string/hint_input_text"
-        android:inputType="text"
+        android:inputType="textPersonName"
         android:padding="@dimen/common_margin_half"
-        app:layout_constraintEnd_toEndOf="@+id/dialog_text_button_add"
-        app:layout_constraintStart_toStartOf="@+id/dialog_text_title"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_text_title"
         tools:ignore="TextFields" />
 
-    <Button android:id="@+id/dialog_button_close"
-        style="@style/ButtonStyle"
-        android:layout_width="wrap_content"
+    <LinearLayout android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/common_cancel"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@+id/dialog_text_button_add"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_text_value" />
+        android:layout_marginTop="@dimen/common_margin_2"
+        android:layout_gravity="end">
 
-    <Button android:id="@+id/dialog_text_button_add"
-        style="@style/ButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="@string/common_add"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dialog_button_close" />
+        <Button android:id="@+id/dialog_button_close"
+            style="@style/AppDialogButtonStyle"
+            android:text="@string/common_cancel" />
 
-</android.support.constraint.ConstraintLayout>
+        <Button android:id="@+id/dialog_text_button_add"
+            style="@style/AppDialogButtonStyle"
+            android:layout_marginStart="@dimen/common_margin"
+            android:text="@string/common_add" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -18,13 +18,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.adaptive.AdaptiveTypefaceSpan;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IBack;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.IResume;
+import com.smlnskgmail.jaman.hashchecker.components.CustomTypefaceSpan;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.Resume;
 
 import butterknife.ButterKnife;
 
-public abstract class BaseFragment extends Fragment implements IBack, IResume {
+public abstract class BaseFragment extends Fragment implements OnNavigationListener, Resume {
 
     private ActionBar actionBar;
 
@@ -72,7 +72,7 @@ public abstract class BaseFragment extends Fragment implements IBack, IResume {
     private void applyFontToMenuItem(@NonNull MenuItem menuItem) {
         Typeface font = ResourcesCompat.getFont(getContext(), R.font.google_sans_regular);
         SpannableString title = new SpannableString(menuItem.getTitle());
-        title.setSpan(new AdaptiveTypefaceSpan("", font), 0, title.length(),
+        title.setSpan(new CustomTypefaceSpan("", font), 0, title.length(),
                 Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         menuItem.setTitle(title);
     }

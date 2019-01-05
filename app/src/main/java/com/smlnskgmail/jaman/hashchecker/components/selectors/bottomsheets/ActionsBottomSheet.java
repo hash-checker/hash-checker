@@ -3,17 +3,23 @@ package com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets;
 import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.IMenuItemCallback;
+import com.smlnskgmail.jaman.hashchecker.components.selectors.OnMenuItemClickListener;
 import com.smlnskgmail.jaman.hashchecker.components.selectors.UserActionTypes;
+import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.base.BaseBottomSheet;
 
 import butterknife.OnClick;
 
 public class ActionsBottomSheet extends BaseBottomSheet {
 
-    private IMenuItemCallback menuItemCallback;
+    private OnMenuItemClickListener menuItemCallback;
 
-    public void setMenuItemCallback(@NonNull IMenuItemCallback menuItemCallback) {
+    public void setMenuItemCallback(@NonNull OnMenuItemClickListener menuItemCallback) {
         this.menuItemCallback = menuItemCallback;
+    }
+
+    private void selectAction(@NonNull UserActionTypes userActionType) {
+        menuItemCallback.onClick(userActionType);
+        dismiss();
     }
 
     @Override
@@ -23,14 +29,12 @@ public class ActionsBottomSheet extends BaseBottomSheet {
 
     @OnClick(R.id.button_generate)
     public void generate() {
-        menuItemCallback.setClickFromDialog(UserActionTypes.GENERATE_HASH);
-        dismiss();
+        selectAction(UserActionTypes.GENERATE_HASH);
     }
 
     @OnClick(R.id.button_compare)
     public void compare() {
-        menuItemCallback.setClickFromDialog(UserActionTypes.COMPARE_HASHES);
-        dismiss();
+        selectAction(UserActionTypes.COMPARE_HASHES);
     }
 
 }

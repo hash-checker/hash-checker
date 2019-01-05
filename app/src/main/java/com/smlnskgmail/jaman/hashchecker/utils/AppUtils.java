@@ -29,7 +29,7 @@ public class AppUtils {
             openExplorerIntent.setType("*/*");
             fragment.startActivityForResult(openExplorerIntent, Constants.Requests.FILE_SELECT_REQUEST);
         } catch (ActivityNotFoundException e) {
-            UIUtils.createSnackbar(fragment.getContext(), view,
+            UIUtils.showSnackbar(fragment.getContext(), view,
                     fragment.getString(R.string.message_error_start_file_selector), Snackbar.LENGTH_LONG);
         }
     }

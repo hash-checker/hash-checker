@@ -13,21 +13,21 @@ import butterknife.OnClick;
 
 public class TextInputDialog extends BaseDialog {
 
-    public interface ITextValueEntered {
+    public interface OnTextValueEnteredListener {
 
-        void onTextValueEntered(@NonNull String text);
+        void onEntered(@NonNull String text);
 
     }
 
     @BindView(R.id.dialog_text_value) protected EditText fieldTextValue;
 
-    private ITextValueEntered textValueEntered;
+    private OnTextValueEnteredListener textValueCallback;
     private String textValue;
 
-    public TextInputDialog(@NonNull Context context, @NonNull ITextValueEntered textValueEntered,
+    public TextInputDialog(@NonNull Context context, @NonNull OnTextValueEnteredListener textValueCallback,
                            @Nullable String textValue) {
         super(context);
-        this.textValueEntered = textValueEntered;
+        this.textValueCallback = textValueCallback;
         this.textValue = textValue;
     }
 
@@ -38,7 +38,7 @@ public class TextInputDialog extends BaseDialog {
 
     @OnClick(R.id.dialog_text_button_add)
     void addText() {
-        textValueEntered.onTextValueEntered(fieldTextValue.getText().toString());
+        textValueCallback.onEntered(fieldTextValue.getText().toString());
         dismiss();
     }
 

@@ -22,8 +22,8 @@
     <dimen name="round_padding">4dp</dimen>
     <dimen name="round_padding_radius">4dp</dimen>
 
-    <dimen name="common_radius_snackbar">8dp</dimen>
-    <dimen name="common_radius_dialog">12dp</dimen>
-    <dimen name="common_radius">16dp</dimen>
+    <dimen name="bottom_sheet_radius">16dp</dimen>
+    <dimen name="radius_dialog">12dp</dimen>
+    <dimen name="radius_snackbar">8dp</dimen>
 
 </resources>

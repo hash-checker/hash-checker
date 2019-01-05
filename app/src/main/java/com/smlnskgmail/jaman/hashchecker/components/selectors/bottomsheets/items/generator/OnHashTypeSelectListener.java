@@ -4,8 +4,8 @@ import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 
-public interface IHashTypeSelectListener {
+public interface OnHashTypeSelectListener {
 
-    void onHashTypeSelect(@NonNull HashTypes hashType);
+    void onSelect(@NonNull HashTypes hashType);
 
 }

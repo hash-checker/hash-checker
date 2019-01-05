@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.adaptive.settings;
+package com.smlnskgmail.jaman.hashchecker.components.preferences;
 
 import android.content.Context;
 import android.support.v7.preference.PreferenceCategory;
@@ -7,21 +7,21 @@ import android.util.AttributeSet;
 
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-public class AdaptivePreferenceCategory extends PreferenceCategory {
+public class CustomPreferenceCategory extends PreferenceCategory {
 
-    public AdaptivePreferenceCategory(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CustomPreferenceCategory(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public AdaptivePreferenceCategory(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomPreferenceCategory(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public AdaptivePreferenceCategory(Context context, AttributeSet attrs) {
+    public CustomPreferenceCategory(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public AdaptivePreferenceCategory(Context context) {
+    public CustomPreferenceCategory(Context context) {
         super(context);
     }
 

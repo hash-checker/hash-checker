@@ -6,12 +6,12 @@
     <color name="colorAccent">#009688</color>
 
     <!-- custom -->
-    <color name="colorSnackbar">#323232</color>
-    <color name="colorText">@android:color/black</color>
+    <color name="colorSnackbarBackground">#323232</color>
+    <color name="colorDarkText">@android:color/black</color>
 
     <!-- backgrounds -->
-    <color name="colorViewBackground">@android:color/white</color>
-    <color name="colorBackgroundLauncherIcon">#FFFFFF</color>
-    <color name="colorBackgroundShortcut">#f5f5f5</color>
+    <color name="colorCommonBackground">@android:color/white</color>
+    <color name="colorLauncherIconBackground">#FFFFFF</color>
+    <color name="colorShortcutBackground">#f5f5f5</color>
 
 </resources>

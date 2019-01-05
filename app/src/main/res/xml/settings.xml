@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptivePreferenceCategory
+    <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
         android:title="@string/settings_title_generator">
 
         <com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptiveSwitchPreference
@@ -10,9 +10,9 @@
             android:defaultValue="false"
             android:icon="@drawable/ic_settings_upper_case" />
 
-    </com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptivePreferenceCategory>
+    </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
 
-    <com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptivePreferenceCategory
+    <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
         android:title="@string/settings_title_app">
 
         <com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptiveSwitchPreference
@@ -21,9 +21,9 @@
             android:defaultValue="true"
             android:icon="@drawable/ic_settings_vibration" />
 
-    </com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptivePreferenceCategory>
+    </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
 
-    <com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptivePreferenceCategory
+    <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
         android:title="@string/settings_title_about">
 
         <com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptivePreference
@@ -31,6 +31,6 @@
             android:key="@string/key_version"
             android:icon="@drawable/ic_settings_version" />
 
-    </com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptivePreferenceCategory>
+    </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
 
 </PreferenceScreen>

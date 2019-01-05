@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.adaptive.settings;
+package com.smlnskgmail.jaman.hashchecker.components.preferences;
 
 import android.content.Context;
 import android.support.v7.preference.CheckBoxPreference;
@@ -7,21 +7,21 @@ import android.util.AttributeSet;
 
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-public class AdaptiveCheckBoxPreference extends CheckBoxPreference {
+public class CustomCheckBoxPreference extends CheckBoxPreference {
 
-    public AdaptiveCheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomCheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public AdaptiveCheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CustomCheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public AdaptiveCheckBoxPreference(Context context, AttributeSet attrs) {
+    public CustomCheckBoxPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public AdaptiveCheckBoxPreference(Context context) {
+    public CustomCheckBoxPreference(Context context) {
         super(context);
     }
 

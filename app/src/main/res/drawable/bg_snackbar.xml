@@ -2,8 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <solid android:color="@color/colorSnackbar" />
+    <solid android:color="@color/colorSnackbarBackground" />
 
-    <corners android:radius="@dimen/common_radius_snackbar" />
+    <corners android:radius="@dimen/radius_snackbar" />
 
 </shape>

@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets;
+package com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.base;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

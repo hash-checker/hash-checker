@@ -18,10 +18,10 @@ public class HashCheckerApplication extends Application {
             ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
 
             Intent textIntent = new Intent(this, MainActivity.class);
-            textIntent.setAction(Constants.ShortcutActions.ACTION_TEXT);
+            textIntent.setAction(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION);
 
             Intent fileIntent = new Intent(this, MainActivity.class);
-            fileIntent.setAction(Constants.ShortcutActions.ACTION_FILE);
+            fileIntent.setAction(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION);
 
             ShortcutInfo textShortcut = new ShortcutInfo.Builder(this, Constants.ShortcutIds.SHORTCUT_TEXT_ID)
                     .setShortLabel(getString(R.string.common_text))

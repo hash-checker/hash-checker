@@ -6,9 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.BaseBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.IBottomSheetItem;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.items.generator.IHashTypeSelectListener;
+import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.base.BaseBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.base.ListItemElement;
+import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.items.generator.OnHashTypeSelectListener;
 
 import java.util.List;
 
@@ -16,14 +16,14 @@ import butterknife.BindView;
 
 public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
 
-    @BindView(R.id.recycler_bottom_sheet_items) protected RecyclerView bottomSheetItems;
+    @BindView(R.id.bottom_sheet_items) protected RecyclerView bottomSheetItems;
 
-    private List<? extends IBottomSheetItem> bottomSheetItemsList;
+    private List<? extends ListItemElement> bottomSheetItemsList;
 
     public abstract boolean hideAdditionalIcons();
 
     @Nullable
-    public IHashTypeSelectListener callback() {
+    public OnHashTypeSelectListener callback() {
         return null;
     }
 
@@ -32,7 +32,7 @@ public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
         return null;
     }
 
-    public void setBottomSheetItemsList(@NonNull List<? extends IBottomSheetItem> bottomSheetItemsList) {
+    public void setBottomSheetItemsList(@NonNull List<? extends ListItemElement> bottomSheetItemsList) {
         this.bottomSheetItemsList = bottomSheetItemsList;
     }
 
@@ -41,7 +41,7 @@ public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
         bottomSheetItems.setLayoutManager(new LinearLayoutManager(getContext()));
         BottomSheetItemsAdapter bottomSheetItemsAdapter = new BottomSheetItemsAdapter(bottomSheetItemsList) {
             @Override
-            public IHashTypeSelectListener getOnItemSelectedCallback() {
+            public OnHashTypeSelectListener getOnItemSelectedCallback() {
                 return callback();
             }
 

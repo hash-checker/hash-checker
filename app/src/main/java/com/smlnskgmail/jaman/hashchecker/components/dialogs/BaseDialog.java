@@ -4,8 +4,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.view.Window;
+import android.widget.FrameLayout;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 
@@ -28,7 +28,7 @@ public abstract class BaseDialog extends Dialog {
         setContentView(getLayoutResId());
         ButterKnife.bind(this);
         initUI();
-        getWindow().setLayout(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+        getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
     }
 
