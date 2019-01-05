@@ -4,7 +4,7 @@
     <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
         android:title="@string/settings_title_generator">
 
-        <com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptiveSwitchPreference
+        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
             android:title="@string/settings_title_upper_case"
             android:key="@string/key_upper_case"
             android:defaultValue="false"
@@ -15,7 +15,7 @@
     <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
         android:title="@string/settings_title_app">
 
-        <com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptiveSwitchPreference
+        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
             android:title="@string/settings_title_vibration"
             android:key="@string/key_vibrate"
             android:defaultValue="true"
@@ -26,7 +26,7 @@
     <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
         android:title="@string/settings_title_about">
 
-        <com.smlnskgmail.jaman.hashchecker.adaptive.settings.AdaptivePreference
+        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
             android:title="@string/settings_title_version"
             android:key="@string/key_version"
             android:icon="@drawable/ic_settings_version" />

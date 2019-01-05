@@ -8,6 +8,7 @@ import android.graphics.drawable.Icon;
 
 import com.smlnskgmail.jaman.hashchecker.utils.Constants;
 import com.smlnskgmail.jaman.hashchecker.utils.Preferences;
+import com.squareup.leakcanary.LeakCanary;
 
 import java.util.Arrays;
 
@@ -44,6 +45,8 @@ public class HashCheckerApplication extends Application {
             createShortcuts();
             Preferences.saveShortcutsStatus(this, true);
         }
+
+        LeakCanary.install(this);
     }
 
 }
