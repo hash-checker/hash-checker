@@ -8,11 +8,19 @@ import android.graphics.drawable.Icon;
 
 import com.smlnskgmail.jaman.hashchecker.utils.Constants;
 import com.smlnskgmail.jaman.hashchecker.utils.Preferences;
-import com.squareup.leakcanary.LeakCanary;
 
 import java.util.Arrays;
 
 public class HashCheckerApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        if (!Preferences.isShortcutsIsCreated(this)) {
+            createShortcuts();
+            Preferences.saveShortcutsStatus(this, true);
+        }
+    }
 
     private void createShortcuts() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -36,17 +44,6 @@ public class HashCheckerApplication extends Application {
                     .build();
             shortcutManager.setDynamicShortcuts(Arrays.asList(textShortcut, fileShortcut));
         }
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        if (!Preferences.isShortcutsIsCreated(this)) {
-            createShortcuts();
-            Preferences.saveShortcutsStatus(this, true);
-        }
-
-        LeakCanary.install(this);
     }
 
 }

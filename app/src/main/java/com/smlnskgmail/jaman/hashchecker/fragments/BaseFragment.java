@@ -28,18 +28,13 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
 
     private ActionBar actionBar;
 
-    abstract int getLayoutResId();
-    abstract int getTitleResId();
-    abstract int getMenuResId();
-    abstract int[] getMenuItemsIds();
-    abstract boolean setBackActionIcon();
-    abstract void initUI(@NonNull View view);
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(getLayoutResId(), container, false);
     }
+
+    abstract int getLayoutResId();
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -47,6 +42,7 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         ButterKnife.bind(this, view);
         initUI(view);
     }
+    abstract void initUI(@NonNull View view);
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,6 +65,9 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         actionBar.setDisplayHomeAsUpEnabled(setBackActionIcon());
     }
 
+    abstract int getTitleResId();
+    abstract boolean setBackActionIcon();
+
     private void applyFontToMenuItem(@NonNull MenuItem menuItem) {
         Typeface font = ResourcesCompat.getFont(getContext(), R.font.google_sans_regular);
         SpannableString title = new SpannableString(menuItem.getTitle());
@@ -86,6 +85,9 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
             applyFontToMenuItem(item);
         }
     }
+
+    abstract int getMenuResId();
+    abstract int[] getMenuItemsIds();
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

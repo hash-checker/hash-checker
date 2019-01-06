@@ -8,14 +8,6 @@ import com.smlnskgmail.jaman.hashchecker.R;
 
 public class Preferences {
 
-    private static void saveBooleanPreference(@NonNull Context context, @NonNull String key, boolean value) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean(key, value).apply();
-    }
-
-    private static boolean getBooleanPreference(@NonNull Context context, @NonNull String key, boolean defaultValue) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(key, defaultValue);
-    }
-
     static boolean getVibrateAccess(@NonNull Context context) {
         return getBooleanPreference(context, context.getString(R.string.key_vibrate), true);
     }
@@ -43,6 +35,14 @@ public class Preferences {
 
     public static void saveShortcutsStatus(@NonNull Context context, boolean value) {
         saveBooleanPreference(context, context.getString(R.string.key_shortcuts_created), value);
+    }
+
+    private static void saveBooleanPreference(@NonNull Context context, @NonNull String key, boolean value) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean(key, value).apply();
+    }
+
+    private static boolean getBooleanPreference(@NonNull Context context, @NonNull String key, boolean defaultValue) {
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(key, defaultValue);
     }
 
 }

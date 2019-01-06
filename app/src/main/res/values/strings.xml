@@ -24,7 +24,7 @@
     <!-- actions -->
     <string name="from">From</string>
     <string name="action">Action</string>
-    <string name="exit_now">Exit now!</string>
+    <string name="exit_now">Exit now</string>
     <string name="generate">Generate</string>
     <string name="compare">Compare</string>
 

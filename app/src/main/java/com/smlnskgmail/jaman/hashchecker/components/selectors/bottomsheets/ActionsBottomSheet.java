@@ -17,16 +17,6 @@ public class ActionsBottomSheet extends BaseBottomSheet {
         this.menuItemCallback = menuItemCallback;
     }
 
-    private void selectAction(@NonNull UserActionTypes userActionType) {
-        menuItemCallback.onClick(userActionType);
-        dismiss();
-    }
-
-    @Override
-    public int getLayoutResId() {
-        return R.layout.bottom_sheet_actions;
-    }
-
     @OnClick(R.id.button_generate)
     public void generate() {
         selectAction(UserActionTypes.GENERATE_HASH);
@@ -35,6 +25,16 @@ public class ActionsBottomSheet extends BaseBottomSheet {
     @OnClick(R.id.button_compare)
     public void compare() {
         selectAction(UserActionTypes.COMPARE_HASHES);
+    }
+
+    private void selectAction(@NonNull UserActionTypes userActionType) {
+        menuItemCallback.onClick(userActionType);
+        dismiss();
+    }
+
+    @Override
+    public int getLayoutResId() {
+        return R.layout.bottom_sheet_actions;
     }
 
 }

@@ -25,6 +25,13 @@ public class UIUtils {
 
     private static final int COMMON_SNACKBAR_MAGRIN = 12;
 
+    public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message, int length) {
+        showSnackbar(context, parent, message, null, null, length);
+        if (Preferences.getVibrateAccess(context)) {
+            AppUtils.vibrate(context);
+        }
+    }
+
     public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message,
                                     @Nullable String actionText, @Nullable View.OnClickListener action, int length) {
         Snackbar snackbar = Snackbar.make(parent, message, length);
@@ -45,13 +52,6 @@ public class UIUtils {
         ((TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_action))
                 .setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
         snackbar.show();
-    }
-
-    public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message, int length) {
-        showSnackbar(context, parent, message, null, null, length);
-        if (Preferences.getVibrateAccess(context)) {
-            AppUtils.vibrate(context);
-        }
     }
 
     public static void showFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {

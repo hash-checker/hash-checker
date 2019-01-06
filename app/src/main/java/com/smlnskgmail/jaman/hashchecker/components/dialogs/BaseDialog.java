@@ -14,9 +14,6 @@ import butterknife.OnClick;
 
 public abstract class BaseDialog extends Dialog {
 
-    public abstract int getLayoutResId();
-    public abstract void initUI();
-
     BaseDialog(@NonNull Context context) {
         super(context);
     }
@@ -28,6 +25,13 @@ public abstract class BaseDialog extends Dialog {
         setContentView(getLayoutResId());
         ButterKnife.bind(this);
         initUI();
+        setupDialogStyle();
+    }
+
+    public abstract int getLayoutResId();
+    public abstract void initUI();
+
+    public void setupDialogStyle() {
         getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
     }

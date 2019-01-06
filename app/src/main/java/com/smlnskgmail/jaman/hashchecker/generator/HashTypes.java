@@ -4,9 +4,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.base.ListItemElement;
+import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.base.ListItemElementMarker;
 
-public enum HashTypes implements ListItemElement {
+public enum HashTypes implements ListItemElementMarker {
 
     MD5(R.string.hash_type_md5, R.string.key_md5),
     SHA_1(R.string.hash_type_sha1, R.string.key_sha1),

@@ -17,11 +17,6 @@ public class ResourcesBottomSheet extends BaseBottomSheet {
         this.menuItemCallback = menuItemCallback;
     }
 
-    @Override
-    public int getLayoutResId() {
-        return R.layout.bottom_sheet_from;
-    }
-
     @OnClick(R.id.button_select_text)
     public void fromText() {
         menuItemCallback.onClick(UserActionTypes.ENTER_TEXT);
@@ -32,6 +27,11 @@ public class ResourcesBottomSheet extends BaseBottomSheet {
     public void fromFile() {
         menuItemCallback.onClick(UserActionTypes.SEARCH_FILE);
         dismiss();
+    }
+
+    @Override
+    public int getLayoutResId() {
+        return R.layout.bottom_sheet_from;
     }
 
 }

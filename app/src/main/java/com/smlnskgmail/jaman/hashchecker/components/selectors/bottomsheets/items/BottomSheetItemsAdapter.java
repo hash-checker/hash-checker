@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.base.ListItemElement;
+import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.base.ListItemElementMarker;
 import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.items.generator.OnHashTypeSelectListener;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import com.smlnskgmail.jaman.hashchecker.utils.Preferences;
@@ -42,9 +42,9 @@ public abstract class BottomSheetItemsAdapter extends RecyclerView.Adapter<Botto
             getBottomSheet().dismissAllowingStateLoss();
         }
 
-        void bind(@NonNull final ListItemElement listItemElement) {
+        void bind(@NonNull final ListItemElementMarker listItemElementMarker) {
             final Context context = itemView.getContext();
-            final HashTypes hashType = (HashTypes) listItemElement;
+            final HashTypes hashType = (HashTypes) listItemElementMarker;
             ((TextView) itemView.findViewById(R.id.item_list_title)).setText(hashType.getTypeAsString(context));
             if (hideAdditionalIcon()) {
                 bottomSheetItemAdditionalIcon.setVisibility(getSelectedTypeAsString().equals(hashType.getTypeAsString(context)) ? View.VISIBLE : View.INVISIBLE);
@@ -55,14 +55,14 @@ public abstract class BottomSheetItemsAdapter extends RecyclerView.Adapter<Botto
 
     }
 
-    private List<? extends ListItemElement> bottomSheetItemsList;
+    private List<? extends ListItemElementMarker> bottomSheetItemsList;
 
     public abstract OnHashTypeSelectListener getOnItemSelectedCallback();
     public abstract String getSelectedTypeAsString();
     public abstract BaseItemsBottomSheet getBottomSheet();
     public abstract boolean hideAdditionalIcon();
 
-    BottomSheetItemsAdapter(@NonNull List<? extends ListItemElement> bottomSheetItemsList) {
+    BottomSheetItemsAdapter(@NonNull List<? extends ListItemElementMarker> bottomSheetItemsList) {
         this.bottomSheetItemsList = bottomSheetItemsList;
     }
 

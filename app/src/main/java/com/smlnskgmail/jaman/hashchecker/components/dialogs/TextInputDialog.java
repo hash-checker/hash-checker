@@ -19,7 +19,8 @@ public class TextInputDialog extends BaseDialog {
 
     }
 
-    @BindView(R.id.dialog_text_value) protected EditText fieldTextValue;
+    @BindView(R.id.dialog_text_value)
+    protected EditText fieldTextValue;
 
     private OnTextValueEnteredListener textValueCallback;
     private String textValue;
@@ -32,8 +33,20 @@ public class TextInputDialog extends BaseDialog {
     }
 
     @Override
-    public int getLayoutResId() {
-        return R.layout.dialog_text_input;
+    public void initUI() {
+        fieldTextValue.requestFocus();
+        if (textValue == null) {
+            fieldTextValue.setText("");
+        } else {
+            fieldTextValue.setText(textValue);
+            fieldTextValue.setSelection(textValue.length());
+        }
+    }
+
+    @Override
+    public void setupDialogStyle() {
+        super.setupDialogStyle();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
     @OnClick(R.id.dialog_text_button_add)
@@ -43,15 +56,8 @@ public class TextInputDialog extends BaseDialog {
     }
 
     @Override
-    public void initUI() {
-        fieldTextValue.requestFocus();
-        if (textValue == null) {
-            fieldTextValue.setText("");
-        } else {
-            fieldTextValue.setText(textValue);
-            fieldTextValue.setSelection(textValue.length());
-        }
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+    public int getLayoutResId() {
+        return R.layout.dialog_text_input;
     }
 
 }
