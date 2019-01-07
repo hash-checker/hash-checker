@@ -26,8 +26,8 @@ import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.Actio
 import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.ResourcesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.items.generator.GenerateToBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.items.generator.OnHashTypeSelectListener;
-import com.smlnskgmail.jaman.hashchecker.generator.Generator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
+import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.Constants;
@@ -42,7 +42,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class MainFragment extends BaseFragment implements TextInputDialog.OnTextValueEnteredListener,
-        Generator.OnGeneratorCompleteListener, OnMenuItemClickListener, OnHashTypeSelectListener {
+        HashCalculator.OnGeneratorCompleteListener, OnMenuItemClickListener, OnHashTypeSelectListener {
 
     private static final String TAG_OPENED_BOTTOM_SHEET = "";
 
@@ -99,9 +99,9 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
             progressDialog = UIUtils.getProgressDialog(context, R.string.message_generate_dialog);
             progressDialog.show();
             if (isTextSelected) {
-                new HashCalculator(hashType, context, fieldSelectedObject.getText().toString(), MainFragment.this, isTextSelected).execute();
+                new HashGenerator(hashType, context, fieldSelectedObject.getText().toString(), MainFragment.this, isTextSelected).execute();
             } else {
-                new HashCalculator(hashType, context, fileUri, MainFragment.this, isTextSelected).execute();
+                new HashGenerator(hashType, context, fileUri, MainFragment.this, isTextSelected).execute();
             }
         } else {
             UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_select_object), Snackbar.LENGTH_LONG);

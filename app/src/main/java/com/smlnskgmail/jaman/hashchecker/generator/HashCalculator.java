@@ -1,79 +1,71 @@
 package com.smlnskgmail.jaman.hashchecker.generator;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
-public class HashCalculator extends AsyncTask<Void, Void, Void> {
+import java.io.InputStream;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 
-    @SuppressLint("StaticFieldLeak") private Context context;
-    private Generator.OnGeneratorCompleteListener onCompleteListener;
-    private Uri fileUri;
-    private String textValue, result;
-    private HashTypes hashTypes;
+public class HashCalculator {
 
-    private boolean isText;
+    public interface OnGeneratorCompleteListener {
 
-    private HashCalculator(@NonNull HashTypes hashTypes, @NonNull Context context,
-                           @NonNull Generator.OnGeneratorCompleteListener onCompleteListener, boolean isText) {
-        this.hashTypes = hashTypes;
-        this.context = context;
-        this.onCompleteListener = onCompleteListener;
-        this.isText = isText;
-    }
-
-    public HashCalculator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull Uri fileUri,
-                          @NonNull Generator.OnGeneratorCompleteListener onCompleteListener, boolean isText) {
-        this(hashTypes, context, onCompleteListener, isText);
-        this.fileUri = fileUri;
-    }
-
-    public HashCalculator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull String textValue,
-                          @NonNull Generator.OnGeneratorCompleteListener onCompleteListener, boolean isText) {
-        this(hashTypes, context, onCompleteListener, isText);
-        this.textValue = textValue;
+        void onComplete(@NonNull String hashValue);
 
     }
 
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
+    private static final char[] HEX_DIGITS = "0123456789ABCDEF".toCharArray();
+
+    private String hashType;
+
+    HashCalculator(@NonNull String hashType) {
+        this.hashType = hashType;
     }
 
-    @Override
-    protected Void doInBackground(Void... voids) {
-        HashTypes hashType = HashTypes.MD5;
-        switch (hashTypes) {
-            case SHA_1:
-                hashType = HashTypes.SHA_1;
-                break;
-            case SHA_224:
-                hashType = HashTypes.SHA_224;
-                break;
-            case SHA_256:
-                hashType = HashTypes.SHA_256;
-                break;
-            case SHA_384:
-                hashType = HashTypes.SHA_384;
-                break;
-            case SHA_512:
-                hashType = HashTypes.SHA_512;
-                break;
+    @NonNull
+    String generateFromString(@NonNull String text) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(hashType);
+            messageDigest.reset();
+            messageDigest.update(text.getBytes("UTF-8"));
+            return toHex(messageDigest.digest());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if (isText) {
-            result = new Generator(hashType).generateFromString(context, textValue);
-        } else {
-            result = new Generator(hashType).generateFromFile(context, fileUri);
-        }
-        return null;
+        return "";
     }
 
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-        onCompleteListener.onComplete(result);
+    @NonNull
+    String generateFromFile(@NonNull Context context, @NonNull Uri path) {
+        try {
+            InputStream stream = context.getContentResolver().openInputStream(path);
+            if (stream != null) {
+                byte[] buffer = new byte[1024];
+                MessageDigest messageDigest = MessageDigest.getInstance(hashType);
+                int read;
+                do {
+                    read = stream.read(buffer);
+                    if (read > 0) {
+                        messageDigest.update(buffer, 0, read);
+                    }
+                } while (read != -1);
+                return toHex(messageDigest.digest());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    private String toHex(byte[] data) {
+        char[] chars = new char[data.length * 2];
+        for (int i = 0; i < data.length; i++) {
+            chars[i * 2] = HEX_DIGITS[(data[i] >> 4) & 0xf];
+            chars[i * 2 + 1] = HEX_DIGITS[data[i] & 0xf];
+        }
+        return new String(chars).toLowerCase();
     }
 
 }
