@@ -7,14 +7,15 @@ import android.support.annotation.Nullable;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashCalculator {
 
-    public interface OnGeneratorCompleteListener {
+    public interface OnHashGeneratorCompleteListener {
 
-        void onComplete(@NonNull String hashValue);
+        void onHashGeneratorComplete(@NonNull String hashValue);
 
     }
 
@@ -31,7 +32,7 @@ public class HashCalculator {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(hashType);
             messageDigest.reset();
-            messageDigest.update(text.getBytes("UTF-8"));
+            messageDigest.update(text.getBytes(StandardCharsets.UTF_8));
             return getResultAsString(messageDigest.digest());
         } catch (Exception e) {
             e.printStackTrace();

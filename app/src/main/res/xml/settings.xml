@@ -27,6 +27,12 @@
         android:title="@string/settings_title_about">
 
         <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
+            android:title="@string/settings_title_author"
+            android:key="@string/key_author"
+            android:summary="@string/app_author"
+            android:icon="@drawable/ic_settings_author" />
+
+        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
             android:title="@string/settings_title_version"
             android:key="@string/key_version"
             android:icon="@drawable/ic_settings_version" />

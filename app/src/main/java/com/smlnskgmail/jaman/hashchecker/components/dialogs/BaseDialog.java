@@ -18,6 +18,11 @@ public abstract class BaseDialog extends Dialog {
         super(context);
     }
 
+    @OnClick(R.id.dialog_button_close)
+    void closeDialog() {
+        dismiss();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +39,6 @@ public abstract class BaseDialog extends Dialog {
     public void setupDialogStyle() {
         getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
-    }
-
-    @OnClick(R.id.dialog_button_close)
-    void closeDialog() {
-        dismiss();
     }
 
 }

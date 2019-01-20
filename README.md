@@ -6,6 +6,4 @@
 
 App using [ButterKnife](https://github.com/JakeWharton/butterknife) for UI binding
 
-NOTE: this version does not contain some features of the app from [Google Play](https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker):
- - [Crashlytics](https://fabric.io/home) integration
- - [Author](https://github.com/fartem) info
+NOTE: the application created on the basis of this source code is a complete copy of the application published on Google Play. Since version 2.2.0, the application does not collect user data for monitoring crashes (Fabric.io).

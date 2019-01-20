@@ -1,19 +1,13 @@
 apply plugin: 'com.android.application'
 
-repositories {
-    maven {
-        url 'https://maven.fabric.io/public'
-    }
-}
-
 android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.smlnskgmail.jaman.hashchecker"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 34
-        versionName "2.1.0"
+        versionCode 35
+        versionName "2.2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -35,17 +29,6 @@ android {
     sourceSets {
         main {
             resources.srcDirs = ['src/main/resources', 'src/test']
-        }
-    }
-}
-
-buildscript {
-    repositories {
-        maven {
-            url 'https://maven.fabric.io/public'
-        }
-        maven {
-            url 'https://plugins.gradle.org/m2/'
         }
     }
 }

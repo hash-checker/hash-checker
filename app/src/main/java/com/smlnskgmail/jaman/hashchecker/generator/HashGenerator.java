@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
 public class HashGenerator extends AsyncTask<Void, Void, Void> {
 
     @SuppressLint("StaticFieldLeak") private Context context;
-    private HashCalculator.OnGeneratorCompleteListener onCompleteListener;
+    private HashCalculator.OnHashGeneratorCompleteListener onCompleteListener;
     private Uri fileUri;
     private String textValue, result;
     private HashTypes hashTypes;
@@ -17,7 +17,7 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
     private boolean isText;
 
     private HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context,
-                          @NonNull HashCalculator.OnGeneratorCompleteListener onCompleteListener, boolean isText) {
+                          @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener, boolean isText) {
         this.hashTypes = hashTypes;
         this.context = context;
         this.onCompleteListener = onCompleteListener;
@@ -25,21 +25,16 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
     }
 
     public HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull Uri fileUri,
-                         @NonNull HashCalculator.OnGeneratorCompleteListener onCompleteListener, boolean isText) {
+                         @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener, boolean isText) {
         this(hashTypes, context, onCompleteListener, isText);
         this.fileUri = fileUri;
     }
 
     public HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull String textValue,
-                         @NonNull HashCalculator.OnGeneratorCompleteListener onCompleteListener, boolean isText) {
+                         @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener, boolean isText) {
         this(hashTypes, context, onCompleteListener, isText);
         this.textValue = textValue;
 
-    }
-
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
     }
 
     @Override
@@ -74,7 +69,7 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        onCompleteListener.onComplete(result);
+        onCompleteListener.onHashGeneratorComplete(result);
     }
 
 }

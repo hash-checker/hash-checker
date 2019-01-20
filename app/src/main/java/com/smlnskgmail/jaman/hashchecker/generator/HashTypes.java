@@ -4,32 +4,26 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.base.ListItemElementMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
 
-public enum HashTypes implements ListItemElementMarker {
+public enum HashTypes implements ListItemMarker {
 
-    MD5(R.string.hash_type_md5, R.string.key_md5),
-    SHA_1(R.string.hash_type_sha1, R.string.key_sha1),
-    SHA_224(R.string.hash_type_sha224, R.string.key_sha224),
-    SHA_256(R.string.hash_type_sha256, R.string.key_sha256),
-    SHA_384(R.string.hash_type_sha384, R.string.key_sha384),
-    SHA_512(R.string.hash_type_sha512, R.string.key_sha512);
+    MD5(R.string.hash_type_md5),
+    SHA_1(R.string.hash_type_sha1),
+    SHA_224(R.string.hash_type_sha224),
+    SHA_256(R.string.hash_type_sha256),
+    SHA_384(R.string.hash_type_sha384),
+    SHA_512(R.string.hash_type_sha512);
 
     private int hashTypeNameResId;
-    private int preferenceKey;
 
-    HashTypes(int hashTypeNameResId, int preferenceKey) {
+    HashTypes(int hashTypeNameResId) {
         this.hashTypeNameResId = hashTypeNameResId;
-        this.preferenceKey = preferenceKey;
     }
 
     @NonNull
     public String getTypeAsString(@NonNull Context context) {
         return context.getString(hashTypeNameResId);
-    }
-
-    public int getPreferenceKey() {
-        return preferenceKey;
     }
 
     @NonNull
@@ -46,6 +40,21 @@ public enum HashTypes implements ListItemElementMarker {
            return SHA_512;
         }
         return MD5;
+    }
+
+    @Override
+    public int getTitleTextResId() {
+        return hashTypeNameResId;
+    }
+
+    @Override
+    public int getPrimaryIconResId() {
+        return -1;
+    }
+
+    @Override
+    public int getAdditionalIconResId() {
+        return R.drawable.ic_done;
     }
 
 }

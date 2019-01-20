@@ -20,21 +20,13 @@ import android.view.ViewGroup;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.CustomTypefaceSpan;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.Resume;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnFragmentResume;
 
 import butterknife.ButterKnife;
 
-public abstract class BaseFragment extends Fragment implements OnNavigationListener, Resume {
+public abstract class BaseFragment extends Fragment implements OnNavigationListener, OnFragmentResume {
 
     private ActionBar actionBar;
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(getLayoutResId(), container, false);
-    }
-
-    abstract int getLayoutResId();
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -42,38 +34,22 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         ButterKnife.bind(this, view);
         initUI(view);
     }
-    abstract void initUI(@NonNull View view);
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
+    abstract void initUI(@NonNull View view);
 
     @Override
     public void onResume() {
         super.onResume();
-        resume();
+        OnFragmentResume();
     }
 
     @Override
-    public void resume() {
+    public void OnFragmentResume() {
         if (actionBar == null) {
             actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         }
         actionBar.setTitle(getTitleResId());
         actionBar.setDisplayHomeAsUpEnabled(setBackActionIcon());
-    }
-
-    abstract int getTitleResId();
-    abstract boolean setBackActionIcon();
-
-    private void applyFontToMenuItem(@NonNull MenuItem menuItem) {
-        Typeface font = ResourcesCompat.getFont(getContext(), R.font.google_sans_regular);
-        SpannableString title = new SpannableString(menuItem.getTitle());
-        title.setSpan(new CustomTypefaceSpan("", font), 0, title.length(),
-                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        menuItem.setTitle(title);
     }
 
     @Override
@@ -99,5 +75,30 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    private void applyFontToMenuItem(@NonNull MenuItem menuItem) {
+        Typeface font = ResourcesCompat.getFont(getContext(), R.font.google_sans_regular);
+        SpannableString title = new SpannableString(menuItem.getTitle());
+        title.setSpan(new CustomTypefaceSpan("", font), 0, title.length(),
+                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        menuItem.setTitle(title);
+    }
+
+    abstract int getTitleResId();
+    abstract boolean setBackActionIcon();
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(getLayoutResId(), container, false);
+    }
+
+    abstract int getLayoutResId();
 
 }

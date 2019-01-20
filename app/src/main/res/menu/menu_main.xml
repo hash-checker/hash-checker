@@ -2,8 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:id="@+id/menu_feedback"
+        android:title="@string/menu_feedback_title"
+        app:showAsAction="withText" />
+
     <item android:id="@+id/menu_settings"
-        android:title="@string/settings_title"
+        android:title="@string/menu_settings_title"
         app:showAsAction="withText" />
 
 </menu>

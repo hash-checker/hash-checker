@@ -15,7 +15,7 @@ public class TextInputDialog extends BaseDialog {
 
     public interface OnTextValueEnteredListener {
 
-        void onEntered(@NonNull String text);
+        void onTextValueEntered(@NonNull String text);
 
     }
 
@@ -32,6 +32,12 @@ public class TextInputDialog extends BaseDialog {
         this.textValue = textValue;
     }
 
+    @OnClick(R.id.dialog_text_button_add)
+    void addText() {
+        textValueCallback.onTextValueEntered(fieldTextValue.getText().toString());
+        dismiss();
+    }
+
     @Override
     public void initUI() {
         fieldTextValue.requestFocus();
@@ -42,17 +48,10 @@ public class TextInputDialog extends BaseDialog {
             fieldTextValue.setSelection(textValue.length());
         }
     }
-
     @Override
     public void setupDialogStyle() {
         super.setupDialogStyle();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-    }
-
-    @OnClick(R.id.dialog_text_button_add)
-    void addText() {
-        textValueCallback.onEntered(fieldTextValue.getText().toString());
-        dismiss();
     }
 
     @Override

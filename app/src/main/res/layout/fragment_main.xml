@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:textSize="@dimen/info_text_size"
+                android:textSize="@dimen/text_size_info"
                 android:textColor="@color/colorAccent"
                 android:fontFamily="@font/google_sans_regular"
                 tools:text="MD5" />
@@ -65,7 +65,7 @@
                 android:layout_width="@dimen/round_text_view_width"
                 android:layout_height="@dimen/round_button_height"
                 android:layout_marginEnd="@dimen/common_margin"
-                android:text="@string/from"
+                android:text="@string/action_from"
                 android:fontFamily="@font/google_sans_regular" />
 
             <Button android:id="@+id/button_hash_actions"
@@ -73,14 +73,14 @@
                 android:layout_width="@dimen/round_text_view_width"
                 android:layout_height="@dimen/round_button_height"
                 android:layout_marginStart="@dimen/common_margin"
-                android:text="@string/action"
+                android:text="@string/action_select"
                 android:fontFamily="@font/google_sans_regular" />
 
         </LinearLayout>
 
         <TextView android:id="@+id/field_selected_object_name"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/block_text_height"
+            android:layout_height="@dimen/round_view_text_height"
             android:layout_marginStart="@dimen/common_margin_4"
             android:layout_marginEnd="@dimen/common_margin_4"
             android:gravity="center_vertical"
@@ -89,7 +89,7 @@
             android:scrollbars="vertical"
             android:text="@string/message_select_object"
             android:textAlignment="center"
-            android:textSize="@dimen/default_text_size"
+            android:textSize="@dimen/text_size_default"
             android:fontFamily="@font/google_sans_regular" />
 
     </LinearLayout>

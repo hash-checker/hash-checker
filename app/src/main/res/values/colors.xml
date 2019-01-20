@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- app colors -->
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#eeeeee</color>
     <color name="colorAccent">#009688</color>
@@ -8,6 +9,7 @@
     <!-- custom -->
     <color name="colorSnackbarBackground">#323232</color>
     <color name="colorDarkText">@android:color/black</color>
+    <color name="colorUnselected">#BDBDBD</color>
 
     <!-- backgrounds -->
     <color name="colorCommonBackground">@android:color/white</color>

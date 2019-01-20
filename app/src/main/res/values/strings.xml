@@ -1,9 +1,11 @@
 <resources>
 
     <string name="app_name">Hash Checker</string>
+    <string name="app_author">jamanSmk</string>
 
     <!-- menu -->
-    <string name="settings_title">Settings</string>
+    <string name="menu_settings_title">Settings</string>
+    <string name="menu_feedback_title">Feedback</string>
 
     <!-- messages -->
     <string name="message_exit">Long press on back button to close the application!</string>
@@ -11,8 +13,9 @@
     <string name="message_match_result">Match!</string>
     <string name="message_do_not_match_result">Do not match!</string>
     <string name="message_generate_dialog">Generating hash, please wait…</string>
-    <string name="message_select_object">Tap \"From\" to select needed source hashTypes</string>
+    <string name="message_select_object">Tap \"From\" to select needed source bottomSheetItems</string>
     <string name="message_error_start_file_selector">Can\'t find a file manager on your device!</string>
+    <string name="message_email_app_chooser">Choose app for send a email:</string>
 
     <!-- commons -->
     <string name="common_text">Text</string>
@@ -22,11 +25,15 @@
     <string name="common_cancel">Cancel</string>
 
     <!-- actions -->
-    <string name="from">From</string>
-    <string name="action">Action</string>
-    <string name="exit_now">Exit now</string>
-    <string name="generate">Generate</string>
-    <string name="compare">Compare</string>
+    <string name="action_from">From</string>
+    <string name="action_select">Action</string>
+    <string name="action_exit_now">Exit now</string>
+    <string name="action_generate">Generate</string>
+    <string name="action_compare">Compare</string>
+
+    <!-- links -->
+    <string name="web_link_title_github">GitHub</string>
+    <string name="web_link_title_google_play">Google Play</string>
 
     <!-- titles -->
     <string name="title_custom_hash">Custom hash</string>
@@ -40,10 +47,17 @@
     <string name="settings_title_app">Application</string>
     <string name="settings_title_about">About</string>
     <string name="settings_title_upper_case">Upper case</string>
+    <string name="settings_title_author">Author</string>
     <string name="settings_title_version">Version</string>
     <string name="settings_title_vibration">Vibration</string>
 
     <!-- dialog titles -->
     <string name="dialog_title_text">Add text</string>
+
+    <!-- feedback -->
+    <string name="feedback_device">Add device info</string>
+    <string name="feedback_manufacturer">Manufacturer:</string>
+    <string name="feedback_model">Model:</string>
+    <string name="feedback_message">Message</string>
 
 </resources>

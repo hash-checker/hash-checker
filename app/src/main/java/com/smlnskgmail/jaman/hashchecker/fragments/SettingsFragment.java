@@ -15,8 +15,13 @@ import android.view.View;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinks;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
+
+import java.util.Arrays;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements OnNavigationListener {
 
@@ -24,20 +29,39 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.settings);
+        initializeActionBar();
+        addAuthorLinks();
+        findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)", BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+    }
+
+    private void initializeActionBar() {
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(), R.drawable.ic_arrow_back));
-        findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)", BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+    }
+
+    private void addAuthorLinks() {
+        findPreference(getString(R.string.key_author)).setOnPreferenceClickListener(preference -> {
+            WebLinksBottomSheet webLinksBottomSheet = new WebLinksBottomSheet();
+            webLinksBottomSheet.setListItems(Arrays.asList(WebLinks.SOURCE_CODE, WebLinks.MY_APPS));
+            webLinksBottomSheet.show(getActivity().getSupportFragmentManager(), Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
+            return false;
+        });
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setHasOptionsMenu(true);
-        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle(R.string.settings_title);
-        actionBar.setDisplayHomeAsUpEnabled(true);
         view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorCommonBackground));
         setDividerHeight(0);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        actionBar.setTitle(R.string.menu_settings_title);
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

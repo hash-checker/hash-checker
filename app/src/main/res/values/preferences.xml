@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- commons -->
+    <string name="common_none" translatable="false">-</string>
+    <string name="common_email" translatable="false">jaman.smlnsk@gmail.com</string>
+
     <!-- hash bottomSheetItems -->
     <string name="hash_type_md5" translatable="false">MD5</string>
     <string name="hash_type_sha1" translatable="false">SHA-1</string>
@@ -12,14 +16,13 @@
     <!-- settings -->
     <string name="key_vibrate" translatable="false">vibrate</string>
     <string name="key_upper_case" translatable="false">upper_case</string>
-    <string name="key_version" translatable="false">version</string>
+    <string name="key_author" translatable="false">key_author</string>
+    <string name="key_version" translatable="false">key_version</string>
     <string name="key_last_type_value" translatable="false">last_type_value</string>
     <string name="key_shortcuts_created" translatable="false">shortcuts_created</string>
-    <string name="key_md5" translatable="false">key_md5</string>
-    <string name="key_sha1" translatable="false">key_sha1</string>
-    <string name="key_sha224" translatable="false">key_sha224</string>
-    <string name="key_sha256" translatable="false">key_sha256</string>
-    <string name="key_sha384" translatable="false">key_sha384</string>
-    <string name="key_sha512" translatable="false">key_sha512</string>
+
+    <!-- web links -->
+    <string name="web_link_source_code" translatable="false">https://github.com/fartem/hash-checker</string>
+    <string name="web_link_my_apps" translatable="false">https://play.google.com/store/apps/developer?id=jamanSmk</string>
 
 </resources>

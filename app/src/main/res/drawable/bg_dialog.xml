@@ -3,7 +3,7 @@
 
     <solid android:color="@color/colorCommonBackground" />
 
-    <corners android:radius="@dimen/radius_dialog" />
+    <corners android:radius="@dimen/radius_dialog_corners" />
 
     <padding android:left="@dimen/common_margin"
         android:top="@dimen/common_margin"

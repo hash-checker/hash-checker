@@ -4,6 +4,6 @@
 
     <solid android:color="@color/colorSnackbarBackground" />
 
-    <corners android:radius="@dimen/radius_snackbar" />
+    <corners android:radius="@dimen/radius_snackbar_corners" />
 
 </shape>

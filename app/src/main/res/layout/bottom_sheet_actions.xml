@@ -14,7 +14,7 @@
             app:srcCompat="@drawable/ic_generate" />
 
         <TextView style="@style/AppBottomTextView"
-            android:text="@string/generate" />
+            android:text="@string/action_generate" />
 
     </LinearLayout>
 
@@ -26,7 +26,7 @@
             app:srcCompat="@drawable/ic_compare" />
 
         <TextView style="@style/AppBottomTextView"
-            android:text="@string/compare" />
+            android:text="@string/action_compare" />
 
     </LinearLayout>
 

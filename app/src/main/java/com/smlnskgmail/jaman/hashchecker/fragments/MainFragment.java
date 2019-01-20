@@ -19,21 +19,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ActionsBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ResourcesBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionTypes;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.GenerateToBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.OnHashTypeSelectListener;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.TextInputDialog;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.OnMenuItemClickListener;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.UserActionTypes;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.ActionsBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.ResourcesBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.items.generator.GenerateToBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.selectors.bottomsheets.items.generator.OnHashTypeSelectListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
 import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
-import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
-import com.smlnskgmail.jaman.hashchecker.utils.Constants;
-import com.smlnskgmail.jaman.hashchecker.utils.Preferences;
-import com.smlnskgmail.jaman.hashchecker.utils.TextUtils;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.values.Preferences;
+import com.smlnskgmail.jaman.hashchecker.support.utils.TextUtils;
+import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 import java.io.File;
 import java.util.Arrays;
@@ -42,9 +42,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class MainFragment extends BaseFragment implements TextInputDialog.OnTextValueEnteredListener,
-        HashCalculator.OnGeneratorCompleteListener, OnMenuItemClickListener, OnHashTypeSelectListener {
-
-    private static final String TAG_OPENED_BOTTOM_SHEET = "";
+        HashCalculator.OnHashGeneratorCompleteListener, OnUserActionClickListener, OnHashTypeSelectListener {
 
     @BindView(R.id.main_screen)
     protected View mainScreen;
@@ -74,7 +72,7 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     private boolean startWithTextSelection, startWithFileSelection;
 
     @Override
-    public void onClick(@NonNull UserActionTypes userActionTypes) {
+    public void onUserActionClick(@NonNull UserActionTypes userActionTypes) {
         switch (userActionTypes) {
             case ENTER_TEXT:
                 enterText();
@@ -121,29 +119,24 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
 
     @OnClick(R.id.hash_types)
     public void selectHashTypeFromList() {
-        GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet(MainFragment.this, selectedHash.getText().toString());
-        generateToBottomSheet.setBottomSheetItemsList(Arrays.asList(HashTypes.values()));
-        generateToBottomSheet.show(getFragmentManager(), TAG_OPENED_BOTTOM_SHEET);
+        GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet();
+        generateToBottomSheet.setListItems(Arrays.asList(HashTypes.values()));
+        generateToBottomSheet.setOnHashTypeSelectListener(this::onHashTypeSelect);
+        generateToBottomSheet.show(getFragmentManager(), Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
     }
 
     @OnClick(R.id.button_generate_from)
     public void selectResourceToGenerateHash() {
         ResourcesBottomSheet resourcesBottomSheet = new ResourcesBottomSheet();
         resourcesBottomSheet.setMenuItemCallback(MainFragment.this);
-        resourcesBottomSheet.show(getActivity().getSupportFragmentManager(), TAG_OPENED_BOTTOM_SHEET);
+        resourcesBottomSheet.show(getActivity().getSupportFragmentManager(), Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
     }
 
     @OnClick(R.id.button_hash_actions)
     public void selectActionForHashes() {
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
         actionsBottomSheet.setMenuItemCallback(MainFragment.this);
-        actionsBottomSheet.show(getActivity().getSupportFragmentManager(), TAG_OPENED_BOTTOM_SHEET);
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        checkShortcutActionPresence();
+        actionsBottomSheet.show(getActivity().getSupportFragmentManager(), Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
     }
 
     private void checkShortcutActionPresence() {
@@ -151,14 +144,6 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
         if (shortcutsArguments != null) {
             startWithTextSelection = shortcutsArguments.getBoolean(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION, false);
             startWithFileSelection = shortcutsArguments.getBoolean(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION, false);
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Constants.Requests.FILE_SELECT_REQUEST && resultCode == Activity.RESULT_OK) {
-            validateSelectedFile(data);
         }
     }
 
@@ -175,12 +160,12 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     }
 
     @Override
-    public void onEntered(@NonNull String text) {
+    public void onTextValueEntered(@NonNull String text) {
         setResult(text, true);
     }
 
     @Override
-    public void onComplete(@NonNull String hashValue) {
+    public void onHashGeneratorComplete(@NonNull String hashValue) {
         fieldGeneratedHash.setText(hashValue);
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
@@ -201,7 +186,7 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     @Override
     public void onBack() {
         UIUtils.showSnackbar(getContext(), getView().findViewById(R.id.main_screen), getString(R.string.message_exit),
-                getString(R.string.exit_now), v -> AppUtils.closeApp(getActivity()), Snackbar.LENGTH_SHORT);
+                getString(R.string.action_exit_now), v -> AppUtils.closeApp(getActivity()), Snackbar.LENGTH_SHORT);
     }
 
     private void validateTextCase() {
@@ -223,15 +208,9 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     }
 
     @Override
-    public void onSelect(@NonNull HashTypes hashType) {
+    public void onHashTypeSelect(@NonNull HashTypes hashType) {
         selectedHash.setText(hashType.getTypeAsString(getContext()));
         Preferences.saveTypeAsLast(getContext(), hashType.getTypeAsString(getContext()));
-    }
-
-    @Override
-    public void resume() {
-        super.resume();
-        validateTextCase();
     }
 
     @Override
@@ -239,11 +218,31 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
         selectedHash.setText(Preferences.getLastType(getContext()));
         fieldSelectedObject.setMovementMethod(new ScrollingMovementMethod());
         if (startWithTextSelection) {
-            onClick(UserActionTypes.ENTER_TEXT);
+            onUserActionClick(UserActionTypes.ENTER_TEXT);
             startWithTextSelection = false;
         } else if (startWithFileSelection) {
-            onClick(UserActionTypes.SEARCH_FILE);
+            onUserActionClick(UserActionTypes.SEARCH_FILE);
             startWithFileSelection = false;
+        }
+    }
+
+    @Override
+    public void OnFragmentResume() {
+        super.OnFragmentResume();
+        validateTextCase();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        checkShortcutActionPresence();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Constants.Requests.FILE_SELECT_REQUEST && resultCode == Activity.RESULT_OK) {
+            validateSelectedFile(data);
         }
     }
 
@@ -264,7 +263,7 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
 
     @Override
     int[] getMenuItemsIds() {
-        return new int[] {R.id.menu_settings};
+        return new int[] {R.id.menu_settings, R.id.menu_feedback};
     }
 
     @Override

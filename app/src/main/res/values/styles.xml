@@ -23,10 +23,10 @@
 
     <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textSize">@dimen/large_text_size</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
         <item name="android:textStyle">bold</item>
     </style>
-    
+
     <style name="AppMenuButton" parent="Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">@color/colorAccent</item>
     </style>
@@ -37,7 +37,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:fontFamily">@font/google_sans_regular</item>
-        <item name="android:textSize">@dimen/style_text_size</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
     <style name="AppSelectableLinearLayout">
@@ -77,7 +77,7 @@
         <item name="android:gravity">center</item>
         <item name="android:fontFamily">@font/google_sans_regular</item>
         <item name="android:textColor">@color/colorDarkText</item>
-        <item name="android:textSize">@dimen/style_text_size</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
     <style name="AppDialogButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
