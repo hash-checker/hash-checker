@@ -13,7 +13,7 @@
     <string name="message_match_result">Match!</string>
     <string name="message_do_not_match_result">Do not match!</string>
     <string name="message_generate_dialog">Generating hash, please wait…</string>
-    <string name="message_select_object">Tap \"From\" to select needed source bottomSheetItems</string>
+    <string name="message_select_object">Tap \"From\" to select needed source type</string>
     <string name="message_error_start_file_selector">Can\'t find a file manager on your device!</string>
     <string name="message_email_app_chooser">Choose app for send a email:</string>
 

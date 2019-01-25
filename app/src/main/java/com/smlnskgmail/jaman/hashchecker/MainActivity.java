@@ -1,7 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -10,10 +9,10 @@ import android.view.MenuItem;
 import com.smlnskgmail.jaman.hashchecker.fragments.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.MainFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.SettingsFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnFragmentResume;
-import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
 
 public class MainActivity extends AppCompatActivity {
 

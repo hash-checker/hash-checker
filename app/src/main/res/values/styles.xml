@@ -40,12 +40,16 @@
         <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
-    <style name="AppSelectableLinearLayout">
+    <style name="AppActionButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">16dp</item>
         <item name="android:padding">@dimen/common_margin_2</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
         <item name="android:clickable">true</item>
+        <item name="android:fontFamily">@font/google_sans_regular</item>
+        <item name="android:textColor">@color/colorDarkText</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
@@ -68,16 +72,6 @@
         <item name="android:layout_marginEnd">@dimen/common_margin_2</item>
         <item name="android:background">@null</item>
         <item name="android:fontFamily">@font/google_sans_regular</item>
-    </style>
-
-    <style name="AppBottomTextView">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">16dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:fontFamily">@font/google_sans_regular</item>
-        <item name="android:textColor">@color/colorDarkText</item>
-        <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
     <style name="AppDialogButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">

@@ -1,33 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout android:id="@+id/button_generate"
-        style="@style/AppSelectableLinearLayout"
-        android:layout_marginTop="@dimen/common_margin">
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/button_generate"
+        style="@style/AppActionButton"
+        android:layout_marginTop="@dimen/common_margin_2"
+        android:text="@string/action_generate"
+        android:drawableStart="@drawable/ic_generate" />
 
-        <ImageView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_generate" />
-
-        <TextView style="@style/AppBottomTextView"
-            android:text="@string/action_generate" />
-
-    </LinearLayout>
-
-    <LinearLayout android:id="@+id/button_compare"
-        style="@style/AppSelectableLinearLayout">
-
-        <ImageView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_compare" />
-
-        <TextView style="@style/AppBottomTextView"
-            android:text="@string/action_compare" />
-
-    </LinearLayout>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/button_compare"
+        style="@style/AppActionButton"
+        android:text="@string/action_compare"
+        android:drawableStart="@drawable/ic_compare" />
 
 </LinearLayout>

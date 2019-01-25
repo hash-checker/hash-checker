@@ -19,21 +19,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ActionsBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ResourcesBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionTypes;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.GenerateToBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.OnHashTypeSelectListener;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.TextInputDialog;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ActionsBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ResourcesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionTypes;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
-import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.values.Preferences;
 import com.smlnskgmail.jaman.hashchecker.support.utils.TextUtils;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.values.Preferences;
 
 import java.io.File;
 import java.util.Arrays;
