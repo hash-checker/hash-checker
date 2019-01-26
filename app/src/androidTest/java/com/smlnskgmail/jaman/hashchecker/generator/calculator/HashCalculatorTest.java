@@ -1,8 +1,11 @@
-package com.smlnskgmail.jaman.hashchecker.generator;
+package com.smlnskgmail.jaman.hashchecker.generator.calculator;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.test.InstrumentationRegistry;
+
+import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
+import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 
 import org.junit.Before;
 import org.junit.Test;

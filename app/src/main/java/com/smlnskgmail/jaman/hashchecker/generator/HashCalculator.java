@@ -23,12 +23,12 @@ public class HashCalculator {
 
     private String hashType;
 
-    HashCalculator(@NonNull String hashType) {
+    public HashCalculator(@NonNull String hashType) {
         this.hashType = hashType;
     }
 
     @NonNull
-    String generateFromString(@NonNull String text) {
+    public String generateFromString(@NonNull String text) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(hashType);
             messageDigest.reset();
@@ -51,7 +51,7 @@ public class HashCalculator {
     }
 
     @NonNull
-    String generateFromFile(@Nullable InputStream inputStream) throws IOException, NoSuchAlgorithmException {
+    public String generateFromFile(@Nullable InputStream inputStream) throws IOException, NoSuchAlgorithmException {
         if (inputStream != null) {
             byte[] buffer = new byte[1024];
             MessageDigest messageDigest = MessageDigest.getInstance(hashType);
