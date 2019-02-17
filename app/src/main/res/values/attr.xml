@@ -5,6 +5,7 @@
     <attr name="colorPrimary" format="color" />
     <attr name="colorPrimaryDark" format="color" />
     <attr name="colorAccent" format="color" />
+    <attr name="colorAccentSupport" format="color" />
 
     <!-- custom -->
     <attr name="colorCommonText" format="color" />

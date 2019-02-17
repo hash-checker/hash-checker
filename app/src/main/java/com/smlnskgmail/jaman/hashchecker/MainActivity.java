@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import com.smlnskgmail.jaman.hashchecker.fragments.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.MainFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.SettingsFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnFragmentResume;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnCustomResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
             ((OnNavigationListener) fragment).onBack();
         }
         for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
-            if (fragmentInApp instanceof OnFragmentResume) {
-                ((OnFragmentResume) fragmentInApp).resume();
+            if (fragmentInApp instanceof OnCustomResume) {
+                ((OnCustomResume) fragmentInApp).resume();
             }
         }
     }

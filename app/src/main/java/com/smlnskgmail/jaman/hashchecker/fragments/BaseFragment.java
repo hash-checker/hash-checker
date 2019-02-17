@@ -19,13 +19,13 @@ import android.view.ViewGroup;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.CustomTypefaceSpan;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnFragmentResume;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnCustomResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 
 import butterknife.ButterKnife;
 
 public abstract class BaseFragment extends Fragment
-        implements OnNavigationListener, OnFragmentResume {
+        implements OnNavigationListener, OnCustomResume {
 
     private ActionBar actionBar;
 

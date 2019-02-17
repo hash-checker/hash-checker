@@ -13,6 +13,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
+import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
 
@@ -55,6 +56,12 @@ public class AppUtils {
 
     public static void closeApp(@NonNull Activity activity) {
         activity.finish();
+    }
+
+    public static void restartApp(@NonNull Activity activity) {
+        Intent intent = new Intent(activity, MainActivity.class);
+        activity.startActivity(intent);
+        closeApp(activity);
     }
 
 }

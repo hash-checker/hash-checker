@@ -27,6 +27,8 @@ import java.util.Arrays;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements OnNavigationListener {
 
+    private ActionBar actionBar;
+
     @SuppressLint("ResourceType")
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -39,8 +41,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
     }
 
     private void initializeActionBar() {
-        ((AppCompatActivity) getActivity()).getSupportActionBar()
-                .setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(), R.drawable.ic_arrow_back));
+        actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        actionBar.setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(),
+                R.drawable.ic_arrow_back));
     }
 
     private void initializeAuthorLinks() {
@@ -74,7 +77,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
     @Override
     public void onResume() {
         super.onResume();
-        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle(R.string.menu_settings_title);
         actionBar.setDisplayHomeAsUpEnabled(true);
     }

@@ -3,5 +3,6 @@
 
     <color name="colorStaticAccent">#009688</color>
     <color name="colorLauncherIconBackground">#FFFFFF</color>
+    <color name="colorBackgroundShortcut">#eeeeee</color>
 
 </resources>

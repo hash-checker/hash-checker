@@ -7,6 +7,10 @@
     <string name="menu_settings_title">Settings</string>
     <string name="menu_feedback_title">Feedback</string>
 
+    <!-- dialog titles -->
+    <string name="dialog_title_text">Add text</string>
+    <string name="title_warning_dialog">Warning</string>
+
     <!-- messages -->
     <string name="message_exit">Long press on back button to close the application!</string>
     <string name="message_fill_fields">Fill each field for comparison!</string>
@@ -16,6 +20,7 @@
     <string name="message_select_object">Tap \"From\" to select needed source type</string>
     <string name="message_error_start_file_selector">Can\'t find a file manager on your device!</string>
     <string name="message_email_app_chooser">Choose app for send a email:</string>
+    <string name="message_change_theme">To change the theme, you need to restart the application.</string>
 
     <!-- commons -->
     <string name="common_text">Text</string>
@@ -55,9 +60,6 @@
     <string name="settings_title_version">Version</string>
     <string name="settings_title_vibration">Vibration</string>
     <string name="settings_title_theme">Theme</string>
-
-    <!-- dialog titles -->
-    <string name="dialog_title_text">Add text</string>
 
     <!-- feedback -->
     <string name="feedback_device">Add device info</string>

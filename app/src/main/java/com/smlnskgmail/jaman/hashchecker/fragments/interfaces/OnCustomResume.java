@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.fragments.interfaces;
 
-public interface OnFragmentResume {
+public interface OnCustomResume {
 
     void resume();
 
