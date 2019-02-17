@@ -7,12 +7,12 @@
     <attr name="colorAccent" format="color" />
 
     <!-- custom -->
-    <attr name="colorSnackbarBackground" format="color" />
-    <attr name="colorDarkText" format="color" />
-    <attr name="colorUnselected" format="color" />
+    <attr name="colorCommonText" format="color" />
+    <attr name="colorCommonUnselected" format="color" />
 
     <!-- backgrounds -->
     <attr name="colorCommonBackground" format="color" />
     <attr name="colorCommonBottomSheetBackground" format="color" />
+    <attr name="colorCommonSnackbarBackground" format="color" />
 
 </resources>

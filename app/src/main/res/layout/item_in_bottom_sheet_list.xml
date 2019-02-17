@@ -19,7 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:textColor="?attr/colorDarkText"
+        android:textColor="?attr/colorCommonText"
         android:textSize="@dimen/text_size_info"
         android:fontFamily="@font/google_sans_regular"
         tools:text="MD5" />

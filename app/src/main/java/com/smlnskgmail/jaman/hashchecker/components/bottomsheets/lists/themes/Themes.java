@@ -1,18 +1,23 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes;
 
+import android.content.Context;
+import android.support.annotation.NonNull;
+
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.support.values.Preferences;
 
 public enum Themes implements ListItemMarker {
 
-    LIGHT(R.string.title_theme_light, R.drawable.ic_settings_theme),
-    DARK(R.string.title_theme_dark, R.drawable.ic_settings_theme);
+    LIGHT(R.string.title_theme_light, R.drawable.ic_settings_theme, R.style.AppThemeLight),
+    DARK(R.string.title_theme_dark, R.drawable.ic_settings_theme, R.style.AppThemeDark);
 
-    private int titleResId, iconResId;
+    private int titleResId, iconResId, themeResId;
 
-    Themes(int titleResId, int iconResId) {
+    Themes(int titleResId, int iconResId, int themeResId) {
         this.titleResId = titleResId;
         this.iconResId = iconResId;
+        this.themeResId = themeResId;
     }
 
     @Override
@@ -27,7 +32,21 @@ public enum Themes implements ListItemMarker {
 
     @Override
     public int getAdditionalIconResId() {
-        return -1;
+        return R.drawable.ic_done;
+    }
+
+    public int getThemeResId() {
+        return themeResId;
+    }
+
+    public static Themes getThemeFromPreferences(@NonNull Context context) {
+        String selectedTheme = Preferences.getTheme(context);
+        for (Themes theme: values()) {
+            if (theme.toString().equals(selectedTheme)) {
+                return theme;
+            }
+        }
+        return LIGHT;
     }
 
 }

@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(UIUtils.getThemeResId(this));
         super.onCreate(savedInstanceState);
         MainFragment mainFragment = new MainFragment();
         String actionFromIntent = getIntent().getAction();

@@ -22,6 +22,8 @@
         <item name="colorUnselected">#8BBDBDBD</item>
         <item name="colorCommonBackground">#21242d</item>
         <item name="colorCommonBottomSheetBackground">#344256</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -31,7 +33,7 @@
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
         <item name="actionOverflowButtonStyle">@style/AppMenuButton</item>
         <item name="android:itemBackground">?attr/colorPrimary</item>
-        <item name="android:textColor">?attr/colorDarkText</item>
+        <item name="android:textColor">?attr/colorCommonText</item>
     </style>
 
     <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
@@ -70,7 +72,7 @@
         <item name="android:foreground">?android:selectableItemBackground</item>
         <item name="android:clickable">true</item>
         <item name="android:fontFamily">@font/google_sans_regular</item>
-        <item name="android:textColor">?attr/colorDarkText</item>
+        <item name="android:textColor">?attr/colorCommonText</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
@@ -86,8 +88,8 @@
         <item name="android:ems">10</item>
         <item name="android:inputType">textPersonName</item>
         <item name="android:selectAllOnFocus">true</item>
-        <item name="android:textColor">?attr/colorDarkText</item>
-        <item name="android:textColorHint">?attr/colorUnselected</item>
+        <item name="android:textColor">?attr/colorCommonText</item>
+        <item name="android:textColorHint">?attr/colorCommonUnselected</item>
         <item name="android:fontFamily">@font/google_sans_regular</item>
     </style>
 

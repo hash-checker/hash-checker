@@ -89,7 +89,7 @@
             android:maxLines="2"
             android:scrollbars="vertical"
             android:text="@string/message_select_object"
-            android:textColor="?attr/colorDarkText"
+            android:textColor="?attr/colorCommonText"
             android:textAlignment="center"
             android:textSize="@dimen/text_size_default"
             android:fontFamily="@font/google_sans_regular" />

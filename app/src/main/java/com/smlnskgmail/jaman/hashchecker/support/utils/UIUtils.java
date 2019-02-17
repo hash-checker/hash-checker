@@ -22,6 +22,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
 import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.values.Preferences;
 
@@ -99,6 +100,10 @@ public class UIUtils {
         }
     }
 
+    public static int getThemeResId(@NonNull Context context) {
+        return Themes.getThemeFromPreferences(context).getThemeResId();
+    }
+
     @SuppressLint("ResourceType")
     public static int getAccentColor(@NonNull Context context) {
         return getColorFromAttrs(context, R.attr.colorAccent);
@@ -111,12 +116,12 @@ public class UIUtils {
 
     @SuppressLint("ResourceType")
     public static int getDarkTextColor(@NonNull Context context) {
-        return getColorFromAttrs(context, R.attr.colorDarkText);
+        return getColorFromAttrs(context, R.attr.colorCommonText);
     }
 
     @SuppressLint("ResourceType")
     public static int getUnselectedColor(@NonNull Context context) {
-        return getColorFromAttrs(context, R.attr.colorUnselected);
+        return getColorFromAttrs(context, R.attr.colorCommonUnselected);
     }
 
     private static int getColorFromAttrs(@NonNull Context context, @IdRes int themeColor) {

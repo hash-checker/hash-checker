@@ -22,13 +22,13 @@
         <EditText android:id="@+id/feedback_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="?attr/colorDarkText"
+            android:backgroundTint="?attr/colorCommonText"
             android:padding="@dimen/common_margin"
             android:hint="@string/feedback_message"
             android:lines="5"
             android:maxLines="10"
-            android:textColor="?attr/colorDarkText"
-            android:textColorHint="?attr/colorUnselected"
+            android:textColor="?attr/colorCommonText"
+            android:textColorHint="?attr/colorCommonUnselected"
             android:fontFamily="@font/google_sans_regular" />
 
         <LinearLayout android:layout_width="match_parent"
@@ -40,13 +40,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/feedback_device"
-                android:textColor="?attr/colorDarkText"
+                android:textColor="?attr/colorCommonText"
                 android:textSize="@dimen/text_size_medium"
                 android:fontFamily="@font/google_sans_regular" />
 
             <CheckBox android:id="@+id/add_device_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@drawable/sel_checkbox"
                 android:checked="true" />
 
         </LinearLayout>
@@ -61,7 +62,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/google_sans_regular"
                 android:text="@string/feedback_manufacturer"
-                android:textColor="?attr/colorDarkText"
+                android:textColor="?attr/colorCommonText"
                 android:textSize="@dimen/text_size_medium" />
 
             <TextView android:id="@+id/manufacturer_value"
@@ -85,7 +86,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/google_sans_regular"
                 android:text="@string/feedback_model"
-                android:textColor="?attr/colorDarkText"
+                android:textColor="?attr/colorCommonText"
                 android:textSize="@dimen/text_size_medium" />
 
             <TextView android:id="@+id/model_value"
