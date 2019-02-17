@@ -23,6 +23,6 @@
 
     <!-- web links -->
     <string name="web_link_source_code" translatable="false">https://github.com/fartem/hash-checker</string>
-    <string name="web_link_my_apps" translatable="false">https://play.google.com/store/apps/developer?id=jamanSmk</string>
+    <string name="web_link_my_apps" translatable="false">https://play.google.com/store/apps/developer?id=fartem</string>
 
 </resources>

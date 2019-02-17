@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_screen"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorCommonBackground">
 
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +28,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:textSize="@dimen/text_size_info"
-                android:textColor="@color/colorAccent"
+                android:textColor="?attr/colorAccent"
                 android:fontFamily="@font/google_sans_regular"
                 tools:text="MD5" />
 
@@ -88,6 +89,7 @@
             android:maxLines="2"
             android:scrollbars="vertical"
             android:text="@string/message_select_object"
+            android:textColor="?attr/colorDarkText"
             android:textAlignment="center"
             android:textSize="@dimen/text_size_default"
             android:fontFamily="@font/google_sans_regular" />

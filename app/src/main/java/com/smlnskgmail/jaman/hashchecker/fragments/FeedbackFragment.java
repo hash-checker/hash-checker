@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.fragments;
 
+import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -28,12 +29,16 @@ public class FeedbackFragment extends BaseFragment {
     @BindView(R.id.model_value) protected TextView modelValue;
 
     @OnCheckedChanged(R.id.add_device_info)
-    public void addDeviceInfo(boolean b) {
-        manufacturerTitle.setTextColor(ContextCompat.getColor(getContext(), b ? R.color.colorDarkText : R.color.colorUnselected));
-        modelTitle.setTextColor(ContextCompat.getColor(getContext(), b ? R.color.colorDarkText : R.color.colorUnselected));
+    public void addDeviceInfo(boolean addInfo) {
+        Context context = getContext();
 
-        manufacturerValue.setTextColor(ContextCompat.getColor(getContext(), b ? R.color.colorAccent : R.color.colorUnselected));
-        modelValue.setTextColor(ContextCompat.getColor(getContext(), b ? R.color.colorAccent : R.color.colorUnselected));
+        int titleColor = addInfo ? UIUtils.getDarkTextColor(context) : UIUtils.getUnselectedColor(context);
+        manufacturerTitle.setTextColor(titleColor);
+        modelTitle.setTextColor(titleColor);
+
+        int valueColor = addInfo ? UIUtils.getAccentColor(context) : UIUtils.getUnselectedColor(context);
+        manufacturerValue.setTextColor(titleColor);
+        modelValue.setTextColor(titleColor);
     }
 
     @Override

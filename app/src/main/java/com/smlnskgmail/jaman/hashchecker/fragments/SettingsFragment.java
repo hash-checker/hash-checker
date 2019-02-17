@@ -52,7 +52,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setHasOptionsMenu(true);
-        view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorCommonBackground));
+        view.setBackgroundColor(UIUtils.getCommonBackgroundColor(getContext()));
         setDividerHeight(0);
     }
 

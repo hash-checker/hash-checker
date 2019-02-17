@@ -27,7 +27,7 @@ public class CustomCheckBoxPreference extends CheckBoxPreference {
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
-        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title));
+        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title), true);
         super.onBindViewHolder(holder);
     }
 

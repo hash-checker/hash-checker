@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- app colors -->
+    <attr name="colorPrimary" format="color" />
+    <attr name="colorPrimaryDark" format="color" />
+    <attr name="colorAccent" format="color" />
+
+    <!-- custom -->
+    <attr name="colorSnackbarBackground" format="color" />
+    <attr name="colorDarkText" format="color" />
+    <attr name="colorUnselected" format="color" />
+
+    <!-- backgrounds -->
+    <attr name="colorCommonBackground" format="color" />
+    <attr name="colorCommonBottomSheetBackground" format="color" />
+
+</resources>

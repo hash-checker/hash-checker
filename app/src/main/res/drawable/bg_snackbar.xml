@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <solid android:color="@color/colorSnackbarBackground" />
+    <solid android:color="?attr/colorSnackbarBackground" />
 
     <corners android:radius="@dimen/radius_snackbar_corners" />
 

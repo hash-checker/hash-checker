@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">Hash Checker</string>
-    <string name="app_author">jamanSmk</string>
+    <string name="app_author">fartem</string>
 
     <!-- menu -->
     <string name="menu_settings_title">Settings</string>

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -71,7 +73,7 @@ public class UIUtils {
             final Snackbar closableSnackbar = snackbar;
             snackbar.setAction(context.getResources().getString(R.string.common_ok), v -> closableSnackbar.dismiss());
         }
-        snackbar.setActionTextColor(ContextCompat.getColor(context, R.color.colorAccent));
+        snackbar.setActionTextColor(getAccentColor(context));
 
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) snackbar.getView().getLayoutParams();
         params.setMargins(COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN);
@@ -84,13 +86,44 @@ public class UIUtils {
         snackbar.show();
     }
 
-    public static void applyAdaptiveFont(@NonNull Context context, @NonNull TextView textView) {
-        textView.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
+    public static void applyAdaptiveFontWithBoldStyle(@NonNull Context context, @NonNull TextView textView) {
+        applyAdaptiveFont(context, textView, false);
+        textView.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular), Typeface.BOLD);
     }
 
-    public static void applyAdaptiveFontWithBoldStyle(@NonNull Context context, @NonNull TextView textView) {
-        applyAdaptiveFont(context, textView);
-        textView.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular), Typeface.BOLD);
+    public static void applyAdaptiveFont(@NonNull Context context, @NonNull TextView textView,
+                                         boolean useThemeColor) {
+        textView.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
+        if (useThemeColor) {
+            textView.setTextColor(UIUtils.getDarkTextColor(context));
+        }
+    }
+
+    @SuppressLint("ResourceType")
+    public static int getAccentColor(@NonNull Context context) {
+        return getColorFromAttrs(context, R.attr.colorAccent);
+    }
+
+    @SuppressLint("ResourceType")
+    public static int getCommonBackgroundColor(@NonNull Context context) {
+        return getColorFromAttrs(context, R.attr.colorCommonBackground);
+    }
+
+    @SuppressLint("ResourceType")
+    public static int getDarkTextColor(@NonNull Context context) {
+        return getColorFromAttrs(context, R.attr.colorDarkText);
+    }
+
+    @SuppressLint("ResourceType")
+    public static int getUnselectedColor(@NonNull Context context) {
+        return getColorFromAttrs(context, R.attr.colorUnselected);
+    }
+
+    private static int getColorFromAttrs(@NonNull Context context, @IdRes int themeColor) {
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = context.getTheme();
+        theme.resolveAttribute(themeColor, typedValue, true);
+        return typedValue.data;
     }
 
 }

@@ -1,34 +1,56 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">@color/colorPrimary</item>
-        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+    <style name="AppThemeLight" parent="AppTheme">
+        <item name="colorPrimary">#ffffff</item>
+        <item name="colorPrimaryDark">#eeeeee</item>
+        <item name="colorAccent">#009688</item>
+        <item name="colorSnackbarBackground">#323232</item>
+        <item name="colorDarkText">@android:color/black</item>
+        <item name="colorUnselected">#BDBDBD</item>
+        <item name="colorCommonBackground">@android:color/white</item>
+        <item name="colorCommonBottomSheetBackground">@android:color/white</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
         <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="AppThemeDark" parent="AppTheme">
+        <item name="colorPrimary">#1d2b38</item>
+        <item name="colorPrimaryDark">#1a2227</item>
+        <item name="colorAccent">#00C2B1</item>
+        <item name="colorSnackbarBackground">#2B2B2B</item>
+        <item name="colorDarkText">@android:color/white</item>
+        <item name="colorUnselected">#8BBDBDBD</item>
+        <item name="colorCommonBackground">#21242d</item>
+        <item name="colorCommonBottomSheetBackground">#344256</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="android:navigationBarColor">?attr/colorPrimaryDark</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
         <item name="actionOverflowButtonStyle">@style/AppMenuButton</item>
+        <item name="android:itemBackground">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorDarkText</item>
     </style>
 
     <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
-        <item name="android:navigationBarColor">@color/colorCommonBackground</item>
+        <item name="android:navigationBarColor">?attr/colorCommonBackground</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowIsFloating">false</item>
     </style>
 
-    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/colorAccent</item>
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title"
+        parent="@android:style/TextAppearance">
+        <item name="android:textColor">?attr/colorAccent</item>
         <item name="android:textSize">@dimen/text_size_large</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="AppMenuButton" parent="Widget.AppCompat.ActionButton.Overflow">
-        <item name="android:tint">@color/colorAccent</item>
+        <item name="android:tint">?attr/colorAccent</item>
     </style>
 
     <style name="AppCircleButton" parent="Theme.Design.Light.BottomSheetDialog">
@@ -48,7 +70,7 @@
         <item name="android:foreground">?android:selectableItemBackground</item>
         <item name="android:clickable">true</item>
         <item name="android:fontFamily">@font/google_sans_regular</item>
-        <item name="android:textColor">@color/colorDarkText</item>
+        <item name="android:textColor">?attr/colorDarkText</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
@@ -64,6 +86,8 @@
         <item name="android:ems">10</item>
         <item name="android:inputType">textPersonName</item>
         <item name="android:selectAllOnFocus">true</item>
+        <item name="android:textColor">?attr/colorDarkText</item>
+        <item name="android:textColorHint">?attr/colorUnselected</item>
         <item name="android:fontFamily">@font/google_sans_regular</item>
     </style>
 
@@ -80,7 +104,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">?attr/colorAccent</item>
     </style>
 
 </resources>

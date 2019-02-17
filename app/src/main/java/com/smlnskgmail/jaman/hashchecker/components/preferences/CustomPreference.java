@@ -27,8 +27,8 @@ public class CustomPreference extends Preference {
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
-        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title));
-        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.summary));
+        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title), true);
+        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.summary), true);
         super.onBindViewHolder(holder);
     }
 

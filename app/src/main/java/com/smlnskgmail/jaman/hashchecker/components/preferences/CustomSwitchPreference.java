@@ -27,7 +27,7 @@ public class CustomSwitchPreference extends SwitchPreferenceCompat {
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
-        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title));
+        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title), true);
         super.onBindViewHolder(holder);
     }
 

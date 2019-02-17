@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dialog_title_text"
-        android:textColor="@color/colorDarkText"
+        android:textColor="?attr/colorDarkText"
         android:textStyle="bold"
         android:textSize="@dimen/text_size_medium" />
 
