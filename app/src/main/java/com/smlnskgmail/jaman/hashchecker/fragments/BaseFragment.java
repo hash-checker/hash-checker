@@ -24,7 +24,8 @@ import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListen
 
 import butterknife.ButterKnife;
 
-public abstract class BaseFragment extends Fragment implements OnNavigationListener, OnFragmentResume {
+public abstract class BaseFragment extends Fragment
+        implements OnNavigationListener, OnFragmentResume {
 
     private ActionBar actionBar;
 
@@ -40,11 +41,11 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
     @Override
     public void onResume() {
         super.onResume();
-        OnFragmentResume();
+        resume();
     }
 
     @Override
-    public void OnFragmentResume() {
+    public void resume() {
         if (actionBar == null) {
             actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         }

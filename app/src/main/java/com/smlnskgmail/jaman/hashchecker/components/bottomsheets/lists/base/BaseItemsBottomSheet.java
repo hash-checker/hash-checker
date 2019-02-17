@@ -33,7 +33,7 @@ public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
         return listItems;
     }
 
-    public void setListItems(List<ListItemMarker> listItemMarkers) {
+    public void setListItems(@NonNull List<ListItemMarker> listItemMarkers) {
         this.listItems.addAll(listItemMarkers);
     }
 

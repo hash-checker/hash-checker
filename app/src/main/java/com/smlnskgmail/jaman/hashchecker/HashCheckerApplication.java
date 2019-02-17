@@ -30,7 +30,8 @@ public class HashCheckerApplication extends Application {
     private void createShortcuts() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
-            shortcutManager.setDynamicShortcuts(Arrays.asList(getShortcutForTextType(), getShortcutForFileType()));
+            shortcutManager.setDynamicShortcuts(Arrays.asList(getShortcutForTextType(),
+                    getShortcutForFileType()));
         }
     }
 

@@ -25,7 +25,8 @@ public class TextInputDialog extends BaseDialog {
     private OnTextValueEnteredListener textValueCallback;
     private String textValue;
 
-    public TextInputDialog(@NonNull Context context, @NonNull OnTextValueEnteredListener textValueCallback,
+    public TextInputDialog(@NonNull Context context,
+                           @NonNull OnTextValueEnteredListener textValueCallback,
                            @Nullable String textValue) {
         super(context);
         this.textValueCallback = textValueCallback;

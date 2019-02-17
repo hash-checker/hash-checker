@@ -9,7 +9,8 @@ import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 public class CustomPreferenceCategory extends PreferenceCategory {
 
-    public CustomPreferenceCategory(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CustomPreferenceCategory(Context context, AttributeSet attrs, int defStyleAttr,
+                                    int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

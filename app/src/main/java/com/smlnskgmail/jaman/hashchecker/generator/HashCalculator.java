@@ -51,7 +51,8 @@ public class HashCalculator {
     }
 
     @NonNull
-    public String generateFromFile(@Nullable InputStream inputStream) throws IOException, NoSuchAlgorithmException {
+    public String generateFromFile(@Nullable InputStream inputStream)
+            throws IOException, NoSuchAlgorithmException {
         if (inputStream != null) {
             byte[] buffer = new byte[1024];
             MessageDigest messageDigest = MessageDigest.getInstance(hashType);

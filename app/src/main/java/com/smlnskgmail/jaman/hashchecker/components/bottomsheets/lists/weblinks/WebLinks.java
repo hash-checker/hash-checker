@@ -5,8 +5,8 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.List
 
 public enum WebLinks implements ListItemMarker {
 
-    SOURCE_CODE(R.string.web_link_title_github, R.drawable.ic_github, R.string.web_link_source_code),
-    MY_APPS(R.string.web_link_title_google_play, R.drawable.ic_google_play, R.string.web_link_my_apps);
+    SOURCE_CODE(R.string.title_web_link_github, R.drawable.ic_github, R.string.web_link_source_code),
+    MY_APPS(R.string.title_web_link_google_play, R.drawable.ic_google_play, R.string.web_link_my_apps);
 
     private int titleResId, iconResId, linkResId;
 

@@ -21,6 +21,12 @@
             android:defaultValue="true"
             android:icon="@drawable/ic_settings_vibration" />
 
+        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
+            android:title="@string/settings_title_theme"
+            android:key="@string/key_theme"
+            android:defaultValue="true"
+            android:icon="@drawable/ic_settings_theme" />
+
     </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
 
     <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory

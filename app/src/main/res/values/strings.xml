@@ -32,8 +32,12 @@
     <string name="action_compare">Compare</string>
 
     <!-- links -->
-    <string name="web_link_title_github">GitHub</string>
-    <string name="web_link_title_google_play">Google Play</string>
+    <string name="title_web_link_github">GitHub</string>
+    <string name="title_web_link_google_play">Google Play</string>
+
+    <!-- themes -->
+    <string name="title_theme_light">Light</string>
+    <string name="title_theme_dark">Dark</string>
 
     <!-- titles -->
     <string name="title_custom_hash">Custom hash</string>
@@ -50,6 +54,7 @@
     <string name="settings_title_author">Author</string>
     <string name="settings_title_version">Version</string>
     <string name="settings_title_vibration">Vibration</string>
+    <string name="settings_title_theme">Theme</string>
 
     <!-- dialog titles -->
     <string name="dialog_title_text">Add text</string>

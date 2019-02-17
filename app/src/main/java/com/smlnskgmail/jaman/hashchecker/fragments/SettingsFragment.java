@@ -15,6 +15,8 @@ import android.view.View;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinks;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
@@ -30,8 +32,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.settings);
         initializeActionBar();
-        addAuthorLinks();
-        findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)", BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+        initializeAuthorLinks();
+        initializeThemes();
+        findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)",
+                BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
     }
 
     private void initializeActionBar() {
@@ -39,11 +43,22 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
                 .setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(), R.drawable.ic_arrow_back));
     }
 
-    private void addAuthorLinks() {
+    private void initializeAuthorLinks() {
         findPreference(getString(R.string.key_author)).setOnPreferenceClickListener(preference -> {
             WebLinksBottomSheet webLinksBottomSheet = new WebLinksBottomSheet();
             webLinksBottomSheet.setListItems(Arrays.asList(WebLinks.SOURCE_CODE, WebLinks.MY_APPS));
-            webLinksBottomSheet.show(getActivity().getSupportFragmentManager(), Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
+            webLinksBottomSheet.show(getActivity().getSupportFragmentManager(),
+                    Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
+            return false;
+        });
+    }
+
+    private void initializeThemes() {
+        findPreference(getString(R.string.key_theme)).setOnPreferenceClickListener(preference -> {
+            ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
+            themesBottomSheet.setListItems(Arrays.asList(Themes.values()));
+            themesBottomSheet.show(getActivity().getSupportFragmentManager(),
+                    Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
             return false;
         });
     }

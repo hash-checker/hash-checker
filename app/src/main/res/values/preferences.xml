@@ -20,6 +20,7 @@
     <string name="key_version" translatable="false">key_version</string>
     <string name="key_last_type_value" translatable="false">last_type_value</string>
     <string name="key_shortcuts_created" translatable="false">shortcuts_created</string>
+    <string name="key_theme" translatable="false">theme</string>
 
     <!-- web links -->
     <string name="web_link_source_code" translatable="false">https://github.com/fartem/hash-checker</string>

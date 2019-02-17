@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.adapter;
+package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.adapter;
 
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -10,16 +10,17 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adap
 
 import java.util.List;
 
-public class WebLinksBottomSheetItemsAdapter extends BaseBottomSheetItemsAdapter {
+public class ThemesBottomSheetItemsAdapter extends BaseBottomSheetItemsAdapter {
 
-    public WebLinksBottomSheetItemsAdapter(@NonNull List<ListItemMarker> bottomSheetItems,
+    public ThemesBottomSheetItemsAdapter(@NonNull List<ListItemMarker> bottomSheetItems,
                                            @NonNull BaseItemsBottomSheet baseItemsBottomSheet) {
         super(bottomSheetItems, baseItemsBottomSheet);
     }
 
     @Override
     public BaseBottomSheetItemsHolder getItemsHolder(@NonNull View view) {
-        return new WebLinksBottomSheetItemsHolder(view, this);
+        return new ThemesBottomSheetItemsHolder(view, this);
     }
 
 }
+

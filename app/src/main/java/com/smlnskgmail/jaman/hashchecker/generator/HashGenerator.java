@@ -17,7 +17,8 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
     private boolean isText;
 
     private HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context,
-                          @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener, boolean isText) {
+                          @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener,
+                          boolean isText) {
         this.hashTypes = hashTypes;
         this.context = context;
         this.onCompleteListener = onCompleteListener;
@@ -25,13 +26,15 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
     }
 
     public HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull Uri fileUri,
-                         @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener, boolean isText) {
+                         @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener,
+                         boolean isText) {
         this(hashTypes, context, onCompleteListener, isText);
         this.fileUri = fileUri;
     }
 
     public HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull String textValue,
-                         @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener, boolean isText) {
+                         @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener,
+                         boolean isText) {
         this(hashTypes, context, onCompleteListener, isText);
         this.textValue = textValue;
 

@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         }
         for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
             if (fragmentInApp instanceof OnFragmentResume) {
-                ((OnFragmentResume) fragmentInApp).OnFragmentResume();
+                ((OnFragmentResume) fragmentInApp).resume();
             }
         }
     }

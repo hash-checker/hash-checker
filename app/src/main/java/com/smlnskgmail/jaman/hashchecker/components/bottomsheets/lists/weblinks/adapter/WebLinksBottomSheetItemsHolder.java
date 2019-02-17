@@ -10,13 +10,15 @@ import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
 
 public class WebLinksBottomSheetItemsHolder extends BaseBottomSheetItemsHolder {
 
-    WebLinksBottomSheetItemsHolder(@NonNull View itemView, @NonNull BaseBottomSheetItemsAdapter baseBottomSheetItemsAdapter) {
+    WebLinksBottomSheetItemsHolder(@NonNull View itemView,
+                                   @NonNull BaseBottomSheetItemsAdapter baseBottomSheetItemsAdapter) {
         super(itemView, baseBottomSheetItemsAdapter);
     }
 
     @Override
     protected void callItemClick() {
-        WebLinks webLink = (WebLinks) getBaseBottomSheetItemsAdapter().getListItemMarkers().get(getAdapterPosition());
+        WebLinks webLink = (WebLinks) getBaseBottomSheetItemsAdapter()
+                .getListItemMarkers().get(getAdapterPosition());
         String linkToSite = getContext().getString(webLink.getLinkResId());
         AppUtils.openWebLink(getContext(), linkToSite);
         getBaseBottomSheetItemsAdapter().getBaseItemsBottomSheet().dismissAllowingStateLoss();

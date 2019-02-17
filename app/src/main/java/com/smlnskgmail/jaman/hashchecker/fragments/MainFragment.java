@@ -97,19 +97,23 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
             progressDialog = UIUtils.getProgressDialog(context, R.string.message_generate_dialog);
             progressDialog.show();
             if (isTextSelected) {
-                new HashGenerator(hashType, context, fieldSelectedObject.getText().toString(), MainFragment.this, isTextSelected).execute();
+                new HashGenerator(hashType, context, fieldSelectedObject.getText().toString(),
+                        MainFragment.this, isTextSelected).execute();
             } else {
-                new HashGenerator(hashType, context, fileUri, MainFragment.this, isTextSelected).execute();
+                new HashGenerator(hashType, context, fileUri, MainFragment.this,
+                        isTextSelected).execute();
             }
         } else {
-            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_select_object), Snackbar.LENGTH_LONG);
+            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_select_object),
+                    Snackbar.LENGTH_LONG);
         }
     }
 
     private void compareHashes() {
         Context context = getContext();
         if (TextUtils.fieldIsNotEmpty(fieldCustomHash) && TextUtils.fieldIsNotEmpty(fieldGeneratedHash)) {
-            boolean equal = TextUtils.compareText(fieldCustomHash.getText().toString(), fieldGeneratedHash.getText().toString());
+            boolean equal = TextUtils.compareText(fieldCustomHash.getText().toString(),
+                    fieldGeneratedHash.getText().toString());
             UIUtils.showSnackbar(context, mainScreen, equal ? getString(R.string.message_match_result) :
                     getString(R.string.message_do_not_match_result), Snackbar.LENGTH_LONG);
         } else {
@@ -129,21 +133,25 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     public void selectResourceToGenerateHash() {
         ResourcesBottomSheet resourcesBottomSheet = new ResourcesBottomSheet();
         resourcesBottomSheet.setMenuItemCallback(MainFragment.this);
-        resourcesBottomSheet.show(getActivity().getSupportFragmentManager(), Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
+        resourcesBottomSheet.show(getActivity().getSupportFragmentManager(),
+                Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
     }
 
     @OnClick(R.id.button_hash_actions)
     public void selectActionForHashes() {
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
         actionsBottomSheet.setMenuItemCallback(MainFragment.this);
-        actionsBottomSheet.show(getActivity().getSupportFragmentManager(), Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
+        actionsBottomSheet.show(getActivity().getSupportFragmentManager(),
+                Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
     }
 
     private void checkShortcutActionPresence() {
         Bundle shortcutsArguments = getArguments();
         if (shortcutsArguments != null) {
-            startWithTextSelection = shortcutsArguments.getBoolean(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION, false);
-            startWithFileSelection = shortcutsArguments.getBoolean(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION, false);
+            startWithTextSelection = shortcutsArguments
+                    .getBoolean(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION, false);
+            startWithFileSelection = shortcutsArguments
+                    .getBoolean(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION, false);
         }
     }
 
@@ -185,13 +193,15 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
 
     @Override
     public void onBack() {
-        UIUtils.showSnackbar(getContext(), getView().findViewById(R.id.main_screen), getString(R.string.message_exit),
-                getString(R.string.action_exit_now), v -> AppUtils.closeApp(getActivity()), Snackbar.LENGTH_SHORT);
+        UIUtils.showSnackbar(getContext(), getView().findViewById(R.id.main_screen),
+                getString(R.string.message_exit), getString(R.string.action_exit_now),
+                v -> AppUtils.closeApp(getActivity()), Snackbar.LENGTH_SHORT);
     }
 
     private void validateTextCase() {
         boolean useUpperCase = Preferences.useUpperCase(getContext());
-        InputFilter[] fieldFilters = useUpperCase ? new InputFilter[]{new InputFilter.AllCaps()} : new InputFilter[]{};
+        InputFilter[] fieldFilters = useUpperCase
+                ? new InputFilter[]{new InputFilter.AllCaps()} : new InputFilter[]{};
         fieldCustomHash.setFilters(fieldFilters);
         fieldGeneratedHash.setFilters(fieldFilters);
 
@@ -227,8 +237,8 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     }
 
     @Override
-    public void OnFragmentResume() {
-        super.OnFragmentResume();
+    public void resume() {
+        super.resume();
         validateTextCase();
     }
 

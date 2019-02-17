@@ -9,7 +9,8 @@ import com.smlnskgmail.jaman.hashchecker.R;
 public class Preferences {
 
     public static void saveTypeAsLast(@NonNull Context context, @NonNull String value) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit().putString(context.getString(R.string.key_last_type_value), value).apply();
+        PreferenceManager.getDefaultSharedPreferences(context).edit()
+                .putString(context.getString(R.string.key_last_type_value), value).apply();
     }
 
     public static String getLastType(@NonNull Context context) {

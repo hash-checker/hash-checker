@@ -15,7 +15,8 @@ public class HashesBottomSheetItemsAdapter extends BaseBottomSheetItemsAdapter {
 
     private OnHashTypeSelectListener onHashTypeSelectListener;
 
-    public HashesBottomSheetItemsAdapter(@NonNull List<ListItemMarker> bottomSheetItems, @NonNull BaseItemsBottomSheet baseItemsBottomSheet,
+    public HashesBottomSheetItemsAdapter(@NonNull List<ListItemMarker> bottomSheetItems,
+                                         @NonNull BaseItemsBottomSheet baseItemsBottomSheet,
                                          @NonNull OnHashTypeSelectListener onHashTypeSelectListener) {
         super(bottomSheetItems, baseItemsBottomSheet);
         this.onHashTypeSelectListener = onHashTypeSelectListener;
