@@ -80,8 +80,9 @@ public class UIUtils {
         params.setMargins(COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN);
         snackbar.getView().setBackground(ContextCompat.getDrawable(context, R.drawable.bg_snackbar));
 
-        ((TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text))
-                .setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
+        TextView snackbarText = snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+        snackbarText.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
+        snackbarText.setTextColor(ContextCompat.getColor(context, R.color.colorLightText));
         ((TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_action))
                 .setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
         snackbar.show();
