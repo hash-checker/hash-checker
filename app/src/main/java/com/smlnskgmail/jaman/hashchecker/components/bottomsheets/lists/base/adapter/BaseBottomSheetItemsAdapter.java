@@ -18,7 +18,8 @@ public abstract class BaseBottomSheetItemsAdapter extends RecyclerView.Adapter<B
     private BaseItemsBottomSheet baseItemsBottomSheet;
     private List<ListItemMarker> listItemMarkers = new ArrayList<>();
 
-    public BaseBottomSheetItemsAdapter(@NonNull List<ListItemMarker> bottomSheetItems, @NonNull BaseItemsBottomSheet baseItemsBottomSheet) {
+    public BaseBottomSheetItemsAdapter(@NonNull List<ListItemMarker> bottomSheetItems,
+                                       @NonNull BaseItemsBottomSheet baseItemsBottomSheet) {
         this.listItemMarkers.addAll(bottomSheetItems);
         this.baseItemsBottomSheet = baseItemsBottomSheet;
     }

@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import com.smlnskgmail.jaman.hashchecker.fragments.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.MainFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.SettingsFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnCustomResume;
+import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(UIUtils.getThemeResId(this));
         super.onCreate(savedInstanceState);
+        init();
+    }
+
+    private void init() {
         MainFragment mainFragment = new MainFragment();
         String actionFromIntent = getIntent().getAction();
         mainFragment.setArguments(getBundleForShortcutAction(actionFromIntent));
@@ -57,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
             ((OnNavigationListener) fragment).onBack();
         }
         for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
-            if (fragmentInApp instanceof OnCustomResume) {
-                ((OnCustomResume) fragmentInApp).resume();
+            if (fragmentInApp instanceof OnAppResume) {
+                ((OnAppResume) fragmentInApp).resume();
             }
         }
     }
