@@ -42,7 +42,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class MainFragment extends BaseFragment implements TextInputDialog.OnTextValueEnteredListener,
-        HashCalculator.OnHashGeneratorCompleteListener, OnUserActionClickListener, OnHashTypeSelectListener {
+        HashCalculator.OnHashGeneratorCompleteListener, OnUserActionClickListener,
+        OnHashTypeSelectListener {
 
     @BindView(R.id.main_screen)
     protected View mainScreen;
@@ -93,7 +94,8 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     private void generateHash() {
         Context context = getContext();
         if (fileUri != null || isTextSelected) {
-            HashTypes hashType = HashTypes.parseHashTypeFromString(context, selectedHash.getText().toString());
+            HashTypes hashType = HashTypes.parseHashTypeFromString(context,
+                    selectedHash.getText().toString());
             progressDialog = UIUtils.getProgressDialog(context, R.string.message_generate_dialog);
             progressDialog.show();
             if (isTextSelected) {
@@ -117,7 +119,8 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
             UIUtils.showSnackbar(context, mainScreen, equal ? getString(R.string.message_match_result) :
                     getString(R.string.message_do_not_match_result), Snackbar.LENGTH_LONG);
         } else {
-            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_fill_fields), Snackbar.LENGTH_LONG);
+            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_fill_fields),
+                    Snackbar.LENGTH_LONG);
         }
     }
 
@@ -126,7 +129,7 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet();
         generateToBottomSheet.setListItems(Arrays.asList(HashTypes.values()));
         generateToBottomSheet.setOnHashTypeSelectListener(this::onHashTypeSelect);
-        generateToBottomSheet.show(getFragmentManager(), Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
+        generateToBottomSheet.show(getFragmentManager(), Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
     @OnClick(R.id.button_generate_from)
@@ -134,7 +137,7 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
         ResourcesBottomSheet resourcesBottomSheet = new ResourcesBottomSheet();
         resourcesBottomSheet.setMenuItemCallback(MainFragment.this);
         resourcesBottomSheet.show(getActivity().getSupportFragmentManager(),
-                Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
+                Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
     @OnClick(R.id.button_hash_actions)
@@ -142,28 +145,54 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
         actionsBottomSheet.setMenuItemCallback(MainFragment.this);
         actionsBottomSheet.show(getActivity().getSupportFragmentManager(),
-                Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
+                Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
-    private void checkShortcutActionPresence() {
-        Bundle shortcutsArguments = getArguments();
-        if (shortcutsArguments != null) {
-            startWithTextSelection = shortcutsArguments
-                    .getBoolean(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION, false);
-            startWithFileSelection = shortcutsArguments
-                    .getBoolean(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION, false);
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle bundle = getArguments();
+        if (checkArguments(bundle)) {
+            checkShortcutActionPresence(bundle);
         }
     }
 
-    private void validateSelectedFile(@Nullable Intent data) {
-        if (data != null) {
-            Uri uri = data.getData();
-            if (uri != null) {
-                fileUri = uri;
-                isTextSelected = false;
-                String fileName = new File(uri.getPath()).getName();
-                setResult(fileName, false);
-            }
+    @Override
+    public void onPostInitialize() {
+        Bundle bundle = getArguments();
+        if (checkArguments(bundle)) {
+            checkExternalDataPresence(bundle);
+        }
+    }
+
+    private boolean checkArguments(@Nullable Bundle bundle) {
+        return bundle != null;
+    }
+
+    private void checkExternalDataPresence(@NonNull Bundle dataArguments) {
+        String uri = dataArguments.getString(Constants.Data.URI_FROM_EXTERNAL_APP);
+        if (uri != null) {
+            validateSelectedFile(Uri.parse(uri));
+            dataArguments.remove(Constants.Data.URI_FROM_EXTERNAL_APP);
+        }
+    }
+
+    private void checkShortcutActionPresence(@NonNull Bundle shortcutsArguments) {
+        startWithTextSelection = shortcutsArguments
+                .getBoolean(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION, false);
+        startWithFileSelection = shortcutsArguments
+                .getBoolean(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION, false);
+
+        shortcutsArguments.remove(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION);
+        shortcutsArguments.remove(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION);
+    }
+
+    private void validateSelectedFile(@Nullable Uri uri) {
+        if (uri != null) {
+            fileUri = uri;
+            isTextSelected = false;
+            String fileName = new File(uri.getPath()).getName();
+            setResult(fileName, false);
         }
     }
 
@@ -224,7 +253,7 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     }
 
     @Override
-    void initUI(@NonNull View view) {
+    void initializeUI(@NonNull View view) {
         selectedHash.setText(Preferences.getLastType(getContext()));
         fieldSelectedObject.setMovementMethod(new ScrollingMovementMethod());
         if (startWithTextSelection) {
@@ -243,16 +272,13 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        checkShortcutActionPresence();
-    }
-
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.Requests.FILE_SELECT_REQUEST && resultCode == Activity.RESULT_OK) {
-            validateSelectedFile(data);
+            if (data != null) {
+                Uri uri = data.getData();
+                validateSelectedFile(uri);
+            }
         }
     }
 

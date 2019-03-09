@@ -42,7 +42,7 @@ public class FeedbackFragment extends BaseFragment {
     }
 
     @Override
-    void initUI(@NonNull final View view) {
+    void initializeUI(@NonNull final View view) {
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(), R.drawable.ic_close));
         manufacturerValue.setText(Build.MANUFACTURER);

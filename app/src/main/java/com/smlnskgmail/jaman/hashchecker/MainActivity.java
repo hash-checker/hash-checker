@@ -1,5 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker;
 
+import android.content.ContentResolver;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,13 +22,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(UIUtils.getThemeResId(this));
         super.onCreate(savedInstanceState);
-        init();
+        initialize();
     }
 
-    private void init() {
+    private void initialize() {
+        Intent intent = getIntent();
+        String actionFromIntent = intent.getAction();
+        String scheme = intent.getScheme();
+
         MainFragment mainFragment = new MainFragment();
-        String actionFromIntent = getIntent().getAction();
-        mainFragment.setArguments(getBundleForShortcutAction(actionFromIntent));
+        if (scheme != null && scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
+            Bundle bundle = new Bundle();
+            bundle.putString(Constants.Data.URI_FROM_EXTERNAL_APP, intent.getData().toString());
+            mainFragment.setArguments(bundle);
+        } else {
+            mainFragment.setArguments(getBundleForShortcutAction(actionFromIntent));
+        }
+
         UIUtils.showFragment(getSupportFragmentManager(), mainFragment);
     }
 
@@ -56,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.TAGS.CURRENT_FRAGMENT_TAG);
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.Tags.CURRENT_FRAGMENT_TAG);
         if (fragment instanceof OnNavigationListener) {
             ((OnNavigationListener) fragment).onBack();
         }

@@ -33,7 +33,7 @@ public class UIUtils {
 
     public static void showFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(android.R.id.content, fragment, Constants.TAGS.CURRENT_FRAGMENT_TAG)
+        fragmentTransaction.add(android.R.id.content, fragment, Constants.Tags.CURRENT_FRAGMENT_TAG)
                 .addToBackStack(null)
                 .commit();
     }

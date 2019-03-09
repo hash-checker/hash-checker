@@ -19,13 +19,25 @@
         <activity android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT_SELECTION" />
                 <action android:name="com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FILE_SELECTION" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="content" />
+                <data android:host="*" />
+                <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
 

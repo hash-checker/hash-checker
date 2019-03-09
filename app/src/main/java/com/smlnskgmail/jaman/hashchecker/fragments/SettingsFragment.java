@@ -51,7 +51,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
             WebLinksBottomSheet webLinksBottomSheet = new WebLinksBottomSheet();
             webLinksBottomSheet.setListItems(Arrays.asList(WebLinks.SOURCE_CODE, WebLinks.MY_APPS));
             webLinksBottomSheet.show(getActivity().getSupportFragmentManager(),
-                    Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
+                    Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
             return false;
         });
     }
@@ -61,7 +61,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
             ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
             themesBottomSheet.setListItems(Arrays.asList(Themes.values()));
             themesBottomSheet.show(getActivity().getSupportFragmentManager(),
-                    Constants.TAGS.CURRENT_BOTTOM_SHEET_TAG);
+                    Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
             return false;
         });
     }
