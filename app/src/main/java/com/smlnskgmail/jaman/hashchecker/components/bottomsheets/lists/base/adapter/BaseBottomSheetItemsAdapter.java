@@ -28,7 +28,7 @@ public abstract class BaseBottomSheetItemsAdapter extends RecyclerView.Adapter<B
     @Override
     public BaseBottomSheetItemsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return getItemsHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_in_bottom_sheet_list, parent, false));
+                .inflate(R.layout.item_bottom_sheet_list, parent, false));
     }
 
     @Override

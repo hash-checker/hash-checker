@@ -4,6 +4,7 @@
     package="com.smlnskgmail.jaman.hashchecker">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application android:name=".HashCheckerApplication"
         android:allowBackup="false"
@@ -40,6 +41,8 @@
                 <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".components.filemanager.selector.FileSelectorActivity" />
 
     </application>
 

@@ -14,6 +14,7 @@
     <string name="hash_type_sha512" translatable="false">SHA-512</string>
 
     <!-- settings -->
+    <string name="key_app_file_manager" translatable="false">app_file_manager</string>
     <string name="key_vibrate" translatable="false">vibrate</string>
     <string name="key_upper_case" translatable="false">upper_case</string>
     <string name="key_author" translatable="false">key_author</string>

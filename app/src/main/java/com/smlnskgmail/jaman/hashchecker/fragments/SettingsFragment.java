@@ -20,8 +20,8 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Th
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinks;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
-import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
 
 import java.util.Arrays;
 

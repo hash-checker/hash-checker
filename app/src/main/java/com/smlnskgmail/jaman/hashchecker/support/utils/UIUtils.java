@@ -24,8 +24,8 @@ import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
-import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.values.Preferences;
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 
 public class UIUtils {
 

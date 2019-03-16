@@ -15,13 +15,29 @@ import android.view.View;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.selector.FileSelectorActivity;
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 
 public class AppUtils {
 
     private static final int VIBRATION_LENGTH = 30;
 
     public static void searchFile(@NonNull Fragment fragment, @NonNull View view) {
+        Context context = fragment.getContext();
+        if (Preferences.getInnerFileManagerStatus(context)) {
+            openInnerFileManager(context);
+        } else {
+            openDefaultFileManager(fragment, view);
+        }
+    }
+
+    private static void openInnerFileManager(@NonNull Context context) {
+        Intent openExplorerIntent = new Intent(context, FileSelectorActivity.class);
+        context.startActivity(openExplorerIntent);
+    }
+
+    private static void openDefaultFileManager(@NonNull Fragment fragment, @NonNull View view) {
         try {
             Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             openExplorerIntent.addCategory(Intent.CATEGORY_OPENABLE);

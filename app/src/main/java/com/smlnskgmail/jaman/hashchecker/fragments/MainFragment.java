@@ -29,11 +29,11 @@ import com.smlnskgmail.jaman.hashchecker.components.dialogs.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.support.utils.TextUtils;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
-import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.values.Preferences;
 
 import java.io.File;
 import java.util.Arrays;
