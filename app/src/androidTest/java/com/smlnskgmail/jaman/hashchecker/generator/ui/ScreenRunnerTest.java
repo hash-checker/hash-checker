@@ -28,8 +28,8 @@ public class ScreenRunnerTest {
         showBottomSheet(R.id.button_generate_from);
         showBottomSheet(R.id.button_hash_actions);
 
-        showFragment(R.string.menu_settings_title);
-        showFragment(R.string.menu_feedback_title);
+        showFragment(R.string.menu_title_settings);
+        showFragment(R.string.menu_title_feedback);
     }
 
     private void showBottomSheet(int bottomSheetButtonResId) {

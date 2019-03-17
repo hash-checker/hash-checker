@@ -10,7 +10,7 @@
         android:layout_marginTop="@dimen/common_margin_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_title_text"
+        android:text="@string/title_dialog_enter_text"
         android:textColor="?attr/colorCommonText"
         android:textStyle="bold"
         android:textSize="@dimen/text_size_medium" />

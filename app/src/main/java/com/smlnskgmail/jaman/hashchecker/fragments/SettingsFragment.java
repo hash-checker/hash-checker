@@ -78,7 +78,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
     @Override
     public void onResume() {
         super.onResume();
-        UIUtils.setActionBarTitle(actionBar, R.string.menu_settings_title);
+        UIUtils.setActionBarTitle(actionBar, R.string.menu_title_settings);
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 

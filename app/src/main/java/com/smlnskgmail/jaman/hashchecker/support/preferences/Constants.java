@@ -7,6 +7,8 @@ public interface Constants {
         int FILE_SELECT_REQUEST = 1;
         int FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER = 2;
 
+        int PERMISSION_STORAGE_REQUEST = 3;
+
     }
 
     interface RequestData {

@@ -2,11 +2,9 @@ package com.smlnskgmail.jaman.hashchecker.support.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -41,19 +39,6 @@ public class UIUtils {
                 .commit();
     }
 
-    @SuppressLint("ResourceType")
-    @NonNull
-    public static ProgressDialog getProgressDialog(@NonNull Context context,
-                                                   @IdRes int textMessageResId) {
-        ProgressDialog progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage(context.getString(textMessageResId));
-        progressDialog.setIndeterminate(false);
-        progressDialog.setCancelable(false);
-        progressDialog.getWindow()
-                .setBackgroundDrawable(new ColorDrawable(getCommonBackgroundColor(context)));
-        return progressDialog;
-    }
-
     public static void hideKeyboard(@NonNull Context context, @NonNull View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) context
                 .getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -70,9 +55,6 @@ public class UIUtils {
     public static void showSnackbar(@NonNull Context context, @NonNull View parent,
                                     @NonNull String message, int length) {
         showSnackbar(context, parent, message, null, null, length);
-        if (Preferences.getVibrateAccess(context)) {
-            AppUtils.vibrate(context);
-        }
     }
 
     public static void showSnackbar(@NonNull Context context, @NonNull View parent,
@@ -100,6 +82,10 @@ public class UIUtils {
         ((TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_action))
                 .setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
         snackbar.show();
+
+        if (Preferences.getVibrateAccess(context)) {
+            AppUtils.vibrate(context);
+        }
     }
 
     public static void applyAdaptiveFontWithBoldStyle(@NonNull Context context, @NonNull TextView textView) {

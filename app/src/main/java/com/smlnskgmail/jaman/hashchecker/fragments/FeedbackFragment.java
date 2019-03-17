@@ -78,7 +78,7 @@ public class FeedbackFragment extends BaseFragment {
 
     @Override
     int getActionBarTitleResId() {
-        return R.string.menu_feedback_title;
+        return R.string.menu_title_feedback;
     }
 
     @Override

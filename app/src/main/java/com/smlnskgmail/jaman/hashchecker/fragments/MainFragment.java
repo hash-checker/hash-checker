@@ -1,16 +1,19 @@
 package com.smlnskgmail.jaman.hashchecker.fragments;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.text.InputFilter;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -26,7 +29,9 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.Actio
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ResourcesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionTypes;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.TextInputDialog;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.custom.TextInputDialog;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
 import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
@@ -83,7 +88,7 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
                 enterText();
                 break;
             case SEARCH_FILE:
-                AppUtils.searchFile(this, mainScreen);
+                searchFile();
                 break;
             case GENERATE_HASH:
                 generateHash();
@@ -94,12 +99,25 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
         }
     }
 
+    private void searchFile() {
+        if (Preferences.getInnerFileManagerStatus(context)) {
+            if (ContextCompat.checkSelfPermission(context,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                requestStoragePermission();
+            } else {
+                AppUtils.openInnerFileManager(this);
+            }
+        } else {
+            AppUtils.openDefaultFileManager(this, mainScreen);
+        }
+    }
+
     @SuppressLint("ResourceType")
     private void generateHash() {
         if (fileUri != null || isTextSelected) {
             HashTypes hashType = HashTypes.parseHashTypeFromString(context,
                     selectedHash.getText().toString());
-            progressDialog = UIUtils.getProgressDialog(context, R.string.message_generate_dialog);
+            progressDialog = AppProgressDialog.getDialog(context, R.string.message_generate_dialog);
             progressDialog.show();
             if (isTextSelected) {
                 new HashGenerator(hashType, context, fieldSelectedObject.getText().toString(),
@@ -265,6 +283,36 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
             onUserActionClick(UserActionTypes.SEARCH_FILE);
             startWithFileSelection = false;
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == Constants.Requests.PERMISSION_STORAGE_REQUEST) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                searchFile();
+            } else {
+                if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    UIUtils.showSnackbar(context, mainScreen,
+                            getString(R.string.message_request_storage_permission_error),
+                            getString(R.string.common_again), v -> {
+                                requestStoragePermission();
+                            }, Snackbar.LENGTH_LONG);
+                } else {
+                    AppAlertDialog.show(context, R.string.title_permission_dialog,
+                            R.string.message_request_storage_permission_denied,
+                            R.string.menu_title_settings, (dialog, which) -> {
+                                AppUtils.openAppSettings(getActivity());
+                            });
+                }
+            }
+        }
+    }
+
+    private void requestStoragePermission() {
+        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                Constants.Requests.PERMISSION_STORAGE_REQUEST);
     }
 
     @Override
