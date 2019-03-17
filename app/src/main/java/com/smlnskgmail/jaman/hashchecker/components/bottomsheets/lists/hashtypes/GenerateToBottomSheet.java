@@ -12,7 +12,8 @@ public class GenerateToBottomSheet extends BaseItemsBottomSheet {
 
     @Override
     public BaseBottomSheetItemsAdapter getItemsAdapter() {
-        return new HashesBottomSheetItemsAdapter(getListItems(), this, onHashTypeSelectListener);
+        return new HashesBottomSheetItemsAdapter(getListItems(), this,
+                onHashTypeSelectListener);
     }
 
     public void setOnHashTypeSelectListener(@NonNull OnHashTypeSelectListener onHashTypeSelectListener) {

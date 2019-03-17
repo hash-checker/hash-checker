@@ -62,7 +62,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.Tags.CURRENT_FRAGMENT_TAG);
+        Fragment fragment = getSupportFragmentManager()
+                .findFragmentByTag(Constants.Tags.CURRENT_FRAGMENT_TAG);
         if (fragment instanceof OnNavigationListener) {
             ((OnNavigationListener) fragment).onBack();
         }

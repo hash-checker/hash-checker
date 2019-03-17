@@ -31,7 +31,8 @@ public class ThemesBottomSheetItemsHolder extends BaseBottomSheetItemsHolder {
     }
 
     private void showWarningDialog() {
-        AlertDialog warningMessageDialog = new AlertDialog.Builder(getContext(), R.style.AppAlertDialog)
+        AlertDialog warningMessageDialog = new AlertDialog.Builder(getContext(),
+                R.style.AppAlertDialog)
                 .setTitle(R.string.title_warning_dialog)
                 .setMessage(R.string.message_change_theme)
                 .setPositiveButton(R.string.common_ok, (dialog, which) -> {

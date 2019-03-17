@@ -24,7 +24,8 @@ public class HashesBottomSheetItemsAdapter extends BaseBottomSheetItemsAdapter {
 
     @Override
     public BaseBottomSheetItemsHolder getItemsHolder(@NonNull View view) {
-        return new HashesBottomSheetItemsHolder(view, this, onHashTypeSelectListener);
+        return new HashesBottomSheetItemsHolder(view, this,
+                onHashTypeSelectListener);
     }
 
 }

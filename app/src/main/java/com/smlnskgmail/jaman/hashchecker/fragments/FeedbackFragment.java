@@ -32,11 +32,13 @@ public class FeedbackFragment extends BaseFragment {
     public void addDeviceInfo(boolean addInfo) {
         Context context = getContext();
 
-        int titleColor = addInfo ? UIUtils.getDarkTextColor(context) : UIUtils.getUnselectedColor(context);
+        int titleColor = addInfo ? UIUtils.getDarkTextColor(context)
+                : UIUtils.getUnselectedColor(context);
         manufacturerTitle.setTextColor(titleColor);
         modelTitle.setTextColor(titleColor);
 
-        int valueColor = addInfo ? UIUtils.getAccentColor(context) : UIUtils.getUnselectedColor(context);
+        int valueColor = addInfo ? UIUtils.getAccentColor(context)
+                : UIUtils.getUnselectedColor(context);
         manufacturerValue.setTextColor(titleColor);
         modelValue.setTextColor(titleColor);
     }
@@ -56,10 +58,13 @@ public class FeedbackFragment extends BaseFragment {
             return true;
         } else if (item.getItemId() == R.id.send_feedback) {
             StringBuilder feedbackText = new StringBuilder(feedbackEdit.getText().toString());
-            feedbackText.append("\n\n").append(String.format("%s (%s)", BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+            feedbackText.append("\n\n").append(String.format("%s (%s)", BuildConfig.VERSION_NAME,
+                    BuildConfig.VERSION_CODE));
             if (addDeviceInfo.isChecked()) {
-                feedbackText.append("\n\n").append(String.format("%s %s (%s)", Build.MANUFACTURER, Build.MODEL,
-                        Build.VERSION_CODES.class.getFields()[android.os.Build.VERSION.SDK_INT].getName()));
+                feedbackText.append("\n\n").append(String.format("%s %s (%s)", Build.MANUFACTURER,
+                        Build.MODEL,
+                        Build.VERSION_CODES.class.getFields()
+                                [android.os.Build.VERSION.SDK_INT].getName()));
             }
             AppUtils.sendEMail(getContext(), feedbackText.toString(), getString(R.string.common_email));
         }
@@ -72,7 +77,7 @@ public class FeedbackFragment extends BaseFragment {
     }
 
     @Override
-    int getTitleResId() {
+    int getActionBarTitleResId() {
         return R.string.menu_feedback_title;
     }
 

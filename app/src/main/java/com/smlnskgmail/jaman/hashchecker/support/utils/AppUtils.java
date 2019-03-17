@@ -26,15 +26,16 @@ public class AppUtils {
     public static void searchFile(@NonNull Fragment fragment, @NonNull View view) {
         Context context = fragment.getContext();
         if (Preferences.getInnerFileManagerStatus(context)) {
-            openInnerFileManager(context);
+            openInnerFileManager(fragment);
         } else {
             openDefaultFileManager(fragment, view);
         }
     }
 
-    private static void openInnerFileManager(@NonNull Context context) {
-        Intent openExplorerIntent = new Intent(context, FileSelectorActivity.class);
-        context.startActivity(openExplorerIntent);
+    private static void openInnerFileManager(@NonNull Fragment fragment) {
+        Intent openExplorerIntent = new Intent(fragment.getContext(), FileSelectorActivity.class);
+        fragment.startActivityForResult(openExplorerIntent,
+                Constants.Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER);
     }
 
     private static void openDefaultFileManager(@NonNull Fragment fragment, @NonNull View view) {
@@ -42,7 +43,8 @@ public class AppUtils {
             Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             openExplorerIntent.addCategory(Intent.CATEGORY_OPENABLE);
             openExplorerIntent.setType("*/*");
-            fragment.startActivityForResult(openExplorerIntent, Constants.Requests.FILE_SELECT_REQUEST);
+            fragment.startActivityForResult(openExplorerIntent,
+                    Constants.Requests.FILE_SELECT_REQUEST);
         } catch (ActivityNotFoundException e) {
             UIUtils.showSnackbar(fragment.getContext(), view,
                     fragment.getString(R.string.message_error_start_file_selector), Snackbar.LENGTH_LONG);
@@ -64,7 +66,8 @@ public class AppUtils {
     static void vibrate(@NonNull Context context) {
         Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            v.vibrate(VibrationEffect.createOneShot(VIBRATION_LENGTH, VibrationEffect.DEFAULT_AMPLITUDE));
+            v.vibrate(VibrationEffect.createOneShot(VIBRATION_LENGTH,
+                    VibrationEffect.DEFAULT_AMPLITUDE));
         }else{
             v.vibrate(VIBRATION_LENGTH);
         }

@@ -5,6 +5,13 @@ public interface Constants {
     interface Requests {
 
         int FILE_SELECT_REQUEST = 1;
+        int FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER = 2;
+
+    }
+
+    interface RequestData {
+
+        String FILE_SELECT_DATA = "file_select_data";
 
     }
 
@@ -34,6 +41,12 @@ public interface Constants {
     interface Data {
 
         String URI_FROM_EXTERNAL_APP = "com.smlnskgmail.jaman.hashchecker.URI_FROM_EXTERNAL_APP";
+
+    }
+
+    interface FileNames {
+
+        String BACK_FOLDER = "../";
 
     }
 

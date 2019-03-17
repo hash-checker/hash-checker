@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.filemanager.selector;
+package com.smlnskgmail.jaman.hashchecker.components.filemanager.selector.pathadapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.selector.OnFileClickListener;
 
 import java.util.List;
 
@@ -15,8 +16,8 @@ public class FileDialogAdapter extends RecyclerView.Adapter<FileDialogHolder> {
     private OnFileClickListener onFileClickListener;
     private List<FileItem> fileItems;
 
-    FileDialogAdapter(@NonNull List<FileItem> fileElements,
-                      @NonNull OnFileClickListener onFileClickListener) {
+    public FileDialogAdapter(@NonNull List<FileItem> fileElements,
+                             @NonNull OnFileClickListener onFileClickListener) {
         this.fileItems = fileElements;
         this.onFileClickListener = onFileClickListener;
     }

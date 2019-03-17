@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -28,11 +29,13 @@ import java.util.Arrays;
 public class SettingsFragment extends PreferenceFragmentCompat implements OnNavigationListener {
 
     private ActionBar actionBar;
+    private FragmentManager fragmentManager;
 
     @SuppressLint("ResourceType")
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.settings);
+        fragmentManager = getActivity().getSupportFragmentManager();
         initializeActionBar();
         initializeAuthorLinks();
         initializeThemes();
@@ -50,8 +53,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
         findPreference(getString(R.string.key_author)).setOnPreferenceClickListener(preference -> {
             WebLinksBottomSheet webLinksBottomSheet = new WebLinksBottomSheet();
             webLinksBottomSheet.setListItems(Arrays.asList(WebLinks.SOURCE_CODE, WebLinks.MY_APPS));
-            webLinksBottomSheet.show(getActivity().getSupportFragmentManager(),
-                    Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
+            webLinksBottomSheet.show(fragmentManager, Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
             return false;
         });
     }
@@ -60,8 +62,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
         findPreference(getString(R.string.key_theme)).setOnPreferenceClickListener(preference -> {
             ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
             themesBottomSheet.setListItems(Arrays.asList(Themes.values()));
-            themesBottomSheet.show(getActivity().getSupportFragmentManager(),
-                    Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
+            themesBottomSheet.show(fragmentManager, Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
             return false;
         });
     }
@@ -77,7 +78,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
     @Override
     public void onResume() {
         super.onResume();
-        actionBar.setTitle(R.string.menu_settings_title);
+        UIUtils.setActionBarTitle(actionBar, R.string.menu_settings_title);
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
@@ -97,7 +98,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
 
     @Override
     public void onBack() {
-        UIUtils.removeFragment(getActivity().getSupportFragmentManager(), this);
+        UIUtils.removeFragment(fragmentManager, this);
     }
 
 }

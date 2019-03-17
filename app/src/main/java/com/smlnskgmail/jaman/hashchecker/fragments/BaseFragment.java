@@ -21,6 +21,7 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.CustomTypefaceSpan;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
+import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 import butterknife.ButterKnife;
 
@@ -53,7 +54,7 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         if (actionBar == null) {
             actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         }
-        actionBar.setTitle(getTitleResId());
+        UIUtils.setActionBarTitle(actionBar, getActionBarTitleResId());
         actionBar.setDisplayHomeAsUpEnabled(setBackActionIcon());
     }
 
@@ -95,7 +96,7 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         menuItem.setTitle(title);
     }
 
-    abstract int getTitleResId();
+    abstract int getActionBarTitleResId();
     abstract boolean setBackActionIcon();
 
     @Nullable

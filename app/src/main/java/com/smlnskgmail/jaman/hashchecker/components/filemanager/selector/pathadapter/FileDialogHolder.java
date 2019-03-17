@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.filemanager.selector;
+package com.smlnskgmail.jaman.hashchecker.components.filemanager.selector.pathadapter;
 
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.selector.OnFileClickListener;
 
 class FileDialogHolder extends RecyclerView.ViewHolder {
 
@@ -22,32 +23,9 @@ class FileDialogHolder extends RecyclerView.ViewHolder {
 
     void bind(@NonNull FileItem file) {
         itemFile.setText(file.getFileName());
-        int iconResId;
-        switch (file.getFileType()) {
-            case VIDEO:
-                iconResId = R.drawable.ic_video_label;
-                break;
-            case IMAGE:
-                iconResId = R.drawable.ic_image;
-                break;
-            case MUSIC:
-                iconResId = R.drawable.ic_music_note;
-                break;
-            case FOLDER:
-                iconResId = R.drawable.ic_folder;
-                break;
-            case BACK_FOLDER:
-                iconResId = R.drawable.ic_arrow_back;
-                break;
-            case STORAGE:
-                iconResId = R.drawable.ic_settings_file_manager;
-                break;
-            default:
-                iconResId = R.drawable.ic_file;
-                break;
-        }
         itemFile.setCompoundDrawablesRelativeWithIntrinsicBounds(ContextCompat
-                .getDrawable(itemView.getContext(), iconResId), null, null, null);
+                .getDrawable(itemView.getContext(), file.getFileType().getIconResId()),
+                null, null, null);
         itemView.setOnClickListener(v -> {
             onFileClickListener.onFileClick(file, getAdapterPosition());
         });

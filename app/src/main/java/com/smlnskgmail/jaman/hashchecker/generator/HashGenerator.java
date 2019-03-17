@@ -32,7 +32,8 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
         this.fileUri = fileUri;
     }
 
-    public HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull String textValue,
+    public HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context,
+                         @NonNull String textValue,
                          @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener,
                          boolean isText) {
         this(hashTypes, context, onCompleteListener, isText);

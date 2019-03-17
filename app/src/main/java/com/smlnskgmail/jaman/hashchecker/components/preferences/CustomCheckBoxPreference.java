@@ -13,7 +13,8 @@ public class CustomCheckBoxPreference extends CheckBoxPreference {
         super(context, attrs, defStyleAttr);
     }
 
-    public CustomCheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CustomCheckBoxPreference(Context context, AttributeSet attrs,
+                                    int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
@@ -27,7 +28,8 @@ public class CustomCheckBoxPreference extends CheckBoxPreference {
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
-        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title), true);
+        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title),
+                true);
         super.onBindViewHolder(holder);
     }
 

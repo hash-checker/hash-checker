@@ -6,23 +6,61 @@ import android.support.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileType;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
 public class FileUtils {
 
+    private static List<String> VIDEO_EXTENSIONS = new ArrayList<>(Arrays.asList(
+            ".3gp",
+            ".mp4",
+            ".mkv",
+            ".webm"));
+
+    private static List<String> IMAGE_EXTENSIONS = new ArrayList<>(Arrays.asList(
+            ".bmp",
+            ".gif",
+            ".jpg",
+            ".png",
+            ".webp",
+            ".heic",
+            ".heif"));
+
+    private static List<String> SOUND_EXTENSIONS = new ArrayList<>(Arrays.asList(
+            ".m4a",
+            ".aac",
+            ".tc",
+            ".flac",
+            ".gsm",
+            ".mid",
+            ".xmf",
+            ".mxmf",
+            ".rtttl",
+            ".rtx",
+            ".ota",
+            ".imy",
+            ".mp3",
+            ".wav",
+            ".ogg"));
+
     public static boolean isVideo(@NonNull String fileName) {
-        return true;
+        return VIDEO_EXTENSIONS.contains(getFileExtension(fileName));
     }
 
     public static boolean isImage(@NonNull String fileName) {
-        return true;
+        return IMAGE_EXTENSIONS.contains(getFileExtension(fileName));
     }
 
     public static boolean isSound(@NonNull String fileName) {
-        return true;
+        return SOUND_EXTENSIONS.contains(getFileExtension(fileName));
+    }
+
+    private static String getFileExtension(@NonNull String fileName) {
+        return fileName.substring(fileName.lastIndexOf("."));
     }
 
     public static List<FileItem> getExternalMounts() {
@@ -78,8 +116,11 @@ public class FileUtils {
                                         }
                                     }
                                     if (!equalState) {
-                                        storages.add(new FileItem(FileType.STORAGE, storageName,
-                                                "/storage/" + storageName));
+                                        String storagePath = "/storage/" + storageName;
+                                        if (new File(storagePath).isDirectory()) {
+                                            storages.add(new FileItem(FileType.STORAGE, storagePath,
+                                                    storageName));
+                                        }
                                     }
                                 }
                         }

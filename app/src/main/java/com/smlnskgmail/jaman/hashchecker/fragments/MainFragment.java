@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.text.InputFilter;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -69,6 +70,9 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     private ProgressDialog progressDialog;
     private Uri fileUri;
 
+    private Context context;
+    private FragmentManager fragmentManager;
+
     private boolean isTextSelected;
     private boolean startWithTextSelection, startWithFileSelection;
 
@@ -92,7 +96,6 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
 
     @SuppressLint("ResourceType")
     private void generateHash() {
-        Context context = getContext();
         if (fileUri != null || isTextSelected) {
             HashTypes hashType = HashTypes.parseHashTypeFromString(context,
                     selectedHash.getText().toString());
@@ -112,7 +115,6 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     }
 
     private void compareHashes() {
-        Context context = getContext();
         if (TextUtils.fieldIsNotEmpty(fieldCustomHash) && TextUtils.fieldIsNotEmpty(fieldGeneratedHash)) {
             boolean equal = TextUtils.compareText(fieldCustomHash.getText().toString(),
                     fieldGeneratedHash.getText().toString());
@@ -128,7 +130,7 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     public void selectHashTypeFromList() {
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet();
         generateToBottomSheet.setListItems(Arrays.asList(HashTypes.values()));
-        generateToBottomSheet.setOnHashTypeSelectListener(this::onHashTypeSelect);
+        generateToBottomSheet.setOnHashTypeSelectListener(this);
         generateToBottomSheet.show(getFragmentManager(), Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
@@ -136,16 +138,14 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     public void selectResourceToGenerateHash() {
         ResourcesBottomSheet resourcesBottomSheet = new ResourcesBottomSheet();
         resourcesBottomSheet.setMenuItemCallback(MainFragment.this);
-        resourcesBottomSheet.show(getActivity().getSupportFragmentManager(),
-                Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
+        resourcesBottomSheet.show(fragmentManager, Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
     @OnClick(R.id.button_hash_actions)
     public void selectActionForHashes() {
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
         actionsBottomSheet.setMenuItemCallback(MainFragment.this);
-        actionsBottomSheet.show(getActivity().getSupportFragmentManager(),
-                Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
+        actionsBottomSheet.show(fragmentManager, Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
     @Override
@@ -217,18 +217,18 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
 
     private void enterText() {
         String currentText = !isTextSelected ? null : fieldSelectedObject.getText().toString();
-        new TextInputDialog(getContext(), MainFragment.this, currentText).show();
+        new TextInputDialog(context, MainFragment.this, currentText).show();
     }
 
     @Override
     public void onBack() {
-        UIUtils.showSnackbar(getContext(), getView().findViewById(R.id.main_screen),
+        UIUtils.showSnackbar(context, getView().findViewById(R.id.main_screen),
                 getString(R.string.message_exit), getString(R.string.action_exit_now),
                 v -> AppUtils.closeApp(getActivity()), Snackbar.LENGTH_SHORT);
     }
 
     private void validateTextCase() {
-        boolean useUpperCase = Preferences.useUpperCase(getContext());
+        boolean useUpperCase = Preferences.useUpperCase(context);
         InputFilter[] fieldFilters = useUpperCase
                 ? new InputFilter[]{new InputFilter.AllCaps()} : new InputFilter[]{};
         fieldCustomHash.setFilters(fieldFilters);
@@ -248,13 +248,15 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
 
     @Override
     public void onHashTypeSelect(@NonNull HashTypes hashType) {
-        selectedHash.setText(hashType.getTypeAsString(getContext()));
-        Preferences.saveTypeAsLast(getContext(), hashType.getTypeAsString(getContext()));
+        selectedHash.setText(hashType.getTypeAsString(context));
+        Preferences.saveTypeAsLast(context, hashType.getTypeAsString(context));
     }
 
     @Override
     void initializeUI(@NonNull View view) {
-        selectedHash.setText(Preferences.getLastType(getContext()));
+        context = getContext();
+        fragmentManager = getActivity().getSupportFragmentManager();
+        selectedHash.setText(Preferences.getLastType(context));
         fieldSelectedObject.setMovementMethod(new ScrollingMovementMethod());
         if (startWithTextSelection) {
             onUserActionClick(UserActionTypes.ENTER_TEXT);
@@ -274,11 +276,30 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Constants.Requests.FILE_SELECT_REQUEST && resultCode == Activity.RESULT_OK) {
-            if (data != null) {
-                Uri uri = data.getData();
-                validateSelectedFile(uri);
-            }
+        switch (requestCode) {
+            case Constants.Requests.FILE_SELECT_REQUEST:
+                if (resultCode == Activity.RESULT_OK) {
+                    selectFileFromSystemFileManager(data);
+                }
+                break;
+            case Constants.Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER:
+                selectFileFromAppFileManager(data);
+                break;
+        }
+    }
+
+    private void selectFileFromSystemFileManager(@Nullable Intent data) {
+        if (data != null) {
+            Uri uri = data.getData();
+            validateSelectedFile(uri);
+        }
+    }
+
+    private void selectFileFromAppFileManager(@Nullable Intent data) {
+        if (data != null) {
+            Uri uri = Uri.fromFile(new File(data
+                    .getStringExtra(Constants.RequestData.FILE_SELECT_DATA)));
+            validateSelectedFile(uri);
         }
     }
 
@@ -288,7 +309,7 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     }
 
     @Override
-    int getTitleResId() {
+    int getActionBarTitleResId() {
         return R.string.app_name;
     }
 

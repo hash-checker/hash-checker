@@ -9,7 +9,8 @@ import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 public class CustomPreference extends Preference {
 
-    public CustomPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CustomPreference(Context context, AttributeSet attrs, int defStyleAttr,
+                            int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
@@ -27,8 +28,10 @@ public class CustomPreference extends Preference {
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
-        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title), true);
-        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.summary), true);
+        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title),
+                true);
+        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.summary),
+                true);
         super.onBindViewHolder(holder);
     }
 

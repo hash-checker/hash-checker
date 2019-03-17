@@ -8,7 +8,8 @@ public class FileItem {
     private String filePath;
     private String fileName;
 
-    public FileItem(@NonNull FileType fileType, @NonNull String filePath, @NonNull String fileName) {
+    public FileItem(@NonNull FileType fileType, @NonNull String filePath,
+                    @NonNull String fileName) {
         this.fileType = fileType;
         this.filePath = filePath;
         this.fileName = fileName;

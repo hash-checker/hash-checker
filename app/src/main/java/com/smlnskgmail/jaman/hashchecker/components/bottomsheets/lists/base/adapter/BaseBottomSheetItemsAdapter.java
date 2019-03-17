@@ -13,7 +13,8 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.List
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseBottomSheetItemsAdapter extends RecyclerView.Adapter<BaseBottomSheetItemsHolder> {
+public abstract class BaseBottomSheetItemsAdapter
+        extends RecyclerView.Adapter<BaseBottomSheetItemsHolder> {
 
     private BaseItemsBottomSheet baseItemsBottomSheet;
     private List<ListItemMarker> listItemMarkers = new ArrayList<>();

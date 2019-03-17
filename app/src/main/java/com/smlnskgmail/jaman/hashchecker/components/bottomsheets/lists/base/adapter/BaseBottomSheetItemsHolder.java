@@ -24,7 +24,9 @@ public abstract class BaseBottomSheetItemsHolder extends RecyclerView.ViewHolder
 
     private Context context;
 
-    protected BaseBottomSheetItemsHolder(@NonNull View itemView, @NonNull BaseBottomSheetItemsAdapter baseBottomSheetItemsAdapter) {
+    protected BaseBottomSheetItemsHolder(@NonNull View itemView,
+                                         @NonNull BaseBottomSheetItemsAdapter
+                                                 baseBottomSheetItemsAdapter) {
         super(itemView);
         ButterKnife.bind(this, itemView);
         this.baseBottomSheetItemsAdapter = baseBottomSheetItemsAdapter;
@@ -37,12 +39,14 @@ public abstract class BaseBottomSheetItemsHolder extends RecyclerView.ViewHolder
         if (primaryIconResId != -1) {
             bottomSheetPrimaryIcon.setImageResource(listItemMarker.getPrimaryIconResId());
         }
-        bottomSheetPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState() ? View.VISIBLE : View.GONE);
+        bottomSheetPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState()
+                ? View.VISIBLE : View.GONE);
         int additionalIconResId = listItemMarker.getAdditionalIconResId();
         if (additionalIconResId != -1) {
             bottomSheetItemAdditionalIcon.setImageResource(listItemMarker.getAdditionalIconResId());
         }
-        bottomSheetItemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState() ? View.VISIBLE : View.GONE);
+        bottomSheetItemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState()
+                ? View.VISIBLE : View.GONE);
     }
 
     protected boolean getConditionToPrimaryIconVisibleState() {
