@@ -1,30 +1,41 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.BaseBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionTypes;
+import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
-import butterknife.OnClick;
+import butterknife.BindView;
 
 public class ActionsBottomSheet extends BaseBottomSheet {
 
     private OnUserActionClickListener menuItemCallback;
 
+    @BindView(R.id.button_generate)
+    protected TextView buttonGenerate;
+
+    @BindView(R.id.button_compare)
+    protected TextView buttonCompare;
+
     public void setMenuItemCallback(@NonNull OnUserActionClickListener menuItemCallback) {
         this.menuItemCallback = menuItemCallback;
     }
 
-    @OnClick(R.id.button_generate)
-    public void generate() {
-        selectAction(UserActionTypes.GENERATE_HASH);
-    }
+    @Override
+    public void initUI() {
+        Context context = getContext();
+        UIUtils.colorizeImageSourceToAccentColor(context,
+                buttonGenerate.getCompoundDrawablesRelative()[0]);
+        UIUtils.colorizeImageSourceToAccentColor(context,
+                buttonCompare.getCompoundDrawablesRelative()[0]);
 
-    @OnClick(R.id.button_compare)
-    public void compare() {
-        selectAction(UserActionTypes.COMPARE_HASHES);
+        buttonGenerate.setOnClickListener(v -> selectAction(UserActionTypes.GENERATE_HASH));
+        buttonCompare.setOnClickListener(v -> selectAction(UserActionTypes.COMPARE_HASHES));
     }
 
     private void selectAction(@NonNull UserActionTypes userActionType) {

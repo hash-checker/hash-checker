@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -100,6 +102,11 @@ public class UIUtils {
         if (useThemeColor) {
             textView.setTextColor(UIUtils.getDarkTextColor(context));
         }
+    }
+
+    public static void colorizeImageSourceToAccentColor(@NonNull Context context,
+                                                        @NonNull Drawable drawable) {
+        drawable.setColorFilter(getAccentColor(context), PorterDuff.Mode.SRC_ATOP);
     }
 
     public static int getThemeResId(@NonNull Context context) {

@@ -28,6 +28,20 @@
         <item name="android:windowLightNavigationBar">false</item>
     </style>
 
+    <style name="AppThemeMangoBay" parent="AppTheme">
+        <item name="colorPrimary">#F7F7F7</item>
+        <item name="colorPrimaryDark">#ECEEE2</item>
+        <item name="colorAccent">#6CDAE2</item>
+        <item name="colorAccentSupport">#6CDAE2</item>
+        <item name="colorCommonSnackbarBackground">#323232</item>
+        <item name="colorCommonText">@android:color/black</item>
+        <item name="colorCommonUnselected">#BDBDBD</item>
+        <item name="colorCommonBackground">@android:color/white</item>
+        <item name="colorCommonBottomSheetBackground">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:statusBarColor">?attr/colorPrimary</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialog</item>

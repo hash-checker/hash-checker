@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +31,9 @@ public abstract class BaseBottomSheetItemsHolder extends RecyclerView.ViewHolder
         super(itemView);
         ButterKnife.bind(this, itemView);
         this.baseBottomSheetItemsAdapter = baseBottomSheetItemsAdapter;
-        context = itemView.getContext();
+
+        // Context with current theme
+        context = this.baseBottomSheetItemsAdapter.getBaseItemsBottomSheet().getContext();
     }
 
     void bind(@NonNull final ListItemMarker listItemMarker) {
@@ -38,12 +41,15 @@ public abstract class BaseBottomSheetItemsHolder extends RecyclerView.ViewHolder
         int primaryIconResId = listItemMarker.getPrimaryIconResId();
         if (primaryIconResId != -1) {
             bottomSheetPrimaryIcon.setImageResource(listItemMarker.getPrimaryIconResId());
+            UIUtils.colorizeImageSourceToAccentColor(context, bottomSheetPrimaryIcon.getDrawable());
         }
         bottomSheetPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState()
                 ? View.VISIBLE : View.GONE);
         int additionalIconResId = listItemMarker.getAdditionalIconResId();
         if (additionalIconResId != -1) {
             bottomSheetItemAdditionalIcon.setImageResource(listItemMarker.getAdditionalIconResId());
+            UIUtils.colorizeImageSourceToAccentColor(context,
+                    bottomSheetItemAdditionalIcon.getDrawable());
         }
         bottomSheetItemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState()
                 ? View.VISIBLE : View.GONE);

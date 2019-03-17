@@ -10,7 +10,8 @@ import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 public enum Themes implements ListItemMarker {
 
     LIGHT(R.string.title_theme_light, R.drawable.ic_settings_theme, R.style.AppThemeLight),
-    DARK(R.string.title_theme_dark, R.drawable.ic_settings_theme, R.style.AppThemeDark);
+    DARK(R.string.title_theme_dark, R.drawable.ic_settings_theme, R.style.AppThemeDark),
+    MANGO_BAY(R.string.title_theme_mango_bay, R.drawable.ic_settings_theme, R.style.AppThemeMangoBay);
 
     private int titleResId, iconResId, themeResId;
 
