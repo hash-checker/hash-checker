@@ -16,7 +16,7 @@ import android.view.View;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.filemanager.selector.FileSelectorActivity;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.FileExplorerActivity;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
 
 public class AppUtils {
@@ -24,7 +24,7 @@ public class AppUtils {
     private static final int VIBRATION_LENGTH = 30;
 
     public static void openInnerFileManager(@NonNull Fragment fragment) {
-        Intent openExplorerIntent = new Intent(fragment.getContext(), FileSelectorActivity.class);
+        Intent openExplorerIntent = new Intent(fragment.getContext(), FileExplorerActivity.class);
         fragment.startActivityForResult(openExplorerIntent,
                 Constants.Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER);
     }

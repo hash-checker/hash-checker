@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.filemanager.selector.pathadapter;
+package com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.dataadapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
-import com.smlnskgmail.jaman.hashchecker.components.filemanager.selector.OnFileClickListener;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.OnFileClickListener;
 
 import java.util.List;
 

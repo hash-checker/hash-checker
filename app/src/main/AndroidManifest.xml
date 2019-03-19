@@ -42,7 +42,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".components.filemanager.selector.FileSelectorActivity" />
+        <activity android:name=".components.filemanager.explorer.FileExplorerActivity" />
 
     </application>
 

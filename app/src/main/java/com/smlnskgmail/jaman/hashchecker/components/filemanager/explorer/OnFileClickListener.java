@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.filemanager.selector;
+package com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer;
 
 import android.support.annotation.NonNull;
 

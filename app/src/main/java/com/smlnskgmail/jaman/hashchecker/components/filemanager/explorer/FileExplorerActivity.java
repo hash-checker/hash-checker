@@ -1,7 +1,6 @@
-package com.smlnskgmail.jaman.hashchecker.components.filemanager.selector;
+package com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer;
 
 import android.content.Intent;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -11,7 +10,7 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileType;
-import com.smlnskgmail.jaman.hashchecker.components.filemanager.selector.pathadapter.FileDialogAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.dataadapter.FileDialogAdapter;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.utils.FileUtils;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
@@ -24,7 +23,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FileSelectorActivity extends BaseActivity implements OnFileClickListener {
+public class FileExplorerActivity extends BaseActivity implements OnFileClickListener {
 
     @BindView(R.id.files_list)
     protected RecyclerView filesList;
@@ -35,31 +34,18 @@ public class FileSelectorActivity extends BaseActivity implements OnFileClickLis
     private List<FileItem> storages = new ArrayList<>();
 
     private String currentPath = null;
-    private String startPath;
 
     @Override
     public void initialize() {
         setContentView(R.layout.activity_file_selector);
         ButterKnife.bind(this);
-        UIUtils.setActionBarTitle(getSupportActionBar(),
-                R.string.file_manager_select_storage_title);
+        resetTitle();
 
-        fileDialogAdapter = new FileDialogAdapter(files, FileSelectorActivity.this);
+        fileDialogAdapter = new FileDialogAdapter(files, FileExplorerActivity.this);
         filesList.setAdapter(fileDialogAdapter);
 
         storages = FileUtils.getExternalMounts();
-        if (startPath != null && !startPath.equals(Environment
-                .getExternalStorageDirectory().getPath())) {
-            currentPath = startPath;
-            getDirectory(startPath);
-        } else {
-            startPath = null;
-            toStorageChooser();
-        }
-    }
-
-    private boolean isStorageSelector() {
-        return currentPath.equals(startPath);
+        toStorageChooser();
     }
 
     private void getDirectory(@NonNull final String directoryPath) {
@@ -69,10 +55,8 @@ public class FileSelectorActivity extends BaseActivity implements OnFileClickLis
         File f = new File(currentPath);
         File[] files = f.listFiles();
 
-        if (!isStorageSelector()) {
-            this.files.add(new FileItem(FileType.BACK_FOLDER,
-                    Constants.FileNames.BACK_FOLDER, Constants.FileNames.BACK_FOLDER));
-        }
+        this.files.add(new FileItem(FileType.BACK_FOLDER,
+                Constants.FileNames.BACK_FOLDER, Constants.FileNames.BACK_FOLDER));
         if (files == null) {
             return;
         }
@@ -127,11 +111,7 @@ public class FileSelectorActivity extends BaseActivity implements OnFileClickLis
             if (file.isDirectory()) {
                 if (file.canRead()) {
                     getDirectory(path);
-                } else {
-
                 }
-
-                getDirectory(path);
             } else {
                 selectionFinished(fileItem.getFilePath());
             }
@@ -167,22 +147,25 @@ public class FileSelectorActivity extends BaseActivity implements OnFileClickLis
 
     @Override
     public void onBackPressed() {
-        if (!isStorageSelector()) {
-            if (!isStorage(currentPath)) {
-                getDirectory(new File(currentPath).getParent());
-                return;
-            } else if (isStorage(currentPath)) {
-                validatePath();
-                return;
-            }
+        if (currentPath == null) {
+            super.onBackPressed();
+        } else if (!isStorage(currentPath)) {
+            getDirectory(new File(currentPath).getParent());
+        } else if (isStorage(currentPath)) {
+            validatePath();
         }
-        super.onBackPressed();
     }
 
     private void validatePath() {
         files.clear();
+        resetTitle();
         toStorageChooser();
         fileDialogAdapter.notifyDataSetChanged();
+    }
+
+    private void resetTitle() {
+        UIUtils.setActionBarTitle(getSupportActionBar(),
+                R.string.file_manager_select_storage_title);
     }
 
     private boolean isStorage(String path) {
