@@ -17,41 +17,45 @@ import butterknife.OnClick;
 
 public abstract class BaseBottomSheetItemsHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.item_list_title) protected TextView bottomSheetItemInListTitle;
-    @BindView(R.id.item_list_icon) protected ImageView bottomSheetPrimaryIcon;
-    @BindView(R.id.item_list_additional_icon) protected ImageView bottomSheetItemAdditionalIcon;
+    @BindView(R.id.item_list_title)
+    protected TextView itemInListTitle;
 
-    private BaseBottomSheetItemsAdapter baseBottomSheetItemsAdapter;
+    @BindView(R.id.item_list_icon)
+    protected ImageView itemPrimaryIcon;
+
+    @BindView(R.id.item_list_additional_icon)
+    protected ImageView itemAdditionalIcon;
+
+    private BaseBottomSheetItemsAdapter itemsAdapter;
 
     private Context context;
 
     protected BaseBottomSheetItemsHolder(@NonNull View itemView,
-                                         @NonNull BaseBottomSheetItemsAdapter
-                                                 baseBottomSheetItemsAdapter) {
+                                         @NonNull BaseBottomSheetItemsAdapter itemsAdapter) {
         super(itemView);
         ButterKnife.bind(this, itemView);
-        this.baseBottomSheetItemsAdapter = baseBottomSheetItemsAdapter;
+        this.itemsAdapter = itemsAdapter;
 
         // Context with current theme
-        context = this.baseBottomSheetItemsAdapter.getBaseItemsBottomSheet().getContext();
+        context = this.itemsAdapter.getItemsBottomSheet().getContext();
     }
 
-    void bind(@NonNull final ListItemMarker listItemMarker) {
-        bottomSheetItemInListTitle.setText(context.getText(listItemMarker.getTitleTextResId()));
+    protected void bind(@NonNull final ListItemMarker listItemMarker) {
+        itemInListTitle.setText(context.getText(listItemMarker.getTitleTextResId()));
         int primaryIconResId = listItemMarker.getPrimaryIconResId();
         if (primaryIconResId != -1) {
-            bottomSheetPrimaryIcon.setImageResource(listItemMarker.getPrimaryIconResId());
-            UIUtils.colorizeImageSourceToAccentColor(context, bottomSheetPrimaryIcon.getDrawable());
+            itemPrimaryIcon.setImageResource(listItemMarker.getPrimaryIconResId());
+            UIUtils.colorizeImageSourceToAccentColor(context, itemPrimaryIcon.getDrawable());
         }
-        bottomSheetPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState()
+        itemPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState()
                 ? View.VISIBLE : View.GONE);
         int additionalIconResId = listItemMarker.getAdditionalIconResId();
         if (additionalIconResId != -1) {
-            bottomSheetItemAdditionalIcon.setImageResource(listItemMarker.getAdditionalIconResId());
+            itemAdditionalIcon.setImageResource(listItemMarker.getAdditionalIconResId());
             UIUtils.colorizeImageSourceToAccentColor(context,
-                    bottomSheetItemAdditionalIcon.getDrawable());
+                    itemAdditionalIcon.getDrawable());
         }
-        bottomSheetItemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState()
+        itemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState()
                 ? View.VISIBLE : View.GONE);
     }
 
@@ -71,8 +75,8 @@ public abstract class BaseBottomSheetItemsHolder extends RecyclerView.ViewHolder
     protected void callItemClick() {}
 
     @NonNull
-    protected BaseBottomSheetItemsAdapter getBaseBottomSheetItemsAdapter() {
-        return baseBottomSheetItemsAdapter;
+    protected BaseBottomSheetItemsAdapter getItemsAdapter() {
+        return itemsAdapter;
     }
 
     public Context getContext() {

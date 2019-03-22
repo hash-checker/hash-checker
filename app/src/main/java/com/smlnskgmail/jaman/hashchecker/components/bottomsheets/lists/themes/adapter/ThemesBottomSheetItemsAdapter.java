@@ -15,10 +15,10 @@ public class ThemesBottomSheetItemsAdapter extends BaseBottomSheetItemsAdapter {
 
     private Activity activity;
 
-    public ThemesBottomSheetItemsAdapter(@NonNull List<ListItemMarker> bottomSheetItems,
-                                         @NonNull BaseItemsBottomSheet baseItemsBottomSheet,
+    public ThemesBottomSheetItemsAdapter(@NonNull List<ListItemMarker> listItems,
+                                         @NonNull BaseItemsBottomSheet itemsBottomSheet,
                                          @NonNull Activity activity) {
-        super(bottomSheetItems, baseItemsBottomSheet);
+        super(listItems, itemsBottomSheet);
         this.activity = activity;
     }
 

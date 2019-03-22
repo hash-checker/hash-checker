@@ -58,12 +58,14 @@ public class AppUtils {
         context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
     }
 
-    public static void sendEMail(@NonNull Context context, @NonNull String text, @NonNull String email) {
+    public static void sendEMail(@NonNull Context context, @NonNull String text,
+                                 @NonNull String email) {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
                 Uri.fromParts("mailto", email, null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name));
         emailIntent.putExtra(Intent.EXTRA_TEXT, text);
-        context.startActivity(Intent.createChooser(emailIntent, context.getString(R.string.message_email_app_chooser)));
+        context.startActivity(Intent.createChooser(emailIntent,
+                context.getString(R.string.message_email_app_chooser)));
     }
 
     static void vibrate(@NonNull Context context) {

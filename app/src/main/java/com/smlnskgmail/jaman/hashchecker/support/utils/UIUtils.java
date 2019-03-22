@@ -60,8 +60,7 @@ public class UIUtils {
     }
 
     public static void showSnackbar(@NonNull Context context, @NonNull View parent,
-                                    @NonNull String message,
-                                    @Nullable String actionText,
+                                    @NonNull String message, @Nullable String actionText,
                                     @Nullable View.OnClickListener action, int length) {
         Snackbar snackbar = Snackbar.make(parent, message, length);
         if (action != null) {
@@ -90,7 +89,8 @@ public class UIUtils {
         }
     }
 
-    public static void applyAdaptiveFontWithBoldStyle(@NonNull Context context, @NonNull TextView textView) {
+    public static void applyAdaptiveFontWithBoldStyle(@NonNull Context context,
+                                                      @NonNull TextView textView) {
         applyAdaptiveFont(context, textView, false);
         textView.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular),
                 Typeface.BOLD);

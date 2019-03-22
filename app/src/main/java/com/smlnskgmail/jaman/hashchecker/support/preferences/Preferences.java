@@ -21,7 +21,7 @@ public class Preferences {
 
     public static boolean getInnerFileManagerStatus(@NonNull Context context) {
         return getBooleanPreference(context,
-                context.getString(R.string.key_app_file_manager), true);
+                context.getString(R.string.key_app_file_manager), false);
     }
 
     public static boolean getVibrateAccess(@NonNull Context context) {

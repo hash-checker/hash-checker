@@ -10,7 +10,7 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileType;
-import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.dataadapter.FileDialogAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.dataadapter.FileItemsAdapter;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.utils.FileUtils;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
@@ -28,7 +28,7 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
     @BindView(R.id.files_list)
     protected RecyclerView filesList;
 
-    private FileDialogAdapter fileDialogAdapter;
+    private FileItemsAdapter fileItemsAdapter;
 
     private List<FileItem> files = new ArrayList<>();
     private List<FileItem> storages = new ArrayList<>();
@@ -41,8 +41,8 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
         ButterKnife.bind(this);
         resetTitle();
 
-        fileDialogAdapter = new FileDialogAdapter(files, FileExplorerActivity.this);
-        filesList.setAdapter(fileDialogAdapter);
+        fileItemsAdapter = new FileItemsAdapter(files, FileExplorerActivity.this);
+        filesList.setAdapter(fileItemsAdapter);
 
         storages = FileUtils.getExternalMounts();
         toStorageChooser();
@@ -89,7 +89,7 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
                 }
             }
         }
-        fileDialogAdapter.notifyDataSetChanged();
+        fileItemsAdapter.notifyDataSetChanged();
         UIUtils.setActionBarTitle(getSupportActionBar(), directoryPath);
     }
 
@@ -126,7 +126,13 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
     }
 
     private void toStorageChooser() {
+        if (!files.isEmpty()) {
+            files.clear();
+            currentPath = null;
+            resetTitle();
+        }
         files.addAll(storages);
+        fileItemsAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -157,10 +163,6 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
     }
 
     private void validatePath() {
-        files.clear();
-        resetTitle();
-        toStorageChooser();
-        fileDialogAdapter.notifyDataSetChanged();
     }
 
     private void resetTitle() {

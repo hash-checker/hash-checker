@@ -12,12 +12,12 @@ import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.OnFileC
 
 class FileDialogHolder extends RecyclerView.ViewHolder {
 
-    private OnFileClickListener onFileClickListener;
+    private OnFileClickListener fileClickListener;
     private TextView itemFile;
 
-    FileDialogHolder(@NonNull View itemView, @NonNull OnFileClickListener onFileClickListener) {
+    FileDialogHolder(@NonNull View itemView, @NonNull OnFileClickListener fileClickListener) {
         super(itemView);
-        this.onFileClickListener = onFileClickListener;
+        this.fileClickListener = fileClickListener;
         itemFile = itemView.findViewById(R.id.item_file);
     }
 
@@ -27,7 +27,7 @@ class FileDialogHolder extends RecyclerView.ViewHolder {
                 .getDrawable(itemView.getContext(), file.getFileType().getIconResId()),
                 null, null, null);
         itemView.setOnClickListener(v -> {
-            onFileClickListener.onFileClick(file, getAdapterPosition());
+            fileClickListener.onFileClick(file, getAdapterPosition());
         });
     }
 

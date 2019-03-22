@@ -13,12 +13,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class HashCalculator {
 
-    public interface OnHashGeneratorCompleteListener {
-
-        void onHashGeneratorComplete(@NonNull String hashValue);
-
-    }
-
     private static final char[] HEX_DIGITS = "0123456789ABCDEF".toCharArray();
 
     private String hashType;

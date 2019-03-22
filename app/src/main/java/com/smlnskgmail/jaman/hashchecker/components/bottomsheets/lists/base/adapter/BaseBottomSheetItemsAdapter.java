@@ -16,13 +16,13 @@ import java.util.List;
 public abstract class BaseBottomSheetItemsAdapter
         extends RecyclerView.Adapter<BaseBottomSheetItemsHolder> {
 
-    private BaseItemsBottomSheet baseItemsBottomSheet;
-    private List<ListItemMarker> listItemMarkers = new ArrayList<>();
+    private BaseItemsBottomSheet itemsBottomSheet;
+    private List<ListItemMarker> listItems = new ArrayList<>();
 
-    public BaseBottomSheetItemsAdapter(@NonNull List<ListItemMarker> bottomSheetItems,
-                                       @NonNull BaseItemsBottomSheet baseItemsBottomSheet) {
-        this.listItemMarkers.addAll(bottomSheetItems);
-        this.baseItemsBottomSheet = baseItemsBottomSheet;
+    public BaseBottomSheetItemsAdapter(@NonNull List<ListItemMarker> listItems,
+                                       @NonNull BaseItemsBottomSheet itemsBottomSheet) {
+        this.listItems.addAll(listItems);
+        this.itemsBottomSheet = itemsBottomSheet;
     }
 
     @NonNull
@@ -34,24 +34,24 @@ public abstract class BaseBottomSheetItemsAdapter
 
     @Override
     public void onBindViewHolder(@NonNull BaseBottomSheetItemsHolder holder, int position) {
-        holder.bind(listItemMarkers.get(position));
+        holder.bind(listItems.get(position));
     }
 
     public abstract BaseBottomSheetItemsHolder getItemsHolder(@NonNull View view);
 
     @NonNull
-    public BaseItemsBottomSheet getBaseItemsBottomSheet() {
-        return baseItemsBottomSheet;
+    public BaseItemsBottomSheet getItemsBottomSheet() {
+        return itemsBottomSheet;
     }
 
     @NonNull
-    public List<ListItemMarker> getListItemMarkers() {
-        return listItemMarkers;
+    public List<ListItemMarker> getListItems() {
+        return listItems;
     }
 
     @Override
     public int getItemCount() {
-        return listItemMarkers.size();
+        return listItems.size();
     }
 
 }

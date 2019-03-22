@@ -12,9 +12,9 @@ import java.util.List;
 
 public class WebLinksBottomSheetItemsAdapter extends BaseBottomSheetItemsAdapter {
 
-    public WebLinksBottomSheetItemsAdapter(@NonNull List<ListItemMarker> bottomSheetItems,
-                                           @NonNull BaseItemsBottomSheet baseItemsBottomSheet) {
-        super(bottomSheetItems, baseItemsBottomSheet);
+    public WebLinksBottomSheetItemsAdapter(@NonNull List<ListItemMarker> listItems,
+                                           @NonNull BaseItemsBottomSheet itemsBottomSheet) {
+        super(listItems, itemsBottomSheet);
     }
 
     @Override

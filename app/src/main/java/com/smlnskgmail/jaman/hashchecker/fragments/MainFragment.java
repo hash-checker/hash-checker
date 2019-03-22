@@ -29,12 +29,13 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.Actio
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ResourcesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionTypes;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.custom.OnTextValueEnteredListener;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.custom.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
-import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
+import com.smlnskgmail.jaman.hashchecker.generator.OnHashGeneratorCompleteListener;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
@@ -47,9 +48,8 @@ import java.util.Arrays;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainFragment extends BaseFragment implements TextInputDialog.OnTextValueEnteredListener,
-        HashCalculator.OnHashGeneratorCompleteListener, OnUserActionClickListener,
-        OnHashTypeSelectListener {
+public class MainFragment extends BaseFragment implements OnTextValueEnteredListener,
+        OnHashGeneratorCompleteListener, OnUserActionClickListener, OnHashTypeSelectListener {
 
     @BindView(R.id.main_screen)
     protected View mainScreen;
@@ -82,8 +82,8 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     private boolean startWithTextSelection, startWithFileSelection;
 
     @Override
-    public void onUserActionClick(@NonNull UserActionTypes userActionTypes) {
-        switch (userActionTypes) {
+    public void onUserActionClick(@NonNull UserActionTypes userActionType) {
+        switch (userActionType) {
             case ENTER_TEXT:
                 enterText();
                 break;
@@ -121,10 +121,9 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
             progressDialog.show();
             if (isTextSelected) {
                 new HashGenerator(hashType, context, fieldSelectedObject.getText().toString(),
-                        MainFragment.this, isTextSelected).execute();
+                        this).execute();
             } else {
-                new HashGenerator(hashType, context, fileUri, MainFragment.this,
-                        isTextSelected).execute();
+                new HashGenerator(hashType, context, fileUri, this).execute();
             }
         } else {
             UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_select_object),
@@ -148,7 +147,7 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
     public void selectHashTypeFromList() {
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet();
         generateToBottomSheet.setListItems(Arrays.asList(HashTypes.values()));
-        generateToBottomSheet.setOnHashTypeSelectListener(this);
+        generateToBottomSheet.setHashTypeSelectListener(this);
         generateToBottomSheet.show(getFragmentManager(), Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
@@ -285,6 +284,11 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
         }
     }
 
+    private void requestStoragePermission() {
+        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                Constants.Requests.PERMISSION_STORAGE_REQUEST);
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -302,17 +306,11 @@ public class MainFragment extends BaseFragment implements TextInputDialog.OnText
                 } else {
                     AppAlertDialog.show(context, R.string.title_permission_dialog,
                             R.string.message_request_storage_permission_denied,
-                            R.string.menu_title_settings, (dialog, which) -> {
-                                AppUtils.openAppSettings(getActivity());
-                            });
+                            R.string.menu_title_settings,
+                            (dialog, which) -> AppUtils.openAppSettings(getActivity()));
                 }
             }
         }
-    }
-
-    private void requestStoragePermission() {
-        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                Constants.Requests.PERMISSION_STORAGE_REQUEST);
     }
 
     @Override

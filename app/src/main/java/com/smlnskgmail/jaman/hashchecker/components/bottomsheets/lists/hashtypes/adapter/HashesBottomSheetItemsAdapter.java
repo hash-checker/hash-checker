@@ -13,19 +13,19 @@ import java.util.List;
 
 public class HashesBottomSheetItemsAdapter extends BaseBottomSheetItemsAdapter {
 
-    private OnHashTypeSelectListener onHashTypeSelectListener;
+    private OnHashTypeSelectListener hashTypeSelectListener;
 
-    public HashesBottomSheetItemsAdapter(@NonNull List<ListItemMarker> bottomSheetItems,
-                                         @NonNull BaseItemsBottomSheet baseItemsBottomSheet,
-                                         @NonNull OnHashTypeSelectListener onHashTypeSelectListener) {
-        super(bottomSheetItems, baseItemsBottomSheet);
-        this.onHashTypeSelectListener = onHashTypeSelectListener;
+    public HashesBottomSheetItemsAdapter(@NonNull List<ListItemMarker> listItems,
+                                         @NonNull BaseItemsBottomSheet itemsBottomSheet,
+                                         @NonNull OnHashTypeSelectListener hashTypeSelectListener) {
+        super(listItems, itemsBottomSheet);
+        this.hashTypeSelectListener = hashTypeSelectListener;
     }
 
     @Override
     public BaseBottomSheetItemsHolder getItemsHolder(@NonNull View view) {
         return new HashesBottomSheetItemsHolder(view, this,
-                onHashTypeSelectListener);
+                hashTypeSelectListener);
     }
 
 }

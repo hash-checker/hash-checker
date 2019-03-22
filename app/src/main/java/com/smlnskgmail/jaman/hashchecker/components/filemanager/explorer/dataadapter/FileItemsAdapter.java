@@ -11,22 +11,22 @@ import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.OnFileC
 
 import java.util.List;
 
-public class FileDialogAdapter extends RecyclerView.Adapter<FileDialogHolder> {
+public class FileItemsAdapter extends RecyclerView.Adapter<FileDialogHolder> {
 
-    private OnFileClickListener onFileClickListener;
+    private OnFileClickListener fileClickListener;
     private List<FileItem> fileItems;
 
-    public FileDialogAdapter(@NonNull List<FileItem> fileElements,
-                             @NonNull OnFileClickListener onFileClickListener) {
-        this.fileItems = fileElements;
-        this.onFileClickListener = onFileClickListener;
+    public FileItemsAdapter(@NonNull List<FileItem> fileItems,
+                            @NonNull OnFileClickListener fileClickListener) {
+        this.fileItems = fileItems;
+        this.fileClickListener = fileClickListener;
     }
 
     @NonNull
     @Override
     public FileDialogHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new FileDialogHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_file, parent, false), onFileClickListener);
+                .inflate(R.layout.item_file, parent, false), fileClickListener);
     }
 
     @Override

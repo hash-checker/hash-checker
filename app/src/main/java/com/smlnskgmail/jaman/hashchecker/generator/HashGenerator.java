@@ -9,36 +9,34 @@ import android.support.annotation.NonNull;
 public class HashGenerator extends AsyncTask<Void, Void, Void> {
 
     @SuppressLint("StaticFieldLeak") private Context context;
-    private HashCalculator.OnHashGeneratorCompleteListener onCompleteListener;
+    private OnHashGeneratorCompleteListener onCompleteListener;
     private Uri fileUri;
     private String textValue, result;
     private HashTypes hashTypes;
 
     private boolean isText;
 
-    private HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context,
-                          @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener,
-                          boolean isText) {
-        this.hashTypes = hashTypes;
-        this.context = context;
-        this.onCompleteListener = onCompleteListener;
-        this.isText = isText;
-    }
-
     public HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull Uri fileUri,
-                         @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener,
-                         boolean isText) {
-        this(hashTypes, context, onCompleteListener, isText);
+                         @NonNull OnHashGeneratorCompleteListener completeListener) {
+        this(hashTypes, context, completeListener, false);
         this.fileUri = fileUri;
     }
 
     public HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context,
                          @NonNull String textValue,
-                         @NonNull HashCalculator.OnHashGeneratorCompleteListener onCompleteListener,
-                         boolean isText) {
-        this(hashTypes, context, onCompleteListener, isText);
+                         @NonNull OnHashGeneratorCompleteListener completeListener) {
+        this(hashTypes, context, completeListener, true);
         this.textValue = textValue;
 
+    }
+
+    private HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context,
+                          @NonNull OnHashGeneratorCompleteListener onCompleteListener,
+                          boolean isText) {
+        this.hashTypes = hashTypes;
+        this.context = context;
+        this.onCompleteListener = onCompleteListener;
+        this.isText = isText;
     }
 
     @Override

@@ -4,6 +4,6 @@ import android.support.annotation.NonNull;
 
 public interface OnUserActionClickListener {
 
-    void onUserActionClick(@NonNull UserActionTypes userActionTypes);
+    void onUserActionClick(@NonNull UserActionTypes userActionType);
 
 }

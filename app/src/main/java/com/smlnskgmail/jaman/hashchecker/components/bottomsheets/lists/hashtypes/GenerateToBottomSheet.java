@@ -8,16 +8,16 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes
 
 public class GenerateToBottomSheet extends BaseItemsBottomSheet {
 
-    private OnHashTypeSelectListener onHashTypeSelectListener;
+    private OnHashTypeSelectListener hashTypeSelectListener;
 
     @Override
     public BaseBottomSheetItemsAdapter getItemsAdapter() {
         return new HashesBottomSheetItemsAdapter(getListItems(), this,
-                onHashTypeSelectListener);
+                hashTypeSelectListener);
     }
 
-    public void setOnHashTypeSelectListener(@NonNull OnHashTypeSelectListener onHashTypeSelectListener) {
-        this.onHashTypeSelectListener = onHashTypeSelectListener;
+    public void setHashTypeSelectListener(@NonNull OnHashTypeSelectListener hashTypeSelectListener) {
+        this.hashTypeSelectListener = hashTypeSelectListener;
     }
 
 }

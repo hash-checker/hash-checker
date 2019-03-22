@@ -13,16 +13,11 @@ import butterknife.OnClick;
 
 public class TextInputDialog extends BaseDialog {
 
-    public interface OnTextValueEnteredListener {
-
-        void onTextValueEntered(@NonNull String text);
-
-    }
-
     @BindView(R.id.dialog_text_value)
     protected EditText fieldTextValue;
 
     private OnTextValueEnteredListener textValueCallback;
+
     private String textValue;
 
     public TextInputDialog(@NonNull Context context,

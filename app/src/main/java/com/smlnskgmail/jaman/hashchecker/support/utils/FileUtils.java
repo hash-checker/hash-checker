@@ -19,7 +19,8 @@ public class FileUtils {
             ".3gp",
             ".mp4",
             ".mkv",
-            ".webm"));
+            ".webm"
+    ));
 
     private static List<String> IMAGE_EXTENSIONS = new ArrayList<>(Arrays.asList(
             ".bmp",
@@ -28,7 +29,8 @@ public class FileUtils {
             ".png",
             ".webp",
             ".heic",
-            ".heif"));
+            ".heif"
+    ));
 
     private static List<String> SOUND_EXTENSIONS = new ArrayList<>(Arrays.asList(
             ".m4a",
@@ -45,7 +47,8 @@ public class FileUtils {
             ".imy",
             ".mp3",
             ".wav",
-            ".ogg"));
+            ".ogg"
+    ));
 
     public static boolean isVideo(@NonNull String fileName) {
         return VIDEO_EXTENSIONS.contains(getFileExtension(fileName));
@@ -69,7 +72,8 @@ public class FileUtils {
             String reg = ".*vold.*(vfat|ntfs|exfat|fat32|ext3|ext4).*rw.*";
             StringBuilder sb = new StringBuilder();
             try {
-                Process process = new ProcessBuilder().command("mount").redirectErrorStream(true).start();
+                Process process = new ProcessBuilder().command("mount")
+                        .redirectErrorStream(true).start();
                 process.waitFor();
                 InputStream is = process.getInputStream();
                 byte[] buffer = new byte[1024];

@@ -14,13 +14,13 @@ import butterknife.BindView;
 
 public class ResourcesBottomSheet extends BaseBottomSheet {
 
-    private OnUserActionClickListener menuItemCallback;
-
     @BindView(R.id.button_select_text)
     protected TextView buttonSelectText;
 
     @BindView(R.id.button_select_file)
     protected TextView buttonSelectFile;
+
+    private OnUserActionClickListener menuItemCallback;
 
     public void setMenuItemCallback(@NonNull OnUserActionClickListener menuItemCallback) {
         this.menuItemCallback = menuItemCallback;

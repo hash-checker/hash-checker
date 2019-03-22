@@ -21,12 +21,23 @@ import butterknife.OnCheckedChanged;
 
 public class FeedbackFragment extends BaseFragment {
 
-    @BindView(R.id.add_device_info) protected CheckBox addDeviceInfo;
-    @BindView(R.id.feedback_text) protected EditText feedbackEdit;
-    @BindView(R.id.manufacturer_title) protected TextView manufacturerTitle;
-    @BindView(R.id.manufacturer_value) protected TextView manufacturerValue;
-    @BindView(R.id.model_title) protected TextView modelTitle;
-    @BindView(R.id.model_value) protected TextView modelValue;
+    @BindView(R.id.add_device_info)
+    protected CheckBox addDeviceInfo;
+
+    @BindView(R.id.feedback_text)
+    protected EditText feedbackEdit;
+
+    @BindView(R.id.manufacturer_title)
+    protected TextView manufacturerTitle;
+
+    @BindView(R.id.manufacturer_value)
+    protected TextView manufacturerValue;
+
+    @BindView(R.id.model_title)
+    protected TextView modelTitle;
+
+    @BindView(R.id.model_value)
+    protected TextView modelValue;
 
     @OnCheckedChanged(R.id.add_device_info)
     public void addDeviceInfo(boolean addInfo) {

@@ -39,9 +39,7 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
 
     abstract void initializeUI(@NonNull View view);
 
-    public void onPostInitialize() {
-
-    }
+    public void onPostInitialize() {}
 
     @Override
     public void onResume() {
