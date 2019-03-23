@@ -77,10 +77,10 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
                 this.files.add(new FileItem(FileType.FOLDER, path, name));
             } else {
                 final String fileName = file.getPath();
-                final String fileNameLwr = fileName.toLowerCase();
-                if (FileUtils.isVideo(fileNameLwr)) {
+                final String fileNameInLowerCase = fileName.toLowerCase();
+                if (FileUtils.isVideo(fileNameInLowerCase)) {
                     this.files.add(new FileItem(FileType.VIDEO, path, name));
-                } else if (FileUtils.isImage(fileNameLwr)) {
+                } else if (FileUtils.isImage(fileNameInLowerCase)) {
                     this.files.add(new FileItem(FileType.IMAGE, path, name));
                 } else if (FileUtils.isSound(fileName)) {
                     this.files.add(new FileItem(FileType.MUSIC, path, name));

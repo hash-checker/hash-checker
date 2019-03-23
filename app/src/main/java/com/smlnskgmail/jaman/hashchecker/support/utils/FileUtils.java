@@ -63,7 +63,12 @@ public class FileUtils {
     }
 
     private static String getFileExtension(@NonNull String fileName) {
-        return fileName.substring(fileName.lastIndexOf("."));
+        int lastDotIndex = fileName.lastIndexOf('.');
+        if(lastDotIndex != -1) {
+            return fileName.substring(lastDotIndex);
+        } else {
+            return "";
+        }
     }
 
     public static List<FileItem> getExternalMounts() {
