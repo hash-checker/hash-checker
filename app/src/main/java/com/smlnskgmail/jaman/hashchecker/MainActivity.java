@@ -1,8 +1,11 @@
 package com.smlnskgmail.jaman.hashchecker;
 
+import android.content.ClipData;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
@@ -21,21 +24,33 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initialize() {
         Intent intent = getIntent();
-        String actionFromIntent = intent.getAction();
         String scheme = intent.getScheme();
+        ClipData clipData = intent.getClipData();
+        Uri externalFileUri = null;
+        if (clipData != null) {
+            externalFileUri = clipData.getItemAt(0).getUri();
+        }
 
         MainFragment mainFragment = new MainFragment();
         if (scheme != null && scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
-            Bundle bundle = new Bundle();
-            bundle.putString(Constants.Data.URI_FROM_EXTERNAL_APP, intent.getData().toString());
-            mainFragment.setArguments(bundle);
+            mainFragment.setArguments(getConfiguredBundleWithDataUri(intent.getData()));
+        } else if (externalFileUri != null) {
+            mainFragment.setArguments(getConfiguredBundleWithDataUri(externalFileUri));
         } else {
-            mainFragment.setArguments(getBundleForShortcutAction(actionFromIntent));
+            mainFragment.setArguments(getBundleForShortcutAction(intent.getAction()));
         }
 
         UIUtils.showFragment(getSupportFragmentManager(), mainFragment);
     }
 
+    @NonNull
+    private Bundle getConfiguredBundleWithDataUri(@NonNull Uri uri) {
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.Data.URI_FROM_EXTERNAL_APP, uri.toString());
+        return bundle;
+    }
+
+    @NonNull
     private Bundle getBundleForShortcutAction(@Nullable String action) {
         Bundle shortcutArguments = new Bundle();
         if (action != null && action.equals(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION)) {

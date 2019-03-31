@@ -5,25 +5,27 @@
         <item name="colorPrimaryDark">#eeeeee</item>
         <item name="colorAccent">#009688</item>
         <item name="colorAccentSupport">#009688</item>
-        <item name="colorCommonSnackbarBackground">#323232</item>
+        <item name="colorSnackbarBackground">#323232</item>
         <item name="colorCommonText">@android:color/black</item>
         <item name="colorCommonUnselected">#BDBDBD</item>
-        <item name="colorCommonBackground">@android:color/white</item>
-        <item name="colorCommonBottomSheetBackground">@android:color/white</item>
+        <item name="colorBackground">@android:color/white</item>
+        <item name="colorDialogBackground">@android:color/white</item>
+        <item name="colorBottomSheetBackground">@android:color/white</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
     </style>
 
     <style name="AppThemeDark" parent="AppTheme">
-        <item name="colorPrimary">#1d2b38</item>
-        <item name="colorPrimaryDark">#1a2227</item>
-        <item name="colorAccent">#00C2B1</item>
-        <item name="colorAccentSupport">#00C2B1</item>
-        <item name="colorCommonSnackbarBackground">#2B2B2B</item>
+        <item name="colorPrimary">#111722</item>
+        <item name="colorPrimaryDark">#0B1616</item>
+        <item name="colorAccent">#00978C</item>
+        <item name="colorAccentSupport">#00978C</item>
+        <item name="colorSnackbarBackground">#090D11</item>
         <item name="colorCommonText">@android:color/white</item>
         <item name="colorCommonUnselected">#8BBDBDBD</item>
-        <item name="colorCommonBackground">#21242d</item>
-        <item name="colorCommonBottomSheetBackground">#344256</item>
+        <item name="colorBackground">#000000</item>
+        <item name="colorDialogBackground">#171E25</item>
+        <item name="colorBottomSheetBackground">#171E25</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">false</item>
     </style>
@@ -31,15 +33,31 @@
     <style name="AppThemeMangoBay" parent="AppTheme">
         <item name="colorPrimary">#F7F7F7</item>
         <item name="colorPrimaryDark">#ECEEE2</item>
-        <item name="colorAccent">#6BD3DB</item>
-        <item name="colorAccentSupport">#6BD3DB</item>
-        <item name="colorCommonSnackbarBackground">#323232</item>
+        <item name="colorAccent">#66C9D1</item>
+        <item name="colorAccentSupport">#66C9D1</item>
+        <item name="colorSnackbarBackground">#323232</item>
         <item name="colorCommonText">@android:color/black</item>
         <item name="colorCommonUnselected">#BDBDBD</item>
-        <item name="colorCommonBackground">@android:color/white</item>
-        <item name="colorCommonBottomSheetBackground">@android:color/white</item>
+        <item name="colorBackground">@android:color/white</item>
+        <item name="colorDialogBackground">#FFFFFF</item>
+        <item name="colorBottomSheetBackground">@android:color/white</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="AppThemeMangoBayDark" parent="AppTheme">
+        <item name="colorPrimary">#111722</item>
+        <item name="colorPrimaryDark">#0B1616</item>
+        <item name="colorAccent">#5DBAC2</item>
+        <item name="colorAccentSupport">#5DBAC2</item>
+        <item name="colorSnackbarBackground">#090D11</item>
+        <item name="colorCommonText">@android:color/white</item>
+        <item name="colorCommonUnselected">#8BBDBDBD</item>
+        <item name="colorBackground">#000000</item>
+        <item name="colorDialogBackground">#171E25</item>
+        <item name="colorBottomSheetBackground">#171E25</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -54,14 +72,14 @@
 
     <style name="AppBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
-        <item name="android:navigationBarColor">?attr/colorCommonBackground</item>
+        <item name="android:navigationBarColor">?attr/colorBackground</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowIsFloating">false</item>
     </style>
 
     <style name="AppAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:background">?attr/colorCommonBackground</item>
+        <item name="android:background">?attr/colorDialogBackground</item>
         <item name="colorControlNormal">?attr/colorCommonText</item>
         <item name="textColorAlertDialogListItem">?attr/colorCommonText</item>
         <item name="android:textColorPrimary">?attr/colorCommonText</item>

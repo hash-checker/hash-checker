@@ -11,7 +11,8 @@ public enum Themes implements ListItemMarker {
 
     LIGHT(R.string.title_theme_light, R.drawable.ic_settings_theme, R.style.AppThemeLight),
     DARK(R.string.title_theme_dark, R.drawable.ic_settings_theme, R.style.AppThemeDark),
-    MANGO_BAY(R.string.title_theme_mango_bay, R.drawable.ic_settings_theme, R.style.AppThemeMangoBay);
+    MANGO_BAY(R.string.title_theme_mango_bay, R.drawable.ic_settings_theme, R.style.AppThemeMangoBay),
+    MANGO_BAY_DARK(R.string.title_theme_mango_bay_dark, R.drawable.ic_settings_theme, R.style.AppThemeMangoBayDark);
 
     private int titleResId, iconResId, themeResId;
 

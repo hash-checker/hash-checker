@@ -120,7 +120,7 @@ public class UIUtils {
 
     @SuppressLint("ResourceType")
     public static int getCommonBackgroundColor(@NonNull Context context) {
-        return getColorFromAttrs(context, R.attr.colorCommonBackground);
+        return getColorFromAttrs(context, R.attr.colorBackground);
     }
 
     @SuppressLint("ResourceType")

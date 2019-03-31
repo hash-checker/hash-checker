@@ -73,6 +73,9 @@ public class FileUtils {
 
     public static List<FileItem> getExternalMounts() {
         List<FileItem> storages = new ArrayList<>();
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath();
+        String name = Environment.getExternalStorageDirectory().getName();
+        storages.add(new FileItem(FileType.STORAGE, path, name));
         try {
             String reg = ".*vold.*(vfat|ntfs|exfat|fat32|ext3|ext4).*rw.*";
             StringBuilder sb = new StringBuilder();
@@ -86,15 +89,11 @@ public class FileUtils {
                     sb.append(new String(buffer));
                 }
                 is.close();
-            } catch (final Exception e) {
-//                L.e(e);
+            } catch (Exception e) {
+                return storages;
             }
 
             String[] lines = sb.toString().split("\n");
-            String path = Environment.getExternalStorageDirectory().getAbsolutePath();
-            String name = Environment.getExternalStorageDirectory().getName();
-            storages.add(new FileItem(FileType.STORAGE, path, name));
-
             for (String line: lines) {
                 if (!line.toLowerCase(Locale.ENGLISH).contains("asec")) {
                     if (line.matches(reg)) {
@@ -137,7 +136,7 @@ public class FileUtils {
                 }
             }
         } catch (Exception e) {
-//            L.e(e);
+            return storages;
         }
         return storages;
     }

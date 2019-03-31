@@ -12,8 +12,9 @@
     <attr name="colorCommonUnselected" format="color" />
 
     <!-- backgrounds -->
-    <attr name="colorCommonBackground" format="color" />
-    <attr name="colorCommonBottomSheetBackground" format="color" />
-    <attr name="colorCommonSnackbarBackground" format="color" />
+    <attr name="colorBackground" format="color" />
+    <attr name="colorDialogBackground" format="color" />
+    <attr name="colorBottomSheetBackground" format="color" />
+    <attr name="colorSnackbarBackground" format="color" />
 
 </resources>

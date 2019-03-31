@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/common_margin_2"
-    android:background="?attr/colorCommonBackground">
+    android:background="?attr/colorBackground">
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

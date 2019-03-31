@@ -48,7 +48,7 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
         toStorageChooser();
     }
 
-    private void getDirectory(@NonNull final String directoryPath) {
+    private void loadDirectoryWithPath(@NonNull final String directoryPath) {
         files.clear();
         currentPath = directoryPath;
 
@@ -102,18 +102,18 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
             if (!isStorage(currentPath)) {
                 String parent = new File(currentPath).getParent();
                 if (parent != null) {
-                    getDirectory(parent);
+                    loadDirectoryWithPath(parent);
                 }
             } else {
                 validatePath();
             }
         } else {
-            if (file.isDirectory()) {
-                if (file.canRead()) {
-                    getDirectory(path);
+            if (file.canRead()) {
+                if (file.isDirectory()) {
+                    loadDirectoryWithPath(path);
+                } else {
+                    selectionFinished(fileItem.getFilePath());
                 }
-            } else {
-                selectionFinished(fileItem.getFilePath());
             }
         }
     }
@@ -156,13 +156,16 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
         if (currentPath == null) {
             super.onBackPressed();
         } else if (!isStorage(currentPath)) {
-            getDirectory(new File(currentPath).getParent());
+            loadDirectoryWithPath(new File(currentPath).getParent());
         } else if (isStorage(currentPath)) {
             validatePath();
         }
     }
 
     private void validatePath() {
+        files.clear();
+        resetTitle();
+        toStorageChooser();
     }
 
     private void resetTitle() {

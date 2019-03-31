@@ -45,9 +45,10 @@
     <string name="title_web_link_google_play">Google Play</string>
 
     <!-- themes -->
-    <string name="title_theme_light">Light</string>
-    <string name="title_theme_dark">Dark</string>
+    <string name="title_theme_light">Default Light</string>
+    <string name="title_theme_dark">Default Dark</string>
     <string name="title_theme_mango_bay">Mango Bay</string>
+    <string name="title_theme_mango_bay_dark">Mango Bay Dark</string>
 
     <!-- titles -->
     <string name="title_custom_hash">Custom hash</string>
