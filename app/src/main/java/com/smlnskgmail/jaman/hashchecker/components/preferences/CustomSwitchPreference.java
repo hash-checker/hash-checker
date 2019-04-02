@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.components.preferences;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.support.v7.preference.SwitchPreferenceCompat;
@@ -26,6 +27,7 @@ public class CustomSwitchPreference extends SwitchPreferenceCompat {
         super(context);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title),

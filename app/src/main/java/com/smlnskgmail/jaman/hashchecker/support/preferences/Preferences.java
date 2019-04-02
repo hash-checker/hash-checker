@@ -19,7 +19,7 @@ public class Preferences {
                 context.getString(R.string.hash_type_md5));
     }
 
-    public static boolean getInnerFileManagerStatus(@NonNull Context context) {
+    public static boolean isUsingInnerFileManager(@NonNull Context context) {
         return getBooleanPreference(context,
                 context.getString(R.string.key_app_file_manager), false);
     }

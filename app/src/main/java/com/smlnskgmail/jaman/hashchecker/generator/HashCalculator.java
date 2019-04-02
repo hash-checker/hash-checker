@@ -5,8 +5,13 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -29,24 +34,26 @@ public class HashCalculator {
             messageDigest.update(text.getBytes(StandardCharsets.UTF_8));
             return getResultAsString(messageDigest.digest());
         } catch (Exception e) {
-            e.printStackTrace();
+            return "";
         }
-        return "";
     }
 
     @NonNull
     String generateFromFile(@NonNull Context context, @NonNull Uri path) {
         try {
-            return generateFromFile(context.getContentResolver().openInputStream(path));
-        } catch (IOException | NoSuchAlgorithmException e) {
+            InputStream fileStream = Preferences.isUsingInnerFileManager(context)
+                    ? new FileInputStream(new File(new URI(path.toString())))
+                    : context.getContentResolver().openInputStream(path);
+            return generateFromFile(fileStream);
+        } catch (Exception e) {
             e.printStackTrace();
+            return "";
         }
-        return "";
     }
 
     @NonNull
     public String generateFromFile(@Nullable InputStream inputStream)
-            throws IOException, NoSuchAlgorithmException {
+            throws IOException, NoSuchAlgorithmException, SecurityException {
         if (inputStream != null) {
             byte[] buffer = new byte[1024];
             MessageDigest messageDigest = MessageDigest.getInstance(hashType);

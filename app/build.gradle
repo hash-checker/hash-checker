@@ -6,13 +6,14 @@ android {
         applicationId "com.smlnskgmail.jaman.hashchecker"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 43
-        versionName "2.6.0"
+        versionCode 44
+        versionName "2.7.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         debug {
+            versionNameSuffix "-dev"
             minifyEnabled false
         }
         release {

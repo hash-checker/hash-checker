@@ -100,7 +100,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     private void searchFile() {
-        if (Preferences.getInnerFileManagerStatus(context)) {
+        if (Preferences.isUsingInnerFileManager(context)) {
             if (ContextCompat.checkSelfPermission(context,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 requestStoragePermission();
