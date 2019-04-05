@@ -29,8 +29,8 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.Actio
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ResourcesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionTypes;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.custom.OnTextValueEnteredListener;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.custom.TextInputDialog;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.OnTextValueEnteredListener;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
 import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
@@ -219,8 +219,14 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     @Override
-    public void onHashGeneratorComplete(@NonNull String hashValue) {
-        fieldGeneratedHash.setText(hashValue);
+    public void onHashGeneratorComplete(@Nullable String hashValue) {
+        if (hashValue == null) {
+            fieldGeneratedHash.setText("");
+            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_invalid_selected_source),
+                    Snackbar.LENGTH_LONG);
+        } else {
+            fieldGeneratedHash.setText(hashValue);
+        }
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
@@ -338,6 +344,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         if (data != null) {
             Uri uri = data.getData();
             validateSelectedFile(uri);
+            Preferences.setGenerateFromShareIntentMode(context, false);
         }
     }
 

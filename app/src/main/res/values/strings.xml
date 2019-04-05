@@ -24,6 +24,7 @@
     <string name="message_error_start_file_selector">Can\'t find a file manager on your device!</string>
     <string name="message_email_app_chooser">Choose app for send a email:</string>
     <string name="message_change_theme">To change the theme, you need to restart the application.</string>
+    <string name="message_invalid_selected_source">Cannot generate hash value from input source. Please check selected source.</string>
 
     <!-- commons -->
     <string name="common_text">Text</string>
@@ -45,8 +46,8 @@
     <string name="title_web_link_google_play">Google Play</string>
 
     <!-- themes -->
-    <string name="title_theme_light">Default Light</string>
-    <string name="title_theme_dark">Default Dark</string>
+    <string name="title_theme_light">Light</string>
+    <string name="title_theme_dark">Dark</string>
     <string name="title_theme_mango_bay">Mango Bay</string>
     <string name="title_theme_mango_bay_dark">Mango Bay Dark</string>
 

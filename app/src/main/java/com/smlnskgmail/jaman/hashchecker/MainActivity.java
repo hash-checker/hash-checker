@@ -17,6 +17,7 @@ import com.smlnskgmail.jaman.hashchecker.fragments.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 public class MainActivity extends BaseActivity {
@@ -34,10 +35,13 @@ public class MainActivity extends BaseActivity {
         MainFragment mainFragment = new MainFragment();
         if (scheme != null && scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
             mainFragment.setArguments(getConfiguredBundleWithDataUri(intent.getData()));
+            Preferences.setGenerateFromShareIntentMode(this, true);
         } else if (externalFileUri != null) {
             mainFragment.setArguments(getConfiguredBundleWithDataUri(externalFileUri));
+            Preferences.setGenerateFromShareIntentMode(this, true);
         } else {
             mainFragment.setArguments(getBundleForShortcutAction(intent.getAction()));
+            Preferences.setGenerateFromShareIntentMode(this, false);
         }
 
         UIUtils.showFragment(getSupportFragmentManager(), mainFragment);

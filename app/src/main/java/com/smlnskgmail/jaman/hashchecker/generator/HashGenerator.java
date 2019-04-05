@@ -12,28 +12,28 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
     private OnHashGeneratorCompleteListener onCompleteListener;
     private Uri fileUri;
     private String textValue, result;
-    private HashTypes hashTypes;
+    private HashTypes hashType;
 
     private boolean isText;
 
-    public HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context, @NonNull Uri fileUri,
+    public HashGenerator(@NonNull HashTypes hashType, @NonNull Context context, @NonNull Uri fileUri,
                          @NonNull OnHashGeneratorCompleteListener completeListener) {
-        this(hashTypes, context, completeListener, false);
+        this(hashType, context, completeListener, false);
         this.fileUri = fileUri;
     }
 
-    public HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context,
+    public HashGenerator(@NonNull HashTypes hashType, @NonNull Context context,
                          @NonNull String textValue,
                          @NonNull OnHashGeneratorCompleteListener completeListener) {
-        this(hashTypes, context, completeListener, true);
+        this(hashType, context, completeListener, true);
         this.textValue = textValue;
 
     }
 
-    private HashGenerator(@NonNull HashTypes hashTypes, @NonNull Context context,
+    private HashGenerator(@NonNull HashTypes hashType, @NonNull Context context,
                           @NonNull OnHashGeneratorCompleteListener onCompleteListener,
                           boolean isText) {
-        this.hashTypes = hashTypes;
+        this.hashType = hashType;
         this.context = context;
         this.onCompleteListener = onCompleteListener;
         this.isText = isText;
@@ -42,7 +42,7 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         HashTypes hashType = HashTypes.MD5;
-        switch (hashTypes) {
+        switch (this.hashType) {
             case SHA_1:
                 hashType = HashTypes.SHA_1;
                 break;

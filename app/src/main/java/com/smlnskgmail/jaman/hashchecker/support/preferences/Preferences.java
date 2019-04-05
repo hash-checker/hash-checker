@@ -50,6 +50,15 @@ public class Preferences {
         saveStringPreference(context, context.getString(R.string.key_selected_theme), theme.toString());
     }
 
+    public static boolean getGenerateFromShareIntentStatus(@NonNull Context context) {
+        return getBooleanPreference(context, context.getString(R.string.key_generate_from_share_intent),
+                false);
+    }
+
+    public static void setGenerateFromShareIntentMode(@NonNull Context context, boolean status) {
+        saveBooleanPreference(context, context.getString(R.string.key_generate_from_share_intent), status);
+    }
+
     private static void saveStringPreference(@NonNull Context context, @NonNull String key,
                                              @NonNull String value) {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putString(key, value).apply();

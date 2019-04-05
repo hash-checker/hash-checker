@@ -26,7 +26,7 @@ public class HashCalculator {
         this.hashType = hashType;
     }
 
-    @NonNull
+    @Nullable
     public String generateFromString(@NonNull String text) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(hashType);
@@ -34,26 +34,31 @@ public class HashCalculator {
             messageDigest.update(text.getBytes(StandardCharsets.UTF_8));
             return getResultAsString(messageDigest.digest());
         } catch (Exception e) {
-            return "";
+            return null;
         }
     }
 
-    @NonNull
+    @Nullable
     String generateFromFile(@NonNull Context context, @NonNull Uri path) {
         try {
-            InputStream fileStream = Preferences.isUsingInnerFileManager(context)
-                    ? new FileInputStream(new File(new URI(path.toString())))
-                    : context.getContentResolver().openInputStream(path);
+            InputStream fileStream = getInputStreamFromUri(context, path);
             return generateFromFile(fileStream);
         } catch (Exception e) {
-            e.printStackTrace();
-            return "";
+            return null;
         }
     }
 
-    @NonNull
-    public String generateFromFile(@Nullable InputStream inputStream)
-            throws IOException, NoSuchAlgorithmException, SecurityException {
+    private InputStream getInputStreamFromUri(@NonNull Context context, @NonNull Uri path)
+            throws Exception {
+        if (!Preferences.isUsingInnerFileManager(context)
+                || Preferences.getGenerateFromShareIntentStatus(context)) {
+            return context.getContentResolver().openInputStream(path);
+        }
+        return new FileInputStream(new File(new URI(path.toString())));
+    }
+
+    @Nullable
+    public String generateFromFile(@Nullable InputStream inputStream) throws Exception {
         if (inputStream != null) {
             byte[] buffer = new byte[1024];
             MessageDigest messageDigest = MessageDigest.getInstance(hashType);
@@ -66,7 +71,7 @@ public class HashCalculator {
             } while (read != -1);
             return getResultAsString(messageDigest.digest());
         }
-        return "";
+        return null;
     }
 
     private String getResultAsString(byte[] data) {
