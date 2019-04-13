@@ -14,7 +14,7 @@
     <string name="hash_type_sha512" translatable="false">SHA-512</string>
 
     <!-- settings -->
-    <string name="key_app_file_manager" translatable="false">app_file_manager</string>
+    <string name="key_inner_file_manager" translatable="false">app_file_manager</string>
     <string name="key_vibrate" translatable="false">vibrate</string>
     <string name="key_upper_case" translatable="false">upper_case</string>
     <string name="key_author" translatable="false">key_author</string>
@@ -24,6 +24,7 @@
     <string name="key_theme" translatable="false">theme</string>
     <string name="key_selected_theme" translatable="false">selected_theme</string>
     <string name="key_generate_from_share_intent" translatable="false">generate_from_share_intent</string>
+    <string name="key_refresh_selected_file" translatable="false">refresh_selected_file</string>
 
     <!-- web links -->
     <string name="web_link_source_code" translatable="false">https://github.com/fartem/hash-checker</string>

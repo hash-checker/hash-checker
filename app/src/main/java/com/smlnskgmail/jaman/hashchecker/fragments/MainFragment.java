@@ -64,7 +64,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     protected EditText fieldGeneratedHash;
 
     @BindView(R.id.field_selected_object_name)
-    protected TextView fieldSelectedObject;
+    protected TextView fieldSelectedObjectName;
 
     @BindView(R.id.selected_hash_type)
     protected TextView selectedHash;
@@ -120,7 +120,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
             progressDialog = AppProgressDialog.getDialog(context, R.string.message_generate_dialog);
             progressDialog.show();
             if (isTextSelected) {
-                new HashGenerator(hashType, context, fieldSelectedObject.getText().toString(),
+                new HashGenerator(hashType, context, fieldSelectedObjectName.getText().toString(),
                         this).execute();
             } else {
                 new HashGenerator(hashType, context, fileUri, this).execute();
@@ -146,7 +146,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     @OnClick(R.id.hash_types)
     public void selectHashTypeFromList() {
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet();
-        generateToBottomSheet.setListItems(Arrays.asList(HashTypes.values()));
+        generateToBottomSheet.setItems(Arrays.asList(HashTypes.values()));
         generateToBottomSheet.setHashTypeSelectListener(this);
         generateToBottomSheet.show(getFragmentManager(), Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
@@ -233,13 +233,13 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     private void setResult(@NonNull String text, boolean isText) {
-        fieldSelectedObject.setText(text);
+        fieldSelectedObjectName.setText(text);
         this.isTextSelected = isText;
         from.setText(getString(isText ? R.string.common_text : R.string.common_file));
     }
 
     private void enterText() {
-        String currentText = !isTextSelected ? null : fieldSelectedObject.getText().toString();
+        String currentText = !isTextSelected ? null : fieldSelectedObjectName.getText().toString();
         new TextInputDialog(context, MainFragment.this, currentText).show();
     }
 
@@ -280,7 +280,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         context = getContext();
         fragmentManager = getActivity().getSupportFragmentManager();
         selectedHash.setText(Preferences.getLastType(context));
-        fieldSelectedObject.setMovementMethod(new ScrollingMovementMethod());
+        fieldSelectedObjectName.setMovementMethod(new ScrollingMovementMethod());
         if (startWithTextSelection) {
             onUserActionClick(UserActionTypes.ENTER_TEXT);
             startWithTextSelection = false;
@@ -323,6 +323,14 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     public void resume() {
         super.resume();
         validateTextCase();
+        if (Preferences.refreshSelectedFile(context)) {
+            if (!isTextSelected && fileUri != null) {
+                fileUri = null;
+                fieldSelectedObjectName.setText(getString(R.string.message_select_object));
+                from.setText(getString(R.string.action_from));
+                Preferences.setRefreshSelectedFileStatus(context, false);
+            }
+        }
     }
 
     @Override

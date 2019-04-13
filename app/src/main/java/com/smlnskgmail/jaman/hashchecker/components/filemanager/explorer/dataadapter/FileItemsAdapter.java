@@ -14,11 +14,11 @@ import java.util.List;
 public class FileItemsAdapter extends RecyclerView.Adapter<FileDialogHolder> {
 
     private OnFileClickListener fileClickListener;
-    private List<FileItem> fileItems;
+    private List<FileItem> files;
 
-    public FileItemsAdapter(@NonNull List<FileItem> fileItems,
+    public FileItemsAdapter(@NonNull List<FileItem> files,
                             @NonNull OnFileClickListener fileClickListener) {
-        this.fileItems = fileItems;
+        this.files = files;
         this.fileClickListener = fileClickListener;
     }
 
@@ -31,12 +31,12 @@ public class FileItemsAdapter extends RecyclerView.Adapter<FileDialogHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull final FileDialogHolder holder, int position) {
-        holder.bind(fileItems.get(position));
+        holder.bind(files.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return fileItems.size();
+        return files.size();
     }
 
 }

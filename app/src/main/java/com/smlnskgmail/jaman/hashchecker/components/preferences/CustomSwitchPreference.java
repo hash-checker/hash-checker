@@ -10,8 +10,7 @@ import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 public class CustomSwitchPreference extends SwitchPreferenceCompat {
 
-    public CustomSwitchPreference(Context context, AttributeSet attrs, int defStyleAttr,
-                                  int defStyleRes) {
+    public CustomSwitchPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

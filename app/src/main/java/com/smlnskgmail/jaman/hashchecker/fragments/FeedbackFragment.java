@@ -39,10 +39,10 @@ public class FeedbackFragment extends BaseFragment {
     @BindView(R.id.model_value)
     protected TextView modelValue;
 
+    private Context context;
+
     @OnCheckedChanged(R.id.add_device_info)
     public void addDeviceInfo(boolean addInfo) {
-        Context context = getContext();
-
         int titleColor = addInfo ? UIUtils.getDarkTextColor(context)
                 : UIUtils.getUnselectedColor(context);
         manufacturerTitle.setTextColor(titleColor);
@@ -56,8 +56,9 @@ public class FeedbackFragment extends BaseFragment {
 
     @Override
     void initializeUI(@NonNull final View view) {
+        context = getContext();
         ((AppCompatActivity) getActivity()).getSupportActionBar()
-                .setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(), R.drawable.ic_close));
+                .setHomeAsUpIndicator(ContextCompat.getDrawable(context, R.drawable.ic_close));
         manufacturerValue.setText(Build.MANUFACTURER);
         modelValue.setText(Build.MODEL);
     }
@@ -77,7 +78,7 @@ public class FeedbackFragment extends BaseFragment {
                         Build.VERSION_CODES.class.getFields()
                                 [android.os.Build.VERSION.SDK_INT].getName()));
             }
-            AppUtils.sendEMail(getContext(), feedbackText.toString(), getString(R.string.common_email));
+            AppUtils.sendFeedback(context, feedbackText.toString(), getString(R.string.common_email));
         }
         return super.onOptionsItemSelected(item);
     }

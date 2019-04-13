@@ -9,12 +9,10 @@ import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class HashCalculator {
 

@@ -25,8 +25,12 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initialize() {
         Intent intent = getIntent();
-        String scheme = intent.getScheme();
-        ClipData clipData = intent.getClipData();
+        String scheme = null;
+        ClipData clipData = null;
+        if (intent != null) {
+            scheme = intent.getScheme();
+            clipData = intent.getClipData();
+        }
         Uri externalFileUri = null;
         if (clipData != null) {
             externalFileUri = clipData.getItemAt(0).getUri();

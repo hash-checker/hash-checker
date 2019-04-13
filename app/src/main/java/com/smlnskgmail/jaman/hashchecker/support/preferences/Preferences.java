@@ -20,8 +20,7 @@ public class Preferences {
     }
 
     public static boolean isUsingInnerFileManager(@NonNull Context context) {
-        return getBooleanPreference(context,
-                context.getString(R.string.key_app_file_manager), false);
+        return getBooleanPreference(context, context.getString(R.string.key_inner_file_manager), false);
     }
 
     public static boolean getVibrateAccess(@NonNull Context context) {
@@ -56,7 +55,18 @@ public class Preferences {
     }
 
     public static void setGenerateFromShareIntentMode(@NonNull Context context, boolean status) {
-        saveBooleanPreference(context, context.getString(R.string.key_generate_from_share_intent), status);
+        saveBooleanPreference(context, context.getString(R.string.key_generate_from_share_intent),
+                status);
+    }
+
+    public static boolean refreshSelectedFile(@NonNull Context context) {
+        return getBooleanPreference(context, context.getString(R.string.key_refresh_selected_file),
+                false);
+    }
+
+    public static void setRefreshSelectedFileStatus(@NonNull Context context, boolean status) {
+        saveBooleanPreference(context, context.getString(R.string.key_refresh_selected_file),
+                status);
     }
 
     private static void saveStringPreference(@NonNull Context context, @NonNull String key,

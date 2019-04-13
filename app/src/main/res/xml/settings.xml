@@ -17,7 +17,7 @@
 
         <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
             android:title="@string/settings_title_app_file_manager"
-            android:key="@string/key_app_file_manager"
+            android:key="@string/key_inner_file_manager"
             android:defaultValue="false"
             android:icon="@drawable/ic_settings_file_manager" />
 

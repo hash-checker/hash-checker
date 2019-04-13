@@ -1,6 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.fragments;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,6 +23,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 import java.util.Arrays;
@@ -30,29 +32,31 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
 
     private ActionBar actionBar;
     private FragmentManager fragmentManager;
+    private Context context;
 
     @SuppressLint("ResourceType")
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.settings);
         fragmentManager = getActivity().getSupportFragmentManager();
+        context = getContext();
         initializeActionBar();
         initializeAuthorLinks();
         initializeThemes();
+        initializeInnerFileManagerSwitcher();
         findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)",
                 BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
     }
 
     private void initializeActionBar() {
         actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(),
-                R.drawable.ic_arrow_back));
+        actionBar.setHomeAsUpIndicator(ContextCompat.getDrawable(context, R.drawable.ic_arrow_back));
     }
 
     private void initializeAuthorLinks() {
         findPreference(getString(R.string.key_author)).setOnPreferenceClickListener(preference -> {
             WebLinksBottomSheet webLinksBottomSheet = new WebLinksBottomSheet();
-            webLinksBottomSheet.setListItems(Arrays.asList(WebLinks.SOURCE_CODE, WebLinks.MY_APPS));
+            webLinksBottomSheet.setItems(Arrays.asList(WebLinks.SOURCE_CODE, WebLinks.MY_APPS));
             webLinksBottomSheet.show(fragmentManager, Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
             return false;
         });
@@ -61,17 +65,25 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
     private void initializeThemes() {
         findPreference(getString(R.string.key_theme)).setOnPreferenceClickListener(preference -> {
             ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
-            themesBottomSheet.setListItems(Arrays.asList(Themes.values()));
+            themesBottomSheet.setItems(Arrays.asList(Themes.values()));
             themesBottomSheet.show(fragmentManager, Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
             return false;
         });
+    }
+
+    private void initializeInnerFileManagerSwitcher() {
+        findPreference(getString(R.string.key_inner_file_manager))
+                .setOnPreferenceChangeListener((preference, o) -> {
+                    Preferences.setRefreshSelectedFileStatus(context, true);
+                    return true;
+                });
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setHasOptionsMenu(true);
-        view.setBackgroundColor(UIUtils.getCommonBackgroundColor(getContext()));
+        view.setBackgroundColor(UIUtils.getCommonBackgroundColor(context));
         setDividerHeight(0);
     }
 

@@ -13,8 +13,8 @@ public class CustomCheckBoxPreference extends CheckBoxPreference {
         super(context, attrs, defStyleAttr);
     }
 
-    public CustomCheckBoxPreference(Context context, AttributeSet attrs,
-                                    int defStyleAttr, int defStyleRes) {
+    public CustomCheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr,
+                                    int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

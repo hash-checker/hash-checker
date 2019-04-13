@@ -9,8 +9,7 @@ import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 public class CustomPreference extends Preference {
 
-    public CustomPreference(Context context, AttributeSet attrs, int defStyleAttr,
-                            int defStyleRes) {
+    public CustomPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

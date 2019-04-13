@@ -6,19 +6,19 @@ import android.support.v7.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.BaseBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 
-public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
+public abstract class BaseListBottomSheet extends BaseBottomSheet {
 
     @BindView(R.id.bottom_sheet_items)
     protected RecyclerView bottomSheetItems;
 
-    private List<ListItemMarker> listItems = new ArrayList<>();
+    private List<ListItemMarker> items = new ArrayList<>();
 
     @Override
     public void initUI() {
@@ -26,15 +26,15 @@ public abstract class BaseItemsBottomSheet extends BaseBottomSheet {
         bottomSheetItems.setAdapter(getItemsAdapter());
     }
 
-    public abstract BaseBottomSheetItemsAdapter getItemsAdapter();
+    public abstract BaseBottomSheetListAdapter getItemsAdapter();
 
     @NonNull
-    public List<ListItemMarker> getListItems() {
-        return listItems;
+    public List<ListItemMarker> getItems() {
+        return items;
     }
 
-    public void setListItems(@NonNull List<ListItemMarker> listItemMarkers) {
-        this.listItems.addAll(listItemMarkers);
+    public void setItems(@NonNull List<ListItemMarker> listItemMarkers) {
+        this.items.addAll(listItemMarkers);
     }
 
     @Override

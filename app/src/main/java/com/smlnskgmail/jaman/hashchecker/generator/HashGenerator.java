@@ -22,8 +22,7 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
         this.fileUri = fileUri;
     }
 
-    public HashGenerator(@NonNull HashTypes hashType, @NonNull Context context,
-                         @NonNull String textValue,
+    public HashGenerator(@NonNull HashTypes hashType, @NonNull Context context, @NonNull String textValue,
                          @NonNull OnHashGeneratorCompleteListener completeListener) {
         this(hashType, context, completeListener, true);
         this.textValue = textValue;

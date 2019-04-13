@@ -2,18 +2,17 @@ package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtype
 
 import android.support.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseItemsBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetItemsAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.adapter.HashesBottomSheetItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.adapter.HashesBottomSheetListAdapter;
 
-public class GenerateToBottomSheet extends BaseItemsBottomSheet {
+public class GenerateToBottomSheet extends BaseListBottomSheet {
 
     private OnHashTypeSelectListener hashTypeSelectListener;
 
     @Override
-    public BaseBottomSheetItemsAdapter getItemsAdapter() {
-        return new HashesBottomSheetItemsAdapter(getListItems(), this,
-                hashTypeSelectListener);
+    public BaseBottomSheetListAdapter getItemsAdapter() {
+        return new HashesBottomSheetListAdapter(getItems(), this, hashTypeSelectListener);
     }
 
     public void setHashTypeSelectListener(@NonNull OnHashTypeSelectListener hashTypeSelectListener) {

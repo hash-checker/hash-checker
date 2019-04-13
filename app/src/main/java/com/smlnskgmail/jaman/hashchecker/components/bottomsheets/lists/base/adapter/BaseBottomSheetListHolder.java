@@ -15,10 +15,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public abstract class BaseBottomSheetItemsHolder extends RecyclerView.ViewHolder {
+public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.item_list_title)
-    protected TextView itemInListTitle;
+    protected TextView itemTitle;
 
     @BindView(R.id.item_list_icon)
     protected ImageView itemPrimaryIcon;
@@ -26,22 +26,22 @@ public abstract class BaseBottomSheetItemsHolder extends RecyclerView.ViewHolder
     @BindView(R.id.item_list_additional_icon)
     protected ImageView itemAdditionalIcon;
 
-    private BaseBottomSheetItemsAdapter itemsAdapter;
+    private BaseBottomSheetListAdapter listAdapter;
 
     private Context context;
 
-    protected BaseBottomSheetItemsHolder(@NonNull View itemView,
-                                         @NonNull BaseBottomSheetItemsAdapter itemsAdapter) {
+    protected BaseBottomSheetListHolder(@NonNull View itemView,
+                                        @NonNull BaseBottomSheetListAdapter listAdapter) {
         super(itemView);
         ButterKnife.bind(this, itemView);
-        this.itemsAdapter = itemsAdapter;
+        this.listAdapter = listAdapter;
 
         // Context with current theme
-        context = this.itemsAdapter.getItemsBottomSheet().getContext();
+        context = this.listAdapter.getBottomSheet().getContext();
     }
 
     protected void bind(@NonNull final ListItemMarker listItemMarker) {
-        itemInListTitle.setText(context.getText(listItemMarker.getTitleTextResId()));
+        itemTitle.setText(context.getText(listItemMarker.getTitleTextResId()));
         int primaryIconResId = listItemMarker.getPrimaryIconResId();
         if (primaryIconResId != -1) {
             itemPrimaryIcon.setImageResource(listItemMarker.getPrimaryIconResId());
@@ -68,15 +68,15 @@ public abstract class BaseBottomSheetItemsHolder extends RecyclerView.ViewHolder
     }
 
     @OnClick
-    void onItemSelect() {
+    void onItemClick() {
         callItemClick();
     }
 
     protected void callItemClick() {}
 
     @NonNull
-    protected BaseBottomSheetItemsAdapter getItemsAdapter() {
-        return itemsAdapter;
+    protected BaseBottomSheetListAdapter getListAdapter() {
+        return listAdapter;
     }
 
     public Context getContext() {

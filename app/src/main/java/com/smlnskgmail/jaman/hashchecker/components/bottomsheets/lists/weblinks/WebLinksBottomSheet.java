@@ -1,14 +1,14 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks;
 
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseItemsBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetItemsAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.adapter.WebLinksBottomSheetItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.adapter.WebLinksBottomSheetListAdapter;
 
-public class WebLinksBottomSheet extends BaseItemsBottomSheet {
+public class WebLinksBottomSheet extends BaseListBottomSheet {
 
     @Override
-    public BaseBottomSheetItemsAdapter getItemsAdapter() {
-        return new WebLinksBottomSheetItemsAdapter(getListItems(), this);
+    public BaseBottomSheetListAdapter getItemsAdapter() {
+        return new WebLinksBottomSheetListAdapter(getItems(), this);
     }
 
 }
