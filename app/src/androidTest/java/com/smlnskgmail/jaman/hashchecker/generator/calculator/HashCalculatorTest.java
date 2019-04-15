@@ -10,9 +10,6 @@ import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-
 import static org.junit.Assert.assertEquals;
 
 public class HashCalculatorTest {
