@@ -7,6 +7,7 @@ import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
@@ -17,6 +18,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 public class ScreenRunnerTest {
+
+    private static final int ONE_SECOND_IN_MILLISECONDS = 1000;
 
     @Rule
     public ActivityTestRule<MainActivity> menuActivityTestRule =
@@ -52,7 +55,7 @@ public class ScreenRunnerTest {
 
     private void secondDelay() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(ONE_SECOND_IN_MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

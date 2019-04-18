@@ -37,8 +37,7 @@ public abstract class BaseDialog extends Dialog {
     public abstract void initUI();
 
     public void setupDialogStyle() {
-        getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT,
-                FrameLayout.LayoutParams.WRAP_CONTENT);
+        getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
     }
 

@@ -13,8 +13,7 @@ public class HashesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
     private OnHashTypeSelectListener hashTypeSelectListener;
 
-    HashesBottomSheetListHolder(@NonNull View itemView,
-                                @NonNull BaseBottomSheetListAdapter listAdapter,
+    HashesBottomSheetListHolder(@NonNull View itemView, @NonNull BaseBottomSheetListAdapter listAdapter,
                                 @NonNull OnHashTypeSelectListener hashTypeSelectListener) {
         super(itemView, listAdapter);
         this.hashTypeSelectListener = hashTypeSelectListener;

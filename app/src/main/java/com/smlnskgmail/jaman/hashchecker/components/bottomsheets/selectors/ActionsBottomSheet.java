@@ -29,11 +29,8 @@ public class ActionsBottomSheet extends BaseBottomSheet {
     @Override
     public void initUI() {
         Context context = getContext();
-        UIUtils.colorizeImageSourceToAccentColor(context,
-                buttonGenerate.getCompoundDrawablesRelative()[0]);
-        UIUtils.colorizeImageSourceToAccentColor(context,
-                buttonCompare.getCompoundDrawablesRelative()[0]);
-
+        UIUtils.colorizeImageSourceToAccentColor(context, buttonGenerate.getCompoundDrawablesRelative()[0]);
+        UIUtils.colorizeImageSourceToAccentColor(context, buttonCompare.getCompoundDrawablesRelative()[0]);
         buttonGenerate.setOnClickListener(v -> selectAction(UserActionTypes.GENERATE_HASH));
         buttonCompare.setOnClickListener(v -> selectAction(UserActionTypes.COMPARE_HASHES));
     }

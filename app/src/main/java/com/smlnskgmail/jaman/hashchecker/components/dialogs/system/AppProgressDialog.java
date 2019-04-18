@@ -13,14 +13,12 @@ public class AppProgressDialog {
 
     @SuppressLint("ResourceType")
     @NonNull
-    public static ProgressDialog getDialog(@NonNull Context context,
-                                    @IdRes int textMessageResId) {
+    public static ProgressDialog getDialog(@NonNull Context context, @IdRes int textMessageResId) {
         android.app.ProgressDialog progressDialog = new android.app.ProgressDialog(context);
         progressDialog.setMessage(context.getString(textMessageResId));
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
-        progressDialog.getWindow()
-                .setBackgroundDrawable(new ColorDrawable(UIUtils.getCommonBackgroundColor(context)));
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(UIUtils.getCommonBackgroundColor(context)));
         return progressDialog;
     }
 

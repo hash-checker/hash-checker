@@ -48,8 +48,6 @@ public class FeedbackFragment extends BaseFragment {
         manufacturerTitle.setTextColor(titleColor);
         modelTitle.setTextColor(titleColor);
 
-        int valueColor = addInfo ? UIUtils.getAccentColor(context)
-                : UIUtils.getUnselectedColor(context);
         manufacturerValue.setTextColor(titleColor);
         modelValue.setTextColor(titleColor);
     }

@@ -23,12 +23,9 @@ class FileDialogHolder extends RecyclerView.ViewHolder {
 
     void bind(@NonNull FileItem file) {
         itemFile.setText(file.getFileName());
-        itemFile.setCompoundDrawablesRelativeWithIntrinsicBounds(ContextCompat
-                .getDrawable(itemView.getContext(), file.getFileType().getIconResId()),
-                null, null, null);
-        itemView.setOnClickListener(v -> {
-            fileClickListener.onFileClick(file, getAdapterPosition());
-        });
+        itemFile.setCompoundDrawablesRelativeWithIntrinsicBounds(ContextCompat.getDrawable(itemView.getContext(),
+                file.getFileType().getIconResId()), null, null, null);
+        itemView.setOnClickListener(v -> fileClickListener.onFileClick(file, getAdapterPosition()));
     }
 
 }

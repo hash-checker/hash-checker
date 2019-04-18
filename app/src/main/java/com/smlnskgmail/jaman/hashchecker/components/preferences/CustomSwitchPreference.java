@@ -29,8 +29,7 @@ public class CustomSwitchPreference extends SwitchPreferenceCompat {
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
-        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title),
-                true);
+        UIUtils.applyAdaptiveFont(getContext(), holder.itemView.findViewById(android.R.id.title), true);
         super.onBindViewHolder(holder);
     }
 

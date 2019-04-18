@@ -29,11 +29,8 @@ public class ResourcesBottomSheet extends BaseBottomSheet {
     @Override
     public void initUI() {
         Context context = getContext();
-        UIUtils.colorizeImageSourceToAccentColor(context,
-                buttonSelectText.getCompoundDrawablesRelative()[0]);
-        UIUtils.colorizeImageSourceToAccentColor(context,
-                buttonSelectFile.getCompoundDrawablesRelative()[0]);
-
+        UIUtils.colorizeImageSourceToAccentColor(context, buttonSelectText.getCompoundDrawablesRelative()[0]);
+        UIUtils.colorizeImageSourceToAccentColor(context, buttonSelectFile.getCompoundDrawablesRelative()[0]);
         buttonSelectText.setOnClickListener(v -> selectAction(UserActionTypes.ENTER_TEXT));
         buttonSelectFile.setOnClickListener(v -> selectAction(UserActionTypes.SEARCH_FILE));
     }

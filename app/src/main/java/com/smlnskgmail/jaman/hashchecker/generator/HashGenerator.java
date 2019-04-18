@@ -30,8 +30,7 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
     }
 
     private HashGenerator(@NonNull HashTypes hashType, @NonNull Context context,
-                          @NonNull OnHashGeneratorCompleteListener onCompleteListener,
-                          boolean isText) {
+                          @NonNull OnHashGeneratorCompleteListener onCompleteListener, boolean isText) {
         this.hashType = hashType;
         this.context = context;
         this.onCompleteListener = onCompleteListener;

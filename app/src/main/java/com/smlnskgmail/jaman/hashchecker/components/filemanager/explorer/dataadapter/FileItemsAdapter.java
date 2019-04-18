@@ -16,8 +16,7 @@ public class FileItemsAdapter extends RecyclerView.Adapter<FileDialogHolder> {
     private OnFileClickListener fileClickListener;
     private List<FileItem> files;
 
-    public FileItemsAdapter(@NonNull List<FileItem> files,
-                            @NonNull OnFileClickListener fileClickListener) {
+    public FileItemsAdapter(@NonNull List<FileItem> files, @NonNull OnFileClickListener fileClickListener) {
         this.files = files;
         this.fileClickListener = fileClickListener;
     }
