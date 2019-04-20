@@ -143,10 +143,9 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.close_file_manager:
-                finish();
-                return true;
+        if (item.getItemId() == R.id.close_file_manager) {
+            finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

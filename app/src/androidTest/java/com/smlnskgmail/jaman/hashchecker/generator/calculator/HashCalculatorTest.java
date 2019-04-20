@@ -107,8 +107,7 @@ public class HashCalculatorTest {
     }
 
     private void testFile(@NonNull String value) throws Exception {
-        String hashFromFile = hashCalculator.generateFromFile(context.getResources().getAssets()
-                .open(TESTING_FILE));
+        String hashFromFile = hashCalculator.generateFromFile(context.getResources().getAssets().open(TESTING_FILE));
         assertEquals(hashFromFile, value);
     }
 

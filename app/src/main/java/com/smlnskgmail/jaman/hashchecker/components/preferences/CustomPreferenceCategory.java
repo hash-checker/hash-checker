@@ -28,8 +28,7 @@ public class CustomPreferenceCategory extends PreferenceCategory {
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
-        UIUtils.applyAdaptiveFontWithBoldStyle(getContext(),
-                holder.itemView.findViewById(android.R.id.title));
+        UIUtils.applyAdaptiveFontWithBoldStyle(getContext(), holder.itemView.findViewById(android.R.id.title));
         super.onBindViewHolder(holder);
     }
 

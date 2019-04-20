@@ -56,7 +56,9 @@ public class AppUtils {
     }
 
     public static void openWebLink(@NonNull Context context, @NonNull String link) {
-        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
+        try {
+            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
+        } catch (ActivityNotFoundException ignored) {}
     }
 
     public static void sendFeedback(@NonNull Context context, @NonNull String text,

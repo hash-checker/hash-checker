@@ -59,8 +59,7 @@ public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
     @Override
     protected boolean getConditionToAdditionalIconVisibleState() {
-        Themes theme = (Themes) getListAdapter()
-                .getItems().get(getAdapterPosition());
+        Themes theme = (Themes) getListAdapter().getItems().get(getAdapterPosition());
         return theme.equals(Themes.getThemeFromPreferences(getContext()));
     }
 

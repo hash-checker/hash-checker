@@ -30,8 +30,7 @@ public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder 
 
     private Context context;
 
-    protected BaseBottomSheetListHolder(@NonNull View itemView,
-                                        @NonNull BaseBottomSheetListAdapter listAdapter) {
+    protected BaseBottomSheetListHolder(@NonNull View itemView, @NonNull BaseBottomSheetListAdapter listAdapter) {
         super(itemView);
         ButterKnife.bind(this, itemView);
         this.listAdapter = listAdapter;
@@ -47,16 +46,13 @@ public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder 
             itemPrimaryIcon.setImageResource(listItemMarker.getPrimaryIconResId());
             UIUtils.colorizeImageSourceToAccentColor(context, itemPrimaryIcon.getDrawable());
         }
-        itemPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState()
-                ? View.VISIBLE : View.GONE);
+        itemPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState() ? View.VISIBLE : View.GONE);
         int additionalIconResId = listItemMarker.getAdditionalIconResId();
         if (additionalIconResId != -1) {
             itemAdditionalIcon.setImageResource(listItemMarker.getAdditionalIconResId());
-            UIUtils.colorizeImageSourceToAccentColor(context,
-                    itemAdditionalIcon.getDrawable());
+            UIUtils.colorizeImageSourceToAccentColor(context, itemAdditionalIcon.getDrawable());
         }
-        itemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState()
-                ? View.VISIBLE : View.GONE);
+        itemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState() ? View.VISIBLE : View.GONE);
     }
 
     protected boolean getConditionToPrimaryIconVisibleState() {

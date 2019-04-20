@@ -32,8 +32,7 @@ public class UIUtils {
 
     private static final int COMMON_SNACKBAR_MAGRIN = 12;
 
-    public static void showFragment(@NonNull FragmentManager fragmentManager,
-                                    @NonNull Fragment fragment) {
+    public static void showFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(android.R.id.content, fragment,
                 Constants.Tags.CURRENT_FRAGMENT_TAG)
@@ -47,21 +46,18 @@ public class UIUtils {
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    public static void removeFragment(@NonNull FragmentManager fragmentManager,
-                                      @NonNull Fragment fragment) {
+    public static void removeFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(fragment).commit();
         fragmentManager.popBackStackImmediate();
     }
 
-    public static void showSnackbar(@NonNull Context context, @NonNull View parent,
-                                    @NonNull String message, int length) {
+    public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message, int length) {
         showSnackbar(context, parent, message, null, null, length);
     }
 
-    public static void showSnackbar(@NonNull Context context, @NonNull View parent,
-                                    @NonNull String message, @Nullable String actionText,
-                                    @Nullable View.OnClickListener action, int length) {
+    public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message,
+                                    @Nullable String actionText, @Nullable View.OnClickListener action, int length) {
         Snackbar snackbar = Snackbar.make(parent, message, length);
         if (action != null) {
             snackbar.setAction(actionText, action);
@@ -89,23 +85,20 @@ public class UIUtils {
         }
     }
 
-    public static void applyAdaptiveFontWithBoldStyle(@NonNull Context context,
-                                                      @NonNull TextView textView) {
+    public static void applyAdaptiveFontWithBoldStyle(@NonNull Context context, @NonNull TextView textView) {
         applyAdaptiveFont(context, textView, false);
         textView.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular),
                 Typeface.BOLD);
     }
 
-    public static void applyAdaptiveFont(@NonNull Context context, @NonNull TextView textView,
-                                         boolean useThemeColor) {
+    public static void applyAdaptiveFont(@NonNull Context context, @NonNull TextView textView, boolean useThemeColor) {
         textView.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
         if (useThemeColor) {
             textView.setTextColor(UIUtils.getDarkTextColor(context));
         }
     }
 
-    public static void colorizeImageSourceToAccentColor(@NonNull Context context,
-                                                        @NonNull Drawable drawable) {
+    public static void colorizeImageSourceToAccentColor(@NonNull Context context, @NonNull Drawable drawable) {
         drawable.setColorFilter(getAccentColor(context), PorterDuff.Mode.SRC_ATOP);
     }
 

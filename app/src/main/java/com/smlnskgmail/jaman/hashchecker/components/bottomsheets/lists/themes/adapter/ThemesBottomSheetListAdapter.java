@@ -15,8 +15,7 @@ public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
     private Activity activity;
 
-    public ThemesBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
-                                        @NonNull BaseListBottomSheet bottomSheet,
+    public ThemesBottomSheetListAdapter(@NonNull List<ListItemMarker> items, @NonNull BaseListBottomSheet bottomSheet,
                                         @NonNull Activity activity) {
         super(items, bottomSheet);
         this.activity = activity;

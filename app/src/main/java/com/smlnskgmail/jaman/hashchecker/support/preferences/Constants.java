@@ -19,10 +19,8 @@ public interface Constants {
 
     interface ShortcutActions {
 
-        String ACTION_START_WITH_TEXT_SELECTION
-                = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT_SELECTION";
-        String ACTION_START_WITH_FILE_SELECTION
-                = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FILE_SELECTION";
+        String ACTION_START_WITH_TEXT_SELECTION = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT_SELECTION";
+        String ACTION_START_WITH_FILE_SELECTION = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FILE_SELECTION";
 
     }
 
