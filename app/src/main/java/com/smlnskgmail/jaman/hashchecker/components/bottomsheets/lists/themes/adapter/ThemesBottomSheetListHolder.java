@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.adapter;
 
-import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
 
@@ -15,18 +15,18 @@ import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
 
 public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
-    private Activity activity;
     private Themes themeAtPosition;
+    private Themes selectedTheme;
 
     ThemesBottomSheetListHolder(@NonNull View itemView, @NonNull BaseBottomSheetListAdapter adapter,
-                                @NonNull Activity activity) {
+                                Themes selectedTheme) {
         super(itemView, adapter);
-        this.activity = activity;
+        this.selectedTheme = selectedTheme;
     }
 
     @Override
     protected void callItemClick() {
-        if (Preferences.getTheme(getContext()).equals(themeAtPosition.toString())) {
+        if (themeAtPosition == selectedTheme) {
             getListAdapter().getBottomSheet().dismissAllowingStateLoss();
         } else {
             showThemeApplyDialog();
@@ -35,8 +35,8 @@ public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
     @Override
     protected void bind(@NonNull ListItemMarker listItemMarker) {
-        super.bind(listItemMarker);
         themeAtPosition = (Themes) getListAdapter().getItems().get(getAdapterPosition());
+        super.bind(listItemMarker);
     }
 
     private void showThemeApplyDialog() {
@@ -44,7 +44,7 @@ public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
                 R.string.message_change_theme, R.string.common_ok, (dialog, which) -> {
                     configureNewTheme();
                     dialog.dismiss();
-                    AppUtils.restartApp(activity);
+                    AppUtils.restartApp(getListAdapter().getBottomSheet().getActivity());
         });
     }
 
@@ -59,8 +59,7 @@ public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
     @Override
     protected boolean getConditionToAdditionalIconVisibleState() {
-        Themes theme = (Themes) getListAdapter().getItems().get(getAdapterPosition());
-        return theme.equals(Themes.getThemeFromPreferences(getContext()));
+        return themeAtPosition == selectedTheme;
     }
 
 }

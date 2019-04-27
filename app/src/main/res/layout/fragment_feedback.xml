@@ -17,6 +17,7 @@
             app:srcCompat="@drawable/ic_email" />
 
         <EditText android:id="@+id/feedback_text"
+            style="@style/AdaptiveTextComponent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="?attr/colorCommonText"
@@ -25,21 +26,20 @@
             android:lines="5"
             android:maxLines="10"
             android:textColor="?attr/colorCommonText"
-            android:textColorHint="?attr/colorCommonUnselected"
-            android:fontFamily="@font/google_sans_regular" />
+            android:textColorHint="?attr/colorCommonUnselected" />
 
         <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/common_margin">
 
             <TextView android:id="@+id/device_info_title"
+                style="@style/AdaptiveTextComponent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/feedback_device"
                 android:textColor="?attr/colorCommonText"
-                android:textSize="@dimen/text_size_medium"
-                android:fontFamily="@font/google_sans_regular" />
+                android:textSize="@dimen/text_size_medium" />
 
             <CheckBox android:id="@+id/add_device_info"
                 android:layout_width="wrap_content"
@@ -54,22 +54,22 @@
             android:padding="@dimen/common_margin">
 
             <TextView android:id="@+id/manufacturer_title"
+                style="@style/AdaptiveTextComponent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/google_sans_regular"
                 android:text="@string/feedback_manufacturer"
                 android:textColor="?attr/colorCommonText"
                 android:textSize="@dimen/text_size_medium" />
 
             <TextView android:id="@+id/manufacturer_value"
+                style="@style/AdaptiveTextComponent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/common_margin_half"
                 android:text="@string/common_none"
                 android:textColor="?attr/colorAccent"
-                android:textSize="@dimen/text_size_medium"
-                android:fontFamily="@font/google_sans_regular" />
+                android:textSize="@dimen/text_size_medium" />
 
         </LinearLayout>
 
@@ -78,22 +78,22 @@
             android:padding="@dimen/common_margin">
 
             <TextView android:id="@+id/model_title"
+                style="@style/AdaptiveTextComponent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/google_sans_regular"
                 android:text="@string/feedback_model"
                 android:textColor="?attr/colorCommonText"
                 android:textSize="@dimen/text_size_medium" />
 
             <TextView android:id="@+id/model_value"
+                style="@style/AdaptiveTextComponent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/common_margin_half"
                 android:text="@string/common_none"
                 android:textColor="?attr/colorAccent"
-                android:textSize="@dimen/text_size_medium"
-                android:fontFamily="@font/google_sans_regular" />
+                android:textSize="@dimen/text_size_medium" />
 
         </LinearLayout>
 

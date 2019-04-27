@@ -21,7 +21,6 @@
     <!-- rounded components -->
     <dimen name="round_button_height">42dp</dimen>
     <dimen name="round_padding">4dp</dimen>
-    <dimen name="round_padding_radius">4dp</dimen>
     <dimen name="round_view_text_height">48dp</dimen>
     <dimen name="round_text_view_width">96dp</dimen>
 

@@ -59,8 +59,9 @@
     <string name="hint_input_text">Type text here</string>
 
     <!-- settings titles -->
-    <string name="settings_title_generator">Generator</string>
+    <string name="settings_title_general">General</string>
     <string name="settings_title_app">Application</string>
+    <string name="settings_title_interface">Interface</string>
     <string name="settings_title_about">About</string>
     <string name="settings_title_upper_case">Upper case</string>
     <string name="settings_title_author">Author</string>
@@ -68,6 +69,7 @@
     <string name="settings_title_version">Version</string>
     <string name="settings_title_vibration">Vibration</string>
     <string name="settings_title_theme">Theme</string>
+    <string name="settings_title_rate_app">Rate app</string>
 
     <!-- feedback -->
     <string name="feedback_device">Add device info</string>

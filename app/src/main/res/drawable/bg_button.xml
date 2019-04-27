@@ -3,9 +3,9 @@
 
     <solid android:color="?attr/colorAccent" />
 
-    <corners android:bottomLeftRadius="@dimen/common_margin_half"
-        android:bottomRightRadius="@dimen/common_margin_half"
-        android:topLeftRadius="@dimen/common_margin_half"
-        android:topRightRadius="@dimen/common_margin_half" />
+    <corners android:bottomLeftRadius="@dimen/round_padding"
+        android:bottomRightRadius="@dimen/round_padding"
+        android:topLeftRadius="@dimen/round_padding"
+        android:topRightRadius="@dimen/round_padding" />
 
 </shape>

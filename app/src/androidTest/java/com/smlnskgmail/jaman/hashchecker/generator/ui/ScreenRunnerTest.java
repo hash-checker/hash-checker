@@ -7,7 +7,6 @@ import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;

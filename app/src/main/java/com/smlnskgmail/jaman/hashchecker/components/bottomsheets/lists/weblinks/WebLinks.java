@@ -3,10 +3,14 @@ package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
 
+import java.util.Arrays;
+import java.util.List;
+
 public enum WebLinks implements ListItemMarker {
 
     SOURCE_CODE(R.string.title_web_link_github, R.drawable.ic_github, R.string.web_link_source_code),
-    MY_APPS(R.string.title_web_link_google_play, R.drawable.ic_google_play, R.string.web_link_my_apps);
+    MY_APPS(R.string.title_web_link_google_play, R.drawable.ic_google_play, R.string.web_link_my_apps),
+    CURRENT_APP(-1, -1, R.string.web_link_current_app);
 
     private int titleResId, iconResId, linkResId;
 
@@ -33,6 +37,10 @@ public enum WebLinks implements ListItemMarker {
     @Override
     public int getAdditionalIconResId() {
         return -1;
+    }
+
+    public static List<ListItemMarker> getAuthorLinks() {
+        return Arrays.asList(SOURCE_CODE, MY_APPS);
     }
 
 }

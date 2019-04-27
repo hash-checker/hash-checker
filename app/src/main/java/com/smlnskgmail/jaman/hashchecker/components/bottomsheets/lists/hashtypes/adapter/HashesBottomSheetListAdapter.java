@@ -8,6 +8,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.List
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.OnHashTypeSelectListener;
+import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 
 import java.util.List;
 
@@ -23,7 +24,8 @@ public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
     @Override
     public BaseBottomSheetListHolder getItemsHolder(@NonNull View view) {
-        return new HashesBottomSheetListHolder(view, this, hashTypeSelectListener);
+        return new HashesBottomSheetListHolder(view, this, hashTypeSelectListener,
+                Preferences.getLastHashType(getBottomSheet().getContext()));
     }
 
 }

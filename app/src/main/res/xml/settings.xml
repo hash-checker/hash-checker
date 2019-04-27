@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
-        android:title="@string/settings_title_generator">
+        android:title="@string/settings_title_general">
 
         <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
             android:title="@string/settings_title_upper_case"
@@ -10,16 +10,16 @@
             android:defaultValue="false"
             android:icon="@drawable/ic_settings_upper_case" />
 
-    </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
-
-    <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
-        android:title="@string/settings_title_app">
-
         <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
             android:title="@string/settings_title_app_file_manager"
             android:key="@string/key_inner_file_manager"
             android:defaultValue="false"
             android:icon="@drawable/ic_settings_file_manager" />
+
+    </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
+
+    <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
+        android:title="@string/settings_title_app">
 
         <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
             android:title="@string/settings_title_vibration"
@@ -27,10 +27,14 @@
             android:defaultValue="true"
             android:icon="@drawable/ic_settings_vibration" />
 
+    </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
+
+    <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
+        android:title="@string/settings_title_interface">
+
         <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
             android:title="@string/settings_title_theme"
             android:key="@string/key_theme"
-            android:defaultValue="true"
             android:icon="@drawable/ic_settings_theme" />
 
     </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
@@ -43,6 +47,11 @@
             android:key="@string/key_author"
             android:summary="@string/app_author"
             android:icon="@drawable/ic_settings_author" />
+
+        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
+            android:title="@string/settings_title_rate_app"
+            android:key="@string/key_rate_app"
+            android:icon="@drawable/ic_settings_rate_app" />
 
         <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
             android:title="@string/settings_title_version"

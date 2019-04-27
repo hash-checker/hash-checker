@@ -34,8 +34,8 @@ public class UIUtils {
 
     public static void showFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(android.R.id.content, fragment,
-                Constants.Tags.CURRENT_FRAGMENT_TAG)
+        fragmentTransaction.add(android.R.id.content, fragment, Constants.Tags.CURRENT_FRAGMENT_TAG)
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .addToBackStack(null)
                 .commit();
     }
@@ -74,10 +74,11 @@ public class UIUtils {
         snackbar.getView().setBackground(ContextCompat.getDrawable(context, R.drawable.bg_snackbar));
 
         TextView snackbarText = snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
-        snackbarText.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
+        Typeface font = getAppFont(context);
+        snackbarText.setTypeface(font);
         snackbarText.setTextColor(ContextCompat.getColor(context, R.color.colorLightText));
         ((TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_action))
-                .setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
+                .setTypeface(font);
         snackbar.show();
 
         if (Preferences.getVibrateAccess(context)) {
@@ -87,15 +88,19 @@ public class UIUtils {
 
     public static void applyAdaptiveFontWithBoldStyle(@NonNull Context context, @NonNull TextView textView) {
         applyAdaptiveFont(context, textView, false);
-        textView.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular),
-                Typeface.BOLD);
+        textView.setTypeface(getAppFont(context), Typeface.BOLD);
     }
 
-    public static void applyAdaptiveFont(@NonNull Context context, @NonNull TextView textView, boolean useThemeColor) {
-        textView.setTypeface(ResourcesCompat.getFont(context, R.font.google_sans_regular));
+    public static void applyAdaptiveFont(@NonNull Context context, @NonNull TextView textView,
+                                         boolean useThemeColor) {
+        textView.setTypeface(getAppFont(context));
         if (useThemeColor) {
             textView.setTextColor(UIUtils.getDarkTextColor(context));
         }
+    }
+
+    public static Typeface getAppFont(@NonNull Context context) {
+        return ResourcesCompat.getFont(context, R.font.google_sans_regular);
     }
 
     public static void colorizeImageSourceToAccentColor(@NonNull Context context, @NonNull Drawable drawable) {

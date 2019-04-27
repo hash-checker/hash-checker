@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.dialogs.inner;
+package com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,6 +7,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.BaseDialog;
 
 import butterknife.BindView;
 import butterknife.OnClick;

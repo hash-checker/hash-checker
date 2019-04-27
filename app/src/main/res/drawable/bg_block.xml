@@ -9,9 +9,9 @@
         android:right="@dimen/round_padding"
         android:top="@dimen/round_padding" />
 
-    <corners android:bottomLeftRadius="@dimen/round_padding_radius"
-        android:bottomRightRadius="@dimen/round_padding_radius"
-        android:topLeftRadius="@dimen/round_padding_radius"
-        android:topRightRadius="@dimen/round_padding_radius" />
+    <corners android:bottomLeftRadius="@dimen/round_padding"
+        android:bottomRightRadius="@dimen/round_padding"
+        android:topLeftRadius="@dimen/round_padding"
+        android:topRightRadius="@dimen/round_padding" />
 
 </shape>

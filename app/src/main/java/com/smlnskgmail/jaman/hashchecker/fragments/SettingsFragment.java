@@ -21,9 +21,12 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Th
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinks;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinksBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
+import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
+import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 import java.util.Arrays;
@@ -41,9 +44,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
         fragmentManager = getActivity().getSupportFragmentManager();
         context = getContext();
         initializeActionBar();
-        initializeAuthorLinks();
-        initializeThemes();
         initializeInnerFileManagerSwitcher();
+        initializeThemes();
+        initializeAuthorLinks();
+        initializeRateButton();
         findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)",
                 BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
     }
@@ -56,7 +60,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
     private void initializeAuthorLinks() {
         findPreference(getString(R.string.key_author)).setOnPreferenceClickListener(preference -> {
             WebLinksBottomSheet webLinksBottomSheet = new WebLinksBottomSheet();
-            webLinksBottomSheet.setItems(Arrays.asList(WebLinks.SOURCE_CODE, WebLinks.MY_APPS));
+            webLinksBottomSheet.setItems(WebLinks.getAuthorLinks());
             webLinksBottomSheet.show(fragmentManager, Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
             return false;
         });
@@ -67,6 +71,13 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
             ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
             themesBottomSheet.setItems(Arrays.asList(Themes.values()));
             themesBottomSheet.show(fragmentManager, Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
+            return false;
+        });
+    }
+
+    private void initializeRateButton() {
+        findPreference(getString(R.string.key_rate_app)).setOnPreferenceClickListener(preference -> {
+            AppUtils.openWebLink(context, context.getString(WebLinks.CURRENT_APP.getLinkResId()));
             return false;
         });
     }

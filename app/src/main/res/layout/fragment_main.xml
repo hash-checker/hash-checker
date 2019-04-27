@@ -23,13 +23,13 @@
             android:padding="@dimen/common_margin">
 
             <TextView android:id="@+id/selected_hash_type"
+                style="@style/AdaptiveTextComponent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:textSize="@dimen/text_size_info"
                 android:textColor="?attr/colorAccent"
-                android:fontFamily="@font/google_sans_regular"
                 tools:text="MD5" />
 
             <ImageView android:layout_width="wrap_content"
@@ -66,20 +66,19 @@
                 android:layout_width="@dimen/round_text_view_width"
                 android:layout_height="@dimen/round_button_height"
                 android:layout_marginEnd="@dimen/common_margin"
-                android:text="@string/action_from"
-                android:fontFamily="@font/google_sans_regular" />
+                android:text="@string/action_from" />
 
             <Button android:id="@+id/button_hash_actions"
                 style="@style/AppCircleButton"
                 android:layout_width="@dimen/round_text_view_width"
                 android:layout_height="@dimen/round_button_height"
                 android:layout_marginStart="@dimen/common_margin"
-                android:text="@string/action_select"
-                android:fontFamily="@font/google_sans_regular" />
+                android:text="@string/action_select" />
 
         </LinearLayout>
 
         <TextView android:id="@+id/field_selected_object_name"
+            style="@style/AdaptiveTextComponent"
             android:layout_width="match_parent"
             android:layout_height="@dimen/round_view_text_height"
             android:layout_marginStart="@dimen/common_margin_4"
@@ -91,8 +90,7 @@
             android:text="@string/message_select_object"
             android:textColor="?attr/colorCommonText"
             android:textAlignment="center"
-            android:textSize="@dimen/text_size_default"
-            android:fontFamily="@font/google_sans_regular" />
+            android:textSize="@dimen/text_size_default" />
 
     </LinearLayout>
 

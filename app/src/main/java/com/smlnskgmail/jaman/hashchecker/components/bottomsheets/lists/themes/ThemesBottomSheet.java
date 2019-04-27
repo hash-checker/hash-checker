@@ -8,7 +8,7 @@ public class ThemesBottomSheet extends BaseListBottomSheet {
 
     @Override
     public BaseBottomSheetListAdapter getItemsAdapter() {
-        return new ThemesBottomSheetListAdapter(getItems(), this, getActivity());
+        return new ThemesBottomSheetListAdapter(getItems(), this);
     }
 
 }

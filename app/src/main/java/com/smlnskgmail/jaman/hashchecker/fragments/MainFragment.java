@@ -29,8 +29,8 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.Actio
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ResourcesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionTypes;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.OnTextValueEnteredListener;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.TextInputDialog;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.OnTextValueEnteredListener;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
 import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
@@ -272,14 +272,14 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     @Override
     public void onHashTypeSelect(@NonNull HashTypes hashType) {
         selectedHash.setText(hashType.getTypeAsString(context));
-        Preferences.saveTypeAsLast(context, hashType.getTypeAsString(context));
+        Preferences.saveHashTypeAsLast(context, hashType);
     }
 
     @Override
     void initializeUI(@NonNull View view) {
         context = getContext();
         fragmentManager = getActivity().getSupportFragmentManager();
-        selectedHash.setText(Preferences.getLastType(context));
+        selectedHash.setText(Preferences.getLastHashType(context).getTypeAsString(context));
         fieldSelectedObjectName.setMovementMethod(new ScrollingMovementMethod());
         if (startWithTextSelection) {
             onUserActionClick(UserActionTypes.ENTER_TEXT);
@@ -331,6 +331,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
                 Preferences.setRefreshSelectedFileStatus(context, false);
             }
         }
+        onHashTypeSelect(Preferences.getLastHashType(context));
     }
 
     @Override

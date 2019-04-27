@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
@@ -17,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.CustomTypefaceSpan;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
@@ -87,7 +85,7 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
     }
 
     private void applyFontToMenuItem(@NonNull MenuItem menuItem) {
-        Typeface font = ResourcesCompat.getFont(getContext(), R.font.google_sans_regular);
+        Typeface font = UIUtils.getAppFont(getContext());
         SpannableString title = new SpannableString(menuItem.getTitle());
         title.setSpan(new CustomTypefaceSpan("", font), 0, title.length(),
                 Spannable.SPAN_INCLUSIVE_INCLUSIVE);

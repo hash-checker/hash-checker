@@ -6,17 +6,19 @@ import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
+import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 
 public class Preferences {
 
-    public static void saveTypeAsLast(@NonNull Context context, @NonNull String value) {
-        saveStringPreference(context, context.getString(R.string.key_last_type_value), value);
+    public static void saveHashTypeAsLast(@NonNull Context context, @NonNull HashTypes hashTypes) {
+        saveStringPreference(context, context.getString(R.string.key_last_type_value), hashTypes.toString());
     }
 
-    public static String getLastType(@NonNull Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
+    public static HashTypes getLastHashType(@NonNull Context context) {
+        String hashValue = PreferenceManager.getDefaultSharedPreferences(context)
                 .getString(context.getString(R.string.key_last_type_value),
-                context.getString(R.string.hash_type_md5));
+                        context.getString(R.string.hash_type_md5));
+        return HashTypes.valueOf(hashValue);
     }
 
     public static boolean isUsingInnerFileManager(@NonNull Context context) {
@@ -30,9 +32,8 @@ public class Preferences {
     public static String getTheme(@NonNull Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getString(context.getString(R.string.key_selected_theme),
-                Themes.LIGHT.toString());
+                        Themes.LIGHT.toString());
     }
-
     public static boolean useUpperCase(@NonNull Context context) {
         return getBooleanPreference(context, context.getString(R.string.key_upper_case), false);
     }

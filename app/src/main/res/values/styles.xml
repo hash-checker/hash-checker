@@ -105,14 +105,13 @@
         <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
-    <style name="AppActionButton">
+    <style name="AppActionButton" parent="AdaptiveTextComponent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:drawablePadding">16dp</item>
         <item name="android:padding">@dimen/common_margin_2</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
         <item name="android:clickable">true</item>
-        <item name="android:fontFamily">@font/google_sans_regular</item>
         <item name="android:textColor">?attr/colorCommonText</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
@@ -121,7 +120,7 @@
         <item name="android:background">@drawable/bg_bottom_sheet</item>
     </style>
 
-    <style name="AppEditTextHashValue">
+    <style name="AppEditTextHashValue" parent="AdaptiveTextComponent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">@dimen/common_padding</item>
@@ -131,16 +130,14 @@
         <item name="android:selectAllOnFocus">true</item>
         <item name="android:textColor">?attr/colorCommonText</item>
         <item name="android:textColorHint">?attr/colorCommonUnselected</item>
-        <item name="android:fontFamily">@font/google_sans_regular</item>
     </style>
 
-    <style name="AppTextViewDialogComponent">
+    <style name="AppTextViewDialogComponent" parent="AdaptiveTextComponent">
         <item name="android:layout_marginStart">@dimen/common_margin_2</item>
         <item name="android:layout_marginEnd">@dimen/common_margin_2</item>
         <item name="android:background">@null</item>
         <item name="android:textColor">?attr/colorCommonText</item>
         <item name="android:textColorHint">?attr/colorCommonUnselected</item>
-        <item name="android:fontFamily">@font/google_sans_regular</item>
     </style>
 
     <style name="AppDialogButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
@@ -150,6 +147,10 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="AdaptiveTextComponent">
+        <item name="android:fontFamily">@font/google_sans_regular</item>
     </style>
 
 </resources>
