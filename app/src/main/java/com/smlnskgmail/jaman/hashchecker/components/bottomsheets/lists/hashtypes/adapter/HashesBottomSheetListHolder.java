@@ -8,19 +8,18 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adap
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.OnHashTypeSelectListener;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 
 public class HashesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
-    private HashTypes hashTypeAtPosition, selectedHashType;
+    private HashTypes hashTypeAtPosition;
+    private HashesBottomSheetListAdapter hashesBottomSheetListAdapter;
     private OnHashTypeSelectListener hashTypeSelectListener;
 
     HashesBottomSheetListHolder(@NonNull View itemView, @NonNull BaseBottomSheetListAdapter listAdapter,
-                                @NonNull OnHashTypeSelectListener hashTypeSelectListener,
-                                @NonNull HashTypes selectedHashType) {
+                                @NonNull OnHashTypeSelectListener hashTypeSelectListener) {
         super(itemView, listAdapter);
         this.hashTypeSelectListener = hashTypeSelectListener;
-        this.selectedHashType = selectedHashType;
+        this.hashesBottomSheetListAdapter = (HashesBottomSheetListAdapter) listAdapter;
     }
 
     @Override
@@ -39,7 +38,7 @@ public class HashesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
     @Override
     protected boolean getConditionToAdditionalIconVisibleState() {
-        return hashTypeAtPosition == selectedHashType;
+        return hashTypeAtPosition == hashesBottomSheetListAdapter.getSelectedHashType();
     }
 
 }

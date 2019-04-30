@@ -1,6 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.adapter;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
 
@@ -16,17 +15,16 @@ import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
 public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
     private Themes themeAtPosition;
-    private Themes selectedTheme;
+    private ThemesBottomSheetListAdapter themesBottomSheetListAdapter;
 
-    ThemesBottomSheetListHolder(@NonNull View itemView, @NonNull BaseBottomSheetListAdapter adapter,
-                                Themes selectedTheme) {
+    ThemesBottomSheetListHolder(@NonNull View itemView, @NonNull BaseBottomSheetListAdapter adapter) {
         super(itemView, adapter);
-        this.selectedTheme = selectedTheme;
+        themesBottomSheetListAdapter = (ThemesBottomSheetListAdapter) adapter;
     }
 
     @Override
     protected void callItemClick() {
-        if (themeAtPosition == selectedTheme) {
+        if (themeAtPosition == themesBottomSheetListAdapter.getSelectedTheme()) {
             getListAdapter().getBottomSheet().dismissAllowingStateLoss();
         } else {
             showThemeApplyDialog();
@@ -35,7 +33,7 @@ public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
     @Override
     protected void bind(@NonNull ListItemMarker listItemMarker) {
-        themeAtPosition = (Themes) getListAdapter().getItems().get(getAdapterPosition());
+        themeAtPosition = (Themes) themesBottomSheetListAdapter.getItems().get(getAdapterPosition());
         super.bind(listItemMarker);
     }
 
@@ -44,7 +42,7 @@ public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
                 R.string.message_change_theme, R.string.common_ok, (dialog, which) -> {
                     configureNewTheme();
                     dialog.dismiss();
-                    AppUtils.restartApp(getListAdapter().getBottomSheet().getActivity());
+                    AppUtils.restartApp(themesBottomSheetListAdapter.getBottomSheet().getActivity());
         });
     }
 
@@ -59,7 +57,7 @@ public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
     @Override
     protected boolean getConditionToAdditionalIconVisibleState() {
-        return themeAtPosition == selectedTheme;
+        return themeAtPosition == themesBottomSheetListAdapter.getSelectedTheme();
     }
 
 }

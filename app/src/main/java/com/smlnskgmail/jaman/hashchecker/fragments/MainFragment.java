@@ -240,7 +240,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
 
     private void enterText() {
         String currentText = !isTextSelected ? null : fieldSelectedObjectName.getText().toString();
-        new TextInputDialog(context, MainFragment.this, currentText).show();
+        new TextInputDialog(context, this, currentText).show();
     }
 
     @Override

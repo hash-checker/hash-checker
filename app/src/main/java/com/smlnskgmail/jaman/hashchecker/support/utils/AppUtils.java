@@ -28,19 +28,16 @@ public class AppUtils {
             Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             openExplorerIntent.addCategory(Intent.CATEGORY_OPENABLE);
             openExplorerIntent.setType("*/*");
-            fragment.startActivityForResult(openExplorerIntent,
-                    Constants.Requests.FILE_SELECT_REQUEST);
+            fragment.startActivityForResult(openExplorerIntent, Constants.Requests.FILE_SELECT_REQUEST);
         } catch (ActivityNotFoundException e) {
-            UIUtils.showSnackbar(view.getContext(), view,
-                    fragment.getString(R.string.message_error_start_file_selector),
+            UIUtils.showSnackbar(view.getContext(), view, fragment.getString(R.string.message_error_start_file_selector),
                     Snackbar.LENGTH_LONG);
         }
     }
 
     public static void openInnerFileManager(@NonNull Fragment fragment) {
         Intent openExplorerIntent = new Intent(fragment.getContext(), FileExplorerActivity.class);
-        fragment.startActivityForResult(openExplorerIntent,
-                Constants.Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER);
+        fragment.startActivityForResult(openExplorerIntent, Constants.Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER);
     }
 
     public static void openAppSettings(@NonNull Activity activity) {
@@ -61,21 +58,32 @@ public class AppUtils {
         } catch (ActivityNotFoundException ignored) {}
     }
 
-    public static void sendFeedback(@NonNull Context context, @NonNull String text,
-                                    @NonNull String email) {
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
-                Uri.fromParts("mailto", email, null));
+    public static void openGooglePlay(@NonNull Context context, @NonNull View view) {
+        final String appPackageName = context.getPackageName();
+        try {
+            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+        } catch (ActivityNotFoundException e) {
+            try {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="
+                        + appPackageName)));
+            } catch (ActivityNotFoundException e2) {
+                UIUtils.showSnackbar(context, view, context.getString(R.string.message_error_start_google_play),
+                        Snackbar.LENGTH_LONG);
+            }
+        }
+    }
+
+    public static void sendFeedback(@NonNull Context context, @NonNull String text, @NonNull String email) {
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", email, null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name));
         emailIntent.putExtra(Intent.EXTRA_TEXT, text);
-        context.startActivity(Intent.createChooser(emailIntent,
-                context.getString(R.string.message_email_app_chooser)));
+        context.startActivity(Intent.createChooser(emailIntent, context.getString(R.string.message_email_app_chooser)));
     }
 
     static void vibrate(@NonNull Context context) {
         Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            v.vibrate(VibrationEffect.createOneShot(VIBRATION_LENGTH,
-                    VibrationEffect.DEFAULT_AMPLITUDE));
+            v.vibrate(VibrationEffect.createOneShot(VIBRATION_LENGTH, VibrationEffect.DEFAULT_AMPLITUDE));
         }else{
             v.vibrate(VIBRATION_LENGTH);
         }

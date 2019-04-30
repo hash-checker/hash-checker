@@ -14,7 +14,7 @@ public class AppAlertDialog {
     public static void show(@NonNull Context context, int titleResId, int messageResId,
                             int positiveButtonTextResId,
                             @Nullable DialogInterface.OnClickListener positiveClickListener) {
-        AlertDialog alertDialogBuilder = new AlertDialog.Builder(context, R.style.AppAlertDialog)
+        AlertDialog alertDialog = new AlertDialog.Builder(context, R.style.AppAlertDialog)
                 .setTitle(titleResId)
                 .setMessage(messageResId)
                 .setPositiveButton(positiveButtonTextResId, positiveClickListener)
@@ -22,13 +22,13 @@ public class AppAlertDialog {
                     dialog.cancel();
                 })
                 .create();
-        alertDialogBuilder.setOnShowListener(dialog -> {
-            AlertDialog alertDialog = ((AlertDialog) dialog);
+        alertDialog.setOnShowListener(dialog -> {
+            AlertDialog currentDialog = ((AlertDialog) dialog);
             int textColor = UIUtils.getAccentColor(context);
-            alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(textColor);
-            alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(textColor);
+            currentDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(textColor);
+            currentDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(textColor);
         });
-        alertDialogBuilder.show();
+        alertDialog.show();
     }
 
 }

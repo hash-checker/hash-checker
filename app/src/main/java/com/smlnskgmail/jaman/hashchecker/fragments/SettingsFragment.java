@@ -21,9 +21,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Th
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinks;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinksBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
-import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
@@ -48,8 +46,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
         initializeThemes();
         initializeAuthorLinks();
         initializeRateButton();
-        findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)",
-                BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+        initializeAppVersionInfo();
     }
 
     private void initializeActionBar() {
@@ -77,9 +74,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
 
     private void initializeRateButton() {
         findPreference(getString(R.string.key_rate_app)).setOnPreferenceClickListener(preference -> {
-            AppUtils.openWebLink(context, context.getString(WebLinks.CURRENT_APP.getLinkResId()));
+            AppUtils.openGooglePlay(context, getView());
             return false;
         });
+    }
+
+    private void initializeAppVersionInfo() {
+        findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)",
+                BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
     }
 
     private void initializeInnerFileManagerSwitcher() {

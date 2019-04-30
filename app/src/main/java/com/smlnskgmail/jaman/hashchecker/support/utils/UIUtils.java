@@ -30,7 +30,7 @@ import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 
 public class UIUtils {
 
-    private static final int COMMON_SNACKBAR_MAGRIN = 12;
+    private static final int COMMON_SNACKBAR_MARGIN = 12;
 
     public static void showFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -67,10 +67,8 @@ public class UIUtils {
         }
         snackbar.setActionTextColor(getAccentColor(context));
 
-        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) snackbar.getView()
-                .getLayoutParams();
-        params.setMargins(COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN, COMMON_SNACKBAR_MAGRIN,
-                COMMON_SNACKBAR_MAGRIN);
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) snackbar.getView().getLayoutParams();
+        params.setMargins(COMMON_SNACKBAR_MARGIN, COMMON_SNACKBAR_MARGIN, COMMON_SNACKBAR_MARGIN, COMMON_SNACKBAR_MARGIN);
         snackbar.getView().setBackground(ContextCompat.getDrawable(context, R.drawable.bg_snackbar));
 
         TextView snackbarText = snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);

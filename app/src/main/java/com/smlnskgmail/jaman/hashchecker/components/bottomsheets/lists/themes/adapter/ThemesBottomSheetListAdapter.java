@@ -1,6 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.adapter;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.view.View;
 
@@ -14,15 +13,21 @@ import java.util.List;
 
 public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
+    private Themes selectedTheme;
+
     public ThemesBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
                                         @NonNull BaseListBottomSheet bottomSheet) {
         super(items, bottomSheet);
+        selectedTheme = Themes.getThemeFromPreferences(getBottomSheet().getContext());
     }
 
     @Override
     public BaseBottomSheetListHolder getItemsHolder(@NonNull View view) {
-        return new ThemesBottomSheetListHolder(view, this,
-                Themes.getThemeFromPreferences(getBottomSheet().getContext()));
+        return new ThemesBottomSheetListHolder(view, this);
+    }
+
+    public Themes getSelectedTheme() {
+        return selectedTheme;
     }
 
 }

@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_dialog"
+    android:background="?attr/colorDialogBackground"
     android:orientation="vertical">
 
     <TextView style="@style/AppTextViewDialogComponent"
-        android:layout_marginTop="@dimen/common_margin_2"
+        android:layout_marginTop="@dimen/common_margin_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title_dialog_enter_text"
@@ -22,12 +22,12 @@
         android:layout_marginTop="@dimen/common_margin_2"
         android:hint="@string/hint_input_text"
         android:inputType="textPersonName"
-        android:padding="@dimen/common_margin_half"
         tools:ignore="TextFields" />
 
     <LinearLayout android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_margin_2"
+        android:layout_marginBottom="@dimen/common_margin"
         android:layout_gravity="end">
 
         <Button android:id="@+id/dialog_button_close"
@@ -36,7 +36,7 @@
 
         <Button android:id="@+id/dialog_text_button_add"
             style="@style/AppDialogButtonStyle"
-            android:layout_marginStart="@dimen/common_margin"
+            android:layout_marginEnd="@dimen/common_margin"
             android:text="@string/common_add" />
 
     </LinearLayout>
