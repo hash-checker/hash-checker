@@ -10,15 +10,18 @@ import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 
 public class Preferences {
 
-    public static void saveHashTypeAsLast(@NonNull Context context, @NonNull HashTypes hashTypes) {
-        saveStringPreference(context, context.getString(R.string.key_last_type_value), hashTypes.toString());
+    public static void saveHashTypeAsLast(@NonNull Context context, @NonNull HashTypes hashType) {
+        saveStringPreference(context, context.getString(R.string.key_last_type_value), hashType.toString());
     }
 
     public static HashTypes getLastHashType(@NonNull Context context) {
-        String hashValue = PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(context.getString(R.string.key_last_type_value),
+        String hashValue = getStringPreference(context, context.getString(R.string.key_last_type_value),
                         context.getString(R.string.hash_type_md5));
-        return HashTypes.valueOf(hashValue);
+        try {
+            return HashTypes.valueOf(hashValue);
+        } catch (IllegalArgumentException parseException) {
+            return HashTypes.MD5;
+        }
     }
 
     public static boolean isUsingInnerFileManager(@NonNull Context context) {
@@ -30,8 +33,7 @@ public class Preferences {
     }
 
     public static String getTheme(@NonNull Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(context.getString(R.string.key_selected_theme),
+        return getStringPreference(context, context.getString(R.string.key_selected_theme),
                         Themes.LIGHT.toString());
     }
     public static boolean useUpperCase(@NonNull Context context) {
@@ -73,6 +75,11 @@ public class Preferences {
     private static void saveStringPreference(@NonNull Context context, @NonNull String key,
                                              @NonNull String value) {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putString(key, value).apply();
+    }
+
+    private static String getStringPreference(@NonNull Context context, @NonNull String key,
+                                              @NonNull String defaultValue) {
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(key, defaultValue);
     }
 
     private static void saveBooleanPreference(@NonNull Context context, @NonNull String key,

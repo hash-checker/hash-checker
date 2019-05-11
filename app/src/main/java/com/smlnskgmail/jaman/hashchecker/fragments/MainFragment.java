@@ -115,8 +115,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     @SuppressLint("ResourceType")
     private void generateHash() {
         if (fileUri != null || isTextSelected) {
-            HashTypes hashType = HashTypes.parseHashTypeFromString(context,
-                    selectedHash.getText().toString());
+            HashTypes hashType = HashTypes.parseHashTypeFromString(context, selectedHash.getText().toString());
             progressDialog = AppProgressDialog.getDialog(context, R.string.message_generate_dialog);
             progressDialog.show();
             if (isTextSelected) {

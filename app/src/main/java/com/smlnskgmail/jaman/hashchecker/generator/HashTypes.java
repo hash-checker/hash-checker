@@ -28,16 +28,16 @@ public enum HashTypes implements ListItemMarker {
 
     @NonNull
     public static HashTypes parseHashTypeFromString(@NonNull Context context, @NonNull String data) {
-        if (context.getString(SHA_1.hashTypeNameResId).equals(data)) {
+        if (data.equals(context.getString(SHA_1.hashTypeNameResId))) {
             return SHA_1;
-        } else if (context.getString(SHA_224.hashTypeNameResId).equals(data)) {
+        } else if (data.equals(context.getString(SHA_224.hashTypeNameResId))) {
             return SHA_224;
-        } else if (context.getString(SHA_256.hashTypeNameResId).equals(data)) {
+        } else if (data.equals(context.getString(SHA_256.hashTypeNameResId))) {
             return SHA_256;
-        } else if (context.getString(SHA_384.hashTypeNameResId).equals(data)) {
+        } else if (data.equals(context.getString(SHA_384.hashTypeNameResId))) {
             return SHA_384;
-        } else if (context.getString(SHA_512.hashTypeNameResId).equals(data)) {
-           return SHA_512;
+        } else if (data.equals(context.getString(SHA_512.hashTypeNameResId))) {
+            return SHA_512;
         }
         return MD5;
     }
