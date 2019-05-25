@@ -18,7 +18,8 @@
     <dimen name="text_size_large">20sp</dimen>
 
     <!-- icons -->
-    <dimen name="common_icon_size">144dp</dimen>
+    <dimen name="icon_size_email">144dp</dimen>
+    <dimen name="icon_size_history_empty_view">96dp</dimen>
 
     <!-- rounded components -->
     <dimen name="round_button_height">42dp</dimen>

@@ -27,6 +27,7 @@
     <string name="message_email_app_chooser">Choose app for send a email:</string>
     <string name="message_change_theme">To change the theme, you need to restart the application.</string>
     <string name="message_invalid_selected_source">Cannot generate hash value from input source. Please check selected source.</string>
+    <string name="message_delete_all_history_items">Delete all history items?</string>
 
     <!-- commons -->
     <string name="common_text">Text</string>
@@ -35,6 +36,7 @@
     <string name="common_ok">OK</string>
     <string name="common_cancel">Cancel</string>
     <string name="common_again">Again</string>
+    <string name="common_date">Date</string>
 
     <!-- actions -->
     <string name="action_from">From</string>

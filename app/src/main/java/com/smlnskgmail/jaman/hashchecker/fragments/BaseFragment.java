@@ -1,6 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker.fragments;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,8 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.smlnskgmail.jaman.hashchecker.components.CustomTypefaceSpan;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
@@ -56,6 +52,8 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(),
                     getBackActionIconResId()));
+        } else {
+            actionBar.setDisplayHomeAsUpEnabled(false);
         }
     }
 
@@ -63,10 +61,6 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
         inflater.inflate(getMenuResId(), menu);
-        for (int itemId: getMenuItemsIds()) {
-            MenuItem item = menu.findItem(itemId);
-            applyFontToMenuItem(item);
-        }
     }
 
     public abstract int getMenuResId();
@@ -87,14 +81,6 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-    }
-
-    private void applyFontToMenuItem(@NonNull MenuItem menuItem) {
-        Typeface font = UIUtils.getAppFont(getContext());
-        SpannableString title = new SpannableString(menuItem.getTitle());
-        title.setSpan(new CustomTypefaceSpan("", font), 0, title.length(),
-                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        menuItem.setTitle(title);
     }
 
     public abstract int getActionBarTitleResId();

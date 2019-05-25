@@ -18,9 +18,7 @@ public class AppAlertDialog {
                 .setTitle(titleResId)
                 .setMessage(messageResId)
                 .setPositiveButton(positiveButtonTextResId, positiveClickListener)
-                .setNegativeButton(R.string.common_cancel, (dialog, which) -> {
-                    dialog.cancel();
-                })
+                .setNegativeButton(R.string.common_cancel, (dialog, which) -> dialog.cancel())
                 .create();
         alertDialog.setOnShowListener(dialog -> {
             AlertDialog currentDialog = ((AlertDialog) dialog);

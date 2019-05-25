@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
+import com.smlnskgmail.jaman.hashchecker.support.utils.Logger;
 
 public class Preferences {
 
@@ -19,7 +20,8 @@ public class Preferences {
                         context.getString(R.string.hash_type_md5));
         try {
             return HashTypes.valueOf(hashValue);
-        } catch (IllegalArgumentException parseException) {
+        } catch (IllegalArgumentException e) {
+            Logger.error(e);
             return HashTypes.MD5;
         }
     }

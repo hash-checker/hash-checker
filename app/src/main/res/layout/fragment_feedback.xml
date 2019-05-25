@@ -11,13 +11,12 @@
         android:orientation="vertical">
 
         <ImageView android:id="@+id/iv_feedback_icon"
-            android:layout_width="@dimen/common_icon_size"
-            android:layout_height="@dimen/common_icon_size"
+            android:layout_width="@dimen/icon_size_email"
+            android:layout_height="@dimen/icon_size_email"
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_email" />
 
         <EditText android:id="@+id/tv_feedback_message"
-            style="@style/AdaptiveTextComponent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="?attr/colorCommonText"
@@ -33,7 +32,6 @@
             android:padding="@dimen/common_margin">
 
             <TextView android:id="@+id/tv_device_info_title"
-                style="@style/AdaptiveTextComponent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -54,7 +52,6 @@
             android:padding="@dimen/common_margin">
 
             <TextView android:id="@+id/tv_manufacturer_title"
-                style="@style/AdaptiveTextComponent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -63,7 +60,6 @@
                 android:textSize="@dimen/text_size_medium" />
 
             <TextView android:id="@+id/tv_manufacturer_value"
-                style="@style/AdaptiveTextComponent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/common_margin_half"
@@ -78,7 +74,6 @@
             android:padding="@dimen/common_margin">
 
             <TextView android:id="@+id/tv_model_title"
-                style="@style/AdaptiveTextComponent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,7 +82,6 @@
                 android:textSize="@dimen/text_size_medium" />
 
             <TextView android:id="@+id/tv_model_value"
-                style="@style/AdaptiveTextComponent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/common_margin_half"

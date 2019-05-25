@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
@@ -15,7 +14,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
 import android.util.TypedValue;
 import android.view.View;
@@ -72,33 +70,12 @@ public class UIUtils {
         snackbar.getView().setBackground(ContextCompat.getDrawable(context, R.drawable.bg_snackbar));
 
         TextView snackbarText = snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
-        Typeface font = getAppFont(context);
-        snackbarText.setTypeface(font);
         snackbarText.setTextColor(ContextCompat.getColor(context, R.color.colorLightText));
-        ((TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_action))
-                .setTypeface(font);
         snackbar.show();
 
         if (Preferences.getVibrateAccess(context)) {
             AppUtils.vibrate(context);
         }
-    }
-
-    public static void applyAdaptiveFontWithBoldStyle(@NonNull Context context, @NonNull TextView textView) {
-        applyAdaptiveFont(context, textView, false);
-        textView.setTypeface(getAppFont(context), Typeface.BOLD);
-    }
-
-    public static void applyAdaptiveFont(@NonNull Context context, @NonNull TextView textView,
-                                         boolean useThemeColor) {
-        textView.setTypeface(getAppFont(context));
-        if (useThemeColor) {
-            textView.setTextColor(UIUtils.getDarkTextColor(context));
-        }
-    }
-
-    public static Typeface getAppFont(@NonNull Context context) {
-        return ResourcesCompat.getFont(context, R.font.ft_google_sans_regular);
     }
 
     public static void colorizeImageSourceToAccentColor(@NonNull Context context, @NonNull Drawable drawable) {

@@ -1,5 +1,16 @@
 <resources>
 
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialog</item>
+        <item name="android:navigationBarColor">?attr/colorPrimaryDark</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="actionOverflowButtonStyle">@style/AppMenuButton</item>
+        <item name="android:itemBackground">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorCommonText</item>
+        <item name="android:fontFamily">@font/ft_google_sans_regular</item>
+    </style>
+
     <style name="AppThemeLight" parent="AppTheme">
         <item name="colorPrimary">#ffffff</item>
         <item name="colorPrimaryDark">#eeeeee</item>
@@ -60,16 +71,6 @@
         <item name="android:windowLightNavigationBar">false</item>
     </style>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:statusBarColor">?attr/colorPrimary</item>
-        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialog</item>
-        <item name="android:navigationBarColor">?attr/colorPrimaryDark</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-        <item name="actionOverflowButtonStyle">@style/AppMenuButton</item>
-        <item name="android:itemBackground">?attr/colorPrimary</item>
-        <item name="android:textColor">?attr/colorCommonText</item>
-    </style>
-
     <style name="AppBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
         <item name="android:navigationBarColor">?attr/colorBackground</item>
@@ -101,11 +102,10 @@
         <item name="android:foreground">?selectableItemBackground</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:fontFamily">@font/ft_google_sans_regular</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
-    <style name="AppActionButton" parent="AdaptiveTextComponent">
+    <style name="AppActionButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:drawablePadding">16dp</item>
@@ -120,7 +120,7 @@
         <item name="android:background">@drawable/bg_bottom_sheet</item>
     </style>
 
-    <style name="AppEditTextHashValue" parent="AdaptiveTextComponent">
+    <style name="AppEditTextHashValue">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">@dimen/common_padding</item>
@@ -132,7 +132,7 @@
         <item name="android:textColorHint">?attr/colorCommonUnselected</item>
     </style>
 
-    <style name="AppTextViewDialogComponent" parent="AdaptiveTextComponent">
+    <style name="AppTextViewDialogComponent">
         <item name="android:layout_marginStart">@dimen/common_margin_5</item>
         <item name="android:layout_marginEnd">@dimen/common_margin_5</item>
         <item name="android:textColor">?attr/colorCommonText</item>
@@ -144,10 +144,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">?attr/colorAccent</item>
-    </style>
-
-    <style name="AdaptiveTextComponent">
-        <item name="android:fontFamily">@font/ft_google_sans_regular</item>
     </style>
 
 </resources>

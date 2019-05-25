@@ -57,7 +57,9 @@ public class AppUtils {
     public static void openWebLink(@NonNull Context context, @NonNull String link) {
         try {
             context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
-        } catch (ActivityNotFoundException ignored) {}
+        } catch (ActivityNotFoundException e) {
+            Logger.error(e);
+        }
     }
 
     public static void openGooglePlay(@NonNull Context context, @NonNull View view) {

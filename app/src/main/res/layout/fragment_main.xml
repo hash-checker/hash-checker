@@ -23,7 +23,6 @@
             android:padding="@dimen/common_margin">
 
             <TextView android:id="@+id/tv_selected_hash_type"
-                style="@style/AdaptiveTextComponent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -78,7 +77,6 @@
         </LinearLayout>
 
         <TextView android:id="@+id/tv_selected_object_name"
-            style="@style/AdaptiveTextComponent"
             android:layout_width="match_parent"
             android:layout_height="@dimen/round_view_text_height"
             android:layout_marginStart="@dimen/common_margin_4"

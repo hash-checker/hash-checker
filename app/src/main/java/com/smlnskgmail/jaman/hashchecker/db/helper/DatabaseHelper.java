@@ -10,6 +10,7 @@ import com.j256.ormlite.table.TableUtils;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.db.entity.DBEntity;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem;
+import com.smlnskgmail.jaman.hashchecker.support.utils.Logger;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,15 +29,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             HistoryItem.class
     );
 
-    private Context context;
-
     public DatabaseHelper(@NonNull Context context) {
-        this(context, DATABASE_NAME);
-    }
-
-    public DatabaseHelper(@NonNull Context context, @NonNull String databaseName) {
-        super(context, databaseName, null, DATABASE_VERSION, R.raw.ormlite_config);
-        this.context = context;
+        super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
     }
 
     @Override
@@ -46,21 +40,19 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 TableUtils.createTable(connectionSource, clazz);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Logger.error(e);
         }
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion,
-                          int newVersion) {
-
-    }
+                          int newVersion) {}
 
     public void addGeneratorHistoryItem(@NonNull HistoryItem historyItem) {
         try {
             getDao(HistoryItem.class).create(historyItem);
         } catch (SQLException e) {
-            e.printStackTrace();
+            Logger.error(e);
         }
     }
 
@@ -68,9 +60,17 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             return getDao(HistoryItem.class).queryForAll();
         } catch (SQLException e) {
-            e.printStackTrace();
+            Logger.error(e);
         }
         return new ArrayList<>();
+    }
+
+    public void deleteAllHistoryItems() {
+        try {
+            getDao(HistoryItem.class).deleteBuilder().delete();
+        } catch (SQLException e) {
+            Logger.error(e);
+        }
     }
 
 }

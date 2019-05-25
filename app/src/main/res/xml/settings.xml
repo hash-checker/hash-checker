@@ -1,69 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
-        android:title="@string/settings_title_general">
+    <PreferenceCategory android:title="@string/settings_title_general">
 
-        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
-            android:title="@string/settings_title_upper_case"
+        <SwitchPreference android:title="@string/settings_title_upper_case"
             android:key="@string/key_upper_case"
             android:defaultValue="false"
             android:icon="@drawable/ic_settings_upper_case" />
 
-        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
-            android:title="@string/settings_title_app_file_manager"
+        <SwitchPreference android:title="@string/settings_title_app_file_manager"
             android:key="@string/key_inner_file_manager"
             android:defaultValue="false"
             android:icon="@drawable/ic_settings_file_manager" />
 
-        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
-            android:title="@string/settings_title_save_result_to_history"
+        <SwitchPreference android:title="@string/settings_title_save_result_to_history"
             android:key="@string/key_save_result_to_history"
             android:defaultValue="true"
             android:icon="@drawable/ic_history" />
 
-    </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
+    </PreferenceCategory>
 
-    <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
-        android:title="@string/settings_title_app">
+    <PreferenceCategory android:title="@string/settings_title_app">
 
-        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
-            android:title="@string/settings_title_vibration"
+        <SwitchPreference android:title="@string/settings_title_vibration"
             android:key="@string/key_vibrate"
             android:defaultValue="true"
             android:icon="@drawable/ic_settings_vibration" />
 
-    </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
+    </PreferenceCategory>
 
-    <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
-        android:title="@string/settings_title_interface">
+    <PreferenceCategory android:title="@string/settings_title_interface">
 
-        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
-            android:title="@string/settings_title_theme"
+        <Preference android:title="@string/settings_title_theme"
             android:key="@string/key_theme"
             android:icon="@drawable/ic_settings_theme" />
 
-    </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
+    </PreferenceCategory>
 
-    <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory
-        android:title="@string/settings_title_about">
+    <PreferenceCategory android:title="@string/settings_title_about">
 
-        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
-            android:title="@string/settings_title_author"
+        <Preference android:title="@string/settings_title_author"
             android:key="@string/key_author"
             android:summary="@string/app_author"
             android:icon="@drawable/ic_settings_author" />
 
-        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
-            android:title="@string/settings_title_rate_app"
+        <Preference android:title="@string/settings_title_rate_app"
             android:key="@string/key_rate_app"
             android:icon="@drawable/ic_settings_rate_app" />
 
-        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreference
-            android:title="@string/settings_title_version"
+        <Preference android:title="@string/settings_title_version"
             android:key="@string/key_version"
             android:icon="@drawable/ic_settings_version" />
 
-    </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
+    </PreferenceCategory>
 
 </PreferenceScreen>

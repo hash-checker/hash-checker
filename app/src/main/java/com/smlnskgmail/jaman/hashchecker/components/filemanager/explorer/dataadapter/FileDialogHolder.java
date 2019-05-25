@@ -11,23 +11,32 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.OnFileClickListener;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 class FileDialogHolder extends RecyclerView.ViewHolder {
 
+    @BindView(R.id.tv_item_file)
+    protected TextView itemFile;
+
     private OnFileClickListener fileClickListener;
-    private TextView itemFile;
 
     FileDialogHolder(@NonNull View itemView, @NonNull OnFileClickListener fileClickListener) {
         super(itemView);
+        ButterKnife.bind(this, itemView);
         this.fileClickListener = fileClickListener;
-        itemFile = itemView.findViewById(R.id.tv_item_file);
     }
 
     void bind(@NonNull FileItem file) {
+        loadItem(file);
+        itemView.setOnClickListener(v -> fileClickListener.onFileClick(file, getAdapterPosition()));
+    }
+
+    private void loadItem(@NonNull FileItem file) {
         itemFile.setText(file.getFileName());
         Drawable fileIcon = ContextCompat.getDrawable(itemView.getContext(), file.getFileType()
                 .getIconResId());
         itemFile.setCompoundDrawablesRelativeWithIntrinsicBounds(fileIcon, null, null, null);
-        itemView.setOnClickListener(v -> fileClickListener.onFileClick(file, getAdapterPosition()));
     }
 
 }

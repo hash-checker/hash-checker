@@ -16,7 +16,6 @@
         tools:visibility="visible" />
 
     <TextView android:id="@+id/tv_item_list_title"
-        style="@style/AdaptiveTextComponent"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
