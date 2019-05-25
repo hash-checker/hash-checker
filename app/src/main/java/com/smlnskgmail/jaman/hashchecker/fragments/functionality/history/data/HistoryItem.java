@@ -28,8 +28,8 @@ public class HistoryItem extends DBEntity {
     @DatabaseField(columnName = "hash_value", dataType = DataType.STRING)
     private String hashValue;
 
-    public HistoryItem(@NonNull Date generationDate, @NonNull HashTypes hashType,
-                       boolean isFile, @NonNull String objectValue, @NonNull String hashValue) {
+    public HistoryItem(@NonNull Date generationDate, @NonNull HashTypes hashType, boolean isFile,
+                       @NonNull String objectValue, @NonNull String hashValue) {
         this.generationDate = generationDate;
         this.hashType = hashType;
         this.isFile = isFile;

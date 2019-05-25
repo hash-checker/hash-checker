@@ -83,4 +83,7 @@
     <!-- file manager-->
     <string name="file_manager_select_storage_title">Select storage</string>
 
+    <!-- history -->
+    <string name="history_empty_view_message">History items not found</string>
+
 </resources>

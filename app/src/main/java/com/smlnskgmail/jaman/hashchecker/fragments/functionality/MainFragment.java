@@ -290,7 +290,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     @Override
-    public void initializeUI(@NonNull View view) {
+    public void initializeUI(@NonNull View contentView) {
         context = getContext();
         fragmentManager = getActivity().getSupportFragmentManager();
         selectedHash.setText(Preferences.getLastHashType(context).getTypeAsString(context));

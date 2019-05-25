@@ -11,12 +11,12 @@ import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
+import com.smlnskgmail.jaman.hashchecker.fragments.functionality.MainFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.HistoryFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.info.FeedbackFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.functionality.MainFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.settings.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
+import com.smlnskgmail.jaman.hashchecker.fragments.settings.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;

@@ -4,13 +4,23 @@ import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.containers.AdaptiveRecyclerView;
+import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.fragments.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.adapter.HistoryItemsAdapter;
+
+import butterknife.BindView;
 
 public class HistoryFragment extends BaseFragment {
 
-    @Override
-    public void initializeUI(@NonNull View view) {
+    @BindView(R.id.rv_history_items)
+    protected AdaptiveRecyclerView rvHistoryItems;
 
+    @Override
+    public void initializeUI(@NonNull View contentView) {
+        rvHistoryItems.setEmptyMessageView(contentView.findViewById(R.id.ll_history_empty_view));
+        rvHistoryItems.setAdapter(new HistoryItemsAdapter(HelperFactory.getHelper()
+                .getAllHistoryItems()));
     }
 
     @Override

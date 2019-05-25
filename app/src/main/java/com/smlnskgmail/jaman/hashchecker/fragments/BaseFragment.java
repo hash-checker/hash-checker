@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.CustomTypefaceSpan;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
@@ -37,7 +36,7 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         onPostInitialize();
     }
 
-    public abstract void initializeUI(@NonNull View view);
+    public abstract void initializeUI(@NonNull View contentView);
 
     public void onPostInitialize() {}
 

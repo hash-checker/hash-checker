@@ -12,7 +12,7 @@ import com.smlnskgmail.jaman.hashchecker.db.entity.DBEntity;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem;
 
 import java.sql.SQLException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -62,6 +62,15 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<HistoryItem> getAllHistoryItems() {
+        try {
+            return getDao(HistoryItem.class).queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
     }
 
 }

@@ -52,7 +52,7 @@ public class FeedbackFragment extends BaseFragment {
     }
 
     @Override
-    public void initializeUI(@NonNull final View view) {
+    public void initializeUI(@NonNull final View contentView) {
         context = getContext();
         manufacturerValue.setText(Build.MANUFACTURER);
         modelValue.setText(Build.MODEL);
