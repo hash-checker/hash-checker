@@ -101,7 +101,7 @@
         <item name="android:foreground">?selectableItemBackground</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:fontFamily">@font/google_sans_regular</item>
+        <item name="android:fontFamily">@font/ft_google_sans_regular</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
 
@@ -147,7 +147,7 @@
     </style>
 
     <style name="AdaptiveTextComponent">
-        <item name="android:fontFamily">@font/google_sans_regular</item>
+        <item name="android:fontFamily">@font/ft_google_sans_regular</item>
     </style>
 
 </resources>

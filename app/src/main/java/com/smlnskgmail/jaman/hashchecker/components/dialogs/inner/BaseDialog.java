@@ -18,7 +18,7 @@ public abstract class BaseDialog extends Dialog {
         super(context);
     }
 
-    @OnClick(R.id.dialog_button_close)
+    @OnClick(R.id.btn_dialog_input_text_close)
     void closeDialog() {
         dismiss();
     }

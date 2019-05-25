@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.dataadapter;
 
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -18,13 +19,14 @@ class FileDialogHolder extends RecyclerView.ViewHolder {
     FileDialogHolder(@NonNull View itemView, @NonNull OnFileClickListener fileClickListener) {
         super(itemView);
         this.fileClickListener = fileClickListener;
-        itemFile = itemView.findViewById(R.id.item_file);
+        itemFile = itemView.findViewById(R.id.tv_item_file);
     }
 
     void bind(@NonNull FileItem file) {
         itemFile.setText(file.getFileName());
-        itemFile.setCompoundDrawablesRelativeWithIntrinsicBounds(ContextCompat.getDrawable(itemView.getContext(),
-                file.getFileType().getIconResId()), null, null, null);
+        Drawable fileIcon = ContextCompat.getDrawable(itemView.getContext(), file.getFileType()
+                .getIconResId());
+        itemFile.setCompoundDrawablesRelativeWithIntrinsicBounds(fileIcon, null, null, null);
         itemView.setOnClickListener(v -> fileClickListener.onFileClick(file, getAdapterPosition()));
     }
 

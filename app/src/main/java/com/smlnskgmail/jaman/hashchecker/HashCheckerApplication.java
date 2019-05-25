@@ -11,6 +11,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 
+import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 
@@ -25,6 +26,7 @@ public class HashCheckerApplication extends Application {
             createShortcuts();
             Preferences.saveShortcutsStatus(this, true);
         }
+        HelperFactory.setHelper(this);
     }
 
     private void createShortcuts() {
@@ -65,6 +67,12 @@ public class HashCheckerApplication extends Application {
                 .setIcon(Icon.createWithResource(this, iconResId))
                 .setIntent(intent)
                 .build();
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        HelperFactory.releaseHelper();
     }
 
 }

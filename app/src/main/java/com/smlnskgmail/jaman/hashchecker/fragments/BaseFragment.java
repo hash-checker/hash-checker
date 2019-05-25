@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.CustomTypefaceSpan;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
@@ -35,23 +37,27 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         onPostInitialize();
     }
 
-    abstract void initializeUI(@NonNull View view);
+    public abstract void initializeUI(@NonNull View view);
 
     public void onPostInitialize() {}
 
     @Override
     public void onResume() {
         super.onResume();
-        resume();
+        onAppResume();
     }
 
     @Override
-    public void resume() {
+    public void onAppResume() {
         if (actionBar == null) {
             actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         }
         UIUtils.setActionBarTitle(actionBar, getActionBarTitleResId());
-        actionBar.setDisplayHomeAsUpEnabled(setBackActionIcon());
+        if (setBackActionIcon()) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(),
+                    getBackActionIconResId()));
+        }
     }
 
     @Override
@@ -64,8 +70,8 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         }
     }
 
-    abstract int getMenuResId();
-    abstract int[] getMenuItemsIds();
+    public abstract int getMenuResId();
+    public abstract int[] getMenuItemsIds();
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -92,8 +98,15 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         menuItem.setTitle(title);
     }
 
-    abstract int getActionBarTitleResId();
-    abstract boolean setBackActionIcon();
+    public abstract int getActionBarTitleResId();
+
+    public boolean setBackActionIcon() {
+        return false;
+    }
+
+    public int getBackActionIconResId() {
+        return -1;
+    }
 
     @Nullable
     @Override
@@ -102,6 +115,11 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
         return inflater.inflate(getLayoutResId(), container, false);
     }
 
-    abstract int getLayoutResId();
+    public abstract int getLayoutResId();
+
+    @Override
+    public void onBack() {
+        UIUtils.removeFragment(getActivity().getSupportFragmentManager(), this);
+    }
 
 }

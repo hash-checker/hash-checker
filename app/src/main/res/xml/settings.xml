@@ -16,6 +16,12 @@
             android:defaultValue="false"
             android:icon="@drawable/ic_settings_file_manager" />
 
+        <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomSwitchPreference
+            android:title="@string/settings_title_save_result_to_history"
+            android:key="@string/key_save_result_to_history"
+            android:defaultValue="true"
+            android:icon="@drawable/ic_history" />
+
     </com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory>
 
     <com.smlnskgmail.jaman.hashchecker.components.preferences.CustomPreferenceCategory

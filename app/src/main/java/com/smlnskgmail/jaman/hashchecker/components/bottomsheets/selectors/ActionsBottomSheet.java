@@ -14,10 +14,10 @@ import butterknife.BindView;
 
 public class ActionsBottomSheet extends BaseBottomSheet {
 
-    @BindView(R.id.button_generate)
+    @BindView(R.id.tv_as_btn_generate_hash_value)
     protected TextView buttonGenerate;
 
-    @BindView(R.id.button_compare)
+    @BindView(R.id.tv_as_btn_compare_hash_values)
     protected TextView buttonCompare;
 
     private OnUserActionClickListener menuItemCallback;

@@ -5,14 +5,14 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/button_select_text"
+        android:id="@+id/tv_as_btn_open_file_input_dialog"
         style="@style/AppActionButton"
         android:layout_marginTop="@dimen/common_margin"
         android:text="@string/common_text"
         android:drawableStart="@drawable/ic_from_text" />
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/button_select_file"
+        android:id="@+id/tv_as_btn_open_file_selector"
         style="@style/AppActionButton"
         android:text="@string/common_file"
         android:drawableStart="@drawable/ic_search" />

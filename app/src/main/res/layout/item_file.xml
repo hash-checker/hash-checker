@@ -2,7 +2,7 @@
 <android.support.v7.widget.AppCompatTextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_file"
+    android:id="@+id/tv_item_file"
     style="@style/AdaptiveTextComponent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

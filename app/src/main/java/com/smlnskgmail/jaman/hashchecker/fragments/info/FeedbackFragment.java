@@ -1,10 +1,8 @@
-package com.smlnskgmail.jaman.hashchecker.fragments;
+package com.smlnskgmail.jaman.hashchecker.fragments.info;
 
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
@@ -13,6 +11,7 @@ import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
@@ -21,27 +20,27 @@ import butterknife.OnCheckedChanged;
 
 public class FeedbackFragment extends BaseFragment {
 
-    @BindView(R.id.add_device_info)
+    @BindView(R.id.cb_add_device_info)
     protected CheckBox addDeviceInfo;
 
-    @BindView(R.id.feedback_text)
+    @BindView(R.id.tv_feedback_message)
     protected EditText feedbackEdit;
 
-    @BindView(R.id.manufacturer_title)
+    @BindView(R.id.tv_manufacturer_title)
     protected TextView manufacturerTitle;
 
-    @BindView(R.id.manufacturer_value)
+    @BindView(R.id.tv_manufacturer_value)
     protected TextView manufacturerValue;
 
-    @BindView(R.id.model_title)
+    @BindView(R.id.tv_model_title)
     protected TextView modelTitle;
 
-    @BindView(R.id.model_value)
+    @BindView(R.id.tv_model_value)
     protected TextView modelValue;
 
     private Context context;
 
-    @OnCheckedChanged(R.id.add_device_info)
+    @OnCheckedChanged(R.id.cb_add_device_info)
     public void addDeviceInfo(boolean addInfo) {
         int titleColor = addInfo ? UIUtils.getDarkTextColor(context)
                 : UIUtils.getUnselectedColor(context);
@@ -53,10 +52,8 @@ public class FeedbackFragment extends BaseFragment {
     }
 
     @Override
-    void initializeUI(@NonNull final View view) {
+    public void initializeUI(@NonNull final View view) {
         context = getContext();
-        ((AppCompatActivity) getActivity()).getSupportActionBar()
-                .setHomeAsUpIndicator(ContextCompat.getDrawable(context, R.drawable.ic_close));
         manufacturerValue.setText(Build.MANUFACTURER);
         modelValue.setText(Build.MODEL);
     }
@@ -66,7 +63,7 @@ public class FeedbackFragment extends BaseFragment {
         if (item.getItemId() == android.R.id.home) {
             getActivity().onBackPressed();
             return true;
-        } else if (item.getItemId() == R.id.send_feedback) {
+        } else if (item.getItemId() == R.id.menu_action_send_feedback) {
             StringBuilder feedbackText = new StringBuilder(feedbackEdit.getText().toString());
             feedbackText.append("\n\n").append(String.format("%s (%s)", BuildConfig.VERSION_NAME,
                     BuildConfig.VERSION_CODE));
@@ -82,32 +79,32 @@ public class FeedbackFragment extends BaseFragment {
     }
 
     @Override
-    public void onBack() {
-        UIUtils.removeFragment(getActivity().getSupportFragmentManager(), this);
-    }
-
-    @Override
-    int getActionBarTitleResId() {
+    public int getActionBarTitleResId() {
         return R.string.menu_title_feedback;
     }
 
     @Override
-    boolean setBackActionIcon() {
+    public boolean setBackActionIcon() {
         return true;
     }
 
     @Override
-    int getMenuResId() {
+    public int getBackActionIconResId() {
+        return R.drawable.ic_close;
+    }
+
+    @Override
+    public int getMenuResId() {
         return R.menu.menu_feedback;
     }
 
     @Override
-    int[] getMenuItemsIds() {
+    public int[] getMenuItemsIds() {
         return new int[0];
     }
 
     @Override
-    int getLayoutResId() {
+    public int getLayoutResId() {
         return R.layout.fragment_feedback;
     }
 

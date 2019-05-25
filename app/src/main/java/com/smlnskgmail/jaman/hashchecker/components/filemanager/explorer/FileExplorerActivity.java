@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 
 public class FileExplorerActivity extends BaseActivity implements OnFileClickListener {
 
-    @BindView(R.id.files_list)
+    @BindView(R.id.rv_file_explorer_list)
     protected RecyclerView filesList;
 
     private FileItemsAdapter fileItemsAdapter;
@@ -143,7 +143,7 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.close_file_manager) {
+        if (item.getItemId() == R.id.menu_action_close_file_manager) {
             finish();
             return true;
         }

@@ -26,6 +26,7 @@
     <string name="key_generate_from_share_intent" translatable="false">generate_from_share_intent</string>
     <string name="key_refresh_selected_file" translatable="false">refresh_selected_file</string>
     <string name="key_rate_app" translatable="false">rate_app</string>
+    <string name="key_save_result_to_history" translatable="false">save_result_to_history</string>
 
     <!-- web links -->
     <string name="web_link_source_code" translatable="false">https://github.com/fartem/hash-checker</string>

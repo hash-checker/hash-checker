@@ -26,9 +26,9 @@ public class ScreenRunnerTest {
 
     @Test
     public void startScreenRunner() {
-        showBottomSheet(R.id.hash_types);
-        showBottomSheet(R.id.button_generate_from);
-        showBottomSheet(R.id.button_hash_actions);
+        showBottomSheet(R.id.ll_as_selector_hash_types);
+        showBottomSheet(R.id.btn_generate_from);
+        showBottomSheet(R.id.btn_hash_actions);
 
         showFragment(R.string.menu_title_settings);
         showFragment(R.string.menu_title_feedback);

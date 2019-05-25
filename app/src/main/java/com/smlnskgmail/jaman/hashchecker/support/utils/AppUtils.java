@@ -30,14 +30,16 @@ public class AppUtils {
             openExplorerIntent.setType("*/*");
             fragment.startActivityForResult(openExplorerIntent, Constants.Requests.FILE_SELECT_REQUEST);
         } catch (ActivityNotFoundException e) {
-            UIUtils.showSnackbar(view.getContext(), view, fragment.getString(R.string.message_error_start_file_selector),
+            UIUtils.showSnackbar(view.getContext(), view,
+                    fragment.getString(R.string.message_error_start_file_selector),
                     Snackbar.LENGTH_LONG);
         }
     }
 
     public static void openInnerFileManager(@NonNull Fragment fragment) {
         Intent openExplorerIntent = new Intent(fragment.getContext(), FileExplorerActivity.class);
-        fragment.startActivityForResult(openExplorerIntent, Constants.Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER);
+        fragment.startActivityForResult(openExplorerIntent,
+                Constants.Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER);
     }
 
     public static void openAppSettings(@NonNull Activity activity) {
@@ -60,14 +62,17 @@ public class AppUtils {
 
     public static void openGooglePlay(@NonNull Context context, @NonNull View view) {
         final String appPackageName = context.getPackageName();
+        Uri link;
         try {
-            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+            link = Uri.parse("market://details?id=" + appPackageName);
+            context.startActivity(new Intent(Intent.ACTION_VIEW, link));
         } catch (ActivityNotFoundException e) {
             try {
-                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="
-                        + appPackageName)));
+                link = Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName);
+                context.startActivity(new Intent(Intent.ACTION_VIEW, link));
             } catch (ActivityNotFoundException e2) {
-                UIUtils.showSnackbar(context, view, context.getString(R.string.message_error_start_google_play),
+                UIUtils.showSnackbar(context, view,
+                        context.getString(R.string.message_error_start_google_play),
                         Snackbar.LENGTH_LONG);
             }
         }
@@ -77,7 +82,8 @@ public class AppUtils {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", email, null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name));
         emailIntent.putExtra(Intent.EXTRA_TEXT, text);
-        context.startActivity(Intent.createChooser(emailIntent, context.getString(R.string.message_email_app_chooser)));
+        context.startActivity(Intent.createChooser(emailIntent,
+                context.getString(R.string.message_email_app_chooser)));
     }
 
     static void vibrate(@NonNull Context context) {

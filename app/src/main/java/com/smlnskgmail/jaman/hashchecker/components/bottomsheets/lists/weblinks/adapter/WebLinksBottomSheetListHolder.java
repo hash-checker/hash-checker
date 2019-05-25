@@ -10,7 +10,8 @@ import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
 
 public class WebLinksBottomSheetListHolder extends BaseBottomSheetListHolder {
 
-    WebLinksBottomSheetListHolder(@NonNull View itemView, @NonNull BaseBottomSheetListAdapter adapter) {
+    WebLinksBottomSheetListHolder(@NonNull View itemView,
+                                  @NonNull BaseBottomSheetListAdapter adapter) {
         super(itemView, adapter);
     }
 

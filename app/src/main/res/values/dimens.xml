@@ -8,6 +8,7 @@
     <dimen name="common_margin_3">32dp</dimen>
     <dimen name="common_margin_4">64dp</dimen>
     <dimen name="common_margin_5">24dp</dimen>
+    <dimen name="common_margin_6">20dp</dimen>
     <dimen name="common_padding">8dp</dimen>
 
     <!-- text sizes -->

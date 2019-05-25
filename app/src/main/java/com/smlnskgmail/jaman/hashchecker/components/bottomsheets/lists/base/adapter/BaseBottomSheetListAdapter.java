@@ -18,7 +18,8 @@ public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<Ba
     private BaseListBottomSheet bottomSheet;
     private List<ListItemMarker> items = new ArrayList<>();
 
-    public BaseBottomSheetListAdapter(@NonNull List<ListItemMarker> items, @NonNull BaseListBottomSheet bottomSheet) {
+    public BaseBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
+                                      @NonNull BaseListBottomSheet bottomSheet) {
         this.items.addAll(items);
         this.bottomSheet = bottomSheet;
     }

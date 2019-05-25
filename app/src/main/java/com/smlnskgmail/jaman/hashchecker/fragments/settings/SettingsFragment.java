@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.fragments;
+package com.smlnskgmail.jaman.hashchecker.fragments.settings;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

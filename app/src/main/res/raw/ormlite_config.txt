@@ -1,0 +1,39 @@
+#
+# generated on 2019/05/25 06:42:27
+#
+# --table-start--
+dataClass=com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem
+tableName=history
+# --table-fields-start--
+# --field-start--
+fieldName=generationDate
+columnName=generation_date
+dataPersister=DATE_STRING
+# --field-end--
+# --field-start--
+fieldName=hashType
+columnName=hash_type
+dataPersister=ENUM_STRING
+# --field-end--
+# --field-start--
+fieldName=isFile
+columnName=is_file
+dataPersister=BOOLEAN
+# --field-end--
+# --field-start--
+fieldName=objectValue
+columnName=object_value
+dataPersister=STRING
+# --field-end--
+# --field-start--
+fieldName=hashValue
+columnName=hash_value
+dataPersister=STRING
+# --field-end--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

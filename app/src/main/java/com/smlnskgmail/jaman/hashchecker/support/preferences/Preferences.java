@@ -28,6 +28,10 @@ public class Preferences {
         return getBooleanPreference(context, context.getString(R.string.key_inner_file_manager), false);
     }
 
+    public static boolean canSaveResultToHistory(@NonNull Context context) {
+        return getBooleanPreference(context, context.getString(R.string.key_save_result_to_history), true);
+    }
+
     public static boolean getVibrateAccess(@NonNull Context context) {
         return getBooleanPreference(context, context.getString(R.string.key_vibrate), true);
     }

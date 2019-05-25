@@ -14,21 +14,22 @@ import butterknife.OnClick;
 
 public class TextInputDialog extends BaseDialog {
 
-    @BindView(R.id.dialog_text_value)
+    @BindView(R.id.et_dialog_input_text)
     protected EditText fieldTextValue;
 
     private OnTextValueEnteredListener textValueCallback;
 
     private String textValue;
 
-    public TextInputDialog(@NonNull Context context, @NonNull OnTextValueEnteredListener textValueCallback,
+    public TextInputDialog(@NonNull Context context,
+                           @NonNull OnTextValueEnteredListener textEnteredCallback,
                            @Nullable String textValue) {
         super(context);
-        this.textValueCallback = textValueCallback;
+        this.textValueCallback = textEnteredCallback;
         this.textValue = textValue;
     }
 
-    @OnClick(R.id.dialog_text_button_add)
+    @OnClick(R.id.btn_dialog_input_text_add)
     void addText() {
         textValueCallback.onTextValueEntered(fieldTextValue.getText().toString());
         dismiss();

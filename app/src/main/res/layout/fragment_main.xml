@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_screen"
+    android:id="@+id/fl_main_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorBackground">
@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <LinearLayout android:id="@+id/hash_types"
+        <LinearLayout android:id="@+id/ll_as_selector_hash_types"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/common_margin_4"
@@ -22,7 +22,7 @@
             android:orientation="horizontal"
             android:padding="@dimen/common_margin">
 
-            <TextView android:id="@+id/selected_hash_type"
+            <TextView android:id="@+id/tv_selected_hash_type"
                 style="@style/AdaptiveTextComponent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -45,12 +45,12 @@
             android:orientation="vertical"
             android:layout_marginBottom="@dimen/common_margin_3">
 
-            <EditText android:id="@+id/field_custom_hash"
+            <EditText android:id="@+id/et_field_custom_hash"
                 style="@style/AppEditTextHashValue"
                 android:layout_marginBottom="@dimen/common_margin"
                 android:hint="@string/title_custom_hash" />
 
-            <EditText android:id="@+id/field_generated_hash"
+            <EditText android:id="@+id/et_field_generated_hash"
                 style="@style/AppEditTextHashValue"
                 android:hint="@string/title_generated_hash"/>
 
@@ -61,14 +61,14 @@
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/common_margin_3">
 
-            <Button android:id="@+id/button_generate_from"
+            <Button android:id="@+id/btn_generate_from"
                 style="@style/AppCircleButton"
                 android:layout_width="@dimen/round_text_view_width"
                 android:layout_height="@dimen/round_button_height"
                 android:layout_marginEnd="@dimen/common_margin"
                 android:text="@string/action_from" />
 
-            <Button android:id="@+id/button_hash_actions"
+            <Button android:id="@+id/btn_hash_actions"
                 style="@style/AppCircleButton"
                 android:layout_width="@dimen/round_text_view_width"
                 android:layout_height="@dimen/round_button_height"
@@ -77,7 +77,7 @@
 
         </LinearLayout>
 
-        <TextView android:id="@+id/field_selected_object_name"
+        <TextView android:id="@+id/tv_selected_object_name"
             style="@style/AdaptiveTextComponent"
             android:layout_width="match_parent"
             android:layout_height="@dimen/round_view_text_height"

@@ -11,9 +11,10 @@ import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
-import com.smlnskgmail.jaman.hashchecker.fragments.FeedbackFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.MainFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.SettingsFragment;
+import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.HistoryFragment;
+import com.smlnskgmail.jaman.hashchecker.fragments.info.FeedbackFragment;
+import com.smlnskgmail.jaman.hashchecker.fragments.functionality.MainFragment;
+import com.smlnskgmail.jaman.hashchecker.fragments.settings.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
@@ -73,12 +74,16 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         UIUtils.hideKeyboard(this, findViewById(android.R.id.content));
         switch (item.getItemId()) {
-            case R.id.menu_settings:
+            case R.id.menu_main_section_settings:
                 UIUtils.showFragment(getSupportFragmentManager(), new SettingsFragment());
                 break;
-            case R.id.menu_feedback:
+            case R.id.menu_main_section_feedback:
                 UIUtils.showFragment(getSupportFragmentManager(), new FeedbackFragment());
                 break;
+            case R.id.menu_main_section_history:
+                UIUtils.showFragment(getSupportFragmentManager(), new HistoryFragment());
+                break;
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -92,7 +97,7 @@ public class MainActivity extends BaseActivity {
         }
         for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
             if (fragmentInApp instanceof OnAppResume) {
-                ((OnAppResume) fragmentInApp).resume();
+                ((OnAppResume) fragmentInApp).onAppResume();
             }
         }
     }

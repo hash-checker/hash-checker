@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.fragments;
+package com.smlnskgmail.jaman.hashchecker.fragments.functionality;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -33,6 +33,9 @@ import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.OnTextVa
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
+import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.fragments.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import com.smlnskgmail.jaman.hashchecker.generator.OnHashGeneratorCompleteListener;
@@ -44,6 +47,8 @@ import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -51,28 +56,29 @@ import butterknife.OnClick;
 public class MainFragment extends BaseFragment implements OnTextValueEnteredListener,
         OnHashGeneratorCompleteListener, OnUserActionClickListener, OnHashTypeSelectListener {
 
-    @BindView(R.id.main_screen)
+    @BindView(R.id.fl_main_screen)
     protected View mainScreen;
 
-    @BindView(R.id.hash_types)
+    @BindView(R.id.ll_as_selector_hash_types)
     protected LinearLayout hashTypes;
 
-    @BindView(R.id.field_custom_hash)
-    protected EditText fieldCustomHash;
+    @BindView(R.id.et_field_custom_hash)
+    protected EditText etCustomHash;
 
-    @BindView(R.id.field_generated_hash)
-    protected EditText fieldGeneratedHash;
+    @BindView(R.id.et_field_generated_hash)
+    protected EditText etGeneratedHash;
 
-    @BindView(R.id.field_selected_object_name)
-    protected TextView fieldSelectedObjectName;
+    @BindView(R.id.tv_selected_object_name)
+    protected TextView tvSelectedObjectName;
 
-    @BindView(R.id.selected_hash_type)
+    @BindView(R.id.tv_selected_hash_type)
     protected TextView selectedHash;
 
-    @BindView(R.id.button_generate_from)
-    protected Button from;
+    @BindView(R.id.btn_generate_from)
+    protected Button btnGenerateFrom;
 
     private ProgressDialog progressDialog;
+
     private Uri fileUri;
 
     private Context context;
@@ -119,7 +125,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
             progressDialog = AppProgressDialog.getDialog(context, R.string.message_generate_dialog);
             progressDialog.show();
             if (isTextSelected) {
-                new HashGenerator(hashType, context, fieldSelectedObjectName.getText().toString(),
+                new HashGenerator(hashType, context, tvSelectedObjectName.getText().toString(),
                         this).execute();
             } else {
                 new HashGenerator(hashType, context, fileUri, this).execute();
@@ -131,9 +137,9 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     private void compareHashes() {
-        if (TextUtils.fieldIsNotEmpty(fieldCustomHash) && TextUtils.fieldIsNotEmpty(fieldGeneratedHash)) {
-            boolean equal = TextUtils.compareText(fieldCustomHash.getText().toString(),
-                    fieldGeneratedHash.getText().toString());
+        if (TextUtils.fieldIsNotEmpty(etCustomHash) && TextUtils.fieldIsNotEmpty(etGeneratedHash)) {
+            boolean equal = TextUtils.compareText(etCustomHash.getText().toString(),
+                    etGeneratedHash.getText().toString());
             UIUtils.showSnackbar(context, mainScreen, equal ? getString(R.string.message_match_result) :
                     getString(R.string.message_do_not_match_result), Snackbar.LENGTH_LONG);
         } else {
@@ -142,7 +148,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         }
     }
 
-    @OnClick(R.id.hash_types)
+    @OnClick(R.id.ll_as_selector_hash_types)
     public void selectHashTypeFromList() {
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet();
         generateToBottomSheet.setItems(Arrays.asList(HashTypes.values()));
@@ -150,14 +156,14 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         generateToBottomSheet.show(getFragmentManager(), Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
-    @OnClick(R.id.button_generate_from)
+    @OnClick(R.id.btn_generate_from)
     public void selectResourceToGenerateHash() {
         ResourcesBottomSheet resourcesBottomSheet = new ResourcesBottomSheet();
         resourcesBottomSheet.setMenuItemCallback(MainFragment.this);
         resourcesBottomSheet.show(fragmentManager, Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
-    @OnClick(R.id.button_hash_actions)
+    @OnClick(R.id.btn_hash_actions)
     public void selectActionForHashes() {
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
         actionsBottomSheet.setMenuItemCallback(MainFragment.this);
@@ -220,11 +226,20 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     @Override
     public void onHashGeneratorComplete(@Nullable String hashValue) {
         if (hashValue == null) {
-            fieldGeneratedHash.setText("");
+            etGeneratedHash.setText("");
             UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_invalid_selected_source),
                     Snackbar.LENGTH_LONG);
         } else {
-            fieldGeneratedHash.setText(hashValue);
+            etGeneratedHash.setText(hashValue);
+            if (Preferences.canSaveResultToHistory(context)) {
+                Date date = Calendar.getInstance().getTime();
+                String objectValue = tvSelectedObjectName.getText().toString();
+                HashTypes hashType = HashTypes.parseHashTypeFromString(context,
+                        selectedHash.getText().toString());
+                HistoryItem historyItem = new HistoryItem(date, hashType, !isTextSelected, objectValue,
+                        hashValue);
+                HelperFactory.getHelper().addGeneratorHistoryItem(historyItem);
+            }
         }
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
@@ -232,19 +247,19 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     private void setResult(@NonNull String text, boolean isText) {
-        fieldSelectedObjectName.setText(text);
+        tvSelectedObjectName.setText(text);
         this.isTextSelected = isText;
-        from.setText(getString(isText ? R.string.common_text : R.string.common_file));
+        btnGenerateFrom.setText(getString(isText ? R.string.common_text : R.string.common_file));
     }
 
     private void enterText() {
-        String currentText = !isTextSelected ? null : fieldSelectedObjectName.getText().toString();
+        String currentText = !isTextSelected ? null : tvSelectedObjectName.getText().toString();
         new TextInputDialog(context, this, currentText).show();
     }
 
     @Override
     public void onBack() {
-        UIUtils.showSnackbar(context, getView().findViewById(R.id.main_screen),
+        UIUtils.showSnackbar(context, getView().findViewById(R.id.fl_main_screen),
                 getString(R.string.message_exit), getString(R.string.action_exit_now),
                 v -> AppUtils.closeApp(getActivity()), Snackbar.LENGTH_SHORT);
     }
@@ -253,19 +268,19 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         boolean useUpperCase = Preferences.useUpperCase(context);
         InputFilter[] fieldFilters = useUpperCase
                 ? new InputFilter[]{new InputFilter.AllCaps()} : new InputFilter[]{};
-        fieldCustomHash.setFilters(fieldFilters);
-        fieldGeneratedHash.setFilters(fieldFilters);
+        etCustomHash.setFilters(fieldFilters);
+        etGeneratedHash.setFilters(fieldFilters);
 
         if (useUpperCase) {
-            TextUtils.convertToUpperCase(fieldCustomHash);
-            TextUtils.convertToUpperCase(fieldGeneratedHash);
+            TextUtils.convertToUpperCase(etCustomHash);
+            TextUtils.convertToUpperCase(etGeneratedHash);
         } else {
-            TextUtils.convertToLowerCase(fieldCustomHash);
-            TextUtils.convertToLowerCase(fieldGeneratedHash);
+            TextUtils.convertToLowerCase(etCustomHash);
+            TextUtils.convertToLowerCase(etGeneratedHash);
         }
 
-        fieldCustomHash.setSelection(fieldCustomHash.getText().length());
-        fieldGeneratedHash.setSelection(fieldGeneratedHash.getText().length());
+        etCustomHash.setSelection(etCustomHash.getText().length());
+        etGeneratedHash.setSelection(etGeneratedHash.getText().length());
     }
 
     @Override
@@ -275,11 +290,11 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     @Override
-    void initializeUI(@NonNull View view) {
+    public void initializeUI(@NonNull View view) {
         context = getContext();
         fragmentManager = getActivity().getSupportFragmentManager();
         selectedHash.setText(Preferences.getLastHashType(context).getTypeAsString(context));
-        fieldSelectedObjectName.setMovementMethod(new ScrollingMovementMethod());
+        tvSelectedObjectName.setMovementMethod(new ScrollingMovementMethod());
         if (startWithTextSelection) {
             onUserActionClick(UserActionTypes.ENTER_TEXT);
             startWithTextSelection = false;
@@ -319,14 +334,14 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     @Override
-    public void resume() {
-        super.resume();
+    public void onAppResume() {
+        super.onAppResume();
         validateTextCase();
         if (Preferences.refreshSelectedFile(context)) {
             if (!isTextSelected && fileUri != null) {
                 fileUri = null;
-                fieldSelectedObjectName.setText(getString(R.string.message_select_object));
-                from.setText(getString(R.string.action_from));
+                tvSelectedObjectName.setText(getString(R.string.message_select_object));
+                btnGenerateFrom.setText(getString(R.string.action_from));
                 Preferences.setRefreshSelectedFileStatus(context, false);
             }
         }
@@ -365,27 +380,27 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     @Override
-    int getLayoutResId() {
+    public int getLayoutResId() {
         return R.layout.fragment_main;
     }
 
     @Override
-    int getActionBarTitleResId() {
+    public int getActionBarTitleResId() {
         return R.string.app_name;
     }
 
     @Override
-    int getMenuResId() {
+    public int getMenuResId() {
         return R.menu.menu_main;
     }
 
     @Override
-    int[] getMenuItemsIds() {
-        return new int[] {R.id.menu_settings, R.id.menu_feedback};
+    public int[] getMenuItemsIds() {
+        return new int[] {R.id.menu_main_section_settings, R.id.menu_main_section_feedback};
     }
 
     @Override
-    boolean setBackActionIcon() {
+    public boolean setBackActionIcon() {
         return false;
     }
 

@@ -98,7 +98,7 @@ public class UIUtils {
     }
 
     public static Typeface getAppFont(@NonNull Context context) {
-        return ResourcesCompat.getFont(context, R.font.google_sans_regular);
+        return ResourcesCompat.getFont(context, R.font.ft_google_sans_regular);
     }
 
     public static void colorizeImageSourceToAccentColor(@NonNull Context context, @NonNull Drawable drawable) {

@@ -17,20 +17,21 @@ import butterknife.OnClick;
 
 public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.item_list_title)
+    @BindView(R.id.tv_item_list_title)
     protected TextView itemTitle;
 
-    @BindView(R.id.item_list_icon)
+    @BindView(R.id.iv_item_list_icon)
     protected ImageView itemPrimaryIcon;
 
-    @BindView(R.id.item_list_additional_icon)
+    @BindView(R.id.iv_item_list_additional_icon)
     protected ImageView itemAdditionalIcon;
 
     private BaseBottomSheetListAdapter listAdapter;
 
     private Context context;
 
-    protected BaseBottomSheetListHolder(@NonNull View itemView, @NonNull BaseBottomSheetListAdapter listAdapter) {
+    protected BaseBottomSheetListHolder(@NonNull View itemView,
+                                        @NonNull BaseBottomSheetListAdapter listAdapter) {
         super(itemView);
         ButterKnife.bind(this, itemView);
         this.listAdapter = listAdapter;

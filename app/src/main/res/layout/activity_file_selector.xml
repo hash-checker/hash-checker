@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/files_list"
+        android:id="@+id/rv_file_explorer_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/colorBackground"

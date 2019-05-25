@@ -18,7 +18,8 @@ public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
     private HashTypes selectedHashType;
     private OnHashTypeSelectListener hashTypeSelectListener;
 
-    public HashesBottomSheetListAdapter(@NonNull List<ListItemMarker> items, @NonNull BaseListBottomSheet bottomSheet,
+    public HashesBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
+                                        @NonNull BaseListBottomSheet bottomSheet,
                                         @NonNull OnHashTypeSelectListener hashTypeSelectListener) {
         super(items, bottomSheet);
         this.hashTypeSelectListener = hashTypeSelectListener;
@@ -30,7 +31,7 @@ public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
         return new HashesBottomSheetListHolder(view, this, hashTypeSelectListener);
     }
 
-    public HashTypes getSelectedHashType() {
+    HashTypes getSelectedHashType() {
         return selectedHashType;
     }
 

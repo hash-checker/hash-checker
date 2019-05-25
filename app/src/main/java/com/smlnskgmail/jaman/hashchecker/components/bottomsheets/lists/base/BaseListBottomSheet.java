@@ -15,7 +15,7 @@ import butterknife.BindView;
 
 public abstract class BaseListBottomSheet extends BaseBottomSheet {
 
-    @BindView(R.id.bottom_sheet_items)
+    @BindView(R.id.rv_bottom_sheet_list_items)
     protected RecyclerView bottomSheetItems;
 
     private List<ListItemMarker> items = new ArrayList<>();

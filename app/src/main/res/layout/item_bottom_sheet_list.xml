@@ -7,7 +7,7 @@
     android:padding="@dimen/common_margin_2"
     android:foreground="?android:selectableItemBackground">
 
-    <ImageView android:id="@+id/item_list_icon"
+    <ImageView android:id="@+id/iv_item_list_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/common_margin_2"
@@ -15,7 +15,7 @@
         tools:src="@drawable/ic_google_play"
         tools:visibility="visible" />
 
-    <TextView android:id="@+id/item_list_title"
+    <TextView android:id="@+id/tv_item_list_title"
         style="@style/AdaptiveTextComponent"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -24,7 +24,7 @@
         android:textSize="@dimen/text_size_info"
         tools:text="MD5" />
 
-    <ImageView android:id="@+id/item_list_additional_icon"
+    <ImageView android:id="@+id/iv_item_list_additional_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_margin_2"
