@@ -2,6 +2,8 @@ package com.smlnskgmail.jaman.hashchecker.support.utils;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -95,6 +97,12 @@ public class AppUtils {
         }else{
             v.vibrate(VIBRATION_LENGTH);
         }
+    }
+
+    public static void copyTextToClipboard(@NonNull Context context, @NonNull String text) {
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText(context.getString(R.string.app_name), text);
+        clipboard.setPrimaryClip(clip);
     }
 
     public static void closeApp(@NonNull Activity activity) {

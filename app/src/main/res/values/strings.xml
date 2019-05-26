@@ -74,7 +74,7 @@
     <string name="settings_title_vibration">Vibration</string>
     <string name="settings_title_theme">Theme</string>
     <string name="settings_title_rate_app">Rate app</string>
-    <string name="settings_title_save_result_to_history">Save result to the History</string>
+    <string name="settings_title_save_result_to_history">Save result to History</string>
 
     <!-- feedback -->
     <string name="feedback_device">Add device info</string>
@@ -86,6 +86,7 @@
     <string name="file_manager_select_storage_title">Select storage</string>
 
     <!-- history -->
+    <string name="history_item_click_text">Hash value copied to clipboard</string>
     <string name="history_empty_view_message">History items not found</string>
 
 </resources>

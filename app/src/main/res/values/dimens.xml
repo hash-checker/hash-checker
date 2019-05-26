@@ -19,7 +19,7 @@
 
     <!-- icons -->
     <dimen name="icon_size_email">144dp</dimen>
-    <dimen name="icon_size_history_empty_view">96dp</dimen>
+    <dimen name="icon_size_history_empty_view">72dp</dimen>
 
     <!-- rounded components -->
     <dimen name="round_button_height">42dp</dimen>

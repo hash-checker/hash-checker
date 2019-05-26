@@ -3,6 +3,7 @@ package com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.adapte
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.smlnskgmail.jaman.hashchecker.R;
@@ -13,7 +14,13 @@ import java.util.List;
 
 public class HistoryItemsAdapter extends RecyclerView.Adapter<HistoryItemHolder> {
 
+    private View rootView;
+
     private List<HistoryItem> historyItems = new ArrayList<>();
+
+    public HistoryItemsAdapter(@NonNull View rootView) {
+        this.rootView = rootView;
+    }
 
     public void addHistoryItems(List<HistoryItem> historyItems) {
         this.historyItems.addAll(historyItems);
@@ -29,7 +36,7 @@ public class HistoryItemsAdapter extends RecyclerView.Adapter<HistoryItemHolder>
     @Override
     public HistoryItemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         return new HistoryItemHolder(LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item_history_data, viewGroup, false));
+                .inflate(R.layout.item_history_data, viewGroup, false), rootView);
     }
 
     @Override

@@ -5,10 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.db.entity.DBEntity;
+import com.smlnskgmail.jaman.hashchecker.db.entity.DataPortion;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.support.utils.Logger;
 
@@ -56,9 +58,16 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    public List<HistoryItem> getAllHistoryItems() {
+    public List<HistoryItem> getHistoryItemsWithPortion(@NonNull DataPortion dataPortion) {
         try {
-            return getDao(HistoryItem.class).queryForAll();
+            long portion = dataPortion.getPageSize();
+            int page = dataPortion.getPage();
+            QueryBuilder<HistoryItem, ?> queryBuilder = getDao(HistoryItem.class).queryBuilder()
+                    .limit(portion);
+            if (page != -1L) {
+                queryBuilder.offset(page * portion);
+            }
+            return queryBuilder.query();
         } catch (SQLException e) {
             Logger.error(e);
         }
