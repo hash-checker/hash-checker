@@ -1,10 +1,10 @@
-# Hash Checker | [Google Play](https://is.gd/CvaxKo)
+# Hash Checker | [Google Play](https://is.gd/4zlg7o)
 
 <p align="center"><img src="media/ic_app.png" height="200px"></p>
 
 **Fast and simple application for generate and comparison hashes**
 
-Also available in [Google Drive](https://is.gd/WOmppC) and in [Yandex Disk](https://is.gd/m089gV)
+Also available in [Google Drive](https://is.gd/dcq91j) and in [Yandex Disk](https://is.gd/gkcrlz)
 
 App using [ButterKnife](https://github.com/JakeWharton/butterknife) for UI binding
 
