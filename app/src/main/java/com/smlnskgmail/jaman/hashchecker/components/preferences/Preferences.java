@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.support.preferences;
+package com.smlnskgmail.jaman.hashchecker.components.preferences;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
-import com.smlnskgmail.jaman.hashchecker.support.utils.Logger;
+import com.smlnskgmail.jaman.hashchecker.utils.Logger;
 
 public class Preferences {
 

@@ -33,17 +33,17 @@ import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.OnTextVa
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
 import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import com.smlnskgmail.jaman.hashchecker.generator.OnHashGeneratorCompleteListener;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
-import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
-import com.smlnskgmail.jaman.hashchecker.support.utils.TextUtils;
-import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.TextUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.io.File;
 import java.util.Arrays;
@@ -114,7 +114,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
                 AppUtils.openInnerFileManager(this);
             }
         } else {
-            AppUtils.openDefaultFileManager(this, mainScreen);
+            AppUtils.openSystemFileManager(this, mainScreen);
         }
     }
 

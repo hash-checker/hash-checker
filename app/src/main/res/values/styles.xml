@@ -8,6 +8,7 @@
         <item name="actionOverflowButtonStyle">@style/AppMenuButton</item>
         <item name="android:itemBackground">?attr/colorPrimary</item>
         <item name="android:textColor">?attr/colorCommonText</item>
+        <item name="android:textColorSecondary">?attr/colorCommonText</item>
         <item name="android:fontFamily">@font/ft_google_sans_regular</item>
     </style>
 
@@ -80,10 +81,10 @@
     </style>
 
     <style name="AppAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:background">?attr/colorDialogBackground</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_rounded_corners</item>
+        <item name="android:textColorPrimary">?attr/colorCommonText</item>
         <item name="colorControlNormal">?attr/colorCommonText</item>
         <item name="textColorAlertDialogListItem">?attr/colorCommonText</item>
-        <item name="android:textColorPrimary">?attr/colorCommonText</item>
     </style>
 
     <style name="TextAppearance.AppCompat.Widget.ActionBar.Title"
@@ -144,6 +145,11 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/anim_dialog_show</item>
+        <item name="android:windowExitAnimation">@anim/anim_dialog_hide</item>
     </style>
 
 </resources>

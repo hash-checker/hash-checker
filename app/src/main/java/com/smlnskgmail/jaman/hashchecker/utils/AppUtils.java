@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.support.utils;
+package com.smlnskgmail.jaman.hashchecker.utils;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -19,13 +19,13 @@ import android.view.View;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.FileExplorerActivity;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Constants;
 
 public class AppUtils {
 
     private static final int VIBRATION_LENGTH = 30;
 
-    public static void openDefaultFileManager(@NonNull Fragment fragment, @NonNull View view) {
+    public static void openSystemFileManager(@NonNull Fragment fragment, @NonNull View view) {
         try {
             Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             openExplorerIntent.addCategory(Intent.CATEGORY_OPENABLE);

@@ -9,8 +9,8 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adap
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
-import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
+import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
 public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
 

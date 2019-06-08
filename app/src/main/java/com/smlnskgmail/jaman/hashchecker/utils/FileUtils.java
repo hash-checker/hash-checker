@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.support.utils;
+package com.smlnskgmail.jaman.hashchecker.utils;
 
 import android.os.Environment;
 import android.support.annotation.NonNull;

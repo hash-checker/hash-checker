@@ -12,10 +12,10 @@ import android.widget.ProgressBar;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.containers.AdaptiveRecyclerView;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.db.entity.DataPortion;
 import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.adapter.HistoryItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.DataPortion;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem;
 
 import java.util.List;

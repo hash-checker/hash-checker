@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
 
 public enum Themes implements ListItemMarker {
 

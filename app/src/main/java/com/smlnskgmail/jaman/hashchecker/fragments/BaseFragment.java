@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
-import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import butterknife.ButterKnife;
 
