@@ -11,7 +11,7 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.support.utils.Logger;
+import com.smlnskgmail.jaman.hashchecker.utils.Logger;
 
 import org.junit.Rule;
 import org.junit.Test;

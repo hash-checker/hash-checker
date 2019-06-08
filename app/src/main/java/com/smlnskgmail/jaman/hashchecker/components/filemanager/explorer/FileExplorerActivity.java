@@ -11,9 +11,9 @@ import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileType;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.dataadapter.FileItemsAdapter;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.utils.FileUtils;
-import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.utils.FileUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.io.File;
 import java.util.ArrayList;

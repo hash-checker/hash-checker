@@ -11,9 +11,9 @@ import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
 import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
 
 import java.util.Arrays;
 

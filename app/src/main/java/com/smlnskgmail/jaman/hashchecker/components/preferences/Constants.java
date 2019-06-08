@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.support.preferences;
+package com.smlnskgmail.jaman.hashchecker.components.preferences;
 
 public interface Constants {
 

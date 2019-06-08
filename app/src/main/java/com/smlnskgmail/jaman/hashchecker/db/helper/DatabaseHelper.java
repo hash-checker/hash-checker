@@ -10,9 +10,9 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.db.entity.DBEntity;
-import com.smlnskgmail.jaman.hashchecker.db.entity.DataPortion;
+import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.DataPortion;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.support.utils.Logger;
+import com.smlnskgmail.jaman.hashchecker.utils.Logger;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

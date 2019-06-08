@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
-import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.text.DateFormat;
 

@@ -5,8 +5,8 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
-import com.smlnskgmail.jaman.hashchecker.support.utils.Logger;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
+import com.smlnskgmail.jaman.hashchecker.utils.Logger;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -21,11 +21,11 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Th
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinks;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinksBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
-import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
-import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.util.Arrays;
 

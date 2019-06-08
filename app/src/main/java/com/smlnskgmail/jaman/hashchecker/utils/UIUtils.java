@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.support.utils;
+package com.smlnskgmail.jaman.hashchecker.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -23,8 +23,8 @@ import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.preferences.Preferences;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
 
 public class UIUtils {
 

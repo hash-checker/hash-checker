@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.db.entity;
+package com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data;
 
 public class DataPortion {
 

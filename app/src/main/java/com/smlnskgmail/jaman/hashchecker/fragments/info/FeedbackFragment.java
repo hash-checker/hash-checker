@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.fragments.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
-import com.smlnskgmail.jaman.hashchecker.support.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import butterknife.BindView;
 import butterknife.OnCheckedChanged;

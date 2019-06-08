@@ -6,7 +6,7 @@ import android.view.View;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinks;
-import com.smlnskgmail.jaman.hashchecker.support.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
 public class WebLinksBottomSheetListHolder extends BaseBottomSheetListHolder {
 

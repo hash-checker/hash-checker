@@ -7,7 +7,6 @@
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tv_as_btn_generate_hash_value"
         style="@style/AppActionButton"
-        android:layout_marginTop="@dimen/common_margin"
         android:text="@string/action_generate"
         android:drawableStart="@drawable/ic_generate" />
 
