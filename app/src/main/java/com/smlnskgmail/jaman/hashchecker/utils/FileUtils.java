@@ -90,7 +90,7 @@ public class FileUtils {
                 }
                 is.close();
             } catch (Exception e) {
-                Logger.error(e);
+                LoggerUtils.error(e);
                 return storages;
             }
 
@@ -137,7 +137,7 @@ public class FileUtils {
                 }
             }
         } catch (Exception e) {
-            Logger.error(e);
+            LoggerUtils.error(e);
             return storages;
         }
         return storages;

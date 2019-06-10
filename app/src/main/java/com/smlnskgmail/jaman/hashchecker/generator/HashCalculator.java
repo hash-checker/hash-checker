@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
-import com.smlnskgmail.jaman.hashchecker.utils.Logger;
+import com.smlnskgmail.jaman.hashchecker.utils.LoggerUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,7 +33,7 @@ public class HashCalculator {
             messageDigest.update(text.getBytes(StandardCharsets.UTF_8));
             return getResultAsString(messageDigest.digest());
         } catch (Exception e) {
-            Logger.error(e);
+            LoggerUtils.error(e);
             return null;
         }
     }
@@ -44,7 +44,7 @@ public class HashCalculator {
             InputStream fileStream = getInputStreamFromUri(context, path);
             return generateFromFile(fileStream);
         } catch (Exception e) {
-            Logger.error(e);
+            LoggerUtils.error(e);
             return null;
         }
     }

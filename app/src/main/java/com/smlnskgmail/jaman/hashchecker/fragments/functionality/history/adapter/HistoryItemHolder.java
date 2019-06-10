@@ -15,40 +15,31 @@ import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.text.DateFormat;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class HistoryItemHolder extends RecyclerView.ViewHolder {
 
     private static final String DEFAULT_TITLE_PATTERN = "%s:";
 
-    @BindView(R.id.iv_item_history_object_type_icon)
-    protected ImageView ivHistoryItemObjectIcon;
+    private ImageView ivHistoryItemObjectIcon;
 
-    @BindView(R.id.tv_item_history_object_title)
-    protected TextView tvHistoryItemObjectTitle;
-
-    @BindView(R.id.tv_item_history_object_data)
-    protected TextView tvHistoryItemObjectData;
-
-    @BindView(R.id.tv_item_history_hash_type)
-    protected TextView tvHistoryItemHashType;
-
-    @BindView(R.id.tv_item_history_hash_data)
-    protected TextView tvHistoryItemHashData;
-
-    @BindView(R.id.tv_item_history_date_title)
-    protected TextView tvHistoryItemDateTitle;
-
-    @BindView(R.id.tv_item_history_date)
-    protected TextView tvHistoryItemDate;
+    private TextView tvHistoryItemObjectTitle;
+    private TextView tvHistoryItemObjectData;
+    private TextView tvHistoryItemHashType;
+    private TextView tvHistoryItemHashData;
+    private TextView tvHistoryItemDateTitle;
+    private TextView tvHistoryItemDate;
 
     private View rootView;
 
     HistoryItemHolder(@NonNull View itemView, @NonNull View rootView) {
         super(itemView);
-        ButterKnife.bind(this, itemView);
         this.rootView = rootView;
+        ivHistoryItemObjectIcon = itemView.findViewById(R.id.iv_item_history_object_type_icon);
+        tvHistoryItemObjectTitle = itemView.findViewById(R.id.tv_item_history_object_title);
+        tvHistoryItemObjectData = itemView.findViewById(R.id.tv_item_history_object_data);
+        tvHistoryItemHashType = itemView.findViewById(R.id.tv_item_history_hash_type);
+        tvHistoryItemHashData = itemView.findViewById(R.id.tv_item_history_hash_data);
+        tvHistoryItemDateTitle = itemView.findViewById(R.id.tv_item_history_date_title);
+        tvHistoryItemDate = itemView.findViewById(R.id.tv_item_history_date);
     }
 
     public void bind(@NonNull HistoryItem historyItem) {

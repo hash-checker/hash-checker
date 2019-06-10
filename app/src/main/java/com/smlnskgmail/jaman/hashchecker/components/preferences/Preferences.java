@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
 import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
-import com.smlnskgmail.jaman.hashchecker.utils.Logger;
+import com.smlnskgmail.jaman.hashchecker.utils.LoggerUtils;
 
 public class Preferences {
 
@@ -21,13 +21,17 @@ public class Preferences {
         try {
             return HashTypes.valueOf(hashValue);
         } catch (IllegalArgumentException e) {
-            Logger.error(e);
+            LoggerUtils.error(e);
             return HashTypes.MD5;
         }
     }
 
     public static boolean isUsingInnerFileManager(@NonNull Context context) {
         return getBooleanPreference(context, context.getString(R.string.key_inner_file_manager), false);
+    }
+
+    public static boolean isUsingMultilineHashFields(@NonNull Context context) {
+        return getBooleanPreference(context, context.getString(R.string.key_multiline), false);
     }
 
     public static boolean canSaveResultToHistory(@NonNull Context context) {

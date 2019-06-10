@@ -2,6 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtype
 
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
@@ -30,8 +31,9 @@ public class HashesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
     @Override
     protected void callItemClick() {
-        boolean visible = itemAdditionalIcon.getVisibility() == View.VISIBLE;
-        itemAdditionalIcon.setVisibility(visible ? View.INVISIBLE : View.VISIBLE);
+        ImageView ivAdditionalIcon = getIvItemAdditionalIcon();
+        boolean visible = ivAdditionalIcon.getVisibility() == View.VISIBLE;
+        ivAdditionalIcon.setVisibility(visible ? View.INVISIBLE : View.VISIBLE);
         hashTypeSelectListener.onHashTypeSelect(hashTypeAtPosition);
         getListAdapter().getBottomSheet().dismissAllowingStateLoss();
     }

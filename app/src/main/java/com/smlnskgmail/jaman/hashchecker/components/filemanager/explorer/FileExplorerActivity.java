@@ -20,13 +20,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class FileExplorerActivity extends BaseActivity implements OnFileClickListener {
 
-    @BindView(R.id.rv_file_explorer_list)
-    protected RecyclerView filesList;
+    protected RecyclerView rvFilesList;
 
     private FileItemsAdapter fileItemsAdapter;
 
@@ -38,11 +34,13 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
     @Override
     public void initialize() {
         setContentView(R.layout.activity_file_selector);
-        ButterKnife.bind(this);
+
+        rvFilesList = findViewById(R.id.rv_file_explorer_list);
+
         resetTitle();
 
         fileItemsAdapter = new FileItemsAdapter(files, FileExplorerActivity.this);
-        filesList.setAdapter(fileItemsAdapter);
+        rvFilesList.setAdapter(fileItemsAdapter);
 
         storages = FileUtils.getExternalMounts();
         toStorageChooser();

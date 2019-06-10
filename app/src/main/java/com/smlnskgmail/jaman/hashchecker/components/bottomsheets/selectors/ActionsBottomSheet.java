@@ -2,6 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.view.View;
 import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
@@ -10,15 +11,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actio
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionTypes;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-import butterknife.BindView;
-
 public class ActionsBottomSheet extends BaseBottomSheet {
-
-    @BindView(R.id.tv_as_btn_generate_hash_value)
-    protected TextView buttonGenerate;
-
-    @BindView(R.id.tv_as_btn_compare_hash_values)
-    protected TextView buttonCompare;
 
     private OnUserActionClickListener menuItemCallback;
 
@@ -27,12 +20,15 @@ public class ActionsBottomSheet extends BaseBottomSheet {
     }
 
     @Override
-    public void initUI() {
+    public void initUI(@NonNull View contentView) {
         Context context = getContext();
-        UIUtils.colorizeImageSourceToAccentColor(context, buttonGenerate.getCompoundDrawablesRelative()[0]);
-        UIUtils.colorizeImageSourceToAccentColor(context, buttonCompare.getCompoundDrawablesRelative()[0]);
-        buttonGenerate.setOnClickListener(v -> selectAction(UserActionTypes.GENERATE_HASH));
-        buttonCompare.setOnClickListener(v -> selectAction(UserActionTypes.COMPARE_HASHES));
+        TextView btnGenerate = contentView.findViewById(R.id.tv_as_btn_generate_hash_value);
+        btnGenerate.setOnClickListener(v -> selectAction(UserActionTypes.GENERATE_HASH));
+        UIUtils.colorizeImageSourceToAccentColor(context, btnGenerate.getCompoundDrawablesRelative()[0]);
+
+        TextView btnCompare = contentView.findViewById(R.id.tv_as_btn_compare_hash_values);
+        btnCompare.setOnClickListener(v -> selectAction(UserActionTypes.COMPARE_HASHES));
+        UIUtils.colorizeImageSourceToAccentColor(context, btnCompare.getCompoundDrawablesRelative()[0]);
     }
 
     private void selectAction(@NonNull UserActionTypes userActionType) {

@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 
-public class Logger {
+public class LoggerUtils {
 
     private static final boolean LOG_ENABLED = BuildConfig.DEBUG;
 

@@ -15,32 +15,38 @@ import com.smlnskgmail.jaman.hashchecker.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-import butterknife.BindView;
-import butterknife.OnCheckedChanged;
-
 public class FeedbackFragment extends BaseFragment {
 
-    @BindView(R.id.cb_add_device_info)
     protected CheckBox addDeviceInfo;
 
-    @BindView(R.id.tv_feedback_message)
     protected EditText feedbackEdit;
 
-    @BindView(R.id.tv_manufacturer_title)
     protected TextView manufacturerTitle;
-
-    @BindView(R.id.tv_manufacturer_value)
     protected TextView manufacturerValue;
-
-    @BindView(R.id.tv_model_title)
     protected TextView modelTitle;
-
-    @BindView(R.id.tv_model_value)
     protected TextView modelValue;
 
     private Context context;
 
-    @OnCheckedChanged(R.id.cb_add_device_info)
+    @Override
+    public void initializeUI(@NonNull final View contentView) {
+        context = getContext();
+
+        addDeviceInfo = contentView.findViewById(R.id.cb_add_device_info);
+        addDeviceInfo.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            addDeviceInfo(isChecked);
+        });
+
+        feedbackEdit = contentView.findViewById(R.id.et_feedback_message);
+        manufacturerTitle = contentView.findViewById(R.id.tv_manufacturer_title);
+        manufacturerValue = contentView.findViewById(R.id.tv_manufacturer_value);
+        modelTitle = contentView.findViewById(R.id.tv_model_title);
+        modelValue = contentView.findViewById(R.id.tv_model_value);
+
+        manufacturerValue.setText(Build.MANUFACTURER);
+        modelValue.setText(Build.MODEL);
+    }
+
     public void addDeviceInfo(boolean addInfo) {
         int titleColor = addInfo ? UIUtils.getDarkTextColor(context)
                 : UIUtils.getUnselectedColor(context);
@@ -49,13 +55,6 @@ public class FeedbackFragment extends BaseFragment {
 
         manufacturerValue.setTextColor(titleColor);
         modelValue.setTextColor(titleColor);
-    }
-
-    @Override
-    public void initializeUI(@NonNull final View contentView) {
-        context = getContext();
-        manufacturerValue.setText(Build.MANUFACTURER);
-        modelValue.setText(Build.MODEL);
     }
 
     @Override

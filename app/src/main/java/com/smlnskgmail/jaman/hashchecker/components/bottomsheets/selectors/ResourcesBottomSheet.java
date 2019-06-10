@@ -2,6 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.view.View;
 import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
@@ -10,15 +11,10 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actio
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionTypes;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-import butterknife.BindView;
-
 public class ResourcesBottomSheet extends BaseBottomSheet {
 
-    @BindView(R.id.tv_as_btn_open_file_input_dialog)
-    protected TextView buttonSelectText;
-
-    @BindView(R.id.tv_as_btn_open_file_selector)
-    protected TextView buttonSelectFile;
+    protected TextView btnSelectText;
+    protected TextView btnSelectFile;
 
     private OnUserActionClickListener menuItemCallback;
 
@@ -27,12 +23,16 @@ public class ResourcesBottomSheet extends BaseBottomSheet {
     }
 
     @Override
-    public void initUI() {
+    public void initUI(@NonNull View contentView) {
         Context context = getContext();
-        UIUtils.colorizeImageSourceToAccentColor(context, buttonSelectText.getCompoundDrawablesRelative()[0]);
-        UIUtils.colorizeImageSourceToAccentColor(context, buttonSelectFile.getCompoundDrawablesRelative()[0]);
-        buttonSelectText.setOnClickListener(v -> selectAction(UserActionTypes.ENTER_TEXT));
-        buttonSelectFile.setOnClickListener(v -> selectAction(UserActionTypes.SEARCH_FILE));
+
+        btnSelectText = contentView.findViewById(R.id.tv_as_btn_open_file_input_dialog);
+        btnSelectText.setOnClickListener(v -> selectAction(UserActionTypes.ENTER_TEXT));
+        UIUtils.colorizeImageSourceToAccentColor(context, btnSelectText.getCompoundDrawablesRelative()[0]);
+
+        btnSelectFile = contentView.findViewById(R.id.tv_as_btn_open_file_selector);
+        btnSelectFile.setOnClickListener(v -> selectAction(UserActionTypes.SEARCH_FILE));
+        UIUtils.colorizeImageSourceToAccentColor(context, btnSelectFile.getCompoundDrawablesRelative()[0]);
     }
 
     private void selectAction(@NonNull UserActionTypes userActionType) {

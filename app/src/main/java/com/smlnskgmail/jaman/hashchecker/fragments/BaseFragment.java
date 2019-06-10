@@ -18,8 +18,6 @@ import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
 import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-import butterknife.ButterKnife;
-
 public abstract class BaseFragment extends Fragment implements OnNavigationListener, OnAppResume {
 
     private ActionBar actionBar;
@@ -27,7 +25,6 @@ public abstract class BaseFragment extends Fragment implements OnNavigationListe
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this, view);
         initializeUI(view);
         onPostInitialize();
     }

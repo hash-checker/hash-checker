@@ -77,10 +77,11 @@
         </LinearLayout>
 
         <TextView android:id="@+id/tv_selected_object_name"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/round_text_main_width"
             android:layout_height="@dimen/round_view_text_height"
             android:layout_marginStart="@dimen/common_margin_4"
             android:layout_marginEnd="@dimen/common_margin_4"
+            android:layout_gravity="center"
             android:gravity="center_vertical"
             android:background="@drawable/bg_block"
             android:maxLines="2"

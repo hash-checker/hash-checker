@@ -17,6 +17,7 @@ import android.support.v4.content.ContextCompat;
 import android.text.InputFilter;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -50,32 +51,19 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
-import butterknife.BindView;
-import butterknife.OnClick;
-
 public class MainFragment extends BaseFragment implements OnTextValueEnteredListener,
         OnHashGeneratorCompleteListener, OnUserActionClickListener, OnHashTypeSelectListener {
 
-    @BindView(R.id.fl_main_screen)
-    protected View mainScreen;
+    private View mainScreen;
+    private LinearLayout hashTypes;
 
-    @BindView(R.id.ll_as_selector_hash_types)
-    protected LinearLayout hashTypes;
+    private EditText etCustomHash;
+    private EditText etGeneratedHash;
 
-    @BindView(R.id.et_field_custom_hash)
-    protected EditText etCustomHash;
+    private TextView tvSelectedObjectName;
+    private TextView tvSelectedHashType;
 
-    @BindView(R.id.et_field_generated_hash)
-    protected EditText etGeneratedHash;
-
-    @BindView(R.id.tv_selected_object_name)
-    protected TextView tvSelectedObjectName;
-
-    @BindView(R.id.tv_selected_hash_type)
-    protected TextView selectedHash;
-
-    @BindView(R.id.btn_generate_from)
-    protected Button btnGenerateFrom;
+    private Button btnGenerateFrom;
 
     private ProgressDialog progressDialog;
 
@@ -121,7 +109,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     @SuppressLint("ResourceType")
     private void generateHash() {
         if (fileUri != null || isTextSelected) {
-            HashTypes hashType = HashTypes.parseHashTypeFromString(context, selectedHash.getText().toString());
+            HashTypes hashType = HashTypes.parseHashTypeFromString(context, tvSelectedHashType.getText().toString());
             progressDialog = AppProgressDialog.getDialog(context, R.string.message_generate_dialog);
             progressDialog.show();
             if (isTextSelected) {
@@ -148,7 +136,6 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         }
     }
 
-    @OnClick(R.id.ll_as_selector_hash_types)
     public void selectHashTypeFromList() {
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet();
         generateToBottomSheet.setItems(Arrays.asList(HashTypes.values()));
@@ -156,14 +143,12 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         generateToBottomSheet.show(getFragmentManager(), Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
-    @OnClick(R.id.btn_generate_from)
     public void selectResourceToGenerateHash() {
         ResourcesBottomSheet resourcesBottomSheet = new ResourcesBottomSheet();
         resourcesBottomSheet.setMenuItemCallback(MainFragment.this);
         resourcesBottomSheet.show(fragmentManager, Constants.Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
-    @OnClick(R.id.btn_hash_actions)
     public void selectActionForHashes() {
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
         actionsBottomSheet.setMenuItemCallback(MainFragment.this);
@@ -235,7 +220,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
                 Date date = Calendar.getInstance().getTime();
                 String objectValue = tvSelectedObjectName.getText().toString();
                 HashTypes hashType = HashTypes.parseHashTypeFromString(context,
-                        selectedHash.getText().toString());
+                        tvSelectedHashType.getText().toString());
                 HistoryItem historyItem = new HistoryItem(date, hashType, !isTextSelected, objectValue,
                         hashValue);
                 HelperFactory.getHelper().addGeneratorHistoryItem(historyItem);
@@ -285,15 +270,33 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
 
     @Override
     public void onHashTypeSelect(@NonNull HashTypes hashType) {
-        selectedHash.setText(hashType.getTypeAsString(context));
+        tvSelectedHashType.setText(hashType.getTypeAsString(context));
         Preferences.saveHashTypeAsLast(context, hashType);
     }
 
     @Override
     public void initializeUI(@NonNull View contentView) {
         context = getContext();
+
+        mainScreen = contentView.findViewById(R.id.fl_main_screen);
+
+        hashTypes = contentView.findViewById(R.id.ll_as_selector_hash_types);
+        hashTypes.setOnClickListener(v -> selectHashTypeFromList());
+
+        etCustomHash = contentView.findViewById(R.id.et_field_custom_hash);
+        etGeneratedHash = contentView.findViewById(R.id.et_field_generated_hash);
+
+        tvSelectedObjectName = contentView.findViewById(R.id.tv_selected_object_name);
+        tvSelectedHashType = contentView.findViewById(R.id.tv_selected_hash_type);
+
+        btnGenerateFrom = contentView.findViewById(R.id.btn_generate_from);
+        btnGenerateFrom.setOnClickListener(v -> selectResourceToGenerateHash());
+
+        Button btnHashActions = contentView.findViewById(R.id.btn_hash_actions);
+        btnHashActions.setOnClickListener(v -> selectActionForHashes());
+
         fragmentManager = getActivity().getSupportFragmentManager();
-        selectedHash.setText(Preferences.getLastHashType(context).getTypeAsString(context));
+        tvSelectedHashType.setText(Preferences.getLastHashType(context).getTypeAsString(context));
         tvSelectedObjectName.setMovementMethod(new ScrollingMovementMethod());
         if (startWithTextSelection) {
             onUserActionClick(UserActionTypes.ENTER_TEXT);
@@ -337,6 +340,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     public void onAppResume() {
         super.onAppResume();
         validateTextCase();
+        checkMultilinePreference();
         if (Preferences.refreshSelectedFile(context)) {
             if (!isTextSelected && fileUri != null) {
                 fileUri = null;
@@ -346,6 +350,38 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
             }
         }
         onHashTypeSelect(Preferences.getLastHashType(context));
+    }
+
+    private void checkMultilinePreference() {
+        if (Preferences.isUsingMultilineHashFields(context)) {
+            etCustomHash.setMinLines(3);
+            etCustomHash.setMaxLines(3);
+            etCustomHash.setLines(3);
+            etCustomHash.setInputType(EditorInfo.TYPE_CLASS_TEXT
+                    | EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE);
+            etCustomHash.setImeOptions(EditorInfo.IME_ACTION_NONE);
+            etCustomHash.requestLayout();
+
+            etGeneratedHash.setMinLines(3);
+            etGeneratedHash.setMaxLines(3);
+            etGeneratedHash.setLines(3);
+            etGeneratedHash.setInputType(EditorInfo.TYPE_CLASS_TEXT
+                    | EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE);
+            etCustomHash.setImeOptions(EditorInfo.IME_ACTION_NONE);
+            etGeneratedHash.requestLayout();
+        } else {
+            etCustomHash.setMinLines(1);
+            etCustomHash.setMaxLines(1);
+            etCustomHash.setLines(1);
+            etCustomHash.setInputType(EditorInfo.TYPE_CLASS_TEXT);
+            etCustomHash.requestLayout();
+
+            etGeneratedHash.setMinLines(1);
+            etGeneratedHash.setMaxLines(1);
+            etGeneratedHash.setLines(1);
+            etGeneratedHash.setInputType(EditorInfo.TYPE_CLASS_TEXT);
+            etGeneratedHash.requestLayout();
+        }
     }
 
     @Override

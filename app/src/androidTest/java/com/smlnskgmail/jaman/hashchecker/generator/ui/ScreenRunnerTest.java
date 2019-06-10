@@ -11,7 +11,7 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.utils.Logger;
+import com.smlnskgmail.jaman.hashchecker.utils.LoggerUtils;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -81,7 +81,7 @@ public class ScreenRunnerTest {
         try {
             Thread.sleep(ONE_SECOND_IN_MILLISECONDS);
         } catch (InterruptedException e) {
-            Logger.error(e);
+            LoggerUtils.error(e);
         }
     }
 

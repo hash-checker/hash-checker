@@ -20,8 +20,6 @@ import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.Hi
 
 import java.util.List;
 
-import butterknife.BindView;
-
 public class HistoryFragment extends BaseFragment {
 
     private static final long DATABASE_PORTION = 30;
@@ -53,14 +51,10 @@ public class HistoryFragment extends BaseFragment {
 
     }
 
-    @BindView(R.id.fl_history)
-    protected FrameLayout flHistory;
+    private FrameLayout flHistory;
+    private AdaptiveRecyclerView rvHistoryItems;
 
-    @BindView(R.id.rv_history_items)
-    protected AdaptiveRecyclerView rvHistoryItems;
-
-    @BindView(R.id.pb_history)
-    protected ProgressBar pbHistory;
+    private ProgressBar pbHistory;
 
     private DataPortion dataPortion = new DataPortion(DATABASE_PORTION);
 
@@ -68,6 +62,9 @@ public class HistoryFragment extends BaseFragment {
 
     @Override
     public void initializeUI(@NonNull View contentView) {
+        flHistory = contentView.findViewById(R.id.fl_history);
+        pbHistory = contentView.findViewById(R.id.pb_history);
+        rvHistoryItems = contentView.findViewById(R.id.rv_history_items);
         rvHistoryItems.setEmptyMessageView(contentView.findViewById(R.id.ll_history_empty_view));
         rvHistoryItems.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

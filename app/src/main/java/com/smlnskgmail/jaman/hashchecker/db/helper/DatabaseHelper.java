@@ -12,7 +12,7 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.db.entity.DBEntity;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.DataPortion;
 import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.utils.Logger;
+import com.smlnskgmail.jaman.hashchecker.utils.LoggerUtils;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 TableUtils.createTable(connectionSource, clazz);
             }
         } catch (SQLException e) {
-            Logger.error(e);
+            LoggerUtils.error(e);
         }
     }
 
@@ -54,7 +54,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             getDao(HistoryItem.class).create(historyItem);
         } catch (SQLException e) {
-            Logger.error(e);
+            LoggerUtils.error(e);
         }
     }
 
@@ -69,7 +69,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             }
             return queryBuilder.query();
         } catch (SQLException e) {
-            Logger.error(e);
+            LoggerUtils.error(e);
         }
         return new ArrayList<>();
     }
@@ -78,7 +78,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             getDao(HistoryItem.class).deleteBuilder().delete();
         } catch (SQLException e) {
-            Logger.error(e);
+            LoggerUtils.error(e);
         }
     }
 
