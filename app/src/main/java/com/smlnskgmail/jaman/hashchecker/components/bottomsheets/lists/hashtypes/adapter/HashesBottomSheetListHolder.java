@@ -8,11 +8,11 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.List
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.OnHashTypeSelectListener;
-import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 
 public class HashesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
-    private HashTypes hashTypeAtPosition;
+    private HashType hashTypeAtPosition;
     private HashesBottomSheetListAdapter hashesBottomSheetListAdapter;
     private OnHashTypeSelectListener hashTypeSelectListener;
 
@@ -25,7 +25,7 @@ public class HashesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
     @Override
     protected void bind(@NonNull ListItemMarker listItemMarker) {
-        hashTypeAtPosition = (HashTypes) listItemMarker;
+        hashTypeAtPosition = (HashType) listItemMarker;
         super.bind(listItemMarker);
     }
 

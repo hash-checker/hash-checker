@@ -13,4 +13,5 @@
     android:textSize="@dimen/text_size_info"
     android:drawableStart="@drawable/ic_google_play"
     android:drawablePadding="@dimen/common_margin_2"
-    tools:text="../" />
+    tools:text="../"
+    tools:ignore="UnusedAttribute" />

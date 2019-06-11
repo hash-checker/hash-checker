@@ -70,7 +70,7 @@ public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder 
         return listAdapter;
     }
 
-    public Context getContext() {
+    protected Context getContext() {
         return context;
     }
 

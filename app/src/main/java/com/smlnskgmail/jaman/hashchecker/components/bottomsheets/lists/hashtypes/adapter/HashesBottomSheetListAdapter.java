@@ -8,14 +8,14 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.List
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.OnHashTypeSelectListener;
-import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
-import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.PreferenceHelper;
 
 import java.util.List;
 
 public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
-    private HashTypes selectedHashType;
+    private HashType selectedHashType;
     private OnHashTypeSelectListener hashTypeSelectListener;
 
     public HashesBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
@@ -23,7 +23,7 @@ public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
                                         @NonNull OnHashTypeSelectListener hashTypeSelectListener) {
         super(items, bottomSheet);
         this.hashTypeSelectListener = hashTypeSelectListener;
-        selectedHashType = Preferences.getLastHashType(getBottomSheet().getContext());
+        selectedHashType = PreferenceHelper.getLastHashType(getBottomSheet().getContext());
     }
 
     @Override
@@ -31,7 +31,7 @@ public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
         return new HashesBottomSheetListHolder(view, this, hashTypeSelectListener);
     }
 
-    HashTypes getSelectedHashType() {
+    HashType getSelectedHashType() {
         return selectedHashType;
     }
 
