@@ -4,18 +4,15 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.BaseDialog;
 
-import butterknife.BindView;
-import butterknife.OnClick;
-
 public class TextInputDialog extends BaseDialog {
 
-    @BindView(R.id.et_dialog_input_text)
-    protected EditText fieldTextValue;
+    private EditText etTextValue;
 
     private OnTextValueEnteredListener textValueCallback;
 
@@ -29,20 +26,23 @@ public class TextInputDialog extends BaseDialog {
         this.textValue = textValue;
     }
 
-    @OnClick(R.id.btn_dialog_input_text_add)
-    void addText() {
-        textValueCallback.onTextValueEntered(fieldTextValue.getText().toString());
-        dismiss();
-    }
-
     @Override
     public void initUI() {
-        fieldTextValue.requestFocus();
+        super.initUI();
+        etTextValue = findViewById(R.id.et_dialog_input_text);
+
+        Button btnAddText = findViewById(R.id.btn_dialog_input_text_add);
+        btnAddText.setOnClickListener(v -> {
+            textValueCallback.onTextValueEntered(etTextValue.getText().toString());
+            dismiss();
+        });
+
+        etTextValue.requestFocus();
         if (textValue == null) {
-            fieldTextValue.setText("");
+            etTextValue.setText("");
         } else {
-            fieldTextValue.setText(textValue);
-            fieldTextValue.setSelection(textValue.length());
+            etTextValue.setText(textValue);
+            etTextValue.setSelection(textValue.length());
         }
     }
     @Override

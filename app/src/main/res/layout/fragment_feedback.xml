@@ -16,7 +16,7 @@
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_email" />
 
-        <EditText android:id="@+id/tv_feedback_message"
+        <EditText android:id="@+id/et_feedback_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="?attr/colorCommonText"

@@ -22,9 +22,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
-import com.smlnskgmail.jaman.hashchecker.components.preferences.Constants;
-import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Theme;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.PreferenceHelper;
+import com.smlnskgmail.jaman.hashchecker.support.values.Tags;
 
 public class UIUtils {
 
@@ -32,7 +32,7 @@ public class UIUtils {
 
     public static void showFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(android.R.id.content, fragment, Constants.Tags.CURRENT_FRAGMENT_TAG)
+        fragmentTransaction.add(android.R.id.content, fragment, Tags.CURRENT_FRAGMENT_TAG)
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .addToBackStack(null)
                 .commit();
@@ -73,7 +73,7 @@ public class UIUtils {
         snackbarText.setTextColor(ContextCompat.getColor(context, R.color.colorLightText));
         snackbar.show();
 
-        if (Preferences.getVibrateAccess(context)) {
+        if (PreferenceHelper.getVibrateAccess(context)) {
             AppUtils.vibrate(context);
         }
     }
@@ -83,7 +83,7 @@ public class UIUtils {
     }
 
     public static int getThemeResId(@NonNull Context context) {
-        return Themes.getThemeFromPreferences(context).getThemeResId();
+        return Theme.getThemeFromPreferences(context).getThemeResId();
     }
 
     @SuppressLint("ResourceType")

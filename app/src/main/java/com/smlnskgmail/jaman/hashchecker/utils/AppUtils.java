@@ -19,7 +19,8 @@ import android.view.View;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.FileExplorerActivity;
-import com.smlnskgmail.jaman.hashchecker.components.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.logs.Logger;
+import com.smlnskgmail.jaman.hashchecker.support.values.Requests;
 
 public class AppUtils {
 
@@ -30,7 +31,7 @@ public class AppUtils {
             Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             openExplorerIntent.addCategory(Intent.CATEGORY_OPENABLE);
             openExplorerIntent.setType("*/*");
-            fragment.startActivityForResult(openExplorerIntent, Constants.Requests.FILE_SELECT_REQUEST);
+            fragment.startActivityForResult(openExplorerIntent, Requests.FILE_SELECT_REQUEST);
         } catch (ActivityNotFoundException e) {
             UIUtils.showSnackbar(view.getContext(), view,
                     fragment.getString(R.string.message_error_start_file_selector),
@@ -41,18 +42,18 @@ public class AppUtils {
     public static void openInnerFileManager(@NonNull Fragment fragment) {
         Intent openExplorerIntent = new Intent(fragment.getContext(), FileExplorerActivity.class);
         fragment.startActivityForResult(openExplorerIntent,
-                Constants.Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER);
+                Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER);
     }
 
-    public static void openAppSettings(@NonNull Activity activity) {
+    public static void openAppSettings(@NonNull Context context) {
         try {
             Intent intent = new Intent();
             intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-            Uri uri = Uri.fromParts("package", activity.getPackageName(), null);
+            Uri uri = Uri.fromParts("package", context.getPackageName(), null);
             intent.setData(uri);
-            activity.startActivity(intent);
+            context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            activity.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
+            context.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
         }
     }
 

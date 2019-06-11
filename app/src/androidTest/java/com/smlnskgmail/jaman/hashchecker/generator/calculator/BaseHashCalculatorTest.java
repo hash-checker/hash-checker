@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.test.InstrumentationRegistry;
 
 import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
-import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -34,7 +34,7 @@ public abstract class BaseHashCalculatorTest {
     }
 
     private void initializeHashCalculator() {
-        HashTypes hashType = getHashType();
+        HashType hashType = getHashType();
         Assert.assertNotNull(hashType);
         hashCalculator = new HashCalculator(hashType.getTypeAsString(targetContext));
     }
@@ -57,7 +57,7 @@ public abstract class BaseHashCalculatorTest {
     }
 
     @NonNull
-    protected abstract HashTypes getHashType();
+    protected abstract HashType getHashType();
 
     @NonNull
     protected abstract String getHashValueForTestText();

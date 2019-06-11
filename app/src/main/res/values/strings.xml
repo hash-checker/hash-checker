@@ -75,6 +75,7 @@
     <string name="settings_title_theme">Theme</string>
     <string name="settings_title_rate_app">Rate app</string>
     <string name="settings_title_save_result_to_history">Save result to History</string>
+    <string name="settings_title_multiline">Multiline hash fields</string>
 
     <!-- feedback -->
     <string name="feedback_device">Add device info</string>

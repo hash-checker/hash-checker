@@ -5,22 +5,15 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public abstract class BaseDialog extends Dialog {
 
-    public BaseDialog(@NonNull Context context) {
+    protected BaseDialog(@NonNull Context context) {
         super(context);
-    }
-
-    @OnClick(R.id.btn_dialog_input_text_close)
-    void closeDialog() {
-        dismiss();
     }
 
     @Override
@@ -28,13 +21,16 @@ public abstract class BaseDialog extends Dialog {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(getLayoutResId());
-        ButterKnife.bind(this);
         initUI();
         setupDialogStyle();
     }
 
-    public abstract int getLayoutResId();
-    public abstract void initUI();
+    protected abstract int getLayoutResId();
+
+    public void initUI() {
+        Button btnClose = findViewById(R.id.btn_dialog_input_text_close);
+        btnClose.setOnClickListener(v -> dismiss());
+    }
 
     public void setupDialogStyle() {
         getWindow().setLayout(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);

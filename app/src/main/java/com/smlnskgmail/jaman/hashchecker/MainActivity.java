@@ -11,14 +11,16 @@ import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
-import com.smlnskgmail.jaman.hashchecker.components.preferences.Constants;
-import com.smlnskgmail.jaman.hashchecker.components.preferences.Preferences;
-import com.smlnskgmail.jaman.hashchecker.fragments.functionality.MainFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.info.FeedbackFragment;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnAppResume;
-import com.smlnskgmail.jaman.hashchecker.fragments.interfaces.OnNavigationListener;
-import com.smlnskgmail.jaman.hashchecker.fragments.settings.SettingsFragment;
+import com.smlnskgmail.jaman.hashchecker.components.actions.OnAppResume;
+import com.smlnskgmail.jaman.hashchecker.components.actions.OnNavigationListener;
+import com.smlnskgmail.jaman.hashchecker.navigation.FeedbackFragment;
+import com.smlnskgmail.jaman.hashchecker.navigation.MainFragment;
+import com.smlnskgmail.jaman.hashchecker.navigation.SettingsFragment;
+import com.smlnskgmail.jaman.hashchecker.navigation.history.HistoryFragment;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.PreferenceHelper;
+import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.values.Shortcuts;
+import com.smlnskgmail.jaman.hashchecker.support.values.Tags;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class MainActivity extends BaseActivity {
@@ -40,13 +42,13 @@ public class MainActivity extends BaseActivity {
         MainFragment mainFragment = new MainFragment();
         if (scheme != null && scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
             mainFragment.setArguments(getConfiguredBundleWithDataUri(intent.getData()));
-            Preferences.setGenerateFromShareIntentMode(this, true);
+            PreferenceHelper.setGenerateFromShareIntentMode(this, true);
         } else if (externalFileUri != null) {
             mainFragment.setArguments(getConfiguredBundleWithDataUri(externalFileUri));
-            Preferences.setGenerateFromShareIntentMode(this, true);
+            PreferenceHelper.setGenerateFromShareIntentMode(this, true);
         } else {
             mainFragment.setArguments(getBundleForShortcutAction(intent.getAction()));
-            Preferences.setGenerateFromShareIntentMode(this, false);
+            PreferenceHelper.setGenerateFromShareIntentMode(this, false);
         }
 
         UIUtils.showFragment(getSupportFragmentManager(), mainFragment);
@@ -55,17 +57,17 @@ public class MainActivity extends BaseActivity {
     @NonNull
     private Bundle getConfiguredBundleWithDataUri(@NonNull Uri uri) {
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.Data.URI_FROM_EXTERNAL_APP, uri.toString());
+        bundle.putString(Constants.URI_FROM_EXTERNAL_APP, uri.toString());
         return bundle;
     }
 
     @NonNull
     private Bundle getBundleForShortcutAction(@Nullable String action) {
         Bundle shortcutArguments = new Bundle();
-        if (action != null && action.equals(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION)) {
-            shortcutArguments.putBoolean(Constants.ShortcutActions.ACTION_START_WITH_TEXT_SELECTION, true);
-        } else if (action != null && action.equals(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION)) {
-            shortcutArguments.putBoolean(Constants.ShortcutActions.ACTION_START_WITH_FILE_SELECTION, true);
+        if (action != null && action.equals(Shortcuts.ACTION_START_WITH_TEXT_SELECTION)) {
+            shortcutArguments.putBoolean(Shortcuts.ACTION_START_WITH_TEXT_SELECTION, true);
+        } else if (action != null && action.equals(Shortcuts.ACTION_START_WITH_FILE_SELECTION)) {
+            shortcutArguments.putBoolean(Shortcuts.ACTION_START_WITH_FILE_SELECTION, true);
         }
         return shortcutArguments;
     }
@@ -91,7 +93,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager()
-                .findFragmentByTag(Constants.Tags.CURRENT_FRAGMENT_TAG);
+                .findFragmentByTag(Tags.CURRENT_FRAGMENT_TAG);
         if (fragment instanceof OnNavigationListener) {
             ((OnNavigationListener) fragment).onBack();
         }

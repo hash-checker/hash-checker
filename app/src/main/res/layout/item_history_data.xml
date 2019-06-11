@@ -6,7 +6,7 @@
     android:padding="@dimen/common_margin_2"
     android:foreground="?selectableItemBackground"
     android:orientation="horizontal"
-    android:clickable="true">
+    tools:ignore="UnusedAttribute">
 
     <ImageView android:id="@+id/iv_item_history_object_type_icon"
         android:layout_width="wrap_content"

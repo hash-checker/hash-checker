@@ -8,10 +8,10 @@
             android:defaultValue="false"
             android:icon="@drawable/ic_settings_upper_case" />
 
-        <SwitchPreference android:title="@string/settings_title_app_file_manager"
-            android:key="@string/key_inner_file_manager"
+        <SwitchPreference android:title="@string/settings_title_multiline"
+            android:key="@string/key_multiline"
             android:defaultValue="false"
-            android:icon="@drawable/ic_settings_file_manager" />
+            android:icon="@drawable/ic_settings_multiline" />
 
         <SwitchPreference android:title="@string/settings_title_save_result_to_history"
             android:key="@string/key_save_result_to_history"
@@ -21,6 +21,11 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_title_app">
+
+        <SwitchPreference android:title="@string/settings_title_app_file_manager"
+            android:key="@string/key_inner_file_manager"
+            android:defaultValue="false"
+            android:icon="@drawable/ic_settings_file_manager" />
 
         <SwitchPreference android:title="@string/settings_title_vibration"
             android:key="@string/key_vibrate"

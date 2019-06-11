@@ -6,7 +6,7 @@
     <dimen name="common_margin">8dp</dimen>
     <dimen name="common_margin_2">16dp</dimen>
     <dimen name="common_margin_3">32dp</dimen>
-    <dimen name="common_margin_4">64dp</dimen>
+    <dimen name="common_margin_4">48dp</dimen>
     <dimen name="common_margin_5">24dp</dimen>
     <dimen name="common_margin_6">20dp</dimen>
     <dimen name="common_padding">8dp</dimen>
@@ -26,6 +26,7 @@
     <dimen name="round_padding">4dp</dimen>
     <dimen name="round_view_text_height">48dp</dimen>
     <dimen name="round_text_view_width">96dp</dimen>
+    <dimen name="round_text_main_width">224dp</dimen>
 
     <!-- corners -->
     <dimen name="radius_bottom_sheet_corners">16dp</dimen>

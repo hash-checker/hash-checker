@@ -10,8 +10,9 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileType;
-import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.dataadapter.FileItemsAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.preferences.Constants;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.recycler.FileItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.support.values.FileNames;
+import com.smlnskgmail.jaman.hashchecker.support.values.Requests;
 import com.smlnskgmail.jaman.hashchecker.utils.FileUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
@@ -20,13 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class FileExplorerActivity extends BaseActivity implements OnFileClickListener {
-
-    @BindView(R.id.rv_file_explorer_list)
-    protected RecyclerView filesList;
 
     private FileItemsAdapter fileItemsAdapter;
 
@@ -38,11 +33,11 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
     @Override
     public void initialize() {
         setContentView(R.layout.activity_file_selector);
-        ButterKnife.bind(this);
+        RecyclerView rvFilesList = findViewById(R.id.rv_file_explorer_list);
         resetTitle();
 
         fileItemsAdapter = new FileItemsAdapter(files, FileExplorerActivity.this);
-        filesList.setAdapter(fileItemsAdapter);
+        rvFilesList.setAdapter(fileItemsAdapter);
 
         storages = FileUtils.getExternalMounts();
         toStorageChooser();
@@ -56,7 +51,7 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
         File[] files = f.listFiles();
 
         this.files.add(new FileItem(FileType.BACK_FOLDER,
-                Constants.FileNames.BACK_FOLDER, Constants.FileNames.BACK_FOLDER));
+                FileNames.BACK_FOLDER, FileNames.BACK_FOLDER));
         if (files == null) {
             return;
         }
@@ -97,7 +92,7 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
     public void onFileClick(@NonNull FileItem fileItem, int position) {
         String path = fileItem.getFilePath();
         File file = new File(path);
-        if (position == 0 && path.equals(Constants.FileNames.BACK_FOLDER)
+        if (position == 0 && path.equals(FileNames.BACK_FOLDER)
                 && fileItem.getFileType() != FileType.STORAGE) {
             if (!isStorage(currentPath)) {
                 String parent = new File(currentPath).getParent();
@@ -120,8 +115,8 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
 
     private void selectionFinished(@NonNull String path) {
         Intent selectFileIntent = new Intent();
-        selectFileIntent.putExtra(Constants.RequestData.FILE_SELECT_DATA, path);
-        setResult(Constants.Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER, selectFileIntent);
+        selectFileIntent.putExtra(Requests.FILE_SELECT_DATA, path);
+        setResult(Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER, selectFileIntent);
         finish();
     }
 

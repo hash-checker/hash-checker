@@ -2,10 +2,10 @@ package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtype
 
 import android.support.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 
 public interface OnHashTypeSelectListener {
 
-    void onHashTypeSelect(@NonNull HashTypes hashType);
+    void onHashTypeSelect(@NonNull HashType hashType);
 
 }

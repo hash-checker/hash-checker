@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileType;
+import com.smlnskgmail.jaman.hashchecker.support.logs.Logger;
 
 import java.io.File;
 import java.io.InputStream;

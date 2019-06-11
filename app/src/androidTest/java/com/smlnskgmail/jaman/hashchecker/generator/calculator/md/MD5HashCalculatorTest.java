@@ -2,15 +2,15 @@ package com.smlnskgmail.jaman.hashchecker.generator.calculator.md;
 
 import android.support.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import com.smlnskgmail.jaman.hashchecker.generator.calculator.BaseHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 
 public class MD5HashCalculatorTest extends BaseHashCalculatorTest {
 
     @NonNull
     @Override
-    protected HashTypes getHashType() {
-        return HashTypes.MD5;
+    protected HashType getHashType() {
+        return HashType.MD5;
     }
 
     @NonNull
