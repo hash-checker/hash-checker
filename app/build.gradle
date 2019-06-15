@@ -6,8 +6,8 @@ android {
         applicationId "com.smlnskgmail.jaman.hashchecker"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 54
-        versionName "2.8.2"
+        versionCode 55
+        versionName "2.8.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -31,6 +31,9 @@ android {
         main {
             resources.srcDirs = ['src/main/resources', 'src/test']
         }
+    }
+    aaptOptions {
+        ignoreAssetsPattern "!test.zip"
     }
 }
 

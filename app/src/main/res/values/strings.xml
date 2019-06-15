@@ -16,17 +16,17 @@
     <!-- messages -->
     <string name="message_exit">Long press on back button to close the application.</string>
     <string name="message_fill_fields">Fill each field for comparison.</string>
-    <string name="message_match_result">Match.</string>
+    <string name="message_match_result">Match</string>
     <string name="message_do_not_match_result">Do not match.</string>
     <string name="message_generate_dialog">Generating hash, please wait…</string>
     <string name="message_select_object">Tap \"From\" to select needed source type.</string>
-    <string name="message_request_storage_permission_error">Permission to read device file storage cannot be granted. Please try again</string>
+    <string name="message_request_storage_permission_error">Permission to read device file storage cannot be granted. Please try again.</string>
     <string name="message_request_storage_permission_denied">Permission to read device file storage cannot be granted. You need to go to the Settings and provide it yourself.</string>
     <string name="message_error_start_file_selector">Can\'t find a file manager on your device.</string>
     <string name="message_error_start_google_play">Can\'t find a Google Play app or a web browser on your device.</string>
     <string name="message_email_app_chooser">Choose app for send a email:</string>
     <string name="message_change_theme">To change the theme, you need to restart the application.</string>
-    <string name="message_invalid_selected_source">Cannot generate hash value from input source. Please check selected source.</string>
+    <string name="message_invalid_selected_source">Can\'t generate hash value from input source. Please check selected source.</string>
     <string name="message_delete_all_history_items">Delete all history items?</string>
 
     <!-- commons -->
