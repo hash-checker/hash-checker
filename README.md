@@ -21,3 +21,4 @@
 ## Alternative downloads
 [Google Drive](https://is.gd/dcq91j)
 [Yandex Disk](https://is.gd/gkcrlz)
+[Apk files](https://is.gd/apkffgh)
