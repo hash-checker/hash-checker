@@ -3,7 +3,7 @@
 <p align="center"><img src="media/ic_app.png" height="200px"></p>
 
 ## About application
-**Fast and simple application for generate and comparison hashes**
+**Fast and simple application for generating and comparison hashes from files or text**
 
 ## Screenshots
 <br/>
