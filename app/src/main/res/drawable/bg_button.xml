@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-
     <solid android:color="?attr/colorAccent" />
-
-    <corners android:bottomLeftRadius="@dimen/round_padding"
+    <corners
+        android:bottomLeftRadius="@dimen/round_padding"
         android:bottomRightRadius="@dimen/round_padding"
         android:topLeftRadius="@dimen/round_padding"
         android:topRightRadius="@dimen/round_padding" />
-
 </shape>

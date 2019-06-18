@@ -6,17 +6,20 @@
     android:padding="@dimen/common_margin_2"
     android:background="?attr/colorBackground">
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView android:id="@+id/iv_feedback_icon"
+        <ImageView
+            android:id="@+id/iv_feedback_icon"
             android:layout_width="@dimen/icon_size_email"
             android:layout_height="@dimen/icon_size_email"
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_email" />
 
-        <EditText android:id="@+id/et_feedback_message"
+        <EditText
+            android:id="@+id/et_feedback_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="?attr/colorCommonText"
@@ -27,11 +30,13 @@
             android:textColor="?attr/colorCommonText"
             android:textColorHint="?attr/colorCommonUnselected" />
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/common_margin">
 
-            <TextView android:id="@+id/tv_device_info_title"
+            <TextView
+                android:id="@+id/tv_device_info_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -39,19 +44,22 @@
                 android:textColor="?attr/colorCommonText"
                 android:textSize="@dimen/text_size_medium" />
 
-            <CheckBox android:id="@+id/cb_add_device_info"
+            <CheckBox
+                android:id="@+id/cb_add_device_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@drawable/sel_checkbox"
+                android:buttonTint="@drawable/sl_adaptive_checkbox"
                 android:checked="true" />
 
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/common_margin">
 
-            <TextView android:id="@+id/tv_manufacturer_title"
+            <TextView
+                android:id="@+id/tv_manufacturer_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -59,7 +67,8 @@
                 android:textColor="?attr/colorCommonText"
                 android:textSize="@dimen/text_size_medium" />
 
-            <TextView android:id="@+id/tv_manufacturer_value"
+            <TextView
+                android:id="@+id/tv_manufacturer_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/common_margin_half"
@@ -69,11 +78,13 @@
 
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/common_margin">
 
-            <TextView android:id="@+id/tv_model_title"
+            <TextView
+                android:id="@+id/tv_model_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -81,7 +92,8 @@
                 android:textColor="?attr/colorCommonText"
                 android:textSize="@dimen/text_size_medium" />
 
-            <TextView android:id="@+id/tv_model_value"
+            <TextView
+                android:id="@+id/tv_model_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/common_margin_half"

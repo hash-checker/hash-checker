@@ -8,28 +8,33 @@
     android:orientation="horizontal"
     android:clickable="true">
 
-    <ImageView android:id="@+id/iv_item_history_object_type_icon"
+    <ImageView
+        android:id="@+id/iv_item_history_object_type_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginEnd="@dimen/common_margin_2"
         tools:src="@drawable/ic_file" />
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView android:id="@+id/tv_item_history_object_title"
+            <TextView
+                android:id="@+id/tv_item_history_object_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/common_margin"
                 android:textColor="?attr/colorAccent"
                 tools:text="File:" />
 
-            <TextView android:id="@+id/tv_item_history_object_data"
+            <TextView
+                android:id="@+id/tv_item_history_object_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -39,18 +44,21 @@
 
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_margin_half">
 
-            <TextView android:id="@+id/tv_item_history_hash_type"
+            <TextView
+                android:id="@+id/tv_item_history_hash_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/common_margin"
                 android:textColor="?attr/colorAccent"
                 tools:text="MD5:" />
 
-            <TextView android:id="@+id/tv_item_history_hash_data"
+            <TextView
+                android:id="@+id/tv_item_history_hash_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -60,18 +68,21 @@
 
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_margin_half">
 
-            <TextView android:id="@+id/tv_item_history_date_title"
+            <TextView
+                android:id="@+id/tv_item_history_date_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/common_margin"
                 android:textColor="?attr/colorAccent"
                 tools:text="Date:" />
 
-            <TextView android:id="@+id/tv_item_history_date"
+            <TextView
+                android:id="@+id/tv_item_history_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"

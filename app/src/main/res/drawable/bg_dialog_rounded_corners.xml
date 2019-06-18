@@ -4,7 +4,8 @@
 
     <solid android:color="?attr/colorDialogBackground" />
 
-    <corners android:topLeftRadius="@dimen/common_margin"
+    <corners
+        android:topLeftRadius="@dimen/common_margin"
         android:topRightRadius="@dimen/common_margin"
         android:bottomRightRadius="@dimen/common_margin"
         android:bottomLeftRadius="@dimen/common_margin" />

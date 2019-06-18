@@ -2,11 +2,13 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <stroke android:width="40dp"
+    <stroke
+        android:width="40dp"
         android:height="40dp"
         android:color="@android:color/transparent" />
 
-    <padding android:left="@dimen/common_margin_half"
+    <padding
+        android:left="@dimen/common_margin_half"
         android:top="@dimen/common_margin_half"
         android:right="@dimen/common_margin_half"
         android:bottom="@dimen/common_margin_half" />

@@ -6,7 +6,8 @@
     android:background="?attr/colorDialogBackground"
     android:orientation="vertical">
 
-    <TextView style="@style/AppTextViewDialogComponent"
+    <TextView
+        style="@style/AppTextViewDialogComponent"
         android:layout_marginTop="@dimen/common_margin_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,7 +16,8 @@
         android:textStyle="bold"
         android:textSize="@dimen/text_size_medium" />
 
-    <EditText android:id="@+id/et_dialog_input_text"
+    <EditText
+        android:id="@+id/et_dialog_input_text"
         style="@style/AppTextViewDialogComponent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,18 +26,21 @@
         android:inputType="textPersonName"
         tools:ignore="TextFields" />
 
-    <LinearLayout android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_margin_6"
         android:layout_marginBottom="@dimen/common_margin"
         android:layout_gravity="end">
 
-        <Button android:id="@+id/btn_dialog_input_text_close"
+        <Button
+            android:id="@+id/btn_dialog_input_text_close"
             style="@style/AppDialogButtonStyle"
             android:layout_marginEnd="@dimen/common_margin"
             android:text="@string/common_cancel" />
 
-        <Button android:id="@+id/btn_dialog_input_text_add"
+        <Button
+            android:id="@+id/btn_dialog_input_text_add"
             style="@style/AppDialogButtonStyle"
             android:layout_marginEnd="@dimen/common_margin"
             android:text="@string/common_add" />

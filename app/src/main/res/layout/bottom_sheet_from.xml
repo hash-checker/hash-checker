@@ -4,13 +4,13 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.AppCompatTextView
+    <TextView
         android:id="@+id/tv_as_btn_open_file_input_dialog"
         style="@style/AppActionButton"
         android:text="@string/common_text"
         android:drawableStart="@drawable/ic_from_text" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <TextView
         android:id="@+id/tv_as_btn_open_file_selector"
         style="@style/AppActionButton"
         android:text="@string/common_file"

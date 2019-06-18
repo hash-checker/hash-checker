@@ -9,7 +9,6 @@
     <dimen name="common_margin_4">48dp</dimen>
     <dimen name="common_margin_5">24dp</dimen>
     <dimen name="common_margin_6">20dp</dimen>
-    <dimen name="common_padding">8dp</dimen>
 
     <!-- text sizes -->
     <dimen name="text_size_default">14sp</dimen>
@@ -29,8 +28,6 @@
     <dimen name="round_text_main_width">224dp</dimen>
 
     <!-- corners -->
-    <dimen name="radius_bottom_sheet_corners">16dp</dimen>
-    <dimen name="radius_dialog_corners">12dp</dimen>
     <dimen name="radius_snackbar_corners">8dp</dimen>
 
 </resources>
