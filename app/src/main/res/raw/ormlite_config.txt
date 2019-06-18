@@ -1,8 +1,8 @@
 #
-# generated on 2019/05/25 06:42:27
+# generated on 2019/06/11 09:39:18
 #
 # --table-start--
-dataClass=com.smlnskgmail.jaman.hashchecker.fragments.functionality.history.data.HistoryItem
+dataClass=com.smlnskgmail.jaman.hashchecker.navigation.history.data.HistoryItem
 tableName=history
 # --table-fields-start--
 # --field-start--

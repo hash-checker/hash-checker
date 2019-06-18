@@ -11,7 +11,7 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.utils.LoggerUtils;
+import com.smlnskgmail.jaman.hashchecker.support.logs.Logger;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -28,12 +28,12 @@ public class ScreenRunnerTest {
 
     @Test
     public void startScreenRunner() {
-        showBottomSheet(R.id.ll_as_selector_hash_types);
+        showBottomSheet(R.id.tv_selected_hash_type);
         showBottomSheet(R.id.btn_generate_from);
         showBottomSheet(R.id.btn_hash_actions);
 
         showSettingsFragment();
-        showFragmentInActionBar(R.id.menu_main_section_history);
+        showHistoryFragment();
         showFragmentInMenu(R.string.menu_title_feedback, true);
     }
 
@@ -58,8 +58,8 @@ public class ScreenRunnerTest {
         }
     }
 
-    private void showFragmentInActionBar(@IdRes int itemResId) {
-        Espresso.onView(ViewMatchers.withId(itemResId)).perform(ViewActions.click());
+    private void showHistoryFragment() {
+        Espresso.onView(ViewMatchers.withId(R.id.menu_main_section_history)).perform(ViewActions.click());
         delayAndBack();
     }
 
@@ -81,7 +81,7 @@ public class ScreenRunnerTest {
         try {
             Thread.sleep(ONE_SECOND_IN_MILLISECONDS);
         } catch (InterruptedException e) {
-            LoggerUtils.error(e);
+            Logger.error(e);
         }
     }
 

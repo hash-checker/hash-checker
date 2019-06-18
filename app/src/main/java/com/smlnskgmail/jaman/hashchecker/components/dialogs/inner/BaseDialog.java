@@ -12,7 +12,7 @@ import com.smlnskgmail.jaman.hashchecker.R;
 
 public abstract class BaseDialog extends Dialog {
 
-    public BaseDialog(@NonNull Context context) {
+    protected BaseDialog(@NonNull Context context) {
         super(context);
     }
 
@@ -25,7 +25,7 @@ public abstract class BaseDialog extends Dialog {
         setupDialogStyle();
     }
 
-    public abstract int getLayoutResId();
+    protected abstract int getLayoutResId();
 
     public void initUI() {
         Button btnClose = findViewById(R.id.btn_dialog_input_text_close);

@@ -7,18 +7,18 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.Base
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Themes;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Theme;
 
 import java.util.List;
 
 public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
-    private Themes selectedTheme;
+    private Theme selectedTheme;
 
     public ThemesBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
                                         @NonNull BaseListBottomSheet bottomSheet) {
         super(items, bottomSheet);
-        selectedTheme = Themes.getThemeFromPreferences(getBottomSheet().getContext());
+        selectedTheme = Theme.getThemeFromPreferences(getBottomSheet().getContext());
     }
 
     @Override
@@ -26,7 +26,7 @@ public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
         return new ThemesBottomSheetListHolder(view, this);
     }
 
-    public Themes getSelectedTheme() {
+    public Theme getSelectedTheme() {
         return selectedTheme;
     }
 

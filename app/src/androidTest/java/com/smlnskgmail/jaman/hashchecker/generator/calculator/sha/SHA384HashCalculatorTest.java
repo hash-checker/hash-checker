@@ -2,15 +2,15 @@ package com.smlnskgmail.jaman.hashchecker.generator.calculator.sha;
 
 import android.support.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.generator.HashTypes;
 import com.smlnskgmail.jaman.hashchecker.generator.calculator.BaseHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 
 public class SHA384HashCalculatorTest extends BaseHashCalculatorTest {
 
     @NonNull
     @Override
-    protected HashTypes getHashType() {
-        return HashTypes.SHA_384;
+    protected HashType getHashType() {
+        return HashType.SHA_384;
     }
 
     @NonNull

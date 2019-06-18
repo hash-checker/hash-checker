@@ -14,21 +14,19 @@ import java.util.List;
 
 public abstract class BaseListBottomSheet extends BaseBottomSheet {
 
-    protected RecyclerView bottomSheetItems;
-
     private List<ListItemMarker> items = new ArrayList<>();
 
     @Override
     public void initUI(@NonNull View contentView) {
-        bottomSheetItems = contentView.findViewById(R.id.rv_bottom_sheet_list_items);
+        RecyclerView bottomSheetItems = contentView.findViewById(R.id.rv_bottom_sheet_list_items);
         bottomSheetItems.setLayoutManager(new LinearLayoutManager(getContext()));
         bottomSheetItems.setAdapter(getItemsAdapter());
     }
 
-    public abstract BaseBottomSheetListAdapter getItemsAdapter();
+    protected abstract BaseBottomSheetListAdapter getItemsAdapter();
 
     @NonNull
-    public List<ListItemMarker> getItems() {
+    protected List<ListItemMarker> getItems() {
         return items;
     }
 

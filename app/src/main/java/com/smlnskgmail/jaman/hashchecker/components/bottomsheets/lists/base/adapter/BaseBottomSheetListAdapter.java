@@ -18,8 +18,8 @@ public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<Ba
     private BaseListBottomSheet bottomSheet;
     private List<ListItemMarker> items = new ArrayList<>();
 
-    public BaseBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
-                                      @NonNull BaseListBottomSheet bottomSheet) {
+    protected BaseBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
+                                         @NonNull BaseListBottomSheet bottomSheet) {
         this.items.addAll(items);
         this.bottomSheet = bottomSheet;
     }
@@ -36,7 +36,7 @@ public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<Ba
         holder.bind(items.get(position));
     }
 
-    public abstract BaseBottomSheetListHolder getItemsHolder(@NonNull View view);
+    protected abstract BaseBottomSheetListHolder getItemsHolder(@NonNull View view);
 
     @NonNull
     public BaseListBottomSheet getBottomSheet() {
