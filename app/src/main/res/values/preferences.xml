@@ -5,7 +5,7 @@
     <string name="common_none" translatable="false">-</string>
     <string name="common_email" translatable="false">jaman.smlnsk@gmail.com</string>
 
-    <!-- hash bottomSheetItems -->
+    <!-- hash bottom sheets -->
     <string name="hash_type_md5" translatable="false">MD5</string>
     <string name="hash_type_sha1" translatable="false">SHA-1</string>
     <string name="hash_type_sha224" translatable="false">SHA-224</string>

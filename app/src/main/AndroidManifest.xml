@@ -55,7 +55,7 @@
 
         </activity>
 
-        <activity android:name=".components.filemanager.explorer.FileExplorerActivity" />
+        <activity android:name=".components.fileexplorer.explorer.FileExplorerActivity" />
 
     </application>
 

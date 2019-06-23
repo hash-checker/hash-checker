@@ -12,7 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 
 import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PreferenceHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
 import com.smlnskgmail.jaman.hashchecker.support.values.Shortcuts;
 
 import java.util.Arrays;
@@ -22,9 +22,9 @@ public class HashCheckerApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (!PreferenceHelper.isShortcutsIsCreated(this)) {
+        if (!PrefsHelper.isShortcutsIsCreated(this)) {
             createShortcuts();
-            PreferenceHelper.saveShortcutsStatus(this, true);
+            PrefsHelper.saveShortcutsStatus(this, true);
         }
         HelperFactory.setHelper(this);
     }

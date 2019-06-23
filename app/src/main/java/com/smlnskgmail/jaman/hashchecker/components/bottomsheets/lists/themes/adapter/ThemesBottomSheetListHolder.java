@@ -9,7 +9,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adap
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Theme;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PreferenceHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
 public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
@@ -47,7 +47,7 @@ public class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
     }
 
     private void configureNewTheme() {
-        PreferenceHelper.saveTheme(getContext(), themeAtPosition);
+        PrefsHelper.saveTheme(getContext(), themeAtPosition);
     }
 
     @Override

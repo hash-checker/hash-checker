@@ -17,19 +17,19 @@ import android.view.View;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.actions.OnNavigationListener;
+import com.smlnskgmail.jaman.hashchecker.components.actions.OnBackListener;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Theme;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLink;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks.WebLinksBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PreferenceHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
 import com.smlnskgmail.jaman.hashchecker.support.values.Tags;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.util.Arrays;
 
-public class SettingsFragment extends PreferenceFragmentCompat implements OnNavigationListener {
+public class SettingsFragment extends PreferenceFragmentCompat implements OnBackListener {
 
     private ActionBar actionBar;
     private FragmentManager fragmentManager;
@@ -87,7 +87,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnNavi
     private void initializeInnerFileManagerSwitcher() {
         findPreference(getString(R.string.key_inner_file_manager))
                 .setOnPreferenceChangeListener((preference, o) -> {
-                    PreferenceHelper.setRefreshSelectedFileStatus(context, true);
+                    PrefsHelper.setRefreshSelectedFileStatus(context, true);
                     return true;
                 });
     }

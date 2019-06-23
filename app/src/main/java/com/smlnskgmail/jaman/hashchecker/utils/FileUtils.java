@@ -3,9 +3,9 @@ package com.smlnskgmail.jaman.hashchecker.utils;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileItem;
-import com.smlnskgmail.jaman.hashchecker.components.filemanager.data.FileType;
-import com.smlnskgmail.jaman.hashchecker.support.logs.Logger;
+import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.data.FileItem;
+import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.data.FileType;
+import com.smlnskgmail.jaman.hashchecker.support.logs.L;
 
 import java.io.File;
 import java.io.InputStream;
@@ -91,7 +91,7 @@ public class FileUtils {
                 }
                 is.close();
             } catch (Exception e) {
-                Logger.error(e);
+                L.error(e);
                 return storages;
             }
 
@@ -138,7 +138,7 @@ public class FileUtils {
                 }
             }
         } catch (Exception e) {
-            Logger.error(e);
+            L.error(e);
             return storages;
         }
         return storages;

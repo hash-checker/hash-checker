@@ -15,10 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.smlnskgmail.jaman.hashchecker.components.actions.OnAppResume;
-import com.smlnskgmail.jaman.hashchecker.components.actions.OnNavigationListener;
+import com.smlnskgmail.jaman.hashchecker.components.actions.OnBackListener;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-public abstract class BaseFragment extends Fragment implements OnNavigationListener, OnAppResume {
+public abstract class BaseFragment extends Fragment implements OnBackListener, OnAppResume {
 
     private ActionBar actionBar;
 

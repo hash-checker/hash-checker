@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes.Theme;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PreferenceHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
 import com.smlnskgmail.jaman.hashchecker.support.values.Tags;
 
 public class UIUtils {
@@ -73,7 +73,7 @@ public class UIUtils {
         snackbarText.setTextColor(ContextCompat.getColor(context, R.color.colorLightText));
         snackbar.show();
 
-        if (PreferenceHelper.getVibrateAccess(context)) {
+        if (PrefsHelper.getVibrateAccess(context)) {
             AppUtils.vibrate(context);
         }
     }

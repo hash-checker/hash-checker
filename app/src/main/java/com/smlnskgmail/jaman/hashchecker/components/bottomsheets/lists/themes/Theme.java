@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PreferenceHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
 
 public enum Theme implements ListItemMarker {
 
@@ -42,7 +42,7 @@ public enum Theme implements ListItemMarker {
     }
 
     public static Theme getThemeFromPreferences(@NonNull Context context) {
-        String selectedTheme = PreferenceHelper.getTheme(context);
+        String selectedTheme = PrefsHelper.getTheme(context);
         for (Theme theme: values()) {
             if (theme.toString().equals(selectedTheme)) {
                 return theme;

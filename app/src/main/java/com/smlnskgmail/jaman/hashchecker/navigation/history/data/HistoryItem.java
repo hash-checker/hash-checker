@@ -6,7 +6,7 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.smlnskgmail.jaman.hashchecker.db.entity.DBEntity;
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
 
 import java.util.Date;
 

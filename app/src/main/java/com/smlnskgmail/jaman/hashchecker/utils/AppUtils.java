@@ -18,8 +18,8 @@ import android.view.View;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.filemanager.explorer.FileExplorerActivity;
-import com.smlnskgmail.jaman.hashchecker.support.logs.Logger;
+import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.explorer.FileExplorerActivity;
+import com.smlnskgmail.jaman.hashchecker.support.logs.L;
 import com.smlnskgmail.jaman.hashchecker.support.values.Requests;
 
 public class AppUtils {
@@ -61,7 +61,7 @@ public class AppUtils {
         try {
             context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
         } catch (ActivityNotFoundException e) {
-            Logger.error(e);
+            L.error(e);
         }
     }
 

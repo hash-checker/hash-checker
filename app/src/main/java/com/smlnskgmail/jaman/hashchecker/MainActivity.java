@@ -12,12 +12,12 @@ import android.view.MenuItem;
 
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.components.actions.OnAppResume;
-import com.smlnskgmail.jaman.hashchecker.components.actions.OnNavigationListener;
+import com.smlnskgmail.jaman.hashchecker.components.actions.OnBackListener;
 import com.smlnskgmail.jaman.hashchecker.navigation.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.navigation.MainFragment;
 import com.smlnskgmail.jaman.hashchecker.navigation.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.navigation.history.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PreferenceHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
 import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.values.Shortcuts;
 import com.smlnskgmail.jaman.hashchecker.support.values.Tags;
@@ -42,13 +42,13 @@ public class MainActivity extends BaseActivity {
         MainFragment mainFragment = new MainFragment();
         if (scheme != null && scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
             mainFragment.setArguments(getConfiguredBundleWithDataUri(intent.getData()));
-            PreferenceHelper.setGenerateFromShareIntentMode(this, true);
+            PrefsHelper.setGenerateFromShareIntentMode(this, true);
         } else if (externalFileUri != null) {
             mainFragment.setArguments(getConfiguredBundleWithDataUri(externalFileUri));
-            PreferenceHelper.setGenerateFromShareIntentMode(this, true);
+            PrefsHelper.setGenerateFromShareIntentMode(this, true);
         } else {
             mainFragment.setArguments(getBundleForShortcutAction(intent.getAction()));
-            PreferenceHelper.setGenerateFromShareIntentMode(this, false);
+            PrefsHelper.setGenerateFromShareIntentMode(this, false);
         }
 
         UIUtils.showFragment(getSupportFragmentManager(), mainFragment);
@@ -94,8 +94,8 @@ public class MainActivity extends BaseActivity {
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager()
                 .findFragmentByTag(Tags.CURRENT_FRAGMENT_TAG);
-        if (fragment instanceof OnNavigationListener) {
-            ((OnNavigationListener) fragment).onBack();
+        if (fragment instanceof OnBackListener) {
+            ((OnBackListener) fragment).onBack();
         }
         for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
             if (fragmentInApp instanceof OnAppResume) {

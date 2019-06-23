@@ -8,7 +8,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.List
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.OnHashTypeSelectListener;
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
 
 public class HashesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
