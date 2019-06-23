@@ -3,7 +3,7 @@
 <p align="center"><img src="media/ic_app.png" height="200px"></p>
 
 ## About application
-**Fast and simple application for generating and comparison hashes from files or text**
+Fast and simple application for generating and comparison hashes from files or text
 
 ## Screenshots
 <br/>
@@ -19,8 +19,8 @@
 [YouTube](https://is.gd/hcytplgh)
 
 ## Alternative downloads
-[Google Drive](https://is.gd/dcq91j)
+[Google Drive](https://is.gd/h1wj0y)
 
-[Yandex Disk](https://is.gd/gkcrlz)
+[Yandex Disk](https://is.gd/dg5r9y)
 
 [Apk files](https://is.gd/apkffgh)
