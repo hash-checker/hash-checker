@@ -12,6 +12,7 @@
     <string name="hash_type_sha256" translatable="false">SHA-256</string>
     <string name="hash_type_sha384" translatable="false">SHA-384</string>
     <string name="hash_type_sha512" translatable="false">SHA-512</string>
+    <string name="hash_type_crc32" translatable="false">CRC-32</string>
 
     <!-- settings -->
     <string name="key_inner_file_manager" translatable="false">app_file_manager</string>

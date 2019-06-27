@@ -5,33 +5,28 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.support.logs.L;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URI;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 
 public class HashCalculator {
 
-    private static final char[] HEX_DIGITS = "0123456789ABCDEF".toCharArray();
+    private HashType hashType;
 
-    private String hashType;
-
-    public HashCalculator(@NonNull String hashType) {
+    public HashCalculator(@NonNull HashType hashType) {
         this.hashType = hashType;
     }
 
     @Nullable
     public String generateFromString(@NonNull String text) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(hashType);
-            messageDigest.reset();
-            messageDigest.update(text.getBytes(StandardCharsets.UTF_8));
-            return getResultAsString(messageDigest.digest());
+            return new HashDigest(hashType).getResultFromString(text);
         } catch (Exception e) {
             L.error(e);
             return null;
@@ -62,26 +57,17 @@ public class HashCalculator {
     public String generateFromFile(@Nullable InputStream inputStream) throws Exception {
         if (inputStream != null) {
             byte[] buffer = new byte[1024];
-            MessageDigest messageDigest = MessageDigest.getInstance(hashType);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int read;
             do {
                 read = inputStream.read(buffer);
                 if (read > 0) {
-                    messageDigest.update(buffer, 0, read);
+                    byteArrayOutputStream.write(buffer, 0, read);
                 }
             } while (read != -1);
-            return getResultAsString(messageDigest.digest());
+            return new HashDigest(hashType).getResultFromByteArray(byteArrayOutputStream.toByteArray());
         }
         return null;
-    }
-
-    private String getResultAsString(byte[] data) {
-        char[] chars = new char[data.length * 2];
-        for (int i = 0; i < data.length; i++) {
-            chars[i * 2] = HEX_DIGITS[(data[i] >> 4) & 0xf];
-            chars[i * 2 + 1] = HEX_DIGITS[data[i] & 0xf];
-        }
-        return new String(chars).toLowerCase();
     }
 
 }
