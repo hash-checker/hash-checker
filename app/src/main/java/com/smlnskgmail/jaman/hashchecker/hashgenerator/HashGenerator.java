@@ -59,12 +59,14 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
             case SHA_512:
                 hashType = HashType.SHA_512;
                 break;
+            case CRC_32:
+                hashType = HashType.CRC_32;
+                break;
         }
-        String hashTypeAsString = hashType.getTypeAsString(context);
         if (isText) {
-            result = new HashCalculator(hashTypeAsString).generateFromString(textValue);
+            result = new HashCalculator(hashType).generateFromString(textValue);
         } else {
-            result = new HashCalculator(hashTypeAsString).generateFromFile(context, fileUri);
+            result = new HashCalculator(hashType).generateFromFile(context, fileUri);
         }
         return null;
     }

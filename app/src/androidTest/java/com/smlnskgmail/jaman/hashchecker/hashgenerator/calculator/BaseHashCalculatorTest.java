@@ -18,12 +18,10 @@ public abstract class BaseHashCalculatorTest {
 
     private HashCalculator hashCalculator;
     private Context context;
-    private Context targetContext;
 
     @Before
     public void initializeResources() {
         context = InstrumentationRegistry.getContext();
-        targetContext = InstrumentationRegistry.getTargetContext();
     }
 
     @Test
@@ -36,7 +34,7 @@ public abstract class BaseHashCalculatorTest {
     private void initializeHashCalculator() {
         HashType hashType = getHashType();
         Assert.assertNotNull(hashType);
-        hashCalculator = new HashCalculator(hashType.getTypeAsString(targetContext));
+        hashCalculator = new HashCalculator(hashType);
     }
 
     private void testText() {
