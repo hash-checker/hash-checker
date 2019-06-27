@@ -19,8 +19,8 @@ Fast and simple application for generating and comparison hashes from files or t
 [YouTube](https://is.gd/hcytplgh)
 
 ## Alternative downloads
-[Google Drive](https://is.gd/h1wj0y)
+[Google Drive](https://is.gd/modl91)
 
-[Yandex Disk](https://is.gd/dg5r9y)
+[Yandex Disk](https://is.gd/wcnvi1)
 
 [Apk files](https://is.gd/apkffgh)
