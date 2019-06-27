@@ -11,7 +11,7 @@
 ## About application
 Fast and simple application for generating and comparison hashes from files or text
 
-Supporting hashes from:
+Supporting algorithms:
 - MD5
 - SHA-1
 - SHA-224
