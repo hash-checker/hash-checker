@@ -34,9 +34,9 @@ Supporting algorithms:
 [YouTube](https://is.gd/hcytplgh)
 
 ## Alternative downloads
-[Google Drive](https://is.gd/modl91)
+[Google Drive](https://is.gd/5jlan5)
 
-[Yandex Disk](https://is.gd/wcnvi1)
+[Yandex Disk](https://is.gd/ogd4ux)
 
 [Apk files](https://is.gd/apkffgh)
 
