@@ -1,4 +1,4 @@
-![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg)
+![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688)
 ![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg)
 ![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg)
 ![Repo size](https://img.shields.io/github/repo-size/fartem/hash-checker.svg)
