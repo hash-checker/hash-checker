@@ -8,12 +8,16 @@ import android.support.annotation.Nullable;
 import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.support.logs.L;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
+import com.smlnskgmail.jaman.hashchecker.utils.HashUtils;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.zip.CRC32;
 
 public class HashCalculator {
 
@@ -25,11 +29,20 @@ public class HashCalculator {
 
     @Nullable
     public String generateFromString(@NonNull String text) {
-        try {
-            return new HashDigest(hashType).getResultFromString(text);
-        } catch (Exception e) {
-            L.error(e);
-            return null;
+        byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
+        if (HashType.isMessageDigestUtilSupport(hashType)) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance(hashType.getMessageDigestHashName());
+                messageDigest.update(bytes);
+                return HashUtils.getStringFromBytes(messageDigest.digest());
+            } catch (NoSuchAlgorithmException e) {
+                L.error(e);
+                return null;
+            }
+        } else {
+            CRC32 crc32 = new CRC32();
+            crc32.update(bytes);
+            return Long.toHexString(crc32.getValue());
         }
     }
 
@@ -57,15 +70,16 @@ public class HashCalculator {
     public String generateFromFile(@Nullable InputStream inputStream) throws Exception {
         if (inputStream != null) {
             byte[] buffer = new byte[1024];
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            CheckerMessageDigest checkerMessageDigest = new CheckerMessageDigest(hashType);
+            checkerMessageDigest.init();
             int read;
             do {
                 read = inputStream.read(buffer);
                 if (read > 0) {
-                    byteArrayOutputStream.write(buffer, 0, read);
+                    checkerMessageDigest.update(buffer, 0, read);
                 }
             } while (read != -1);
-            return new HashDigest(hashType).getResultFromByteArray(byteArrayOutputStream.toByteArray());
+            return checkerMessageDigest.getResult();
         }
         return null;
     }
