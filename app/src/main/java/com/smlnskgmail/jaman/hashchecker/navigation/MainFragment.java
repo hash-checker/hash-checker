@@ -24,8 +24,8 @@ import android.widget.TextView;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.GenerateToBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.OnHashTypeSelectListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.sources.SourcesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ActionsBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.SourcesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionType;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.OnTextValueEnteredListener;
@@ -144,7 +144,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
 
     private void selectResourceToGenerateHash() {
         SourcesBottomSheet sourcesBottomSheet = new SourcesBottomSheet();
-        sourcesBottomSheet.setMenuItemCallback(MainFragment.this);
+        sourcesBottomSheet.setOnUserActionClickListener(MainFragment.this);
         sourcesBottomSheet.show(fragmentManager, Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 
