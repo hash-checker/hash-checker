@@ -22,12 +22,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.GenerateToBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.OnHashTypeSelectListener;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.sources.SourcesBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.hashtypes.GenerateToBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.hashtypes.OnHashTypeSelectListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.sources.SourcesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ActionsBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionType;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.OnUserActionClickListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.UserActionType;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.OnTextValueEnteredListener;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;

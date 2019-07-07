@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.BaseBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionType;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.OnUserActionClickListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.UserActionType;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class ActionsBottomSheet extends BaseBottomSheet {

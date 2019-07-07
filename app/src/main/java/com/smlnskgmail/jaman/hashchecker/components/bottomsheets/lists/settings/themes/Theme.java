@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.themes;
+package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

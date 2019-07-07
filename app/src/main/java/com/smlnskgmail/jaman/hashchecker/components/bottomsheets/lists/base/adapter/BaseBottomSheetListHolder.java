@@ -18,17 +18,13 @@ public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder 
     private ImageView ivItemPrimaryIcon;
     private ImageView ivItemAdditionalIcon;
 
-    private BaseBottomSheetListAdapter listAdapter;
-
     private Context context;
 
-    protected BaseBottomSheetListHolder(@NonNull View itemView,
-                                        @NonNull BaseBottomSheetListAdapter listAdapter) {
+    protected BaseBottomSheetListHolder(@NonNull View itemView, @NonNull Context themeContext) {
         super(itemView);
-        this.listAdapter = listAdapter;
 
         // Context with current theme
-        context = this.listAdapter.getBottomSheet().getContext();
+        context = themeContext;
         tvItemTitle = itemView.findViewById(R.id.tv_item_list_title);
         ivItemPrimaryIcon = itemView.findViewById(R.id.iv_item_list_icon);
         ivItemAdditionalIcon = itemView.findViewById(R.id.iv_item_list_additional_icon);
@@ -63,11 +59,6 @@ public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder 
 
     protected ImageView getIvItemAdditionalIcon() {
         return ivItemAdditionalIcon;
-    }
-
-    @NonNull
-    protected BaseBottomSheetListAdapter getListAdapter() {
-        return listAdapter;
     }
 
     protected Context getContext() {

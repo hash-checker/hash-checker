@@ -1,9 +1,8 @@
-package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.sources;
+package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.sources;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.sources.adapter.SourcesBottomSheetListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.OnUserActionClickListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.OnUserActionClickListener;
 
 import java.util.Arrays;
 

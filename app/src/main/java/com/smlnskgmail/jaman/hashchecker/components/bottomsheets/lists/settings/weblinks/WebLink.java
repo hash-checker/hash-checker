@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.weblinks;
+package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.weblinks;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;

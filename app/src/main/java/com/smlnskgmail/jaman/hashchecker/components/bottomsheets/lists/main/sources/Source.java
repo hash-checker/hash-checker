@@ -1,8 +1,8 @@
-package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.sources;
+package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.sources;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.actions.UserActionType;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.UserActionType;
 
 public enum Source implements ListItemMarker {
 

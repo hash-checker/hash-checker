@@ -1,10 +1,9 @@
-package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes;
+package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.hashtypes;
 
 import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.hashtypes.adapter.HashesBottomSheetListAdapter;
 
 public class GenerateToBottomSheet extends BaseListBottomSheet {
 
