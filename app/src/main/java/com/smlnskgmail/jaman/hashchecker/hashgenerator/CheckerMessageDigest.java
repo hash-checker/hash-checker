@@ -7,7 +7,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.zip.CRC32;
 
-public class CheckerMessageDigest {
+class CheckerMessageDigest {
 
     private HashType hashType;
 
@@ -16,11 +16,11 @@ public class CheckerMessageDigest {
 
     private boolean useCRC32;
 
-    public CheckerMessageDigest(HashType hashType) {
+    CheckerMessageDigest(HashType hashType) {
         this.hashType = hashType;
     }
 
-    public void init() throws NoSuchAlgorithmException {
+    void init() throws NoSuchAlgorithmException {
         if (HashType.isMessageDigestUtilSupport(hashType)) {
             messageDigest = MessageDigest.getInstance(hashType.getMessageDigestHashName());
         } else {
@@ -29,15 +29,15 @@ public class CheckerMessageDigest {
         }
     }
 
-    public void update(byte[] input, int offset, int length) {
+    void update(byte[] input, int length) {
         if (!useCRC32) {
-            messageDigest.update(input, offset, length);
+            messageDigest.update(input, 0, length);
         } else {
-            crc32.update(input, offset, length);
+            crc32.update(input, 0, length);
         }
     }
 
-    public String getResult() {
+    String getResult() {
         if (!useCRC32) {
             return HashUtils.getStringFromBytes(messageDigest.digest());
         } else {

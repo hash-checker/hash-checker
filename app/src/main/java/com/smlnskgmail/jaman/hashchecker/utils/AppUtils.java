@@ -61,7 +61,7 @@ public class AppUtils {
         try {
             context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
         } catch (ActivityNotFoundException e) {
-            L.error(e);
+            L.e(e);
         }
     }
 

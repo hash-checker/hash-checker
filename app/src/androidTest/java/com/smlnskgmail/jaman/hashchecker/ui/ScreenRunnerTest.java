@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.hashgenerator.ui;
+package com.smlnskgmail.jaman.hashchecker.ui;
 
 import android.support.annotation.IdRes;
 import android.support.test.InstrumentationRegistry;
@@ -81,7 +81,7 @@ public class ScreenRunnerTest {
         try {
             Thread.sleep(ONE_SECOND_IN_MILLISECONDS);
         } catch (InterruptedException e) {
-            L.error(e);
+            L.e(e);
         }
     }
 

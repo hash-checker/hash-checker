@@ -36,7 +36,7 @@ public class HashCalculator {
                 messageDigest.update(bytes);
                 return HashUtils.getStringFromBytes(messageDigest.digest());
             } catch (NoSuchAlgorithmException e) {
-                L.error(e);
+                L.e(e);
                 return null;
             }
         } else {
@@ -52,7 +52,7 @@ public class HashCalculator {
             InputStream fileStream = getInputStreamFromUri(context, path);
             return generateFromFile(fileStream);
         } catch (Exception e) {
-            L.error(e);
+            L.e(e);
             return null;
         }
     }
@@ -76,7 +76,7 @@ public class HashCalculator {
             do {
                 read = inputStream.read(buffer);
                 if (read > 0) {
-                    checkerMessageDigest.update(buffer, 0, read);
+                    checkerMessageDigest.update(buffer, read);
                 }
             } while (read != -1);
             return checkerMessageDigest.getResult();

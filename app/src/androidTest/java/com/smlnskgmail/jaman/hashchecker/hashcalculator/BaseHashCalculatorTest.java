@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.hashgenerator.calculator;
+package com.smlnskgmail.jaman.hashchecker.hashcalculator;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

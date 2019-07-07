@@ -21,7 +21,7 @@ public class PrefsHelper {
         try {
             return HashType.valueOf(hashValue);
         } catch (IllegalArgumentException e) {
-            L.error(e);
+            L.e(e);
             return HashType.MD5;
         }
     }

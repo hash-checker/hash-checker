@@ -8,7 +8,7 @@ public class L {
 
     private static final boolean LOG_ENABLED = BuildConfig.DEBUG;
 
-    public static void error(@NonNull Throwable throwable) {
+    public static void e(@NonNull Throwable throwable) {
         if (LOG_ENABLED) {
             throwable.printStackTrace();
         }

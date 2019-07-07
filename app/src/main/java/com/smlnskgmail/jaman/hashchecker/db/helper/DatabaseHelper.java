@@ -42,7 +42,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 TableUtils.createTable(connectionSource, clazz);
             }
         } catch (SQLException e) {
-            L.error(e);
+            L.e(e);
         }
     }
 
@@ -54,7 +54,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             getDao(HistoryItem.class).create(historyItem);
         } catch (SQLException e) {
-            L.error(e);
+            L.e(e);
         }
     }
 
@@ -69,7 +69,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             }
             return queryBuilder.query();
         } catch (SQLException e) {
-            L.error(e);
+            L.e(e);
         }
         return new ArrayList<>();
     }
@@ -78,7 +78,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             getDao(HistoryItem.class).deleteBuilder().delete();
         } catch (SQLException e) {
-            L.error(e);
+            L.e(e);
         }
     }
 
