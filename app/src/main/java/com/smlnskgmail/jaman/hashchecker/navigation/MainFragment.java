@@ -22,12 +22,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.Action;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.ActionsBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types.OnUserActionClickListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types.UserActionType;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.hashtypes.GenerateToBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.hashtypes.OnHashTypeSelectListener;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.sources.SourcesBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.selectors.ActionsBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.OnUserActionClickListener;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.UserActionType;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.OnTextValueEnteredListener;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.inner.input.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
@@ -143,14 +143,17 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     private void selectResourceToGenerateHash() {
-        SourcesBottomSheet sourcesBottomSheet = new SourcesBottomSheet();
-        sourcesBottomSheet.setOnUserActionClickListener(MainFragment.this);
-        sourcesBottomSheet.show(fragmentManager, Tags.CURRENT_BOTTOM_SHEET_TAG);
+        showBottomSheetWithActions(Action.TEXT, Action.FILE);
     }
 
     private void selectActionForHashes() {
+        showBottomSheetWithActions(Action.GENERATE, Action.COMPARE);
+    }
+
+    private void showBottomSheetWithActions(Action... actions) {
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
-        actionsBottomSheet.setMenuItemCallback(MainFragment.this);
+        actionsBottomSheet.setActions(Arrays.asList(actions));
+        actionsBottomSheet.setOnUserActionClickListener(MainFragment.this);
         actionsBottomSheet.show(fragmentManager, Tags.CURRENT_BOTTOM_SHEET_TAG);
     }
 

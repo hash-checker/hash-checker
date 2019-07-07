@@ -8,7 +8,6 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.Base
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.weblinks.WebLink;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
 import java.util.List;

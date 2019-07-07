@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main;
+package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types;
 
 public enum UserActionType {
 
