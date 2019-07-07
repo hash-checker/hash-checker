@@ -3,9 +3,9 @@ package com.smlnskgmail.jaman.hashchecker.utils;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.data.FileItem;
-import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.data.FileType;
-import com.smlnskgmail.jaman.hashchecker.support.logs.L;
+import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities.FileItem;
+import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities.FileType;
+import com.smlnskgmail.jaman.hashchecker.support.logger.L;
 
 import java.io.File;
 import java.io.InputStream;

@@ -8,11 +8,11 @@ import android.view.MenuItem;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
-import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.data.FileItem;
-import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.data.FileType;
-import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.explorer.recycler.FileItemsAdapter;
-import com.smlnskgmail.jaman.hashchecker.support.values.FileNames;
-import com.smlnskgmail.jaman.hashchecker.support.values.Requests;
+import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities.FileItem;
+import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities.FileType;
+import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.explorer.filesadapter.FileItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.support.params.FileNames;
+import com.smlnskgmail.jaman.hashchecker.support.params.Requests;
 import com.smlnskgmail.jaman.hashchecker.utils.FileUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 

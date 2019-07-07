@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.support.logs.L;
+import com.smlnskgmail.jaman.hashchecker.support.logger.L;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.HashUtils;
 

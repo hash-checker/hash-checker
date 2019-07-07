@@ -12,8 +12,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 
 import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.support.params.Shortcuts;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
-import com.smlnskgmail.jaman.hashchecker.support.values.Shortcuts;
 
 import java.util.Arrays;
 

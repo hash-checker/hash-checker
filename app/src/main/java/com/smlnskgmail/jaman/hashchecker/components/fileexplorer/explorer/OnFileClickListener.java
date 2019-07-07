@@ -2,7 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.components.fileexplorer.explorer;
 
 import android.support.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.data.FileItem;
+import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities.FileItem;
 
 public interface OnFileClickListener {
 

@@ -7,12 +7,12 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.OnHashGeneratorCompleteListener;
+import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.OnHashGeneratorComplete;
 
 public class HashGenerator extends AsyncTask<Void, Void, Void> {
 
     @SuppressLint("StaticFieldLeak") private Context context;
-    private OnHashGeneratorCompleteListener onCompleteListener;
+    private OnHashGeneratorComplete onCompleteListener;
     private Uri fileUri;
     private String textValue, result;
     private HashType hashType;
@@ -20,20 +20,20 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
     private boolean isText;
 
     public HashGenerator(@NonNull HashType hashType, @NonNull Context context, @NonNull Uri fileUri,
-                         @NonNull OnHashGeneratorCompleteListener completeListener) {
+                         @NonNull OnHashGeneratorComplete completeListener) {
         this(hashType, context, completeListener, false);
         this.fileUri = fileUri;
     }
 
     public HashGenerator(@NonNull HashType hashType, @NonNull Context context, @NonNull String textValue,
-                         @NonNull OnHashGeneratorCompleteListener completeListener) {
+                         @NonNull OnHashGeneratorComplete completeListener) {
         this(hashType, context, completeListener, true);
         this.textValue = textValue;
 
     }
 
     private HashGenerator(@NonNull HashType hashType, @NonNull Context context,
-                          @NonNull OnHashGeneratorCompleteListener onCompleteListener, boolean isText) {
+                          @NonNull OnHashGeneratorComplete onCompleteListener, boolean isText) {
         this.hashType = hashType;
         this.context = context;
         this.onCompleteListener = onCompleteListener;

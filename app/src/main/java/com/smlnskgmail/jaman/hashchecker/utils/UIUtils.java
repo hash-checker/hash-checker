@@ -23,8 +23,8 @@ import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.Theme;
+import com.smlnskgmail.jaman.hashchecker.support.params.Tags;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
-import com.smlnskgmail.jaman.hashchecker.support.values.Tags;
 
 public class UIUtils {
 

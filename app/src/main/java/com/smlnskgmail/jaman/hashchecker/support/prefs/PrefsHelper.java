@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.Theme;
 import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.support.logs.L;
+import com.smlnskgmail.jaman.hashchecker.support.logger.L;
 
 public class PrefsHelper {
 

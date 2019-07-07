@@ -11,16 +11,16 @@ import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
-import com.smlnskgmail.jaman.hashchecker.components.actions.OnAppResume;
-import com.smlnskgmail.jaman.hashchecker.components.actions.OnBackListener;
-import com.smlnskgmail.jaman.hashchecker.navigation.FeedbackFragment;
-import com.smlnskgmail.jaman.hashchecker.navigation.MainFragment;
-import com.smlnskgmail.jaman.hashchecker.navigation.SettingsFragment;
-import com.smlnskgmail.jaman.hashchecker.navigation.history.HistoryFragment;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.FeedbackFragment;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.MainFragment;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.SettingsFragment;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.HistoryFragment;
+import com.smlnskgmail.jaman.hashchecker.navigation.states.OnAppResume;
+import com.smlnskgmail.jaman.hashchecker.navigation.states.OnBackListener;
+import com.smlnskgmail.jaman.hashchecker.support.params.Constants;
+import com.smlnskgmail.jaman.hashchecker.support.params.Shortcuts;
+import com.smlnskgmail.jaman.hashchecker.support.params.Tags;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
-import com.smlnskgmail.jaman.hashchecker.support.values.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.values.Shortcuts;
-import com.smlnskgmail.jaman.hashchecker.support.values.Tags;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class MainActivity extends BaseActivity {

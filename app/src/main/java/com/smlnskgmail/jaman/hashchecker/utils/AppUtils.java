@@ -19,8 +19,8 @@ import android.view.View;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.explorer.FileExplorerActivity;
-import com.smlnskgmail.jaman.hashchecker.support.logs.L;
-import com.smlnskgmail.jaman.hashchecker.support.values.Requests;
+import com.smlnskgmail.jaman.hashchecker.support.logger.L;
+import com.smlnskgmail.jaman.hashchecker.support.params.Requests;
 
 public class AppUtils {
 
