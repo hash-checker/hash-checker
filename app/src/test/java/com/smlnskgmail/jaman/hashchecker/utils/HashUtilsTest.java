@@ -1,7 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker.utils;
 
-import com.smlnskgmail.jaman.hashchecker.utils.HashUtils;
-
 import org.junit.Assert;
 import org.junit.Test;
 

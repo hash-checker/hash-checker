@@ -3,7 +3,7 @@
     <background android:drawable="@color/colorBackgroundShortcut"/>
     <foreground>
         <inset
-            android:drawable="@drawable/ic_shortcut_search"
+            android:drawable="@drawable/ic_shortcut_from_file"
             android:inset="35%"
             tools:targetApi="lollipop">
         </inset>

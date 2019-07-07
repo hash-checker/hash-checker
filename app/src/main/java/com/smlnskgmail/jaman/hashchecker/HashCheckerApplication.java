@@ -42,8 +42,7 @@ public class HashCheckerApplication extends Application {
     @NonNull
     private ShortcutInfo getShortcutForTextType() {
         return getShortcut(Shortcuts.SHORTCUT_TEXT_ID, R.string.common_text,
-                R.drawable.ic_shortcut_text,
-                Shortcuts.ACTION_START_WITH_TEXT_SELECTION);
+                R.drawable.ic_shortcut_text, Shortcuts.ACTION_START_WITH_TEXT_SELECTION);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
@@ -51,8 +50,7 @@ public class HashCheckerApplication extends Application {
     @NonNull
     private ShortcutInfo getShortcutForFileType() {
         return getShortcut(Shortcuts.SHORTCUT_FILE_ID, R.string.common_file,
-                R.drawable.ic_shortcut_file,
-                Shortcuts.ACTION_START_WITH_FILE_SELECTION);
+                R.drawable.ic_shortcut_file, Shortcuts.ACTION_START_WITH_FILE_SELECTION);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
