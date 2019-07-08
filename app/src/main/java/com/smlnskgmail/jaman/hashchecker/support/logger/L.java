@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.support.logger;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 

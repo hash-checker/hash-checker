@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.hashgenerator.support;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public interface OnHashGeneratorComplete {
 

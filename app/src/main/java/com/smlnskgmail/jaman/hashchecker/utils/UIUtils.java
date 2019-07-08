@@ -6,15 +6,15 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.ActionBar;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +69,7 @@ public class UIUtils {
         params.setMargins(COMMON_SNACKBAR_MARGIN, COMMON_SNACKBAR_MARGIN, COMMON_SNACKBAR_MARGIN, COMMON_SNACKBAR_MARGIN);
         snackbar.getView().setBackground(ContextCompat.getDrawable(context, R.drawable.bg_snackbar));
 
-        TextView snackbarText = snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+        TextView snackbarText = snackbar.getView().findViewById(R.id.snackbar_text);
         snackbarText.setTextColor(ContextCompat.getColor(context, R.color.colorLightText));
         snackbar.show();
 

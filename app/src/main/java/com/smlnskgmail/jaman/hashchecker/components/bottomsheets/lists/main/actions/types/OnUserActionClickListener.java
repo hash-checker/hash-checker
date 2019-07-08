@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public interface OnUserActionClickListener {
 

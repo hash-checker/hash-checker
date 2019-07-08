@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.hashtypes;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
 

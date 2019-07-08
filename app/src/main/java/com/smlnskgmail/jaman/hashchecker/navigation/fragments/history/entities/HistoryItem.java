@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;

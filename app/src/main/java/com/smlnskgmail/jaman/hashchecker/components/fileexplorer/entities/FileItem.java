@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public class FileItem {
 

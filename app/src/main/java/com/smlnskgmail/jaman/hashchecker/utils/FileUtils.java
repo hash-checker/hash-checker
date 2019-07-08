@@ -1,7 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.utils;
 
 import android.os.Environment;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities.FileType;
