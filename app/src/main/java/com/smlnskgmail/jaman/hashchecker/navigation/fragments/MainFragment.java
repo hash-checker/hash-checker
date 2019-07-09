@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.core.content.ContextCompat;
+
+import android.os.ParcelFileDescriptor;
 import android.text.InputFilter;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -37,6 +39,7 @@ import com.smlnskgmail.jaman.hashchecker.hashgenerator.HashGenerator;
 import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.OnHashGeneratorComplete;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryItem;
+import com.smlnskgmail.jaman.hashchecker.support.logger.L;
 import com.smlnskgmail.jaman.hashchecker.support.params.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.params.Requests;
 import com.smlnskgmail.jaman.hashchecker.support.params.Shortcuts;
@@ -47,6 +50,10 @@ import com.smlnskgmail.jaman.hashchecker.utils.TextUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -89,7 +96,16 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
             case COMPARE_HASHES:
                 compareHashes();
                 break;
+            case EXPORT_AS_TXT:
+                saveGeneratedHashAsTxtFile();
+                break;
         }
+    }
+
+    private void saveGeneratedHashAsTxtFile() {
+        String filename = getString(isTextSelected ? R.string.filename_hash_from_text
+                : R.string.filename_hash_from_file);
+        AppUtils.saveTextFile(this, filename);
     }
 
     private void searchFile() {
@@ -147,7 +163,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     private void selectActionForHashes() {
-        showBottomSheetWithActions(Action.GENERATE, Action.COMPARE);
+        showBottomSheetWithActions(Action.GENERATE, Action.COMPARE, Action.EXPORT_AS_TXT);
     }
 
     private void showBottomSheetWithActions(Action... actions) {
@@ -310,14 +326,14 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
 
     private void requestStoragePermission() {
         requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                Requests.PERMISSION_STORAGE_REQUEST);
+                Requests.PERMISSION_STORAGE);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == Requests.PERMISSION_STORAGE_REQUEST) {
+        if (requestCode == Requests.PERMISSION_STORAGE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 searchFile();
             } else {
@@ -377,31 +393,47 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case Requests.FILE_SELECT_REQUEST:
-                if (resultCode == Activity.RESULT_OK) {
-                    selectFileFromSystemFileManager(data);
-                }
-                break;
-            case Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER:
-                selectFileFromAppFileManager(data);
-                break;
-        }
-    }
-
-    private void selectFileFromSystemFileManager(@Nullable Intent data) {
         if (data != null) {
             Uri uri = data.getData();
-            validateSelectedFile(uri);
-            PrefsHelper.setGenerateFromShareIntentMode(context, false);
+            switch (requestCode) {
+                case Requests.FILE_SELECT:
+                    if (resultCode == Activity.RESULT_OK) {
+                        selectFileFromSystemFileManager(uri);
+                    }
+                    break;
+                case Requests.FILE_SELECT_FROM_FILE_MANAGER:
+                    selectFileFromAppFileManager(uri);
+                    break;
+                case Requests.FILE_CREATE:
+                    writeHashToFile(uri);
+                    break;
+            }
         }
     }
 
-    private void selectFileFromAppFileManager(@Nullable Intent data) {
-        if (data != null) {
-            Uri uri = Uri.fromFile(new File(data
-                    .getStringExtra(Requests.FILE_SELECT_DATA)));
-            validateSelectedFile(uri);
+    private void selectFileFromSystemFileManager(@NonNull Uri uri) {
+        validateSelectedFile(uri);
+        PrefsHelper.setGenerateFromShareIntentMode(context, false);
+    }
+
+    private void selectFileFromAppFileManager(@NonNull Uri uri) {
+        validateSelectedFile(uri);
+    }
+
+    private void writeHashToFile(@NonNull Uri uri) {
+        try {
+            ParcelFileDescriptor fileDescriptor = getActivity().getApplicationContext().getContentResolver()
+                    .openFileDescriptor(uri, "w");
+            if (fileDescriptor != null) {
+                FileOutputStream outputStream = new FileOutputStream(fileDescriptor.getFileDescriptor());
+                outputStream.write(etGeneratedHash.getText().toString().getBytes());
+                outputStream.close();
+                fileDescriptor.close();
+            }
+        } catch (FileNotFoundException e) {
+            L.e(e);
+        } catch (IOException e) {
+            L.e(e);
         }
     }
 

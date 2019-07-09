@@ -116,7 +116,7 @@ public class FileExplorerActivity extends BaseActivity implements OnFileClickLis
     private void selectionFinished(@NonNull String path) {
         Intent selectFileIntent = new Intent();
         selectFileIntent.putExtra(Requests.FILE_SELECT_DATA, path);
-        setResult(Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER, selectFileIntent);
+        setResult(Requests.FILE_SELECT_FROM_FILE_MANAGER, selectFileIntent);
         finish();
     }
 

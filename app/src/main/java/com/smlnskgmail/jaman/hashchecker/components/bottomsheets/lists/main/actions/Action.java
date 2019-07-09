@@ -9,7 +9,8 @@ public enum Action implements ListItemMarker {
     TEXT(R.string.common_text, R.drawable.ic_from_text, UserActionType.ENTER_TEXT),
     FILE(R.string.common_file, R.drawable.ic_file, UserActionType.SEARCH_FILE),
     GENERATE(R.string.action_generate, R.drawable.ic_generate, UserActionType.GENERATE_HASH),
-    COMPARE(R.string.action_compare, R.drawable.ic_compare, UserActionType.COMPARE_HASHES);
+    COMPARE(R.string.action_compare, R.drawable.ic_compare, UserActionType.COMPARE_HASHES),
+    EXPORT_AS_TXT(R.string.action_export_to_txt, R.drawable.ic_export, UserActionType.EXPORT_AS_TXT);
 
     private int titleResId;
     private int iconResId;

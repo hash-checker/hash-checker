@@ -44,6 +44,7 @@
     <string name="action_exit_now">Exit now</string>
     <string name="action_generate">Generate</string>
     <string name="action_compare">Compare</string>
+    <string name="action_export_to_txt">Export as \".txt\"</string>
 
     <!-- links -->
     <string name="title_web_link_github">GitHub</string>
@@ -89,5 +90,9 @@
     <!-- history -->
     <string name="history_item_click_text">Hash value copied to clipboard</string>
     <string name="history_empty_view_message">History items not found</string>
+
+    <!-- files -->
+    <string name="filename_hash_from_text">hash_from_text</string>
+    <string name="filename_hash_from_file">hash_from_file</string>
 
 </resources>

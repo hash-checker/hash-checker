@@ -31,7 +31,7 @@ public class AppUtils {
             Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             openExplorerIntent.addCategory(Intent.CATEGORY_OPENABLE);
             openExplorerIntent.setType("*/*");
-            fragment.startActivityForResult(openExplorerIntent, Requests.FILE_SELECT_REQUEST);
+            fragment.startActivityForResult(openExplorerIntent, Requests.FILE_SELECT);
         } catch (ActivityNotFoundException e) {
             UIUtils.showSnackbar(view.getContext(), view,
                     fragment.getString(R.string.message_error_start_file_selector),
@@ -39,10 +39,18 @@ public class AppUtils {
         }
     }
 
+    public static void saveTextFile(@NonNull Fragment fragment, @NonNull String filename) {
+        Intent saveTextFileIntent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        saveTextFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
+        saveTextFileIntent.setType("text/txt");
+        saveTextFileIntent.putExtra(Intent.EXTRA_TITLE, filename + ".txt");
+        fragment.startActivityForResult(saveTextFileIntent, Requests.FILE_CREATE);
+    }
+
     public static void openInnerFileManager(@NonNull Fragment fragment) {
         Intent openExplorerIntent = new Intent(fragment.getContext(), FileExplorerActivity.class);
         fragment.startActivityForResult(openExplorerIntent,
-                Requests.FILE_SELECT_REQUEST_FROM_APP_FILE_MANAGER);
+                Requests.FILE_SELECT_FROM_FILE_MANAGER);
     }
 
     public static void openAppSettings(@NonNull Context context) {

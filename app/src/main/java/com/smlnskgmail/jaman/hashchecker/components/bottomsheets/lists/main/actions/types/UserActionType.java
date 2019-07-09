@@ -5,6 +5,7 @@ public enum UserActionType {
     ENTER_TEXT,
     SEARCH_FILE,
     GENERATE_HASH,
-    COMPARE_HASHES
+    COMPARE_HASHES,
+    EXPORT_AS_TXT
 
 }
