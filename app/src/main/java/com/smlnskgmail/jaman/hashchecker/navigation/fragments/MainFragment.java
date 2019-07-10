@@ -105,7 +105,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     private void saveGeneratedHashAsTxtFile() {
         String filename = getString(isTextSelected ? R.string.filename_hash_from_text
                 : R.string.filename_hash_from_file);
-        AppUtils.saveTextFile(this, filename);
+        AppUtils.saveTextFile(this, filename, mainScreen);
     }
 
     private void searchFile() {

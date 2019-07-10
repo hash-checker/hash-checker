@@ -39,12 +39,19 @@ public class AppUtils {
         }
     }
 
-    public static void saveTextFile(@NonNull Fragment fragment, @NonNull String filename) {
-        Intent saveTextFileIntent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-        saveTextFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
-        saveTextFileIntent.setType("text/txt");
-        saveTextFileIntent.putExtra(Intent.EXTRA_TITLE, filename + ".txt");
-        fragment.startActivityForResult(saveTextFileIntent, Requests.FILE_CREATE);
+    public static void saveTextFile(@NonNull Fragment fragment, @NonNull String filename,
+                                    @NonNull View view) {
+        try {
+            Intent saveTextFileIntent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+            saveTextFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
+            saveTextFileIntent.setType("text/plain");
+            saveTextFileIntent.putExtra(Intent.EXTRA_TITLE, filename + ".txt");
+            fragment.startActivityForResult(saveTextFileIntent, Requests.FILE_CREATE);
+        } catch (ActivityNotFoundException e) {
+            UIUtils.showSnackbar(view.getContext(), view,
+                    fragment.getString(R.string.message_error_start_file_selector),
+                    Snackbar.LENGTH_LONG);
+        }
     }
 
     public static void openInnerFileManager(@NonNull Fragment fragment) {

@@ -17,7 +17,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-@RunWith(AndroidJUnit4.class)
 public class ScreenRunnerTest {
 
     private static final int ONE_SECOND_IN_MILLISECONDS = 1000;
