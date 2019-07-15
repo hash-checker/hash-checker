@@ -2,14 +2,16 @@ package com.smlnskgmail.jaman.hashchecker.support.prefs;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
+
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.Theme;
 import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.support.logger.L;
+import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
-public class PrefsHelper {
+public class SettingsHelper {
 
     public static void saveHashTypeAsLast(@NonNull Context context, @NonNull HashType hashType) {
         saveStringPreference(context, context.getString(R.string.key_last_type_value), hashType.toString());
@@ -27,7 +29,8 @@ public class PrefsHelper {
     }
 
     public static boolean isUsingInnerFileManager(@NonNull Context context) {
-        return getBooleanPreference(context, context.getString(R.string.key_inner_file_manager), false);
+        return AppUtils.isNotQAndAbove() && getBooleanPreference(context,
+                context.getString(R.string.key_inner_file_manager), false);
     }
 
     public static boolean isUsingMultilineHashFields(@NonNull Context context) {

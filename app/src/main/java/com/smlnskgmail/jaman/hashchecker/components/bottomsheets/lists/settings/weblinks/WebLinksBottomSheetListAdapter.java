@@ -1,8 +1,9 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.weblinks;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;

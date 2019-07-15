@@ -7,13 +7,14 @@ import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
 import android.os.Build;
+
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.support.params.Shortcuts;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 
 import java.util.Arrays;
 
@@ -22,9 +23,9 @@ public class HashCheckerApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (!PrefsHelper.isShortcutsIsCreated(this)) {
+        if (!SettingsHelper.isShortcutsIsCreated(this)) {
             createShortcuts();
-            PrefsHelper.saveShortcutsStatus(this, true);
+            SettingsHelper.saveShortcutsStatus(this, true);
         }
         HelperFactory.setHelper(this);
     }

@@ -1,16 +1,17 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.hashtypes;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
                                  @NonNull OnHashTypeSelectListener hashTypeSelectListener) {
         super(items, bottomSheet);
         this.hashTypeSelectListener = hashTypeSelectListener;
-        selectedHashType = PrefsHelper.getLastHashType(getBottomSheet().getContext());
+        selectedHashType = SettingsHelper.getLastHashType(getBottomSheet().getContext());
     }
 
     @Override

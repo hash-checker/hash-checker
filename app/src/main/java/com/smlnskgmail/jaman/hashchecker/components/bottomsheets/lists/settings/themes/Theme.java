@@ -1,11 +1,12 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 
 public enum Theme implements ListItemMarker {
 
@@ -42,7 +43,7 @@ public enum Theme implements ListItemMarker {
     }
 
     public static Theme getThemeFromPreferences(@NonNull Context context) {
-        String selectedTheme = PrefsHelper.getTheme(context);
+        String selectedTheme = SettingsHelper.getTheme(context);
         for (Theme theme: values()) {
             if (theme.toString().equals(selectedTheme)) {
                 return theme;

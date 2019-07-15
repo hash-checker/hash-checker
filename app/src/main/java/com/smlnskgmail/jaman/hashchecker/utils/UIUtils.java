@@ -6,25 +6,26 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.ActionBar;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.Theme;
 import com.smlnskgmail.jaman.hashchecker.support.params.Tags;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 
 public class UIUtils {
 
@@ -73,7 +74,7 @@ public class UIUtils {
         snackbarText.setTextColor(ContextCompat.getColor(context, R.color.colorLightText));
         snackbar.show();
 
-        if (PrefsHelper.getVibrateAccess(context)) {
+        if (SettingsHelper.getVibrateAccess(context)) {
             AppUtils.vibrate(context);
         }
     }

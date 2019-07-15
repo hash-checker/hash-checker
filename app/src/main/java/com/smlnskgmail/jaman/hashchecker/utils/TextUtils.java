@@ -1,7 +1,8 @@
 package com.smlnskgmail.jaman.hashchecker.utils;
 
-import androidx.annotation.NonNull;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
 
 public class TextUtils {
 

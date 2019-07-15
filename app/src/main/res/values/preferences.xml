@@ -15,6 +15,7 @@
     <string name="hash_type_crc32" translatable="false">CRC-32</string>
 
     <!-- settings -->
+    <string name="key_category_app" translatable="false">category_app</string>
     <string name="key_inner_file_manager" translatable="false">app_file_manager</string>
     <string name="key_vibrate" translatable="false">vibrate</string>
     <string name="key_upper_case" translatable="false">upper_case</string>

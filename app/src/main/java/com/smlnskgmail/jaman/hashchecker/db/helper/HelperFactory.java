@@ -1,6 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.db.helper;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;

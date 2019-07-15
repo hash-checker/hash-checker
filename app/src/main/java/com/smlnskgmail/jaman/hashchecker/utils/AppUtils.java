@@ -11,11 +11,12 @@ import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.fragment.app.Fragment;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.explorer.FileExplorerActivity;
@@ -129,6 +130,13 @@ public class AppUtils {
         Intent intent = new Intent(activity, MainActivity.class);
         activity.startActivity(intent);
         closeApp(activity);
+    }
+
+    public static boolean isNotQAndAbove() {
+        /*if (BuildConfig.DEBUG) {
+            return false;
+        }*/
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.Q;
     }
 
 }

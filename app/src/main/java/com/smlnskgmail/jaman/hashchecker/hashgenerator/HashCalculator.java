@@ -2,12 +2,13 @@ package com.smlnskgmail.jaman.hashchecker.hashgenerator;
 
 import android.content.Context;
 import android.net.Uri;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.support.logger.L;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.HashUtils;
 
 import java.io.File;
@@ -59,8 +60,8 @@ public class HashCalculator {
 
     private InputStream getInputStreamFromUri(@NonNull Context context, @NonNull Uri path)
             throws Exception {
-        if (!PrefsHelper.isUsingInnerFileManager(context)
-                || PrefsHelper.getGenerateFromShareIntentStatus(context)) {
+        if (!SettingsHelper.isUsingInnerFileManager(context)
+                || SettingsHelper.getGenerateFromShareIntentStatus(context)) {
             return context.getContentResolver().openInputStream(path);
         }
         return new FileInputStream(new File(new URI(path.toString())));

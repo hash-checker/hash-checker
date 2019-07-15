@@ -5,10 +5,11 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import android.view.MenuItem;
 
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.FeedbackFragment;
@@ -20,7 +21,7 @@ import com.smlnskgmail.jaman.hashchecker.navigation.states.OnBackListener;
 import com.smlnskgmail.jaman.hashchecker.support.params.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.params.Shortcuts;
 import com.smlnskgmail.jaman.hashchecker.support.params.Tags;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class MainActivity extends BaseActivity {
@@ -42,13 +43,13 @@ public class MainActivity extends BaseActivity {
         MainFragment mainFragment = new MainFragment();
         if (scheme != null && scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
             mainFragment.setArguments(getConfiguredBundleWithDataUri(intent.getData()));
-            PrefsHelper.setGenerateFromShareIntentMode(this, true);
+            SettingsHelper.setGenerateFromShareIntentMode(this, true);
         } else if (externalFileUri != null) {
             mainFragment.setArguments(getConfiguredBundleWithDataUri(externalFileUri));
-            PrefsHelper.setGenerateFromShareIntentMode(this, true);
+            SettingsHelper.setGenerateFromShareIntentMode(this, true);
         } else {
             mainFragment.setArguments(getBundleForShortcutAction(intent.getAction()));
-            PrefsHelper.setGenerateFromShareIntentMode(this, false);
+            SettingsHelper.setGenerateFromShareIntentMode(this, false);
         }
 
         UIUtils.showFragment(getSupportFragmentManager(), mainFragment);

@@ -2,6 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.db.helper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
 import androidx.annotation.NonNull;
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;

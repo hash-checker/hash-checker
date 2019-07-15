@@ -1,11 +1,12 @@
 package com.smlnskgmail.jaman.hashchecker.components.fileexplorer.explorer.filesadapter;
 
 import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
-import android.widget.TextView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities.FileItem;

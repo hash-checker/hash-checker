@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.smlnskgmail.jaman.hashchecker"
         minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 59
-        versionName "2.9.3"
+        targetSdkVersion 29
+        versionCode 60
+        versionName "2.9.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }

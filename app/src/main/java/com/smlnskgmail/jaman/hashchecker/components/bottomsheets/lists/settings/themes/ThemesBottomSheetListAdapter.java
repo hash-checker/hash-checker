@@ -1,8 +1,9 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
@@ -10,7 +11,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.List
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
 import java.util.List;
@@ -63,7 +64,7 @@ public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
         }
 
         private void configureNewTheme() {
-            PrefsHelper.saveTheme(getContext(), themeAtPosition);
+            SettingsHelper.saveTheme(getContext(), themeAtPosition);
         }
 
         @Override

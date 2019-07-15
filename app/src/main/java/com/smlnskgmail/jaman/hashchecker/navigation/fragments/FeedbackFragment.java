@@ -2,12 +2,13 @@ package com.smlnskgmail.jaman.hashchecker.navigation.fragments;
 
 import android.content.Context;
 import android.os.Build;
-import androidx.annotation.NonNull;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;

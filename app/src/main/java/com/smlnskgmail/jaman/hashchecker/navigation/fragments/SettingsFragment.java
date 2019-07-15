@@ -3,17 +3,19 @@ package com.smlnskgmail.jaman.hashchecker.navigation.fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceFragmentCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceGroup;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
@@ -23,7 +25,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.weblinks.WebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.navigation.states.OnBackListener;
 import com.smlnskgmail.jaman.hashchecker.support.params.Tags;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
@@ -42,7 +44,11 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnBack
         fragmentManager = getActivity().getSupportFragmentManager();
         context = getContext();
         initializeActionBar();
-        initializeInnerFileManagerSwitcher();
+        if (AppUtils.isNotQAndAbove()) {
+            initializeInnerFileManagerSwitcher();
+        } else {
+            disableInnerFileManagerSettings();
+        }
         initializeThemes();
         initializeAuthorLinks();
         initializeRateButton();
@@ -87,9 +93,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnBack
     private void initializeInnerFileManagerSwitcher() {
         findPreference(getString(R.string.key_inner_file_manager))
                 .setOnPreferenceChangeListener((preference, o) -> {
-                    PrefsHelper.setRefreshSelectedFileStatus(context, true);
+                    SettingsHelper.setRefreshSelectedFileStatus(context, true);
                     return true;
                 });
+    }
+
+    private void disableInnerFileManagerSettings() {
+        ((PreferenceGroup) findPreference(getString(R.string.key_category_app)))
+                .removePreference(findPreference(getString(R.string.key_inner_file_manager)));
     }
 
     @Override

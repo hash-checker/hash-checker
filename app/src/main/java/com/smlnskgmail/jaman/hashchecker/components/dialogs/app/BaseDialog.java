@@ -3,10 +3,11 @@ package com.smlnskgmail.jaman.hashchecker.components.dialogs.app;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 

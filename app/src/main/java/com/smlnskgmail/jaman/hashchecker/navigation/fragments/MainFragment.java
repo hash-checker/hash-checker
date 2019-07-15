@@ -9,12 +9,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.fragment.app.FragmentManager;
-import androidx.core.content.ContextCompat;
-
 import android.os.ParcelFileDescriptor;
 import android.text.InputFilter;
 import android.text.method.ScrollingMovementMethod;
@@ -23,6 +17,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.Action;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.ActionsBottomSheet;
@@ -44,13 +44,12 @@ import com.smlnskgmail.jaman.hashchecker.support.params.Constants;
 import com.smlnskgmail.jaman.hashchecker.support.params.Requests;
 import com.smlnskgmail.jaman.hashchecker.support.params.Shortcuts;
 import com.smlnskgmail.jaman.hashchecker.support.params.Tags;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.PrefsHelper;
+import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.TextUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.io.File;
-import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -109,7 +108,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     private void searchFile() {
-        if (PrefsHelper.isUsingInnerFileManager(context)) {
+        if (SettingsHelper.isUsingInnerFileManager(context)) {
             if (ContextCompat.checkSelfPermission(context,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 requestStoragePermission();
@@ -234,7 +233,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
                     Snackbar.LENGTH_LONG);
         } else {
             etGeneratedHash.setText(hashValue);
-            if (PrefsHelper.canSaveResultToHistory(context)) {
+            if (SettingsHelper.canSaveResultToHistory(context)) {
                 Date date = Calendar.getInstance().getTime();
                 String objectValue = tvSelectedObjectName.getText().toString();
                 HashType hashType = HashType.parseHashTypeFromString(context,
@@ -268,7 +267,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     private void validateTextCase() {
-        boolean useUpperCase = PrefsHelper.useUpperCase(context);
+        boolean useUpperCase = SettingsHelper.useUpperCase(context);
         InputFilter[] fieldFilters = useUpperCase
                 ? new InputFilter[]{new InputFilter.AllCaps()} : new InputFilter[]{};
         etCustomHash.setFilters(fieldFilters);
@@ -289,7 +288,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     @Override
     public void onHashTypeSelect(@NonNull HashType hashType) {
         tvSelectedHashType.setText(hashType.getTypeAsString(context));
-        PrefsHelper.saveHashTypeAsLast(context, hashType);
+        SettingsHelper.saveHashTypeAsLast(context, hashType);
     }
 
     @Override
@@ -313,7 +312,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         btnHashActions.setOnClickListener(v -> selectActionForHashes());
 
         fragmentManager = getActivity().getSupportFragmentManager();
-        tvSelectedHashType.setText(PrefsHelper.getLastHashType(context).getTypeAsString(context));
+        tvSelectedHashType.setText(SettingsHelper.getLastHashType(context).getTypeAsString(context));
         tvSelectedObjectName.setMovementMethod(new ScrollingMovementMethod());
         if (startWithTextSelection) {
             onUserActionClick(UserActionType.ENTER_TEXT);
@@ -357,19 +356,19 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         super.onAppResume();
         validateTextCase();
         checkMultilinePreference();
-        if (PrefsHelper.refreshSelectedFile(context)) {
+        if (SettingsHelper.refreshSelectedFile(context)) {
             if (!isTextSelected && fileUri != null) {
                 fileUri = null;
                 tvSelectedObjectName.setText(getString(R.string.message_select_object));
                 btnGenerateFrom.setText(getString(R.string.action_from));
-                PrefsHelper.setRefreshSelectedFileStatus(context, false);
+                SettingsHelper.setRefreshSelectedFileStatus(context, false);
             }
         }
-        onHashTypeSelect(PrefsHelper.getLastHashType(context));
+        onHashTypeSelect(SettingsHelper.getLastHashType(context));
     }
 
     private void checkMultilinePreference() {
-        if (PrefsHelper.isUsingMultilineHashFields(context)) {
+        if (SettingsHelper.isUsingMultilineHashFields(context)) {
             validateEditTextWithMultilineSupport(etCustomHash,
                     Constants.Text.TEXT_MULTILINE_LINES_COUNT, false);
             validateEditTextWithMultilineSupport(etGeneratedHash,
@@ -413,7 +412,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
 
     private void selectFileFromSystemFileManager(@NonNull Uri uri) {
         validateSelectedFile(uri);
-        PrefsHelper.setGenerateFromShareIntentMode(context, false);
+        SettingsHelper.setGenerateFromShareIntentMode(context, false);
     }
 
     private void selectFileFromAppFileManager(@NonNull Uri uri) {

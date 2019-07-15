@@ -23,7 +23,8 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/settings_title_app">
+    <PreferenceCategory android:key="@string/key_category_app"
+        android:title="@string/settings_title_app">
 
         <SwitchPreference
             android:title="@string/settings_title_app_file_manager"

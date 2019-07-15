@@ -1,11 +1,12 @@
 package com.smlnskgmail.jaman.hashchecker.components.containers;
 
 import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-import android.util.AttributeSet;
-import android.view.View;
 
 public class AdaptiveRecyclerView extends RecyclerView {
 
