@@ -393,46 +393,51 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (data != null) {
-            Uri uri = data.getData();
             switch (requestCode) {
                 case Requests.FILE_SELECT:
                     if (resultCode == Activity.RESULT_OK) {
-                        selectFileFromSystemFileManager(uri);
+                        selectFileFromSystemFileManager(data.getData());
                     }
                     break;
                 case Requests.FILE_SELECT_FROM_FILE_MANAGER:
-                    selectFileFromAppFileManager(uri);
+                    selectFileFromAppFileManager(data);
                     break;
                 case Requests.FILE_CREATE:
-                    writeHashToFile(uri);
+                    writeHashToFile(data.getData());
                     break;
             }
         }
     }
 
-    private void selectFileFromSystemFileManager(@NonNull Uri uri) {
+    private void selectFileFromSystemFileManager(@Nullable Uri uri) {
         validateSelectedFile(uri);
         SettingsHelper.setGenerateFromShareIntentMode(context, false);
     }
 
-    private void selectFileFromAppFileManager(@NonNull Uri uri) {
-        validateSelectedFile(uri);
+    private void selectFileFromAppFileManager(@NonNull Intent data) {
+        String path = data.getStringExtra(Requests.FILE_SELECT_DATA);
+        if (path != null) {
+            Uri uri = Uri.fromFile(new File(path));
+            validateSelectedFile(uri);
+        }
     }
 
-    private void writeHashToFile(@NonNull Uri uri) {
-        try {
-            ParcelFileDescriptor fileDescriptor = getActivity().getApplicationContext().getContentResolver()
-                    .openFileDescriptor(uri, "w");
-            if (fileDescriptor != null) {
-                FileOutputStream outputStream = new FileOutputStream(fileDescriptor.getFileDescriptor());
-                outputStream.write(etGeneratedHash.getText().toString().getBytes());
-                outputStream.close();
-                fileDescriptor.close();
+    private void writeHashToFile(@Nullable Uri uri) {
+        if (uri != null) {
+            try {
+                ParcelFileDescriptor fileDescriptor = getActivity().getApplicationContext().getContentResolver()
+                        .openFileDescriptor(uri, "w");
+                if (fileDescriptor != null) {
+                    FileOutputStream outputStream = new FileOutputStream(fileDescriptor.getFileDescriptor());
+                    outputStream.write(etGeneratedHash.getText().toString().getBytes());
+                    outputStream.close();
+                    fileDescriptor.close();
+                }
+            } catch (FileNotFoundException e) {
+                L.e(e);
+            } catch (IOException e) {
+                L.e(e);
             }
-        } catch (FileNotFoundException e) {
-            L.e(e);
-        } catch (IOException e) {
-            L.e(e);
         }
     }
 

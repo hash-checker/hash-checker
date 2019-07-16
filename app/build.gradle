@@ -6,8 +6,8 @@ android {
         applicationId "com.smlnskgmail.jaman.hashchecker"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 60
-        versionName "2.9.4"
+        versionCode 61
+        versionName "2.9.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
