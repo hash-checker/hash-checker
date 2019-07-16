@@ -4,7 +4,7 @@
 ![Repo size](https://img.shields.io/github/repo-size/fartem/hash-checker.svg)
 [![License](https://img.shields.io/github/license/fartem/hash-checker.svg)](https://github.com/fartem/hash-checker/blob/master/LICENSE)
 
-# Hash Checker | [Google Play](https://is.gd/4zlg7o)
+# Hash Checker | [Google Play](https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker)
 
 <p align="center"><img src="media/ic_app.png" height="200px"></p>
 
@@ -31,11 +31,11 @@ Supporting algorithms:
 </p>
 
 ## Videos
-[YouTube](https://is.gd/hcytplgh)
+[YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
 
 ## Alternative downloads
 
-[Apk files](https://is.gd/apkffgh)
+[GitHub](https://github.com/fartem/hash-checker/releases)
 
 ## Contacts
 jaman.smlnsk@gmail.com
