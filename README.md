@@ -11,7 +11,7 @@
 ## About application
 Fast and simple application for generating and comparison hashes from files or text
 
-Supporting algorithms:
+__Supporting algorithms:__
 - MD5
 - SHA-1
 - SHA-224
@@ -19,6 +19,11 @@ Supporting algorithms:
 - SHA-384
 - SHA-512
 - CRC-32
+
+__Languages:__
+- English
+- Russian
+- German
 
 ## Screenshots
 <br/>
@@ -38,4 +43,4 @@ Supporting algorithms:
 [GitHub](https://github.com/fartem/hash-checker/releases)
 
 ## Contacts
-jaman.smlnsk@gmail.com
+- __App support:__ jaman.smlnsk@gmail.com
