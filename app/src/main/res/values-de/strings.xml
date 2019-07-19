@@ -1,0 +1,90 @@
+<resources>
+
+    <string name="app_name">Hash Checker</string>
+    <string name="app_author">fartem</string>
+
+    <!-- menu -->
+    <string name="menu_title_settings">Einstellungen</string>
+    <string name="menu_title_feedback">Rückmeldung</string>
+    <string name="menu_title_history">Geschichte</string>
+
+    <!-- dialog titles -->
+    <string name="title_dialog_enter_text">Eingeben den Text</string>
+    <string name="title_warning_dialog">Warnung</string>
+    <string name="title_permission_dialog">Erlaubnis</string>
+
+    <!-- messages -->
+    <string name="message_exit">Langes Halten zum Verlassen</string>
+    <string name="message_fill_fields">Füllen Sie jedes feld zum Vergleich aus</string>
+    <string name="message_match_result">Die Hashes stimmen überein</string>
+    <string name="message_do_not_match_result">Die Hashes sind nicht überein</string>
+    <string name="message_generate_dialog">Die Berechnung, warten…</string>
+    <string name="message_select_object">Klicken Sie auf "Woher?", um die Quelle auszuwählen</string>
+    <string name="message_request_storage_permission_error">Berechtigungsanfrage abgelehnt</string>
+    <string name="message_request_storage_permission_denied">Die Berechtigung zum Zugriff auf das Dateisystem wurde nicht erteilt. Einstellungen öffnen?</string>
+    <string name="message_error_start_file_selector">Der Dateimanager wurde auf Ihrem Gerät nicht gefunden</string>
+    <string name="message_error_start_google_play">Google Play wurde auf Ihrem Gerät nicht gefunden</string>
+    <string name="message_email_app_chooser">Wählen Sie ein App aus, um eine E-Mail zu senden</string>
+    <string name="message_change_theme">Um das Thema zu ändern, müssen Sie das Gerät neu starten</string>
+    <string name="message_invalid_selected_source">Der Wert kann nicht berechnet werden. Überprüfen Sie diese Datei</string>
+    <string name="message_delete_all_history_items">Die Geschichte löschen?</string>
+
+    <!-- commons -->
+    <string name="common_text">Text</string>
+    <string name="common_file">Datei</string>
+    <string name="common_add">Hinzufügen</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Absagung</string>
+    <string name="common_again">Nochmal</string>
+    <string name="common_date">Datum</string>
+
+    <!-- actions -->
+    <string name="action_from">Woher?</string>
+    <string name="action_select">Aktion</string>
+    <string name="action_exit_now">Hinaustreten</string>
+    <string name="action_generate">Generieren</string>
+    <string name="action_compare">Vergleichen</string>
+    <string name="action_export_to_txt">Ausladen auf \".txt\"</string>
+
+    <!-- themes -->
+    <string name="title_theme_light">Licht</string>
+    <string name="title_theme_dark">Dunkel</string>
+    <string name="title_theme_mango_bay">Mango</string>
+    <string name="title_theme_mango_bay_dark">Dunkle Mango</string>
+
+    <!-- titles -->
+    <string name="title_custom_hash">Eigener Hash</string>
+    <string name="title_generated_hash">Hash generiert</string>
+
+    <!-- hints -->
+    <string name="hint_input_text">Der Text ist hier</string>
+
+    <!-- settings titles -->
+    <string name="settings_title_general">Hauptsache</string>
+    <string name="settings_title_app">App</string>
+    <string name="settings_title_interface">Interface</string>
+    <string name="settings_title_about">Informationen</string>
+    <string name="settings_title_upper_case">Groß Register</string>
+    <string name="settings_title_author">Autor</string>
+    <string name="settings_title_app_file_manager">Interner Dateimanager</string>
+    <string name="settings_title_version">Version</string>
+    <string name="settings_title_vibration">Vibration</string>
+    <string name="settings_title_theme">Theme</string>
+    <string name="settings_title_rate_app">Bewerten Sie App</string>
+    <string name="settings_title_save_result_to_history">Geschichte</string>
+    <string name="settings_title_multiline">Einige Zeilen</string>
+
+    <!-- feedback -->
+    <string name="feedback_device">Geräteinformationen</string>
+    <string name="feedback_manufacturer">Hersteller</string>
+    <string name="feedback_model">Modell</string>
+    <string name="feedback_message">Nachricht</string>
+
+    <!-- file manager-->
+    <string name="file_manager_select_storage_title">Wählen Sie den Speicher aus</string>
+
+    <!-- history -->
+    <string name="history_item_click_text">Der in die Zwischenablage kopierte Wert</string>
+    <string name="history_empty_view_message">Die Geschichte ist leer</string>
+
+</resources>

@@ -103,8 +103,8 @@ public class AppUtils {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", email, null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name));
         emailIntent.putExtra(Intent.EXTRA_TEXT, text);
-        context.startActivity(Intent.createChooser(emailIntent,
-                context.getString(R.string.message_email_app_chooser)));
+        String message = String.format("%s:", context.getString(R.string.message_email_app_chooser));
+        context.startActivity(Intent.createChooser(emailIntent, message));
     }
 
     static void vibrate(@NonNull Context context) {

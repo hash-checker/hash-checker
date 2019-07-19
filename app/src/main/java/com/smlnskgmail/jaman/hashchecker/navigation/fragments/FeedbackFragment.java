@@ -17,6 +17,8 @@ import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class FeedbackFragment extends BaseFragment {
 
+    private static final String TITLE_TEXT_PATTERN = "%s:";
+
     private CheckBox addDeviceInfo;
 
     private EditText feedbackEdit;
@@ -40,6 +42,13 @@ public class FeedbackFragment extends BaseFragment {
         manufacturerValue = contentView.findViewById(R.id.tv_manufacturer_value);
         modelTitle = contentView.findViewById(R.id.tv_model_title);
         modelValue = contentView.findViewById(R.id.tv_model_value);
+
+        ((TextView) contentView.findViewById(R.id.tv_device_info_title))
+                .setText(String.format(TITLE_TEXT_PATTERN,
+                        getString(R.string.feedback_device)));
+        manufacturerTitle.setText(String.format(TITLE_TEXT_PATTERN,
+                getString(R.string.feedback_manufacturer)));
+        modelTitle.setText(String.format(TITLE_TEXT_PATTERN, getString(R.string.feedback_model)));
 
         manufacturerValue.setText(Build.MANUFACTURER);
         modelValue.setText(Build.MODEL);
