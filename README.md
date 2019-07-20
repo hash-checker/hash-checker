@@ -44,3 +44,6 @@ __Languages:__
 
 ## Contacts
 - __App support:__ jaman.smlnsk@gmail.com
+
+## Links
+- __Web site:__ https://fartem.github.io/hash-checker.io/
