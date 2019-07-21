@@ -43,7 +43,7 @@ __Languages:__
 [GitHub](https://github.com/fartem/hash-checker/releases)
 
 ## Contacts
-- __App support:__ jaman.smlnsk@gmail.com
+jaman.smlnsk@gmail.com
 
-## Links
-- __Web site:__ https://fartem.github.io/hash-checker.io/
+## Website
+https://fartem.github.io/hash-checker.io/
