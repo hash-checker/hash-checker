@@ -8,10 +8,10 @@
 
 <p align="center"><img src="media/ic_app.png" height="200px"></p>
 
-## About application
+## 1. About application
 Fast and simple application for generating and comparison hashes from files or text
 
-__Supporting algorithms:__
+### 1.1 Supporting algorithms
 - MD5
 - SHA-1
 - SHA-224
@@ -20,12 +20,12 @@ __Supporting algorithms:__
 - SHA-512
 - CRC-32
 
-__Languages:__
+### 1.2 Languages
 - English
 - Russian
 - German
 
-## Screenshots
+## 2. Screenshots
 <br/>
 <p align="center">
   <img src="media/screenshots/1.png" width="150" />
@@ -35,15 +35,15 @@ __Languages:__
   <img src="media/screenshots/5.png" width="150" />
 </p>
 
-## Videos
+## 3. Videos
 [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
 
-## Alternative downloads
+## 4. Alternative downloads
 
 [GitHub](https://github.com/fartem/hash-checker/releases)
 
-## Contacts
+## 5. Contacts
 jaman.smlnsk@gmail.com
 
-## Website
+## 6. Website
 https://fartem.github.io/hash-checker.io/
