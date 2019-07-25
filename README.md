@@ -9,21 +9,25 @@
 <p align="center"><img src="media/ic_app.png" height="200px"></p>
 
 ## 1. About application
-Fast and simple application for generating and comparison hashes from files or text
+Fast and simple application for generating and comparison hashes from files or text.
 
 ### 1.1 Supporting algorithms
-- MD5
-- SHA-1
-- SHA-224
-- SHA-256
-- SHA-384
-- SHA-512
-- CRC-32
+| Name | Since from version | Status |
+| --- | --- | --- |
+| MD5 | 1.0.0 | Supporting |
+| SHA-1 | 1.0.0 | Supporting |
+| SHA-224 | 1.4.0 | Supporting |
+| SHA-256 | 1.0.0 | Supporting |
+| SHA-384 | 1.4.0 | Supporting |
+| SHA-512 | 1.0.0 | Supporting |
+| CRC-32 | 2.9.0 | Supporting |
 
 ### 1.2 Languages
-- English
-- Russian
-- German
+| Language | Since from version | Translate status |
+| --- | --- | --- |
+| English | 1.0.0 | Full |
+| Russian | 2.9.6 | Full |
+| German | 2.9.6 | Full |
 
 ## 2. Screenshots
 <br/>
