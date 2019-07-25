@@ -12,7 +12,7 @@
 Fast and simple application for generating and comparison hashes from files or text.
 
 ### 1.1 Supporting algorithms
-| Name | Since from version | Status |
+| Name | Since version | Status |
 | --- | --- | --- |
 | MD5 | 1.0.0 | Supporting |
 | SHA-1 | 1.0.0 | Supporting |
@@ -23,7 +23,7 @@ Fast and simple application for generating and comparison hashes from files or t
 | CRC-32 | 2.9.0 | Supporting |
 
 ### 1.2 Languages
-| Language | Since from version | Translate status |
+| Language | Since version | Translate status |
 | --- | --- | --- |
 | English | 1.0.0 | Full |
 | Russian | 2.9.6 | Full |
