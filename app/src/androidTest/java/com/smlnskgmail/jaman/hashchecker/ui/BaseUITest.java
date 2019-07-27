@@ -23,7 +23,7 @@ public abstract class BaseUITest {
     protected static final int SECOND_IN_MILLIS = 1000;
 
     @Test
-    public abstract void runTest() throws InterruptedException;
+    public abstract void runTest() throws Exception;
 
     protected void clickById(int id) {
         onView(withId(id)).perform(click());

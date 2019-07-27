@@ -23,6 +23,6 @@ import org.junit.runners.Suite;
         SHA512HashCalculatorTest.class,
         CRC32HashCalculatorTest.class,
         ScreenRunnerTest.class,
-        GenerateHashFromTextTest.class
+        GenerateHashFromTextTest.class,
 })
 public class TestSuite {}
