@@ -24,7 +24,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "hashchecker.db";
 
-    private static final int DATABASE_VERSION_1 = 1; // History
+    private static final int DATABASE_VERSION_1 = 1; // Added History
 
     private static final int DATABASE_VERSION = DATABASE_VERSION_1;
 

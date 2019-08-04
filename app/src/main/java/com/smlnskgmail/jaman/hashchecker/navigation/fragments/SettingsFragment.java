@@ -23,15 +23,14 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.weblinks.WebLink;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.weblinks.WebLinksBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.navigation.states.OnBackListener;
-import com.smlnskgmail.jaman.hashchecker.support.params.Tags;
+import com.smlnskgmail.jaman.hashchecker.navigation.states.BackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.util.Arrays;
 
-public class SettingsFragment extends PreferenceFragmentCompat implements OnBackListener {
+public class SettingsFragment extends PreferenceFragmentCompat implements BackClickTarget {
 
     private ActionBar actionBar;
     private FragmentManager fragmentManager;
@@ -64,7 +63,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnBack
         findPreference(getString(R.string.key_author)).setOnPreferenceClickListener(preference -> {
             WebLinksBottomSheet webLinksBottomSheet = new WebLinksBottomSheet();
             webLinksBottomSheet.setItems(WebLink.getAuthorLinks());
-            webLinksBottomSheet.show(fragmentManager, Tags.CURRENT_BOTTOM_SHEET_TAG);
+            webLinksBottomSheet.showBottomSheet(fragmentManager);
             return false;
         });
     }
@@ -73,7 +72,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements OnBack
         findPreference(getString(R.string.key_theme)).setOnPreferenceClickListener(preference -> {
             ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
             themesBottomSheet.setItems(Arrays.asList(Theme.values()));
-            themesBottomSheet.show(fragmentManager, Tags.CURRENT_BOTTOM_SHEET_TAG);
+            themesBottomSheet.showBottomSheet(fragmentManager);
             return false;
         });
     }

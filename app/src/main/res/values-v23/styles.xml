@@ -29,32 +29,4 @@
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
-    <style name="AppThemeMangoBay" parent="AppTheme">
-        <item name="colorPrimary">#F7F7F7</item>
-        <item name="colorPrimaryDark">#ECEEE2</item>
-        <item name="colorAccent">#66C9D1</item>
-        <item name="colorAccentSupport">#66C9D1</item>
-        <item name="colorCommonText">@android:color/black</item>
-        <item name="colorCommonUnselected">#BDBDBD</item>
-        <item name="colorBackground">@android:color/white</item>
-        <item name="colorDialogBackground">#FFFFFF</item>
-        <item name="colorBottomSheetBackground">@android:color/white</item>
-        <item name="colorSnackbarBackground">#323232</item>
-        <item name="android:windowLightStatusBar">true</item>
-    </style>
-
-    <style name="AppThemeMangoBayDark" parent="AppTheme">
-        <item name="colorPrimary">#1d2b38</item>
-        <item name="colorPrimaryDark">#1a2227</item>
-        <item name="colorAccent">#5DBAC2</item>
-        <item name="colorAccentSupport">#5DBAC2</item>
-        <item name="colorCommonText">@android:color/white</item>
-        <item name="colorCommonUnselected">#8BBDBDBD</item>
-        <item name="colorBackground">#21242d</item>
-        <item name="colorDialogBackground">#344256</item>
-        <item name="colorBottomSheetBackground">#344256</item>
-        <item name="colorSnackbarBackground">#344256</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
-
 </resources>

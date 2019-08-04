@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
@@ -20,7 +20,7 @@ public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
     private Theme selectedTheme;
 
-    ThemesBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
+    ThemesBottomSheetListAdapter(@NonNull List<ListMarker> items,
                                  @NonNull BaseListBottomSheet bottomSheet) {
         super(items, bottomSheet);
         selectedTheme = Theme.getThemeFromPreferences(getBottomSheet().getContext());
@@ -49,9 +49,9 @@ public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
         }
 
         @Override
-        protected void bind(@NonNull ListItemMarker listItemMarker) {
+        protected void bind(@NonNull ListMarker listMarker) {
             themeAtPosition = (Theme) getItems().get(getAdapterPosition());
-            super.bind(listItemMarker);
+            super.bind(listMarker);
         }
 
         private void showThemeApplyDialog() {

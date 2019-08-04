@@ -1,10 +1,10 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types.UserActionType;
 
-public enum Action implements ListItemMarker {
+public enum Action implements ListMarker {
 
     TEXT(R.string.common_text, R.drawable.ic_from_text, UserActionType.ENTER_TEXT),
     FILE(R.string.common_file, R.drawable.ic_file, UserActionType.SEARCH_FILE),

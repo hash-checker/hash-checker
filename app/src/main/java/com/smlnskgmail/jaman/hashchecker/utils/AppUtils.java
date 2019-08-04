@@ -19,9 +19,9 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.explorer.FileExplorerActivity;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.FileManagerActivity;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.support.Requests;
 import com.smlnskgmail.jaman.hashchecker.support.logger.L;
-import com.smlnskgmail.jaman.hashchecker.support.params.Requests;
 
 public class AppUtils {
 
@@ -56,7 +56,7 @@ public class AppUtils {
     }
 
     public static void openInnerFileManager(@NonNull Fragment fragment) {
-        Intent openExplorerIntent = new Intent(fragment.getContext(), FileExplorerActivity.class);
+        Intent openExplorerIntent = new Intent(fragment.getContext(), FileManagerActivity.class);
         fragment.startActivityForResult(openExplorerIntent,
                 Requests.FILE_SELECT_FROM_FILE_MANAGER);
     }
@@ -101,7 +101,7 @@ public class AppUtils {
 
     public static void sendFeedback(@NonNull Context context, @NonNull String text, @NonNull String email) {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", email, null));
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.common_app_name));
         emailIntent.putExtra(Intent.EXTRA_TEXT, text);
         String message = String.format("%s:", context.getString(R.string.message_email_app_chooser));
         context.startActivity(Intent.createChooser(emailIntent, message));
@@ -118,7 +118,7 @@ public class AppUtils {
 
     public static void copyTextToClipboard(@NonNull Context context, @NonNull String text) {
         ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText(context.getString(R.string.app_name), text);
+        ClipData clip = ClipData.newPlainText(context.getString(R.string.common_app_name), text);
         clipboard.setPrimaryClip(clip);
     }
 

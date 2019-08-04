@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListMarker;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder {
@@ -31,18 +31,18 @@ public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder 
         ivItemAdditionalIcon = itemView.findViewById(R.id.iv_item_list_additional_icon);
     }
 
-    protected void bind(@NonNull final ListItemMarker listItemMarker) {
+    protected void bind(@NonNull final ListMarker listMarker) {
         itemView.setOnClickListener(v -> callItemClick());
-        tvItemTitle.setText(context.getText(listItemMarker.getTitleTextResId()));
-        int primaryIconResId = listItemMarker.getPrimaryIconResId();
+        tvItemTitle.setText(context.getText(listMarker.getTitleTextResId()));
+        int primaryIconResId = listMarker.getPrimaryIconResId();
         if (primaryIconResId != -1) {
-            ivItemPrimaryIcon.setImageResource(listItemMarker.getPrimaryIconResId());
+            ivItemPrimaryIcon.setImageResource(listMarker.getPrimaryIconResId());
             UIUtils.colorizeImageSourceToAccentColor(context, ivItemPrimaryIcon.getDrawable());
         }
         ivItemPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState() ? View.VISIBLE : View.GONE);
-        int additionalIconResId = listItemMarker.getAdditionalIconResId();
+        int additionalIconResId = listMarker.getAdditionalIconResId();
         if (additionalIconResId != -1) {
-            ivItemAdditionalIcon.setImageResource(listItemMarker.getAdditionalIconResId());
+            ivItemAdditionalIcon.setImageResource(listMarker.getAdditionalIconResId());
             UIUtils.colorizeImageSourceToAccentColor(context, ivItemAdditionalIcon.getDrawable());
         }
         ivItemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState() ? View.VISIBLE : View.GONE);

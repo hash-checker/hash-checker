@@ -4,8 +4,8 @@ import android.os.Environment;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities.FileItem;
-import com.smlnskgmail.jaman.hashchecker.components.fileexplorer.entities.FileType;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileItem;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileType;
 import com.smlnskgmail.jaman.hashchecker.support.logger.L;
 
 import java.io.File;

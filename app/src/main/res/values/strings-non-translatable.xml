@@ -2,6 +2,8 @@
 <resources>
 
     <!-- commons -->
+    <string name="common_app_name" translatable="false">Hash Checker</string>
+    <string name="common_app_author" translatable="false">fartem</string>
     <string name="common_none" translatable="false">-</string>
     <string name="common_email" translatable="false">jaman.smlnsk@gmail.com</string>
 

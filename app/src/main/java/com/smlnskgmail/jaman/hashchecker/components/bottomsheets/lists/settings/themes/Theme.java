@@ -5,15 +5,13 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListMarker;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 
-public enum Theme implements ListItemMarker {
+public enum Theme implements ListMarker {
 
     LIGHT(R.string.title_theme_light, R.drawable.ic_settings_theme, R.style.AppThemeLight),
-    DARK(R.string.title_theme_dark, R.drawable.ic_settings_theme, R.style.AppThemeDark),
-    MANGO_BAY(R.string.title_theme_mango_bay, R.drawable.ic_settings_theme, R.style.AppThemeMangoBay),
-    MANGO_BAY_DARK(R.string.title_theme_mango_bay_dark, R.drawable.ic_settings_theme, R.style.AppThemeMangoBayDark);
+    DARK(R.string.title_theme_dark, R.drawable.ic_settings_theme, R.style.AppThemeDark);
 
     private int titleResId, iconResId, themeResId;
 

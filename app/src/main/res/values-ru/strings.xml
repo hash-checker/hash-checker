@@ -1,8 +1,5 @@
 <resources>
 
-    <string name="app_name">Hash Checker</string>
-    <string name="app_author">fartem</string>
-
     <!-- menu -->
     <string name="menu_title_settings">Настройки</string>
     <string name="menu_title_feedback">Отзыв</string>
@@ -49,8 +46,6 @@
     <!-- themes -->
     <string name="title_theme_light">Светлая</string>
     <string name="title_theme_dark">Темная</string>
-    <string name="title_theme_mango_bay">Залив Манго</string>
-    <string name="title_theme_mango_bay_dark">Темный Залив Манго</string>
 
     <!-- titles -->
     <string name="title_custom_hash">Собственный хеш</string>

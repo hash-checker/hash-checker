@@ -4,7 +4,7 @@ import androidx.test.rule.ActivityTestRule;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
 
 import org.junit.Rule;

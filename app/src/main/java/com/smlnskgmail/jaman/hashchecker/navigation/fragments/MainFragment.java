@@ -23,27 +23,26 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.smlnskgmail.jaman.hashchecker.App;
+import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.Action;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.ActionsBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types.OnUserActionClickListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types.UserActionTarget;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types.UserActionType;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.hashtypes.GenerateToBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.hashtypes.OnHashTypeSelectListener;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.app.input.OnTextValueEnteredListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.hashtypes.HashTypeSelectTarget;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.app.input.TextInputDialog;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.app.input.TextValueTarget;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
-import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
-import com.smlnskgmail.jaman.hashchecker.hashgenerator.HashGenerator;
-import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.OnHashGeneratorComplete;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.support.Requests;
+import com.smlnskgmail.jaman.hashchecker.db.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashGeneratorTarget;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.support.logger.L;
-import com.smlnskgmail.jaman.hashchecker.support.params.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.params.Requests;
-import com.smlnskgmail.jaman.hashchecker.support.params.Shortcuts;
-import com.smlnskgmail.jaman.hashchecker.support.params.Tags;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.TextUtils;
@@ -57,8 +56,11 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainFragment extends BaseFragment implements OnTextValueEnteredListener,
-        OnHashGeneratorComplete, OnUserActionClickListener, OnHashTypeSelectListener {
+public class MainFragment extends BaseFragment implements TextValueTarget,
+        HashGeneratorTarget, UserActionTarget, HashTypeSelectTarget {
+
+    private static final int TEXT_MULTILINE_LINES_COUNT = 3;
+    private static final int TEXT_SINGLE_LINE_LINES_COUNT = 1;
 
     private View mainScreen;
 
@@ -81,7 +83,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     private boolean startWithTextSelection, startWithFileSelection;
 
     @Override
-    public void onUserActionClick(@NonNull UserActionType userActionType) {
+    public void onUserActionSelect(@NonNull UserActionType userActionType) {
         switch (userActionType) {
             case ENTER_TEXT:
                 enterText();
@@ -154,7 +156,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet();
         generateToBottomSheet.setItems(Arrays.asList(HashType.values()));
         generateToBottomSheet.setHashTypeSelectListener(this);
-        generateToBottomSheet.show(getFragmentManager(), Tags.CURRENT_BOTTOM_SHEET_TAG);
+        generateToBottomSheet.showBottomSheet(getFragmentManager());
     }
 
     private void selectResourceToGenerateHash() {
@@ -168,8 +170,8 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     private void showBottomSheetWithActions(Action... actions) {
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
         actionsBottomSheet.setActions(Arrays.asList(actions));
-        actionsBottomSheet.setOnUserActionClickListener(MainFragment.this);
-        actionsBottomSheet.show(fragmentManager, Tags.CURRENT_BOTTOM_SHEET_TAG);
+        actionsBottomSheet.setUserActionTarget(MainFragment.this);
+        actionsBottomSheet.showBottomSheet(fragmentManager);
     }
 
     @Override
@@ -194,21 +196,21 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     private void checkExternalDataPresence(@NonNull Bundle dataArguments) {
-        String uri = dataArguments.getString(Constants.URI_FROM_EXTERNAL_APP);
+        String uri = dataArguments.getString(MainActivity.URI_FROM_EXTERNAL_APP);
         if (uri != null) {
             validateSelectedFile(Uri.parse(uri));
-            dataArguments.remove(Constants.URI_FROM_EXTERNAL_APP);
+            dataArguments.remove(MainActivity.URI_FROM_EXTERNAL_APP);
         }
     }
 
     private void checkShortcutActionPresence(@NonNull Bundle shortcutsArguments) {
         startWithTextSelection = shortcutsArguments
-                .getBoolean(Shortcuts.ACTION_START_WITH_TEXT_SELECTION, false);
+                .getBoolean(App.ACTION_START_WITH_TEXT_SELECTION, false);
         startWithFileSelection = shortcutsArguments
-                .getBoolean(Shortcuts.ACTION_START_WITH_FILE_SELECTION, false);
+                .getBoolean(App.ACTION_START_WITH_FILE_SELECTION, false);
 
-        shortcutsArguments.remove(Shortcuts.ACTION_START_WITH_TEXT_SELECTION);
-        shortcutsArguments.remove(Shortcuts.ACTION_START_WITH_FILE_SELECTION);
+        shortcutsArguments.remove(App.ACTION_START_WITH_TEXT_SELECTION);
+        shortcutsArguments.remove(App.ACTION_START_WITH_FILE_SELECTION);
     }
 
     private void validateSelectedFile(@Nullable Uri uri) {
@@ -226,7 +228,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     }
 
     @Override
-    public void onHashGeneratorComplete(@Nullable String hashValue) {
+    public void onHashGenerationComplete(@Nullable String hashValue) {
         if (hashValue == null) {
             etGeneratedHash.setText("");
             UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_invalid_selected_source),
@@ -315,10 +317,10 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
         tvSelectedHashType.setText(SettingsHelper.getLastHashType(context).getTypeAsString(context));
         tvSelectedObjectName.setMovementMethod(new ScrollingMovementMethod());
         if (startWithTextSelection) {
-            onUserActionClick(UserActionType.ENTER_TEXT);
+            onUserActionSelect(UserActionType.ENTER_TEXT);
             startWithTextSelection = false;
         } else if (startWithFileSelection) {
-            onUserActionClick(UserActionType.SEARCH_FILE);
+            onUserActionSelect(UserActionType.SEARCH_FILE);
             startWithFileSelection = false;
         }
     }
@@ -370,14 +372,14 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
     private void checkMultilinePreference() {
         if (SettingsHelper.isUsingMultilineHashFields(context)) {
             validateEditTextWithMultilineSupport(etCustomHash,
-                    Constants.Text.TEXT_MULTILINE_LINES_COUNT, false);
+                    TEXT_MULTILINE_LINES_COUNT, false);
             validateEditTextWithMultilineSupport(etGeneratedHash,
-                    Constants.Text.TEXT_MULTILINE_LINES_COUNT, false);
+                    TEXT_MULTILINE_LINES_COUNT, false);
         } else {
             validateEditTextWithMultilineSupport(etCustomHash,
-                    Constants.Text.TEXT_SINGLE_LINE_LINES_COUNT, true);
+                    TEXT_SINGLE_LINE_LINES_COUNT, true);
             validateEditTextWithMultilineSupport(etGeneratedHash,
-                    Constants.Text.TEXT_SINGLE_LINE_LINES_COUNT, true);
+                    TEXT_SINGLE_LINE_LINES_COUNT, true);
         }
     }
 
@@ -448,7 +450,7 @@ public class MainFragment extends BaseFragment implements OnTextValueEnteredList
 
     @Override
     public int getActionBarTitleResId() {
-        return R.string.app_name;
+        return R.string.common_app_name;
     }
 
     @Override

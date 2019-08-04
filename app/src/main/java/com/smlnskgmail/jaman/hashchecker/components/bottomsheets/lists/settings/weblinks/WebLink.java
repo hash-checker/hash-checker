@@ -1,12 +1,12 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.weblinks;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListMarker;
 
 import java.util.Arrays;
 import java.util.List;
 
-public enum WebLink implements ListItemMarker {
+public enum WebLink implements ListMarker {
 
     SOURCE_CODE(R.string.title_web_link_github, R.drawable.ic_github, R.string.web_link_source_code),
     MY_APPS(R.string.title_web_link_google_play, R.drawable.ic_google_play, R.string.web_link_my_apps);
@@ -38,7 +38,7 @@ public enum WebLink implements ListItemMarker {
         return -1;
     }
 
-    public static List<ListItemMarker> getAuthorLinks() {
+    public static List<ListMarker> getAuthorLinks() {
         return Arrays.asList(SOURCE_CODE, MY_APPS);
     }
 

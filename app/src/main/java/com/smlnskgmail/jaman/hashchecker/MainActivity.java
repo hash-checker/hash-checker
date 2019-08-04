@@ -12,19 +12,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.MainFragment;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.navigation.states.OnAppResume;
-import com.smlnskgmail.jaman.hashchecker.navigation.states.OnBackListener;
-import com.smlnskgmail.jaman.hashchecker.support.params.Constants;
-import com.smlnskgmail.jaman.hashchecker.support.params.Shortcuts;
-import com.smlnskgmail.jaman.hashchecker.support.params.Tags;
+import com.smlnskgmail.jaman.hashchecker.navigation.states.AppResumeTarget;
+import com.smlnskgmail.jaman.hashchecker.navigation.states.BackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class MainActivity extends BaseActivity {
+
+    public static final String URI_FROM_EXTERNAL_APP = "com.smlnskgmail.jaman.hashchecker.URI_FROM_EXTERNAL_APP";
 
     @Override
     public void initialize() {
@@ -58,17 +58,17 @@ public class MainActivity extends BaseActivity {
     @NonNull
     private Bundle getConfiguredBundleWithDataUri(@NonNull Uri uri) {
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.URI_FROM_EXTERNAL_APP, uri.toString());
+        bundle.putString(URI_FROM_EXTERNAL_APP, uri.toString());
         return bundle;
     }
 
     @NonNull
     private Bundle getBundleForShortcutAction(@Nullable String action) {
         Bundle shortcutArguments = new Bundle();
-        if (action != null && action.equals(Shortcuts.ACTION_START_WITH_TEXT_SELECTION)) {
-            shortcutArguments.putBoolean(Shortcuts.ACTION_START_WITH_TEXT_SELECTION, true);
-        } else if (action != null && action.equals(Shortcuts.ACTION_START_WITH_FILE_SELECTION)) {
-            shortcutArguments.putBoolean(Shortcuts.ACTION_START_WITH_FILE_SELECTION, true);
+        if (action != null && action.equals(App.ACTION_START_WITH_TEXT_SELECTION)) {
+            shortcutArguments.putBoolean(App.ACTION_START_WITH_TEXT_SELECTION, true);
+        } else if (action != null && action.equals(App.ACTION_START_WITH_FILE_SELECTION)) {
+            shortcutArguments.putBoolean(App.ACTION_START_WITH_FILE_SELECTION, true);
         }
         return shortcutArguments;
     }
@@ -94,13 +94,13 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager()
-                .findFragmentByTag(Tags.CURRENT_FRAGMENT_TAG);
-        if (fragment instanceof OnBackListener) {
-            ((OnBackListener) fragment).onBack();
+                .findFragmentByTag(BaseFragment.CURRENT_FRAGMENT_TAG);
+        if (fragment instanceof BackClickTarget) {
+            ((BackClickTarget) fragment).onBack();
         }
         for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
-            if (fragmentInApp instanceof OnAppResume) {
-                ((OnAppResume) fragmentInApp).onAppResume();
+            if (fragmentInApp instanceof AppResumeTarget) {
+                ((AppResumeTarget) fragmentInApp).onAppResume();
             }
         }
     }

@@ -7,14 +7,14 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adap
 
 public class GenerateToBottomSheet extends BaseListBottomSheet {
 
-    private OnHashTypeSelectListener hashTypeSelectListener;
+    private HashTypeSelectTarget hashTypeSelectListener;
 
     @Override
     public BaseBottomSheetListAdapter getItemsAdapter() {
         return new HashesBottomSheetListAdapter(getItems(), this, hashTypeSelectListener);
     }
 
-    public void setHashTypeSelectListener(@NonNull OnHashTypeSelectListener hashTypeSelectListener) {
+    public void setHashTypeSelectListener(@NonNull HashTypeSelectTarget hashTypeSelectListener) {
         this.hashTypeSelectListener = hashTypeSelectListener;
     }
 

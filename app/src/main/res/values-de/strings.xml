@@ -1,8 +1,5 @@
 <resources>
 
-    <string name="app_name">Hash Checker</string>
-    <string name="app_author">fartem</string>
-
     <!-- menu -->
     <string name="menu_title_settings">Einstellungen</string>
     <string name="menu_title_feedback">Feedback</string>
@@ -49,8 +46,6 @@
     <!-- themes -->
     <string name="title_theme_light">Licht</string>
     <string name="title_theme_dark">Dunkel</string>
-    <string name="title_theme_mango_bay">Mango</string>
-    <string name="title_theme_mango_bay_dark">Dunkle Mango</string>
 
     <!-- titles -->
     <string name="title_custom_hash">Custom hash</string>

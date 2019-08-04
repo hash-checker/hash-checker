@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class WebLinksBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
-    WebLinksBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
+    WebLinksBottomSheetListAdapter(@NonNull List<ListMarker> items,
                                    @NonNull BaseListBottomSheet bottomSheet) {
         super(items, bottomSheet);
     }

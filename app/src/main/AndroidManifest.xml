@@ -6,11 +6,11 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <application android:name=".HashCheckerApplication"
+    <application android:name=".App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:label="@string/app_name"
+        android:label="@string/common_app_name"
         android:supportsRtl="true"
         android:theme="@style/AppThemeLight"
         android:resizeableActivity="false"
@@ -19,7 +19,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="@string/common_app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             android:exported="true">
@@ -55,7 +55,7 @@
 
         </activity>
 
-        <activity android:name=".components.fileexplorer.explorer.FileExplorerActivity" />
+        <activity android:name=".components.filemanager.manager.FileManagerActivity" />
 
     </application>
 

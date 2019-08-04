@@ -74,10 +74,9 @@ public class FeedbackFragment extends BaseFragment {
             feedbackText.append("\n\n").append(String.format("%s (%s)", BuildConfig.VERSION_NAME,
                     BuildConfig.VERSION_CODE));
             if (addDeviceInfo.isChecked()) {
+                String osVersion = Build.VERSION_CODES.class.getFields()[android.os.Build.VERSION.SDK_INT].getName();
                 feedbackText.append("\n\n").append(String.format("%s %s (%s)", Build.MANUFACTURER,
-                        Build.MODEL,
-                        Build.VERSION_CODES.class.getFields()
-                                [android.os.Build.VERSION.SDK_INT].getName()));
+                        Build.MODEL, osVersion));
             }
             AppUtils.sendFeedback(context, feedbackText.toString(), getString(R.string.common_email));
         }

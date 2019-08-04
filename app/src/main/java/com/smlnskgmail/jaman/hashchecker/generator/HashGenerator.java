@@ -1,0 +1,81 @@
+package com.smlnskgmail.jaman.hashchecker.generator;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.net.Uri;
+import android.os.AsyncTask;
+
+import androidx.annotation.NonNull;
+
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashGeneratorTarget;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+
+public class HashGenerator extends AsyncTask<Void, Void, Void> {
+
+    @SuppressLint("StaticFieldLeak") private Context context;
+    private HashGeneratorTarget onCompleteListener;
+    private Uri fileUri;
+    private String textValue, result;
+    private HashType hashType;
+
+    private boolean isText;
+
+    public HashGenerator(@NonNull HashType hashType, @NonNull Context context, @NonNull Uri fileUri,
+                         @NonNull HashGeneratorTarget completeListener) {
+        this(hashType, context, completeListener, false);
+        this.fileUri = fileUri;
+    }
+
+    public HashGenerator(@NonNull HashType hashType, @NonNull Context context, @NonNull String textValue,
+                         @NonNull HashGeneratorTarget completeListener) {
+        this(hashType, context, completeListener, true);
+        this.textValue = textValue;
+
+    }
+
+    private HashGenerator(@NonNull HashType hashType, @NonNull Context context,
+                          @NonNull HashGeneratorTarget onCompleteListener, boolean isText) {
+        this.hashType = hashType;
+        this.context = context;
+        this.onCompleteListener = onCompleteListener;
+        this.isText = isText;
+    }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+        HashType hashType = HashType.MD5;
+        switch (this.hashType) {
+            case SHA_1:
+                hashType = HashType.SHA_1;
+                break;
+            case SHA_224:
+                hashType = HashType.SHA_224;
+                break;
+            case SHA_256:
+                hashType = HashType.SHA_256;
+                break;
+            case SHA_384:
+                hashType = HashType.SHA_384;
+                break;
+            case SHA_512:
+                hashType = HashType.SHA_512;
+                break;
+            case CRC_32:
+                hashType = HashType.CRC_32;
+                break;
+        }
+        if (isText) {
+            result = new HashCalculator(hashType).generateFromString(textValue);
+        } else {
+            result = new HashCalculator(hashType).generateFromFile(context, fileUri);
+        }
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+        onCompleteListener.onHashGenerationComplete(result);
+    }
+
+}

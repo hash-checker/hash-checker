@@ -54,7 +54,7 @@
         <Preference
             android:title="@string/settings_title_author"
             android:key="@string/key_author"
-            android:summary="@string/app_author"
+            android:summary="@string/common_app_author"
             android:icon="@drawable/ic_settings_author" />
 
         <Preference

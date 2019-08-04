@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListMarker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +18,9 @@ import java.util.List;
 public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<BaseBottomSheetListHolder> {
 
     private BaseListBottomSheet bottomSheet;
-    private List<ListItemMarker> items = new ArrayList<>();
+    private List<ListMarker> items = new ArrayList<>();
 
-    protected BaseBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
+    protected BaseBottomSheetListAdapter(@NonNull List<ListMarker> items,
                                          @NonNull BaseListBottomSheet bottomSheet) {
         this.items.addAll(items);
         this.bottomSheet = bottomSheet;
@@ -48,7 +48,7 @@ public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<Ba
     }
 
     @NonNull
-    public List<ListItemMarker> getItems() {
+    public List<ListMarker> getItems() {
         return items;
     }
 

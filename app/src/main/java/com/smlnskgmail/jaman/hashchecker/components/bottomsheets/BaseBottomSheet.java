@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.smlnskgmail.jaman.hashchecker.R;
@@ -20,6 +21,10 @@ public abstract class BaseBottomSheet extends BottomSheetDialogFragment {
     }
 
     protected void initUI(@NonNull View contentView) {}
+
+    public void showBottomSheet(@NonNull FragmentManager fragmentManager) {
+        show(fragmentManager, getClass().getName());
+    }
 
     @Nullable
     @Override

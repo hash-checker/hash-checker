@@ -12,69 +12,72 @@
 
 Fast and simple application for generating and comparison hashes from files or text.
 
-### 1.1 Supporting algorithms
+### 1.1. Supporting algorithms
 
 | Name | Since version | Status |
 | --- | --- | --- |
-| MD5 | 1.0.0 | Supporting |
-| SHA-1 | 1.0.0 | Supporting |
-| SHA-224 | 1.4.0 | Supporting |
-| SHA-256 | 1.0.0 | Supporting |
-| SHA-384 | 1.4.0 | Supporting |
-| SHA-512 | 1.0.0 | Supporting |
-| CRC-32 | 2.9.0 | Supporting |
+| MD5 | `1.0.0` | Supporting |
+| SHA-1 | `1.0.0` | Supporting |
+| SHA-224 | `1.4.0` | Supporting |
+| SHA-256 | `1.0.0` | Supporting |
+| SHA-384 | `1.4.0` | Supporting |
+| SHA-512 | `1.0.0` | Supporting |
+| CRC-32 | `2.9.0` | Supporting |
 
-### 1.2 Languages
+### 1.2. Languages
 
 | Language | Since version | Translate status |
 | --- | --- | --- |
-| English | 1.0.0 | Full |
-| Russian | 2.9.6 | Full |
-| German | 2.9.6 | Full |
+| English | `1.0.0` | Full |
+| Russian | `2.9.6` | Full |
+| German | `2.9.6` | Full |
 
 ## 2. Tests
 
-### 2.1 Android Test
+### 2.1. Android Test
 
 This tests must be run on Android device.
 
-#### 2.1.1 Tests table
+#### 2.1.1. Tests table
 
 | Functionality | Status | Description |
 | --- | --- | --- |
-| MD5HashCalculatorTest | Pass | Check MD5 generation |
-| SHA1HashCalculatorTest | Pass | Check SHA-1 generation |
-| SHA224HashCalculatorTest | Pass | Check SHA-224 generation |
-| SHA256HashCalculatorTest | Pass | Check SHA-256 generation |
-| SHA384HashCalculatorTest | Pass | Check SHA-384 generation |
-| SHA512HashCalculatorTest | Pass | Check SHA-512 generation |
-| ScreenRunnerTest | Pass | Open UI components |
-| GenerateHashFromTextTest | Pass | Generate hash from text |
+| [MD5HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/md/MD5HashCalculatorTest.java) | `Pass` | Check MD5 generation |
+| [SHA1HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA1HashCalculatorTest.java) | `Pass` | Check SHA-1 generation |
+| [SHA224HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA224HashCalculatorTest.java) | `Pass` | Check SHA-224 generation |
+| [SHA256HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA256HashCalculatorTest.java) | `Pass` | Check SHA-256 generation |
+| [SHA384HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA384HashCalculatorTest.java) | `Pass` | Check SHA-384 generation |
+| [SHA512HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA512HashCalculatorTest.java) | `Pass` | Check SHA-512 generation |
+| [CRC32HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/crc/CRC32HashCalculatorTest.java) | `Pass` | Check CRC-32 generation |
+| [ScreenRunnerTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/screenrunner/ScreenRunnerTest.java) | `Pass` | Open UI components |
+| [GenerateHashFromTextTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/functionality/GenerateHashFromTextTest.java) | `Pass` | Generate hash from text |
 
-#### 2.1.2 Tests Suits
+#### 2.1.2. Tests Suits
 
 | Functionality | Status | Description |
 | --- | --- | --- |
-| HashTestSuite | In development | Run all tests for check hash generation |
-| FastTestSuite | Deprecated | Run only needed base UI tests |
-| TestSuite | In development | Run all tests in "Android Test" section |
+| [HashTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/HashTestSuite.java) | `In development` | Run all tests for check hash generation |
+| [FastTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/FastTestSuite.java) | `Deprecated` | Run only needed base UI tests |
+| [AndroidTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/TestSuite.java) | `In development` | Run all tests in "Android Test" section |
 
-### 2.2 Test
+### 2.2. Test
 
 This tests must be run on computer.
 
-#### 2.2.1 Tests table
+#### 2.2.1. Tests table
 
 | Functionality | Status | Description |
 | --- | --- | --- |
-| FileItemTest | Pass | Check fields in File item |
-| HistoryItemTest | Pass | Check fields in History item |
+| [FileItemTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/entities/FileItemTest.java) | `Pass` | Check fields in File item |
+| [HistoryItemTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/entities/HistoryItemTest.java) | `Pass` | Check fields in History item |
+| [HashUtilsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/HashUtilsTest.java) | `Pass` | Check hash utils |
+| [TextUtilsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/TextUtilsTest.java) | `Pass` | Check text utils |
 
-#### 2.2.2 Tests Suits
+#### 2.2.2. Tests Suits
 
 | Functionality | Status | Description |
 | --- | --- | --- |
-| TestSuite | In development | Run all tests in "Test" section |
+| [TestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/TestSuite.java) | `In development` | Run all tests in "Test" section |
 
 ## 3. Screenshots
 
@@ -101,4 +104,4 @@ jaman.smlnsk@gmail.com
 
 ## 7. Website
 
-https://fartem.github.io/hash-checker.io/
+[fartem.github.io/hash-checker.io](https://fartem.github.io/hash-checker.io/)

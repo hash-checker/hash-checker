@@ -15,11 +15,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.smlnskgmail.jaman.hashchecker.navigation.states.OnAppResume;
-import com.smlnskgmail.jaman.hashchecker.navigation.states.OnBackListener;
+import com.smlnskgmail.jaman.hashchecker.navigation.states.AppResumeTarget;
+import com.smlnskgmail.jaman.hashchecker.navigation.states.BackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-public abstract class BaseFragment extends Fragment implements OnBackListener, OnAppResume {
+public abstract class BaseFragment extends Fragment implements BackClickTarget, AppResumeTarget {
+
+    public static final String CURRENT_FRAGMENT_TAG = "CURRENT_FRAGMENT";
 
     private ActionBar actionBar;
 

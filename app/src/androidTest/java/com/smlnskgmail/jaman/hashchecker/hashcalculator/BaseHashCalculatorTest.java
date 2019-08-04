@@ -5,8 +5,8 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.test.InstrumentationRegistry;
 
-import com.smlnskgmail.jaman.hashchecker.hashgenerator.HashCalculator;
-import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 
 import org.junit.Assert;
 import org.junit.Before;

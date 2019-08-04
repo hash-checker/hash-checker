@@ -7,10 +7,10 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
-import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 
 import java.util.List;
@@ -18,11 +18,11 @@ import java.util.List;
 public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
     private HashType selectedHashType;
-    private OnHashTypeSelectListener hashTypeSelectListener;
+    private HashTypeSelectTarget hashTypeSelectListener;
 
-    HashesBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
+    HashesBottomSheetListAdapter(@NonNull List<ListMarker> items,
                                  @NonNull BaseListBottomSheet bottomSheet,
-                                 @NonNull OnHashTypeSelectListener hashTypeSelectListener) {
+                                 @NonNull HashTypeSelectTarget hashTypeSelectListener) {
         super(items, bottomSheet);
         this.hashTypeSelectListener = hashTypeSelectListener;
         selectedHashType = SettingsHelper.getLastHashType(getBottomSheet().getContext());
@@ -36,18 +36,18 @@ public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
     private class HashesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
         private HashType hashTypeAtPosition;
-        private OnHashTypeSelectListener hashTypeSelectListener;
+        private HashTypeSelectTarget hashTypeSelectListener;
 
         HashesBottomSheetListHolder(@NonNull View itemView, @NonNull Context themeContext,
-                                    @NonNull OnHashTypeSelectListener hashTypeSelectListener) {
+                                    @NonNull HashTypeSelectTarget hashTypeSelectListener) {
             super(itemView, themeContext);
             this.hashTypeSelectListener = hashTypeSelectListener;
         }
 
         @Override
-        protected void bind(@NonNull ListItemMarker listItemMarker) {
-            hashTypeAtPosition = (HashType) listItemMarker;
-            super.bind(listItemMarker);
+        protected void bind(@NonNull ListMarker listMarker) {
+            hashTypeAtPosition = (HashType) listMarker;
+            super.bind(listMarker);
         }
 
         @Override

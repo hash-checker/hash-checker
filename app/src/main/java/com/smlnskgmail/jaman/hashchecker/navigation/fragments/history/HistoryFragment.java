@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.containers.AdaptiveRecyclerView;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.db.helper.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.db.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.DataPortion;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.itemsadapter.HistoryItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.listadapter.HistoryItemsAdapter;
 
 import java.util.List;
 

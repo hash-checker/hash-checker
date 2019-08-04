@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.Theme;
-import com.smlnskgmail.jaman.hashchecker.hashgenerator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.support.logger.L;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
@@ -46,9 +46,31 @@ public class SettingsHelper {
     }
 
     public static String getTheme(@NonNull Context context) {
-        return getStringPreference(context, context.getString(R.string.key_selected_theme),
-                        Theme.LIGHT.toString());
+        String theme = getStringPreference(context, context.getString(R.string.key_selected_theme),
+                Theme.LIGHT.toString());
+        if (validateAppTheme(context, theme)) {
+            return theme;
+        } else {
+            return getThemeAnalogue(theme).toString();
+        }
     }
+
+    private static boolean validateAppTheme(@NonNull Context context, @NonNull String theme) {
+        if (theme.equals(Theme.LIGHT.toString()) || theme.equals(Theme.DARK.toString())) {
+            return true;
+        }
+        saveTheme(context, Theme.LIGHT);
+        return false;
+    }
+
+    private static Theme getThemeAnalogue(@NonNull String theme) {
+        if (theme.contains("DARK")) {
+            return Theme.DARK;
+        } else {
+            return Theme.LIGHT;
+        }
+    }
+
     public static boolean useUpperCase(@NonNull Context context) {
         return getBooleanPreference(context, context.getString(R.string.key_upper_case), false);
     }

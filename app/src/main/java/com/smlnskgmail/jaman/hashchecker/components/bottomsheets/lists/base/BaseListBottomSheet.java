@@ -15,7 +15,7 @@ import java.util.List;
 
 public abstract class BaseListBottomSheet extends BaseBottomSheet {
 
-    private List<ListItemMarker> items = new ArrayList<>();
+    private List<ListMarker> items = new ArrayList<>();
 
     @Override
     public void initUI(@NonNull View contentView) {
@@ -27,12 +27,12 @@ public abstract class BaseListBottomSheet extends BaseBottomSheet {
     protected abstract BaseBottomSheetListAdapter getItemsAdapter();
 
     @NonNull
-    protected List<ListItemMarker> getItems() {
+    protected List<ListMarker> getItems() {
         return items;
     }
 
-    public void setItems(@NonNull List<ListItemMarker> listItemMarkers) {
-        this.items.addAll(listItemMarkers);
+    public void setItems(@NonNull List<ListMarker> listMarkers) {
+        this.items.addAll(listMarkers);
     }
 
     @Override

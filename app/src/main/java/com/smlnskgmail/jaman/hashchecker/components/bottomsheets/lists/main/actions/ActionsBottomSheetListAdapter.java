@@ -6,43 +6,43 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListItemMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types.OnUserActionClickListener;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types.UserActionTarget;
 
 import java.util.List;
 
 public class ActionsBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
-    private OnUserActionClickListener onUserActionClickListener;
+    private UserActionTarget userActionTarget;
 
-    ActionsBottomSheetListAdapter(@NonNull List<ListItemMarker> items,
+    ActionsBottomSheetListAdapter(@NonNull List<ListMarker> items,
                                   @NonNull BaseListBottomSheet bottomSheet,
-                                  @NonNull OnUserActionClickListener onUserActionClickListener) {
+                                  @NonNull UserActionTarget userActionTarget) {
         super(items, bottomSheet);
-        this.onUserActionClickListener = onUserActionClickListener;
+        this.userActionTarget = userActionTarget;
     }
 
     @Override
     protected BaseBottomSheetListHolder getItemsHolder(@NonNull View view, @NonNull Context themeContext) {
-        return new ActionsBottomSheetListHolder(view, themeContext, onUserActionClickListener);
+        return new ActionsBottomSheetListHolder(view, themeContext, userActionTarget);
     }
 
     private class ActionsBottomSheetListHolder extends BaseBottomSheetListHolder {
 
-        private OnUserActionClickListener onUserActionClickListener;
+        private UserActionTarget userActionTarget;
 
         ActionsBottomSheetListHolder(@NonNull View itemView, @NonNull Context themeContext,
-                                     @NonNull OnUserActionClickListener onUserActionClickListener) {
+                                     @NonNull UserActionTarget userActionTarget) {
             super(itemView, themeContext);
-            this.onUserActionClickListener = onUserActionClickListener;
+            this.userActionTarget = userActionTarget;
         }
 
         @Override
         protected void callItemClick() {
             Action action = (Action) getItems().get(getAdapterPosition());
-            onUserActionClickListener.onUserActionClick(action.getUserActionType());
+            userActionTarget.onUserActionSelect(action.getUserActionType());
             dismissBottomSheet();
         }
 

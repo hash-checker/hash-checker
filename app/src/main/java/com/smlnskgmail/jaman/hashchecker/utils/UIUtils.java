@@ -24,7 +24,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.Theme;
-import com.smlnskgmail.jaman.hashchecker.support.params.Tags;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 
 public class UIUtils {
@@ -33,7 +33,7 @@ public class UIUtils {
 
     public static void showFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(android.R.id.content, fragment, Tags.CURRENT_FRAGMENT_TAG)
+        fragmentTransaction.add(android.R.id.content, fragment, BaseFragment.CURRENT_FRAGMENT_TAG)
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .addToBackStack(null)
                 .commit();
