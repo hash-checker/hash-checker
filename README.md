@@ -16,21 +16,21 @@ Fast and simple application for generating and comparison hashes from files or t
 
 | Name | Since version | Status |
 | --- | --- | --- |
-| MD5 | `1.0.0` | Supporting |
-| SHA-1 | `1.0.0` | Supporting |
-| SHA-224 | `1.4.0` | Supporting |
-| SHA-256 | `1.0.0` | Supporting |
-| SHA-384 | `1.4.0` | Supporting |
-| SHA-512 | `1.0.0` | Supporting |
-| CRC-32 | `2.9.0` | Supporting |
+| [MD5](https://en.wikipedia.org/wiki/MD5) | `1.0.0` | Supporting |
+| [SHA-1](https://en.wikipedia.org/wiki/SHA-1) | `1.0.0` | Supporting |
+| [SHA-224](https://en.wikipedia.org/wiki/SHA-2) | `1.4.0` | Supporting |
+| [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | `1.0.0` | Supporting |
+| [SHA-384](https://en.wikipedia.org/wiki/SHA-2) | `1.4.0` | Supporting |
+| [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | `1.0.0` | Supporting |
+| [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | `2.9.0` | Supporting |
 
 ### 1.2. Languages
 
 | Language | Since version | Translate status |
 | --- | --- | --- |
-| English | `1.0.0` | Full |
-| Russian | `2.9.6` | Full |
-| German | `2.9.6` | Full |
+| [English](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values/strings.xml) | `1.0.0` | Full |
+| [Russian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-ru/strings.xml) | `2.9.6` | Full |
+| [German](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-de/strings.xml) | `2.9.6` | Full |
 
 ## 2. Tests
 
