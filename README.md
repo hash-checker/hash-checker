@@ -105,3 +105,7 @@ jaman.smlnsk@gmail.com
 ## 7. Website
 
 [fartem.github.io/hash-checker.io](https://fartem.github.io/hash-checker.io/)
+
+## 8. Privacy Policy
+
+[fartem.github.io/hash-checker-privacy-policy.io](https://fartem.github.io/hash-checker-privacy-policy.io/)
