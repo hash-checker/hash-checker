@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.generator;
+package com.smlnskgmail.jaman.hashchecker.calculator;
 
 import android.content.Context;
 import android.net.Uri;
@@ -6,8 +6,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.support.logger.L;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.HashUtils;
 
@@ -22,24 +21,19 @@ import java.util.zip.CRC32;
 
 public class HashCalculator {
 
-    private HashType hashType;
+    private final HashType hashType;
 
     public HashCalculator(@NonNull HashType hashType) {
         this.hashType = hashType;
     }
 
     @Nullable
-    public String generateFromString(@NonNull String text) {
+    public String fromString(@NonNull String text) throws NoSuchAlgorithmException {
         byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
         if (HashType.isMessageDigestUtilSupport(hashType)) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance(hashType.getMessageDigestHashName());
-                messageDigest.update(bytes);
-                return HashUtils.getStringFromBytes(messageDigest.digest());
-            } catch (NoSuchAlgorithmException e) {
-                L.e(e);
-                return null;
-            }
+            MessageDigest messageDigest = MessageDigest.getInstance(hashType.getMessageDigestHashName());
+            messageDigest.update(bytes);
+            return HashUtils.getStringFromBytes(messageDigest.digest());
         } else {
             CRC32 crc32 = new CRC32();
             crc32.update(bytes);
@@ -48,17 +42,12 @@ public class HashCalculator {
     }
 
     @Nullable
-    String generateFromFile(@NonNull Context context, @NonNull Uri path) {
-        try {
-            InputStream fileStream = getInputStreamFromUri(context, path);
-            return generateFromFile(fileStream);
-        } catch (Exception e) {
-            L.e(e);
-            return null;
-        }
+    String fromFile(@NonNull Context context, @NonNull Uri path) throws Exception {
+        InputStream fileStream = inputStreamFromUri(context, path);
+        return fromFile(fileStream);
     }
 
-    private InputStream getInputStreamFromUri(@NonNull Context context, @NonNull Uri path)
+    private InputStream inputStreamFromUri(@NonNull Context context, @NonNull Uri path)
             throws Exception {
         if (!SettingsHelper.isUsingInnerFileManager(context)
                 || SettingsHelper.getGenerateFromShareIntentStatus(context)) {
@@ -68,7 +57,7 @@ public class HashCalculator {
     }
 
     @Nullable
-    public String generateFromFile(@Nullable InputStream inputStream) throws Exception {
+    public String fromFile(@Nullable InputStream inputStream) throws Exception {
         if (inputStream != null) {
             byte[] buffer = new byte[1024];
             CheckerMessageDigest checkerMessageDigest = new CheckerMessageDigest(hashType);
@@ -80,7 +69,7 @@ public class HashCalculator {
                     checkerMessageDigest.update(buffer, read);
                 }
             } while (read != -1);
-            return checkerMessageDigest.getResult();
+            return checkerMessageDigest.result();
         }
         return null;
     }

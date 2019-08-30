@@ -32,13 +32,32 @@ Fast and simple application for generating and comparison hashes from files or t
 | [Russian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-ru/strings.xml) | `2.9.6` | Full |
 | [German](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-de/strings.xml) | `2.9.6` | Full |
 
-## 2. Tests
+## 2. Screenshots
 
-### 2.1. Android Test
+<br/>
+<p align="center">
+  <img src="media/screenshots/1.png" width="150" />
+  <img src="media/screenshots/2.png" width="150" />
+  <img src="media/screenshots/3.png" width="150" />
+  <img src="media/screenshots/4.png" width="150" />
+  <img src="media/screenshots/5.png" width="150" />
+</p>
+
+## 3. Videos
+
+[YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
+
+## 4. Alternative downloads
+
+[GitHub](https://github.com/fartem/hash-checker/releases)
+
+## 5. Tests
+
+### 5.1. Android Test
 
 This tests must be run on Android device.
 
-#### 2.1.1. Tests table
+#### 5.1.1. Tests table
 
 | Functionality | Status | Description |
 | --- | --- | --- |
@@ -52,7 +71,7 @@ This tests must be run on Android device.
 | [ScreenRunnerTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/screenrunner/ScreenRunnerTest.java) | `Pass` | Open UI components |
 | [GenerateHashFromTextTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/functionality/GenerateHashFromTextTest.java) | `Pass` | Generate hash from text |
 
-#### 2.1.2. Tests Suits
+#### 5.1.2. Tests Suits
 
 | Functionality | Status | Description |
 | --- | --- | --- |
@@ -60,11 +79,11 @@ This tests must be run on Android device.
 | [FastTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/FastTestSuite.java) | `Deprecated` | Run only needed base UI tests |
 | [AndroidTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/TestSuite.java) | `In development` | Run all tests in "Android Test" section |
 
-### 2.2. Test
+### 5.2. Test
 
 This tests must be run on computer.
 
-#### 2.2.1. Tests table
+#### 5.2.1. Tests table
 
 | Functionality | Status | Description |
 | --- | --- | --- |
@@ -73,30 +92,12 @@ This tests must be run on computer.
 | [HashUtilsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/HashUtilsTest.java) | `Pass` | Check hash utils |
 | [TextUtilsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/TextUtilsTest.java) | `Pass` | Check text utils |
 
-#### 2.2.2. Tests Suits
+#### 5.2.2. Tests Suits
 
 | Functionality | Status | Description |
 | --- | --- | --- |
 | [TestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/TestSuite.java) | `In development` | Run all tests in "Test" section |
 
-## 3. Screenshots
-
-<br/>
-<p align="center">
-  <img src="media/screenshots/1.png" width="150" />
-  <img src="media/screenshots/2.png" width="150" />
-  <img src="media/screenshots/3.png" width="150" />
-  <img src="media/screenshots/4.png" width="150" />
-  <img src="media/screenshots/5.png" width="150" />
-</p>
-
-## 4. Videos
-
-[YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
-
-## 5. Alternative downloads
-
-[GitHub](https://github.com/fartem/hash-checker/releases)
 
 ## 6. Contacts
 

@@ -28,8 +28,8 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
 
     private FileItemsAdapter fileItemsAdapter;
 
-    private List<FileItem> files = new ArrayList<>();
-    private List<FileItem> storages = new ArrayList<>();
+    private final List<FileItem> files = new ArrayList<>();
+    private final List<FileItem> storages = new ArrayList<>();
 
     private String currentPath = null;
 
@@ -42,7 +42,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
         fileItemsAdapter = new FileItemsAdapter(files, FileManagerActivity.this);
         rvFilesList.setAdapter(fileItemsAdapter);
 
-        storages = FileUtils.getExternalMounts();
+        storages.addAll(FileUtils.getExternalMounts());
         toStorageChooser();
     }
 

@@ -34,8 +34,8 @@ public class WebLinksBottomSheetListAdapter extends BaseBottomSheetListAdapter {
         @Override
         protected void callItemClick() {
             WebLink webLink = (WebLink) getItems().get(getAdapterPosition());
-            String linkToSite = getContext().getString(webLink.getLinkResId());
-            AppUtils.openWebLink(getContext(), linkToSite);
+            String link = getContext().getString(webLink.getLinkResId());
+            AppUtils.openWebLink(getContext(), link);
             dismissBottomSheet();
         }
 

@@ -39,4 +39,14 @@
         <item name="android:windowIsFloating">false</item>
     </style>
 
+    <style name="AppEditTextHashValue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:selectAllOnFocus">true</item>
+        <item name="android:textColor">?attr/colorCommonText</item>
+        <item name="android:textColorHint">?attr/colorCommonUnselected</item>
+        <item name="android:importantForAutofill">no</item>
+        <item name="android:inputType">text</item>
+    </style>
+
 </resources>

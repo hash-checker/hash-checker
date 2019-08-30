@@ -51,13 +51,13 @@ public class UIUtils {
         fragmentManager.popBackStackImmediate();
     }
 
-    public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message, int length) {
-        showSnackbar(context, parent, message, null, null, length);
+    public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message) {
+        showSnackbar(context, parent, message, null, null);
     }
 
     public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message,
-                                    @Nullable String actionText, @Nullable View.OnClickListener action, int length) {
-        Snackbar snackbar = Snackbar.make(parent, message, length);
+                                    @Nullable String actionText, @Nullable View.OnClickListener action) {
+        Snackbar snackbar = Snackbar.make(parent, message, Snackbar.LENGTH_SHORT);
         if (action != null) {
             snackbar.setAction(actionText, action);
         } else {

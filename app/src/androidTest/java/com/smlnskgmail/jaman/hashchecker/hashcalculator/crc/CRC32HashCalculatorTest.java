@@ -2,7 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.hashcalculator.crc;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.hashcalculator.BaseHashCalculatorTest;
 
 public class CRC32HashCalculatorTest extends BaseHashCalculatorTest {
@@ -21,7 +21,7 @@ public class CRC32HashCalculatorTest extends BaseHashCalculatorTest {
 
     @NonNull
     @Override
-    protected String getHashValueForTesFile() {
+    protected String getHashValueForTestFile() {
         return "60c7400a";
     }
 

@@ -65,10 +65,10 @@ public class MainActivity extends BaseActivity {
     @NonNull
     private Bundle getBundleForShortcutAction(@Nullable String action) {
         Bundle shortcutArguments = new Bundle();
-        if (action != null && action.equals(App.ACTION_START_WITH_TEXT_SELECTION)) {
-            shortcutArguments.putBoolean(App.ACTION_START_WITH_TEXT_SELECTION, true);
-        } else if (action != null && action.equals(App.ACTION_START_WITH_FILE_SELECTION)) {
-            shortcutArguments.putBoolean(App.ACTION_START_WITH_FILE_SELECTION, true);
+        if (action != null && action.equals(App.ACTION_START_WITH_TEXT)) {
+            shortcutArguments.putBoolean(App.ACTION_START_WITH_TEXT, true);
+        } else if (action != null && action.equals(App.ACTION_START_WITH_FILE)) {
+            shortcutArguments.putBoolean(App.ACTION_START_WITH_FILE, true);
         }
         return shortcutArguments;
     }
@@ -96,7 +96,7 @@ public class MainActivity extends BaseActivity {
         Fragment fragment = getSupportFragmentManager()
                 .findFragmentByTag(BaseFragment.CURRENT_FRAGMENT_TAG);
         if (fragment instanceof BackClickTarget) {
-            ((BackClickTarget) fragment).onBack();
+            ((BackClickTarget) fragment).onBackClick();
         }
         for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
             if (fragmentInApp instanceof AppResumeTarget) {

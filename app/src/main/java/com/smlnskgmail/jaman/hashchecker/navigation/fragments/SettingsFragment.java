@@ -1,7 +1,9 @@
 package com.smlnskgmail.jaman.hashchecker.navigation.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,6 +25,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.weblinks.WebLink;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.weblinks.WebLinksBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.support.Requests;
 import com.smlnskgmail.jaman.hashchecker.navigation.states.BackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
@@ -42,33 +45,31 @@ public class SettingsFragment extends PreferenceFragmentCompat implements BackCl
         addPreferencesFromResource(R.xml.settings);
         fragmentManager = getActivity().getSupportFragmentManager();
         context = getContext();
-        initializeActionBar();
-        if (AppUtils.isNotQAndAbove()) {
-            initializeInnerFileManagerSwitcher();
-        } else {
-            disableInnerFileManagerSettings();
-        }
-        initializeThemes();
-        initializeAuthorLinks();
-        initializeRateButton();
-        initializeAppVersionInfo();
+
+        initActionBar();
+        initFileManagerSettings();
+        initThemesSettings();
+        initPrivacyPolicy();
+        initUserDataExport();
+        initAuthorLinks();
+        initRateButton();
+        initAppVersionInfo();
     }
 
-    private void initializeActionBar() {
+    private void initActionBar() {
         actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setHomeAsUpIndicator(ContextCompat.getDrawable(context, R.drawable.ic_arrow_back));
     }
 
-    private void initializeAuthorLinks() {
-        findPreference(getString(R.string.key_author)).setOnPreferenceClickListener(preference -> {
-            WebLinksBottomSheet webLinksBottomSheet = new WebLinksBottomSheet();
-            webLinksBottomSheet.setItems(WebLink.getAuthorLinks());
-            webLinksBottomSheet.showBottomSheet(fragmentManager);
-            return false;
-        });
+    private void initFileManagerSettings() {
+        if (AppUtils.isNotQAndAbove()) {
+            initFileManagerSwitcher();
+        } else {
+            disableFileManagerSwitcher();
+        }
     }
 
-    private void initializeThemes() {
+    private void initThemesSettings() {
         findPreference(getString(R.string.key_theme)).setOnPreferenceClickListener(preference -> {
             ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
             themesBottomSheet.setItems(Arrays.asList(Theme.values()));
@@ -77,19 +78,42 @@ public class SettingsFragment extends PreferenceFragmentCompat implements BackCl
         });
     }
 
-    private void initializeRateButton() {
+    private void initPrivacyPolicy() {
+        findPreference(getString(R.string.key_privacy_policy)).setOnPreferenceClickListener(preference -> {
+            AppUtils.openWebLink(context, context.getString(R.string.web_link_privacy_policy));
+            return false;
+        });
+    }
+
+    private void initUserDataExport() {
+        findPreference(getString(R.string.key_export_user_data)).setOnPreferenceClickListener(preference -> {
+            AppUtils.saveUserData(SettingsFragment.this, getView());
+            return false;
+        });
+    }
+
+    private void initAuthorLinks() {
+        findPreference(getString(R.string.key_author)).setOnPreferenceClickListener(preference -> {
+            WebLinksBottomSheet webLinksBottomSheet = new WebLinksBottomSheet();
+            webLinksBottomSheet.setItems(WebLink.getAuthorLinks());
+            webLinksBottomSheet.showBottomSheet(fragmentManager);
+            return false;
+        });
+    }
+
+    private void initRateButton() {
         findPreference(getString(R.string.key_rate_app)).setOnPreferenceClickListener(preference -> {
             AppUtils.openGooglePlay(context, getView());
             return false;
         });
     }
 
-    private void initializeAppVersionInfo() {
+    private void initAppVersionInfo() {
         findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)",
                 BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
     }
 
-    private void initializeInnerFileManagerSwitcher() {
+    private void initFileManagerSwitcher() {
         findPreference(getString(R.string.key_inner_file_manager))
                 .setOnPreferenceChangeListener((preference, o) -> {
                     SettingsHelper.setRefreshSelectedFileStatus(context, true);
@@ -97,7 +121,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements BackCl
                 });
     }
 
-    private void disableInnerFileManagerSettings() {
+    private void disableFileManagerSwitcher() {
         ((PreferenceGroup) findPreference(getString(R.string.key_category_app)))
                 .removePreference(findPreference(getString(R.string.key_inner_file_manager)));
     }
@@ -108,6 +132,17 @@ public class SettingsFragment extends PreferenceFragmentCompat implements BackCl
         setHasOptionsMenu(true);
         view.setBackgroundColor(UIUtils.getCommonBackgroundColor(context));
         setDividerHeight(0);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data != null) {
+            if (requestCode == Requests.FILE_CREATE) {
+                if (resultCode == Activity.RESULT_OK) {
+                    AppUtils.copyUserDataToUserFolder(context, data.getData());
+                }
+            }
+        }
     }
 
     @Override
@@ -132,7 +167,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements BackCl
     }
 
     @Override
-    public void onBack() {
+    public void onBackClick() {
         UIUtils.removeFragment(fragmentManager, this);
     }
 

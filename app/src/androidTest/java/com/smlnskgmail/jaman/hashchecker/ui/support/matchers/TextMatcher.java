@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.ui.matchers;
+package com.smlnskgmail.jaman.hashchecker.ui.support.matchers;
 
 import android.view.View;
 import android.widget.EditText;

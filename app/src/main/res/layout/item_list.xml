@@ -14,12 +14,14 @@
         android:layout_marginEnd="@dimen/common_margin_2"
         android:visibility="gone"
         tools:src="@drawable/ic_google_play"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tv_item_list_title"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_weight="1"
         android:textColor="?attr/colorCommonText"
         android:textSize="@dimen/text_size_info"
@@ -30,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_margin_2"
-        app:srcCompat="@drawable/ic_done" />
+        app:srcCompat="@drawable/ic_done"
+        tools:ignore="ContentDescription" />
 
 </LinearLayout>

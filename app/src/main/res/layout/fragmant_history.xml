@@ -23,14 +23,16 @@
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone"
-        tools:visibility="visible">
+        tools:visibility="visible"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:layout_width="@dimen/icon_size_history_empty_view"
             android:layout_height="@dimen/icon_size_history_empty_view"
             android:layout_gravity="center"
             android:tint="?attr/colorCommonUnselected"
-            android:src="@drawable/ic_history" />
+            android:src="@drawable/ic_history"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.generator;
+package com.smlnskgmail.jaman.hashchecker.calculator;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -7,18 +7,22 @@ import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashGeneratorTarget;
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashGeneratorTarget;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.support.logs.L;
 
-public class HashGenerator extends AsyncTask<Void, Void, Void> {
+public class HashGenerator extends AsyncTask<Void, String, String> {
 
-    @SuppressLint("StaticFieldLeak") private Context context;
-    private HashGeneratorTarget onCompleteListener;
+    @SuppressLint("StaticFieldLeak")
+    private final Context context;
+
+    private final HashGeneratorTarget completeListener;
+    private final HashType hashType;
+
     private Uri fileUri;
-    private String textValue, result;
-    private HashType hashType;
+    private String textValue;
 
-    private boolean isText;
+    private final boolean isText;
 
     public HashGenerator(@NonNull HashType hashType, @NonNull Context context, @NonNull Uri fileUri,
                          @NonNull HashGeneratorTarget completeListener) {
@@ -34,15 +38,15 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
     }
 
     private HashGenerator(@NonNull HashType hashType, @NonNull Context context,
-                          @NonNull HashGeneratorTarget onCompleteListener, boolean isText) {
+                          @NonNull HashGeneratorTarget completeListener, boolean isText) {
         this.hashType = hashType;
         this.context = context;
-        this.onCompleteListener = onCompleteListener;
+        this.completeListener = completeListener;
         this.isText = isText;
     }
 
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected String doInBackground(Void... voids) {
         HashType hashType = HashType.MD5;
         switch (this.hashType) {
             case SHA_1:
@@ -64,18 +68,22 @@ public class HashGenerator extends AsyncTask<Void, Void, Void> {
                 hashType = HashType.CRC_32;
                 break;
         }
-        if (isText) {
-            result = new HashCalculator(hashType).generateFromString(textValue);
-        } else {
-            result = new HashCalculator(hashType).generateFromFile(context, fileUri);
+        try {
+            if (isText) {
+                return new HashCalculator(hashType).fromString(textValue);
+            } else {
+                return new HashCalculator(hashType).fromFile(context, fileUri);
+            }
+        } catch (Exception e) {
+            L.e(e);
+            return null;
         }
-        return null;
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-        onCompleteListener.onHashGenerationComplete(result);
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
+        completeListener.hashGenerationComplete(result);
     }
 
 }

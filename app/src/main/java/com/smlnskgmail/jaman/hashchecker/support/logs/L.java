@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.support.logger;
+package com.smlnskgmail.jaman.hashchecker.support.logs;
 
 import androidx.annotation.NonNull;
 

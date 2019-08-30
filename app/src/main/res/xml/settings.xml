@@ -40,6 +40,20 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/settings_title_privacy">
+
+        <Preference
+            android:title="@string/settings_title_privacy_policy"
+            android:key="@string/key_privacy_policy"
+            android:icon="@drawable/ic_settings_privacy_policy" />
+
+        <Preference
+            android:title="@string/settings_title_export_user_data"
+            android:key="@string/key_export_user_data"
+            android:icon="@drawable/ic_settings_export_user_data" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/settings_title_interface">
 
         <Preference

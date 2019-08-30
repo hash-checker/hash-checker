@@ -19,6 +19,7 @@ import org.junit.runners.Suite;
         SHA256HashCalculatorTest.class,
         SHA384HashCalculatorTest.class,
         SHA512HashCalculatorTest.class,
-        CRC32HashCalculatorTest.class
+        CRC32HashCalculatorTest.class,
+        ZeroLeadsHashCalculatorTest.class
 })
 public class HashTestSuite {}

@@ -13,6 +13,7 @@
     <!-- messages -->
     <string name="message_exit">Long press on back button to close the application</string>
     <string name="message_fill_fields">Fill each field for comparison</string>
+    <string name="message_generate_hash_before_export">Generate hash value before export</string>
     <string name="message_match_result">Match</string>
     <string name="message_do_not_match_result">Do not match</string>
     <string name="message_generate_dialog">Generating hash, please wait…</string>
@@ -42,6 +43,7 @@
     <string name="action_generate">Generate</string>
     <string name="action_compare">Compare</string>
     <string name="action_export_to_txt">Export as \".txt\"</string>
+
     <!-- themes -->
     <string name="title_theme_light">Light</string>
     <string name="title_theme_dark">Dark</string>
@@ -63,6 +65,9 @@
     <string name="settings_title_app_file_manager">Inner File manager</string>
     <string name="settings_title_version">Version</string>
     <string name="settings_title_vibration">Vibration</string>
+    <string name="settings_title_privacy">Privacy</string>
+    <string name="settings_title_export_user_data">Export user data</string>
+    <string name="settings_title_privacy_policy">Privacy Policy</string>
     <string name="settings_title_theme">Theme</string>
     <string name="settings_title_rate_app">Rate app</string>
     <string name="settings_title_save_result_to_history">Save result to History</string>

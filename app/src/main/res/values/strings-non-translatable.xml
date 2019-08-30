@@ -26,6 +26,8 @@
     <string name="key_last_type_value" translatable="false">last_type_value</string>
     <string name="key_shortcuts_created" translatable="false">shortcuts_created</string>
     <string name="key_theme" translatable="false">theme</string>
+    <string name="key_export_user_data" translatable="false">export_user_data</string>
+    <string name="key_privacy_policy" translatable="false">privacy_policy</string>
     <string name="key_selected_theme" translatable="false">selected_theme</string>
     <string name="key_generate_from_share_intent" translatable="false">generate_from_share_intent</string>
     <string name="key_refresh_selected_file" translatable="false">refresh_selected_file</string>
@@ -40,6 +42,7 @@
     <!-- web links -->
     <string name="web_link_source_code" translatable="false">https://github.com/fartem/hash-checker</string>
     <string name="web_link_my_apps" translatable="false">https://play.google.com/store/apps/developer?id=fartem</string>
+    <string name="web_link_privacy_policy" translatable="false">https://fartem.github.io/hash-checker-privacy-policy.io/</string>
 
     <!-- files -->
     <string name="filename_hash_from_text" translatable="false">hash_from_text</string>

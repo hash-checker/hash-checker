@@ -2,7 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.hashcalculator.sha;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.hashcalculator.BaseHashCalculatorTest;
 
 public class SHA256HashCalculatorTest extends BaseHashCalculatorTest {
@@ -21,7 +21,7 @@ public class SHA256HashCalculatorTest extends BaseHashCalculatorTest {
 
     @NonNull
     @Override
-    protected String getHashValueForTesFile() {
+    protected String getHashValueForTestFile() {
         return "55c7691d1c7fe593284981b58bc0d6268f086aa91d325aec9f8970ac523ea0ff";
     }
 

@@ -15,15 +15,15 @@ import java.util.List;
 
 public class HistoryItemsAdapter extends RecyclerView.Adapter<HistoryItemHolder> {
 
-    private View rootView;
+    private final View rootView;
 
-    private List<HistoryItem> historyItems = new ArrayList<>();
+    private final List<HistoryItem> historyItems = new ArrayList<>();
 
     public HistoryItemsAdapter(@NonNull View rootView) {
         this.rootView = rootView;
     }
 
-    public void addHistoryItems(List<HistoryItem> historyItems) {
+    public void addHistoryItems(@NonNull List<HistoryItem> historyItems) {
         this.historyItems.addAll(historyItems);
         notifyDataSetChanged();
     }

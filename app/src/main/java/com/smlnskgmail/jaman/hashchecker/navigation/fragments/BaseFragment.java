@@ -65,7 +65,7 @@ public abstract class BaseFragment extends Fragment implements BackClickTarget, 
 
     protected abstract int getMenuResId();
 
-    protected abstract int[] getMenuItemsIds();
+    public abstract int[] getMenuItemsIds();
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -104,7 +104,7 @@ public abstract class BaseFragment extends Fragment implements BackClickTarget, 
     protected abstract int getLayoutResId();
 
     @Override
-    public void onBack() {
+    public void onBackClick() {
         UIUtils.removeFragment(getActivity().getSupportFragmentManager(), this);
     }
 

@@ -22,10 +22,12 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.calculator.HashGenerator;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashGeneratorTarget;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.Action;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.ActionsBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.main.actions.types.UserActionTarget;
@@ -38,26 +40,22 @@ import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialo
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.support.Requests;
 import com.smlnskgmail.jaman.hashchecker.db.HelperFactory;
-import com.smlnskgmail.jaman.hashchecker.generator.HashGenerator;
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashGeneratorTarget;
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.support.logger.L;
+import com.smlnskgmail.jaman.hashchecker.support.logs.L;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.TextUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainFragment extends BaseFragment implements TextValueTarget,
-        HashGeneratorTarget, UserActionTarget, HashTypeSelectTarget {
+public class MainFragment extends BaseFragment implements TextValueTarget, HashGeneratorTarget,
+        UserActionTarget, HashTypeSelectTarget {
 
     private static final int TEXT_MULTILINE_LINES_COUNT = 3;
     private static final int TEXT_SINGLE_LINE_LINES_COUNT = 1;
@@ -98,15 +96,9 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
                 compareHashes();
                 break;
             case EXPORT_AS_TXT:
-                saveGeneratedHashAsTxtFile();
+                saveGeneratedHashAsTextFile();
                 break;
         }
-    }
-
-    private void saveGeneratedHashAsTxtFile() {
-        String filename = getString(isTextSelected ? R.string.filename_hash_from_text
-                : R.string.filename_hash_from_file);
-        AppUtils.saveTextFile(this, filename, mainScreen);
     }
 
     private void searchFile() {
@@ -135,8 +127,7 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
                 new HashGenerator(hashType, context, fileUri, this).execute();
             }
         } else {
-            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_select_object),
-                    Snackbar.LENGTH_LONG);
+            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_select_object));
         }
     }
 
@@ -145,10 +136,9 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
             boolean equal = TextUtils.compareText(etCustomHash.getText().toString(),
                     etGeneratedHash.getText().toString());
             UIUtils.showSnackbar(context, mainScreen, equal ? getString(R.string.message_match_result) :
-                    getString(R.string.message_do_not_match_result), Snackbar.LENGTH_LONG);
+                    getString(R.string.message_do_not_match_result));
         } else {
-            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_fill_fields),
-                    Snackbar.LENGTH_LONG);
+            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_fill_fields));
         }
     }
 
@@ -165,6 +155,17 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
 
     private void selectActionForHashes() {
         showBottomSheetWithActions(Action.GENERATE, Action.COMPARE, Action.EXPORT_AS_TXT);
+    }
+
+
+    private void saveGeneratedHashAsTextFile() {
+        if ((fileUri != null || isTextSelected) && TextUtils.fieldIsNotEmpty(etGeneratedHash)) {
+            String filename = getString(isTextSelected ? R.string.filename_hash_from_text
+                    : R.string.filename_hash_from_file);
+            AppUtils.saveTextFile(this, filename, mainScreen);
+        } else {
+            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_generate_hash_before_export));
+        }
     }
 
     private void showBottomSheetWithActions(Action... actions) {
@@ -205,12 +206,12 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
 
     private void checkShortcutActionPresence(@NonNull Bundle shortcutsArguments) {
         startWithTextSelection = shortcutsArguments
-                .getBoolean(App.ACTION_START_WITH_TEXT_SELECTION, false);
+                .getBoolean(App.ACTION_START_WITH_TEXT, false);
         startWithFileSelection = shortcutsArguments
-                .getBoolean(App.ACTION_START_WITH_FILE_SELECTION, false);
+                .getBoolean(App.ACTION_START_WITH_FILE, false);
 
-        shortcutsArguments.remove(App.ACTION_START_WITH_TEXT_SELECTION);
-        shortcutsArguments.remove(App.ACTION_START_WITH_FILE_SELECTION);
+        shortcutsArguments.remove(App.ACTION_START_WITH_TEXT);
+        shortcutsArguments.remove(App.ACTION_START_WITH_FILE);
     }
 
     private void validateSelectedFile(@Nullable Uri uri) {
@@ -228,11 +229,10 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
     }
 
     @Override
-    public void onHashGenerationComplete(@Nullable String hashValue) {
+    public void hashGenerationComplete(@Nullable String hashValue) {
         if (hashValue == null) {
             etGeneratedHash.setText("");
-            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_invalid_selected_source),
-                    Snackbar.LENGTH_LONG);
+            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_invalid_selected_source));
         } else {
             etGeneratedHash.setText(hashValue);
             if (SettingsHelper.canSaveResultToHistory(context)) {
@@ -242,7 +242,7 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
                         tvSelectedHashType.getText().toString());
                 HistoryItem historyItem = new HistoryItem(date, hashType, !isTextSelected, objectValue,
                         hashValue);
-                HelperFactory.getHelper().addGeneratorHistoryItem(historyItem);
+                HelperFactory.getHelper().addHistoryItem(historyItem);
             }
         }
         if (progressDialog != null && progressDialog.isShowing()) {
@@ -262,10 +262,10 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
     }
 
     @Override
-    public void onBack() {
+    public void onBackClick() {
         UIUtils.showSnackbar(context, getView().findViewById(R.id.fl_main_screen),
                 getString(R.string.message_exit), getString(R.string.action_exit_now),
-                v -> AppUtils.closeApp(getActivity()), Snackbar.LENGTH_SHORT);
+                v -> AppUtils.closeApp(getActivity()));
     }
 
     private void validateTextCase() {
@@ -341,8 +341,7 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
                 if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     UIUtils.showSnackbar(context, mainScreen,
                             getString(R.string.message_request_storage_permission_error),
-                            getString(R.string.common_again), v -> requestStoragePermission(),
-                            Snackbar.LENGTH_LONG);
+                            getString(R.string.common_again), v -> requestStoragePermission());
                 } else {
                     AppAlertDialog.show(context, R.string.title_permission_dialog,
                             R.string.message_request_storage_permission_denied,
@@ -358,42 +357,44 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
         super.onAppResume();
         validateTextCase();
         checkMultilinePreference();
-        if (SettingsHelper.refreshSelectedFile(context)) {
-            if (!isTextSelected && fileUri != null) {
-                fileUri = null;
-                tvSelectedObjectName.setText(getString(R.string.message_select_object));
-                btnGenerateFrom.setText(getString(R.string.action_from));
-                SettingsHelper.setRefreshSelectedFileStatus(context, false);
-            }
-        }
+        checkFileManagerChanged();
         onHashTypeSelect(SettingsHelper.getLastHashType(context));
     }
 
     private void checkMultilinePreference() {
         if (SettingsHelper.isUsingMultilineHashFields(context)) {
-            validateEditTextWithMultilineSupport(etCustomHash,
+            validateMultilineFields(etCustomHash,
                     TEXT_MULTILINE_LINES_COUNT, false);
-            validateEditTextWithMultilineSupport(etGeneratedHash,
+            validateMultilineFields(etGeneratedHash,
                     TEXT_MULTILINE_LINES_COUNT, false);
         } else {
-            validateEditTextWithMultilineSupport(etCustomHash,
+            validateMultilineFields(etCustomHash,
                     TEXT_SINGLE_LINE_LINES_COUNT, true);
-            validateEditTextWithMultilineSupport(etGeneratedHash,
+            validateMultilineFields(etGeneratedHash,
                     TEXT_SINGLE_LINE_LINES_COUNT, true);
         }
     }
 
-    private void validateEditTextWithMultilineSupport(@NonNull EditText editText, int lines,
-                                                      boolean singleLine) {
+    private void validateMultilineFields(@NonNull EditText editText, int lines, boolean singleLine) {
         editText.setSingleLine(singleLine);
         editText.setMinLines(lines);
         editText.setMaxLines(lines);
         editText.setLines(lines);
     }
 
+    private void checkFileManagerChanged() {
+        if (SettingsHelper.refreshSelectedFile(context)) {
+            if (!isTextSelected && fileUri != null) {
+                fileUri = null;
+                tvSelectedObjectName.setText(getString(R.string.message_select_object));
+                btnGenerateFrom.setText(getString(R.string.action_from));
+            }
+            SettingsHelper.setRefreshSelectedFileStatus(context, false);
+        }
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
         if (data != null) {
             switch (requestCode) {
                 case Requests.FILE_SELECT:
@@ -405,7 +406,11 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
                     selectFileFromAppFileManager(data);
                     break;
                 case Requests.FILE_CREATE:
-                    writeHashToFile(data.getData());
+                    try {
+                        writeHashToFile(data.getData());
+                    } catch (IOException e) {
+                        L.e(e);
+                    }
                     break;
             }
         }
@@ -424,21 +429,15 @@ public class MainFragment extends BaseFragment implements TextValueTarget,
         }
     }
 
-    private void writeHashToFile(@Nullable Uri uri) {
+    private void writeHashToFile(@Nullable Uri uri) throws IOException {
         if (uri != null) {
-            try {
-                ParcelFileDescriptor fileDescriptor = getActivity().getApplicationContext().getContentResolver()
-                        .openFileDescriptor(uri, "w");
-                if (fileDescriptor != null) {
-                    FileOutputStream outputStream = new FileOutputStream(fileDescriptor.getFileDescriptor());
-                    outputStream.write(etGeneratedHash.getText().toString().getBytes());
-                    outputStream.close();
-                    fileDescriptor.close();
-                }
-            } catch (FileNotFoundException e) {
-                L.e(e);
-            } catch (IOException e) {
-                L.e(e);
+            ParcelFileDescriptor fileDescriptor = getActivity().getApplicationContext().getContentResolver()
+                    .openFileDescriptor(uri, "w");
+            if (fileDescriptor != null) {
+                FileOutputStream outputStream = new FileOutputStream(fileDescriptor.getFileDescriptor());
+                outputStream.write(etGeneratedHash.getText().toString().getBytes());
+                outputStream.close();
+                fileDescriptor.close();
             }
         }
     }

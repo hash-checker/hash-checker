@@ -12,10 +12,10 @@ public enum Action implements ListMarker {
     COMPARE(R.string.action_compare, R.drawable.ic_compare, UserActionType.COMPARE_HASHES),
     EXPORT_AS_TXT(R.string.action_export_to_txt, R.drawable.ic_export, UserActionType.EXPORT_AS_TXT);
 
-    private int titleResId;
-    private int iconResId;
+    private final int titleResId;
+    private final int iconResId;
 
-    private UserActionType userActionType;
+    private final UserActionType userActionType;
 
     Action(int titleResId, int iconResId, UserActionType userActionType) {
         this.titleResId = titleResId;

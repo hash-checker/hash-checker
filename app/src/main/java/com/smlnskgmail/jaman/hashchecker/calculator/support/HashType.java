@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.generator.support;
+package com.smlnskgmail.jaman.hashchecker.calculator.support;
 
 import android.content.Context;
 
@@ -17,8 +17,8 @@ public enum HashType implements ListMarker {
     SHA_512(R.string.hash_type_sha512, "SHA-512"),
     CRC_32(R.string.hash_type_crc32, "");
 
-    private int hashTypeNameResId;
-    private String messageDigestHashName;
+    private final int hashTypeNameResId;
+    private final String messageDigestHashName;
 
     HashType(int hashTypeNameResId, String messageDigestHashName) {
         this.hashTypeNameResId = hashTypeNameResId;

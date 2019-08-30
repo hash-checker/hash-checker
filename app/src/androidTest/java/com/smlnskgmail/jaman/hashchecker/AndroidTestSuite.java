@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker;
 
+import com.smlnskgmail.jaman.hashchecker.hashcalculator.ZeroLeadsHashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.hashcalculator.crc.CRC32HashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.hashcalculator.md.MD5HashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.hashcalculator.sha.SHA1HashCalculatorTest;
@@ -22,7 +23,8 @@ import org.junit.runners.Suite;
         SHA384HashCalculatorTest.class,
         SHA512HashCalculatorTest.class,
         CRC32HashCalculatorTest.class,
+        ZeroLeadsHashCalculatorTest.class,
         ScreenRunnerTest.class,
-        GenerateHashFromTextTest.class,
+        GenerateHashFromTextTest.class
 })
 public class AndroidTestSuite {}

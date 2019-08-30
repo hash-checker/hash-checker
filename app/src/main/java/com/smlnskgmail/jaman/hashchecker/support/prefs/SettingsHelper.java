@@ -6,9 +6,9 @@ import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.Theme;
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.support.logger.L;
+import com.smlnskgmail.jaman.hashchecker.support.logs.L;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
 public class SettingsHelper {

@@ -15,12 +15,11 @@ public class TextInputDialog extends BaseDialog {
 
     private EditText etTextValue;
 
-    private TextValueTarget textValueCallback;
+    private final TextValueTarget textValueCallback;
 
-    private String textValue;
+    private final String textValue;
 
-    public TextInputDialog(@NonNull Context context,
-                           @NonNull TextValueTarget textEnteredCallback,
+    public TextInputDialog(@NonNull Context context, @NonNull TextValueTarget textEnteredCallback,
                            @Nullable String textValue) {
         super(context);
         this.textValueCallback = textEnteredCallback;

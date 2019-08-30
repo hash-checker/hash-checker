@@ -13,7 +13,7 @@ public enum Theme implements ListMarker {
     LIGHT(R.string.title_theme_light, R.drawable.ic_settings_theme, R.style.AppThemeLight),
     DARK(R.string.title_theme_dark, R.drawable.ic_settings_theme, R.style.AppThemeDark);
 
-    private int titleResId, iconResId, themeResId;
+    private final int titleResId, iconResId, themeResId;
 
     Theme(int titleResId, int iconResId, int themeResId) {
         this.titleResId = titleResId;

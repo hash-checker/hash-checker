@@ -1,6 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker.navigation.fragments.history;
 
-import android.os.AsyncTask;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -15,49 +14,21 @@ import com.smlnskgmail.jaman.hashchecker.components.containers.AdaptiveRecyclerV
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.db.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.DataPortion;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryItem;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryPortion;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.listadapter.HistoryItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.loader.HistoryItemsLoader;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.loader.LoaderTarget;
 
 import java.util.List;
 
-public class HistoryFragment extends BaseFragment {
-
-    private static final long DATABASE_PORTION = 30;
-
-    private class HistoryItemsLoader extends AsyncTask<Void, List<HistoryItem>, List<HistoryItem>> {
-
-        @Override
-        protected List<HistoryItem> doInBackground(Void... voids) {
-            return HelperFactory.getHelper().getHistoryItemsWithPortion(dataPortion);
-        }
-
-        @Override
-        protected void onPostExecute(List<HistoryItem> historyItems) {
-            setLoaded(historyItems);
-            addHistoryItemsToList(historyItems);
-        }
-
-        private void setLoaded(@NonNull List<HistoryItem> historyItems) {
-            isLoading = false;
-            dataPortion.setLoaded(historyItems.size() < dataPortion.getPageSize());
-            dataPortion.setPage(dataPortion.getPage() + 1);
-        }
-
-        private void addHistoryItemsToList(@NonNull List<HistoryItem> historyItems) {
-            pbHistory.setVisibility(View.GONE);
-            rvHistoryItems.setVisibility(View.VISIBLE);
-            ((HistoryItemsAdapter) rvHistoryItems.getAdapter()).addHistoryItems(historyItems);
-        }
-
-    }
+public class HistoryFragment extends BaseFragment implements LoaderTarget<HistoryItem> {
 
     private FrameLayout flHistory;
     private AdaptiveRecyclerView rvHistoryItems;
-
     private ProgressBar pbHistory;
 
-    private DataPortion dataPortion = new DataPortion(DATABASE_PORTION);
+    private final HistoryPortion historyPortion = new HistoryPortion();
 
     private boolean isLoading;
 
@@ -80,7 +51,7 @@ public class HistoryFragment extends BaseFragment {
             }
 
             private boolean canLoad(int totalItemCount, int lastVisibleItem) {
-                return !isLoading && !dataPortion.isLoaded()
+                return !isLoading && !historyPortion.isLoaded()
                         && totalItemCount <= lastVisibleItem + 2;
             }
         });
@@ -106,12 +77,24 @@ public class HistoryFragment extends BaseFragment {
     }
 
     private void load() {
-        if (!dataPortion.isLoaded()) {
+        if (!historyPortion.isLoaded()) {
             pbHistory.setVisibility(View.VISIBLE);
             rvHistoryItems.setVisibility(View.GONE);
             rvHistoryItems.getEmptyMessage().setVisibility(View.GONE);
-            new HistoryItemsLoader().execute();
+            new HistoryItemsLoader(this).execute();
         }
+    }
+
+    @Override
+    public void postLoad(List<HistoryItem> items) {
+        pbHistory.setVisibility(View.GONE);
+        rvHistoryItems.setVisibility(View.VISIBLE);
+        ((HistoryItemsAdapter) rvHistoryItems.getAdapter()).addHistoryItems(items);
+    }
+
+    @Override
+    public HistoryPortion dataPortion() {
+        return historyPortion;
     }
 
     @Override

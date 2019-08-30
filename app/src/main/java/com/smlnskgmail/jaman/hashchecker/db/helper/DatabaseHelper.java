@@ -11,10 +11,11 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.db.entity.DBEntity;
-import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.DataPortion;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.support.logger.L;
+import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryPortion;
+import com.smlnskgmail.jaman.hashchecker.support.logs.L;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,7 +23,8 @@ import java.util.List;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
-    private static final String DATABASE_NAME = "hashchecker.db";
+    public static final String DATABASE_FOLDER = "databases" + File.separator;
+    public static final String DATABASE_NAME = "hashchecker.db";
 
     private static final int DATABASE_VERSION_1 = 1; // Added History
 
@@ -51,7 +53,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion,
                           int newVersion) {}
 
-    public void addGeneratorHistoryItem(@NonNull HistoryItem historyItem) {
+    public void addHistoryItem(@NonNull HistoryItem historyItem) {
         try {
             getDao(HistoryItem.class).create(historyItem);
         } catch (SQLException e) {
@@ -59,10 +61,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    public List<HistoryItem> getHistoryItemsWithPortion(@NonNull DataPortion dataPortion) {
+    public List<HistoryItem> historyItems(@NonNull HistoryPortion historyPortion) {
         try {
-            long portion = dataPortion.getPageSize();
-            int page = dataPortion.getPage();
+            long portion = historyPortion.pageSize();
+            int page = historyPortion.page();
             QueryBuilder<HistoryItem, ?> queryBuilder = getDao(HistoryItem.class).queryBuilder()
                     .limit(portion);
             if (page != -1L) {
@@ -79,6 +81,24 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             getDao(HistoryItem.class).deleteBuilder().delete();
         } catch (SQLException e) {
+            L.e(e);
+        }
+    }
+
+    public boolean isHistoryItemsListIsEmpty() {
+        try {
+            return getDao(HistoryItem.class).countOf() > 0;
+        } catch (SQLException e) {
+            L.e(e);
+            return false;
+        }
+    }
+
+    //https://stackoverflow.com/questions/19574286/how-to-merge-contents-of-sqlite-3-7-wal-file-into-main-database-file
+    public void checkpoint() {
+        try {
+            getWritableDatabase().execSQL("PRAGMA wal_checkpoint");
+        } catch (Exception e) {
             L.e(e);
         }
     }

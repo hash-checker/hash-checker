@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileType;
-import com.smlnskgmail.jaman.hashchecker.support.logger.L;
+import com.smlnskgmail.jaman.hashchecker.support.logs.L;
 
 import java.io.File;
 import java.io.InputStream;
@@ -17,14 +17,14 @@ import java.util.Locale;
 
 public class FileUtils {
 
-    private static List<String> VIDEO_EXTENSIONS = new ArrayList<>(Arrays.asList(
+    private static final List<String> VIDEO_EXTENSIONS = new ArrayList<>(Arrays.asList(
             ".3gp",
             ".mp4",
             ".mkv",
             ".webm"
     ));
 
-    private static List<String> IMAGE_EXTENSIONS = new ArrayList<>(Arrays.asList(
+    private static final List<String> IMAGE_EXTENSIONS = new ArrayList<>(Arrays.asList(
             ".bmp",
             ".gif",
             ".jpg",
@@ -34,7 +34,7 @@ public class FileUtils {
             ".heif"
     ));
 
-    private static List<String> SOUND_EXTENSIONS = new ArrayList<>(Arrays.asList(
+    private static final List<String> SOUND_EXTENSIONS = new ArrayList<>(Arrays.asList(
             ".m4a",
             ".aac",
             ".tc",

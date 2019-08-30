@@ -81,5 +81,9 @@
     <!-- history -->
     <string name="history_item_click_text">Hash-Wert in die Zwischenablage kopiert</string>
     <string name="history_empty_view_message">Verlaufselemente nicht gefunden</string>
+    <string name="settings_title_export_user_data">Benutzerdaten exportieren</string>
+    <string name="settings_title_privacy">Privatsphäre</string>
+    <string name="message_generate_hash_before_export">Generieren Sie vor dem Export einen Hash</string>
+    <string name="settings_title_privacy_policy">Datenschutz-Bestimmungen</string>
 
 </resources>

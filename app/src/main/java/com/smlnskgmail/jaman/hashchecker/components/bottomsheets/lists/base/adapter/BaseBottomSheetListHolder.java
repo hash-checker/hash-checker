@@ -14,12 +14,12 @@ import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder {
 
-    private TextView tvItemTitle;
+    private final TextView tvItemTitle;
 
-    private ImageView ivItemPrimaryIcon;
-    private ImageView ivItemAdditionalIcon;
+    private final ImageView ivItemPrimaryIcon;
+    private final ImageView ivItemAdditionalIcon;
 
-    private Context context;
+    private final Context context;
 
     protected BaseBottomSheetListHolder(@NonNull View itemView, @NonNull Context themeContext) {
         super(itemView);
@@ -45,7 +45,7 @@ public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder 
             ivItemAdditionalIcon.setImageResource(listMarker.getAdditionalIconResId());
             UIUtils.colorizeImageSourceToAccentColor(context, ivItemAdditionalIcon.getDrawable());
         }
-        ivItemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState() ? View.VISIBLE : View.GONE);
+        ivItemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState() ? View.VISIBLE : View.INVISIBLE);
     }
 
     protected boolean getConditionToPrimaryIconVisibleState() {

@@ -4,15 +4,15 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.test.InstrumentationRegistry;
-import androidx.test.espresso.Espresso;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 
-import com.smlnskgmail.jaman.hashchecker.support.logger.L;
-import com.smlnskgmail.jaman.hashchecker.ui.matchers.TextMatcher;
+import com.smlnskgmail.jaman.hashchecker.support.logs.L;
+import com.smlnskgmail.jaman.hashchecker.ui.support.matchers.TextMatcher;
 
 import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -48,7 +48,7 @@ public abstract class BaseUITest {
 
     protected void delayAndBack() {
         secondDelay();
-        Espresso.pressBack();
+        pressBack();
         secondDelay();
     }
 

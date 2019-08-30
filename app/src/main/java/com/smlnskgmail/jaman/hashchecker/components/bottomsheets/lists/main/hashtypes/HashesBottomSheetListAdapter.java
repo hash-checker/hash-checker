@@ -6,19 +6,19 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.ListMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.base.adapter.BaseBottomSheetListHolder;
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
 
 import java.util.List;
 
 public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
-    private HashType selectedHashType;
-    private HashTypeSelectTarget hashTypeSelectListener;
+    private final HashType selectedHashType;
+    private final HashTypeSelectTarget hashTypeSelectListener;
 
     HashesBottomSheetListAdapter(@NonNull List<ListMarker> items,
                                  @NonNull BaseListBottomSheet bottomSheet,
@@ -36,7 +36,7 @@ public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
     private class HashesBottomSheetListHolder extends BaseBottomSheetListHolder {
 
         private HashType hashTypeAtPosition;
-        private HashTypeSelectTarget hashTypeSelectListener;
+        private final HashTypeSelectTarget hashTypeSelectListener;
 
         HashesBottomSheetListHolder(@NonNull View itemView, @NonNull Context themeContext,
                                     @NonNull HashTypeSelectTarget hashTypeSelectListener) {

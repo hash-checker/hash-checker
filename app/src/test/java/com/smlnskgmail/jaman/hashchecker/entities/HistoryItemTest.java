@@ -1,12 +1,13 @@
 package com.smlnskgmail.jaman.hashchecker.entities;
 
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryItem;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Date;
+
+import static org.junit.Assert.assertEquals;
 
 public class HistoryItemTest {
 
@@ -21,11 +22,11 @@ public class HistoryItemTest {
         HistoryItem historyItem = new HistoryItem(generationDate, hashType, isFile,
                 objectValue, hashValue);
 
-        Assert.assertEquals(historyItem.getGenerationDate(), generationDate);
-        Assert.assertEquals(historyItem.getHashType(), hashType);
-        Assert.assertEquals(historyItem.isFile(), isFile);
-        Assert.assertEquals(historyItem.getObjectValue(), objectValue);
-        Assert.assertEquals(historyItem.getHashValue(), hashValue);
+        assertEquals(historyItem.getGenerationDate(), generationDate);
+        assertEquals(historyItem.getHashType(), hashType);
+        assertEquals(historyItem.isFile(), isFile);
+        assertEquals(historyItem.getObjectValue(), objectValue);
+        assertEquals(historyItem.getHashValue(), hashValue);
     }
 
 }

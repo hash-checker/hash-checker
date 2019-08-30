@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
@@ -16,20 +15,20 @@ import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.text.DateFormat;
 
-public class HistoryItemHolder extends RecyclerView.ViewHolder {
+class HistoryItemHolder extends RecyclerView.ViewHolder {
 
     private static final String DEFAULT_TITLE_PATTERN = "%s:";
 
-    private ImageView ivHistoryItemObjectIcon;
+    private final ImageView ivHistoryItemObjectIcon;
 
-    private TextView tvHistoryItemObjectTitle;
-    private TextView tvHistoryItemObjectData;
-    private TextView tvHistoryItemHashType;
-    private TextView tvHistoryItemHashData;
-    private TextView tvHistoryItemDateTitle;
-    private TextView tvHistoryItemDate;
+    private final TextView tvHistoryItemObjectTitle;
+    private final TextView tvHistoryItemObjectData;
+    private final TextView tvHistoryItemHashType;
+    private final TextView tvHistoryItemHashData;
+    private final TextView tvHistoryItemDateTitle;
+    private final TextView tvHistoryItemDate;
 
-    private View rootView;
+    private final View rootView;
 
     HistoryItemHolder(@NonNull View itemView, @NonNull View rootView) {
         super(itemView);
@@ -43,7 +42,7 @@ public class HistoryItemHolder extends RecyclerView.ViewHolder {
         tvHistoryItemDate = itemView.findViewById(R.id.tv_item_history_date);
     }
 
-    public void bind(@NonNull HistoryItem historyItem) {
+    void bind(@NonNull HistoryItem historyItem) {
         Context context = itemView.getContext();
         initializeObjectData(context, historyItem);
         initializeHashType(context, historyItem);
@@ -52,8 +51,7 @@ public class HistoryItemHolder extends RecyclerView.ViewHolder {
             String message = context.getString(R.string.history_item_click_text);
             String actionText = context.getString(R.string.common_ok);
             UIUtils.showSnackbar(context, rootView, message, actionText, v1 ->
-                    AppUtils.copyTextToClipboard(context, historyItem.getHashValue()),
-                    Snackbar.LENGTH_SHORT);
+                    AppUtils.copyTextToClipboard(context, historyItem.getHashValue()));
         });
     }
 

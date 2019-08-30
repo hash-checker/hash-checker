@@ -4,7 +4,7 @@
     <foreground>
         <inset
             android:drawable="@drawable/ic_shortcut_from_file"
-            android:inset="35%"
+            android:inset="30%"
             tools:targetApi="lollipop">
         </inset>
     </foreground>

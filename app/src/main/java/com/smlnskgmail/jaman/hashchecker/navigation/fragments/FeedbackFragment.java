@@ -104,7 +104,7 @@ public class FeedbackFragment extends BaseFragment {
     }
 
     @Override
-    protected int[] getMenuItemsIds() {
+    public int[] getMenuItemsIds() {
         return new int[0];
     }
 

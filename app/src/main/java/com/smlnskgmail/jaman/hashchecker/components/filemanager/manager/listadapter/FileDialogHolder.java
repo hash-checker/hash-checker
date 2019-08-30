@@ -14,9 +14,9 @@ import com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.support.
 
 class FileDialogHolder extends RecyclerView.ViewHolder {
 
-    private TextView tvItemFile;
+    private final TextView tvItemFile;
 
-    private FileSelectTarget fileClickListener;
+    private final FileSelectTarget fileClickListener;
 
     FileDialogHolder(@NonNull View itemView, @NonNull FileSelectTarget fileClickListener) {
         super(itemView);

@@ -81,6 +81,7 @@
         <item name="android:selectAllOnFocus">true</item>
         <item name="android:textColor">?attr/colorCommonText</item>
         <item name="android:textColorHint">?attr/colorCommonUnselected</item>
+        <item name="android:inputType">text</item>
     </style>
 
     <style name="AppTextViewDialogComponent">

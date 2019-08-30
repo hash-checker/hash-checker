@@ -4,7 +4,7 @@ import androidx.test.rule.ActivityTestRule;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
 
 import org.junit.Rule;
@@ -31,8 +31,7 @@ public class GenerateHashFromTextTest extends BaseUITest {
     private static final int GENERATE_BUTTON_POSITION = 0;
 
     @Rule
-    public ActivityTestRule<MainActivity> menuActivityTestRule =
-            new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Override
     public void runTest() throws InterruptedException {
@@ -46,8 +45,7 @@ public class GenerateHashFromTextTest extends BaseUITest {
         clickById(R.id.btn_generate_from);
         secondDelay();
 
-        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items,
-                TEXT_BUTTON_POSITION);
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, TEXT_BUTTON_POSITION);
         secondDelay();
     }
 
@@ -79,8 +77,7 @@ public class GenerateHashFromTextTest extends BaseUITest {
         secondDelay();
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
-        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items,
-                GENERATE_BUTTON_POSITION);
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, GENERATE_BUTTON_POSITION);
         countDownLatch.await(SECOND_IN_MILLIS, TimeUnit.MILLISECONDS);
         secondDelay();
 

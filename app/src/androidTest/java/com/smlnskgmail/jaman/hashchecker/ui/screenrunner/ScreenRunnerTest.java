@@ -23,8 +23,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 public class ScreenRunnerTest extends BaseUITest {
 
     @Rule
-    public ActivityTestRule<MainActivity> menuActivityTestRule =
-            new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Override
     public void runTest() {
@@ -76,10 +75,8 @@ public class ScreenRunnerTest extends BaseUITest {
     }
 
     private void clickToSettingsItem(int settingsTitleResId) {
-        onView(withId(R.id.recycler_view))
-                .perform(RecyclerViewActions
-                        .actionOnItem(hasDescendant(withText(settingsTitleResId)),
-                        click()));
+        onView(withId(R.id.recycler_view)).perform(RecyclerViewActions
+                        .actionOnItem(hasDescendant(withText(settingsTitleResId)), click()));
         delayAndBack();
     }
 

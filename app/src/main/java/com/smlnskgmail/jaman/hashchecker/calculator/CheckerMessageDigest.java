@@ -1,6 +1,6 @@
-package com.smlnskgmail.jaman.hashchecker.generator;
+package com.smlnskgmail.jaman.hashchecker.calculator;
 
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.utils.HashUtils;
 
 import java.security.MessageDigest;
@@ -9,7 +9,7 @@ import java.util.zip.CRC32;
 
 class CheckerMessageDigest {
 
-    private HashType hashType;
+    private final HashType hashType;
 
     private MessageDigest messageDigest;
     private CRC32 crc32;
@@ -37,7 +37,7 @@ class CheckerMessageDigest {
         }
     }
 
-    String getResult() {
+    String result() {
         if (!useCRC32) {
             return HashUtils.getStringFromBytes(messageDigest.digest());
         } else {

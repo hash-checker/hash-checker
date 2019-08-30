@@ -12,7 +12,7 @@ public class AdaptiveRecyclerView extends RecyclerView {
 
     private View emptyMessage;
 
-    private AdapterDataObserver emptyObserver = new AdapterDataObserver() {
+    private final AdapterDataObserver emptyObserver = new AdapterDataObserver() {
         private void checkItemsAvailable() {
             Adapter adapter = getAdapter();
             if (adapter != null && emptyMessage != null) {

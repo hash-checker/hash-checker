@@ -4,9 +4,9 @@ import androidx.annotation.NonNull;
 
 public class FileItem {
 
-    private FileType fileType;
-    private String filePath;
-    private String fileName;
+    private final FileType fileType;
+    private final String filePath;
+    private final String fileName;
 
     public FileItem(@NonNull FileType fileType, @NonNull String filePath, @NonNull String fileName) {
         this.fileType = fileType;

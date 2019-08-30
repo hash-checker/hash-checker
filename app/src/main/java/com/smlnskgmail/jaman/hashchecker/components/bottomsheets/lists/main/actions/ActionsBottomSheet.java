@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ActionsBottomSheet extends BaseListBottomSheet {
 
-    private List<ListMarker> actions = new ArrayList<>();
+    private final List<ListMarker> actions = new ArrayList<>();
     private UserActionTarget userActionTarget;
 
     public void setActions(List<Action> actions) {

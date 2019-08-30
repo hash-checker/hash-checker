@@ -17,8 +17,8 @@ import java.util.List;
 
 public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<BaseBottomSheetListHolder> {
 
-    private BaseListBottomSheet bottomSheet;
-    private List<ListMarker> items = new ArrayList<>();
+    private final BaseListBottomSheet bottomSheet;
+    private final List<ListMarker> items = new ArrayList<>();
 
     protected BaseBottomSheetListAdapter(@NonNull List<ListMarker> items,
                                          @NonNull BaseListBottomSheet bottomSheet) {
@@ -30,7 +30,7 @@ public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<Ba
     @Override
     public BaseBottomSheetListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return getItemsHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_bottom_sheet_list, parent, false),
+                .inflate(R.layout.item_list, parent, false),
                 getBottomSheet().getContext());
     }
 

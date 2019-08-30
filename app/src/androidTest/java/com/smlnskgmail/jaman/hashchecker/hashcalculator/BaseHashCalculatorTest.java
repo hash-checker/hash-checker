@@ -3,18 +3,23 @@ package com.smlnskgmail.jaman.hashchecker.hashcalculator;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.test.InstrumentationRegistry;
 
-import com.smlnskgmail.jaman.hashchecker.generator.HashCalculator;
-import com.smlnskgmail.jaman.hashchecker.generator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.calculator.HashCalculator;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.security.NoSuchAlgorithmException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 public abstract class BaseHashCalculatorTest {
 
-    private static final String TESTING_TEXT = "TEST"; // or use "iwrupvqb346386" for testing zero leads
+    private static final String TESTING_TEXT = "TEST";
     private static final String TESTING_FILE = "test.zip";
 
     private HashCalculator hashCalculator;
@@ -23,45 +28,50 @@ public abstract class BaseHashCalculatorTest {
     @Before
     public void initializeResources() {
         context = InstrumentationRegistry.getContext();
-    }
-
-    @Test
-    public void executeTest() throws Exception {
-        initializeHashCalculator();
-        testText();
-        testFile();
-    }
-
-    private void initializeHashCalculator() {
         HashType hashType = getHashType();
-        Assert.assertNotNull(hashType);
+
+        assertNotNull(hashType);
+
         hashCalculator = new HashCalculator(hashType);
     }
 
-    private void testText() {
-        String hashFromString = hashCalculator.generateFromString(TESTING_TEXT);
-        Assert.assertNotNull(hashFromString);
+    @Test
+    public void checkText() throws NoSuchAlgorithmException {
         String hashValue = getHashValueForTestText();
-        Assert.assertNotNull(hashValue);
-        Assert.assertEquals(hashFromString, hashValue);
+        assertNotNull(hashValue);
+
+        String hashFromString = hashCalculator.fromString(getTestingText());
+        assertNotNull(hashFromString);
+
+        assertEquals(hashFromString, hashValue);
     }
 
-    private void testFile() throws Exception {
-        String hashFromFile = hashCalculator.generateFromFile(context.getResources().getAssets()
-                .open(TESTING_FILE));
-        Assert.assertNotNull(hashFromFile);
-        String hashValue = getHashValueForTesFile();
-        Assert.assertNotNull(hashValue);
-        Assert.assertEquals(hashFromFile, hashValue);
+    protected String getTestingText() {
+        return TESTING_TEXT;
+    }
+
+    @Test
+    public void checkFile() throws Exception {
+        String hashValue = getHashValueForTestFile();
+        assertNotNull(hashValue);
+
+        String hashFromFile = hashCalculator.fromFile(context.getResources().getAssets()
+                .open(getTestingFile()));
+        assertNotNull(hashFromFile);
+        assertEquals(hashFromFile, hashValue);
+    }
+
+    private String getTestingFile() {
+        return TESTING_FILE;
     }
 
     @NonNull
     protected abstract HashType getHashType();
 
-    @NonNull
+    @Nullable
     protected abstract String getHashValueForTestText();
 
-    @NonNull
-    protected abstract String getHashValueForTesFile();
+    @Nullable
+    protected abstract String getHashValueForTestFile();
 
 }

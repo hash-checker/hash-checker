@@ -18,11 +18,11 @@ import java.util.Arrays;
 
 public class App extends android.app.Application {
 
-    public static final String ACTION_START_WITH_TEXT_SELECTION = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT_SELECTION";
-    public static final String ACTION_START_WITH_FILE_SELECTION = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FILE_SELECTION";
+    public static final String ACTION_START_WITH_TEXT = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT";
+    public static final String ACTION_START_WITH_FILE = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FILE";
 
-    public static final String SHORTCUT_TEXT_ID = "shortcut_text";
-    public static final String SHORTCUT_FILE_ID = "shortcut_file";
+    private static final String SHORTCUT_TEXT_ID = "shortcut_text";
+    private static final String SHORTCUT_FILE_ID = "shortcut_file";
 
     @Override
     public void onCreate() {
@@ -47,7 +47,7 @@ public class App extends android.app.Application {
     @NonNull
     private ShortcutInfo getShortcutForTextType() {
         return getShortcut(SHORTCUT_TEXT_ID, R.string.common_text,
-                R.drawable.ic_shortcut_text, ACTION_START_WITH_TEXT_SELECTION);
+                R.drawable.ic_shortcut_text, ACTION_START_WITH_TEXT);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
@@ -55,14 +55,14 @@ public class App extends android.app.Application {
     @NonNull
     private ShortcutInfo getShortcutForFileType() {
         return getShortcut(SHORTCUT_FILE_ID, R.string.common_file,
-                R.drawable.ic_shortcut_file, ACTION_START_WITH_FILE_SELECTION);
+                R.drawable.ic_shortcut_file, ACTION_START_WITH_FILE);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     @SuppressLint("ResourceType")
     @NonNull
-    private ShortcutInfo getShortcut(@NonNull String id, @IdRes int labelResId,
-                                     @IdRes int iconResId, @NonNull String intentAction) {
+    private ShortcutInfo getShortcut(@NonNull String id, @IdRes int labelResId, @IdRes int iconResId,
+                                     @NonNull String intentAction) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setAction(intentAction);
         return new ShortcutInfo.Builder(this, id)

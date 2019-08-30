@@ -1,21 +1,17 @@
 package com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities;
 
-public class DataPortion {
+public class HistoryPortion {
 
-    private long pageSize;
+    private static final int PAGE_SIZE = 30;
+
     private int page;
-
     private boolean isLoaded;
 
-    public DataPortion(long pageSize) {
-        this.pageSize = pageSize;
+    public long pageSize() {
+        return PAGE_SIZE;
     }
 
-    public long getPageSize() {
-        return pageSize;
-    }
-
-    public int getPage() {
+    public int page() {
         return page;
     }
 

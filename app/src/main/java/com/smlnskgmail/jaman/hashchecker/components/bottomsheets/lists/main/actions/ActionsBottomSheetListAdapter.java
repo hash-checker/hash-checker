@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ActionsBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
-    private UserActionTarget userActionTarget;
+    private final UserActionTarget userActionTarget;
 
     ActionsBottomSheetListAdapter(@NonNull List<ListMarker> items,
                                   @NonNull BaseListBottomSheet bottomSheet,
@@ -31,7 +31,7 @@ public class ActionsBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
     private class ActionsBottomSheetListHolder extends BaseBottomSheetListHolder {
 
-        private UserActionTarget userActionTarget;
+        private final UserActionTarget userActionTarget;
 
         ActionsBottomSheetListHolder(@NonNull View itemView, @NonNull Context themeContext,
                                      @NonNull UserActionTarget userActionTarget) {

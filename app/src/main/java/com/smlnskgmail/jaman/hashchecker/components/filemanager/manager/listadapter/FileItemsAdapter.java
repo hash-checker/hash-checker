@@ -14,11 +14,10 @@ import java.util.List;
 
 public class FileItemsAdapter extends RecyclerView.Adapter<FileDialogHolder> {
 
-    private FileSelectTarget fileClickListener;
-    private List<FileItem> files;
+    private final FileSelectTarget fileClickListener;
+    private final List<FileItem> files;
 
-    public FileItemsAdapter(@NonNull List<FileItem> files,
-                            @NonNull FileSelectTarget fileClickListener) {
+    public FileItemsAdapter(@NonNull List<FileItem> files, @NonNull FileSelectTarget fileClickListener) {
         this.files = files;
         this.fileClickListener = fileClickListener;
     }

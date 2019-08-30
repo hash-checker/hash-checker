@@ -1,28 +1,33 @@
 package com.smlnskgmail.jaman.hashchecker.utils;
 
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TextUtilsTest {
 
     @Test
     public void validateEqualsStringsTest() {
         String singleString = "equals";
-        Assert.assertTrue(TextUtils.compareText(singleString, singleString));
+
+        assertTrue(TextUtils.compareText(singleString, singleString));
     }
 
     @Test
     public void validateEqualsStringsWithDifferentCasesTest() {
         String firstString = "Blob";
         String secondString = "BLOB";
-        Assert.assertTrue(TextUtils.compareText(firstString, secondString));
+
+        assertTrue(TextUtils.compareText(firstString, secondString));
     }
 
     @Test
     public void validateNotEqualsStringsTest() {
         String firstString = "equals";
         String secondString = "blob";
-        Assert.assertFalse(TextUtils.compareText(firstString, secondString));
+
+        assertFalse(TextUtils.compareText(firstString, secondString));
     }
 
 }

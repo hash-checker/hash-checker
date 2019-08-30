@@ -3,8 +3,9 @@ package com.smlnskgmail.jaman.hashchecker.entities;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileType;
 
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class FileItemTest {
 
@@ -16,9 +17,9 @@ public class FileItemTest {
 
         FileItem fileItem = new FileItem(fileType, filePath, filename);
 
-        Assert.assertEquals(fileItem.getFileType(), fileType);
-        Assert.assertEquals(fileItem.getFilePath(), filePath);
-        Assert.assertEquals(fileItem.getFileName(), filename);
+        assertEquals(fileItem.getFileType(), fileType);
+        assertEquals(fileItem.getFilePath(), filePath);
+        assertEquals(fileItem.getFileName(), filename);
     }
 
 }

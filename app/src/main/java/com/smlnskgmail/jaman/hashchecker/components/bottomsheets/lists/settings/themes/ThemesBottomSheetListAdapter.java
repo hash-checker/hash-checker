@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
-    private Theme selectedTheme;
+    private final Theme selectedTheme;
 
     ThemesBottomSheetListAdapter(@NonNull List<ListMarker> items,
                                  @NonNull BaseListBottomSheet bottomSheet) {

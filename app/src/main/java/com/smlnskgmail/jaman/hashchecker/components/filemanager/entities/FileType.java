@@ -12,7 +12,7 @@ public enum FileType {
     MUSIC(R.drawable.ic_music_note),
     STORAGE(R.drawable.ic_settings_file_manager);
 
-    private int iconResId;
+    private final int iconResId;
 
     FileType(int iconResId) {
         this.iconResId = iconResId;

@@ -81,5 +81,9 @@
     <!-- history -->
     <string name="history_item_click_text">Значение скопировано в буфер обмена</string>
     <string name="history_empty_view_message">История пуста</string>
+    <string name="settings_title_export_user_data">Выгрузить пользовательские данные</string>
+    <string name="settings_title_privacy">Приватность</string>
+    <string name="message_generate_hash_before_export">Сгенерируйте значение перед выгрузкой</string>
+    <string name="settings_title_privacy_policy">Политика конфиденциальности</string>
 
 </resources>

@@ -15,7 +15,7 @@ import java.util.List;
 
 public abstract class BaseListBottomSheet extends BaseBottomSheet {
 
-    private List<ListMarker> items = new ArrayList<>();
+    private final List<ListMarker> items = new ArrayList<>();
 
     @Override
     public void initUI(@NonNull View contentView) {
