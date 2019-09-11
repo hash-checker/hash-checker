@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/colorDialogBackground"
     android:orientation="vertical">
 
     <TextView
@@ -24,6 +23,7 @@
         android:layout_marginTop="@dimen/common_margin_2"
         android:hint="@string/hint_input_text"
         android:inputType="textPersonName"
+        android:importantForAutofill="no"
         tools:ignore="TextFields" />
 
     <LinearLayout

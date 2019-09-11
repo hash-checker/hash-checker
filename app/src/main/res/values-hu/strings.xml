@@ -1,0 +1,89 @@
+<resources>
+
+    <!-- menu -->
+    <string name="menu_title_settings">Beállítások</string>
+    <string name="menu_title_feedback">Visszacsatolás</string>
+    <string name="menu_title_history">Történelem</string>
+
+    <!-- dialog titles -->
+    <string name="title_dialog_enter_text">Szöveg hozzáadása</string>
+    <string name="title_warning_dialog">Figyelem</string>
+    <string name="title_permission_dialog">Engedély</string>
+
+    <!-- messages -->
+    <string name="message_exit">Az alkalmazás bezárásához hosszan nyomja meg a Vissza gombot</string>
+    <string name="message_fill_fields">Töltse ki az egyes mezőket összehasonlítás céljából</string>
+    <string name="message_generate_hash_before_export">Készítsen kivonatértéket az exportálás előtt</string>
+    <string name="message_match_result">Mérkőzés</string>
+    <string name="message_do_not_match_result">Nem egyeznek</string>
+    <string name="message_generate_dialog">Kivonat generálása, kérem várjon…</string>
+    <string name="message_select_object">Koppintson a Tól től elemre a szükséges forrás típus kiválasztásához</string>
+    <string name="message_request_storage_permission_error">Az eszközfájl-tároló olvasási engedély nem adható. Kérlek próbáld újra</string>
+    <string name="message_request_storage_permission_denied">Az eszközfájl-tároló olvasási engedély nem adható. Nyisd meg a Beállításokat, és biztosítsd magad</string>
+    <string name="message_error_start_file_selector">Nem található a fájlkezelő az eszközén</string>
+    <string name="message_error_start_google_play">Nem található a Google Play alkalmazás vagy a webböngésző a készüléken</string>
+    <string name="message_email_app_chooser">Válasszon alkalmazást e-mail küldéshez</string>
+    <string name="message_change_theme">A téma megváltoztatásához újra kell indítania az alkalmazást</string>
+    <string name="message_invalid_selected_source">Nem lehet kivonatértéket generálni a bemeneti forrásból. Kérjük, ellenőrizze a kiválasztott forrást</string>
+    <string name="message_delete_all_history_items">Törli az összes előzményelemet?</string>
+
+    <!-- commons -->
+    <string name="common_text">Szöveg</string>
+    <string name="common_file">Fájl</string>
+    <string name="common_add">Hozzáad</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Megszünteti</string>
+    <string name="common_again">Újra</string>
+    <string name="common_date">Dátum</string>
+
+    <!-- actions -->
+    <string name="action_from">Tól től</string>
+    <string name="action_select">Akció</string>
+    <string name="action_exit_now">Lépjen ki most</string>
+    <string name="action_generate">Generál</string>
+    <string name="action_compare">Összehasonlítás</string>
+    <string name="action_export_to_txt">Exportálás mint \".txt\"</string>
+
+    <!-- themes -->
+    <string name="title_theme_light">Fény</string>
+    <string name="title_theme_dark">Sötét</string>
+
+    <!-- titles -->
+    <string name="title_custom_hash">Egyéni kivonat</string>
+    <string name="title_generated_hash">Generált hash</string>
+
+    <!-- hints -->
+    <string name="hint_input_text">Szöveg itt</string>
+
+    <!-- settings titles -->
+    <string name="settings_title_general">Tábornok</string>
+    <string name="settings_title_app">Alkalmazás</string>
+    <string name="settings_title_interface">Felület</string>
+    <string name="settings_title_about">Ról ről</string>
+    <string name="settings_title_upper_case">Nagybetűs</string>
+    <string name="settings_title_author">Szerző</string>
+    <string name="settings_title_app_file_manager">Belső fájlkezelő</string>
+    <string name="settings_title_version">Változat</string>
+    <string name="settings_title_vibration">Rezgés</string>
+    <string name="settings_title_privacy">Magánélet</string>
+    <string name="settings_title_export_user_data">Felhasználói adatok exportálása</string>
+    <string name="settings_title_privacy_policy">Adatvédelmi irányelvek</string>
+    <string name="settings_title_theme">Téma</string>
+    <string name="settings_title_rate_app">Értékeld az alkalmazást</string>
+    <string name="settings_title_save_result_to_history">Az eredmény mentése az Előzményekbe</string>
+    <string name="settings_title_multiline">Többvonalas hash mezők</string>
+
+    <!-- feedback -->
+    <string name="feedback_device">Adjon hozzá eszközinformációkat</string>
+    <string name="feedback_manufacturer">Gyártó</string>
+    <string name="feedback_model">Modell</string>
+    <string name="feedback_message">Üzenet</string>
+
+    <!-- file manager -->
+    <string name="file_manager_select_storage_title">Válassza a tárolót</string>
+
+    <!-- history -->
+    <string name="history_item_click_text">A hasítóérték a vágólapra másolt</string>
+    <string name="history_empty_view_message">Előzmények nem találhatóak</string>
+
+</resources>

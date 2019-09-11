@@ -1,0 +1,89 @@
+<resources>
+
+    <!-- menu -->
+    <string name="menu_title_settings">Configuraciones</string>
+    <string name="menu_title_feedback">Realimentación</string>
+    <string name="menu_title_history">Historia</string>
+
+    <!-- dialog titles -->
+    <string name="title_dialog_enter_text">Añadir texto</string>
+    <string name="title_warning_dialog">Advertencia</string>
+    <string name="title_permission_dialog">Permiso</string>
+
+    <!-- messages -->
+    <string name="message_exit">Mantenga presionado el botón Atrás para cerrar la aplicación</string>
+    <string name="message_fill_fields">Rellene cada campo para comparar</string>
+    <string name="message_generate_hash_before_export">Generar valor hash antes de exportar</string>
+    <string name="message_match_result">Partido</string>
+    <string name="message_do_not_match_result">No coinciden</string>
+    <string name="message_generate_dialog">Generando hash, por favor espera…</string>
+    <string name="message_select_object">Toque Desde para seleccionar un tipo de fuente necesario</string>
+    <string name="message_request_storage_permission_error">No se puede otorgar permiso para leer el almacenamiento de archivos del dispositivo. Inténtalo de nuevo</string>
+    <string name="message_request_storage_permission_denied">No se puede otorgar permiso para leer el almacenamiento de archivos del dispositivo. Inténtalo de nuevo</string>
+    <string name="message_error_start_file_selector">No puedo encontrar un administrador de archivos en su dispositivo</string>
+    <string name="message_error_start_google_play">No puedo encontrar una aplicación de Google Play o un navegador web en su dispositivo</string>
+    <string name="message_email_app_chooser">Elija la aplicación para enviar un correo electrónico</string>
+    <string name="message_change_theme">Para cambiar el tema, debe reiniciar la aplicación</string>
+    <string name="message_invalid_selected_source">No se puede generar un valor hash desde la fuente de entrada. Por favor verifique la fuente seleccionada</string>
+    <string name="message_delete_all_history_items">¿Eliminar todos los elementos del historial?</string>
+
+    <!-- commons -->
+    <string name="common_text">Texto</string>
+    <string name="common_file">Expediente</string>
+    <string name="common_add">Añadir</string>
+    <string name="common_ok">Okay</string>
+    <string name="common_cancel">Cancelar</string>
+    <string name="common_again">Otra vez</string>
+    <string name="common_date">Fecha</string>
+
+    <!-- actions -->
+    <string name="action_from">Desde</string>
+    <string name="action_select">Acción</string>
+    <string name="action_exit_now">Salir ahora</string>
+    <string name="action_generate">Generar</string>
+    <string name="action_compare">Comparar</string>
+    <string name="action_export_to_txt">Exportar como \".txt\"</string>
+
+    <!-- themes -->
+    <string name="title_theme_light">Ligero</string>
+    <string name="title_theme_dark">Oscuro</string>
+
+    <!-- titles -->
+    <string name="title_custom_hash">Hash personalizado</string>
+    <string name="title_generated_hash">Hash generado</string>
+
+    <!-- hints -->
+    <string name="hint_input_text">Texto aquí</string>
+
+    <!-- settings titles -->
+    <string name="settings_title_general">General</string>
+    <string name="settings_title_app">Solicitud</string>
+    <string name="settings_title_interface">Interfaz</string>
+    <string name="settings_title_about">Acerca de</string>
+    <string name="settings_title_upper_case">Mayúscula</string>
+    <string name="settings_title_author">Author</string>
+    <string name="settings_title_app_file_manager">Administrador de archivos internos</string>
+    <string name="settings_title_version">Versión</string>
+    <string name="settings_title_vibration">Vibración</string>
+    <string name="settings_title_privacy">Intimidad</string>
+    <string name="settings_title_export_user_data">Exportar datos de usuario</string>
+    <string name="settings_title_privacy_policy">Política de privacidad</string>
+    <string name="settings_title_theme">Tema</string>
+    <string name="settings_title_rate_app">Calificar aplicacion</string>
+    <string name="settings_title_save_result_to_history">Guardar resultado en el historial</string>
+    <string name="settings_title_multiline">Campos hash multilínea</string>
+
+    <!-- feedback -->
+    <string name="feedback_device">Agregar información del dispositivo</string>
+    <string name="feedback_manufacturer">Fabricante</string>
+    <string name="feedback_model">Modelo</string>
+    <string name="feedback_message">Mensaje</string>
+
+    <!-- file manager -->
+    <string name="file_manager_select_storage_title">Seleccionar almacenamiento</string>
+
+    <!-- history -->
+    <string name="history_item_click_text">Valor hash copiado al portapapeles</string>
+    <string name="history_empty_view_message">Elementos del historial no encontrados</string>
+
+</resources>

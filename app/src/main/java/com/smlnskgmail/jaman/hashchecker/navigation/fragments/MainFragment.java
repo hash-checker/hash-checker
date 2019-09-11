@@ -363,15 +363,11 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
 
     private void checkMultilinePreference() {
         if (SettingsHelper.isUsingMultilineHashFields(context)) {
-            validateMultilineFields(etCustomHash,
-                    TEXT_MULTILINE_LINES_COUNT, false);
-            validateMultilineFields(etGeneratedHash,
-                    TEXT_MULTILINE_LINES_COUNT, false);
+            validateMultilineFields(etCustomHash, TEXT_MULTILINE_LINES_COUNT, false);
+            validateMultilineFields(etGeneratedHash, TEXT_MULTILINE_LINES_COUNT, false);
         } else {
-            validateMultilineFields(etCustomHash,
-                    TEXT_SINGLE_LINE_LINES_COUNT, true);
-            validateMultilineFields(etGeneratedHash,
-                    TEXT_SINGLE_LINE_LINES_COUNT, true);
+            validateMultilineFields(etCustomHash, TEXT_SINGLE_LINE_LINES_COUNT, true);
+            validateMultilineFields(etGeneratedHash, TEXT_SINGLE_LINE_LINES_COUNT, true);
         }
     }
 
@@ -455,11 +451,6 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
     @Override
     public int getMenuResId() {
         return R.menu.menu_main;
-    }
-
-    @Override
-    public int[] getMenuItemsIds() {
-        return new int[] {R.id.menu_main_section_settings, R.id.menu_main_section_feedback};
     }
 
     @Override

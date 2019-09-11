@@ -30,8 +30,7 @@ public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<Ba
     @Override
     public BaseBottomSheetListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return getItemsHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_list, parent, false),
-                getBottomSheet().getContext());
+                .inflate(R.layout.item_list, parent, false), getBottomSheet().getContext());
     }
 
     @Override
@@ -43,16 +42,16 @@ public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<Ba
                                                                 @NonNull Context themeContext);
 
     @NonNull
-    public BaseListBottomSheet getBottomSheet() {
+    protected BaseListBottomSheet getBottomSheet() {
         return bottomSheet;
     }
 
     @NonNull
-    public List<ListMarker> getItems() {
+    protected List<ListMarker> getItems() {
         return items;
     }
 
-    public void dismissBottomSheet() {
+    protected void dismissBottomSheet() {
         bottomSheet.dismiss();
     }
 

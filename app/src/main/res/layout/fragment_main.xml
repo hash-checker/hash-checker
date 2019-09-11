@@ -42,12 +42,14 @@
                 android:id="@+id/et_field_custom_hash"
                 style="@style/AppEditTextHashValue"
                 android:layout_marginBottom="@dimen/common_margin"
-                android:hint="@string/title_custom_hash" />
+                android:hint="@string/title_custom_hash"
+                android:importantForAutofill="no" />
 
             <EditText
                 android:id="@+id/et_field_generated_hash"
                 style="@style/AppEditTextHashValue"
-                android:hint="@string/title_generated_hash"/>
+                android:hint="@string/title_generated_hash"
+                android:importantForAutofill="no" />
 
         </LinearLayout>
 

@@ -104,11 +104,6 @@ public class FeedbackFragment extends BaseFragment {
     }
 
     @Override
-    public int[] getMenuItemsIds() {
-        return new int[0];
-    }
-
-    @Override
     public int getLayoutResId() {
         return R.layout.fragment_feedback;
     }

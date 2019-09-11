@@ -1,0 +1,89 @@
+<resources>
+
+    <!-- menu -->
+    <string name="menu_title_settings">Inställningar</string>
+    <string name="menu_title_feedback">Återkoppling</string>
+    <string name="menu_title_history">Historia</string>
+
+    <!-- dialog titles -->
+    <string name="title_dialog_enter_text">Lägg till text</string>
+    <string name="title_warning_dialog">Varning</string>
+    <string name="title_permission_dialog">Tillstånd</string>
+
+    <!-- messages -->
+    <string name="message_exit">Tryck länge på bakåtknappen för att stänga applikationen</string>
+    <string name="message_fill_fields">Fyll i varje fält för jämförelse</string>
+    <string name="message_generate_hash_before_export">Generera hashvärde före export</string>
+    <string name="message_match_result">Match</string>
+    <string name="message_do_not_match_result">Matchar inte</string>
+    <string name="message_generate_dialog">Genererar hash, vänta…</string>
+    <string name="message_select_object">Tryck på Från för att välja önskad källtyp</string>
+    <string name="message_request_storage_permission_error">Tillstånd att läsa enhetens fillagring kan inte beviljas. Var god försök igen</string>
+    <string name="message_request_storage_permission_denied">Tillstånd att läsa enhetens fillagring kan inte beviljas. Du måste gå till inställningarna och ge det själv</string>
+    <string name="message_error_start_file_selector">Det går inte att hitta en filhanterare på din enhet</string>
+    <string name="message_error_start_google_play">Det går inte att hitta en Google Play-app eller en webbläsare på din enhet</string>
+    <string name="message_email_app_chooser">Välj app för att skicka ett e-postmeddelande</string>
+    <string name="message_change_theme">För att ändra temat måste du starta om programmet</string>
+    <string name="message_invalid_selected_source">Det går inte att generera ett hashvärde från ingångskällan. Kontrollera den valda källan</string>
+    <string name="message_delete_all_history_items">Radera alla historikobjekt?</string>
+
+    <!-- commons -->
+    <string name="common_text">Text</string>
+    <string name="common_file">Fil</string>
+    <string name="common_add">Lägg till</string>
+    <string name="common_ok">ok</string>
+    <string name="common_cancel">Annullera</string>
+    <string name="common_again">Igen</string>
+    <string name="common_date">Datum</string>
+
+    <!-- actions -->
+    <string name="action_from">Från</string>
+    <string name="action_select">Verkan</string>
+    <string name="action_exit_now">Avsluta nu</string>
+    <string name="action_generate">Generera</string>
+    <string name="action_compare">Jämföra</string>
+    <string name="action_export_to_txt">Exportera som \".txt\"</string>
+
+    <!-- themes -->
+    <string name="title_theme_light">Ljus</string>
+    <string name="title_theme_dark">Mörk</string>
+
+    <!-- titles -->
+    <string name="title_custom_hash">Anpassad hash</string>
+    <string name="title_generated_hash">Genererad hash</string>
+
+    <!-- hints -->
+    <string name="hint_input_text">Skriv här</string>
+
+    <!-- settings titles -->
+    <string name="settings_title_general">Allmän</string>
+    <string name="settings_title_app">Ansökan</string>
+    <string name="settings_title_interface">Gränssnitt</string>
+    <string name="settings_title_about">Handla om</string>
+    <string name="settings_title_upper_case">Versaler</string>
+    <string name="settings_title_author">Författare</string>
+    <string name="settings_title_app_file_manager">Inre filhanterare</string>
+    <string name="settings_title_version">Version</string>
+    <string name="settings_title_vibration">Vibration</string>
+    <string name="settings_title_privacy">Privacy</string>
+    <string name="settings_title_export_user_data">Exportera användardata</string>
+    <string name="settings_title_privacy_policy">Integritetspolicy</string>
+    <string name="settings_title_theme">Tema</string>
+    <string name="settings_title_rate_app">Betygsätt app</string>
+    <string name="settings_title_save_result_to_history">Spara resultat i historiken</string>
+    <string name="settings_title_multiline">Multiline hash-fält</string>
+
+    <!-- feedback -->
+    <string name="feedback_device">Lägg till enhetsinfo</string>
+    <string name="feedback_manufacturer">Tillverkare</string>
+    <string name="feedback_model">Modell</string>
+    <string name="feedback_message">Meddelande</string>
+
+    <!-- file manager -->
+    <string name="file_manager_select_storage_title">Välj lagring</string>
+
+    <!-- history -->
+    <string name="history_item_click_text">Hash-värde kopieras till urklipp</string>
+    <string name="history_empty_view_message">Historikartiklar hittades inte</string>
+
+</resources>

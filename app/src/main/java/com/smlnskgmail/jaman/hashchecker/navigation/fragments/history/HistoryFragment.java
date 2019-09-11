@@ -103,11 +103,6 @@ public class HistoryFragment extends BaseFragment implements LoaderTarget<Histor
     }
 
     @Override
-    public int[] getMenuItemsIds() {
-        return new int[0];
-    }
-
-    @Override
     public int getActionBarTitleResId() {
         return R.string.menu_title_history;
     }

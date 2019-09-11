@@ -5,7 +5,6 @@
     android:id="@+id/tv_item_file"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/colorBackground"
     android:foreground="?android:selectableItemBackground"
     android:layout_weight="1"
     android:padding="@dimen/common_margin_2"

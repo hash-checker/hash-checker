@@ -16,7 +16,9 @@ public abstract class BaseBottomSheet extends BottomSheetDialogFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        if (getDialog().getWindow() != null) {
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        }
         initUI(view);
     }
 

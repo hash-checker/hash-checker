@@ -46,7 +46,7 @@ public abstract class BaseHashCalculatorTest {
         assertEquals(hashFromString, hashValue);
     }
 
-    protected String getTestingText() {
+    String getTestingText() {
         return TESTING_TEXT;
     }
 

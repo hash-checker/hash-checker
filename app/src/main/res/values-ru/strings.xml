@@ -13,6 +13,7 @@
     <!-- messages -->
     <string name="message_exit">Долгое удержание для выхода</string>
     <string name="message_fill_fields">Заполните каждое поле для сравнения</string>
+    <string name="message_generate_hash_before_export">Сгенерируйте значение перед выгрузкой</string>
     <string name="message_match_result">Значения совпадают</string>
     <string name="message_do_not_match_result">Значения не совпадают</string>
     <string name="message_generate_dialog">Вычисление, подождите…</string>
@@ -64,6 +65,9 @@
     <string name="settings_title_app_file_manager">Внутренний Файловый менеджер</string>
     <string name="settings_title_version">Версия</string>
     <string name="settings_title_vibration">Вибрация</string>
+    <string name="settings_title_export_user_data">Выгрузить пользовательские данные</string>
+    <string name="settings_title_privacy">Приватность</string>
+    <string name="settings_title_privacy_policy">Политика конфиденциальности</string>
     <string name="settings_title_theme">Тема</string>
     <string name="settings_title_rate_app">Оценить приложение</string>
     <string name="settings_title_save_result_to_history">История</string>
@@ -75,15 +79,11 @@
     <string name="feedback_model">Модель</string>
     <string name="feedback_message">Сообщение</string>
 
-    <!-- file manager-->
+    <!-- file manager -->
     <string name="file_manager_select_storage_title">Выберите хранилище</string>
 
     <!-- history -->
     <string name="history_item_click_text">Значение скопировано в буфер обмена</string>
     <string name="history_empty_view_message">История пуста</string>
-    <string name="settings_title_export_user_data">Выгрузить пользовательские данные</string>
-    <string name="settings_title_privacy">Приватность</string>
-    <string name="message_generate_hash_before_export">Сгенерируйте значение перед выгрузкой</string>
-    <string name="settings_title_privacy_policy">Политика конфиденциальности</string>
 
 </resources>

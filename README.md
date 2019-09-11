@@ -31,6 +31,18 @@ Fast and simple application for generating and comparison hashes from files or t
 | [English](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values/strings.xml) | `1.0.0` | Full |
 | [Russian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-ru/strings.xml) | `2.9.6` | Full |
 | [German](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-de/strings.xml) | `2.9.6` | Full |
+| [French](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-fr/strings.xml) | `2.9.9` | Full |
+| [Hebrew](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-iw/strings.xml) | `2.9.9` | Full |
+| [Italian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-it/strings.xml) | `2.9.9` | Full |
+| [Polish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-pl/strings.xml) | `2.9.9` | Full |
+| [Spanish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-es/strings.xml) | `2.9.9` | Full |
+| [Korean](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-kr/strings.xml) | `2.9.9` | Full |
+| [Chinese](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-zh/strings.xml) | `2.9.9` | Full |
+| [Persian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-fa/strings.xml) | `2.9.9` | Full |
+| [Hungarian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-hu/strings.xml) | `2.9.9` | Full |
+| [Swedish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-sv/strings.xml) | `2.9.9` | Full |
+| [Greek](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-el/strings.xml) | `2.9.9` | Full |
+| [Dutch](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-nl/strings.xml) | `2.9.9` | Full |
 
 ## 2. Screenshots
 

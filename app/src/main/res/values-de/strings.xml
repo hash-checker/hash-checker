@@ -13,6 +13,7 @@
     <!-- messages -->
     <string name="message_exit">Halten Sie die Zurück-Taste gedrückt, um die Anwendung zu schließen</string>
     <string name="message_fill_fields">Füllen Sie jedes Feld zum Vergleich aus</string>
+    <string name="message_generate_hash_before_export">Generieren Sie vor dem Export einen Hash</string>
     <string name="message_match_result">Gleich</string>
     <string name="message_do_not_match_result">Nicht übereinstimmen</string>
     <string name="message_generate_dialog">Hash wird generiert, bitte warten …</string>
@@ -64,6 +65,9 @@
     <string name="settings_title_app_file_manager">Interner Dateimanager</string>
     <string name="settings_title_version">Version</string>
     <string name="settings_title_vibration">Vibration</string>
+    <string name="settings_title_export_user_data">Benutzerdaten exportieren</string>
+    <string name="settings_title_privacy">Privatsphäre</string>
+    <string name="settings_title_privacy_policy">Datenschutz-Bestimmungen</string>
     <string name="settings_title_theme">Farben</string>
     <string name="settings_title_rate_app">Bewerten Sie App</string>
     <string name="settings_title_save_result_to_history">Ergebnis in Verlauf speichern</string>
@@ -75,15 +79,11 @@
     <string name="feedback_model">Modell</string>
     <string name="feedback_message">Botschaft</string>
 
-    <!-- file manager-->
+    <!-- file manager -->
     <string name="file_manager_select_storage_title">Speicher auswählen</string>
 
     <!-- history -->
     <string name="history_item_click_text">Hash-Wert in die Zwischenablage kopiert</string>
     <string name="history_empty_view_message">Verlaufselemente nicht gefunden</string>
-    <string name="settings_title_export_user_data">Benutzerdaten exportieren</string>
-    <string name="settings_title_privacy">Privatsphäre</string>
-    <string name="message_generate_hash_before_export">Generieren Sie vor dem Export einen Hash</string>
-    <string name="settings_title_privacy_policy">Datenschutz-Bestimmungen</string>
 
 </resources>

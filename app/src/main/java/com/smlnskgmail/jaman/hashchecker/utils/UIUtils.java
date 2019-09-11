@@ -42,7 +42,9 @@ public class UIUtils {
     public static void hideKeyboard(@NonNull Context context, @NonNull View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) context
                 .getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        if (inputMethodManager != null) {
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     public static void removeFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {

@@ -65,8 +65,6 @@ public abstract class BaseFragment extends Fragment implements BackClickTarget, 
 
     protected abstract int getMenuResId();
 
-    public abstract int[] getMenuItemsIds();
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (setBackActionIcon()) {

@@ -6,8 +6,8 @@ android {
         applicationId "com.smlnskgmail.jaman.hashchecker"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 65
-        versionName "2.9.8"
+        versionCode 66
+        versionName "2.9.9"
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -36,11 +36,10 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.preference:preference:1.0.0'
+    implementation 'androidx.preference:preference:1.1.0'
 
     // ORMLite
     implementation 'com.j256.ormlite:ormlite-core:5.1'
