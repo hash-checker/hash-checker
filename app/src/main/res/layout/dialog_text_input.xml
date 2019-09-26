@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_rounded_corners"
     android:orientation="vertical">
 
     <TextView
         style="@style/AppTextViewDialogComponent"
-        android:layout_marginTop="@dimen/common_margin_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_5"
         android:text="@string/title_dialog_enter_text"
         android:textColor="?attr/colorCommonText"
         android:textStyle="bold"

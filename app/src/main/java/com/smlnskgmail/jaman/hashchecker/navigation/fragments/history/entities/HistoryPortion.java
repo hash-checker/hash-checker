@@ -15,6 +15,7 @@ public class HistoryPortion {
         return page;
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean isLoaded() {
         return isLoaded;
     }

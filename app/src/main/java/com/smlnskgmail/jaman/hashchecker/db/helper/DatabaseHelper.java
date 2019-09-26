@@ -38,6 +38,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {

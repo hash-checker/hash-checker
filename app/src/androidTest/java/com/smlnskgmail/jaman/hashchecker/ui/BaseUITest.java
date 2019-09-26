@@ -37,6 +37,7 @@ public abstract class BaseUITest {
         onView(withId(textViewId)).check(matches(TextMatcher.hasStringEqualsTo(text)));
     }
 
+    @SuppressWarnings("SameParameterValue")
     protected void inRecyclerViewClickOnPosition(int recyclerId, int position) {
         onView(withId(recyclerId)).perform(RecyclerViewActions
                 .actionOnItemAtPosition(position, click()));
