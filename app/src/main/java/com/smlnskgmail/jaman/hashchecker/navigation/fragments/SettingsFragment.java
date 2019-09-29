@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceGroup;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
@@ -47,7 +46,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements BackCl
         context = getContext();
 
         initActionBar();
-        initFileManagerSettings();
+        initFileManagerSwitcher();
         initThemesSettings();
         initPrivacyPolicy();
         initUserDataExport();
@@ -59,14 +58,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements BackCl
     private void initActionBar() {
         actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setHomeAsUpIndicator(ContextCompat.getDrawable(context, R.drawable.ic_arrow_back));
-    }
-
-    private void initFileManagerSettings() {
-        if (AppUtils.isNotQAndAbove()) {
-            initFileManagerSwitcher();
-        } else {
-            disableFileManagerSwitcher();
-        }
     }
 
     private void initThemesSettings() {
@@ -119,11 +110,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements BackCl
                     SettingsHelper.setRefreshSelectedFileStatus(context, true);
                     return true;
                 });
-    }
-
-    private void disableFileManagerSwitcher() {
-        ((PreferenceGroup) findPreference(getString(R.string.key_category_app)))
-                .removePreference(findPreference(getString(R.string.key_inner_file_manager)));
     }
 
     @Override

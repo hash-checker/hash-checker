@@ -7,6 +7,7 @@ import com.smlnskgmail.jaman.hashchecker.hashcalculator.sha.SHA224HashCalculator
 import com.smlnskgmail.jaman.hashchecker.hashcalculator.sha.SHA256HashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.hashcalculator.sha.SHA384HashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.hashcalculator.sha.SHA512HashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.hashcalculator.zeroleads.MessageDigestZeroLeadsHashCalculatorTest;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -20,6 +21,6 @@ import org.junit.runners.Suite;
         SHA384HashCalculatorTest.class,
         SHA512HashCalculatorTest.class,
         CRC32HashCalculatorTest.class,
-        ZeroLeadsHashCalculatorTest.class
+        MessageDigestZeroLeadsHashCalculatorTest.class
 })
 public class HashTestSuite {}

@@ -16,7 +16,7 @@ public class CRC32HashCalculatorTest extends BaseHashCalculatorTest {
     @NonNull
     @Override
     protected String getHashValueForTestText() {
-        return "eeea93b8";
+        return "EEEA93B8";
     }
 
     @NonNull

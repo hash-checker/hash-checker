@@ -9,7 +9,6 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.Theme;
 import com.smlnskgmail.jaman.hashchecker.support.logs.L;
-import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
 public class SettingsHelper {
 
@@ -29,8 +28,7 @@ public class SettingsHelper {
     }
 
     public static boolean isUsingInnerFileManager(@NonNull Context context) {
-        return AppUtils.isNotQAndAbove() && getBooleanPreference(context,
-                context.getString(R.string.key_inner_file_manager), false);
+        return getBooleanPreference(context, context.getString(R.string.key_inner_file_manager), false);
     }
 
     public static boolean isUsingMultilineHashFields(@NonNull Context context) {

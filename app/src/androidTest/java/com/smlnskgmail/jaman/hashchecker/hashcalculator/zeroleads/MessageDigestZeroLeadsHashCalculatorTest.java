@@ -1,11 +1,12 @@
-package com.smlnskgmail.jaman.hashchecker.hashcalculator;
+package com.smlnskgmail.jaman.hashchecker.hashcalculator.zeroleads;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.hashcalculator.BaseHashCalculatorTest;
 
-public class ZeroLeadsHashCalculatorTest extends BaseHashCalculatorTest {
+public class MessageDigestZeroLeadsHashCalculatorTest extends BaseHashCalculatorTest {
 
     @NonNull
     @Override
@@ -20,7 +21,7 @@ public class ZeroLeadsHashCalculatorTest extends BaseHashCalculatorTest {
     }
 
     @Override
-    protected String getTestingText() {
+    public String getTestingText() {
         return "iwrupvqb346386";
     }
 

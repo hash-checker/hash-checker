@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeLight"
         android:resizeableActivity="false"
+        android:requestLegacyExternalStorage="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
 

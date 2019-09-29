@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:statusBarColor">?attr/colorPrimary</item>
@@ -23,24 +23,28 @@
         <item name="colorDialogBackground">@android:color/white</item>
         <item name="colorBottomSheetBackground">@android:color/white</item>
         <item name="colorSnackbarBackground">#323232</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
     </style>
 
     <style name="AppThemeDark" parent="AppTheme">
-        <item name="colorPrimary">#1d2b38</item>
-        <item name="colorPrimaryDark">#1a2227</item>
+        <item name="colorPrimary">#272727</item>
+        <item name="colorPrimaryDark">#272727</item>
         <item name="colorAccent">#01AFA2</item>
         <item name="colorAccentSupport">#01AFA2</item>
         <item name="colorCommonText">@android:color/white</item>
         <item name="colorCommonUnselected">#8BBDBDBD</item>
-        <item name="colorBackground">#21242d</item>
-        <item name="colorDialogBackground">#344256</item>
-        <item name="colorBottomSheetBackground">#344256</item>
-        <item name="colorSnackbarBackground">#344256</item>
+        <item name="colorBackground">#1B1B1B</item>
+        <item name="colorDialogBackground">#313236</item>
+        <item name="colorBottomSheetBackground">#313236</item>
+        <item name="colorSnackbarBackground">#313236</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
     </style>
 
     <style name="AppBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
         <item name="android:navigationBarColor">?attr/colorBackground</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowIsFloating">false</item>
     </style>
@@ -81,6 +85,7 @@
         <item name="android:selectAllOnFocus">true</item>
         <item name="android:textColor">?attr/colorCommonText</item>
         <item name="android:textColorHint">?attr/colorCommonUnselected</item>
+        <item name="android:importantForAutofill" tools:ignore="NewApi">no</item>
         <item name="android:inputType">text</item>
     </style>
 

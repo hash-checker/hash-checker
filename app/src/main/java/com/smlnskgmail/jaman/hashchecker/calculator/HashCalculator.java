@@ -37,7 +37,7 @@ public class HashCalculator {
         } else {
             CRC32 crc32 = new CRC32();
             crc32.update(bytes);
-            return Long.toHexString(crc32.getValue());
+            return HashUtils.getStringFromLong(crc32.getValue());
         }
     }
 

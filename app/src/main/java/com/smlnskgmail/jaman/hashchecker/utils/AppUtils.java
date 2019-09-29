@@ -192,11 +192,4 @@ public class AppUtils {
         closeApp(activity);
     }
 
-    public static boolean isNotQAndAbove() {
-        /*if (BuildConfig.DEBUG) {
-            return false;
-        }*/
-        return Build.VERSION.SDK_INT < Build.VERSION_CODES.Q;
-    }
-
 }

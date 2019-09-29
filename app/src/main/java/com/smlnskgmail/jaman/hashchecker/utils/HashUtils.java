@@ -13,4 +13,8 @@ public class HashUtils {
         return new String(chars).toLowerCase();
     }
 
+    public static String getStringFromLong(long data) {
+        return String.format("%08X", data);
+    }
+
 }

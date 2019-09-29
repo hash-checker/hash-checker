@@ -80,6 +80,7 @@ This tests must be run on Android device.
 | [SHA384HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA384HashCalculatorTest.java) | `Pass` | Check SHA-384 generation |
 | [SHA512HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA512HashCalculatorTest.java) | `Pass` | Check SHA-512 generation |
 | [CRC32HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/crc/CRC32HashCalculatorTest.java) | `Pass` | Check CRC-32 generation |
+| [MessageDigestZeroLeadsHashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/zeroleads/MessageDigestZeroLeadsHashCalculatorTest.java) | `Pass` | Check zero leads for result of MessageDigest |
 | [ScreenRunnerTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/screenrunner/ScreenRunnerTest.java) | `Pass` | Open UI components |
 | [GenerateHashFromTextTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/functionality/GenerateHashFromTextTest.java) | `Pass` | Generate hash from text |
 
