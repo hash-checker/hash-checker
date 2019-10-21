@@ -12,8 +12,7 @@ import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class AppAlertDialog {
 
-    public static void show(@NonNull Context context, int titleResId, int messageResId,
-                            int positiveButtonTextResId,
+    public static void show(@NonNull Context context, int titleResId, int messageResId, int positiveButtonTextResId,
                             @Nullable DialogInterface.OnClickListener positiveClickListener) {
         AlertDialog alertDialog = new AlertDialog.Builder(context, R.style.AppAlertDialog)
                 .setTitle(titleResId)

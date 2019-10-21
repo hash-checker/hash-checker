@@ -17,8 +17,7 @@ public class ActionsBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
     private final UserActionTarget userActionTarget;
 
-    ActionsBottomSheetListAdapter(@NonNull List<ListMarker> items,
-                                  @NonNull BaseListBottomSheet bottomSheet,
+    ActionsBottomSheetListAdapter(@NonNull List<ListMarker> items, @NonNull BaseListBottomSheet bottomSheet,
                                   @NonNull UserActionTarget userActionTarget) {
         super(items, bottomSheet);
         this.userActionTarget = userActionTarget;
@@ -42,7 +41,7 @@ public class ActionsBottomSheetListAdapter extends BaseBottomSheetListAdapter {
         @Override
         protected void callItemClick() {
             Action action = (Action) getItems().get(getAdapterPosition());
-            userActionTarget.onUserActionSelect(action.getUserActionType());
+            userActionTarget.userActionSelect(action.getUserActionType());
             dismissBottomSheet();
         }
 

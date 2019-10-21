@@ -65,8 +65,7 @@ class HistoryItemHolder extends RecyclerView.ViewHolder {
     }
 
     private void initializeHashType(@NonNull Context context, @NonNull HistoryItem historyItem) {
-        String hashType = String.format(DEFAULT_TITLE_PATTERN, context.getString(historyItem.getHashType()
-                .getTitleTextResId()));
+        String hashType = String.format(DEFAULT_TITLE_PATTERN, context.getString(historyItem.getHashType().getTitleTextResId()));
         tvHistoryItemHashType.setText(hashType);
         tvHistoryItemHashData.setText(historyItem.getHashValue());
     }

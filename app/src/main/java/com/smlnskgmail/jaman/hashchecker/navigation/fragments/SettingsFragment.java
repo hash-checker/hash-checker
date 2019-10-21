@@ -105,11 +105,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements BackCl
     }
 
     private void initFileManagerSwitcher() {
-        findPreference(getString(R.string.key_inner_file_manager))
-                .setOnPreferenceChangeListener((preference, o) -> {
-                    SettingsHelper.setRefreshSelectedFileStatus(context, true);
-                    return true;
-                });
+        findPreference(getString(R.string.key_inner_file_manager)).setOnPreferenceChangeListener((preference, o) -> {
+            SettingsHelper.setRefreshSelectedFileStatus(context, true);
+            return true;
+        });
     }
 
     @Override
@@ -153,7 +152,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements BackCl
     }
 
     @Override
-    public void onBackClick() {
+    public void appBackClick() {
         UIUtils.removeFragment(fragmentManager, this);
     }
 

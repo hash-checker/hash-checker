@@ -39,11 +39,11 @@ public abstract class BaseFragment extends Fragment implements BackClickTarget, 
     @Override
     public void onResume() {
         super.onResume();
-        onAppResume();
+        appResume();
     }
 
     @Override
-    public void onAppResume() {
+    public void appResume() {
         if (actionBar == null) {
             actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         }
@@ -94,15 +94,14 @@ public abstract class BaseFragment extends Fragment implements BackClickTarget, 
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(getLayoutResId(), container, false);
     }
 
     protected abstract int getLayoutResId();
 
     @Override
-    public void onBackClick() {
+    public void appBackClick() {
         UIUtils.removeFragment(getActivity().getSupportFragmentManager(), this);
     }
 

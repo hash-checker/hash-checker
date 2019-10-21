@@ -14,35 +14,35 @@ Fast and simple application for generating and comparison hashes from files or t
 
 ### 1.1. Supporting algorithms
 
-| Name | Since version | Status |
+| Name | Status | Since version |
 | --- | --- | --- |
-| [MD5](https://en.wikipedia.org/wiki/MD5) | `1.0.0` | Supporting |
-| [SHA-1](https://en.wikipedia.org/wiki/SHA-1) | `1.0.0` | Supporting |
-| [SHA-224](https://en.wikipedia.org/wiki/SHA-2) | `1.4.0` | Supporting |
-| [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | `1.0.0` | Supporting |
-| [SHA-384](https://en.wikipedia.org/wiki/SHA-2) | `1.4.0` | Supporting |
-| [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | `1.0.0` | Supporting |
-| [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | `2.9.0` | Supporting |
+| [MD5](https://en.wikipedia.org/wiki/MD5) | Supporting | `1.0.0` |
+| [SHA-1](https://en.wikipedia.org/wiki/SHA-1) | Supporting | `1.0.0` |
+| [SHA-224](https://en.wikipedia.org/wiki/SHA-2) | Supporting | `1.4.0` |
+| [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | Supporting | `1.0.0` |
+| [SHA-384](https://en.wikipedia.org/wiki/SHA-2) | Supporting | `1.4.0` |
+| [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | Supporting | `1.0.0` |
+| [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | Supporting | `2.9.0` |
 
 ### 1.2. Languages
 
-| Language | Since version | Translate status |
+| Language | Translate status | Since version |
 | --- | --- | --- |
-| [English](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values/strings.xml) | `1.0.0` | Full |
-| [Russian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-ru/strings.xml) | `2.9.6` | Full |
-| [German](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-de/strings.xml) | `2.9.6` | Full |
-| [French](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-fr/strings.xml) | `2.9.9` | Full |
-| [Hebrew](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-iw/strings.xml) | `2.9.9` | Full |
-| [Italian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-it/strings.xml) | `2.9.9` | Full |
-| [Polish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-pl/strings.xml) | `2.9.9` | Full |
-| [Spanish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-es/strings.xml) | `2.9.9` | Full |
-| [Korean](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-kr/strings.xml) | `2.9.9` | Full |
-| [Chinese](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-zh/strings.xml) | `2.9.9` | Full |
-| [Persian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-fa/strings.xml) | `2.9.9` | Full |
-| [Hungarian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-hu/strings.xml) | `2.9.9` | Full |
-| [Swedish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-sv/strings.xml) | `2.9.9` | Full |
-| [Greek](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-el/strings.xml) | `2.9.9` | Full |
-| [Dutch](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-nl/strings.xml) | `2.9.9` | Full |
+| [English](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values/strings.xml) | Full | `1.0.0` |
+| [Russian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-ru/strings.xml) | Full | `2.9.6` |
+| [German](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-de/strings.xml) | Full | `2.9.6` |
+| [French](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-fr/strings.xml) | Full | `2.9.9` |
+| [Hebrew](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-iw/strings.xml) | Full | `2.9.9` |
+| [Italian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-it/strings.xml) | Full | `2.9.9` |
+| [Polish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-pl/strings.xml) | Full | `2.9.9` |
+| [Spanish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-es/strings.xml) | Full | `2.9.9` |
+| [Korean](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-kr/strings.xml) | Full | `2.9.9` |
+| [Chinese](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-zh/strings.xml) | Full | `2.9.9` |
+| [Persian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-fa/strings.xml) | Full | `2.9.9` |
+| [Hungarian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-hu/strings.xml) | Full | `2.9.9` |
+| [Swedish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-sv/strings.xml) | Full | `2.9.9` |
+| [Greek](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-el/strings.xml) | Full | `2.9.9` |
+| [Dutch](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-nl/strings.xml) | Full | `2.9.9` |
 
 ## 2. Screenshots
 
@@ -71,26 +71,26 @@ This tests must be run on Android device.
 
 #### 5.1.1. Tests table
 
-| Functionality | Status | Description |
+| Functionality | Description | Status |
 | --- | --- | --- |
-| [MD5HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/md/MD5HashCalculatorTest.java) | `Pass` | Check MD5 generation |
-| [SHA1HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA1HashCalculatorTest.java) | `Pass` | Check SHA-1 generation |
-| [SHA224HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA224HashCalculatorTest.java) | `Pass` | Check SHA-224 generation |
-| [SHA256HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA256HashCalculatorTest.java) | `Pass` | Check SHA-256 generation |
-| [SHA384HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA384HashCalculatorTest.java) | `Pass` | Check SHA-384 generation |
-| [SHA512HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA512HashCalculatorTest.java) | `Pass` | Check SHA-512 generation |
-| [CRC32HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/crc/CRC32HashCalculatorTest.java) | `Pass` | Check CRC-32 generation |
-| [MessageDigestZeroLeadsHashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/zeroleads/MessageDigestZeroLeadsHashCalculatorTest.java) | `Pass` | Check zero leads for result of MessageDigest |
-| [ScreenRunnerTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/screenrunner/ScreenRunnerTest.java) | `Pass` | Open UI components |
-| [GenerateHashFromTextTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/functionality/GenerateHashFromTextTest.java) | `Pass` | Generate hash from text |
+| [MD5HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/md/MD5HashCalculatorTest.java) | Check MD5 generation | `Pass` |
+| [SHA1HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA1HashCalculatorTest.java) | Check SHA-1 generation | `Pass` |
+| [SHA224HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA224HashCalculatorTest.java) | Check SHA-224 generation | `Pass` |
+| [SHA256HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA256HashCalculatorTest.java) | Check SHA-256 generation | `Pass` |
+| [SHA384HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA384HashCalculatorTest.java) | Check SHA-384 generation | `Pass` |
+| [SHA512HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/sha/SHA512HashCalculatorTest.java) | Check SHA-512 generation | `Pass` |
+| [CRC32HashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/crc/CRC32HashCalculatorTest.java) | Check CRC-32 generation | `Pass` |
+| [MessageDigestZeroLeadsHashCalculatorTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/zeroleads/MessageDigestZeroLeadsHashCalculatorTest.java) | Check zero leads for result of MessageDigest | `Pass` |
+| [ScreenRunnerTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/screenrunner/ScreenRunnerTest.java) | Open UI components | `Pass` |
+| [GenerateHashFromTextTest](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/functionality/GenerateHashFromTextTest.java) | Generate hash from text | `Pass` |
 
 #### 5.1.2. Tests Suits
 
-| Functionality | Status | Description |
+| Functionality | Description | Status |
 | --- | --- | --- |
-| [HashTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/HashTestSuite.java) | `In development` | Run all tests for check hash generation |
-| [FastTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/FastTestSuite.java) | `Deprecated` | Run only needed base UI tests |
-| [AndroidTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/TestSuite.java) | `In development` | Run all tests in "Android Test" section |
+| [HashTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/hashcalculator/HashTestSuite.java) | Run all tests for check hash generation | `In development` |
+| [FastTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/ui/FastTestSuite.java) | Run only needed base UI tests | `Deprecated` |
+| [AndroidTestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/androidTest/java/com/smlnskgmail/jaman/hashchecker/TestSuite.java) | Run all tests in "Android Test" section | `In development` |
 
 ### 5.2. Test
 
@@ -98,18 +98,18 @@ This tests must be run on computer.
 
 #### 5.2.1. Tests table
 
-| Functionality | Status | Description |
+| Functionality | Description | Status |
 | --- | --- | --- |
-| [FileItemTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/entities/FileItemTest.java) | `Pass` | Check fields in File item |
-| [HistoryItemTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/entities/HistoryItemTest.java) | `Pass` | Check fields in History item |
-| [HashUtilsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/HashUtilsTest.java) | `Pass` | Check hash utils |
-| [TextUtilsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/TextUtilsTest.java) | `Pass` | Check text utils |
+| [FileItemTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/entities/FileItemTest.java) | Check fields in File item | `Pass` |
+| [HistoryItemTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/entities/HistoryItemTest.java) | Check fields in History item | `Pass` |
+| [HashUtilsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/HashUtilsTest.java) | Check hash utils | `Pass` |
+| [TextUtilsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/TextUtilsTest.java) | Check text utils | `Pass` |
 
 #### 5.2.2. Tests Suits
 
-| Functionality | Status | Description |
+| Functionality | Description | Status |
 | --- | --- | --- |
-| [TestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/TestSuite.java) | `In development` | Run all tests in "Test" section |
+| [TestSuite](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/TestSuite.java) | Run all tests in "Test" section | `In development` |
 
 
 ## 6. Contacts

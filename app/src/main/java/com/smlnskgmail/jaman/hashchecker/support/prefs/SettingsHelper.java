@@ -17,8 +17,7 @@ public class SettingsHelper {
     }
 
     public static HashType getLastHashType(@NonNull Context context) {
-        String hashValue = getStringPreference(context, context.getString(R.string.key_last_type_value),
-                        context.getString(R.string.hash_type_md5));
+        String hashValue = getStringPreference(context, context.getString(R.string.key_last_type_value), context.getString(R.string.hash_type_md5));
         try {
             return HashType.valueOf(hashValue);
         } catch (IllegalArgumentException e) {
@@ -44,8 +43,7 @@ public class SettingsHelper {
     }
 
     public static String getTheme(@NonNull Context context) {
-        String theme = getStringPreference(context, context.getString(R.string.key_selected_theme),
-                Theme.LIGHT.toString());
+        String theme = getStringPreference(context, context.getString(R.string.key_selected_theme), Theme.LIGHT.toString());
         if (validateAppTheme(context, theme)) {
             return theme;
         } else {
@@ -86,42 +84,34 @@ public class SettingsHelper {
     }
 
     public static boolean getGenerateFromShareIntentStatus(@NonNull Context context) {
-        return getBooleanPreference(context, context.getString(R.string.key_generate_from_share_intent),
-                false);
+        return getBooleanPreference(context, context.getString(R.string.key_generate_from_share_intent), false);
     }
 
     public static void setGenerateFromShareIntentMode(@NonNull Context context, boolean status) {
-        saveBooleanPreference(context, context.getString(R.string.key_generate_from_share_intent),
-                status);
+        saveBooleanPreference(context, context.getString(R.string.key_generate_from_share_intent), status);
     }
 
     public static boolean refreshSelectedFile(@NonNull Context context) {
-        return getBooleanPreference(context, context.getString(R.string.key_refresh_selected_file),
-                false);
+        return getBooleanPreference(context, context.getString(R.string.key_refresh_selected_file), false);
     }
 
     public static void setRefreshSelectedFileStatus(@NonNull Context context, boolean status) {
-        saveBooleanPreference(context, context.getString(R.string.key_refresh_selected_file),
-                status);
+        saveBooleanPreference(context, context.getString(R.string.key_refresh_selected_file), status);
     }
 
-    private static void saveStringPreference(@NonNull Context context, @NonNull String key,
-                                             @NonNull String value) {
+    private static void saveStringPreference(@NonNull Context context, @NonNull String key, @NonNull String value) {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putString(key, value).apply();
     }
 
-    private static String getStringPreference(@NonNull Context context, @NonNull String key,
-                                              @NonNull String defaultValue) {
+    private static String getStringPreference(@NonNull Context context, @NonNull String key, @NonNull String defaultValue) {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(key, defaultValue);
     }
 
-    private static void saveBooleanPreference(@NonNull Context context, @NonNull String key,
-                                              boolean value) {
+    private static void saveBooleanPreference(@NonNull Context context, @NonNull String key, boolean value) {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean(key, value).apply();
     }
 
-    private static boolean getBooleanPreference(@NonNull Context context, @NonNull String key,
-                                                boolean defaultValue) {
+    private static boolean getBooleanPreference(@NonNull Context context, @NonNull String key, boolean defaultValue) {
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(key, defaultValue);
     }
 

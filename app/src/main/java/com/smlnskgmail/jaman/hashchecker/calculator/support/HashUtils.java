@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.utils;
+package com.smlnskgmail.jaman.hashchecker.calculator.support;
 
 public class HashUtils {
 

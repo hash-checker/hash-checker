@@ -20,8 +20,7 @@ public class AppProgressDialog {
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
         if (progressDialog.getWindow() != null) {
-            progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(UIUtils
-                    .getCommonBackgroundColor(context)));
+            progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(UIUtils.getCommonBackgroundColor(context)));
         }
         return progressDialog;
     }

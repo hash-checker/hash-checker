@@ -1,7 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.calculator;
 
 import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.utils.HashUtils;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashUtils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

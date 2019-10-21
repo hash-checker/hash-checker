@@ -15,8 +15,7 @@ import java.util.List;
 
 public class WebLinksBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
-    WebLinksBottomSheetListAdapter(@NonNull List<ListMarker> items,
-                                   @NonNull BaseListBottomSheet bottomSheet) {
+    WebLinksBottomSheetListAdapter(@NonNull List<ListMarker> items, @NonNull BaseListBottomSheet bottomSheet) {
         super(items, bottomSheet);
     }
 

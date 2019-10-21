@@ -41,8 +41,7 @@ public class AppUtils {
             openExplorerIntent.setType("*/*");
             fragment.startActivityForResult(openExplorerIntent, Requests.FILE_SELECT);
         } catch (ActivityNotFoundException e) {
-            UIUtils.showSnackbar(view.getContext(), view,
-                    fragment.getString(R.string.message_error_start_file_selector));
+            UIUtils.showSnackbar(view.getContext(), view, fragment.getString(R.string.message_error_start_file_selector));
             L.e(e);
         }
     }

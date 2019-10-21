@@ -44,10 +44,8 @@ public class FeedbackFragment extends BaseFragment {
         modelValue = contentView.findViewById(R.id.tv_model_value);
 
         ((TextView) contentView.findViewById(R.id.tv_device_info_title))
-                .setText(String.format(TITLE_TEXT_PATTERN,
-                        getString(R.string.feedback_device)));
-        manufacturerTitle.setText(String.format(TITLE_TEXT_PATTERN,
-                getString(R.string.feedback_manufacturer)));
+                .setText(String.format(TITLE_TEXT_PATTERN, getString(R.string.feedback_device)));
+        manufacturerTitle.setText(String.format(TITLE_TEXT_PATTERN, getString(R.string.feedback_manufacturer)));
         modelTitle.setText(String.format(TITLE_TEXT_PATTERN, getString(R.string.feedback_model)));
 
         manufacturerValue.setText(Build.MANUFACTURER);
@@ -55,8 +53,7 @@ public class FeedbackFragment extends BaseFragment {
     }
 
     private void addDeviceInfo(boolean addInfo) {
-        int titleColor = addInfo ? UIUtils.getDarkTextColor(context)
-                : UIUtils.getUnselectedColor(context);
+        int titleColor = addInfo ? UIUtils.getDarkTextColor(context) : UIUtils.getUnselectedColor(context);
         manufacturerTitle.setTextColor(titleColor);
         modelTitle.setTextColor(titleColor);
 

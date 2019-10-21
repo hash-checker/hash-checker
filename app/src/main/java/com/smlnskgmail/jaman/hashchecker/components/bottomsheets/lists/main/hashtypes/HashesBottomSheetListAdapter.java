@@ -20,8 +20,7 @@ public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
     private final HashType selectedHashType;
     private final HashTypeSelectTarget hashTypeSelectListener;
 
-    HashesBottomSheetListAdapter(@NonNull List<ListMarker> items,
-                                 @NonNull BaseListBottomSheet bottomSheet,
+    HashesBottomSheetListAdapter(@NonNull List<ListMarker> items, @NonNull BaseListBottomSheet bottomSheet,
                                  @NonNull HashTypeSelectTarget hashTypeSelectListener) {
         super(items, bottomSheet);
         this.hashTypeSelectListener = hashTypeSelectListener;
@@ -55,7 +54,7 @@ public class HashesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
             ImageView ivAdditionalIcon = getIvItemAdditionalIcon();
             boolean visible = ivAdditionalIcon.getVisibility() == View.VISIBLE;
             ivAdditionalIcon.setVisibility(visible ? View.INVISIBLE : View.VISIBLE);
-            hashTypeSelectListener.onHashTypeSelect(hashTypeAtPosition);
+            hashTypeSelectListener.hashTypeSelect(hashTypeAtPosition);
             dismissBottomSheet();
         }
 

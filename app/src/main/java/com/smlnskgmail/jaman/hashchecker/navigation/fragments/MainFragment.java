@@ -7,9 +7,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.provider.OpenableColumns;
 import android.text.InputFilter;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -54,8 +56,8 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainFragment extends BaseFragment implements TextValueTarget, HashGeneratorTarget,
-        UserActionTarget, HashTypeSelectTarget {
+public class MainFragment extends BaseFragment implements TextValueTarget, HashGeneratorTarget, UserActionTarget,
+        HashTypeSelectTarget {
 
     private static final int TEXT_MULTILINE_LINES_COUNT = 3;
     private static final int TEXT_SINGLE_LINE_LINES_COUNT = 1;
@@ -81,7 +83,7 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
     private boolean startWithTextSelection, startWithFileSelection;
 
     @Override
-    public void onUserActionSelect(@NonNull UserActionType userActionType) {
+    public void userActionSelect(@NonNull UserActionType userActionType) {
         switch (userActionType) {
             case ENTER_TEXT:
                 enterText();
@@ -121,8 +123,7 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
             progressDialog = AppProgressDialog.getDialog(context, R.string.message_generate_dialog);
             progressDialog.show();
             if (isTextSelected) {
-                new HashGenerator(hashType, context, tvSelectedObjectName.getText().toString(),
-                        this).execute();
+                new HashGenerator(hashType, context, tvSelectedObjectName.getText().toString(), this).execute();
             } else {
                 new HashGenerator(hashType, context, fileUri, this).execute();
             }
@@ -133,10 +134,8 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
 
     private void compareHashes() {
         if (TextUtils.fieldIsNotEmpty(etCustomHash) && TextUtils.fieldIsNotEmpty(etGeneratedHash)) {
-            boolean equal = TextUtils.compareText(etCustomHash.getText().toString(),
-                    etGeneratedHash.getText().toString());
-            UIUtils.showSnackbar(context, mainScreen, equal ? getString(R.string.message_match_result) :
-                    getString(R.string.message_do_not_match_result));
+            boolean equal = TextUtils.compareText(etCustomHash.getText().toString(), etGeneratedHash.getText().toString());
+            UIUtils.showSnackbar(context, mainScreen, getString(equal ? R.string.message_match_result : R.string.message_do_not_match_result));
         } else {
             UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_fill_fields));
         }
@@ -160,8 +159,7 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
 
     private void saveGeneratedHashAsTextFile() {
         if ((fileUri != null || isTextSelected) && TextUtils.fieldIsNotEmpty(etGeneratedHash)) {
-            String filename = getString(isTextSelected ? R.string.filename_hash_from_text
-                    : R.string.filename_hash_from_file);
+            String filename = getString(isTextSelected ? R.string.filename_hash_from_text : R.string.filename_hash_from_file);
             AppUtils.saveTextFile(this, filename, mainScreen);
         } else {
             UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_generate_hash_before_export));
@@ -205,10 +203,8 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
     }
 
     private void checkShortcutActionPresence(@NonNull Bundle shortcutsArguments) {
-        startWithTextSelection = shortcutsArguments
-                .getBoolean(App.ACTION_START_WITH_TEXT, false);
-        startWithFileSelection = shortcutsArguments
-                .getBoolean(App.ACTION_START_WITH_FILE, false);
+        startWithTextSelection = shortcutsArguments.getBoolean(App.ACTION_START_WITH_TEXT, false);
+        startWithFileSelection = shortcutsArguments.getBoolean(App.ACTION_START_WITH_FILE, false);
 
         shortcutsArguments.remove(App.ACTION_START_WITH_TEXT);
         shortcutsArguments.remove(App.ACTION_START_WITH_FILE);
@@ -218,13 +214,26 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
         if (uri != null) {
             fileUri = uri;
             isTextSelected = false;
-            String fileName = new File(uri.getPath()).getName();
-            setResult(fileName, false);
+            setResult(fileNameFromUri(fileUri), false);
         }
     }
 
+    private String fileNameFromUri(@NonNull Uri uri) {
+        String scheme = uri.getScheme();
+        if (scheme != null && scheme.equals("content")) {
+            try (Cursor cursor = context.getContentResolver().query(uri, null, null, null, null)) {
+                assert cursor != null;
+                cursor.moveToPosition(0);
+                return cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+            } catch (Exception e) {
+                L.e(e);
+            }
+        }
+        return new File(uri.getPath()).getName();
+    }
+
     @Override
-    public void onTextValueEntered(@NonNull String text) {
+    public void textValueEntered(@NonNull String text) {
         setResult(text, true);
     }
 
@@ -262,7 +271,7 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
     }
 
     @Override
-    public void onBackClick() {
+    public void appBackClick() {
         UIUtils.showSnackbar(context, getView().findViewById(R.id.fl_main_screen),
                 getString(R.string.message_exit), getString(R.string.action_exit_now),
                 v -> AppUtils.closeApp(getActivity()));
@@ -288,7 +297,7 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
     }
 
     @Override
-    public void onHashTypeSelect(@NonNull HashType hashType) {
+    public void hashTypeSelect(@NonNull HashType hashType) {
         tvSelectedHashType.setText(hashType.getTypeAsString(context));
         SettingsHelper.saveHashTypeAsLast(context, hashType);
     }
@@ -317,10 +326,10 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
         tvSelectedHashType.setText(SettingsHelper.getLastHashType(context).getTypeAsString(context));
         tvSelectedObjectName.setMovementMethod(new ScrollingMovementMethod());
         if (startWithTextSelection) {
-            onUserActionSelect(UserActionType.ENTER_TEXT);
+            userActionSelect(UserActionType.ENTER_TEXT);
             startWithTextSelection = false;
         } else if (startWithFileSelection) {
-            onUserActionSelect(UserActionType.SEARCH_FILE);
+            userActionSelect(UserActionType.SEARCH_FILE);
             startWithFileSelection = false;
         }
     }
@@ -353,12 +362,12 @@ public class MainFragment extends BaseFragment implements TextValueTarget, HashG
     }
 
     @Override
-    public void onAppResume() {
-        super.onAppResume();
+    public void appResume() {
+        super.appResume();
         validateTextCase();
         checkMultilinePreference();
         checkFileManagerChanged();
-        onHashTypeSelect(SettingsHelper.getLastHashType(context));
+        hashTypeSelect(SettingsHelper.getLastHashType(context));
     }
 
     private void checkMultilinePreference() {

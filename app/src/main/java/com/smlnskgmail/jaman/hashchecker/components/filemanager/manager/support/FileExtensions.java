@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.utils;
+package com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.support;
 
 import android.os.Environment;
 
@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-public class FileUtils {
+public class FileExtensions {
 
     private static final List<String> VIDEO_EXTENSIONS = new ArrayList<>(Arrays.asList(
             ".3gp",

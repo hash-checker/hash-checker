@@ -38,8 +38,7 @@ public class App extends android.app.Application {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
             if (shortcutManager != null) {
-                shortcutManager.setDynamicShortcuts(Arrays.asList(getShortcutForTextType(),
-                        getShortcutForFileType()));
+                shortcutManager.setDynamicShortcuts(Arrays.asList(getShortcutForTextType(), getShortcutForFileType()));
             }
         }
     }
@@ -48,16 +47,14 @@ public class App extends android.app.Application {
     @SuppressLint("ResourceType")
     @NonNull
     private ShortcutInfo getShortcutForTextType() {
-        return getShortcut(SHORTCUT_TEXT_ID, R.string.common_text,
-                R.drawable.ic_shortcut_text, ACTION_START_WITH_TEXT);
+        return getShortcut(SHORTCUT_TEXT_ID, R.string.common_text, R.drawable.ic_shortcut_text, ACTION_START_WITH_TEXT);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     @SuppressLint("ResourceType")
     @NonNull
     private ShortcutInfo getShortcutForFileType() {
-        return getShortcut(SHORTCUT_FILE_ID, R.string.common_file,
-                R.drawable.ic_shortcut_file, ACTION_START_WITH_FILE);
+        return getShortcut(SHORTCUT_FILE_ID, R.string.common_file, R.drawable.ic_shortcut_file, ACTION_START_WITH_FILE);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)

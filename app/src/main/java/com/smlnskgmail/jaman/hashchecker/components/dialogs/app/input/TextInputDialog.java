@@ -33,7 +33,7 @@ public class TextInputDialog extends BaseDialog {
 
         Button btnAddText = findViewById(R.id.btn_dialog_input_text_add);
         btnAddText.setOnClickListener(v -> {
-            textValueCallback.onTextValueEntered(etTextValue.getText().toString());
+            textValueCallback.textValueEntered(etTextValue.getText().toString());
             dismiss();
         });
 

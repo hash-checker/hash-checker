@@ -7,8 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.calculator.support.HashUtils;
 import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.utils.HashUtils;
 
 import java.io.File;
 import java.io.FileInputStream;

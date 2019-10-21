@@ -51,8 +51,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion,
-                          int newVersion) {}
+    public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {}
 
     public void addHistoryItem(@NonNull HistoryItem historyItem) {
         try {
@@ -66,8 +65,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             long portion = historyPortion.pageSize();
             int page = historyPortion.page();
-            QueryBuilder<HistoryItem, ?> queryBuilder = getDao(HistoryItem.class).queryBuilder()
-                    .limit(portion);
+
+            QueryBuilder<HistoryItem, ?> queryBuilder = getDao(HistoryItem.class).queryBuilder().limit(portion);
             if (page != -1L) {
                 queryBuilder.offset(page * portion);
             }

@@ -96,11 +96,11 @@ public class MainActivity extends BaseActivity {
         Fragment fragment = getSupportFragmentManager()
                 .findFragmentByTag(BaseFragment.CURRENT_FRAGMENT_TAG);
         if (fragment instanceof BackClickTarget) {
-            ((BackClickTarget) fragment).onBackClick();
+            ((BackClickTarget) fragment).appBackClick();
         }
         for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
             if (fragmentInApp instanceof AppResumeTarget) {
-                ((AppResumeTarget) fragmentInApp).onAppResume();
+                ((AppResumeTarget) fragmentInApp).appResume();
             }
         }
     }

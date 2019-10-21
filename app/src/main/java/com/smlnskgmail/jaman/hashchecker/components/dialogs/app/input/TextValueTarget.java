@@ -4,6 +4,6 @@ import androidx.annotation.NonNull;
 
 public interface TextValueTarget {
 
-    void onTextValueEntered(@NonNull String text);
+    void textValueEntered(@NonNull String text);
 
 }

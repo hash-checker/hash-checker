@@ -12,9 +12,9 @@ import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileItem;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileType;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.listadapter.FileItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.support.FileExtensions;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.support.FileSelectTarget;
 import com.smlnskgmail.jaman.hashchecker.components.filemanager.manager.support.Requests;
-import com.smlnskgmail.jaman.hashchecker.utils.FileUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.io.File;
@@ -42,7 +42,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
         fileItemsAdapter = new FileItemsAdapter(files, FileManagerActivity.this);
         rvFilesList.setAdapter(fileItemsAdapter);
 
-        storages.addAll(FileUtils.getExternalMounts());
+        storages.addAll(FileExtensions.getExternalMounts());
         toStorageChooser();
     }
 
@@ -75,11 +75,11 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
             } else {
                 final String fileName = file.getPath();
                 final String fileNameInLowerCase = fileName.toLowerCase();
-                if (FileUtils.isVideo(fileNameInLowerCase)) {
+                if (FileExtensions.isVideo(fileNameInLowerCase)) {
                     this.files.add(new FileItem(FileType.VIDEO, path, name));
-                } else if (FileUtils.isImage(fileNameInLowerCase)) {
+                } else if (FileExtensions.isImage(fileNameInLowerCase)) {
                     this.files.add(new FileItem(FileType.IMAGE, path, name));
-                } else if (FileUtils.isSound(fileName)) {
+                } else if (FileExtensions.isSound(fileName)) {
                     this.files.add(new FileItem(FileType.MUSIC, path, name));
                 } else {
                     this.files.add(new FileItem(FileType.FILE, path, name));
@@ -91,7 +91,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     }
 
     @Override
-    public void onFileSelect(@NonNull FileItem fileItem, int position) {
+    public void fileSelect(@NonNull FileItem fileItem, int position) {
         String path = fileItem.getFilePath();
         File file = new File(path);
         if (position == 0 && path.equals(BACK_FOLDER)
@@ -165,8 +165,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     }
 
     private void resetTitle() {
-        UIUtils.setActionBarTitle(getSupportActionBar(),
-                R.string.file_manager_select_storage_title);
+        UIUtils.setActionBarTitle(getSupportActionBar(), R.string.file_manager_select_storage_title);
     }
 
     private boolean isStorage(String path) {

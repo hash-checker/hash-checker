@@ -6,6 +6,6 @@ import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileIte
 
 public interface FileSelectTarget {
 
-    void onFileSelect(@NonNull FileItem fileItem, int position);
+    void fileSelect(@NonNull FileItem fileItem, int position);
 
 }

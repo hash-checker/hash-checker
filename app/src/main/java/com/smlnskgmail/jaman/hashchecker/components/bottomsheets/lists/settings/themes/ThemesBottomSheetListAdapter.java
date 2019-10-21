@@ -20,8 +20,7 @@ public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
 
     private final Theme selectedTheme;
 
-    ThemesBottomSheetListAdapter(@NonNull List<ListMarker> items,
-                                 @NonNull BaseListBottomSheet bottomSheet) {
+    ThemesBottomSheetListAdapter(@NonNull List<ListMarker> items, @NonNull BaseListBottomSheet bottomSheet) {
         super(items, bottomSheet);
         selectedTheme = Theme.getThemeFromPreferences(getBottomSheet().getContext());
     }
