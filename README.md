@@ -14,35 +14,35 @@ Fast and simple application for generating and comparison hashes from files or t
 
 ### 1.1. Supporting algorithms
 
-| Name | Status | Since version |
+| Name | Since version | Status |
 | --- | --- | --- |
-| [MD5](https://en.wikipedia.org/wiki/MD5) | Supporting | `1.0.0` |
-| [SHA-1](https://en.wikipedia.org/wiki/SHA-1) | Supporting | `1.0.0` |
-| [SHA-224](https://en.wikipedia.org/wiki/SHA-2) | Supporting | `1.4.0` |
-| [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | Supporting | `1.0.0` |
-| [SHA-384](https://en.wikipedia.org/wiki/SHA-2) | Supporting | `1.4.0` |
-| [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | Supporting | `1.0.0` |
-| [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | Supporting | `2.9.0` |
+| [MD5](https://en.wikipedia.org/wiki/MD5) | 1.0.0 | `Supporting` |
+| [SHA-1](https://en.wikipedia.org/wiki/SHA-1) | 1.0.0 | `Supporting` |
+| [SHA-224](https://en.wikipedia.org/wiki/SHA-2) | 1.4.0 | `Supporting` |
+| [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
+| [SHA-384](https://en.wikipedia.org/wiki/SHA-2) | 1.4.0 | `Supporting` |
+| [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
+| [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Supporting` |
 
 ### 1.2. Languages
 
-| Language | Translate status | Since version |
+| Language | Since version | Translate status |
 | --- | --- | --- |
-| [English](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values/strings.xml) | Full | `1.0.0` |
-| [Russian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-ru/strings.xml) | Full | `2.9.6` |
-| [German](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-de/strings.xml) | Full | `2.9.6` |
-| [French](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-fr/strings.xml) | Full | `2.9.9` |
-| [Hebrew](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-iw/strings.xml) | Full | `2.9.9` |
-| [Italian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-it/strings.xml) | Full | `2.9.9` |
-| [Polish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-pl/strings.xml) | Full | `2.9.9` |
-| [Spanish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-es/strings.xml) | Full | `2.9.9` |
-| [Korean](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-kr/strings.xml) | Full | `2.9.9` |
-| [Chinese](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-zh/strings.xml) | Full | `2.9.9` |
-| [Persian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-fa/strings.xml) | Full | `2.9.9` |
-| [Hungarian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-hu/strings.xml) | Full | `2.9.9` |
-| [Swedish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-sv/strings.xml) | Full | `2.9.9` |
-| [Greek](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-el/strings.xml) | Full | `2.9.9` |
-| [Dutch](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-nl/strings.xml) | Full | `2.9.9` |
+| [English](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values/strings.xml) | 1.0.0 | `Full` |
+| [Russian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-ru/strings.xml) | 2.9.6 | `Full` |
+| [German](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-de/strings.xml) | 2.9.6 | `Full` |
+| [French](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-fr/strings.xml) | 2.9.9 | `Full` |
+| [Hebrew](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-iw/strings.xml) | 2.9.9 | `Full` |
+| [Italian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-it/strings.xml) | 2.9.9 | `Full` |
+| [Polish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-pl/strings.xml) | 2.9.9 | `Full` |
+| [Spanish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-es/strings.xml) | 2.9.9 | `Full` |
+| [Korean](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-kr/strings.xml) | 2.9.9 | `Full` |
+| [Chinese](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-zh/strings.xml) | 2.9.9 | `Full` |
+| [Persian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-fa/strings.xml) | 2.9.9 | `Full` |
+| [Hungarian](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-hu/strings.xml) | 2.9.9 | `Full` |
+| [Swedish](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-sv/strings.xml) | 2.9.9 | `Full` |
+| [Greek](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-el/strings.xml) | 2.9.9 | `Full` |
+| [Dutch](https://github.com/fartem/hash-checker/blob/master/app/src/main/res/values-nl/strings.xml) | 2.9.9 | `Full` |
 
 ## 2. Screenshots
 
