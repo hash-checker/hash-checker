@@ -1,7 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.entities;
 
-import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileItem;
-import com.smlnskgmail.jaman.hashchecker.components.filemanager.entities.FileType;
+import com.smlnskgmail.jaman.hashchecker.logic.filemanager.entities.FileItem;
+import com.smlnskgmail.jaman.hashchecker.logic.filemanager.entities.FileType;
 
 import org.junit.Test;
 

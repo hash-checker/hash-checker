@@ -11,8 +11,8 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.smlnskgmail.jaman.hashchecker.db.HelperFactory;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.history.db.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
 import java.util.Arrays;
 

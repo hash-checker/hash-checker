@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +26,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.settings.themes.Theme;
-import com.smlnskgmail.jaman.hashchecker.navigation.fragments.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.themes.Theme;
 
 public class UIUtils {
 
@@ -77,7 +80,21 @@ public class UIUtils {
         snackbar.show();
 
         if (SettingsHelper.getVibrateAccess(context)) {
-            AppUtils.vibrate(context);
+            vibrate(context);
+        }
+    }
+
+    private static void vibrate(@NonNull Context context) {
+        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        int vibrationLength = 30;
+
+        if (vibrator != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(vibrationLength,
+                        VibrationEffect.DEFAULT_AMPLITUDE));
+            } else {
+                vibrator.vibrate(vibrationLength);
+            }
         }
     }
 

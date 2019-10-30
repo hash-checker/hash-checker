@@ -2,8 +2,8 @@ package com.smlnskgmail.jaman.hashchecker.hashcalculator.sha;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.hashcalculator.BaseHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashType;
 
 public class SHA512HashCalculatorTest extends BaseHashCalculatorTest {
 

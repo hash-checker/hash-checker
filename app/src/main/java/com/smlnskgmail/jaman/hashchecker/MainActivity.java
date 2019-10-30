@@ -12,14 +12,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
-import com.smlnskgmail.jaman.hashchecker.navigation.fragments.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.navigation.fragments.FeedbackFragment;
-import com.smlnskgmail.jaman.hashchecker.navigation.fragments.MainFragment;
-import com.smlnskgmail.jaman.hashchecker.navigation.fragments.SettingsFragment;
-import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.navigation.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.navigation.states.BackClickTarget;
-import com.smlnskgmail.jaman.hashchecker.support.prefs.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
+import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.CalculatorFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.feedback.FeedbackFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class MainActivity extends BaseActivity {
@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
             externalFileUri = clipData.getItemAt(0).getUri();
         }
 
-        MainFragment mainFragment = new MainFragment();
+        CalculatorFragment mainFragment = new CalculatorFragment();
         if (scheme != null && scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
             mainFragment.setArguments(getConfiguredBundleWithDataUri(intent.getData()));
             SettingsHelper.setGenerateFromShareIntentMode(this, true);
@@ -95,8 +95,8 @@ public class MainActivity extends BaseActivity {
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager()
                 .findFragmentByTag(BaseFragment.CURRENT_FRAGMENT_TAG);
-        if (fragment instanceof BackClickTarget) {
-            ((BackClickTarget) fragment).appBackClick();
+        if (fragment instanceof AppBackClickTarget) {
+            ((AppBackClickTarget) fragment).appBackClick();
         }
         for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
             if (fragmentInApp instanceof AppResumeTarget) {

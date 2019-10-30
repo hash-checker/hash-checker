@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.utils;
 
-import com.smlnskgmail.jaman.hashchecker.calculator.support.HashUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashUtils;
 
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class HashUtilsTest {
         String input = "String from bytes";
         String validResult = "537472696e672066726f6d206279746573";
 
-        String result = HashUtils.getStringFromBytes(input.getBytes());
+        String result = HashUtils.getStringFromByteArray(input.getBytes());
         assertEquals(result, validResult);
     }
 

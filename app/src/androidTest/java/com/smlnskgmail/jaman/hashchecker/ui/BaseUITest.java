@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 
-import com.smlnskgmail.jaman.hashchecker.support.logs.L;
+import com.smlnskgmail.jaman.hashchecker.logs.L;
 import com.smlnskgmail.jaman.hashchecker.ui.support.matchers.TextMatcher;
 
 import org.junit.Test;

@@ -1,5 +1,5 @@
 # --table-start--
-dataClass=com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryItem
+dataClass=com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem
 tableName=history
 # --table-fields-start--
 # --field-start--

@@ -7,15 +7,6 @@
     <string name="common_none" translatable="false">-</string>
     <string name="common_email" translatable="false">jaman.smlnsk@gmail.com</string>
 
-    <!-- hash bottom sheets -->
-    <string name="hash_type_md5" translatable="false">MD5</string>
-    <string name="hash_type_sha1" translatable="false">SHA-1</string>
-    <string name="hash_type_sha224" translatable="false">SHA-224</string>
-    <string name="hash_type_sha256" translatable="false">SHA-256</string>
-    <string name="hash_type_sha384" translatable="false">SHA-384</string>
-    <string name="hash_type_sha512" translatable="false">SHA-512</string>
-    <string name="hash_type_crc32" translatable="false">CRC-32</string>
-
     <!-- settings -->
     <string name="key_category_app" translatable="false">category_app</string>
     <string name="key_inner_file_manager" translatable="false">app_file_manager</string>

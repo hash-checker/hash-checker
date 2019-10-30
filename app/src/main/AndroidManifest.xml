@@ -56,7 +56,7 @@
 
         </activity>
 
-        <activity android:name=".components.filemanager.manager.FileManagerActivity" />
+        <activity android:name=".logic.filemanager.manager.FileManagerActivity" />
 
     </application>
 

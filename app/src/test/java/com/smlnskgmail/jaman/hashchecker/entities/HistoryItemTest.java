@@ -1,7 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.entities;
 
-import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.navigation.fragments.history.entities.HistoryItem;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem;
 
 import org.junit.Test;
 

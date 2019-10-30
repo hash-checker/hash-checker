@@ -4,7 +4,7 @@ import androidx.test.rule.ActivityTestRule;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.calculator.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashType;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
 
 import org.junit.Rule;
@@ -69,7 +69,7 @@ public class GenerateHashFromTextTest extends BaseUITest {
 
         inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, hashTypePosition);
 
-        textEquals(R.id.tv_selected_hash_type, TEST_HASH_TYPE.getTypeAsString(getContext()));
+        textEquals(R.id.tv_selected_hash_type, TEST_HASH_TYPE.getTypeAsString());
     }
 
     private void generateHashFromText() throws InterruptedException {
