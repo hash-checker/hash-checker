@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialog</item>
+        <item name="android:navigationBarColor">?attr/colorPrimaryDark</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="actionOverflowButtonStyle">@style/AppMenuButton</item>
+        <item name="android:itemBackground">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorCommonText</item>
+        <item name="android:textColorSecondary">?attr/colorCommonText</item>
+        <item name="android:fontFamily">@font/ft_google_sans_regular</item>
+    </style>
+
+    <style name="AppThemeLight" parent="AppTheme">
+        <item name="colorPrimary">#ffffff</item>
+        <item name="colorPrimaryDark">#eeeeee</item>
+        <item name="colorAccent">#009688</item>
+        <item name="colorAccentSupport">#009688</item>
+        <item name="colorCommonText">@android:color/black</item>
+        <item name="colorCommonUnselected">#BDBDBD</item>
+        <item name="colorBackground">@android:color/white</item>
+        <item name="colorDialogBackground">@android:color/white</item>
+        <item name="colorBottomSheetBackground">@android:color/white</item>
+        <item name="colorSnackbarBackground">#323232</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+    </style>
+
+    <style name="AppThemeDark" parent="AppTheme">
+        <item name="colorPrimary">#272727</item>
+        <item name="colorPrimaryDark">#272727</item>
+        <item name="colorAccent">#01AFA2</item>
+        <item name="colorAccentSupport">#01AFA2</item>
+        <item name="colorCommonText">@android:color/white</item>
+        <item name="colorCommonUnselected">#8BBDBDBD</item>
+        <item name="colorBackground">#1B1B1B</item>
+        <item name="colorDialogBackground">#313236</item>
+        <item name="colorBottomSheetBackground">#313236</item>
+        <item name="colorSnackbarBackground">#313236</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
+    </style>
+
+</resources>

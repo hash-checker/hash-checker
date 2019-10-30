@@ -34,76 +34,55 @@
             android:importantForAutofill="no"
             android:inputType="textMultiLine" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/common_margin">
+        <LinearLayout style="@style/AppFeedbackDeviceItemLayout">
 
             <TextView
-                android:id="@+id/tv_device_info_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/feedback_device"
-                android:textColor="?attr/colorCommonText"
-                android:textSize="@dimen/text_size_medium" />
+                android:id="@+id/tv_hash_checker_title"
+                style="@style/AppFeedbackTitle"
+                android:text="@string/feedback_hash_checker_title" />
 
-            <CheckBox
-                android:id="@+id/cb_add_device_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@drawable/sl_adaptive_checkbox"
-                android:checked="true" />
+            <TextView
+                android:id="@+id/tv_hash_checker_value"
+                style="@style/AppFeedbackValue" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/common_margin">
+        <LinearLayout style="@style/AppFeedbackDeviceItemLayout">
+
+            <TextView
+                android:id="@+id/tv_android_title"
+                style="@style/AppFeedbackTitle"
+                android:text="@string/feedback_android_title" />
+
+            <TextView
+                android:id="@+id/tv_android_value"
+                style="@style/AppFeedbackValue" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/AppFeedbackDeviceItemLayout">
 
             <TextView
                 android:id="@+id/tv_manufacturer_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/feedback_manufacturer"
-                android:textColor="?attr/colorCommonText"
-                android:textSize="@dimen/text_size_medium" />
+                style="@style/AppFeedbackTitle"
+                android:text="@string/feedback_manufacturer" />
 
             <TextView
                 android:id="@+id/tv_manufacturer_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/common_margin_half"
-                android:text="@string/common_none"
-                android:textColor="?attr/colorAccent"
-                android:textSize="@dimen/text_size_medium" />
+                style="@style/AppFeedbackValue" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/common_margin">
+        <LinearLayout style="@style/AppFeedbackDeviceItemLayout">
 
             <TextView
                 android:id="@+id/tv_model_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/feedback_model"
-                android:textColor="?attr/colorCommonText"
-                android:textSize="@dimen/text_size_medium" />
+                style="@style/AppFeedbackTitle"
+                android:text="@string/feedback_model" />
 
             <TextView
                 android:id="@+id/tv_model_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/common_margin_half"
-                android:text="@string/common_none"
-                android:textColor="?attr/colorAccent"
-                android:textSize="@dimen/text_size_medium" />
+                style="@style/AppFeedbackValue" />
 
         </LinearLayout>
 

@@ -10,17 +10,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdaptiveRecyclerView extends RecyclerView {
 
-    private View emptyMessage;
+    private View viewEmptyMessage;
 
-    private final AdapterDataObserver emptyObserver = new AdapterDataObserver() {
+    private final AdapterDataObserver adapterDataObserver = new AdapterDataObserver() {
         private void checkItemsAvailable() {
             Adapter adapter = getAdapter();
-            if (adapter != null && emptyMessage != null) {
+            if (adapter != null && viewEmptyMessage != null) {
                 if (adapter.getItemCount() == 0) {
-                    emptyMessage.setVisibility(View.VISIBLE);
+                    viewEmptyMessage.setVisibility(View.VISIBLE);
                     setVisibility(GONE);
                 } else {
-                    emptyMessage.setVisibility(View.GONE);
+                    viewEmptyMessage.setVisibility(View.GONE);
                     setVisibility(VISIBLE);
                 }
             }
@@ -55,23 +55,23 @@ public class AdaptiveRecyclerView extends RecyclerView {
     }
 
     @Nullable
-    public View getEmptyMessage() {
-        return emptyMessage;
+    public View getViewEmptyMessage() {
+        return viewEmptyMessage;
     }
 
     public void setEmptyMessageView(@NonNull View emptyMessage) {
-        this.emptyMessage = emptyMessage;
+        this.viewEmptyMessage = emptyMessage;
     }
 
     @Override
     public void setAdapter(Adapter adapter) {
         if (getAdapter() != null) {
-            getAdapter().unregisterAdapterDataObserver(emptyObserver);
+            getAdapter().unregisterAdapterDataObserver(adapterDataObserver);
         }
         super.setAdapter(adapter);
         if (adapter != null) {
-            adapter.registerAdapterDataObserver(emptyObserver);
-            emptyObserver.onChanged();
+            adapter.registerAdapterDataObserver(adapterDataObserver);
+            adapterDataObserver.onChanged();
         }
     }
 

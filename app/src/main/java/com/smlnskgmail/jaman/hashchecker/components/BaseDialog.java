@@ -22,13 +22,13 @@ public abstract class BaseDialog extends Dialog {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(getLayoutResId());
-        initUI();
+        initializeDialog();
         setupDialogStyle();
     }
 
     protected abstract int getLayoutResId();
 
-    public void initUI() {
+    public void initializeDialog() {
         Button btnClose = findViewById(R.id.btn_dialog_input_text_close);
         btnClose.setOnClickListener(v -> dismiss());
     }

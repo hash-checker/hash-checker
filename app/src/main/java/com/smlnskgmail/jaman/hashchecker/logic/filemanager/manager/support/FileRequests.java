@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support;
 
-public interface Requests {
+public interface FileRequests {
 
     int FILE_SELECT = 1;
     int FILE_SELECT_FROM_FILE_MANAGER = 2;

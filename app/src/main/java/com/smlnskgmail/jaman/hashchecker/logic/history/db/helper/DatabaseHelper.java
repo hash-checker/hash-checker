@@ -12,8 +12,8 @@ import com.j256.ormlite.table.TableUtils;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.logic.history.db.entity.DBEntity;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryPortion;
-import com.smlnskgmail.jaman.hashchecker.logs.L;
+import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryPortion;
+import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
 
 import java.io.File;
 import java.sql.SQLException;
@@ -46,7 +46,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 TableUtils.createTable(connectionSource, clazz);
             }
         } catch (SQLException e) {
-            L.e(e);
+            LogTool.e(e);
         }
     }
 
@@ -57,7 +57,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             getDao(HistoryItem.class).create(historyItem);
         } catch (SQLException e) {
-            L.e(e);
+            LogTool.e(e);
         }
     }
 
@@ -72,7 +72,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             }
             return queryBuilder.query();
         } catch (SQLException e) {
-            L.e(e);
+            LogTool.e(e);
         }
         return new ArrayList<>();
     }
@@ -81,7 +81,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             getDao(HistoryItem.class).deleteBuilder().delete();
         } catch (SQLException e) {
-            L.e(e);
+            LogTool.e(e);
         }
     }
 
@@ -89,7 +89,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             return getDao(HistoryItem.class).countOf() > 0;
         } catch (SQLException e) {
-            L.e(e);
+            LogTool.e(e);
             return false;
         }
     }
@@ -99,7 +99,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             getWritableDatabase().execSQL("PRAGMA wal_checkpoint");
         } catch (Exception e) {
-            L.e(e);
+            LogTool.e(e);
         }
     }
 

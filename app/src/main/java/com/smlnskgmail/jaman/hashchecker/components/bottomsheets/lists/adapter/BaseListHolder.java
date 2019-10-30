@@ -9,10 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
 import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
-public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder {
+public abstract class BaseListHolder extends RecyclerView.ViewHolder {
 
     private final TextView tvItemTitle;
 
@@ -21,7 +21,7 @@ public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder 
 
     private final Context context;
 
-    protected BaseBottomSheetListHolder(@NonNull View itemView, @NonNull Context themeContext) {
+    protected BaseListHolder(@NonNull View itemView, @NonNull Context themeContext) {
         super(itemView);
 
         // Context with current theme
@@ -31,18 +31,18 @@ public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder 
         ivItemAdditionalIcon = itemView.findViewById(R.id.iv_item_list_additional_icon);
     }
 
-    protected void bind(@NonNull final ListMarker listMarker) {
+    protected void bind(@NonNull final ListItemTarget listItemTarget) {
         itemView.setOnClickListener(v -> callItemClick());
-        tvItemTitle.setText(listMarker.getTitle(context));
-        int primaryIconResId = listMarker.getPrimaryIconResId();
+        tvItemTitle.setText(listItemTarget.getTitle(context));
+        int primaryIconResId = listItemTarget.getPrimaryIconResId();
         if (primaryIconResId != -1) {
-            ivItemPrimaryIcon.setImageResource(listMarker.getPrimaryIconResId());
+            ivItemPrimaryIcon.setImageResource(listItemTarget.getPrimaryIconResId());
             UITools.applyAccentColorToImage(context, ivItemPrimaryIcon.getDrawable());
         }
         ivItemPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState() ? View.VISIBLE : View.GONE);
-        int additionalIconResId = listMarker.getAdditionalIconResId();
+        int additionalIconResId = listItemTarget.getAdditionalIconResId();
         if (additionalIconResId != -1) {
-            ivItemAdditionalIcon.setImageResource(listMarker.getAdditionalIconResId());
+            ivItemAdditionalIcon.setImageResource(listItemTarget.getAdditionalIconResId());
             UITools.applyAccentColorToImage(context, ivItemAdditionalIcon.getDrawable());
         }
         ivItemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState() ? View.VISIBLE : View.INVISIBLE);

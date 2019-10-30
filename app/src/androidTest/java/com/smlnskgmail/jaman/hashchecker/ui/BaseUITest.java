@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 
-import com.smlnskgmail.jaman.hashchecker.logs.L;
+import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
 import com.smlnskgmail.jaman.hashchecker.ui.support.matchers.TextMatcher;
 
 import org.junit.Test;
@@ -57,7 +57,7 @@ public abstract class BaseUITest {
         try {
             Thread.sleep(SECOND_IN_MILLIS);
         } catch (InterruptedException e) {
-            L.e(e);
+            LogTool.e(e);
         }
     }
 

@@ -16,15 +16,13 @@ public abstract class BaseBottomSheet extends BottomSheetDialogFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        if (getDialog().getWindow() != null) {
-            getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-        }
-        initUI(view);
+        getDialog().getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        viewCreated(view);
     }
 
-    protected void initUI(@NonNull View contentView) {}
+    protected void viewCreated(@NonNull View contentView) {}
 
-    public void showBottomSheet(@NonNull FragmentManager fragmentManager) {
+    public void show(@NonNull FragmentManager fragmentManager) {
         show(fragmentManager, getClass().getName());
     }
 

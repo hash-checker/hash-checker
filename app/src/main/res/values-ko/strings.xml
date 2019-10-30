@@ -74,7 +74,6 @@
     <string name="settings_title_multiline">여러 줄 해시 필드</string>
 
     <!-- feedback -->
-    <string name="feedback_device">기기 정보 추가</string>
     <string name="feedback_manufacturer">제조업체</string>
     <string name="feedback_model">모델</string>
     <string name="feedback_message">메시지</string>

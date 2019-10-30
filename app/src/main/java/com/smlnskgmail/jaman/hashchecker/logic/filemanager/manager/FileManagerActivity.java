@@ -13,8 +13,8 @@ import com.smlnskgmail.jaman.hashchecker.logic.filemanager.entities.FileItem;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.entities.FileType;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.listadapter.FileItemsAdapter;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.FileExtensions;
+import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.FileRequests;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.FileSelectTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.Requests;
 import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 import java.io.File;
@@ -34,7 +34,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     private String currentPath = null;
 
     @Override
-    public void initialize() {
+    public void create() {
         setContentView(R.layout.activity_file_explorer);
         RecyclerView rvFilesList = findViewById(R.id.rv_file_explorer_list);
         resetTitle();
@@ -117,8 +117,8 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
 
     private void selectionFinished(@NonNull String path) {
         Intent selectFileIntent = new Intent();
-        selectFileIntent.putExtra(Requests.FILE_SELECT_DATA, path);
-        setResult(Requests.FILE_SELECT_FROM_FILE_MANAGER, selectFileIntent);
+        selectFileIntent.putExtra(FileRequests.FILE_SELECT_DATA, path);
+        setResult(FileRequests.FILE_SELECT_FROM_FILE_MANAGER, selectFileIntent);
         finish();
     }
 

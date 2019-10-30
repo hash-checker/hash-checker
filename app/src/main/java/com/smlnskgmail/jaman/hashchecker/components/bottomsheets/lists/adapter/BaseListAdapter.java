@@ -10,34 +10,34 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<BaseBottomSheetListHolder> {
+public abstract class BaseListAdapter extends RecyclerView.Adapter<BaseListHolder> {
 
     private final BaseListBottomSheet bottomSheet;
-    private final List<ListMarker> items = new ArrayList<>();
+    private final List<ListItemTarget> items = new ArrayList<>();
 
-    protected BaseBottomSheetListAdapter(@NonNull List<ListMarker> items, @NonNull BaseListBottomSheet bottomSheet) {
+    protected BaseListAdapter(@NonNull List<ListItemTarget> items, @NonNull BaseListBottomSheet bottomSheet) {
         this.items.addAll(items);
         this.bottomSheet = bottomSheet;
     }
 
     @NonNull
     @Override
-    public BaseBottomSheetListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BaseListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return getItemsHolder(LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_list, parent, false), getBottomSheet().getContext());
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseBottomSheetListHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BaseListHolder holder, int position) {
         holder.bind(items.get(position));
     }
 
-    protected abstract BaseBottomSheetListHolder getItemsHolder(@NonNull View view, @NonNull Context themeContext);
+    protected abstract BaseListHolder getItemsHolder(@NonNull View view, @NonNull Context themeContext);
 
     @NonNull
     protected BaseListBottomSheet getBottomSheet() {
@@ -45,11 +45,11 @@ public abstract class BaseBottomSheetListAdapter extends RecyclerView.Adapter<Ba
     }
 
     @NonNull
-    protected List<ListMarker> getItems() {
+    protected List<ListItemTarget> getItems() {
         return items;
     }
 
-    protected void dismissBottomSheet() {
+    public void dismissBottomSheet() {
         bottomSheet.dismiss();
     }
 

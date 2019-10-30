@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
     public static final String URI_FROM_EXTERNAL_APP = "com.smlnskgmail.jaman.hashchecker.URI_FROM_EXTERNAL_APP";
 
     @Override
-    public void initialize() {
+    public void create() {
         Intent intent = getIntent();
         String scheme = null;
         ClipData clipData = null;

@@ -19,9 +19,7 @@ public class AppProgressDialog {
         progressDialog.setMessage(context.getString(textMessageResId));
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
-        if (progressDialog.getWindow() != null) {
-            progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(UITools.getCommonBackgroundColor(context)));
-        }
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(UITools.getCommonBackgroundColor(context)));
         return progressDialog;
     }
 

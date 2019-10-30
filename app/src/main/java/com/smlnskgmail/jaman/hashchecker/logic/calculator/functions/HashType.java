@@ -5,9 +5,9 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
 
-public enum HashType implements ListMarker {
+public enum HashType implements ListItemTarget {
 
     MD5("MD5"),
     SHA_1("SHA-1"),
@@ -34,18 +34,10 @@ public enum HashType implements ListMarker {
 
     @NonNull
     public static HashType getHashTypeFromString(@NonNull String string) {
-        if (string.equals(SHA_1.hashName)) {
-            return SHA_1;
-        } else if (string.equals(SHA_224.hashName)) {
-            return SHA_224;
-        } else if (string.equals(SHA_256.hashName)) {
-            return SHA_256;
-        } else if (string.equals(SHA_384.hashName)) {
-            return SHA_384;
-        } else if (string.equals(SHA_512.hashName)) {
-            return SHA_512;
-        } else if (string.equals(CRC_32.hashName)) {
-            return CRC_32;
+        for (HashType hashType: values()) {
+            if (hashType.hashName.equals(string)) {
+                return hashType;
+            }
         }
         return MD5;
     }

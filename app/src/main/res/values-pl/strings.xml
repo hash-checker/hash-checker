@@ -74,7 +74,6 @@
     <string name="settings_title_multiline">Wieloliniowe pola mieszające</string>
 
     <!-- feedback -->
-    <string name="feedback_device">Dodaj informacje o urządzeniu</string>
     <string name="feedback_manufacturer">Producent</string>
     <string name="feedback_model">Model</string>
     <string name="feedback_message">Wiadomość</string>

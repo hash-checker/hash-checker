@@ -22,6 +22,7 @@ public class AppAlertDialog {
                 .create();
         alertDialog.setOnShowListener(dialog -> {
             AlertDialog currentDialog = ((AlertDialog) dialog);
+
             int textColor = UITools.getAccentColor(context);
             currentDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(textColor);
             currentDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(textColor);

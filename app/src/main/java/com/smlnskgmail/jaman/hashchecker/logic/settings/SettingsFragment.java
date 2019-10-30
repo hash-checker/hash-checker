@@ -24,14 +24,14 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.Requests;
+import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.FileRequests;
 import com.smlnskgmail.jaman.hashchecker.logic.history.db.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.logic.history.db.utils.DatabaseExporter;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.themes.Theme;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.weblinks.WebLink;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.weblinks.WebLinksBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.logs.L;
+import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
 import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 import com.smlnskgmail.jaman.hashchecker.tools.WebTools;
 
@@ -55,38 +55,38 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
         fragmentManager = getActivity().getSupportFragmentManager();
         context = getContext();
 
-        initActionBar();
-        initFileManagerSwitcher();
-        initThemesSettings();
-        initPrivacyPolicy();
-        initUserDataExport();
-        initAuthorLinks();
-        initRateButton();
-        initAppVersionInfo();
+        initializeActionBar();
+        initializeFileManagerSwitcher();
+        initializeThemesSettings();
+        initializePrivacyPolicy();
+        initializeUserDataExport();
+        initializeAuthorLinks();
+        initializeRateButton();
+        initializeAppVersionInfo();
     }
 
-    private void initActionBar() {
+    private void initializeActionBar() {
         actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setHomeAsUpIndicator(ContextCompat.getDrawable(context, R.drawable.ic_arrow_back));
     }
 
-    private void initThemesSettings() {
+    private void initializeThemesSettings() {
         findPreference(getString(R.string.key_theme)).setOnPreferenceClickListener(preference -> {
             ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
-            themesBottomSheet.setItems(Arrays.asList(Theme.values()));
-            themesBottomSheet.showBottomSheet(fragmentManager);
+            themesBottomSheet.setList(Arrays.asList(Theme.values()));
+            themesBottomSheet.show(fragmentManager);
             return false;
         });
     }
 
-    private void initPrivacyPolicy() {
+    private void initializePrivacyPolicy() {
         findPreference(getString(R.string.key_privacy_policy)).setOnPreferenceClickListener(preference -> {
             WebTools.openWebLink(context, context.getString(R.string.web_link_privacy_policy));
             return false;
         });
     }
 
-    private void initUserDataExport() {
+    private void initializeUserDataExport() {
         findPreference(getString(R.string.key_export_user_data)).setOnPreferenceClickListener(preference -> {
             saveUserData();
             return false;
@@ -100,9 +100,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 saveFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
                 saveFileIntent.setType("application/zip");
                 saveFileIntent.putExtra(Intent.EXTRA_TITLE, DatabaseExporter.EXPORT_FILE);
-                startActivityForResult(saveFileIntent, Requests.FILE_CREATE);
+                startActivityForResult(saveFileIntent, FileRequests.FILE_CREATE);
             } catch (ActivityNotFoundException e) {
-                L.e(e);
+                LogTool.e(e);
                 String errorMessage = getString(R.string.message_error_start_file_selector);
                 UITools.showSnackbar(context, getView(), errorMessage);
             }
@@ -111,16 +111,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
         }
     }
 
-    private void initAuthorLinks() {
+    private void initializeAuthorLinks() {
         findPreference(getString(R.string.key_author)).setOnPreferenceClickListener(preference -> {
             WebLinksBottomSheet webLinksBottomSheet = new WebLinksBottomSheet();
-            webLinksBottomSheet.setItems(WebLink.getAuthorLinks());
-            webLinksBottomSheet.showBottomSheet(fragmentManager);
+            webLinksBottomSheet.setList(WebLink.getAuthorLinks());
+            webLinksBottomSheet.show(fragmentManager);
             return false;
         });
     }
 
-    private void initRateButton() {
+    private void initializeRateButton() {
         findPreference(getString(R.string.key_rate_app)).setOnPreferenceClickListener(preference -> {
             openGooglePlay();
             return false;
@@ -138,18 +138,18 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 link = Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName);
                 context.startActivity(new Intent(Intent.ACTION_VIEW, link));
             } catch (ActivityNotFoundException e2) {
-                L.e(e2);
+                LogTool.e(e2);
                 UITools.showSnackbar(context, getView(), context.getString(R.string.message_error_start_google_play));
             }
         }
     }
 
-    private void initAppVersionInfo() {
+    private void initializeAppVersionInfo() {
         findPreference(getString(R.string.key_version)).setSummary(String.format("%s (%s)",
                 BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
     }
 
-    private void initFileManagerSwitcher() {
+    private void initializeFileManagerSwitcher() {
         findPreference(getString(R.string.key_inner_file_manager)).setOnPreferenceChangeListener((preference, o) -> {
             SettingsHelper.setRefreshSelectedFileStatus(context, true);
             return true;
@@ -167,7 +167,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data != null) {
-            if (requestCode == Requests.FILE_CREATE) {
+            if (requestCode == FileRequests.FILE_CREATE) {
                 if (resultCode == Activity.RESULT_OK) {
                     copyUserDataToUserFolder(data.getData());
                 }
@@ -186,7 +186,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                     copyFile(new File(DatabaseExporter.getUserDataZip(context)), outputStream);
                 }
             } catch (IOException e) {
-                L.e(e);
+                LogTool.e(e);
             }
         }
     }

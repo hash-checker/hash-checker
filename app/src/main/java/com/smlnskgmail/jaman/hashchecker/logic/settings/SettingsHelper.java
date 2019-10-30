@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.themes.Theme;
-import com.smlnskgmail.jaman.hashchecker.logs.L;
+import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
 
 public class SettingsHelper {
 
@@ -21,7 +21,7 @@ public class SettingsHelper {
         try {
             return HashType.valueOf(hashValue);
         } catch (IllegalArgumentException e) {
-            L.e(e);
+            LogTool.e(e);
             return HashType.MD5;
         }
     }

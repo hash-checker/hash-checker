@@ -97,16 +97,6 @@ public class UITools {
         return getColorFromAttrs(context, R.attr.colorBackground);
     }
 
-    @SuppressLint("ResourceType")
-    public static int getDarkTextColor(@NonNull Context context) {
-        return getColorFromAttrs(context, R.attr.colorCommonText);
-    }
-
-    @SuppressLint("ResourceType")
-    public static int getUnselectedColor(@NonNull Context context) {
-        return getColorFromAttrs(context, R.attr.colorCommonUnselected);
-    }
-
     private static int getColorFromAttrs(@NonNull Context context, @IdRes int themeColor) {
         TypedValue typedValue = new TypedValue();
         Resources.Theme theme = context.getTheme();

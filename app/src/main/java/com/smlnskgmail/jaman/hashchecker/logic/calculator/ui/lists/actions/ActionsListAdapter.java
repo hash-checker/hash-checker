@@ -6,34 +6,34 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseBottomSheetListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseBottomSheetListHolder;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.lists.actions.types.UserActionTarget;
 
 import java.util.List;
 
-public class ActionsBottomSheetListAdapter extends BaseBottomSheetListAdapter {
+public class ActionsListAdapter extends BaseListAdapter {
 
     private final UserActionTarget userActionTarget;
 
-    ActionsBottomSheetListAdapter(@NonNull List<ListMarker> items, @NonNull BaseListBottomSheet bottomSheet,
-                                  @NonNull UserActionTarget userActionTarget) {
+    ActionsListAdapter(@NonNull List<ListItemTarget> items, @NonNull BaseListBottomSheet bottomSheet,
+                       @NonNull UserActionTarget userActionTarget) {
         super(items, bottomSheet);
         this.userActionTarget = userActionTarget;
     }
 
     @Override
-    protected BaseBottomSheetListHolder getItemsHolder(@NonNull View view, @NonNull Context themeContext) {
-        return new ActionsBottomSheetListHolder(view, themeContext, userActionTarget);
+    protected BaseListHolder getItemsHolder(@NonNull View view, @NonNull Context themeContext) {
+        return new ActionsListHolder(view, themeContext, userActionTarget);
     }
 
-    private class ActionsBottomSheetListHolder extends BaseBottomSheetListHolder {
+    private class ActionsListHolder extends BaseListHolder {
 
         private final UserActionTarget userActionTarget;
 
-        ActionsBottomSheetListHolder(@NonNull View itemView, @NonNull Context themeContext,
-                                     @NonNull UserActionTarget userActionTarget) {
+        ActionsListHolder(@NonNull View itemView, @NonNull Context themeContext,
+                          @NonNull UserActionTarget userActionTarget) {
             super(itemView, themeContext);
             this.userActionTarget = userActionTarget;
         }

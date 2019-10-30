@@ -26,8 +26,8 @@ public class TextInputDialog extends BaseDialog {
     }
 
     @Override
-    public void initUI() {
-        super.initUI();
+    public void initializeDialog() {
+        super.initializeDialog();
         etTextValue = findViewById(R.id.et_dialog_input_text);
 
         Button btnAddText = findViewById(R.id.btn_dialog_input_text_add);

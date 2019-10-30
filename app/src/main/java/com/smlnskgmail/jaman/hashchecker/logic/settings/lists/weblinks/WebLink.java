@@ -5,15 +5,15 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
 
 import java.util.Arrays;
 import java.util.List;
 
-public enum WebLink implements ListMarker {
+public enum WebLink implements ListItemTarget {
 
     SOURCE_CODE(R.string.title_web_link_github, R.drawable.ic_github, R.string.web_link_source_code),
-    MY_APPS(R.string.title_web_link_google_play, R.drawable.ic_google_play, R.string.web_link_my_apps);
+    GOOGLE_PLAY(R.string.title_web_link_google_play, R.drawable.ic_google_play, R.string.web_link_my_apps);
 
     private final int titleResId, iconResId, linkResId;
 
@@ -42,8 +42,8 @@ public enum WebLink implements ListMarker {
         return -1;
     }
 
-    public static List<ListMarker> getAuthorLinks() {
-        return Arrays.asList(SOURCE_CODE, MY_APPS);
+    public static List<ListItemTarget> getAuthorLinks() {
+        return Arrays.asList(SOURCE_CODE, GOOGLE_PLAY);
     }
 
 }

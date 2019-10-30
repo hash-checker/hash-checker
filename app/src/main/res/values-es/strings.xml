@@ -74,7 +74,6 @@
     <string name="settings_title_multiline">Campos hash multilínea</string>
 
     <!-- feedback -->
-    <string name="feedback_device">Agregar información del dispositivo</string>
     <string name="feedback_manufacturer">Fabricante</string>
     <string name="feedback_model">Modelo</string>
     <string name="feedback_message">Mensaje</string>

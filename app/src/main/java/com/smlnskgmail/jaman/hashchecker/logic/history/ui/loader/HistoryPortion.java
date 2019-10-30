@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities;
+package com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader;
 
 public class HistoryPortion {
 

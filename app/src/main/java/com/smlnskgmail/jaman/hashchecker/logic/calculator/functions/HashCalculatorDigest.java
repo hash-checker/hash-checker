@@ -8,23 +8,25 @@ import java.util.zip.CRC32;
 
 class HashCalculatorDigest {
 
-    private final HashType hashType;
-
     private MessageDigest messageDigest;
     private CRC32 crc32;
 
     private boolean useCRC32;
 
-    HashCalculatorDigest(HashType hashType) {
-        this.hashType = hashType;
-    }
-
-    void init() throws NoSuchAlgorithmException {
+    void setHashType(HashType hashType) throws NoSuchAlgorithmException {
         if (hashType != HashType.CRC_32) {
             messageDigest = MessageDigest.getInstance(hashType.getHashName());
         } else {
             crc32 = new CRC32();
             useCRC32 = true;
+        }
+    }
+
+    void update(byte[] input) {
+        if (!useCRC32) {
+            messageDigest.update(input);
+        } else {
+            crc32.update(input);
         }
     }
 
@@ -37,11 +39,7 @@ class HashCalculatorDigest {
     }
 
     String result() {
-        if (!useCRC32) {
-            return HashTools.getStringFromByteArray(messageDigest.digest());
-        } else {
-            return Long.toHexString(crc32.getValue());
-        }
+        return !useCRC32 ? HashTools.getStringFromByteArray(messageDigest.digest()) : HashTools.getStringFromLong(crc32.getValue());
     }
 
 }

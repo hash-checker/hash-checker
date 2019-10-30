@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.entities.FileItem;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.entities.FileType;
-import com.smlnskgmail.jaman.hashchecker.logs.L;
+import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
 
 import java.io.File;
 import java.io.InputStream;
@@ -92,7 +92,7 @@ public class FileExtensions {
                 }
                 is.close();
             } catch (Exception e) {
-                L.e(e);
+                LogTool.e(e);
                 return storages;
             }
 
@@ -139,7 +139,7 @@ public class FileExtensions {
                 }
             }
         } catch (Exception e) {
-            L.e(e);
+            LogTool.e(e);
             return storages;
         }
         return storages;

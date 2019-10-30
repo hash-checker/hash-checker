@@ -10,33 +10,33 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseBottomSheetListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseBottomSheetListHolder;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
 import java.util.List;
 
-public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
+public class ThemesListAdapter extends BaseListAdapter {
 
     private final Theme selectedTheme;
 
-    ThemesBottomSheetListAdapter(@NonNull List<ListMarker> items, @NonNull BaseListBottomSheet bottomSheet) {
+    ThemesListAdapter(@NonNull List<ListItemTarget> items, @NonNull BaseListBottomSheet bottomSheet) {
         super(items, bottomSheet);
         selectedTheme = Theme.getThemeFromPreferences(getBottomSheet().getContext());
     }
 
     @Override
-    public BaseBottomSheetListHolder getItemsHolder(@NonNull View view, @NonNull Context themeContext) {
-        return new ThemesBottomSheetListHolder(view, themeContext);
+    public BaseListHolder getItemsHolder(@NonNull View view, @NonNull Context themeContext) {
+        return new ThemesListHolder(view, themeContext);
     }
 
-    private class ThemesBottomSheetListHolder extends BaseBottomSheetListHolder {
+    private class ThemesListHolder extends BaseListHolder {
 
         private Theme themeAtPosition;
 
-        ThemesBottomSheetListHolder(@NonNull View itemView, @NonNull Context themeContext) {
+        ThemesListHolder(@NonNull View itemView, @NonNull Context themeContext) {
             super(itemView, themeContext);
         }
 
@@ -50,9 +50,9 @@ public class ThemesBottomSheetListAdapter extends BaseBottomSheetListAdapter {
         }
 
         @Override
-        protected void bind(@NonNull ListMarker listMarker) {
+        protected void bind(@NonNull ListItemTarget listItemTarget) {
             themeAtPosition = (Theme) getItems().get(getAdapterPosition());
-            super.bind(listMarker);
+            super.bind(listItemTarget);
         }
 
         private void showThemeApplyDialog() {

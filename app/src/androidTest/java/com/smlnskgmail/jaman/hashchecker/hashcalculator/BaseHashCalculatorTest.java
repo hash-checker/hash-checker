@@ -16,6 +16,7 @@ import java.security.NoSuchAlgorithmException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public abstract class BaseHashCalculatorTest {
 
@@ -26,17 +27,18 @@ public abstract class BaseHashCalculatorTest {
     private Context context;
 
     @Before
-    public void initializeResources() {
+    public void initializeResources() throws NoSuchAlgorithmException {
         context = InstrumentationRegistry.getContext();
         HashType hashType = getHashType();
 
         assertNotNull(hashType);
 
-        hashCalculator = new HashCalculator(hashType);
+        hashCalculator = new HashCalculator();
+        hashCalculator.setHashType(hashType);
     }
 
     @Test
-    public void checkText() throws NoSuchAlgorithmException {
+    public void checkText() {
         String hashValue = getHashValueForTestText();
         assertNotNull(hashValue);
 
@@ -55,10 +57,10 @@ public abstract class BaseHashCalculatorTest {
         String hashValue = getHashValueForTestFile();
         assertNotNull(hashValue);
 
-        String hashFromFile = hashCalculator.fromFile(context.getResources().getAssets()
-                .open(getTestingFile()));
+        String hashFromFile = hashCalculator.fromFile(context.getResources().getAssets().open(getTestingFile()));
+
         assertNotNull(hashFromFile);
-        assertEquals(hashFromFile, hashValue);
+        assertTrue(hashFromFile.equalsIgnoreCase(hashValue));
     }
 
     private String getTestingFile() {

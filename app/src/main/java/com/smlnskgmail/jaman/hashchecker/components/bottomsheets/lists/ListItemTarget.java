@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-public interface ListMarker {
+public interface ListItemTarget {
 
     String getTitle(@NonNull Context context);
 

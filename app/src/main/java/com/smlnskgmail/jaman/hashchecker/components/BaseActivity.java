@@ -12,9 +12,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(UITools.getThemeResId(this));
         super.onCreate(savedInstanceState);
-        initialize();
+        create();
     }
 
-    protected abstract void initialize();
+    protected abstract void create();
 
 }

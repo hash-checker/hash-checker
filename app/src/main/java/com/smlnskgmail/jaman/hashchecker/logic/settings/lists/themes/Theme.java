@@ -5,10 +5,10 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
-public enum Theme implements ListMarker {
+public enum Theme implements ListItemTarget {
 
     LIGHT(R.string.title_theme_light, R.drawable.ic_settings_theme, R.style.AppThemeLight),
     DARK(R.string.title_theme_dark, R.drawable.ic_settings_theme, R.style.AppThemeDark);

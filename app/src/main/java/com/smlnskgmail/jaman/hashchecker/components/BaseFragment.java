@@ -28,11 +28,11 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initializeUI(view);
+        initializeContent(view);
         onPostInitialize();
     }
 
-    protected abstract void initializeUI(@NonNull View contentView);
+    protected abstract void initializeContent(@NonNull View contentView);
 
     public void onPostInitialize() {}
 
@@ -48,7 +48,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
             actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         }
         UITools.setActionBarTitle(actionBar, getActionBarTitleResId());
-        if (setBackActionIcon()) {
+        if (setAllowBackAction()) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(), getBackActionIconResId()));
         } else {
@@ -66,7 +66,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (setBackActionIcon()) {
+        if (setAllowBackAction()) {
             if (item.getItemId() == android.R.id.home) {
                 getActivity().onBackPressed();
                 return true;
@@ -83,7 +83,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     protected abstract int getActionBarTitleResId();
 
-    protected boolean setBackActionIcon() {
+    protected boolean setAllowBackAction() {
         return false;
     }
 

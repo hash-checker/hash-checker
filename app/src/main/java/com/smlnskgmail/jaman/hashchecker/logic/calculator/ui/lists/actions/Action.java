@@ -5,10 +5,10 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.lists.actions.types.UserActionType;
 
-public enum Action implements ListMarker {
+public enum Action implements ListItemTarget {
 
     TEXT(R.string.common_text, R.drawable.ic_from_text, UserActionType.ENTER_TEXT),
     FILE(R.string.common_file, R.drawable.ic_file, UserActionType.SEARCH_FILE),

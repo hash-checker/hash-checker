@@ -39,4 +39,8 @@
     <string name="filename_hash_from_text" translatable="false">hash_from_text</string>
     <string name="filename_hash_from_file" translatable="false">hash_from_file</string>
 
+    <!-- feedback -->
+    <string name="feedback_hash_checker_title" translatable="false">Hash Checker</string>
+    <string name="feedback_android_title" translatable="false">Android</string>
+
 </resources>

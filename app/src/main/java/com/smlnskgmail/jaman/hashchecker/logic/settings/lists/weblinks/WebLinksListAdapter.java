@@ -6,27 +6,27 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseBottomSheetListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseBottomSheetListHolder;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.tools.WebTools;
 
 import java.util.List;
 
-public class WebLinksBottomSheetListAdapter extends BaseBottomSheetListAdapter {
+public class WebLinksListAdapter extends BaseListAdapter {
 
-    WebLinksBottomSheetListAdapter(@NonNull List<ListMarker> items, @NonNull BaseListBottomSheet bottomSheet) {
+    WebLinksListAdapter(@NonNull List<ListItemTarget> items, @NonNull BaseListBottomSheet bottomSheet) {
         super(items, bottomSheet);
     }
 
     @Override
-    public BaseBottomSheetListHolder getItemsHolder(@NonNull View view, @NonNull Context themeContext) {
-        return new WebLinksBottomSheetListHolder(view, themeContext);
+    public BaseListHolder getItemsHolder(@NonNull View view, @NonNull Context themeContext) {
+        return new WebLinksListHolder(view, themeContext);
     }
 
-    private class WebLinksBottomSheetListHolder extends BaseBottomSheetListHolder {
+    private class WebLinksListHolder extends BaseListHolder {
 
-        WebLinksBottomSheetListHolder(@NonNull View itemView, @NonNull Context themeContext) {
+        WebLinksListHolder(@NonNull View itemView, @NonNull Context themeContext) {
             super(itemView, themeContext);
         }
 

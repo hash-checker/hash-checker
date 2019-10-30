@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashCalculator;
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashType;
-import com.smlnskgmail.jaman.hashchecker.logs.L;
+import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
 
 public class HashCalculatorTask extends AsyncTask<Void, String, String> {
 
@@ -48,17 +48,18 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
     @Override
     protected String doInBackground(Void... voids) {
         try {
-            HashCalculator hashCalculator = new HashCalculator(hashType);
+            HashCalculator hashCalculator = new HashCalculator();
+            hashCalculator.setHashType(hashType);
             return !isText ? hashCalculator.fromFile(context, fileUri) : hashCalculator.fromString(textValue);
         } catch (Exception e) {
-            L.e(e);
+            LogTool.e(e);
             return null;
         }
     }
 
     @Override
     protected void onPostExecute(String result) {
-        completeListener.hashGenerationComplete(result);
+        completeListener.hashCalculationComplete(result);
     }
 
 }

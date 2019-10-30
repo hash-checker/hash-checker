@@ -44,11 +44,11 @@ import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.lists.actions.types
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.lists.hashtypes.GenerateToBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.lists.hashtypes.HashTypeSelectTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.FileManagerActivity;
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.Requests;
+import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.FileRequests;
 import com.smlnskgmail.jaman.hashchecker.logic.history.db.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logs.L;
+import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
 import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 import java.io.File;
@@ -120,7 +120,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
 
     private void openInnerFileManager() {
         Intent openExplorerIntent = new Intent(getContext(), FileManagerActivity.class);
-        startActivityForResult(openExplorerIntent, Requests.FILE_SELECT_FROM_FILE_MANAGER);
+        startActivityForResult(openExplorerIntent, FileRequests.FILE_SELECT_FROM_FILE_MANAGER);
     }
 
     private void openSystemFileManager() {
@@ -128,9 +128,9 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
             Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             openExplorerIntent.addCategory(Intent.CATEGORY_OPENABLE);
             openExplorerIntent.setType("*/*");
-            startActivityForResult(openExplorerIntent, Requests.FILE_SELECT);
+            startActivityForResult(openExplorerIntent, FileRequests.FILE_SELECT);
         } catch (ActivityNotFoundException e) {
-            L.e(e);
+            LogTool.e(e);
             UITools.showSnackbar(mainScreen.getContext(), mainScreen, getString(R.string.message_error_start_file_selector));
         }
     }
@@ -162,9 +162,9 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
 
     private void selectHashTypeFromList() {
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet();
-        generateToBottomSheet.setItems(Arrays.asList(HashType.values()));
+        generateToBottomSheet.setList(Arrays.asList(HashType.values()));
         generateToBottomSheet.setHashTypeSelectListener(this);
-        generateToBottomSheet.showBottomSheet(getFragmentManager());
+        generateToBottomSheet.show(getFragmentManager());
     }
 
     private void selectResourceToGenerateHash() {
@@ -191,9 +191,9 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
             saveTextFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
             saveTextFileIntent.setType("text/plain");
             saveTextFileIntent.putExtra(Intent.EXTRA_TITLE, filename + ".txt");
-            startActivityForResult(saveTextFileIntent, Requests.FILE_CREATE);
+            startActivityForResult(saveTextFileIntent, FileRequests.FILE_CREATE);
         } catch (ActivityNotFoundException e) {
-            L.e(e);
+            LogTool.e(e);
             String errorMessage = getString(R.string.message_error_start_file_selector);
             UITools.showSnackbar(mainScreen.getContext(), mainScreen, errorMessage);
         }
@@ -201,9 +201,9 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
 
     private void showBottomSheetWithActions(Action... actions) {
         ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
-        actionsBottomSheet.setActions(Arrays.asList(actions));
+        actionsBottomSheet.setList(Arrays.asList(actions));
         actionsBottomSheet.setUserActionTarget(CalculatorFragment.this);
-        actionsBottomSheet.showBottomSheet(fragmentManager);
+        actionsBottomSheet.show(fragmentManager);
     }
 
     @Override
@@ -259,7 +259,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
                 cursor.moveToPosition(0);
                 return cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
             } catch (Exception e) {
-                L.e(e);
+                LogTool.e(e);
             }
         }
         return new File(uri.getPath()).getName();
@@ -271,7 +271,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
     }
 
     @Override
-    public void hashGenerationComplete(@Nullable String hashValue) {
+    public void hashCalculationComplete(@Nullable String hashValue) {
         if (hashValue == null) {
             etGeneratedHash.setText("");
             UITools.showSnackbar(context, mainScreen, getString(R.string.message_invalid_selected_source));
@@ -334,7 +334,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
     }
 
     @Override
-    public void initializeUI(@NonNull View contentView) {
+    public void initializeContent(@NonNull View contentView) {
         context = getContext();
 
         mainScreen = contentView.findViewById(R.id.fl_main_screen);
@@ -367,14 +367,14 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
 
     private void requestStoragePermission() {
         requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                Requests.PERMISSION_STORAGE);
+                FileRequests.PERMISSION_STORAGE);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == Requests.PERMISSION_STORAGE) {
+        if (requestCode == FileRequests.PERMISSION_STORAGE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 searchFile();
             } else {
@@ -400,7 +400,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
             intent.setData(uri);
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            L.e(e);
+            LogTool.e(e);
             context.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
         }
     }
@@ -446,19 +446,19 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data != null) {
             switch (requestCode) {
-                case Requests.FILE_SELECT:
+                case FileRequests.FILE_SELECT:
                     if (resultCode == Activity.RESULT_OK) {
                         selectFileFromSystemFileManager(data.getData());
                     }
                     break;
-                case Requests.FILE_SELECT_FROM_FILE_MANAGER:
+                case FileRequests.FILE_SELECT_FROM_FILE_MANAGER:
                     selectFileFromAppFileManager(data);
                     break;
-                case Requests.FILE_CREATE:
+                case FileRequests.FILE_CREATE:
                     try {
                         writeHashToFile(data.getData());
                     } catch (IOException e) {
-                        L.e(e);
+                        LogTool.e(e);
                     }
                     break;
             }
@@ -471,7 +471,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
     }
 
     private void selectFileFromAppFileManager(@NonNull Intent data) {
-        String path = data.getStringExtra(Requests.FILE_SELECT_DATA);
+        String path = data.getStringExtra(FileRequests.FILE_SELECT_DATA);
         if (path != null) {
             Uri uri = Uri.fromFile(new File(path));
             validateSelectedFile(uri);
@@ -507,7 +507,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
     }
 
     @Override
-    public boolean setBackActionIcon() {
+    public boolean setAllowBackAction() {
         return false;
     }
 

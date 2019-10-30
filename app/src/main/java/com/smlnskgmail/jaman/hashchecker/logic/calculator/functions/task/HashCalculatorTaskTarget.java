@@ -4,6 +4,6 @@ import androidx.annotation.Nullable;
 
 public interface HashCalculatorTaskTarget {
 
-    void hashGenerationComplete(@Nullable String hashValue);
+    void hashCalculationComplete(@Nullable String hashValue);
 
 }

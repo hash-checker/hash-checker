@@ -6,7 +6,6 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashTools;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
 import java.io.File;
@@ -14,30 +13,22 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.zip.CRC32;
 
 public class HashCalculator {
 
-    private final HashType hashType;
+    private HashCalculatorDigest hashCalculatorDigest;
 
-    public HashCalculator(@NonNull HashType hashType) {
-        this.hashType = hashType;
+    public void setHashType(@NonNull HashType hashType) throws NoSuchAlgorithmException {
+        this.hashCalculatorDigest = new HashCalculatorDigest();
+        this.hashCalculatorDigest.setHashType(hashType);
     }
 
     @Nullable
-    public String fromString(@NonNull String text) throws NoSuchAlgorithmException {
+    public String fromString(@NonNull String text) {
         byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
-        if (hashType != HashType.CRC_32) {
-            MessageDigest messageDigest = MessageDigest.getInstance(hashType.getHashName());
-            messageDigest.update(bytes);
-            return HashTools.getStringFromByteArray(messageDigest.digest());
-        } else {
-            CRC32 crc32 = new CRC32();
-            crc32.update(bytes);
-            return HashTools.getStringFromLong(crc32.getValue());
-        }
+        hashCalculatorDigest.update(bytes);
+        return hashCalculatorDigest.result();
     }
 
     @Nullable
@@ -59,8 +50,6 @@ public class HashCalculator {
     public String fromFile(@Nullable InputStream inputStream) throws Exception {
         if (inputStream != null) {
             byte[] buffer = new byte[1024];
-            HashCalculatorDigest hashCalculatorDigest = new HashCalculatorDigest(hashType);
-            hashCalculatorDigest.init();
             int read;
             do {
                 read = inputStream.read(buffer);

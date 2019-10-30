@@ -15,14 +15,14 @@ import com.smlnskgmail.jaman.hashchecker.components.containers.AdaptiveRecyclerV
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.logic.history.db.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryPortion;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.listadapter.HistoryItemsAdapter;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryItemsLoader;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.LoaderTarget;
+import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryItemsLoaderTask;
+import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryItemsLoaderTaskTarget;
+import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryPortion;
 
 import java.util.List;
 
-public class HistoryFragment extends BaseFragment implements LoaderTarget<HistoryItem> {
+public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderTaskTarget<HistoryItem> {
 
     private FrameLayout flHistory;
     private AdaptiveRecyclerView rvHistoryItems;
@@ -33,7 +33,7 @@ public class HistoryFragment extends BaseFragment implements LoaderTarget<Histor
     private boolean isLoading;
 
     @Override
-    public void initializeUI(@NonNull View contentView) {
+    public void initializeContent(@NonNull View contentView) {
         flHistory = contentView.findViewById(R.id.fl_history);
         pbHistory = contentView.findViewById(R.id.pb_history);
         rvHistoryItems = contentView.findViewById(R.id.rv_history_items);
@@ -80,8 +80,8 @@ public class HistoryFragment extends BaseFragment implements LoaderTarget<Histor
         if (!historyPortion.isLoaded()) {
             pbHistory.setVisibility(View.VISIBLE);
             rvHistoryItems.setVisibility(View.GONE);
-            rvHistoryItems.getEmptyMessage().setVisibility(View.GONE);
-            new HistoryItemsLoader(this).execute();
+            rvHistoryItems.getViewEmptyMessage().setVisibility(View.GONE);
+            new HistoryItemsLoaderTask(this).execute();
         }
     }
 
@@ -108,7 +108,7 @@ public class HistoryFragment extends BaseFragment implements LoaderTarget<Histor
     }
 
     @Override
-    public boolean setBackActionIcon() {
+    public boolean setAllowBackAction() {
         return true;
     }
 
