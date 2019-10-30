@@ -1,7 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.logic.calculator.functions;
 
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashTools;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -39,7 +38,7 @@ class HashCalculatorDigest {
 
     String result() {
         if (!useCRC32) {
-            return HashUtils.getStringFromByteArray(messageDigest.digest());
+            return HashTools.getStringFromByteArray(messageDigest.digest());
         } else {
             return Long.toHexString(crc32.getValue());
         }

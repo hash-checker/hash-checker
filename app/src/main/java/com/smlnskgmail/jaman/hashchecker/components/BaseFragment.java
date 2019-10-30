@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 public abstract class BaseFragment extends Fragment implements AppBackClickTarget, AppResumeTarget {
 
@@ -47,7 +47,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
         if (actionBar == null) {
             actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         }
-        UIUtils.setActionBarTitle(actionBar, getActionBarTitleResId());
+        UITools.setActionBarTitle(actionBar, getActionBarTitleResId());
         if (setBackActionIcon()) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(ContextCompat.getDrawable(getContext(), getBackActionIconResId()));
@@ -65,7 +65,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
     protected abstract int getMenuResId();
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (setBackActionIcon()) {
             if (item.getItemId() == android.R.id.home) {
                 getActivity().onBackPressed();
@@ -101,7 +101,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     @Override
     public void appBackClick() {
-        UIUtils.removeFragment(getActivity().getSupportFragmentManager(), this);
+        UITools.removeFragment(getActivity().getSupportFragmentManager(), this);
     }
 
 }

@@ -15,7 +15,7 @@ import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.listadapter.F
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.FileExtensions;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.FileSelectTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.Requests;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -87,7 +87,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
             }
         }
         fileItemsAdapter.notifyDataSetChanged();
-        UIUtils.setActionBarTitle(getSupportActionBar(), directoryPath);
+        getSupportActionBar().setTitle(directoryPath);
     }
 
     @Override
@@ -165,7 +165,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     }
 
     private void resetTitle() {
-        UIUtils.setActionBarTitle(getSupportActionBar(), R.string.file_manager_select_storage_title);
+        UITools.setActionBarTitle(getSupportActionBar(), R.string.file_manager_select_storage_title);
     }
 
     private boolean isStorage(String path) {

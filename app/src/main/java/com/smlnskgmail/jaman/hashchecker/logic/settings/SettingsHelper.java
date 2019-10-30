@@ -6,7 +6,7 @@ import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.themes.Theme;
 import com.smlnskgmail.jaman.hashchecker.logs.L;
 

@@ -1,19 +1,19 @@
-package com.smlnskgmail.jaman.hashchecker.utils;
+package com.smlnskgmail.jaman.hashchecker.tools;
 
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.TextUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.TextTools;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class TextUtilsTest {
+public class TextToolsTest {
 
     @Test
     public void validateEqualsStringsTest() {
         String singleString = "equals";
 
-        assertTrue(TextUtils.compareText(singleString, singleString));
+        assertTrue(TextTools.compareText(singleString, singleString));
     }
 
     @Test
@@ -21,7 +21,7 @@ public class TextUtilsTest {
         String firstString = "Blob";
         String secondString = "BLOB";
 
-        assertTrue(TextUtils.compareText(firstString, secondString));
+        assertTrue(TextTools.compareText(firstString, secondString));
     }
 
     @Test
@@ -29,7 +29,7 @@ public class TextUtilsTest {
         String firstString = "equals";
         String secondString = "blob";
 
-        assertFalse(TextUtils.compareText(firstString, secondString));
+        assertFalse(TextTools.compareText(firstString, secondString));
     }
 
 }

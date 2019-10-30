@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support;
+package com.smlnskgmail.jaman.hashchecker.logic.calculator.functions;
 
 import android.content.Context;
 

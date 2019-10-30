@@ -6,8 +6,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashTools;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
 import java.io.File;
@@ -33,11 +32,11 @@ public class HashCalculator {
         if (hashType != HashType.CRC_32) {
             MessageDigest messageDigest = MessageDigest.getInstance(hashType.getHashName());
             messageDigest.update(bytes);
-            return HashUtils.getStringFromByteArray(messageDigest.digest());
+            return HashTools.getStringFromByteArray(messageDigest.digest());
         } else {
             CRC32 crc32 = new CRC32();
             crc32.update(bytes);
-            return HashUtils.getStringFromLong(crc32.getValue());
+            return HashTools.getStringFromLong(crc32.getValue());
         }
     }
 

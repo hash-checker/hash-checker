@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.dialogs.app.input;
+package com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.input;
 
 import android.content.Context;
 import android.view.WindowManager;
@@ -9,14 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.app.BaseDialog;
+import com.smlnskgmail.jaman.hashchecker.components.BaseDialog;
 
 public class TextInputDialog extends BaseDialog {
 
     private EditText etTextValue;
 
     private final TextValueTarget textValueCallback;
-
     private final String textValue;
 
     public TextInputDialog(@NonNull Context context, @NonNull TextValueTarget textEnteredCallback,

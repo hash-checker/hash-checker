@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.history.db.entity.DBEntity;
 
 import java.util.Date;

@@ -102,8 +102,8 @@ This tests must be run on computer.
 | --- | --- | --- |
 | [FileItemTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/entities/FileItemTest.java) | Check fields in File item | `Pass` |
 | [HistoryItemTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/entities/HistoryItemTest.java) | Check fields in History item | `Pass` |
-| [HashUtilsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/HashUtilsTest.java) | Check hash utils | `Pass` |
-| [TextUtilsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/TextUtilsTest.java) | Check text utils | `Pass` |
+| [HashToolsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/HashToolsTest.java) | Check hash utils | `Pass` |
+| [TextToolsTest](https://github.com/fartem/hash-checker/blob/master/app/src/test/java/com/smlnskgmail/jaman/hashchecker/utils/TextToolsTest.java) | Check text utils | `Pass` |
 
 #### 5.2.2. Tests Suits
 

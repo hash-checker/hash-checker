@@ -6,10 +6,8 @@ import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 
 public class L {
 
-    private static final boolean LOG_ENABLED = BuildConfig.DEBUG;
-
     public static void e(@NonNull Throwable throwable) {
-        if (LOG_ENABLED) {
+        if (BuildConfig.DEBUG) {
             throwable.printStackTrace();
         }
     }

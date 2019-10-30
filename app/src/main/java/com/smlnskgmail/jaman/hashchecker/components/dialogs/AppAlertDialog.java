@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.dialogs.system;
+package com.smlnskgmail.jaman.hashchecker.components.dialogs;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 public class AppAlertDialog {
 
@@ -22,7 +22,7 @@ public class AppAlertDialog {
                 .create();
         alertDialog.setOnShowListener(dialog -> {
             AlertDialog currentDialog = ((AlertDialog) dialog);
-            int textColor = UIUtils.getAccentColor(context);
+            int textColor = UITools.getAccentColor(context);
             currentDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(textColor);
             currentDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(textColor);
         });

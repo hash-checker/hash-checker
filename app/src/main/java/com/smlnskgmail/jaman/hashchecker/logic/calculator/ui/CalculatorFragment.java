@@ -30,13 +30,13 @@ import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.app.input.TextInputDialog;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.app.input.TextValueTarget;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.AppAlertDialog;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.AppProgressDialog;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.task.HashCalculatorTask;
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.task.HashCalculatorTaskTarget;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.input.TextInputDialog;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.input.TextValueTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.lists.actions.Action;
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.lists.actions.ActionsBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.lists.actions.types.UserActionTarget;
@@ -49,7 +49,7 @@ import com.smlnskgmail.jaman.hashchecker.logic.history.db.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logs.L;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -131,7 +131,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
             startActivityForResult(openExplorerIntent, Requests.FILE_SELECT);
         } catch (ActivityNotFoundException e) {
             L.e(e);
-            UIUtils.showSnackbar(mainScreen.getContext(), mainScreen, getString(R.string.message_error_start_file_selector));
+            UITools.showSnackbar(mainScreen.getContext(), mainScreen, getString(R.string.message_error_start_file_selector));
         }
     }
 
@@ -147,16 +147,16 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
                 new HashCalculatorTask(hashType, context, fileUri, this).execute();
             }
         } else {
-            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_select_object));
+            UITools.showSnackbar(context, mainScreen, getString(R.string.message_select_object));
         }
     }
 
     private void compareHashes() {
-        if (TextUtils.fieldIsNotEmpty(etCustomHash) && TextUtils.fieldIsNotEmpty(etGeneratedHash)) {
-            boolean equal = TextUtils.compareText(etCustomHash.getText().toString(), etGeneratedHash.getText().toString());
-            UIUtils.showSnackbar(context, mainScreen, getString(equal ? R.string.message_match_result : R.string.message_do_not_match_result));
+        if (TextTools.fieldIsNotEmpty(etCustomHash) && TextTools.fieldIsNotEmpty(etGeneratedHash)) {
+            boolean equal = TextTools.compareText(etCustomHash.getText().toString(), etGeneratedHash.getText().toString());
+            UITools.showSnackbar(context, mainScreen, getString(equal ? R.string.message_match_result : R.string.message_do_not_match_result));
         } else {
-            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_fill_fields));
+            UITools.showSnackbar(context, mainScreen, getString(R.string.message_fill_fields));
         }
     }
 
@@ -177,11 +177,11 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
 
 
     private void saveGeneratedHashAsTextFile() {
-        if ((fileUri != null || isTextSelected) && TextUtils.fieldIsNotEmpty(etGeneratedHash)) {
+        if ((fileUri != null || isTextSelected) && TextTools.fieldIsNotEmpty(etGeneratedHash)) {
             String filename = getString(isTextSelected ? R.string.filename_hash_from_text : R.string.filename_hash_from_file);
             saveTextFile(filename);
         } else {
-            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_generate_hash_before_export));
+            UITools.showSnackbar(context, mainScreen, getString(R.string.message_generate_hash_before_export));
         }
     }
 
@@ -195,7 +195,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
         } catch (ActivityNotFoundException e) {
             L.e(e);
             String errorMessage = getString(R.string.message_error_start_file_selector);
-            UIUtils.showSnackbar(mainScreen.getContext(), mainScreen, errorMessage);
+            UITools.showSnackbar(mainScreen.getContext(), mainScreen, errorMessage);
         }
     }
 
@@ -274,7 +274,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
     public void hashGenerationComplete(@Nullable String hashValue) {
         if (hashValue == null) {
             etGeneratedHash.setText("");
-            UIUtils.showSnackbar(context, mainScreen, getString(R.string.message_invalid_selected_source));
+            UITools.showSnackbar(context, mainScreen, getString(R.string.message_invalid_selected_source));
         } else {
             etGeneratedHash.setText(hashValue);
             if (SettingsHelper.canSaveResultToHistory(context)) {
@@ -303,7 +303,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
 
     @Override
     public void appBackClick() {
-        UIUtils.showSnackbar(context, getView().findViewById(R.id.fl_main_screen),
+        UITools.showSnackbar(context, getView().findViewById(R.id.fl_main_screen),
                 getString(R.string.message_exit), getString(R.string.action_exit_now),
                 v -> getActivity().finish());
     }
@@ -316,11 +316,11 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
         etGeneratedHash.setFilters(fieldFilters);
 
         if (useUpperCase) {
-            TextUtils.convertToUpperCase(etCustomHash);
-            TextUtils.convertToUpperCase(etGeneratedHash);
+            TextTools.convertToUpperCase(etCustomHash);
+            TextTools.convertToUpperCase(etGeneratedHash);
         } else {
-            TextUtils.convertToLowerCase(etCustomHash);
-            TextUtils.convertToLowerCase(etGeneratedHash);
+            TextTools.convertToLowerCase(etCustomHash);
+            TextTools.convertToLowerCase(etGeneratedHash);
         }
 
         etCustomHash.setSelection(etCustomHash.getText().length());
@@ -379,7 +379,7 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
                 searchFile();
             } else {
                 if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    UIUtils.showSnackbar(context, mainScreen,
+                    UITools.showSnackbar(context, mainScreen,
                             getString(R.string.message_request_storage_permission_error),
                             getString(R.string.common_again), v -> requestStoragePermission());
                 } else {
@@ -400,8 +400,8 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
             intent.setData(uri);
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            context.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
             L.e(e);
+            context.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
         }
     }
 

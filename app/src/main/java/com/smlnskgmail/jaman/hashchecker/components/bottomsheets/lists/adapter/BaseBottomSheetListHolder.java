@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder {
 
@@ -37,13 +37,13 @@ public abstract class BaseBottomSheetListHolder extends RecyclerView.ViewHolder 
         int primaryIconResId = listMarker.getPrimaryIconResId();
         if (primaryIconResId != -1) {
             ivItemPrimaryIcon.setImageResource(listMarker.getPrimaryIconResId());
-            UIUtils.colorizeImageSourceToAccentColor(context, ivItemPrimaryIcon.getDrawable());
+            UITools.applyAccentColorToImage(context, ivItemPrimaryIcon.getDrawable());
         }
         ivItemPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState() ? View.VISIBLE : View.GONE);
         int additionalIconResId = listMarker.getAdditionalIconResId();
         if (additionalIconResId != -1) {
             ivItemAdditionalIcon.setImageResource(listMarker.getAdditionalIconResId());
-            UIUtils.colorizeImageSourceToAccentColor(context, ivItemAdditionalIcon.getDrawable());
+            UITools.applyAccentColorToImage(context, ivItemAdditionalIcon.getDrawable());
         }
         ivItemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState() ? View.VISIBLE : View.INVISIBLE);
     }

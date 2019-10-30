@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support;
 
-public class HashUtils {
+public class HashTools {
 
     private static final char[] HEX_DIGITS = "0123456789ABCDEF".toCharArray();
 

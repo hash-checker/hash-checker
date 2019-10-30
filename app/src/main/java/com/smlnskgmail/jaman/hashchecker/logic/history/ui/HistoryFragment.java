@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.containers.AdaptiveRecyclerView;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.logic.history.db.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryPortion;
@@ -60,7 +60,7 @@ public class HistoryFragment extends BaseFragment implements LoaderTarget<Histor
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_item_clean_history) {
             AppAlertDialog.show(getContext(), R.string.title_warning_dialog,
                     R.string.message_delete_all_history_items, R.string.common_ok, (dialog, which) -> {

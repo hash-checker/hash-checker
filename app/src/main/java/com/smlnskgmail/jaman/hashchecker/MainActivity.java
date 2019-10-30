@@ -1,11 +1,13 @@
 package com.smlnskgmail.jaman.hashchecker;
 
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +22,6 @@ import com.smlnskgmail.jaman.hashchecker.logic.feedback.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class MainActivity extends BaseActivity {
 
@@ -52,7 +53,14 @@ public class MainActivity extends BaseActivity {
             SettingsHelper.setGenerateFromShareIntentMode(this, false);
         }
 
-        UIUtils.showFragment(getSupportFragmentManager(), mainFragment);
+        showFragment(mainFragment);
+    }
+
+    private void showFragment(@NonNull Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().add(android.R.id.content, fragment, BaseFragment.CURRENT_FRAGMENT_TAG)
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                .addToBackStack(null)
+                .commit();
     }
 
     @NonNull
@@ -75,26 +83,32 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        UIUtils.hideKeyboard(this, findViewById(android.R.id.content));
+        hideKeyboard();
         switch (item.getItemId()) {
             case R.id.menu_main_section_settings:
-                UIUtils.showFragment(getSupportFragmentManager(), new SettingsFragment());
+                showFragment(new SettingsFragment());
                 break;
             case R.id.menu_main_section_feedback:
-                UIUtils.showFragment(getSupportFragmentManager(), new FeedbackFragment());
+                showFragment(new FeedbackFragment());
                 break;
             case R.id.menu_main_section_history:
-                UIUtils.showFragment(getSupportFragmentManager(), new HistoryFragment());
+                showFragment(new HistoryFragment());
                 break;
 
         }
         return super.onOptionsItemSelected(item);
     }
 
+    private void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        if (inputMethodManager != null) {
+            inputMethodManager.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
+        }
+    }
+
     @Override
     public void onBackPressed() {
-        Fragment fragment = getSupportFragmentManager()
-                .findFragmentByTag(BaseFragment.CURRENT_FRAGMENT_TAG);
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(BaseFragment.CURRENT_FRAGMENT_TAG);
         if (fragment instanceof AppBackClickTarget) {
             ((AppBackClickTarget) fragment).appBackClick();
         }

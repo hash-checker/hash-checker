@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 public class FeedbackFragment extends BaseFragment {
 
@@ -55,7 +55,7 @@ public class FeedbackFragment extends BaseFragment {
     }
 
     private void addDeviceInfo(boolean addInfo) {
-        int titleColor = addInfo ? UIUtils.getDarkTextColor(context) : UIUtils.getUnselectedColor(context);
+        int titleColor = addInfo ? UITools.getDarkTextColor(context) : UITools.getUnselectedColor(context);
         manufacturerTitle.setTextColor(titleColor);
         modelTitle.setTextColor(titleColor);
 
@@ -64,7 +64,7 @@ public class FeedbackFragment extends BaseFragment {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             getActivity().onBackPressed();
             return true;

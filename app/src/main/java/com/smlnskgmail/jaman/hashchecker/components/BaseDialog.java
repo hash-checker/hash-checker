@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.dialogs.app;
+package com.smlnskgmail.jaman.hashchecker.components;
 
 import android.app.Dialog;
 import android.content.Context;

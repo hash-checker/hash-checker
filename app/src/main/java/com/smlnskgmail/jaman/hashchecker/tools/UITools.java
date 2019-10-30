@@ -1,7 +1,6 @@
-package com.smlnskgmail.jaman.hashchecker.utils;
+package com.smlnskgmail.jaman.hashchecker.tools;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
@@ -12,7 +11,6 @@ import android.os.Vibrator;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import androidx.annotation.IdRes;
@@ -26,29 +24,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.themes.Theme;
 
-public class UIUtils {
+public class UITools {
 
     private static final int COMMON_SNACKBAR_MARGIN = 12;
-
-    public static void showFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(android.R.id.content, fragment, BaseFragment.CURRENT_FRAGMENT_TAG)
-                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                .addToBackStack(null)
-                .commit();
-    }
-
-    public static void hideKeyboard(@NonNull Context context, @NonNull View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) context
-                .getSystemService(Activity.INPUT_METHOD_SERVICE);
-        if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
 
     public static void removeFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -98,7 +79,7 @@ public class UIUtils {
         }
     }
 
-    public static void colorizeImageSourceToAccentColor(@NonNull Context context, @NonNull Drawable drawable) {
+    public static void applyAccentColorToImage(@NonNull Context context, @NonNull Drawable drawable) {
         drawable.setColorFilter(getAccentColor(context), PorterDuff.Mode.SRC_ATOP);
     }
 
@@ -131,10 +112,6 @@ public class UIUtils {
         Resources.Theme theme = context.getTheme();
         theme.resolveAttribute(themeColor, typedValue, true);
         return typedValue.data;
-    }
-
-    public static void setActionBarTitle(@NonNull ActionBar actionBar, @NonNull String title) {
-        actionBar.setTitle(title);
     }
 
     public static void setActionBarTitle(@NonNull ActionBar actionBar, int titleResId) {

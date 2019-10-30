@@ -25,14 +25,15 @@ import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.manager.support.Requests;
+import com.smlnskgmail.jaman.hashchecker.logic.history.db.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.logic.history.db.utils.DatabaseExporter;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.themes.Theme;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.weblinks.WebLink;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.weblinks.WebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logs.L;
-import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.tools.UITools;
+import com.smlnskgmail.jaman.hashchecker.tools.WebTools;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -80,16 +81,34 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
 
     private void initPrivacyPolicy() {
         findPreference(getString(R.string.key_privacy_policy)).setOnPreferenceClickListener(preference -> {
-            AppUtils.openWebLink(context, context.getString(R.string.web_link_privacy_policy));
+            WebTools.openWebLink(context, context.getString(R.string.web_link_privacy_policy));
             return false;
         });
     }
 
     private void initUserDataExport() {
         findPreference(getString(R.string.key_export_user_data)).setOnPreferenceClickListener(preference -> {
-            AppUtils.saveUserData(SettingsFragment.this, getView());
+            saveUserData();
             return false;
         });
+    }
+
+    private void saveUserData() {
+        if (HelperFactory.getHelper().isHistoryItemsListIsEmpty()) {
+            try {
+                Intent saveFileIntent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+                saveFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
+                saveFileIntent.setType("application/zip");
+                saveFileIntent.putExtra(Intent.EXTRA_TITLE, DatabaseExporter.EXPORT_FILE);
+                startActivityForResult(saveFileIntent, Requests.FILE_CREATE);
+            } catch (ActivityNotFoundException e) {
+                L.e(e);
+                String errorMessage = getString(R.string.message_error_start_file_selector);
+                UITools.showSnackbar(context, getView(), errorMessage);
+            }
+        } else {
+            UITools.showSnackbar(context, getView(), context.getString(R.string.history_empty_view_message));
+        }
     }
 
     private void initAuthorLinks() {
@@ -119,8 +138,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 link = Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName);
                 context.startActivity(new Intent(Intent.ACTION_VIEW, link));
             } catch (ActivityNotFoundException e2) {
-                UIUtils.showSnackbar(context, getView(), context.getString(R.string.message_error_start_google_play));
                 L.e(e2);
+                UITools.showSnackbar(context, getView(), context.getString(R.string.message_error_start_google_play));
             }
         }
     }
@@ -141,7 +160,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setHasOptionsMenu(true);
-        view.setBackgroundColor(UIUtils.getCommonBackgroundColor(context));
+        view.setBackgroundColor(UITools.getCommonBackgroundColor(context));
         setDividerHeight(0);
     }
 
@@ -187,12 +206,12 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     @Override
     public void onResume() {
         super.onResume();
-        UIUtils.setActionBarTitle(actionBar, R.string.menu_title_settings);
+        UITools.setActionBarTitle(actionBar, R.string.menu_title_settings);
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, @NonNull MenuInflater inflater) {
         menu.clear();
     }
 
@@ -207,7 +226,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
 
     @Override
     public void appBackClick() {
-        UIUtils.removeFragment(fragmentManager, this);
+        UITools.removeFragment(fragmentManager, this);
     }
 
 }

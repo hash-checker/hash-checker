@@ -9,7 +9,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListB
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListMarker;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseBottomSheetListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseBottomSheetListHolder;
-import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
+import com.smlnskgmail.jaman.hashchecker.tools.WebTools;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class WebLinksBottomSheetListAdapter extends BaseBottomSheetListAdapter {
         protected void callItemClick() {
             WebLink webLink = (WebLink) getItems().get(getAdapterPosition());
             String link = getContext().getString(webLink.getLinkResId());
-            AppUtils.openWebLink(getContext(), link);
+            WebTools.openWebLink(getContext(), link);
             dismissBottomSheet();
         }
 

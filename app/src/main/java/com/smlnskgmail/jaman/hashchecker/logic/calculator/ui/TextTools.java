@@ -4,7 +4,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 
-public class TextUtils {
+public class TextTools {
 
     public static boolean compareText(@NonNull String firstValue, @NonNull String secondValue) {
         return firstValue.toLowerCase().equals(secondValue.toLowerCase());

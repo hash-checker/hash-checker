@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.test.InstrumentationRegistry;
 
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashCalculator;
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashType;
 
 import org.junit.Before;
 import org.junit.Test;

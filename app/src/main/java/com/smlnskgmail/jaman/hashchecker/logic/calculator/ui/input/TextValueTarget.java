@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.dialogs.app.input;
+package com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.input;
 
 import androidx.annotation.NonNull;
 

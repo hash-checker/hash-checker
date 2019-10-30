@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.dialogs.system;
+package com.smlnskgmail.jaman.hashchecker.components.dialogs;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -8,7 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 public class AppProgressDialog {
 
@@ -20,7 +20,7 @@ public class AppProgressDialog {
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
         if (progressDialog.getWindow() != null) {
-            progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(UIUtils.getCommonBackgroundColor(context)));
+            progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(UITools.getCommonBackgroundColor(context)));
         }
         return progressDialog;
     }

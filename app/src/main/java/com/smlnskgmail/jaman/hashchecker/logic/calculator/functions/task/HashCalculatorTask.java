@@ -8,7 +8,7 @@ import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashCalculator;
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.support.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashType;
 import com.smlnskgmail.jaman.hashchecker.logs.L;
 
 public class HashCalculatorTask extends AsyncTask<Void, String, String> {
