@@ -10,26 +10,10 @@ import static org.junit.Assert.assertTrue;
 public class TextToolsTest {
 
     @Test
-    public void validateEqualsStringsTest() {
-        String singleString = "equals";
-
-        assertTrue(TextTools.compareText(singleString, singleString));
-    }
-
-    @Test
-    public void validateEqualsStringsWithDifferentCasesTest() {
-        String firstString = "Blob";
-        String secondString = "BLOB";
-
-        assertTrue(TextTools.compareText(firstString, secondString));
-    }
-
-    @Test
-    public void validateNotEqualsStringsTest() {
-        String firstString = "equals";
-        String secondString = "blob";
-
-        assertFalse(TextTools.compareText(firstString, secondString));
+    public void compareText() {
+        assertTrue(TextTools.compareText("equals", "equals"));
+        assertTrue(TextTools.compareText("Blob", "BLOB"));
+        assertFalse(TextTools.compareText("equals", "blob"));
     }
 
 }

@@ -39,7 +39,7 @@ public enum WebLink implements ListItemTarget {
 
     @Override
     public int getAdditionalIconResId() {
-        return -1;
+        return DEFAULT_ICON_VALUE;
     }
 
     public static List<ListItemTarget> getAuthorLinks() {

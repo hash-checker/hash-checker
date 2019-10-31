@@ -49,7 +49,7 @@ public enum HashType implements ListItemTarget {
 
     @Override
     public int getPrimaryIconResId() {
-        return -1;
+        return DEFAULT_ICON_VALUE;
     }
 
     @Override

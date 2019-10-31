@@ -63,63 +63,14 @@ Fast and simple application for generating and comparison hashes from files or t
 
 - [GitHub](https://github.com/fartem/hash-checker/releases)
 
-## 5. Tests
-
-### 5.1. Android Test
-
-This tests must be run on Android device.
-
-#### 5.1.1. Tests table
-
-| Class | Description | Status |
-| --- | --- | --- |
-| MD5HashCalculatorTest | Check MD5 generation | `Pass` |
-| SHA1HashCalculatorTest | Check SHA-1 generation | `Pass` |
-| SHA224HashCalculatorTest | Check SHA-224 generation | `Pass` |
-| SHA256HashCalculatorTest | Check SHA-256 generation | `Pass` |
-| SHA384HashCalculatorTest | Check SHA-384 generation | `Pass` |
-| SHA512HashCalculatorTest | Check SHA-512 generation | `Pass` |
-| CRC32HashCalculatorTest | Check CRC-32 generation | `Pass` |
-| MessageDigestZeroLeadsHashCalculatorTest | Check zero leads for result of MessageDigest | `Pass` |
-| ScreenRunnerTest | Open UI components | `Pass` |
-| GenerateHashFromTextTest | Generate hash from text | `Pass` |
-
-#### 5.1.2. Tests Suits
-
-| Class | Description | Status |
-| --- | --- | --- |
-| HashTestSuite | Run all tests for check hash generation | `In development` |
-| FastTestSuite | Run only needed base UI tests | `Deprecated` |
-| AndroidTestSuite | Run all tests in "Android Test" section | `In development` |
-
-### 5.2. Test
-
-This tests must be run on computer.
-
-#### 5.2.1. Tests table
-
-| Class | Description | Status |
-| --- | --- | --- |
-| FileItemTest | Check fields in File item | `Pass` |
-| HistoryItemTest | Check fields in History item | `Pass` |
-| HashToolsTest | Check hash utils | `Pass` |
-| TextToolsTest | Check text utils | `Pass` |
-
-#### 5.2.2. Tests Suits
-
-| Class | Description | Status |
-| --- | --- | --- |
-| TestSuite | Run all tests in "Test" section | `In development` |
-
-
-## 6. Contacts
+## 5. Contacts
 
 - jaman.smlnsk@gmail.com
 
-## 7. Website
+## 6. Website
 
 - [fartem.github.io/hash-checker.io](https://fartem.github.io/hash-checker.io/)
 
-## 8. Privacy Policy
+## 7. Privacy Policy
 
 - [fartem.github.io/hash-checker-privacy-policy.io](https://fartem.github.io/hash-checker-privacy-policy.io/)

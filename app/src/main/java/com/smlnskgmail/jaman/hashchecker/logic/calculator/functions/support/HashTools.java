@@ -14,7 +14,7 @@ public class HashTools {
     }
 
     public static String getStringFromLong(long data) {
-        return String.format("%08X", data);
+        return String.format("%08x", data);
     }
 
 }

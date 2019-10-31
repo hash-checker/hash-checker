@@ -12,6 +12,8 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
 import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
+import static com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget.DEFAULT_ICON_VALUE;
+
 public abstract class BaseListHolder extends RecyclerView.ViewHolder {
 
     private final TextView tvItemTitle;
@@ -35,13 +37,13 @@ public abstract class BaseListHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(v -> callItemClick());
         tvItemTitle.setText(listItemTarget.getTitle(context));
         int primaryIconResId = listItemTarget.getPrimaryIconResId();
-        if (primaryIconResId != -1) {
+        if (primaryIconResId != DEFAULT_ICON_VALUE) {
             ivItemPrimaryIcon.setImageResource(listItemTarget.getPrimaryIconResId());
             UITools.applyAccentColorToImage(context, ivItemPrimaryIcon.getDrawable());
         }
         ivItemPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState() ? View.VISIBLE : View.GONE);
         int additionalIconResId = listItemTarget.getAdditionalIconResId();
-        if (additionalIconResId != -1) {
+        if (additionalIconResId != DEFAULT_ICON_VALUE) {
             ivItemAdditionalIcon.setImageResource(listItemTarget.getAdditionalIconResId());
             UITools.applyAccentColorToImage(context, ivItemAdditionalIcon.getDrawable());
         }

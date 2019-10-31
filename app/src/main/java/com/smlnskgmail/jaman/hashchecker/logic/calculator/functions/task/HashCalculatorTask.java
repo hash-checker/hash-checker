@@ -48,8 +48,7 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
     @Override
     protected String doInBackground(Void... voids) {
         try {
-            HashCalculator hashCalculator = new HashCalculator();
-            hashCalculator.setHashType(hashType);
+            HashCalculator hashCalculator = HashCalculator.newInstance(hashType);
             return !isText ? hashCalculator.fromFile(context, fileUri) : hashCalculator.fromString(textValue);
         } catch (Exception e) {
             LogTool.e(e);

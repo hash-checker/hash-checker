@@ -9,6 +9,7 @@ import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.history.db.entity.DBEntity;
 
 import java.util.Date;
+import java.util.Objects;
 
 @DatabaseTable(tableName = "history")
 public class HistoryItem extends DBEntity {
@@ -61,6 +62,23 @@ public class HistoryItem extends DBEntity {
     @NonNull
     public String getHashValue() {
         return hashValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HistoryItem that = (HistoryItem) o;
+        return isFile == that.isFile &&
+                Objects.equals(generationDate, that.generationDate) &&
+                hashType == that.hashType &&
+                Objects.equals(objectValue, that.objectValue) &&
+                Objects.equals(hashValue, that.hashValue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(generationDate, hashType, isFile, objectValue, hashValue);
     }
 
 }

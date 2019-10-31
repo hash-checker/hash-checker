@@ -19,9 +19,16 @@ public class HashCalculator {
 
     private HashCalculatorDigest hashCalculatorDigest;
 
-    public void setHashType(@NonNull HashType hashType) throws NoSuchAlgorithmException {
-        this.hashCalculatorDigest = new HashCalculatorDigest();
-        this.hashCalculatorDigest.setHashType(hashType);
+    private HashCalculator() {}
+
+    public static HashCalculator newInstance(@NonNull HashType hashType) throws NoSuchAlgorithmException {
+        HashCalculator hashCalculator = new HashCalculator();
+        hashCalculator.setHashType(hashType);
+        return hashCalculator;
+    }
+
+    private void setHashType(@NonNull HashType hashType) throws NoSuchAlgorithmException {
+        this.hashCalculatorDigest = HashCalculatorDigest.newInstance(hashType);
     }
 
     @Nullable

@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 
 public interface ListItemTarget {
 
+    int DEFAULT_ICON_VALUE = -1;
+
     String getTitle(@NonNull Context context);
 
     int getPrimaryIconResId();
