@@ -12,7 +12,7 @@
 
 Fast and simple application for generating and comparison hashes from files or text.
 
-### 1.1. Supporting algorithms
+## 2. Supporting algorithms
 
 | Name | Since version | Status |
 | --- | --- | --- |
@@ -24,27 +24,7 @@ Fast and simple application for generating and comparison hashes from files or t
 | [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
 | [CRC32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Supporting` |
 
-### 1.2. Languages
-
-| Language | Since version | Translate status |
-| --- | --- | --- |
-| English | 1.0.0 | `Full` |
-| Russian | 2.9.6 | `Full` |
-| German | 2.9.6 | `Full` |
-| French | 2.9.9 | `Full` |
-| Hebrew | 2.9.9 | `Full` |
-| Italian | 2.9.9 | `Full` |
-| Polish | 2.9.9 | `Full` |
-| Spanish | 2.9.9 | `Full` |
-| Korean | 2.9.9 | `Full` |
-| Chinese | 2.9.9 | `Full` |
-| Persian | 2.9.9 | `Full` |
-| Hungarian | 2.9.9 | `Full` |
-| Swedish | 2.9.9 | `Full` |
-| Greek | 2.9.9 | `Full` |
-| Dutch | 2.9.9 | `Full` |
-
-## 2. Screenshots
+## 3. Screenshots
 
 <br/>
 <p align="center">
@@ -55,17 +35,13 @@ Fast and simple application for generating and comparison hashes from files or t
   <img src="media/screenshots/5.png" width="170" />
 </p>
 
-## 3. Videos
+## 4. Videos
 
 - [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
 
-## 4. Alternative downloads
+## 5. Alternative downloads
 
 - [GitHub](https://github.com/fartem/hash-checker/releases)
-
-## 5. Contacts
-
-- jaman.smlnsk@gmail.com
 
 ## 6. Website
 
