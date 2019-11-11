@@ -45,3 +45,7 @@ Fast and simple application for generating and comparison hashes from files or t
 ## Privacy Policy
 
 - [fartem.github.io/hash-checker-privacy-policy.io](https://fartem.github.io/hash-checker-privacy-policy.io/)
+
+## Contributors
+
+- [@fartem](https://github.com/fartem) as Artem Fomchenkov
