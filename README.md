@@ -1,18 +1,16 @@
+<img src="media/ic_app.png" height="100px" />
+
 ![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688)
-![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg)
-![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg)
-![Repo size](https://img.shields.io/github/repo-size/fartem/hash-checker.svg)
-[![License](https://img.shields.io/github/license/fartem/hash-checker.svg)](https://github.com/fartem/hash-checker/blob/master/LICENSE)
+![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg?color=ff534a)
+![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg?color=51539c)
+![Repo size](https://img.shields.io/github/repo-size/fartem/hash-checker.svg?color=02778b)
+[![License](https://img.shields.io/github/license/fartem/hash-checker.svg?color=7ea4b0)](https://github.com/fartem/hash-checker/blob/master/LICENSE)
 
-# Hash Checker | [Google Play](https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker)
-
-<p align="center"><img src="media/ic_app.png" height="200px"></p>
-
-## 1. About application
+## About application
 
 Fast and simple application for generating and comparison hashes from files or text.
 
-## 2. Supporting algorithms
+## Supporting algorithms
 
 | Name | Since version | Status |
 | --- | --- | --- |
@@ -24,7 +22,7 @@ Fast and simple application for generating and comparison hashes from files or t
 | [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
 | [CRC32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Supporting` |
 
-## 3. Screenshots
+## Screenshots
 
 <br/>
 <p align="center">
@@ -35,18 +33,15 @@ Fast and simple application for generating and comparison hashes from files or t
   <img src="media/screenshots/5.png" width="170" />
 </p>
 
-## 4. Videos
+## Videos
 
 - [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
 
-## 5. Alternative downloads
+## Downloads
 
+- [Google Play](https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker)
 - [GitHub](https://github.com/fartem/hash-checker/releases)
 
-## 6. Website
-
-- [fartem.github.io/hash-checker.io](https://fartem.github.io/hash-checker.io/)
-
-## 7. Privacy Policy
+## Privacy Policy
 
 - [fartem.github.io/hash-checker-privacy-policy.io](https://fartem.github.io/hash-checker-privacy-policy.io/)
