@@ -1,5 +1,6 @@
 <img src="media/ic_app.png" height="100px" />
 
+![Travis CI](https://travis-ci.org/fartem/hash-checker.svg?branch=master)
 ![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688)
 ![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg?color=ff534a)
 ![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg?color=51539c)
