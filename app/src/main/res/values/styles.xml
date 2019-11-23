@@ -15,8 +15,7 @@
         <item name="textColorAlertDialogListItem">?attr/colorCommonText</item>
     </style>
 
-    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title"
-        parent="@android:style/TextAppearance">
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="@android:style/TextAppearance">
         <item name="android:textColor">?attr/colorAccent</item>
         <item name="android:textSize">@dimen/text_size_large</item>
         <item name="android:textStyle">bold</item>

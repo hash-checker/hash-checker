@@ -1,0 +1,24 @@
+language: android
+dist: trusty
+
+android:
+  components:
+    - tools
+    - tools
+    - platform-tools
+    - build-tools-29-0-2
+    - android-29
+    - extra-android-m2repository
+    - extra-google-m2repository
+    - extra-android-support
+    - extra-google-google_play_services
+
+jdk:
+  - oraclejdk8
+
+before_install:
+  - yes | sdkmanager "build-tools;29.0.2"
+  - chmod +x gradlew
+
+script:
+  - ./gradlew test
