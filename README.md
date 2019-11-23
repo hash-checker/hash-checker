@@ -4,7 +4,8 @@
 ![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg?color=ff534a&style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg?color=51539c&style=flat-square)
 ![Repo size](https://img.shields.io/github/repo-size/fartem/hash-checker.svg?color=02778b&style=flat-square)
-![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688&style=flat-square))
+![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688&style=flat-square)
+![GitHub downloads](https://img.shields.io/github/downloads/fartem/hash-checker/total?color=blue&style=flat-square)
 [![License](https://img.shields.io/github/license/fartem/hash-checker.svg?color=7ea4b0&style=flat-square)](https://github.com/fartem/hash-checker/blob/master/LICENSE)
 
 ## About application
