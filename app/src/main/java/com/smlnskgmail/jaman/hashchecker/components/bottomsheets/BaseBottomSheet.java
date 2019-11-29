@@ -20,7 +20,9 @@ public abstract class BaseBottomSheet extends BottomSheetDialogFragment {
         viewCreated(view);
     }
 
-    protected void viewCreated(@NonNull View contentView) {}
+    protected void viewCreated(@NonNull View contentView) {
+
+    }
 
     public void show(@NonNull FragmentManager fragmentManager) {
         show(fragmentManager, getClass().getName());

@@ -17,7 +17,11 @@ public class SettingsHelper {
     }
 
     public static HashType getLastHashType(@NonNull Context context) {
-        String hashValue = getStringPreference(context, context.getString(R.string.key_last_type_value), HashType.MD5.getHashName());
+        String hashValue = getStringPreference(
+                context,
+                context.getString(R.string.key_last_type_value),
+                HashType.MD5.getHashName()
+        );
         try {
             return HashType.valueOf(hashValue);
         } catch (IllegalArgumentException e) {
@@ -43,7 +47,11 @@ public class SettingsHelper {
     }
 
     public static String getTheme(@NonNull Context context) {
-        String theme = getStringPreference(context, context.getString(R.string.key_selected_theme), Theme.LIGHT.toString());
+        String theme = getStringPreference(
+                context,
+                context.getString(R.string.key_selected_theme),
+                Theme.LIGHT.toString()
+        );
         if (validateAppTheme(context, theme)) {
             return theme;
         } else {
@@ -103,7 +111,8 @@ public class SettingsHelper {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putString(key, value).apply();
     }
 
-    private static String getStringPreference(@NonNull Context context, @NonNull String key, @NonNull String defaultValue) {
+    private static String getStringPreference(@NonNull Context context, @NonNull String key,
+                                              @NonNull String defaultValue) {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(key, defaultValue);
     }
 

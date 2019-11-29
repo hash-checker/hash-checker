@@ -34,7 +34,9 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     protected abstract void initializeContent(@NonNull View contentView);
 
-    public void onPostInitialize() {}
+    public void onPostInitialize() {
+
+    }
 
     @Override
     public void onResume() {
@@ -93,7 +95,8 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         return inflater.inflate(getLayoutResId(), container, false);
     }
 

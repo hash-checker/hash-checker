@@ -42,7 +42,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
-            for (Class clazz: tablesClasses){
+            for (Class clazz: tablesClasses) {
                 TableUtils.createTable(connectionSource, clazz);
             }
         } catch (SQLException e) {
@@ -51,7 +51,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {}
+    public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {
+
+    }
 
     public void addHistoryItem(@NonNull HistoryItem historyItem) {
         try {

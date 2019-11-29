@@ -33,8 +33,12 @@ public class FileItem {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         FileItem fileItem = (FileItem) o;
         return fileType == fileItem.fileType &&
                 Objects.equals(filePath, fileItem.filePath) &&

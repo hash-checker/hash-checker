@@ -66,7 +66,7 @@ public class FileExtensions {
 
     private static String getFileExtension(@NonNull String fileName) {
         int lastDotIndex = fileName.lastIndexOf('.');
-        if(lastDotIndex != -1) {
+        if (lastDotIndex != -1) {
             return fileName.substring(lastDotIndex);
         } else {
             return "";
@@ -86,7 +86,9 @@ public class FileExtensions {
                         .redirectErrorStream(true).start();
                 process.waitFor();
                 InputStream is = process.getInputStream();
-                byte[] buffer = new byte[1024];
+
+                int bufferSize = 1024;
+                byte[] buffer = new byte[bufferSize];
                 while (is.read(buffer) != -1) {
                     sb.append(new String(buffer));
                 }
@@ -102,15 +104,18 @@ public class FileExtensions {
                     if (line.matches(reg)) {
                         String[] parts = line.split(" ");
                         for (String part: parts) {
-                            if (part.startsWith("/"))
+                            if (part.startsWith("/")) {
                                 if (!part.toLowerCase(Locale.ENGLISH).contains("vold")) {
                                     String storageName;
                                     int counter = 0;
                                     StringBuilder tempBuilder = new StringBuilder();
                                     for (int i = part.length() - 1; i >= 0; i--) {
                                         if (counter == 0) {
-                                            if (part.charAt(i) == '/') counter = 1;
-                                            else tempBuilder.append(part.charAt(i));
+                                            if (part.charAt(i) == '/') {
+                                                counter = 1;
+                                            } else {
+                                                tempBuilder.append(part.charAt(i));
+                                            }
                                         }
                                     }
                                     storageName = tempBuilder.toString();
@@ -121,8 +126,7 @@ public class FileExtensions {
                                     storageName = tempBuilder.toString();
                                     boolean equalState = false;
                                     for (FileItem storage: storages) {
-                                        if (("/storage/" + storageName)
-                                                .equals(storage.getFileName())) {
+                                        if (("/storage/" + storageName).equals(storage.getFileName())) {
                                             equalState = true;
                                         }
                                     }
@@ -134,6 +138,7 @@ public class FileExtensions {
                                         }
                                     }
                                 }
+                            }
                         }
                     }
                 }

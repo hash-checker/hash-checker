@@ -15,7 +15,9 @@ public enum WebLink implements ListItemTarget {
     SOURCE_CODE(R.string.title_web_link_github, R.drawable.ic_github, R.string.web_link_source_code),
     GOOGLE_PLAY(R.string.title_web_link_google_play, R.drawable.ic_google_play, R.string.web_link_my_apps);
 
-    private final int titleResId, iconResId, linkResId;
+    private final int titleResId;
+    private final int iconResId;
+    private final int linkResId;
 
     WebLink(int titleResId, int iconResId, int linkResId) {
         this.titleResId = titleResId;

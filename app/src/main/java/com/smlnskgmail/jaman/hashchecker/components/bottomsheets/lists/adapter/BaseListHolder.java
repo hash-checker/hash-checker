@@ -58,7 +58,9 @@ public abstract class BaseListHolder extends RecyclerView.ViewHolder {
         return false;
     }
 
-    protected void callItemClick() {}
+    protected void callItemClick() {
+
+    }
 
     protected ImageView getIvItemAdditionalIcon() {
         return ivItemAdditionalIcon;

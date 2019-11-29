@@ -194,7 +194,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void copyFile(@NonNull File source, @NonNull FileOutputStream outputStream)
             throws IOException {
         try (InputStream inputStream = new FileInputStream(source)) {
-            byte[] buffer = new byte[1024];
+            int bufferSize = 1024;
+            byte[] buffer = new byte[bufferSize];
+
             int length;
             while ((length = inputStream.read(buffer)) > 0) {
                 outputStream.write(buffer, 0, length);

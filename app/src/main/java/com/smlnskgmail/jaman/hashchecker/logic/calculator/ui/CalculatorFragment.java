@@ -58,8 +58,8 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
-public class CalculatorFragment extends BaseFragment implements TextValueTarget, HashCalculatorTaskTarget, UserActionTarget,
-        HashTypeSelectTarget {
+public class CalculatorFragment extends BaseFragment
+        implements TextValueTarget, HashCalculatorTaskTarget, UserActionTarget, HashTypeSelectTarget {
 
     private static final int TEXT_MULTILINE_LINES_COUNT = 3;
     private static final int TEXT_SINGLE_LINE_LINES_COUNT = 1;
@@ -81,8 +81,10 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
     private Context context;
     private FragmentManager fragmentManager;
 
+    private boolean startWithTextSelection;
+    private boolean startWithFileSelection;
+
     private boolean isTextSelected;
-    private boolean startWithTextSelection, startWithFileSelection;
 
     @Override
     public void userActionSelect(@NonNull UserActionType userActionType) {
@@ -131,7 +133,11 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
             startActivityForResult(openExplorerIntent, FileRequests.FILE_SELECT);
         } catch (ActivityNotFoundException e) {
             LogTool.e(e);
-            UITools.showSnackbar(mainScreen.getContext(), mainScreen, getString(R.string.message_error_start_file_selector));
+            UITools.showSnackbar(
+                    mainScreen.getContext(),
+                    mainScreen,
+                    getString(R.string.message_error_start_file_selector)
+            );
         }
     }
 
@@ -142,9 +148,19 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
             progressDialog = AppProgressDialog.getDialog(context, R.string.message_generate_dialog);
             progressDialog.show();
             if (isTextSelected) {
-                new HashCalculatorTask(hashType, context, tvSelectedObjectName.getText().toString(), this).execute();
+                new HashCalculatorTask(
+                        hashType,
+                        context,
+                        tvSelectedObjectName.getText().toString(),
+                        this
+                ).execute();
             } else {
-                new HashCalculatorTask(hashType, context, fileUri, this).execute();
+                new HashCalculatorTask(
+                        hashType,
+                        context,
+                        fileUri,
+                        this
+                ).execute();
             }
         } else {
             UITools.showSnackbar(context, mainScreen, getString(R.string.message_select_object));
@@ -153,8 +169,15 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
 
     private void compareHashes() {
         if (TextTools.fieldIsNotEmpty(etCustomHash) && TextTools.fieldIsNotEmpty(etGeneratedHash)) {
-            boolean equal = TextTools.compareText(etCustomHash.getText().toString(), etGeneratedHash.getText().toString());
-            UITools.showSnackbar(context, mainScreen, getString(equal ? R.string.message_match_result : R.string.message_do_not_match_result));
+            boolean equal = TextTools.compareText(
+                    etCustomHash.getText().toString(),
+                    etGeneratedHash.getText().toString()
+            );
+            UITools.showSnackbar(
+                    context,
+                    mainScreen,
+                    getString(equal ? R.string.message_match_result : R.string.message_do_not_match_result)
+            );
         } else {
             UITools.showSnackbar(context, mainScreen, getString(R.string.message_fill_fields));
         }
@@ -178,7 +201,9 @@ public class CalculatorFragment extends BaseFragment implements TextValueTarget,
 
     private void saveGeneratedHashAsTextFile() {
         if ((fileUri != null || isTextSelected) && TextTools.fieldIsNotEmpty(etGeneratedHash)) {
-            String filename = getString(isTextSelected ? R.string.filename_hash_from_text : R.string.filename_hash_from_file);
+            String filename = getString(
+                    isTextSelected ? R.string.filename_hash_from_text : R.string.filename_hash_from_file
+            );
             saveTextFile(filename);
         } else {
             UITools.showSnackbar(context, mainScreen, getString(R.string.message_generate_hash_before_export));

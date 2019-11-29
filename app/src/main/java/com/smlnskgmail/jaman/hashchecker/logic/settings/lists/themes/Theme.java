@@ -13,7 +13,9 @@ public enum Theme implements ListItemTarget {
     LIGHT(R.string.title_theme_light, R.drawable.ic_settings_theme, R.style.AppThemeLight),
     DARK(R.string.title_theme_dark, R.drawable.ic_settings_theme, R.style.AppThemeDark);
 
-    private final int titleResId, iconResId, themeResId;
+    private final int titleResId;
+    private final int iconResId;
+    private final int themeResId;
 
     Theme(int titleResId, int iconResId, int themeResId) {
         this.titleResId = titleResId;

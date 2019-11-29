@@ -15,7 +15,9 @@ public class HashCalculatorDigest {
 
     private boolean useCRC32;
 
-    private HashCalculatorDigest() {}
+    private HashCalculatorDigest() {
+
+    }
 
     public static HashCalculatorDigest newInstance(@NonNull HashType hashType) throws NoSuchAlgorithmException {
         HashCalculatorDigest hashCalculatorDigest = new HashCalculatorDigest();
@@ -49,7 +51,9 @@ public class HashCalculatorDigest {
     }
 
     public String result() {
-        return !useCRC32 ? HashTools.getStringFromByteArray(messageDigest.digest()) : HashTools.getStringFromLong(crc32.getValue());
+        return !useCRC32
+                ? HashTools.getStringFromByteArray(messageDigest.digest())
+                : HashTools.getStringFromLong(crc32.getValue());
     }
 
 }

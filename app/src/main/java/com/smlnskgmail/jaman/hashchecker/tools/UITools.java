@@ -53,7 +53,12 @@ public class UITools {
         snackbar.setActionTextColor(getAccentColor(context));
 
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) snackbar.getView().getLayoutParams();
-        params.setMargins(COMMON_SNACKBAR_MARGIN, COMMON_SNACKBAR_MARGIN, COMMON_SNACKBAR_MARGIN, COMMON_SNACKBAR_MARGIN);
+        params.setMargins(
+                COMMON_SNACKBAR_MARGIN,
+                COMMON_SNACKBAR_MARGIN,
+                COMMON_SNACKBAR_MARGIN,
+                COMMON_SNACKBAR_MARGIN
+        );
         snackbar.getView().setBackground(ContextCompat.getDrawable(context, R.drawable.bg_snackbar));
 
         TextView snackbarText = snackbar.getView().findViewById(R.id.snackbar_text);

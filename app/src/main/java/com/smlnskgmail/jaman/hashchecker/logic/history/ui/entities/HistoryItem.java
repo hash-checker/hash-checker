@@ -38,7 +38,9 @@ public class HistoryItem extends DBEntity {
         this.hashValue = hashValue;
     }
 
-    public HistoryItem() {}
+    public HistoryItem() {
+
+    }
 
     @NonNull
     public Date getGenerationDate() {
@@ -66,8 +68,12 @@ public class HistoryItem extends DBEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         HistoryItem that = (HistoryItem) o;
         return isFile == that.isFile &&
                 Objects.equals(generationDate, that.generationDate) &&

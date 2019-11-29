@@ -19,7 +19,9 @@ public class HashCalculator {
 
     private HashCalculatorDigest hashCalculatorDigest;
 
-    private HashCalculator() {}
+    private HashCalculator() {
+
+    }
 
     public static HashCalculator newInstance(@NonNull HashType hashType) throws NoSuchAlgorithmException {
         HashCalculator hashCalculator = new HashCalculator();
@@ -44,15 +46,6 @@ public class HashCalculator {
         return fromFile(fileStream);
     }
 
-    private InputStream inputStreamFromUri(@NonNull Context context, @NonNull Uri path)
-            throws Exception {
-        if (!SettingsHelper.isUsingInnerFileManager(context)
-                || SettingsHelper.getGenerateFromShareIntentStatus(context)) {
-            return context.getContentResolver().openInputStream(path);
-        }
-        return new FileInputStream(new File(new URI(path.toString())));
-    }
-
     @Nullable
     public String fromFile(@Nullable InputStream inputStream) throws Exception {
         if (inputStream != null) {
@@ -67,6 +60,15 @@ public class HashCalculator {
             return hashCalculatorDigest.result();
         }
         return null;
+    }
+
+    private InputStream inputStreamFromUri(@NonNull Context context, @NonNull Uri path)
+            throws Exception {
+        if (!SettingsHelper.isUsingInnerFileManager(context)
+                || SettingsHelper.getGenerateFromShareIntentStatus(context)) {
+            return context.getContentResolver().openInputStream(path);
+        }
+        return new FileInputStream(new File(new URI(path.toString())));
     }
 
 }

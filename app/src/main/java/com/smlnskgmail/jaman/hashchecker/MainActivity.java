@@ -57,7 +57,8 @@ public class MainActivity extends BaseActivity {
     }
 
     private void showFragment(@NonNull Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().add(android.R.id.content, fragment, BaseFragment.CURRENT_FRAGMENT_TAG)
+        getSupportFragmentManager().beginTransaction()
+                .add(android.R.id.content, fragment, BaseFragment.CURRENT_FRAGMENT_TAG)
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .addToBackStack(null)
                 .commit();

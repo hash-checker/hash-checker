@@ -30,7 +30,8 @@ public class DatabaseExporter {
         ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(getUserDataZip(context)));
         zipOutputStream.putNextEntry(new ZipEntry(DatabaseHelper.DATABASE_NAME));
 
-        byte[] buffer = new byte[1024];
+        int bufferSize = 1024;
+        byte[] buffer = new byte[bufferSize];
         int count;
         while ((count = inputStream.read(buffer)) > 0) {
             zipOutputStream.write(buffer, 0, count);
