@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem;
+import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 
 import java.util.ArrayList;
 import java.util.List;

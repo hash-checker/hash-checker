@@ -1,7 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.history;
 
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.functions.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 
 import org.junit.Test;
 
@@ -27,11 +27,26 @@ public class HistoryItemTest {
                 hashValue
         );
 
-        assertEquals(generationDate, historyItem.getGenerationDate());
-        assertEquals(hashType, historyItem.getHashType());
-        assertEquals(isFile, historyItem.isFile());
-        assertEquals(objectValue, historyItem.getObjectValue());
-        assertEquals(hashValue, historyItem.getHashValue());
+        assertEquals(
+                generationDate,
+                historyItem.getGenerationDate()
+        );
+        assertEquals(
+                hashType,
+                historyItem.getHashType()
+        );
+        assertEquals(
+                isFile,
+                historyItem.isFile()
+        );
+        assertEquals(
+                objectValue,
+                historyItem.getObjectValue()
+        );
+        assertEquals(
+                hashValue,
+                historyItem.getHashValue()
+        );
     }
 
 }

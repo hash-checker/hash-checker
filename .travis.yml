@@ -1,17 +1,19 @@
 language: android
 dist: trusty
+sudo: false
 
 android:
   components:
     - tools
-    - tools
     - platform-tools
-    - build-tools-29-0-2
+    - build-tools-29.0.2
     - android-29
+    - android-22
     - extra-android-m2repository
-    - extra-google-m2repository
     - extra-android-support
+    - extra-google-m2repository
     - extra-google-google_play_services
+    - sys-img-armeabi-v7a-android-22
 
 jdk:
   - oraclejdk8
@@ -21,4 +23,10 @@ before_install:
   - chmod +x gradlew
 
 script:
+  - ./gradlew checkstyle
   - ./gradlew test
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+  - ./gradlew connectedAndroidTest

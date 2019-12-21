@@ -33,14 +33,15 @@ public abstract class BaseUITest {
         onView(withText(text)).perform(click());
     }
 
-    protected void textEquals(int textViewId, @NonNull String text) {
+    protected void textEquals(@NonNull String text, int textViewId) {
         onView(withId(textViewId)).check(matches(TextMatcher.hasStringEqualsTo(text)));
     }
 
     @SuppressWarnings("SameParameterValue")
     protected void inRecyclerViewClickOnPosition(int recyclerId, int position) {
-        onView(withId(recyclerId)).perform(RecyclerViewActions
-                .actionOnItemAtPosition(position, click()));
+        onView(
+                withId(recyclerId)).perform(RecyclerViewActions.actionOnItemAtPosition(position, click())
+        );
     }
 
     protected Context getContext() {

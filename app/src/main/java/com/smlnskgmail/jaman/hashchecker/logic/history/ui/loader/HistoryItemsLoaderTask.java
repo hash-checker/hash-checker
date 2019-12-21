@@ -4,22 +4,22 @@ import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.logic.history.db.HelperFactory;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem;
+import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 
 import java.util.List;
 
 public class HistoryItemsLoaderTask extends AsyncTask<Void, List<HistoryItem>, List<HistoryItem>> {
 
-    private final HistoryItemsLoaderTaskTarget<HistoryItem> historyItemsLoaderTaskTarget;
+    private final HistoryItemsLoaderTaskTarget<HistoryItem> loaderTaskTarget;
 
-    public HistoryItemsLoaderTask(@NonNull HistoryItemsLoaderTaskTarget<HistoryItem> historyItemsLoaderTaskTarget) {
-        this.historyItemsLoaderTaskTarget = historyItemsLoaderTaskTarget;
+    public HistoryItemsLoaderTask(@NonNull HistoryItemsLoaderTaskTarget<HistoryItem> loaderTaskTarget) {
+        this.loaderTaskTarget = loaderTaskTarget;
     }
 
     @Override
     protected List<HistoryItem> doInBackground(Void... voids) {
-        return HelperFactory.getHelper().historyItems(historyItemsLoaderTaskTarget.dataPortion());
+        return HelperFactory.getHelper().historyItems(loaderTaskTarget.dataPortion());
     }
 
     @Override
@@ -28,10 +28,10 @@ public class HistoryItemsLoaderTask extends AsyncTask<Void, List<HistoryItem>, L
     }
 
     private void completeLoad(@NonNull List<HistoryItem> historyItems) {
-        HistoryPortion historyPortion = historyItemsLoaderTaskTarget.dataPortion();
-        historyPortion.setLoaded(historyItems.size() < historyItemsLoaderTaskTarget.dataPortion().pageSize());
-        historyPortion.setPage(historyItemsLoaderTaskTarget.dataPortion().page() + 1);
-        historyItemsLoaderTaskTarget.postLoad(historyItems);
+        HistoryPortion historyPortion = loaderTaskTarget.dataPortion();
+        historyPortion.setLoaded(historyItems.size() < loaderTaskTarget.dataPortion().pageSize());
+        historyPortion.setPage(loaderTaskTarget.dataPortion().page() + 1);
+        loaderTaskTarget.postLoad(historyItems);
     }
 
 }

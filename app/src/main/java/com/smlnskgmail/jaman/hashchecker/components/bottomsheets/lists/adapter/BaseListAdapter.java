@@ -20,7 +20,10 @@ public abstract class BaseListAdapter extends RecyclerView.Adapter<BaseListHolde
     private final BaseListBottomSheet bottomSheet;
     private final List<ListItemTarget> items = new ArrayList<>();
 
-    protected BaseListAdapter(@NonNull List<ListItemTarget> items, @NonNull BaseListBottomSheet bottomSheet) {
+    protected BaseListAdapter(
+            @NonNull List<ListItemTarget> items,
+            @NonNull BaseListBottomSheet bottomSheet
+    ) {
         this.items.addAll(items);
         this.bottomSheet = bottomSheet;
     }

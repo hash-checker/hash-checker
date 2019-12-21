@@ -1,7 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.filemanager;
 
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.entities.FileItem;
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.entities.FileType;
+import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileItem;
+import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileType;
 
 import org.junit.Test;
 
@@ -21,9 +21,18 @@ public class FileItemTest {
                 filename
         );
 
-        assertEquals(fileType, fileItem.getFileType());
-        assertEquals(filePath, fileItem.getFilePath());
-        assertEquals(filename, fileItem.getFileName());
+        assertEquals(
+                fileType,
+                fileItem.getFileType()
+        );
+        assertEquals(
+                filePath,
+                fileItem.getFilePath()
+        );
+        assertEquals(
+                filename,
+                fileItem.getFileName()
+        );
     }
 
 }

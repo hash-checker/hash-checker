@@ -19,7 +19,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
-@Deprecated
+@Deprecated()
 public class ScreenRunnerTest extends BaseUITest {
 
     @Rule
@@ -75,8 +75,9 @@ public class ScreenRunnerTest extends BaseUITest {
     }
 
     private void clickToSettingsItem(int settingsTitleResId) {
-        onView(withId(R.id.recycler_view)).perform(RecyclerViewActions
-                        .actionOnItem(hasDescendant(withText(settingsTitleResId)), click()));
+        onView(withId(R.id.recycler_view)).perform(
+                        RecyclerViewActions.actionOnItem(hasDescendant(withText(settingsTitleResId)), click())
+        );
         delayAndBack();
     }
 

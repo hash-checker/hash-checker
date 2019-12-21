@@ -13,19 +13,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
-import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.components.activities.BaseActivity;
+import com.smlnskgmail.jaman.hashchecker.components.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.calculator.ui.CalculatorFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.feedback.FeedbackFragment;
+import com.smlnskgmail.jaman.hashchecker.flavorfeature.SpecificFlavorFeature;
+import com.smlnskgmail.jaman.hashchecker.logic.feedback.ui.FeedbackFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.flavorfeature.FlavorFeature;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
 
 public class MainActivity extends BaseActivity {
 
     public static final String URI_FROM_EXTERNAL_APP = "com.smlnskgmail.jaman.hashchecker.URI_FROM_EXTERNAL_APP";
+
+    private FlavorFeature flavorFeature;
 
     @Override
     public void create() {
@@ -41,7 +45,7 @@ public class MainActivity extends BaseActivity {
             externalFileUri = clipData.getItemAt(0).getUri();
         }
 
-        CalculatorFragment mainFragment = new CalculatorFragment();
+        HashCalculatorFragment mainFragment = new HashCalculatorFragment();
         if (scheme != null && scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
             mainFragment.setArguments(getConfiguredBundleWithDataUri(intent.getData()));
             SettingsHelper.setGenerateFromShareIntentMode(this, true);
@@ -52,6 +56,9 @@ public class MainActivity extends BaseActivity {
             mainFragment.setArguments(getBundleForShortcutAction(intent.getAction()));
             SettingsHelper.setGenerateFromShareIntentMode(this, false);
         }
+
+        flavorFeature = new SpecificFlavorFeature();
+        flavorFeature.bindForActivity(this);
 
         showFragment(mainFragment);
     }
@@ -105,6 +112,12 @@ public class MainActivity extends BaseActivity {
         if (inputMethodManager != null) {
             inputMethodManager.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        flavorFeature.bindForOnResumeActivity();
     }
 
     @Override

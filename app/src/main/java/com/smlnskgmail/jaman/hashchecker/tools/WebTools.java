@@ -11,7 +11,9 @@ public class WebTools {
 
     public static void openWebLink(@NonNull Context context, @NonNull String link) {
         try {
-            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
+            context.startActivity(
+                    new Intent(Intent.ACTION_VIEW, Uri.parse(link))
+            );
         } catch (ActivityNotFoundException e) {
             LogTool.e(e);
         }

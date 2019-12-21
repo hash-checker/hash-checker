@@ -25,24 +25,42 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.lists.themes.Theme;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.Theme;
 
 public class UITools {
 
     private static final int COMMON_SNACKBAR_MARGIN = 12;
 
-    public static void removeFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
+    public static void removeFragment(
+            @NonNull FragmentManager fragmentManager,
+            @NonNull Fragment fragment
+    ) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(fragment).commit();
         fragmentManager.popBackStackImmediate();
     }
 
-    public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message) {
-        showSnackbar(context, parent, message, null, null);
+    public static void showSnackbar(
+            @NonNull Context context,
+            @NonNull View parent,
+            @NonNull String message
+    ) {
+        showSnackbar(
+                context,
+                parent,
+                message,
+                null,
+                null
+        );
     }
 
-    public static void showSnackbar(@NonNull Context context, @NonNull View parent, @NonNull String message,
-                                    @Nullable String actionText, @Nullable View.OnClickListener action) {
+    public static void showSnackbar(
+            @NonNull Context context,
+            @NonNull View parent,
+            @NonNull String message,
+            @Nullable String actionText,
+            @Nullable View.OnClickListener action
+    ) {
         Snackbar snackbar = Snackbar.make(parent, message, Snackbar.LENGTH_SHORT);
         if (action != null) {
             snackbar.setAction(actionText, action);

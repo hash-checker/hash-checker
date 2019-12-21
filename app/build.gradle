@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'checkstyle'
 
 android {
     compileSdkVersion 29
@@ -7,8 +8,8 @@ android {
         applicationId "com.smlnskgmail.jaman.hashchecker"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 74
-        versionName "3.0.2"
+        versionCode 75
+        versionName "3.0.3"
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -32,18 +33,50 @@ android {
     lintOptions {
         abortOnError false
     }
+    productFlavors {
+        github {
+            flavorDimensions "github"
+        }
+        googlePlay {
+            flavorDimensions "googlePlay"
+        }
+    }
     sourceSets {
         main {
-            resources.srcDirs = ['src/main/resources', 'src/test']
+            resources.srcDirs = [
+                    'src/main/resources',
+                    'src/test'
+            ]
         }
     }
 }
+
+checkstyle {
+    toolVersion '8.26'
+    ignoreFailures false
+    showViolations true
+}
+
+task checkstyle(type: Checkstyle) {
+    group 'verification'
+
+    configFile rootProject.file('checkstyle.xml')
+    source rootProject.file('app/src/main/java')
+    classpath = files()
+
+    reports {
+        xml.enabled true
+        xml.destination rootProject.file("checkstyle-result.xml")
+    }
+}
+
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.preference:preference:1.1.0'
+    googlePlayImplementation 'com.google.android.play:core:1.6.4'
 
     // ORMLite
     implementation 'com.j256.ormlite:ormlite-core:5.1'

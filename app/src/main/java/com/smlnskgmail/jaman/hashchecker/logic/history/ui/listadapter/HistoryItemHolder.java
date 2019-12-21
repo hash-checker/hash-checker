@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.entities.HistoryItem;
+import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 import java.text.DateFormat;
@@ -51,8 +51,13 @@ class HistoryItemHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(v -> {
             String message = context.getString(R.string.history_item_click_text);
             String actionText = context.getString(R.string.common_ok);
-            UITools.showSnackbar(context, rootView, message, actionText, v1 ->
-                    copyTextToClipboard(context, historyItem.getHashValue()));
+            UITools.showSnackbar(
+                    context,
+                    rootView,
+                    message,
+                    actionText,
+                    v1 -> copyTextToClipboard(context, historyItem.getHashValue())
+            );
         });
     }
 

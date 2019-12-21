@@ -1,20 +1,21 @@
 <img src="media/ic_app.png" height="100px" />
 
+Hash Checker
+=======================
+
 ![Travis CI](https://img.shields.io/travis/fartem/hash-checker?style=flat-square)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-site-brightgreen?style=flat-square)](https://android-arsenal.com/details/3/7854)
 ![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg?color=ff534a&style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg?color=51539c&style=flat-square)
-![Repo size](https://img.shields.io/github/repo-size/fartem/hash-checker.svg?color=02778b&style=flat-square)
 ![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688&style=flat-square)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-site-brightgreen?style=flat-square)](https://android-arsenal.com/details/3/7854)
-![Google Play Downloads](https://img.shields.io/badge/GP%20downloads-8K-yellow?style=flat-square)
-![GitHub downloads](https://img.shields.io/github/downloads/fartem/hash-checker/total?color=blue&style=flat-square)
-[![License](https://img.shields.io/github/license/fartem/hash-checker.svg?color=7ea4b0&style=flat-square)](https://github.com/fartem/hash-checker/blob/master/LICENSE)
 
-## About application
+About application
+-------------------
 
 Fast and simple application for generating and comparison hashes from files or text.
 
-## Supporting algorithms
+Supporting algorithms
+-------------------
 
 | Name | Since version | Status |
 | --- | --- | --- |
@@ -26,7 +27,8 @@ Fast and simple application for generating and comparison hashes from files or t
 | [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
 | [CRC32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Supporting` |
 
-## Screenshots
+Screenshots
+-------------------
 
 <br/>
 <p align="center">
@@ -37,19 +39,23 @@ Fast and simple application for generating and comparison hashes from files or t
   <img src="media/screenshots/5.png" width="170" />
 </p>
 
-## Videos
+Videos
+-------------------
 
-- [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
+* [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
 
-## Downloads
+Downloads
+-------------------
 
-- [Google Play](https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker)
-- [GitHub](https://github.com/fartem/hash-checker/releases)
+* [Google Play](https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker)
+* [GitHub](https://github.com/fartem/hash-checker/releases)
 
-## Privacy Policy
+Privacy Policy
+-------------------
 
-- [fartem.github.io/hash-checker-privacy-policy.io](https://fartem.github.io/hash-checker-privacy-policy.io/)
+* [fartem.github.io/hash-checker-privacy-policy.io](https://fartem.github.io/hash-checker-privacy-policy.io/)
 
-## Contributors
+Contributors
+-------------------
 
-- [@fartem](https://github.com/fartem) as Artem Fomchenkov
+* [@fartem](https://github.com/fartem) as Artem Fomchenkov
