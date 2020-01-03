@@ -3,11 +3,11 @@
 Hash Checker
 =======================
 
-![Travis CI](https://img.shields.io/travis/fartem/hash-checker?style=flat-square)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-site-brightgreen?style=flat-square)](https://android-arsenal.com/details/3/7854)
-![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg?color=ff534a&style=flat-square)
-![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg?color=51539c&style=flat-square)
-![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688&style=flat-square)
+![Travis CI](https://img.shields.io/travis/fartem/hash-checker)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-site-brightgreen)](https://android-arsenal.com/details/3/7854)
+![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg?color=ff534a)
+![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg?color=51539c)
+![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688)
 
 About application
 -------------------
