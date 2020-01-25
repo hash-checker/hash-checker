@@ -5,6 +5,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'de.aaschmid:gradle-cpd-plugin:2.0'
     }
 }
 

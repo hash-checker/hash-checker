@@ -1,15 +1,13 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">설정</string>
     <string name="menu_title_feedback">피드백</string>
     <string name="menu_title_history">역사</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">텍스트 추가</string>
     <string name="title_warning_dialog">경고</string>
     <string name="title_permission_dialog">허가</string>
-
     <!-- messages -->
     <string name="message_exit">뒤로 버튼을 길게 눌러 응용 프로그램을 닫습니다</string>
     <string name="message_fill_fields">비교할 각 필드를 채 웁니다</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">기기에서 Google Play 앱이나 웹 브라우저를 찾을 수 없습니다</string>
     <string name="message_email_app_chooser">이메일 보내기를위한 앱 선택</string>
     <string name="message_change_theme">테마를 변경하려면 응용 프로그램을 다시 시작해야합니다</string>
+    <string name="message_change_language">언어를 변경하려면 응용 프로그램을 다시 시작해야합니다</string>
     <string name="message_invalid_selected_source">입력 소스에서 해시 값을 생성 할 수 없습니다. 선택한 소스를 확인하십시오</string>
     <string name="message_delete_all_history_items">모든 기록 항목을 삭제 하시겠습니까?</string>
-
     <!-- commons -->
     <string name="common_text">텍스트</string>
     <string name="common_file">파일</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">취소</string>
     <string name="common_again">다시</string>
     <string name="common_date">날짜</string>
-
     <!-- actions -->
     <string name="action_from">보낸 사람</string>
     <string name="action_select">액션</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">생성</string>
     <string name="action_compare">비교</string>
     <string name="action_export_to_txt">\".txt\"로 내보내기</string>
-
     <!-- themes -->
     <string name="title_theme_light">빛</string>
     <string name="title_theme_dark">어두운</string>
-
     <!-- titles -->
     <string name="title_custom_hash">맞춤 해시</string>
     <string name="title_generated_hash">생성 된 해시</string>
-
     <!-- hints -->
     <string name="hint_input_text">텍스트는 여기</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">일반</string>
     <string name="settings_title_app">응용 프로그램</string>
@@ -72,17 +65,16 @@
     <string name="settings_title_rate_app">평가 앱</string>
     <string name="settings_title_save_result_to_history">기록에 결과 저장</string>
     <string name="settings_title_multiline">여러 줄 해시 필드</string>
-
+    <string name="settings_title_language">언어</string>
+    <string name="settings_title_support">지원하다</string>
+    <string name="settings_title_help_with_translation">번역 도움말</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">제조업체</string>
     <string name="feedback_model">모델</string>
     <string name="feedback_message">메시지</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">저장소 선택</string>
-
     <!-- history -->
     <string name="history_item_click_text">해시 값이 클립 보드에 복사되었습니다</string>
     <string name="history_empty_view_message">이력 항목을 찾을 수 없습니다</string>
-
 </resources>

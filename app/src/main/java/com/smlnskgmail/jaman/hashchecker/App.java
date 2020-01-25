@@ -1,9 +1,11 @@
 package com.smlnskgmail.jaman.hashchecker;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
+import android.content.res.Configuration;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 
@@ -13,8 +15,10 @@ import androidx.annotation.RequiresApi;
 
 import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.Language;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 public class App extends android.app.Application {
 
@@ -32,6 +36,7 @@ public class App extends android.app.Application {
             SettingsHelper.saveShortcutsStatus(this, true);
         }
         HelperFactory.setHelper(this);
+        setLocale(getApplicationContext());
     }
 
     private void createShortcuts() {
@@ -87,9 +92,33 @@ public class App extends android.app.Application {
                 .build();
     }
 
+    private void setLocale(@NonNull Context context) {
+        Language language = null;
+        if (!SettingsHelper.languageIsInitialized(context)) {
+            String deviceLocale = Locale.getDefault().toString();
+            for (Language lang: Language.values()) {
+                if (deviceLocale.equals(lang.code())) {
+                    language = lang;
+                    break;
+                }
+            }
+            if (language == null) {
+                language = Language.EN;
+            }
+            SettingsHelper.saveLanguage(context, language);
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        setLocale(getApplicationContext());
+    }
+
     @Override
     public void onTerminate() {
         super.onTerminate();
+        SettingsHelper.savePathForInnerFileManager(this, null);
         HelperFactory.releaseHelper();
     }
 

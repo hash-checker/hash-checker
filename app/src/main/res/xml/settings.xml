@@ -57,9 +57,28 @@
     <PreferenceCategory android:title="@string/settings_title_interface">
 
         <Preference
+            android:title="@string/settings_title_language"
+            android:key="@string/key_language"
+            android:icon="@drawable/ic_settings_language" />
+
+        <Preference
             android:title="@string/settings_title_theme"
             android:key="@string/key_theme"
             android:icon="@drawable/ic_settings_theme" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_title_support">
+
+        <Preference
+            android:title="@string/settings_title_help_with_translation"
+            android:key="@string/key_help_with_translation"
+            android:icon="@drawable/ic_settings_help_with_translation" />
+
+        <Preference
+            android:title="@string/settings_title_rate_app"
+            android:key="@string/key_rate_app"
+            android:icon="@drawable/ic_settings_rate_app" />
 
     </PreferenceCategory>
 
@@ -70,11 +89,6 @@
             android:key="@string/key_author"
             android:summary="@string/common_app_author"
             android:icon="@drawable/ic_settings_author" />
-
-        <Preference
-            android:title="@string/settings_title_rate_app"
-            android:key="@string/key_rate_app"
-            android:icon="@drawable/ic_settings_rate_app" />
 
         <Preference
             android:title="@string/settings_title_version"

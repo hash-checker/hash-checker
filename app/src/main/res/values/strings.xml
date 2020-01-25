@@ -1,15 +1,13 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">Settings</string>
     <string name="menu_title_feedback">Feedback</string>
     <string name="menu_title_history">History</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">Add text</string>
     <string name="title_warning_dialog">Warning</string>
     <string name="title_permission_dialog">Permission</string>
-
     <!-- messages -->
     <string name="message_exit">Long press on back button to close the application</string>
     <string name="message_fill_fields">Fill each field for comparison</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">Can\'t find a Google Play app or a web browser on your device</string>
     <string name="message_email_app_chooser">Choose app for send an email</string>
     <string name="message_change_theme">To change the theme, you need to restart the application</string>
+    <string name="message_change_language">To change the language, you need to restart the application</string>
     <string name="message_invalid_selected_source">Can\'t generate a hash value from the input source. Please check the selected source</string>
     <string name="message_delete_all_history_items">Delete all history items?</string>
-
     <!-- commons -->
     <string name="common_text">Text</string>
     <string name="common_file">File</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">Cancel</string>
     <string name="common_again">Again</string>
     <string name="common_date">Date</string>
-
     <!-- actions -->
     <string name="action_from">From</string>
     <string name="action_select">Action</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">Generate</string>
     <string name="action_compare">Compare</string>
     <string name="action_export_to_txt">Export as \".txt\"</string>
-
     <!-- themes -->
     <string name="title_theme_light">Light</string>
     <string name="title_theme_dark">Dark</string>
-
     <!-- titles -->
     <string name="title_custom_hash">Custom hash</string>
     <string name="title_generated_hash">Generated hash</string>
-
     <!-- hints -->
     <string name="hint_input_text">Text here</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">General</string>
     <string name="settings_title_app">Application</string>
@@ -72,17 +65,16 @@
     <string name="settings_title_rate_app">Rate app</string>
     <string name="settings_title_save_result_to_history">Save result to History</string>
     <string name="settings_title_multiline">Multiline hash fields</string>
-
+    <string name="settings_title_language">Language</string>
+    <string name="settings_title_support">Support</string>
+    <string name="settings_title_help_with_translation">Help with translation</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">Manufacturer</string>
     <string name="feedback_model">Model</string>
     <string name="feedback_message">Message</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">Select storage</string>
-
     <!-- history -->
     <string name="history_item_click_text">Hash value copied to clipboard</string>
     <string name="history_empty_view_message">History items not found</string>
-
 </resources>

@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.listadapter;
+package com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.list;
 
 import android.graphics.drawable.Drawable;
 import android.view.View;

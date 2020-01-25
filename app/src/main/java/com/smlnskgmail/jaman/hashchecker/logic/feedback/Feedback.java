@@ -32,7 +32,8 @@ public class Feedback {
     }
 
     public String getConfiguredMessage(@NonNull String feedback) {
-        return String.format("%s" +
+        return String.format(
+                "%s" +
                 "\n\n\n%s (%s)" +
                 "\nAndroid %s" +
                 "\n%s" +

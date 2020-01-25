@@ -1,15 +1,13 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">تنظیمات</string>
     <string name="menu_title_feedback">بازخورد</string>
     <string name="menu_title_history">تاریخ</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">متن را اضافه کنید</string>
     <string name="title_warning_dialog">هشدار</string>
     <string name="title_permission_dialog">اجازه</string>
-
     <!-- messages -->
     <string name="message_exit">دکمه پشت را فشار دهید تا برنامه بسته شود</string>
     <string name="message_fill_fields">هر قسمت را برای مقایسه پر کنید</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">برنامه Google Play یا مرورگر وب در دستگاه شما پیدا نمی شود</string>
     <string name="message_email_app_chooser">برنامه را برای ارسال ایمیل انتخاب کنید</string>
     <string name="message_change_theme">برای تغییر موضوع ، باید برنامه را مجدداً راه اندازی کنید</string>
+    <string name="message_change_language">برای تغییر زبان ، باید برنامه را مجدداً راه اندازی کنید</string>
     <string name="message_invalid_selected_source">مقدار هش از منبع ورودی تولید نمی شود. لطفا منبع انتخاب شده را بررسی کنید</string>
     <string name="message_delete_all_history_items">همه موارد تاریخ را حذف کنید؟</string>
-
     <!-- commons -->
     <string name="common_text">متن</string>
     <string name="common_file">فایل</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">لغو</string>
     <string name="common_again">از نو</string>
     <string name="common_date">تاریخ</string>
-
     <!-- actions -->
     <string name="action_from">از جانب</string>
     <string name="action_select">عمل</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">تولید می کنند</string>
     <string name="action_compare">مقایسه کنید</string>
     <string name="action_export_to_txt">صادرات به عنوان \".txt\"</string>
-
     <!-- themes -->
     <string name="title_theme_light">سبک</string>
     <string name="title_theme_dark">تاریک</string>
-
     <!-- titles -->
     <string name="title_custom_hash">هش سفارشی</string>
     <string name="title_generated_hash">هش تولید شده است</string>
-
     <!-- hints -->
     <string name="hint_input_text">متن را اینجا بفرستید</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">عمومی</string>
     <string name="settings_title_app">کاربرد</string>
@@ -72,17 +65,16 @@
     <string name="settings_title_rate_app">برنامه را ارزیابی کنید</string>
     <string name="settings_title_save_result_to_history">نتیجه را در تاریخ ذخیره کنید</string>
     <string name="settings_title_multiline">زمینه های چند منظوره هش</string>
-
+    <string name="settings_title_language">زبان</string>
+    <string name="settings_title_support">پشتیبانی</string>
+    <string name="settings_title_help_with_translation">راهنما در ترجمه</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">شرکت تولید کننده</string>
     <string name="feedback_model">مدل</string>
     <string name="feedback_message">پیام</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">ذخیره سازی را انتخاب کنید</string>
-
     <!-- history -->
     <string name="history_item_click_text">مقدار هش در کلیپ بورد کپی شد</string>
     <string name="history_empty_view_message">موارد تاریخ یافت نشد</string>
-
 </resources>

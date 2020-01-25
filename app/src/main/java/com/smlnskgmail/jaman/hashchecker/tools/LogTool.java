@@ -6,9 +6,9 @@ import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 
 public class LogTool {
 
-    public static void e(@NonNull Throwable throwable) {
+    public static void e(@NonNull Throwable t) {
         if (BuildConfig.DEBUG) {
-            throwable.printStackTrace();
+            t.printStackTrace();
         }
     }
 

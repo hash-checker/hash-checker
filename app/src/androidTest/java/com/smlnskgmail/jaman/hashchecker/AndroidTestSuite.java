@@ -24,7 +24,7 @@ import org.junit.runners.Suite;
         SHA512JDKHashCalculatorTest.class,
         CRC32JDKHashCalculatorTest.class,
         MessageDigestZeroLeadsJDKHashCalculatorTest.class,
-        ScreenRunnerTest.class,
-        GenerateHashFromTextTest.class
+        GenerateHashFromTextTest.class,
+        ScreenRunnerTest.class
 })
 public class AndroidTestSuite {}

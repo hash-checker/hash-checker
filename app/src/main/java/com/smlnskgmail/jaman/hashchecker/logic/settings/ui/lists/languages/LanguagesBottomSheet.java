@@ -1,17 +1,17 @@
-package com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes;
+package com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
-public class ThemesBottomSheet extends BaseListBottomSheet {
+public class LanguagesBottomSheet extends BaseListBottomSheet {
 
     @Override
-    public BaseListAdapter getItemsAdapter() {
-        return new ThemesListAdapter(
+    protected BaseListAdapter getItemsAdapter() {
+        return new LanguagesListAdapter(
                 getItems(),
                 this,
-                SettingsHelper.getSelectedTheme(getContext())
+                SettingsHelper.getLanguage(getContext())
         );
     }
 

@@ -16,7 +16,7 @@ public interface DatabaseHelper {
     void deleteAllHistoryItems();
     boolean isHistoryItemsListIsEmpty();
 
-    void checkpoint();
+    void backupCheckpoint();
 
     String getDatabaseFolder();
     String getDatabaseFileName();

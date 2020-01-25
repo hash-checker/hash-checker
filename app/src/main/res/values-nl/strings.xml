@@ -1,15 +1,13 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">Instellingen</string>
     <string name="menu_title_feedback">Feedback</string>
     <string name="menu_title_history">Geschiedenis</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">Tekst toevoegen</string>
     <string name="title_warning_dialog">Waarschuwing</string>
     <string name="title_permission_dialog">Toestemming</string>
-
     <!-- messages -->
     <string name="message_exit">Druk lang op de knop Terug om de toepassing te sluiten</string>
     <string name="message_fill_fields">Vul elk veld in ter vergelijking</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">Kan geen Google Play-app of een webbrowser op uw apparaat vinden</string>
     <string name="message_email_app_chooser">Kies app om een ​​e-mail te verzenden</string>
     <string name="message_change_theme">Als u het thema wilt wijzigen, moet u de toepassing opnieuw starten</string>
+    <string name="message_change_language">Als u de taal wilt wijzigen, moet u de toepassing opnieuw opstarten</string>
     <string name="message_invalid_selected_source">Kan geen hashwaarde genereren uit de invoerbron. Controleer de geselecteerde bron</string>
     <string name="message_delete_all_history_items">Alle geschiedenisitems verwijderen?</string>
-
     <!-- commons -->
     <string name="common_text">Tekst</string>
     <string name="common_file">Bestand</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">Annuleren</string>
     <string name="common_again">Opnieuw</string>
     <string name="common_date">Datum</string>
-
     <!-- actions -->
     <string name="action_from">Van</string>
     <string name="action_select">Actie</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">Genereren</string>
     <string name="action_compare">Vergelijken</string>
     <string name="action_export_to_txt">Exporteren als \".txt\"</string>
-
     <!-- themes -->
     <string name="title_theme_light">Licht</string>
     <string name="title_theme_dark">Donker</string>
-
     <!-- titles -->
     <string name="title_custom_hash">Aangepaste hash</string>
     <string name="title_generated_hash">Gegenereerde hash</string>
-
     <!-- hints -->
     <string name="hint_input_text">Tekst hier</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">Algemeen</string>
     <string name="settings_title_app">Toepassing</string>
@@ -72,17 +65,16 @@
     <string name="settings_title_rate_app">Beoordeel app</string>
     <string name="settings_title_save_result_to_history">Resultaat opslaan in geschiedenis</string>
     <string name="settings_title_multiline">Hash-velden met meerdere regels</string>
-
+    <string name="settings_title_language">Taal</string>
+    <string name="settings_title_support">Ondersteuning</string>
+    <string name="settings_title_help_with_translation">Hulp bij vertalen</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">Fabrikant</string>
     <string name="feedback_model">Model</string>
     <string name="feedback_message">Bericht</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">Selecteer opslag</string>
-
     <!-- history -->
     <string name="history_item_click_text">Hash-waarde gekopieerd naar klembord</string>
     <string name="history_empty_view_message">Geschiedenisitems niet gevonden</string>
-
 </resources>

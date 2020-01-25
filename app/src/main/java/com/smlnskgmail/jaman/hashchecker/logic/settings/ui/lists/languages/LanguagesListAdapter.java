@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes;
+package com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages;
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,32 +19,32 @@ import com.smlnskgmail.jaman.hashchecker.tools.RestartAppTool;
 
 import java.util.List;
 
-public class ThemesListAdapter extends BaseListAdapter {
+public class LanguagesListAdapter extends BaseListAdapter {
 
-    private final Theme selectedTheme;
+    private final Language selectedLanguage;
 
-    ThemesListAdapter(
+    LanguagesListAdapter(
             @NonNull List<ListItemTarget> items,
             @NonNull BaseListBottomSheet bottomSheet,
-            @NonNull Theme selectedTheme
+            @NonNull Language selectedLanguage
     ) {
         super(items, bottomSheet);
-        this.selectedTheme = selectedTheme;
+        this.selectedLanguage = selectedLanguage;
     }
 
     @Override
-    public BaseListHolder getItemsHolder(
+    protected BaseListHolder getItemsHolder(
             @NonNull View view,
             @NonNull Context themeContext
     ) {
-        return new ThemesListHolder(view, themeContext);
+        return new LanguagesListHolder(view, themeContext);
     }
 
-    private class ThemesListHolder extends BaseListHolder {
+    private class LanguagesListHolder extends BaseListHolder {
 
-        private Theme themeAtPosition;
+        private Language languageAtPosition;
 
-        ThemesListHolder(
+        LanguagesListHolder(
                 @NonNull View itemView,
                 @NonNull Context themeContext
         ) {
@@ -53,27 +53,16 @@ public class ThemesListAdapter extends BaseListAdapter {
 
         @Override
         protected void callItemClick() {
-            if (themeAtPosition == selectedTheme) {
-                dismissBottomSheet();
-            } else {
-                showThemeApplyDialog();
-            }
-        }
-
-        @Override
-        protected void bind(@NonNull ListItemTarget listItemTarget) {
-            themeAtPosition = (Theme) getItems().get(getAdapterPosition());
-            super.bind(listItemTarget);
-        }
-
-        private void showThemeApplyDialog() {
             AppAlertDialog.show(
                     getContext(),
                     R.string.title_warning_dialog,
-                    R.string.message_change_theme,
+                    R.string.message_change_language,
                     R.string.common_ok,
                     (dialog, which) -> {
-                        configureNewTheme();
+                        SettingsHelper.saveLanguage(
+                                getContext(),
+                                languageAtPosition
+                        );
                         dialog.dismiss();
                         RestartAppTool.restartApp(
                                 getBottomSheet().getActivity()
@@ -82,21 +71,17 @@ public class ThemesListAdapter extends BaseListAdapter {
             );
         }
 
-        private void configureNewTheme() {
-            SettingsHelper.saveTheme(getContext(), themeAtPosition);
-        }
-
         @Override
-        protected boolean getConditionToPrimaryIconVisibleState() {
-            return true;
+        protected void bind(@NonNull ListItemTarget listItemTarget) {
+            languageAtPosition = (Language) listItemTarget;
+            super.bind(listItemTarget);
         }
 
         @Override
         protected boolean getConditionToAdditionalIconVisibleState() {
-            return themeAtPosition == selectedTheme;
+            return languageAtPosition == selectedLanguage;
         }
 
     }
 
 }
-

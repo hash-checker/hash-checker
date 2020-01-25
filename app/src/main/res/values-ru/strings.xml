@@ -1,15 +1,13 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">Настройки</string>
     <string name="menu_title_feedback">Отзыв</string>
     <string name="menu_title_history">История</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">Введите текст</string>
     <string name="title_warning_dialog">Предупреждение</string>
     <string name="title_permission_dialog">Разрешение</string>
-
     <!-- messages -->
     <string name="message_exit">Долгое удержание для выхода</string>
     <string name="message_fill_fields">Заполните каждое поле для сравнения</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">Не удалось найти Google Play на Вашем устройстве</string>
     <string name="message_email_app_chooser">Выберите приложение для отправки электронного письма</string>
     <string name="message_change_theme">Для изменения темы необходимо перезаустить устройство</string>
+    <string name="message_change_language">Для смены языка необходим перезапуск приложения</string>
     <string name="message_invalid_selected_source">Не удалось вычислить значение. Проверьте указанные данные</string>
     <string name="message_delete_all_history_items">Очистить Историю?</string>
-
     <!-- commons -->
     <string name="common_text">Текст</string>
     <string name="common_file">Файл</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">Отмена</string>
     <string name="common_again">Снова</string>
     <string name="common_date">Дата</string>
-
     <!-- actions -->
     <string name="action_from">Откуда</string>
     <string name="action_select">Действие</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">Вычислить</string>
     <string name="action_compare">Сравнить</string>
     <string name="action_export_to_txt">Выгрузить в \".txt\"</string>
-
     <!-- themes -->
     <string name="title_theme_light">Светлая</string>
     <string name="title_theme_dark">Темная</string>
-
     <!-- titles -->
     <string name="title_custom_hash">Собственный хеш</string>
     <string name="title_generated_hash">Сгенерированный хеш</string>
-
     <!-- hints -->
     <string name="hint_input_text">Текст тут</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">Главное</string>
     <string name="settings_title_app">Приложение</string>
@@ -65,24 +58,23 @@
     <string name="settings_title_app_file_manager">Внутренний Файловый менеджер</string>
     <string name="settings_title_version">Версия</string>
     <string name="settings_title_vibration">Вибрация</string>
-    <string name="settings_title_export_user_data">Выгрузить пользовательские данные</string>
     <string name="settings_title_privacy">Приватность</string>
+    <string name="settings_title_export_user_data">Выгрузить пользовательские данные</string>
     <string name="settings_title_privacy_policy">Политика конфиденциальности</string>
     <string name="settings_title_theme">Тема</string>
     <string name="settings_title_rate_app">Оценить приложение</string>
     <string name="settings_title_save_result_to_history">История</string>
     <string name="settings_title_multiline">Несколько линий</string>
-
+    <string name="settings_title_language">Язык</string>
+    <string name="settings_title_support">Помощь</string>
+    <string name="settings_title_help_with_translation">Помочь с переводом</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">Производитель</string>
     <string name="feedback_model">Модель</string>
     <string name="feedback_message">Сообщение</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">Выберите хранилище</string>
-
     <!-- history -->
     <string name="history_item_click_text">Значение скопировано в буфер обмена</string>
     <string name="history_empty_view_message">История пуста</string>
-
 </resources>

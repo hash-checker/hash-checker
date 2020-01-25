@@ -124,7 +124,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
 
     //https://stackoverflow.com/questions/19574286/how-to-merge-contents-of-sqlite-3-7-wal-file-into-main-database-file
     @Override
-    public void checkpoint() {
+    public void backupCheckpoint() {
         try {
             getWritableDatabase().execSQL("PRAGMA wal_checkpoint");
         } catch (Exception e) {

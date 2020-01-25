@@ -1,22 +1,25 @@
 apply plugin: 'com.android.application'
 apply plugin: 'checkstyle'
+apply plugin: 'cpd'
 
 android {
     compileSdkVersion 29
     buildToolsVersion '29.0.2'
     defaultConfig {
-        applicationId "com.smlnskgmail.jaman.hashchecker"
+        applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 75
-        versionName "3.0.3"
+        versionCode 76
+        versionName '3.1.0'
         vectorDrawables.useSupportLibrary = true
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+        resConfigs 'en', 'de', 'el', 'es', 'fa', 'fr', 'hu', 'it', 'iw', 'ko', 'nl', 'pl', 'ru', 'sv', 'zh-rCN'
     }
     buildTypes {
         debug {
-            versionNameSuffix "-dev"
+            versionNameSuffix '-dev'
             minifyEnabled false
         }
         release {
@@ -32,14 +35,6 @@ android {
     }
     lintOptions {
         abortOnError false
-    }
-    productFlavors {
-        github {
-            flavorDimensions "github"
-        }
-        googlePlay {
-            flavorDimensions "googlePlay"
-        }
     }
     sourceSets {
         main {
@@ -61,31 +56,38 @@ task checkstyle(type: Checkstyle) {
     group 'verification'
 
     config project.resources.text.fromUri(
-            "https://raw.githubusercontent.com/fartem/repository-rules/master/java/checkstyle/checkstyle.xml"
+            'https://raw.githubusercontent.com/fartem/repository-rules/master/java/checkstyle/checkstyle.xml'
     )
     source rootProject.file('app/src/main/java')
     classpath = files()
 
     reports {
         xml.enabled true
-        xml.destination rootProject.file("checkstyle-result.xml")
+        xml.destination rootProject.file('checkstyle-result.xml')
     }
 }
 
+cpd {
+    language = 'java'
+    toolVersion = '6.20.0'
+}
+
+cpdCheck {
+    source = files('src/main/java/')
+}
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.preference:preference:1.1.0'
-    googlePlayImplementation 'com.google.android.play:core:1.6.4'
 
     // ORMLite
     implementation 'com.j256.ormlite:ormlite-core:5.1'
     implementation 'com.j256.ormlite:ormlite-android:5.1'
 
     // Unit tests
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
 
     // Android tests
     androidTestImplementation 'androidx.annotation:annotation:1.0.0'

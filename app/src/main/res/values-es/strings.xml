@@ -1,15 +1,13 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">Configuraciones</string>
     <string name="menu_title_feedback">Realimentación</string>
     <string name="menu_title_history">Historia</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">Añadir texto</string>
     <string name="title_warning_dialog">Advertencia</string>
     <string name="title_permission_dialog">Permiso</string>
-
     <!-- messages -->
     <string name="message_exit">Mantenga presionado el botón Atrás para cerrar la aplicación</string>
     <string name="message_fill_fields">Rellene cada campo para comparar</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">No puedo encontrar una aplicación de Google Play o un navegador web en su dispositivo</string>
     <string name="message_email_app_chooser">Elija la aplicación para enviar un correo electrónico</string>
     <string name="message_change_theme">Para cambiar el tema, debe reiniciar la aplicación</string>
+    <string name="message_change_language">Para cambiar el idioma, debe reiniciar la aplicación.</string>
     <string name="message_invalid_selected_source">No se puede generar un valor hash desde la fuente de entrada. Por favor verifique la fuente seleccionada</string>
     <string name="message_delete_all_history_items">¿Eliminar todos los elementos del historial?</string>
-
     <!-- commons -->
     <string name="common_text">Texto</string>
     <string name="common_file">Expediente</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">Cancelar</string>
     <string name="common_again">Otra vez</string>
     <string name="common_date">Fecha</string>
-
     <!-- actions -->
     <string name="action_from">Desde</string>
     <string name="action_select">Acción</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">Generar</string>
     <string name="action_compare">Comparar</string>
     <string name="action_export_to_txt">Exportar como \".txt\"</string>
-
     <!-- themes -->
     <string name="title_theme_light">Ligero</string>
     <string name="title_theme_dark">Oscuro</string>
-
     <!-- titles -->
     <string name="title_custom_hash">Hash personalizado</string>
     <string name="title_generated_hash">Hash generado</string>
-
     <!-- hints -->
     <string name="hint_input_text">Texto aquí</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">General</string>
     <string name="settings_title_app">Solicitud</string>
@@ -72,17 +65,16 @@
     <string name="settings_title_rate_app">Calificar aplicacion</string>
     <string name="settings_title_save_result_to_history">Guardar resultado en el historial</string>
     <string name="settings_title_multiline">Campos hash multilínea</string>
-
+    <string name="settings_title_language">Idioma</string>
+    <string name="settings_title_support">Apoyo</string>
+    <string name="settings_title_help_with_translation">Ayuda con la traduccion</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">Fabricante</string>
     <string name="feedback_model">Modelo</string>
     <string name="feedback_message">Mensaje</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">Seleccionar almacenamiento</string>
-
     <!-- history -->
     <string name="history_item_click_text">Valor hash copiado al portapapeles</string>
     <string name="history_empty_view_message">Elementos del historial no encontrados</string>
-
 </resources>

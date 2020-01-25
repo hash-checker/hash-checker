@@ -1,15 +1,13 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">Einstellungen</string>
     <string name="menu_title_feedback">Feedback</string>
     <string name="menu_title_history">Historie</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">Text hinzufügen</string>
     <string name="title_warning_dialog">Warnung</string>
     <string name="title_permission_dialog">Erlaubnis</string>
-
     <!-- messages -->
     <string name="message_exit">Halten Sie die Zurück-Taste gedrückt, um die Anwendung zu schließen</string>
     <string name="message_fill_fields">Füllen Sie jedes Feld zum Vergleich aus</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">Auf Ihrem Gerät kann keine Google Play-App oder kein Webbrowser gefunden werden</string>
     <string name="message_email_app_chooser">Wählen Sie eine App zum Senden einer E-Mail</string>
     <string name="message_change_theme">To change the colors, you must restart the application</string>
+    <string name="message_change_language">Um die Sprache zu ändern, müssen Sie die Anwendung neu starten</string>
     <string name="message_invalid_selected_source">Aus der Eingabequelle kann kein Hashwert generiert werden. Bitte überprüfen Sie die ausgewählte Quelle</string>
     <string name="message_delete_all_history_items">Alle Verlauf Elemente löschen?</string>
-
     <!-- commons -->
     <string name="common_text">Text</string>
     <string name="common_file">Datei</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">Stornieren</string>
     <string name="common_again">Nochmal</string>
     <string name="common_date">Datum</string>
-
     <!-- actions -->
     <string name="action_from">Von</string>
     <string name="action_select">Aktion</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">Generieren</string>
     <string name="action_compare">Vergleichen</string>
     <string name="action_export_to_txt">Als .txt exportieren</string>
-
     <!-- themes -->
     <string name="title_theme_light">Licht</string>
     <string name="title_theme_dark">Dunkel</string>
-
     <!-- titles -->
     <string name="title_custom_hash">Custom hash</string>
     <string name="title_generated_hash">Hash generiert</string>
-
     <!-- hints -->
     <string name="hint_input_text">Text hier</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">Hauptsache</string>
     <string name="settings_title_app">App</string>
@@ -65,24 +58,23 @@
     <string name="settings_title_app_file_manager">Interner Dateimanager</string>
     <string name="settings_title_version">Version</string>
     <string name="settings_title_vibration">Vibration</string>
-    <string name="settings_title_export_user_data">Benutzerdaten exportieren</string>
     <string name="settings_title_privacy">Privatsphäre</string>
+    <string name="settings_title_export_user_data">Benutzerdaten exportieren</string>
     <string name="settings_title_privacy_policy">Datenschutz-Bestimmungen</string>
     <string name="settings_title_theme">Farben</string>
     <string name="settings_title_rate_app">Bewerten Sie App</string>
     <string name="settings_title_save_result_to_history">Ergebnis in Verlauf speichern</string>
     <string name="settings_title_multiline">Mehrzeilige Hash-Felder</string>
-
+    <string name="settings_title_language">Sprache</string>
+    <string name="settings_title_support">Unterstützung</string>
+    <string name="settings_title_help_with_translation">Hilfe bei der Übersetzung</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">Hersteller</string>
     <string name="feedback_model">Modell</string>
     <string name="feedback_message">Botschaft</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">Speicher auswählen</string>
-
     <!-- history -->
     <string name="history_item_click_text">Hash-Wert in die Zwischenablage kopiert</string>
     <string name="history_empty_view_message">Verlaufselemente nicht gefunden</string>
-
 </resources>

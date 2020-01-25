@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.components.dialogs;
+package com.smlnskgmail.jaman.hashchecker.components.dialogs.system;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;

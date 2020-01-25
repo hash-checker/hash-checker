@@ -55,8 +55,9 @@ public class ScreenRunnerTest extends BaseUITest {
 
     private void showSettingsFragment() {
         showFragmentInMenu(R.string.menu_title_settings, false);
-        clickToSettingsItem(R.string.settings_title_theme);
-        clickToSettingsItem(R.string.settings_title_author);
+        clickOnSettingsItem(R.string.settings_title_language);
+        clickOnSettingsItem(R.string.settings_title_theme);
+        clickOnSettingsItem(R.string.settings_title_author);
         delayAndBack();
     }
 
@@ -74,7 +75,7 @@ public class ScreenRunnerTest extends BaseUITest {
         delayAndBack();
     }
 
-    private void clickToSettingsItem(int settingsTitleResId) {
+    private void clickOnSettingsItem(int settingsTitleResId) {
         onView(withId(R.id.recycler_view)).perform(
                         RecyclerViewActions.actionOnItem(hasDescendant(withText(settingsTitleResId)), click())
         );

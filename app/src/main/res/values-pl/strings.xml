@@ -1,20 +1,18 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">Ustawienia</string>
     <string name="menu_title_feedback">Sprzężenie zwrotne</string>
     <string name="menu_title_history">Historia</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">Dodaj tekst</string>
     <string name="title_warning_dialog">Ostrzeżenie</string>
     <string name="title_permission_dialog">Pozwolenie</string>
-
     <!-- messages -->
     <string name="message_exit">Naciśnij długo przycisk Wstecz, aby zamknąć aplikację</string>
     <string name="message_fill_fields">Wypełnij każde pole do porównania</string>
     <string name="message_generate_hash_before_export">Wygeneruj wartość skrótu przed eksportem</string>
-    <string name="message_match_result">Mecz</string>
+    <string name="message_match_result">Zgodne</string>
     <string name="message_do_not_match_result">Nie pasuje</string>
     <string name="message_generate_dialog">Generowanie skrótu, proszę czekać…</string>
     <string name="message_select_object">Stuknij Od, aby wybrać wymagany typ źródła</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">Nie można znaleźć aplikacji Google Play ani przeglądarki internetowej na urządzeniu</string>
     <string name="message_email_app_chooser">Wybierz aplikację do wysłania wiadomości e-mail</string>
     <string name="message_change_theme">Aby zmienić motyw, musisz ponownie uruchomić aplikację</string>
+    <string name="message_change_language">Aby zmienić język, musisz ponownie uruchomić aplikację</string>
     <string name="message_invalid_selected_source">Nie można wygenerować wartości skrótu ze źródła wejściowego. Sprawdź wybrane źródło</string>
     <string name="message_delete_all_history_items">Usunąć wszystkie elementy historii?</string>
-
     <!-- commons -->
     <string name="common_text">Tekst</string>
     <string name="common_file">Plik</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">Anuluj</string>
     <string name="common_again">Jeszcze raz</string>
     <string name="common_date">Data</string>
-
     <!-- actions -->
     <string name="action_from">Z</string>
     <string name="action_select">Akcja</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">Generować</string>
     <string name="action_compare">Porównać</string>
     <string name="action_export_to_txt">Eksportuj jako \".txt\"</string>
-
     <!-- themes -->
     <string name="title_theme_light">Światło</string>
     <string name="title_theme_dark">Ciemny</string>
-
     <!-- titles -->
     <string name="title_custom_hash">Niestandardowy skrót</string>
     <string name="title_generated_hash">Generated hash</string>
-
     <!-- hints -->
     <string name="hint_input_text">Tekst tutaj</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">Generał</string>
     <string name="settings_title_app">Podanie</string>
@@ -72,17 +65,16 @@
     <string name="settings_title_rate_app">Oceń aplikację</string>
     <string name="settings_title_save_result_to_history">Zapisz wynik w Historii</string>
     <string name="settings_title_multiline">Wieloliniowe pola mieszające</string>
-
+    <string name="settings_title_language">Język</string>
+    <string name="settings_title_support">Wsparcie</string>
+    <string name="settings_title_help_with_translation">Pomoc w tłumaczeniu</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">Producent</string>
     <string name="feedback_model">Model</string>
     <string name="feedback_message">Wiadomość</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">Wybierz pamięć</string>
-
     <!-- history -->
     <string name="history_item_click_text">Wartość skrótu skopiowana do schowka</string>
     <string name="history_empty_view_message">Nie znaleziono elementów historii</string>
-
 </resources>

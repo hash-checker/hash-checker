@@ -17,9 +17,7 @@ import com.smlnskgmail.jaman.hashchecker.components.activities.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.components.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.flavorfeature.SpecificFlavorFeature;
 import com.smlnskgmail.jaman.hashchecker.logic.feedback.ui.FeedbackFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.flavorfeature.FlavorFeature;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
@@ -28,8 +26,6 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
 public class MainActivity extends BaseActivity {
 
     public static final String URI_FROM_EXTERNAL_APP = "com.smlnskgmail.jaman.hashchecker.URI_FROM_EXTERNAL_APP";
-
-    private FlavorFeature flavorFeature;
 
     @Override
     public void create() {
@@ -56,9 +52,6 @@ public class MainActivity extends BaseActivity {
             mainFragment.setArguments(getBundleForShortcutAction(intent.getAction()));
             SettingsHelper.setGenerateFromShareIntentMode(this, false);
         }
-
-        flavorFeature = new SpecificFlavorFeature();
-        flavorFeature.bindForActivity(this);
 
         showFragment(mainFragment);
     }
@@ -112,12 +105,6 @@ public class MainActivity extends BaseActivity {
         if (inputMethodManager != null) {
             inputMethodManager.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        flavorFeature.bindForOnResumeActivity();
     }
 
     @Override

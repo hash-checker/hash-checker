@@ -1,15 +1,13 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">הגדרות</string>
     <string name="menu_title_feedback">משוב</string>
     <string name="menu_title_history">היסטוריה</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">הוסף טקסט</string>
     <string name="title_warning_dialog">אזהרה</string>
     <string name="title_permission_dialog">הרשאה</string>
-
     <!-- messages -->
     <string name="message_exit">לחץ לחיצה ארוכה על כפתור הגב כדי לסגור את היישום</string>
     <string name="message_fill_fields">מלא כל שדה להשוואה</string>
@@ -22,11 +20,11 @@
     <string name="message_request_storage_permission_denied">לא ניתן לתת הרשאה לקריאת אחסון קבצים במכשיר. עליך לעבור להגדרות ולספק אותה בעצמך</string>
     <string name="message_error_start_file_selector">לא ניתן למצוא מנהל קבצים במכשיר שלך</string>
     <string name="message_error_start_google_play">לא ניתן למצוא אפליקציית Google Play או דפדפן אינטרנט במכשיר שלך</string>
-    <string name="message_email_app_chooser">בחר באפליקציה לשליחת דוא"ל</string>
+    <string name="message_email_app_chooser">בחר באפליקציה לשליחת דוא\"ל</string>
     <string name="message_change_theme">כדי לשנות את הנושא, עליך להפעיל מחדש את היישום</string>
+    <string name="message_change_language">כדי לשנות את השפה, עליך להפעיל מחדש את היישום</string>
     <string name="message_invalid_selected_source">לא ניתן ליצור ערך hash ממקור הקלט. אנא בדוק את המקור שנבחר</string>
     <string name="message_delete_all_history_items">למחוק את כל פריטי ההיסטוריה?</string>
-
     <!-- commons -->
     <string name="common_text">טקסט</string>
     <string name="common_file">קובץ</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">בטל</string>
     <string name="common_again">שוב</string>
     <string name="common_date">תאריך</string>
-
     <!-- actions -->
     <string name="action_from">מ</string>
     <string name="action_select">פעולה</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">ליצור</string>
     <string name="action_compare">השווה</string>
     <string name="action_export_to_txt">ייצא כ \".txt\"</string>
-
     <!-- themes -->
     <string name="title_theme_light">אור</string>
     <string name="title_theme_dark">אפל</string>
-
     <!-- titles -->
     <string name="title_custom_hash">חשיש מותאם אישית</string>
     <string name="title_generated_hash">נוצר חשיש</string>
-
     <!-- hints -->
     <string name="hint_input_text">טקסט כאן</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">כללי</string>
     <string name="settings_title_app">יישום</string>
@@ -72,17 +65,16 @@
     <string name="settings_title_rate_app">דרג אפליקציה</string>
     <string name="settings_title_save_result_to_history">שמור תוצאה בהיסטוריה</string>
     <string name="settings_title_multiline">שדות חשיש רב-קויים</string>
-
+    <string name="settings_title_language">שפה</string>
+    <string name="settings_title_support">תמיכה</string>
+    <string name="settings_title_help_with_translation">עזרה בתרגום</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">יצרן</string>
     <string name="feedback_model">דוגמנית</string>
     <string name="feedback_message">הודעה</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">בחר אחסון</string>
-
     <!-- history -->
     <string name="history_item_click_text">ערך Hash מועתק ללוח</string>
     <string name="history_empty_view_message">פריטי היסטוריה לא נמצאו</string>
-
 </resources>

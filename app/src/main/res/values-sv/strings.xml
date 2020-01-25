@@ -1,15 +1,13 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">Inställningar</string>
     <string name="menu_title_feedback">Återkoppling</string>
     <string name="menu_title_history">Historia</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">Lägg till text</string>
     <string name="title_warning_dialog">Varning</string>
     <string name="title_permission_dialog">Tillstånd</string>
-
     <!-- messages -->
     <string name="message_exit">Tryck länge på bakåtknappen för att stänga applikationen</string>
     <string name="message_fill_fields">Fyll i varje fält för jämförelse</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">Det går inte att hitta en Google Play-app eller en webbläsare på din enhet</string>
     <string name="message_email_app_chooser">Välj app för att skicka ett e-postmeddelande</string>
     <string name="message_change_theme">För att ändra temat måste du starta om programmet</string>
+    <string name="message_change_language">Om du vill ändra språk måste du starta om programmet</string>
     <string name="message_invalid_selected_source">Det går inte att generera ett hashvärde från ingångskällan. Kontrollera den valda källan</string>
     <string name="message_delete_all_history_items">Radera alla historikobjekt?</string>
-
     <!-- commons -->
     <string name="common_text">Text</string>
     <string name="common_file">Fil</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">Annullera</string>
     <string name="common_again">Igen</string>
     <string name="common_date">Datum</string>
-
     <!-- actions -->
     <string name="action_from">Från</string>
     <string name="action_select">Verkan</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">Generera</string>
     <string name="action_compare">Jämföra</string>
     <string name="action_export_to_txt">Exportera som \".txt\"</string>
-
     <!-- themes -->
     <string name="title_theme_light">Ljus</string>
     <string name="title_theme_dark">Mörk</string>
-
     <!-- titles -->
     <string name="title_custom_hash">Anpassad hash</string>
     <string name="title_generated_hash">Genererad hash</string>
-
     <!-- hints -->
     <string name="hint_input_text">Skriv här</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">Allmän</string>
     <string name="settings_title_app">Ansökan</string>
@@ -72,17 +65,16 @@
     <string name="settings_title_rate_app">Betygsätt app</string>
     <string name="settings_title_save_result_to_history">Spara resultat i historiken</string>
     <string name="settings_title_multiline">Multiline hash-fält</string>
-
+    <string name="settings_title_language">Språk</string>
+    <string name="settings_title_support">Stöd</string>
+    <string name="settings_title_help_with_translation">Hjälp med översättning</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">Tillverkare</string>
     <string name="feedback_model">Modell</string>
     <string name="feedback_message">Meddelande</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">Välj lagring</string>
-
     <!-- history -->
     <string name="history_item_click_text">Hash-värde kopieras till urklipp</string>
     <string name="history_empty_view_message">Historikartiklar hittades inte</string>
-
 </resources>

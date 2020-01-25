@@ -6,28 +6,23 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
 public enum Theme implements ListItemTarget {
 
     LIGHT(
             R.string.title_theme_light,
-            R.drawable.ic_settings_theme,
             R.style.AppThemeLight
     ),
     DARK(
             R.string.title_theme_dark,
-            R.drawable.ic_settings_theme,
             R.style.AppThemeDark
     );
 
     private final int titleResId;
-    private final int iconResId;
     private final int themeResId;
 
-    Theme(int titleResId, int iconResId, int themeResId) {
+    Theme(int titleResId, int themeResId) {
         this.titleResId = titleResId;
-        this.iconResId = iconResId;
         this.themeResId = themeResId;
     }
 
@@ -38,7 +33,7 @@ public enum Theme implements ListItemTarget {
 
     @Override
     public int getPrimaryIconResId() {
-        return iconResId;
+        return R.drawable.ic_settings_theme;
     }
 
     @Override
@@ -49,15 +44,4 @@ public enum Theme implements ListItemTarget {
     public int getThemeResId() {
         return themeResId;
     }
-
-    public static Theme getThemeFromPreferences(@NonNull Context context) {
-        String selectedTheme = SettingsHelper.getTheme(context);
-        for (Theme theme: values()) {
-            if (theme.toString().equals(selectedTheme)) {
-                return theme;
-            }
-        }
-        return LIGHT;
-    }
-
 }

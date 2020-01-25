@@ -1,17 +1,15 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">Ρυθμίσεις</string>
     <string name="menu_title_feedback">Ανατροφοδότηση</string>
     <string name="menu_title_history">Ιστορία</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">Προσθέστε κείμενο</string>
     <string name="title_warning_dialog">Προειδοποίηση</string>
     <string name="title_permission_dialog">Αδεια</string>
-
     <!-- messages -->
-    <string name="message_exit">Πατήστε παρατεταμένα το κουμπί "πίσω" για να κλείσετε την εφαρμογή</string>
+    <string name="message_exit">Πατήστε παρατεταμένα το κουμπί \"πίσω\" για να κλείσετε την εφαρμογή</string>
     <string name="message_fill_fields">Συμπληρώστε κάθε πεδίο για σύγκριση</string>
     <string name="message_generate_hash_before_export">Δημιουργήστε την τιμή κατακερματισμού πριν την εξαγωγή</string>
     <string name="message_match_result">Αγώνας</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">Δεν είναι δυνατή η εύρεση μιας εφαρμογής Google Play ή ενός προγράμματος περιήγησης ιστού στη συσκευή σας</string>
     <string name="message_email_app_chooser">Επιλέξτε μια εφαρμογή για να στείλετε ένα μήνυμα ηλεκτρονικού ταχυδρομείου</string>
     <string name="message_change_theme">Για να αλλάξετε το θέμα, πρέπει να κάνετε επανεκκίνηση της εφαρμογής</string>
+    <string name="message_change_language">Για να αλλάξετε τη γλώσσα, πρέπει να κάνετε επανεκκίνηση της εφαρμογής</string>
     <string name="message_invalid_selected_source">Δεν είναι δυνατή η δημιουργία μιας τιμής κατακερματισμού από την πηγή εισόδου. Ελέγξτε την επιλεγμένη πηγή</string>
     <string name="message_delete_all_history_items">Να διαγραφούν όλα τα στοιχεία ιστορικού;</string>
-
     <!-- commons -->
     <string name="common_text">Κείμενο</string>
     <string name="common_file">Αρχείο</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">Ακύρωση</string>
     <string name="common_again">Και πάλι</string>
     <string name="common_date">Ημερομηνία</string>
-
     <!-- actions -->
     <string name="action_from">Από</string>
     <string name="action_select">Ενέργεια</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">Δημιουργία</string>
     <string name="action_compare">Σύγκριση</string>
     <string name="action_export_to_txt">Εξαγωγή ως \".txt\"</string>
-
     <!-- themes -->
     <string name="title_theme_light">Φως</string>
     <string name="title_theme_dark">σκούρο</string>
-
     <!-- titles -->
     <string name="title_custom_hash">προσαρμοσμένο hash</string>
     <string name="title_generated_hash">Δημιουργήθηκε hash</string>
-
     <!-- hints -->
     <string name="hint_input_text">Κείμενο ΕΔΩ</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">Γενικά</string>
     <string name="settings_title_app">Εφαρμογή</string>
@@ -72,17 +65,16 @@
     <string name="settings_title_rate_app">Αξιολόγηση εφαρμογής</string>
     <string name="settings_title_save_result_to_history">Αποθήκευση αποτελεσμάτων στο Ιστορικό</string>
     <string name="settings_title_multiline">Πολλαπλά πεδία hash</string>
-
+    <string name="settings_title_language">Γλώσσα</string>
+    <string name="settings_title_support">Υποστήριξη</string>
+    <string name="settings_title_help_with_translation">Βοήθεια με τη μετάφραση</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">Κατασκευαστής</string>
     <string name="feedback_model">Μοντέλο</string>
     <string name="feedback_message">Μήνυμα</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">Επιλέξτε αποθήκευση</string>
-
     <!-- history -->
     <string name="history_item_click_text">Η τιμή Hash αντιγράφηκε στο πρόχειρο</string>
     <string name="history_empty_view_message">Τα στοιχεία ιστορικού δεν βρέθηκαν</string>
-
 </resources>

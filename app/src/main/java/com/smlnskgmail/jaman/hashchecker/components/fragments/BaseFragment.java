@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.components.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +18,8 @@ import androidx.fragment.app.Fragment;
 
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.tools.LanguageTool;
 import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 public abstract class BaseFragment extends Fragment implements AppBackClickTarget, AppResumeTarget {
@@ -27,6 +30,11 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Context context = getContext();
+        LanguageTool.setLocale(
+                context,
+                SettingsHelper.getLanguage(context)
+        );
         super.onViewCreated(view, savedInstanceState);
         initializeContent(view);
         onPostInitialize();

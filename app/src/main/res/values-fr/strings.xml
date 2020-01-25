@@ -1,15 +1,13 @@
+<?xml version="1.0"?>
 <resources>
-
     <!-- menu -->
     <string name="menu_title_settings">Réglages</string>
     <string name="menu_title_feedback">Retour d\'information</string>
     <string name="menu_title_history">L\'histoire</string>
-
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">Ajouter du texte</string>
     <string name="title_warning_dialog">Attention</string>
     <string name="title_permission_dialog">Autorisation</string>
-
     <!-- messages -->
     <string name="message_exit">Appuyez longuement sur le bouton de retour pour fermer l\'application</string>
     <string name="message_fill_fields">Remplissez chaque champ pour comparaison</string>
@@ -24,9 +22,9 @@
     <string name="message_error_start_google_play">Impossible de trouver une application Google Play ou un navigateur Web sur votre appareil</string>
     <string name="message_email_app_chooser">Choisissez l\'application pour envoyer un email</string>
     <string name="message_change_theme">Pour changer de thème, vous devez redémarrer l\'application</string>
+    <string name="message_change_language">Pour changer la langue, vous devez redémarrer l\'application</string>
     <string name="message_invalid_selected_source">Impossible de générer une valeur de hachage à partir de la source d’entrée. S\'il vous plaît vérifier la source sélectionnée</string>
     <string name="message_delete_all_history_items">Supprimer tous les éléments de l\'historique?</string>
-
     <!-- commons -->
     <string name="common_text">Texte</string>
     <string name="common_file">Fichier</string>
@@ -35,7 +33,6 @@
     <string name="common_cancel">Annuler</string>
     <string name="common_again">Encore</string>
     <string name="common_date">Date</string>
-
     <!-- actions -->
     <string name="action_from">De</string>
     <string name="action_select">Action</string>
@@ -43,18 +40,14 @@
     <string name="action_generate">Produire</string>
     <string name="action_compare">Comparer</string>
     <string name="action_export_to_txt">Exporter comme \".txt\"</string>
-
     <!-- themes -->
     <string name="title_theme_light">Lumière</string>
     <string name="title_theme_dark">Foncé</string>
-
     <!-- titles -->
     <string name="title_custom_hash">Hachage personnalisé</string>
     <string name="title_generated_hash">Hash généré</string>
-
     <!-- hints -->
     <string name="hint_input_text">Texte ici</string>
-
     <!-- settings titles -->
     <string name="settings_title_general">Général</string>
     <string name="settings_title_app">Application</string>
@@ -72,17 +65,16 @@
     <string name="settings_title_rate_app">Application de taux</string>
     <string name="settings_title_save_result_to_history">Enregistrer le résultat dans l\'historique</string>
     <string name="settings_title_multiline">Champs de hachage multiligne</string>
-
+    <string name="settings_title_language">Langue</string>
+    <string name="settings_title_support">Soutien</string>
+    <string name="settings_title_help_with_translation">Aide à la traduction</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">Fabricant</string>
     <string name="feedback_model">Modèle</string>
     <string name="feedback_message">Message</string>
-
     <!-- file manager -->
     <string name="file_manager_select_storage_title">Sélectionnez le stockage</string>
-
     <!-- history -->
     <string name="history_item_click_text">Valeur de hachage copiée dans le presse-papier</string>
     <string name="history_empty_view_message">Articles d\'histoire non trouvés</string>
-
 </resources>

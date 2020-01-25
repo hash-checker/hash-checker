@@ -12,9 +12,8 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.activities.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileItem;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileType;
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.listadapter.FileItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.list.FileItemsAdapter;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.support.FileExtensions;
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.support.FileRequests;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.support.FileSelectTarget;
 import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
 import com.smlnskgmail.jaman.hashchecker.tools.UITools;
@@ -27,6 +26,14 @@ import java.util.List;
 import java.util.Locale;
 
 public class FileManagerActivity extends BaseActivity implements FileSelectTarget {
+
+    public static final String FILE_SELECT_DATA = "file_select_data";
+    public static final String LAST_PATH = "last_path";
+
+    public static final int FILE_SELECT = 1;
+    public static final int FILE_SELECT_FROM_FILE_MANAGER = 2;
+
+    public static final int PERMISSION_STORAGE = 3;
 
     private static final String BACK_FOLDER = "../";
 
@@ -41,13 +48,23 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     public void create() {
         setContentView(R.layout.activity_file_explorer);
         RecyclerView rvFilesList = findViewById(R.id.rv_file_explorer_list);
-        resetTitle();
 
         fileItemsAdapter = new FileItemsAdapter(files, FileManagerActivity.this);
         rvFilesList.setAdapter(fileItemsAdapter);
 
         storages.addAll(getExternalMounts());
-        toStorageChooser();
+
+        if (getIntent().hasExtra(LAST_PATH)) {
+            String lastPath = getIntent().getStringExtra(LAST_PATH);
+            //noinspection ConstantConditions
+            if (new File(lastPath).exists()) {
+                loadDirectoryWithPath(currentPath = lastPath);
+            }
+        }
+        if (currentPath == null) {
+            resetTitle();
+            toStorageChooser();
+        }
     }
 
     private List<FileItem> getExternalMounts() {
@@ -134,7 +151,13 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
         File f = new File(currentPath);
         File[] files = f.listFiles();
 
-        this.files.add(new FileItem(FileType.BACK_FOLDER, BACK_FOLDER, BACK_FOLDER));
+        this.files.add(
+                new FileItem(
+                        FileType.BACK_FOLDER,
+                        BACK_FOLDER,
+                        BACK_FOLDER
+                )
+        );
         if (files == null) {
             return;
         }
@@ -190,16 +213,18 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
                 if (file.isDirectory()) {
                     loadDirectoryWithPath(path);
                 } else {
-                    selectionFinished(fileItem.getFilePath());
+                    //noinspection ConstantConditions
+                    selectionFinished(file.getParent(), fileItem.getFilePath());
                 }
             }
         }
     }
 
-    private void selectionFinished(@NonNull String path) {
+    private void selectionFinished(@NonNull String parent, @NonNull String path) {
         Intent selectFileIntent = new Intent();
-        selectFileIntent.putExtra(FileRequests.FILE_SELECT_DATA, path);
-        setResult(FileRequests.FILE_SELECT_FROM_FILE_MANAGER, selectFileIntent);
+        selectFileIntent.putExtra(FILE_SELECT_DATA, path);
+        selectFileIntent.putExtra(LAST_PATH, parent);
+        setResult(FILE_SELECT_FROM_FILE_MANAGER, selectFileIntent);
         finish();
     }
 
@@ -233,7 +258,9 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
         if (currentPath == null) {
             super.onBackPressed();
         } else if (!isStorage(currentPath)) {
-            loadDirectoryWithPath(new File(currentPath).getParent());
+            loadDirectoryWithPath(
+                    new File(currentPath).getParent()
+            );
         } else if (isStorage(currentPath)) {
             validatePath();
         }

@@ -16,7 +16,7 @@ public class DatabaseExporter {
     public static final String EXPORT_FILE = "hash_checker_user_data.zip";
 
     public static void exportDatabase(@NonNull Context context) throws IOException {
-        HelperFactory.getHelper().checkpoint();
+        HelperFactory.getHelper().backupCheckpoint();
         String appFolder = getAppFolder(context);
 
         String databaseFolder = HelperFactory.getHelper().getDatabaseFolder();
