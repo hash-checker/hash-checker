@@ -42,6 +42,11 @@ public class UITools {
     }
 
     @SuppressLint("ResourceType")
+    public static int getCommonTextColor(@NonNull Context context) {
+        return getColorFromAttrs(context, R.attr.colorCommonText);
+    }
+
+    @SuppressLint("ResourceType")
     public static int getCommonBackgroundColor(@NonNull Context context) {
         return getColorFromAttrs(context, R.attr.colorBackground);
     }

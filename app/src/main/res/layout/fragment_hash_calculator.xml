@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_main_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/tv_selected_hash_type"
+            android:layout_width="@dimen/round_text_main_width"
+            android:layout_height="@dimen/round_view_text_height"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/common_margin_7"
+            android:layout_marginEnd="@dimen/common_margin_7"
+            android:layout_marginBottom="@dimen/common_margin_2"
+            android:padding="@dimen/common_margin"
+            android:background="@drawable/bg_block"
+            android:foreground="?android:selectableItemBackground"
+            android:drawableEnd="@drawable/ic_little_arrow_down"
+            android:textSize="@dimen/text_size_info"
+            android:textColor="?attr/colorAccent"
+            tools:text="MD5"
+            tools:ignore="UnusedAttribute" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin_3"
+            android:layout_marginEnd="@dimen/common_margin_3"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/common_margin_3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_custom_hash_copy"
+                    style="@style/AppImageSupport"
+                    android:layout_marginEnd="@dimen/common_margin"
+                    android:src="@drawable/ic_copy" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_field_custom_hash"
+                    style="@style/AppEditTextHashValue"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/et_field_custom_hash"
+                        style="@style/AppEditTextHashValue"
+                        android:layout_marginBottom="@dimen/common_margin"
+                        android:hint="@string/title_custom_hash"
+                        android:importantForAutofill="no" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/iv_custom_hash_clear"
+                    style="@style/AppImageSupport"
+                    android:layout_marginStart="@dimen/common_margin"
+                    android:src="@drawable/ic_close" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_generated_hash_copy"
+                    style="@style/AppImageSupport"
+                    android:layout_marginEnd="@dimen/common_margin"
+                    android:src="@drawable/ic_copy" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_field_generated_hash"
+                    style="@style/AppEditTextHashValue"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/et_field_generated_hash"
+                        style="@style/AppEditTextHashValue"
+                        android:hint="@string/title_generated_hash"
+                        android:importantForAutofill="no" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/iv_generated_hash_clear"
+                    style="@style/AppImageSupport"
+                    android:layout_marginStart="@dimen/common_margin"
+                    android:src="@drawable/ic_close" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/common_margin_3">
+
+            <Button
+                android:id="@+id/btn_generate_from"
+                style="@style/AppCircleButton"
+                android:layout_width="@dimen/round_text_view_width"
+                android:layout_height="@dimen/round_button_height"
+                android:layout_marginEnd="@dimen/common_margin"
+                android:text="@string/action_from" />
+
+            <Button
+                android:id="@+id/btn_hash_actions"
+                style="@style/AppCircleButton"
+                android:layout_width="@dimen/round_text_view_width"
+                android:layout_height="@dimen/round_button_height"
+                android:layout_marginStart="@dimen/common_margin"
+                android:text="@string/action_select" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_selected_object_name"
+            android:layout_width="@dimen/round_text_main_width"
+            android:layout_height="@dimen/round_view_text_height"
+            android:layout_marginStart="@dimen/common_margin_4"
+            android:layout_marginEnd="@dimen/common_margin_4"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_block"
+            android:maxLines="2"
+            android:scrollbars="vertical"
+            android:text="@string/message_select_object"
+            android:textColor="?attr/colorCommonText"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_size_default" />
+
+    </LinearLayout>
+
+</FrameLayout>

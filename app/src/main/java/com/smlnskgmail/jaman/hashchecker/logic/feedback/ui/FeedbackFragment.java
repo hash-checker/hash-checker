@@ -2,12 +2,14 @@ package com.smlnskgmail.jaman.hashchecker.logic.feedback.ui;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.fragments.BaseFragment;
@@ -20,26 +22,30 @@ public class FeedbackFragment extends BaseFragment {
     private final Feedback feedback = new Feedback();
 
     @Override
-    public void initializeContent(@NonNull final View contentView) {
-        feedbackEdit = contentView.findViewById(R.id.et_feedback_message);
+    public void onViewCreated(
+            @NonNull View view,
+            @Nullable Bundle savedInstanceState
+    ) {
+        super.onViewCreated(view, savedInstanceState);
+        feedbackEdit = view.findViewById(R.id.et_feedback_message);
 
         applyInfoToTextView(
-                contentView,
+                view,
                 R.id.tv_hash_checker_value,
                 feedback.getAppInfo()
         );
         applyInfoToTextView(
-                contentView,
+                view,
                 R.id.tv_android_value,
                 feedback.getOsVersion()
         );
         applyInfoToTextView(
-                contentView,
+                view,
                 R.id.tv_manufacturer_value,
                 feedback.getManufacturer()
         );
         applyInfoToTextView(
-                contentView,
+                view,
                 R.id.tv_model_value,
                 feedback.getModel()
         );

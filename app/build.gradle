@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'checkstyle'
-apply plugin: 'cpd'
+apply from: 'checkstyle.gradle'
+apply from: 'cpd.gradle'
 
 android {
     compileSdkVersion 29
@@ -9,8 +9,8 @@ android {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 76
-        versionName '3.1.0'
+        versionCode 77
+        versionName '3.2.0'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -46,41 +46,13 @@ android {
     }
 }
 
-checkstyle {
-    toolVersion '8.26'
-    ignoreFailures false
-    showViolations true
-}
-
-task checkstyle(type: Checkstyle) {
-    group 'verification'
-
-    config project.resources.text.fromUri(
-            'https://raw.githubusercontent.com/fartem/repository-rules/master/java/checkstyle/checkstyle.xml'
-    )
-    source rootProject.file('app/src/main/java')
-    classpath = files()
-
-    reports {
-        xml.enabled true
-        xml.destination rootProject.file('checkstyle-result.xml')
-    }
-}
-
-cpd {
-    language = 'java'
-    toolVersion = '6.20.0'
-}
-
-cpdCheck {
-    source = files('src/main/java/')
-}
-
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.preference:preference:1.1.0'
+
+    implementation 'com.smlnskgmail.jaman:adaptiverecyclerview:0.1.1'
 
     // ORMLite
     implementation 'com.j256.ormlite:ormlite-core:5.1'

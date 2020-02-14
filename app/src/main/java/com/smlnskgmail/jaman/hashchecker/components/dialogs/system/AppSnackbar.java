@@ -3,6 +3,7 @@ package com.smlnskgmail.jaman.hashchecker.components.dialogs.system;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,10 +13,11 @@ import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.vibrator.Vibrator;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
 public class AppSnackbar {
 
-    private static final int COMMON_SNACKBAR_MARGIN = 12;
+    private static final int COMMON_SNACKBAR_MARGIN = 8;
 
     private final Context context;
     private final View parent;
@@ -58,7 +60,11 @@ public class AppSnackbar {
     }
 
     public void show() {
-        Snackbar snackbar = Snackbar.make(parent, message, Snackbar.LENGTH_SHORT);
+        Snackbar snackbar = Snackbar.make(
+                parent,
+                message,
+                Snackbar.LENGTH_SHORT
+        );
         if (action != null) {
             snackbar.setAction(actionText, action);
         } else {
@@ -67,23 +73,26 @@ public class AppSnackbar {
                     context.getResources().getString(R.string.common_ok),
                     v -> closableSnackbar.dismiss()
             );
+            ((ViewGroup) snackbar.getView()).getChildAt(0)
+                    .setPadding(
+                            COMMON_SNACKBAR_MARGIN,
+                            COMMON_SNACKBAR_MARGIN,
+                            COMMON_SNACKBAR_MARGIN,
+                            COMMON_SNACKBAR_MARGIN
+                    );
         }
         snackbar.setActionTextColor(textColor);
-
-        ViewGroup.MarginLayoutParams params
-                = (ViewGroup.MarginLayoutParams) snackbar.getView().getLayoutParams();
-        params.setMargins(
-                COMMON_SNACKBAR_MARGIN,
-                COMMON_SNACKBAR_MARGIN,
-                COMMON_SNACKBAR_MARGIN,
-                COMMON_SNACKBAR_MARGIN
-        );
         snackbar.getView().setBackground(
-                ContextCompat.getDrawable(context, R.drawable.bg_snackbar)
+                ContextCompat.getDrawable(
+                        context,
+                        R.drawable.bg_snackbar
+                )
         );
 
         TextView snackbarText = snackbar.getView().findViewById(R.id.snackbar_text);
-        snackbarText.setTextColor(ContextCompat.getColor(context, R.color.colorLightText));
+        snackbarText.setTextColor(
+                UITools.getCommonTextColor(context)
+        );
         snackbar.show();
 
         if (SettingsHelper.getVibrateAccess(context)) {

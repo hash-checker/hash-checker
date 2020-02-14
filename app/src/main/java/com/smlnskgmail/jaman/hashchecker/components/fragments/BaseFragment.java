@@ -36,14 +36,6 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
                 SettingsHelper.getLanguage(context)
         );
         super.onViewCreated(view, savedInstanceState);
-        initializeContent(view);
-        onPostInitialize();
-    }
-
-    protected abstract void initializeContent(@NonNull View contentView);
-
-    public void onPostInitialize() {
-
     }
 
     @Override

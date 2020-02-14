@@ -1,0 +1,10 @@
+apply plugin: 'cpd'
+
+cpd {
+    language = 'java'
+    toolVersion = '6.20.0'
+}
+
+cpdCheck {
+    source = files('src/main/java/')
+}

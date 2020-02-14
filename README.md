@@ -32,11 +32,11 @@ Screenshots
 
 <br/>
 <p align="center">
-  <img src="media/screenshots/1.png" width="170" />
-  <img src="media/screenshots/2.png" width="170" />
-  <img src="media/screenshots/3.png" width="170" />
-  <img src="media/screenshots/4.png" width="170" />
-  <img src="media/screenshots/5.png" width="170" />
+  <img src="media/screenshots/screenshot_01.png" width="170" />
+  <img src="media/screenshots/screenshot_02.png" width="170" />
+  <img src="media/screenshots/screenshot_03.png" width="170" />
+  <img src="media/screenshots/screenshot_04.png" width="170" />
+  <img src="media/screenshots/screenshot_05.png" width="170" />
 </p>
 
 Videos

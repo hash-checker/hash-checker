@@ -1,16 +1,18 @@
 package com.smlnskgmail.jaman.hashchecker.logic.history.ui;
 
+import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smlnskgmail.jaman.adaptiverecyclerview.AdaptiveRecyclerView;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.containers.AdaptiveRecyclerView;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
@@ -33,11 +35,15 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
     private boolean isLoading;
 
     @Override
-    public void initializeContent(@NonNull View contentView) {
-        flHistory = contentView.findViewById(R.id.fl_history);
-        pbHistory = contentView.findViewById(R.id.pb_history);
-        rvHistoryItems = contentView.findViewById(R.id.rv_history_items);
-        rvHistoryItems.setEmptyMessageView(contentView.findViewById(R.id.ll_history_empty_view));
+    public void onViewCreated(
+            @NonNull View view,
+            @Nullable Bundle savedInstanceState
+    ) {
+        super.onViewCreated(view, savedInstanceState);
+        flHistory = view.findViewById(R.id.fl_history);
+        pbHistory = view.findViewById(R.id.pb_history);
+        rvHistoryItems = view.findViewById(R.id.rv_history_items);
+        rvHistoryItems.setMessageView(view.findViewById(R.id.ll_history_empty_view));
         rvHistoryItems.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -85,7 +91,6 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
         if (!historyPortion.isLoaded()) {
             pbHistory.setVisibility(View.VISIBLE);
             rvHistoryItems.setVisibility(View.GONE);
-            rvHistoryItems.getViewEmptyMessage().setVisibility(View.GONE);
             new HistoryItemsLoaderTask(this).execute();
         }
     }

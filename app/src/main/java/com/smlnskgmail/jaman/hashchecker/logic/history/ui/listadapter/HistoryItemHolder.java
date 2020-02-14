@@ -1,7 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker.logic.history.ui.listadapter;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
 import com.smlnskgmail.jaman.hashchecker.components.vibrator.Vibrator;
+import com.smlnskgmail.jaman.hashchecker.logic.clipboard.ClipboardText;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.tools.UITools;
 
@@ -55,21 +54,13 @@ class HistoryItemHolder extends RecyclerView.ViewHolder {
                 rootView,
                 context.getString(R.string.history_item_click_text),
                 context.getString(R.string.common_ok),
-                v1 -> copyTextToClipboard(context, historyItem.getHashValue()),
+                v1 -> new ClipboardText(
+                        context,
+                        historyItem.getHashValue()
+                ).copy(),
                 new Vibrator(context),
                 UITools.getAccentColor(context)
         ).show());
-    }
-
-    private void copyTextToClipboard(@NonNull Context context, @NonNull String text) {
-        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText(
-                context.getString(R.string.common_app_name),
-                text
-        );
-        if (clipboard != null) {
-            clipboard.setPrimaryClip(clip);
-        }
     }
 
     private void initializeObjectData(@NonNull Context context, @NonNull HistoryItem historyItem) {

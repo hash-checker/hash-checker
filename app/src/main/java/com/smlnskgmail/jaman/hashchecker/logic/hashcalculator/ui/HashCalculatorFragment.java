@@ -19,6 +19,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +35,7 @@ import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDi
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
 import com.smlnskgmail.jaman.hashchecker.components.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.vibrator.Vibrator;
+import com.smlnskgmail.jaman.hashchecker.logic.clipboard.ClipboardText;
 import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.FileManagerActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashCalculatorTask;
@@ -68,6 +70,11 @@ public class HashCalculatorFragment extends BaseFragment
 
     private EditText etCustomHash;
     private EditText etGeneratedHash;
+
+    private ImageView ivCustomHashCopy;
+    private ImageView ivCustomHashClear;
+    private ImageView ivGeneratedHashCopy;
+    private ImageView ivGeneratedHashClear;
 
     private TextView tvSelectedObjectName;
     private TextView tvSelectedHashType;
@@ -294,24 +301,8 @@ public class HashCalculatorFragment extends BaseFragment
         }
     }
 
-    @Override
-    public void onPostInitialize() {
-        Bundle bundle = getArguments();
-        if (checkArguments(bundle)) {
-            checkExternalDataPresence(bundle);
-        }
-    }
-
     private boolean checkArguments(@Nullable Bundle bundle) {
         return bundle != null;
-    }
-
-    private void checkExternalDataPresence(@NonNull Bundle dataArguments) {
-        String uri = dataArguments.getString(MainActivity.URI_FROM_EXTERNAL_APP);
-        if (uri != null) {
-            validateSelectedFile(Uri.parse(uri));
-            dataArguments.remove(MainActivity.URI_FROM_EXTERNAL_APP);
-        }
     }
 
     private void checkShortcutActionPresence(@NonNull Bundle shortcutsArguments) {
@@ -414,24 +405,49 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     @Override
-    public void initializeContent(@NonNull View contentView) {
+    public void onViewCreated(
+            @NonNull View view,
+            @Nullable Bundle savedInstanceState
+    ) {
+        super.onViewCreated(view, savedInstanceState);
         context = getContext();
         vibrator = new Vibrator(context);
 
-        mainScreen = contentView.findViewById(R.id.fl_main_screen);
+        mainScreen = view.findViewById(R.id.fl_main_screen);
 
-        etCustomHash = contentView.findViewById(R.id.et_field_custom_hash);
-        etGeneratedHash = contentView.findViewById(R.id.et_field_generated_hash);
+        etCustomHash = view.findViewById(R.id.et_field_custom_hash);
+        etGeneratedHash = view.findViewById(R.id.et_field_generated_hash);
 
-        tvSelectedObjectName = contentView.findViewById(R.id.tv_selected_object_name);
+        ivCustomHashCopy = view.findViewById(R.id.iv_custom_hash_copy);
+        ivCustomHashCopy.setOnClickListener(v -> {
+            new ClipboardText(
+                    context,
+                    etCustomHash.getText().toString()
+            ).copy();
+            showHashCopySnackbar();
+        });
+        ivCustomHashClear = view.findViewById(R.id.iv_custom_hash_clear);
+        ivCustomHashClear.setOnClickListener(v -> etCustomHash.setText(""));
+        ivGeneratedHashCopy = view.findViewById(R.id.iv_generated_hash_copy);
+        ivGeneratedHashCopy.setOnClickListener(v -> {
+            new ClipboardText(
+                    context,
+                    etGeneratedHash.getText().toString()
+            ).copy();
+            showHashCopySnackbar();
+        });
+        ivGeneratedHashClear = view.findViewById(R.id.iv_generated_hash_clear);
+        ivGeneratedHashClear.setOnClickListener(v -> etGeneratedHash.setText(""));
 
-        tvSelectedHashType = contentView.findViewById(R.id.tv_selected_hash_type);
+        tvSelectedObjectName = view.findViewById(R.id.tv_selected_object_name);
+
+        tvSelectedHashType = view.findViewById(R.id.tv_selected_hash_type);
         tvSelectedHashType.setOnClickListener(v -> selectHashTypeFromList());
 
-        btnGenerateFrom = contentView.findViewById(R.id.btn_generate_from);
+        btnGenerateFrom = view.findViewById(R.id.btn_generate_from);
         btnGenerateFrom.setOnClickListener(v -> selectResourceToGenerateHash());
 
-        Button btnHashActions = contentView.findViewById(R.id.btn_hash_actions);
+        Button btnHashActions = view.findViewById(R.id.btn_hash_actions);
         btnHashActions.setOnClickListener(v -> selectActionForHashes());
 
         fragmentManager = getActivity().getSupportFragmentManager();
@@ -444,6 +460,25 @@ public class HashCalculatorFragment extends BaseFragment
             userActionSelect(UserActionType.SEARCH_FILE);
             startWithFileSelection = false;
         }
+
+        Bundle bundle = getArguments();
+        if (checkArguments(bundle)) {
+            checkExternalDataPresence(bundle);
+        }
+    }
+
+    private void showHashCopySnackbar() {
+        showSnackbarWithoutAction(
+                getString(R.string.history_item_click_text)
+        );
+    }
+
+    private void checkExternalDataPresence(@NonNull Bundle dataArguments) {
+        String uri = dataArguments.getString(MainActivity.URI_FROM_EXTERNAL_APP);
+        if (uri != null) {
+            validateSelectedFile(Uri.parse(uri));
+            dataArguments.remove(MainActivity.URI_FROM_EXTERNAL_APP);
+        }
     }
 
     private void requestStoragePermission() {
@@ -454,8 +489,11 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(
+            int requestCode,
+            @NonNull String[] permissions,
+            @NonNull int[] grantResults
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == FileManagerActivity.PERMISSION_STORAGE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -586,7 +624,7 @@ public class HashCalculatorFragment extends BaseFragment
 
     @Override
     public int getLayoutResId() {
-        return R.layout.fragment_main;
+        return R.layout.fragment_hash_calculator;
     }
 
     @Override

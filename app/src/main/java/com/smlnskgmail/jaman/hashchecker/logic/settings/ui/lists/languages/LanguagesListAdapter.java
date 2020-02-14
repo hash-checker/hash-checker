@@ -1,13 +1,10 @@
 package com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
