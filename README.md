@@ -39,16 +39,16 @@ Screenshots
   <img src="media/screenshots/screenshot_05.png" width="170" />
 </p>
 
-Videos
--------------
-
-* [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
-
 Downloads
 -------------
 
 * [Google Play](https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker)
 * [GitHub](https://github.com/fartem/hash-checker/releases)
+
+Videos
+-------------
+
+* [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
 
 Articles
 -------------
