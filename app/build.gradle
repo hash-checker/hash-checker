@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply from: 'checkstyle.gradle'
 apply from: 'cpd.gradle'
+apply from: 'jacoco.gradle'
 
 android {
     compileSdkVersion 29
@@ -13,7 +14,7 @@ android {
         versionName '3.2.0'
         vectorDrawables.useSupportLibrary = true
 
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
 
         resConfigs 'en', 'de', 'el', 'es', 'fa', 'fr', 'hu', 'it', 'iw', 'ko', 'nl', 'pl', 'ru', 'sv', 'zh-rCN'
     }
@@ -21,12 +22,16 @@ android {
         debug {
             versionNameSuffix '-dev'
             minifyEnabled false
+
+            testCoverageEnabled = true
         }
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     'proguard-rules.pro'
+
+            testCoverageEnabled = true
         }
     }
     compileOptions {
@@ -42,6 +47,13 @@ android {
                     'src/main/resources',
                     'src/test'
             ]
+        }
+    }
+    testOptions {
+        animationsDisabled true
+
+        unitTests {
+            includeAndroidResources = true
         }
     }
 }

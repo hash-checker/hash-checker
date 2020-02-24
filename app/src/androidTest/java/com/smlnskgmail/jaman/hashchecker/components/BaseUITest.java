@@ -5,11 +5,13 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.contrib.RecyclerViewActions;
+import androidx.test.runner.AndroidJUnit4;
 
 import com.smlnskgmail.jaman.hashchecker.components.matchers.TextMatcher;
 import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
@@ -18,6 +20,7 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+@RunWith(AndroidJUnit4.class)
 public abstract class BaseUITest {
 
     protected static final int SECOND_IN_MILLIS = 1000;
