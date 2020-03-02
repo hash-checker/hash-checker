@@ -3,12 +3,12 @@
 Hash Checker
 =============
 
-![Travis CI](https://img.shields.io/travis/fartem/hash-checker)
-![Codecov](https://img.shields.io/codecov/c/github/fartem/hash-checker)
+[![Travis CI](https://img.shields.io/travis/fartem/hash-checker)](https://travis-ci.org/fartem/hash-checker)
+[![Codecov](https://img.shields.io/codecov/c/github/fartem/hash-checker)](https://codecov.io/gh/fartem/hash-checker)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Hash%20Checker-brightgreen.svg?style=flat)](https://android-arsenal.com/details/3/7854)
-![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg?color=ff534a)
-![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg?color=51539c)
-![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688)
+[![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg?color=ff534a)](https://github.com/fartem/hash-checker/issues)
+[![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg?color=51539c)](https://github.com/fartem/hash-checker/commits/master)
+[![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688)](https://github.com/fartem/hash-checker/releases)
 
 About application
 -------------

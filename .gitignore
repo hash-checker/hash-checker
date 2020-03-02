@@ -68,3 +68,4 @@ fastlane/readme.md
 
 # OSX files
 .DS_Store
+/.idea/
