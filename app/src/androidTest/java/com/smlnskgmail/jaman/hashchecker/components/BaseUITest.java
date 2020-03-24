@@ -8,7 +8,7 @@ import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.runner.AndroidJUnit4;
 
 import com.smlnskgmail.jaman.hashchecker.components.matchers.TextMatcher;
-import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
+import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,13 +37,18 @@ public abstract class BaseUITest {
     }
 
     protected void textEquals(@NonNull String text, int textViewId) {
-        onView(withId(textViewId)).check(matches(TextMatcher.hasStringEqualsTo(text)));
+        onView(withId(textViewId)).check(
+                matches(TextMatcher.hasStringEqualsTo(text))
+        );
     }
 
     @SuppressWarnings("SameParameterValue")
     protected void inRecyclerViewClickOnPosition(int recyclerId, int position) {
-        onView(
-                withId(recyclerId)).perform(RecyclerViewActions.actionOnItemAtPosition(position, click())
+        onView(withId(recyclerId)).perform(
+                        RecyclerViewActions.actionOnItemAtPosition(
+                                position,
+                                click()
+                        )
         );
     }
 
@@ -61,7 +66,7 @@ public abstract class BaseUITest {
         try {
             Thread.sleep(SECOND_IN_MILLIS);
         } catch (InterruptedException e) {
-            LogTool.e(e);
+            L.e(e);
         }
     }
 

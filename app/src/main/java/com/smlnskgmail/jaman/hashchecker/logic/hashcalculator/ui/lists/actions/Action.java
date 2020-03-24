@@ -5,10 +5,10 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.types.UserActionType;
 
-public enum Action implements ListItemTarget {
+public enum Action implements ListItem {
 
     TEXT(
             R.string.common_text,
@@ -41,7 +41,11 @@ public enum Action implements ListItemTarget {
 
     private final UserActionType userActionType;
 
-    Action(int titleResId, int iconResId, UserActionType userActionType) {
+    Action(
+            int titleResId,
+            int iconResId,
+            UserActionType userActionType
+    ) {
         this.titleResId = titleResId;
         this.iconResId = iconResId;
         this.userActionType = userActionType;

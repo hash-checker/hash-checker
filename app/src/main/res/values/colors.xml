@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <color name="colorStaticAccent">#009688</color>
+    <color name="colorAccentStatic">#009688</color>
     <color name="colorLauncherIconBackground">#FFFFFF</color>
     <color name="colorBackgroundShortcut">#eeeeee</color>
     <color name="colorLightText">@android:color/white</color>
-
 </resources>

@@ -10,13 +10,27 @@ android {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 77
-        versionName '3.2.0'
+        versionCode 78
+        versionName '3.3.0'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
 
-        resConfigs 'en', 'de', 'el', 'es', 'fa', 'fr', 'hu', 'it', 'iw', 'ko', 'nl', 'pl', 'ru', 'sv', 'zh-rCN'
+        resConfigs 'en',
+                'de',
+                'el',
+                'es',
+                'fa',
+                'fr',
+                'hu',
+                'it',
+                'iw',
+                'ko',
+                'nl',
+                'pl',
+                'ru',
+                'sv',
+                'zh-rCN'
     }
     buildTypes {
         debug {
@@ -64,7 +78,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.preference:preference:1.1.0'
 
-    implementation 'com.smlnskgmail.jaman:adaptiverecyclerview:0.1.1'
+    implementation 'com.smlnskgmail.jaman:adaptiverecyclerview:0.1.2'
 
     // ORMLite
     implementation 'com.j256.ormlite:ormlite-core:5.1'
@@ -79,4 +93,7 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+
+    // Screenshots
+    androidTestImplementation 'tools.fastlane:screengrab:2.0.0'
 }

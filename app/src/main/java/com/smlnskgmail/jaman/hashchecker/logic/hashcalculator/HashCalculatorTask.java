@@ -8,8 +8,8 @@ import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.jdk.JDKHashCalculator;
-import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.jdk.JdkHashCalculator;
+import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 
 public class HashCalculatorTask extends AsyncTask<Void, String, String> {
 
@@ -60,13 +60,13 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
     @Override
     protected String doInBackground(Void... voids) {
         try {
-            HashCalculator hashCalculator = new JDKHashCalculator();
+            HashCalculator hashCalculator = new JdkHashCalculator();
             hashCalculator.setHashType(hashType);
             return !isText
                     ? hashCalculator.fromFile(context, fileUri)
                     : hashCalculator.fromString(textValue);
         } catch (Exception e) {
-            LogTool.e(e);
+            L.e(e);
             return null;
         }
     }

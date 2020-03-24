@@ -9,14 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.activities.BaseActivity;
+import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileItem;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileType;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.list.FileItemsAdapter;
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.support.FileExtensions;
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.support.FileSelectTarget;
-import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
-import com.smlnskgmail.jaman.hashchecker.tools.UITools;
+import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.io.File;
 import java.io.InputStream;
@@ -49,7 +47,10 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
         setContentView(R.layout.activity_file_explorer);
         RecyclerView rvFilesList = findViewById(R.id.rv_file_explorer_list);
 
-        fileItemsAdapter = new FileItemsAdapter(files, FileManagerActivity.this);
+        fileItemsAdapter = new FileItemsAdapter(
+                files,
+                FileManagerActivity.this
+        );
         rvFilesList.setAdapter(fileItemsAdapter);
 
         storages.addAll(getExternalMounts());
@@ -71,13 +72,21 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
         List<FileItem> storages = new ArrayList<>();
         String path = Environment.getExternalStorageDirectory().getAbsolutePath();
         String name = Environment.getExternalStorageDirectory().getName();
-        storages.add(new FileItem(FileType.STORAGE, path, name));
+        storages.add(
+                new FileItem(
+                        FileType.STORAGE,
+                        path,
+                        name
+                )
+        );
         try {
             String reg = ".*vold.*(vfat|ntfs|exfat|fat32|ext3|ext4).*rw.*";
             StringBuilder sb = new StringBuilder();
             try {
-                Process process = new ProcessBuilder().command("mount")
-                        .redirectErrorStream(true).start();
+                Process process = new ProcessBuilder()
+                        .command("mount")
+                        .redirectErrorStream(true)
+                        .start();
                 process.waitFor();
                 InputStream is = process.getInputStream();
 
@@ -88,7 +97,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
                 }
                 is.close();
             } catch (Exception e) {
-                LogTool.e(e);
+                L.e(e);
                 return storages;
             }
 
@@ -122,13 +131,19 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
                                     for (FileItem storage: storages) {
                                         if (("/storage/" + storageName).equals(storage.getFileName())) {
                                             equalState = true;
+                                            break;
                                         }
                                     }
                                     if (!equalState) {
                                         String storagePath = "/storage/" + storageName;
                                         if (new File(storagePath).isDirectory()) {
-                                            storages.add(new FileItem(FileType.STORAGE, storagePath,
-                                                    storageName));
+                                            storages.add(
+                                                    new FileItem(
+                                                            FileType.STORAGE,
+                                                            storagePath,
+                                                            storageName
+                                                    )
+                                            );
                                         }
                                     }
                                 }
@@ -138,13 +153,15 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
                 }
             }
         } catch (Exception e) {
-            LogTool.e(e);
+            L.e(e);
             return storages;
         }
         return storages;
     }
 
-    private void loadDirectoryWithPath(@NonNull final String directoryPath) {
+    private void loadDirectoryWithPath(
+            @NonNull final String directoryPath
+    ) {
         files.clear();
         currentPath = directoryPath;
 
@@ -175,18 +192,48 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
             String path = file.getPath();
             String name = file.getName();
             if (file.isDirectory()) {
-                this.files.add(new FileItem(FileType.FOLDER, path, name));
+                this.files.add(
+                        new FileItem(
+                                FileType.FOLDER,
+                                path,
+                                name
+                        )
+                );
             } else {
                 final String fileName = file.getPath();
                 final String fileNameInLowerCase = fileName.toLowerCase();
-                if (FileExtensions.isVideo(fileNameInLowerCase)) {
-                    this.files.add(new FileItem(FileType.VIDEO, path, name));
-                } else if (FileExtensions.isImage(fileNameInLowerCase)) {
-                    this.files.add(new FileItem(FileType.IMAGE, path, name));
-                } else if (FileExtensions.isSound(fileName)) {
-                    this.files.add(new FileItem(FileType.MUSIC, path, name));
+                if (FileItem.Extensions.isVideo(fileNameInLowerCase)) {
+                    this.files.add(
+                            new FileItem(
+                                    FileType.VIDEO,
+                                    path,
+                                    name
+                            )
+                    );
+                } else if (FileItem.Extensions.isImage(fileNameInLowerCase)) {
+                    this.files.add(
+                            new FileItem(
+                                    FileType.IMAGE,
+                                    path,
+                                    name
+                            )
+                    );
+                } else if (FileItem.Extensions.isSound(fileName)) {
+                    this.files.add(
+                            new FileItem(
+                                    FileType.MUSIC,
+                                    path,
+                                    name
+                            )
+                    );
                 } else {
-                    this.files.add(new FileItem(FileType.FILE, path, name));
+                    this.files.add(
+                            new FileItem(
+                                    FileType.FILE,
+                                    path,
+                                    name
+                            )
+                    );
                 }
             }
         }
@@ -195,10 +242,14 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     }
 
     @Override
-    public void fileSelect(@NonNull FileItem fileItem, int position) {
+    public void fileSelect(
+            @NonNull FileItem fileItem,
+            int position
+    ) {
         String path = fileItem.getFilePath();
         File file = new File(path);
-        if (position == 0 && path.equals(BACK_FOLDER)
+        if (position == 0
+                && path.equals(BACK_FOLDER)
                 && fileItem.getFileType() != FileType.STORAGE) {
             if (!isStorage(currentPath)) {
                 String parent = new File(currentPath).getParent();
@@ -214,17 +265,26 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
                     loadDirectoryWithPath(path);
                 } else {
                     //noinspection ConstantConditions
-                    selectionFinished(file.getParent(), fileItem.getFilePath());
+                    selectionFinished(
+                            file.getParent(),
+                            fileItem.getFilePath()
+                    );
                 }
             }
         }
     }
 
-    private void selectionFinished(@NonNull String parent, @NonNull String path) {
+    private void selectionFinished(
+            @NonNull String parent,
+            @NonNull String path
+    ) {
         Intent selectFileIntent = new Intent();
         selectFileIntent.putExtra(FILE_SELECT_DATA, path);
         selectFileIntent.putExtra(LAST_PATH, parent);
-        setResult(FILE_SELECT_FROM_FILE_MANAGER, selectFileIntent);
+        setResult(
+                FILE_SELECT_FROM_FILE_MANAGER,
+                selectFileIntent
+        );
         finish();
     }
 
@@ -273,7 +333,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     }
 
     private void resetTitle() {
-        UITools.setActionBarTitle(
+        UIUtils.setActionBarTitle(
                 getSupportActionBar(),
                 R.string.file_manager_select_storage_title
         );

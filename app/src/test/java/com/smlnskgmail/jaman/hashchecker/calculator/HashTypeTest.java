@@ -10,7 +10,10 @@ public class HashTypeTest {
 
     @Test
     public void parseMD5FromString() {
-        assertEquals(HashType.MD5, HashType.getHashTypeFromString("MD5"));
+        assertEquals(
+                HashType.MD5,
+                HashType.getHashTypeFromString("MD5")
+        );
     }
 
     @Test

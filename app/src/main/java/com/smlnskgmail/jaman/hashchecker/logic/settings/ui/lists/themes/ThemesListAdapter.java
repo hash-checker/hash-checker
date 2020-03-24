@@ -7,21 +7,20 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.tools.RestartAppTool;
+import com.smlnskgmail.jaman.hashchecker.logic.support.Restart;
 
 import java.util.List;
 
-public class ThemesListAdapter extends BaseListAdapter {
+public class ThemesListAdapter extends BaseListAdapter<Theme> {
 
     private final Theme selectedTheme;
 
     ThemesListAdapter(
-            @NonNull List<ListItemTarget> items,
+            @NonNull List<Theme> items,
             @NonNull BaseListBottomSheet bottomSheet,
             @NonNull Theme selectedTheme
     ) {
@@ -30,14 +29,17 @@ public class ThemesListAdapter extends BaseListAdapter {
     }
 
     @Override
-    public BaseListHolder getItemsHolder(
+    public BaseListHolder<Theme> getItemsHolder(
             @NonNull View view,
             @NonNull Context themeContext
     ) {
-        return new ThemesListHolder(view, themeContext);
+        return new ThemesListHolder(
+                view,
+                themeContext
+        );
     }
 
-    private class ThemesListHolder extends BaseListHolder {
+    class ThemesListHolder extends BaseListHolder<Theme> {
 
         private Theme themeAtPosition;
 
@@ -58,9 +60,9 @@ public class ThemesListAdapter extends BaseListAdapter {
         }
 
         @Override
-        protected void bind(@NonNull ListItemTarget listItemTarget) {
-            themeAtPosition = (Theme) getItems().get(getAdapterPosition());
-            super.bind(listItemTarget);
+        protected void bind(@NonNull Theme listItem) {
+            themeAtPosition = listItem;
+            super.bind(listItem);
         }
 
         private void showThemeApplyDialog() {
@@ -72,7 +74,7 @@ public class ThemesListAdapter extends BaseListAdapter {
                     (dialog, which) -> {
                         configureNewTheme();
                         dialog.dismiss();
-                        RestartAppTool.restartApp(
+                        Restart.restartApp(
                                 getBottomSheet().getActivity()
                         );
                     }

@@ -8,15 +8,18 @@ import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.Language;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.Theme;
-import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
 
 public class SettingsHelper {
 
     public static final int FILE_CREATE = 3;
 
-    public static void saveHashTypeAsLast(@NonNull Context context, @NonNull HashType hashType) {
+    public static void saveHashTypeAsLast(
+            @NonNull Context context,
+            @NonNull HashType hashType
+    ) {
         saveStringPreference(
                 context,
                 context.getString(R.string.key_last_type_value),
@@ -24,7 +27,9 @@ public class SettingsHelper {
         );
     }
 
-    public static HashType getLastHashType(@NonNull Context context) {
+    public static HashType getLastHashType(
+            @NonNull Context context
+    ) {
         String hashValue = getStringPreference(
                 context,
                 context.getString(R.string.key_last_type_value),
@@ -33,16 +38,24 @@ public class SettingsHelper {
         try {
             return HashType.valueOf(hashValue);
         } catch (IllegalArgumentException e) {
-            LogTool.e(e);
+            L.e(e);
             return HashType.MD5;
         }
     }
 
-    public static boolean languageIsInitialized(@NonNull Context context) {
-        return containsPreference(context, context.getString(R.string.key_language));
+    public static boolean languageIsInitialized(
+            @NonNull Context context
+    ) {
+        return containsPreference(
+                context,
+                context.getString(R.string.key_language)
+        );
     }
 
-    public static void saveLanguage(@NonNull Context context, @NonNull Language language) {
+    public static void saveLanguage(
+            @NonNull Context context,
+            @NonNull Language language
+    ) {
         saveStringPreference(
                 context,
                 context.getString(R.string.key_language),
@@ -51,7 +64,9 @@ public class SettingsHelper {
     }
 
     @NonNull
-    public static Language getLanguage(@NonNull Context context) {
+    public static Language getLanguage(
+            @NonNull Context context
+    ) {
         return Language.valueOf(
                 getStringPreference(
                         context,
@@ -61,7 +76,9 @@ public class SettingsHelper {
         );
     }
 
-    public static boolean isUsingInnerFileManager(@NonNull Context context) {
+    public static boolean isUsingInnerFileManager(
+            @NonNull Context context
+    ) {
         return getBooleanPreference(
                 context,
                 context.getString(R.string.key_inner_file_manager),
@@ -81,7 +98,9 @@ public class SettingsHelper {
     }
 
     @Nullable
-    public static String getLastPathForInnerFileManager(@NonNull Context context) {
+    public static String getLastPathForInnerFileManager(
+            @NonNull Context context
+    ) {
         return getStringPreference(
                 context,
                 context.getString(R.string.key_last_path),
@@ -89,7 +108,9 @@ public class SettingsHelper {
         );
     }
 
-    public static boolean isUsingMultilineHashFields(@NonNull Context context) {
+    public static boolean isUsingMultilineHashFields(
+            @NonNull Context context
+    ) {
         return getBooleanPreference(
                 context,
                 context.getString(R.string.key_multiline),
@@ -97,7 +118,9 @@ public class SettingsHelper {
         );
     }
 
-    public static boolean canSaveResultToHistory(@NonNull Context context) {
+    public static boolean canSaveResultToHistory(
+            @NonNull Context context
+    ) {
         return getBooleanPreference(
                 context,
                 context.getString(R.string.key_save_result_to_history),
@@ -105,7 +128,9 @@ public class SettingsHelper {
         );
     }
 
-    public static boolean getVibrateAccess(@NonNull Context context) {
+    public static boolean getVibrateAccess(
+            @NonNull Context context
+    ) {
         return getBooleanPreference(
                 context,
                 context.getString(R.string.key_vibrate),
@@ -113,7 +138,9 @@ public class SettingsHelper {
         );
     }
 
-    public static Theme getSelectedTheme(@NonNull Context context) {
+    public static Theme getSelectedTheme(
+            @NonNull Context context
+    ) {
         String selectedTheme = SettingsHelper.getTheme(context);
         for (Theme theme: Theme.values()) {
             if (theme.toString().equals(selectedTheme)) {
@@ -124,9 +151,11 @@ public class SettingsHelper {
     }
 
     /*
-    * Saved for old version compatibility (where themes count > 2)
-    * */
-    private static String getTheme(@NonNull Context context) {
+     * Saved for old versions compatibility (where themes count > 2)
+     */
+    private static String getTheme(
+            @NonNull Context context
+    ) {
         String theme = getStringPreference(
                 context,
                 context.getString(R.string.key_selected_theme),
@@ -139,7 +168,10 @@ public class SettingsHelper {
         }
     }
 
-    private static boolean validateAppTheme(@NonNull Context context, @NonNull String theme) {
+    private static boolean validateAppTheme(
+            @NonNull Context context,
+            @NonNull String theme
+    ) {
         if (theme.equals(Theme.LIGHT.toString())
                 || theme.equals(Theme.DARK.toString())) {
             return true;
@@ -148,7 +180,9 @@ public class SettingsHelper {
         return false;
     }
 
-    private static Theme getThemeAnalogue(@NonNull String theme) {
+    private static Theme getThemeAnalogue(
+            @NonNull String theme
+    ) {
         if (theme.contains("DARK")) {
             return Theme.DARK;
         } else {
@@ -156,7 +190,9 @@ public class SettingsHelper {
         }
     }
 
-    public static boolean useUpperCase(@NonNull Context context) {
+    public static boolean useUpperCase(
+            @NonNull Context context
+    ) {
         return getBooleanPreference(
                 context,
                 context.getString(R.string.key_upper_case),
@@ -164,7 +200,9 @@ public class SettingsHelper {
         );
     }
 
-    public static boolean isShortcutsIsCreated(@NonNull Context context) {
+    public static boolean isShortcutsIsCreated(
+            @NonNull Context context
+    ) {
         return getBooleanPreference(
                 context,
                 context.getString(R.string.key_shortcuts_created),
@@ -172,7 +210,10 @@ public class SettingsHelper {
         );
     }
 
-    public static void saveShortcutsStatus(@NonNull Context context, boolean value) {
+    public static void saveShortcutsStatus(
+            @NonNull Context context,
+            boolean value
+    ) {
         saveBooleanPreference(
                 context,
                 context.getString(R.string.key_shortcuts_created),
@@ -180,7 +221,10 @@ public class SettingsHelper {
         );
     }
 
-    public static void saveTheme(@NonNull Context context, Theme theme) {
+    public static void saveTheme(
+            @NonNull Context context,
+            Theme theme
+    ) {
         saveStringPreference(
                 context,
                 context.getString(R.string.key_selected_theme),
@@ -188,7 +232,9 @@ public class SettingsHelper {
         );
     }
 
-    public static boolean getGenerateFromShareIntentStatus(@NonNull Context context) {
+    public static boolean getGenerateFromShareIntentStatus(
+            @NonNull Context context
+    ) {
         return getBooleanPreference(
                 context,
                 context.getString(R.string.key_generate_from_share_intent),
@@ -196,7 +242,10 @@ public class SettingsHelper {
         );
     }
 
-    public static void setGenerateFromShareIntentMode(@NonNull Context context, boolean status) {
+    public static void setGenerateFromShareIntentMode(
+            @NonNull Context context,
+            boolean status
+    ) {
         saveBooleanPreference(
                 context,
                 context.getString(R.string.key_generate_from_share_intent),
@@ -204,7 +253,9 @@ public class SettingsHelper {
         );
     }
 
-    public static boolean refreshSelectedFile(@NonNull Context context) {
+    public static boolean refreshSelectedFile(
+            @NonNull Context context
+    ) {
         return getBooleanPreference(
                 context,
                 context.getString(R.string.key_refresh_selected_file),
@@ -212,7 +263,10 @@ public class SettingsHelper {
         );
     }
 
-    public static void setRefreshSelectedFileStatus(@NonNull Context context, boolean status) {
+    public static void setRefreshSelectedFileStatus(
+            @NonNull Context context,
+            boolean status
+    ) {
         saveBooleanPreference(
                 context,
                 context.getString(R.string.key_refresh_selected_file),
@@ -220,7 +274,10 @@ public class SettingsHelper {
         );
     }
 
-    private static boolean containsPreference(@NonNull Context context, @NonNull String key) {
+    private static boolean containsPreference(
+            @NonNull Context context,
+            @NonNull String key
+    ) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .contains(key);
     }

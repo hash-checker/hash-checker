@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- commons -->
     <dimen name="common_margin_half">4dp</dimen>
     <dimen name="common_margin">8dp</dimen>
@@ -31,5 +30,4 @@
 
     <!-- corners -->
     <dimen name="radius_snackbar_corners">8dp</dimen>
-
 </resources>

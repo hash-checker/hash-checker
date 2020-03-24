@@ -7,8 +7,6 @@ Hash Checker
 [![Codecov](https://img.shields.io/codecov/c/github/fartem/hash-checker)](https://codecov.io/gh/fartem/hash-checker)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Hash%20Checker-brightgreen.svg?style=flat)](https://android-arsenal.com/details/3/7854)
 [![Open issues](https://img.shields.io/github/issues-raw/fartem/hash-checker.svg?color=ff534a)](https://github.com/fartem/hash-checker/issues)
-[![Last commit](https://img.shields.io/github/last-commit/fartem/hash-checker.svg?color=51539c)](https://github.com/fartem/hash-checker/commits/master)
-[![GitHub release](https://img.shields.io/github/release/fartem/hash-checker.svg?color=009688)](https://github.com/fartem/hash-checker/releases)
 
 About application
 -------------
@@ -37,7 +35,7 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 | --- | --- |
 | English | Translated |
 | Español | [Help wanted](https://github.com/fartem/hash-checker/issues/9) |
-| Deutsch | [Help wanted](https://github.com/fartem/hash-checker/issues/10) |
+| Deutsch | Translated |
 | Français | [Help wanted](https://github.com/fartem/hash-checker/issues/11) |
 | Italiano | [Help wanted](https://github.com/fartem/hash-checker/issues/12) |
 | Magyar | [Help wanted](https://github.com/fartem/hash-checker/issues/13) |
@@ -46,7 +44,7 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 | Ελληνικά | [Help wanted](https://github.com/fartem/hash-checker/issues/16) |
 | Русский | Translated |
 | Polski | [Help wanted](https://github.com/fartem/hash-checker/issues/20) |
-| 简体中文 | In progress |
+| 简体中文 | Translated |
 | 한국어 | [Help wanted](https://github.com/fartem/hash-checker/issues/19) |
 | עברית | [Help wanted](https://github.com/fartem/hash-checker/issues/17) |
 | فارسی | [Help wanted](https://github.com/fartem/hash-checker/issues/18) |
@@ -92,7 +90,6 @@ Read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/
 ```shell
 gradlew clean
 gradlew build
-gradlew checkstyle
 gradlew connectedCheck
 ```
 

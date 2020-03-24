@@ -13,13 +13,17 @@ public class HistoryItemsLoaderTask extends AsyncTask<Void, List<HistoryItem>, L
 
     private final HistoryItemsLoaderTaskTarget<HistoryItem> loaderTaskTarget;
 
-    public HistoryItemsLoaderTask(@NonNull HistoryItemsLoaderTaskTarget<HistoryItem> loaderTaskTarget) {
+    public HistoryItemsLoaderTask(
+            @NonNull HistoryItemsLoaderTaskTarget<HistoryItem> loaderTaskTarget
+    ) {
         this.loaderTaskTarget = loaderTaskTarget;
     }
 
     @Override
     protected List<HistoryItem> doInBackground(Void... voids) {
-        return HelperFactory.getHelper().historyItems(loaderTaskTarget.dataPortion());
+        return HelperFactory.getHelper().historyItems(
+                loaderTaskTarget.dataPortion()
+        );
     }
 
     @Override
@@ -29,7 +33,9 @@ public class HistoryItemsLoaderTask extends AsyncTask<Void, List<HistoryItem>, L
 
     private void completeLoad(@NonNull List<HistoryItem> historyItems) {
         HistoryPortion historyPortion = loaderTaskTarget.dataPortion();
-        historyPortion.setLoaded(historyItems.size() < loaderTaskTarget.dataPortion().pageSize());
+        historyPortion.setLoaded(
+                historyItems.size() < loaderTaskTarget.dataPortion().pageSize()
+        );
         historyPortion.setPage(loaderTaskTarget.dataPortion().page() + 1);
         loaderTaskTarget.postLoad(historyItems);
     }

@@ -1,9 +1,9 @@
 package com.smlnskgmail.jaman.hashchecker;
 
 import com.smlnskgmail.jaman.hashchecker.calculator.HashTypeTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.JDKHashCalculatorDigestTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.JDKHashCalculatorTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.JDKHashToolsTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.JdkHashCalculatorDigestTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.JdkHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.JdkHashToolsTest;
 import com.smlnskgmail.jaman.hashchecker.filemanager.FileItemTest;
 import com.smlnskgmail.jaman.hashchecker.history.HistoryItemTest;
 import com.smlnskgmail.jaman.hashchecker.tools.TextToolsTest;
@@ -13,10 +13,10 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        JDKHashToolsTest.class,
+        JdkHashToolsTest.class,
         HashTypeTest.class,
-        JDKHashCalculatorDigestTest.class,
-        JDKHashCalculatorTest.class,
+        JdkHashCalculatorDigestTest.class,
+        JdkHashCalculatorTest.class,
         TextToolsTest.class,
         FileItemTest.class,
         HistoryItemTest.class

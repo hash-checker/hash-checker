@@ -10,18 +10,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseListAdapter extends RecyclerView.Adapter<BaseListHolder> {
+public abstract class BaseListAdapter<T extends ListItem>
+        extends RecyclerView.Adapter<BaseListHolder<T>> {
 
     private final BaseListBottomSheet bottomSheet;
-    private final List<ListItemTarget> items = new ArrayList<>();
+    private final List<T> items = new ArrayList<>();
 
     protected BaseListAdapter(
-            @NonNull List<ListItemTarget> items,
+            @NonNull List<T> items,
             @NonNull BaseListBottomSheet bottomSheet
     ) {
         this.items.addAll(items);
@@ -30,25 +31,40 @@ public abstract class BaseListAdapter extends RecyclerView.Adapter<BaseListHolde
 
     @NonNull
     @Override
-    public BaseListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return getItemsHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_list, parent, false), getBottomSheet().getContext());
+    public BaseListHolder<T> onCreateViewHolder(
+            @NonNull ViewGroup parent,
+            int viewType
+    ) {
+        return getItemsHolder(
+                LayoutInflater.from(parent.getContext()).inflate(
+                        R.layout.item_list,
+                        parent,
+                        false
+                ),
+                getBottomSheet().getContext()
+        );
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseListHolder holder, int position) {
+    public void onBindViewHolder(
+            @NonNull BaseListHolder<T> holder,
+            int position
+    ) {
         holder.bind(items.get(position));
     }
 
-    protected abstract BaseListHolder getItemsHolder(@NonNull View view, @NonNull Context themeContext);
+    protected abstract BaseListHolder<T> getItemsHolder(
+            @NonNull View view,
+            @NonNull Context themeContext
+    );
 
     @NonNull
-    protected BaseListBottomSheet getBottomSheet() {
+    public BaseListBottomSheet getBottomSheet() {
         return bottomSheet;
     }
 
     @NonNull
-    protected List<ListItemTarget> getItems() {
+    protected List<T> getItems() {
         return items;
     }
 

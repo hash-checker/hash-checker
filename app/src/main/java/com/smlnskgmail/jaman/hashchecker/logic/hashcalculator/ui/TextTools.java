@@ -6,7 +6,10 @@ import androidx.annotation.NonNull;
 
 public class TextTools {
 
-    public static boolean compareText(@NonNull String firstValue, @NonNull String secondValue) {
+    public static boolean compareText(
+            @NonNull String firstValue,
+            @NonNull String secondValue
+    ) {
         return firstValue.equalsIgnoreCase(secondValue.toLowerCase());
     }
 

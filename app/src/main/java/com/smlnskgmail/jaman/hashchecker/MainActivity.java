@@ -13,11 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.smlnskgmail.jaman.hashchecker.components.activities.BaseActivity;
-import com.smlnskgmail.jaman.hashchecker.components.fragments.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
+import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.feedback.ui.FeedbackFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.feedback.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
@@ -25,7 +25,8 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
 
 public class MainActivity extends BaseActivity {
 
-    public static final String URI_FROM_EXTERNAL_APP = "com.smlnskgmail.jaman.hashchecker.URI_FROM_EXTERNAL_APP";
+    public static final String URI_FROM_EXTERNAL_APP
+            = "com.smlnskgmail.jaman.hashchecker.URI_FROM_EXTERNAL_APP";
 
     @Override
     public void create() {
@@ -58,8 +59,15 @@ public class MainActivity extends BaseActivity {
 
     private void showFragment(@NonNull Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .add(android.R.id.content, fragment, BaseFragment.CURRENT_FRAGMENT_TAG)
-                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                .add(
+                        android.R.id.content,
+                        fragment,
+                        BaseFragment.CURRENT_FRAGMENT_TAG
+                )
+                .setCustomAnimations(
+                        android.R.anim.fade_in,
+                        android.R.anim.fade_out
+                )
                 .addToBackStack(null)
                 .commit();
     }
@@ -67,7 +75,10 @@ public class MainActivity extends BaseActivity {
     @NonNull
     private Bundle getConfiguredBundleWithDataUri(@NonNull Uri uri) {
         Bundle bundle = new Bundle();
-        bundle.putString(URI_FROM_EXTERNAL_APP, uri.toString());
+        bundle.putString(
+                URI_FROM_EXTERNAL_APP,
+                uri.toString()
+        );
         return bundle;
     }
 
@@ -101,15 +112,22 @@ public class MainActivity extends BaseActivity {
     }
 
     private void hideKeyboard() {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(
+                Activity.INPUT_METHOD_SERVICE
+        );
         if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
+            inputMethodManager.hideSoftInputFromWindow(
+                    findViewById(android.R.id.content).getWindowToken(),
+                    0
+            );
         }
     }
 
     @Override
     public void onBackPressed() {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(BaseFragment.CURRENT_FRAGMENT_TAG);
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(
+                BaseFragment.CURRENT_FRAGMENT_TAG
+        );
         if (fragment instanceof AppBackClickTarget) {
             ((AppBackClickTarget) fragment).appBackClick();
         }

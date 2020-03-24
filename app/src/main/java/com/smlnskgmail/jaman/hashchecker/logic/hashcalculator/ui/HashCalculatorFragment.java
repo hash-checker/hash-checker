@@ -30,33 +30,32 @@ import androidx.fragment.app.FragmentManager;
 import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
-import com.smlnskgmail.jaman.hashchecker.components.fragments.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.components.vibrator.Vibrator;
-import com.smlnskgmail.jaman.hashchecker.logic.clipboard.ClipboardText;
 import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.FileManagerActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashCalculatorTask;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.input.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.input.TextValueTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.Action;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.ActionsBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.types.UserActionTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.types.UserActionType;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.ui.ActionSelectActionsBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.ui.SourceSelectActionsBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtypes.GenerateToBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtypes.HashTypeSelectTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
+import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.tools.LogTool;
-import com.smlnskgmail.jaman.hashchecker.tools.UITools;
+import com.smlnskgmail.jaman.hashchecker.logic.support.Clipboard;
+import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -70,11 +69,6 @@ public class HashCalculatorFragment extends BaseFragment
 
     private EditText etCustomHash;
     private EditText etGeneratedHash;
-
-    private ImageView ivCustomHashCopy;
-    private ImageView ivCustomHashClear;
-    private ImageView ivGeneratedHashCopy;
-    private ImageView ivGeneratedHashClear;
 
     private TextView tvSelectedObjectName;
     private TextView tvSelectedHashType;
@@ -106,8 +100,16 @@ public class HashCalculatorFragment extends BaseFragment
             if (SettingsHelper.canSaveResultToHistory(context)) {
                 Date date = Calendar.getInstance().getTime();
                 String objectValue = tvSelectedObjectName.getText().toString();
-                HashType hashType = HashType.getHashTypeFromString(tvSelectedHashType.getText().toString());
-                HistoryItem historyItem = new HistoryItem(date, hashType, !isTextSelected, objectValue, hashValue);
+                HashType hashType = HashType.getHashTypeFromString(
+                        tvSelectedHashType.getText().toString()
+                );
+                HistoryItem historyItem = new HistoryItem(
+                        date,
+                        hashType,
+                        !isTextSelected,
+                        objectValue,
+                        hashValue
+                );
                 HelperFactory.getHelper().addHistoryItem(historyItem);
             }
         }
@@ -122,7 +124,7 @@ public class HashCalculatorFragment extends BaseFragment
                 mainScreen,
                 message,
                 vibrator,
-                UITools.getAccentColor(context)
+                UIUtils.getAccentColor(context)
         ).show();
     }
 
@@ -163,10 +165,16 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     private void openInnerFileManager() {
-        Intent openExplorerIntent = new Intent(getContext(), FileManagerActivity.class);
+        Intent openExplorerIntent = new Intent(
+                getContext(),
+                FileManagerActivity.class
+        );
         String lastPath = SettingsHelper.getLastPathForInnerFileManager(context);
         if (lastPath != null) {
-            openExplorerIntent.putExtra(FileManagerActivity.LAST_PATH, lastPath);
+            openExplorerIntent.putExtra(
+                    FileManagerActivity.LAST_PATH,
+                    lastPath
+            );
         }
         startActivityForResult(
                 openExplorerIntent,
@@ -179,9 +187,12 @@ public class HashCalculatorFragment extends BaseFragment
             Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             openExplorerIntent.addCategory(Intent.CATEGORY_OPENABLE);
             openExplorerIntent.setType("*/*");
-            startActivityForResult(openExplorerIntent, FileManagerActivity.FILE_SELECT);
+            startActivityForResult(
+                    openExplorerIntent,
+                    FileManagerActivity.FILE_SELECT
+            );
         } catch (ActivityNotFoundException e) {
-            LogTool.e(e);
+            L.e(e);
             showSnackbarWithoutAction(
                     getString(R.string.message_error_start_file_selector)
             );
@@ -191,8 +202,13 @@ public class HashCalculatorFragment extends BaseFragment
     @SuppressLint("ResourceType")
     private void generateHash() {
         if (fileUri != null || isTextSelected) {
-            HashType hashType = HashType.getHashTypeFromString(tvSelectedHashType.getText().toString());
-            progressDialog = AppProgressDialog.getDialog(context, R.string.message_generate_dialog);
+            HashType hashType = HashType.getHashTypeFromString(
+                    tvSelectedHashType.getText().toString()
+            );
+            progressDialog = AppProgressDialog.getDialog(
+                    context,
+                    R.string.message_generate_dialog
+            );
             progressDialog.show();
             if (isTextSelected) {
                 new HashCalculatorTask(
@@ -238,22 +254,15 @@ public class HashCalculatorFragment extends BaseFragment
 
     private void selectHashTypeFromList() {
         GenerateToBottomSheet generateToBottomSheet = new GenerateToBottomSheet();
-        generateToBottomSheet.setList(Arrays.asList(HashType.values()));
-        generateToBottomSheet.setHashTypeSelectListener(this);
-        generateToBottomSheet.show(getFragmentManager());
+        generateToBottomSheet.show(
+                getFragmentManager(),
+                generateToBottomSheet.getClass().getCanonicalName()
+        );
     }
-
-    private void selectResourceToGenerateHash() {
-        showBottomSheetWithActions(Action.TEXT, Action.FILE);
-    }
-
-    private void selectActionForHashes() {
-        showBottomSheetWithActions(Action.GENERATE, Action.COMPARE, Action.EXPORT_AS_TXT);
-    }
-
 
     private void saveGeneratedHashAsTextFile() {
-        if ((fileUri != null || isTextSelected) && TextTools.fieldIsNotEmpty(etGeneratedHash)) {
+        if ((fileUri != null
+                || isTextSelected) && TextTools.fieldIsNotEmpty(etGeneratedHash)) {
             String filename = getString(
                     isTextSelected
                             ? R.string.filename_hash_from_text
@@ -272,24 +281,20 @@ public class HashCalculatorFragment extends BaseFragment
             Intent saveTextFileIntent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
             saveTextFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
             saveTextFileIntent.setType("text/plain");
-            saveTextFileIntent.putExtra(Intent.EXTRA_TITLE, filename + ".txt");
+            saveTextFileIntent.putExtra(
+                    Intent.EXTRA_TITLE,
+                    filename + ".txt"
+            );
             startActivityForResult(
                     saveTextFileIntent,
                     SettingsHelper.FILE_CREATE
             );
         } catch (ActivityNotFoundException e) {
-            LogTool.e(e);
+            L.e(e);
             showSnackbarWithoutAction(
                     getString(R.string.message_error_start_file_selector)
             );
         }
-    }
-
-    private void showBottomSheetWithActions(Action... actions) {
-        ActionsBottomSheet actionsBottomSheet = new ActionsBottomSheet();
-        actionsBottomSheet.setList(Arrays.asList(actions));
-        actionsBottomSheet.setUserActionTarget(HashCalculatorFragment.this);
-        actionsBottomSheet.show(fragmentManager);
     }
 
     @Override
@@ -305,9 +310,17 @@ public class HashCalculatorFragment extends BaseFragment
         return bundle != null;
     }
 
-    private void checkShortcutActionPresence(@NonNull Bundle shortcutsArguments) {
-        startWithTextSelection = shortcutsArguments.getBoolean(App.ACTION_START_WITH_TEXT, false);
-        startWithFileSelection = shortcutsArguments.getBoolean(App.ACTION_START_WITH_FILE, false);
+    private void checkShortcutActionPresence(
+            @NonNull Bundle shortcutsArguments
+    ) {
+        startWithTextSelection = shortcutsArguments.getBoolean(
+                App.ACTION_START_WITH_TEXT,
+                false
+        );
+        startWithFileSelection = shortcutsArguments.getBoolean(
+                App.ACTION_START_WITH_FILE,
+                false
+        );
 
         shortcutsArguments.remove(App.ACTION_START_WITH_TEXT);
         shortcutsArguments.remove(App.ACTION_START_WITH_FILE);
@@ -328,9 +341,13 @@ public class HashCalculatorFragment extends BaseFragment
                     .query(uri, null, null, null, null)) {
                 assert cursor != null;
                 cursor.moveToPosition(0);
-                return cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                return cursor.getString(
+                        cursor.getColumnIndex(
+                                OpenableColumns.DISPLAY_NAME
+                        )
+                );
             } catch (Exception e) {
-                LogTool.e(e);
+                L.e(e);
             }
         }
         return new File(uri.getPath()).getName();
@@ -341,15 +358,28 @@ public class HashCalculatorFragment extends BaseFragment
         setResult(text, true);
     }
 
-    private void setResult(@NonNull String text, boolean isText) {
+    private void setResult(
+            @NonNull String text,
+            boolean isText
+    ) {
         tvSelectedObjectName.setText(text);
         this.isTextSelected = isText;
-        btnGenerateFrom.setText(getString(isText ? R.string.common_text : R.string.common_file));
+        btnGenerateFrom.setText(
+                getString(
+                        isText ? R.string.common_text : R.string.common_file
+                )
+        );
     }
 
     private void enterText() {
-        String currentText = !isTextSelected ? null : tvSelectedObjectName.getText().toString();
-        new TextInputDialog(context, this, currentText).show();
+        String currentText = !isTextSelected
+                ? null
+                : tvSelectedObjectName.getText().toString();
+        new TextInputDialog(
+                context,
+                this,
+                currentText
+        ).show();
     }
 
     @Override
@@ -375,14 +405,15 @@ public class HashCalculatorFragment extends BaseFragment
                 actionText,
                 action,
                 vibrator,
-                UITools.getAccentColor(context)
+                UIUtils.getAccentColor(context)
         ).show();
     }
 
     private void validateTextCase() {
         boolean useUpperCase = SettingsHelper.useUpperCase(context);
         InputFilter[] fieldFilters = useUpperCase
-                ? new InputFilter[]{new InputFilter.AllCaps()} : new InputFilter[]{};
+                ? new InputFilter[]{new InputFilter.AllCaps()}
+                : new InputFilter[]{};
         etCustomHash.setFilters(fieldFilters);
         etGeneratedHash.setFilters(fieldFilters);
 
@@ -394,8 +425,12 @@ public class HashCalculatorFragment extends BaseFragment
             TextTools.convertToLowerCase(etGeneratedHash);
         }
 
-        etCustomHash.setSelection(etCustomHash.getText().length());
-        etGeneratedHash.setSelection(etGeneratedHash.getText().length());
+        etCustomHash.setSelection(
+                etCustomHash.getText().length()
+        );
+        etGeneratedHash.setSelection(
+                etGeneratedHash.getText().length()
+        );
     }
 
     @Override
@@ -418,25 +453,16 @@ public class HashCalculatorFragment extends BaseFragment
         etCustomHash = view.findViewById(R.id.et_field_custom_hash);
         etGeneratedHash = view.findViewById(R.id.et_field_generated_hash);
 
-        ivCustomHashCopy = view.findViewById(R.id.iv_custom_hash_copy);
-        ivCustomHashCopy.setOnClickListener(v -> {
-            new ClipboardText(
-                    context,
-                    etCustomHash.getText().toString()
-            ).copy();
-            showHashCopySnackbar();
-        });
-        ivCustomHashClear = view.findViewById(R.id.iv_custom_hash_clear);
+        ImageView ivCustomHashCopy = view.findViewById(R.id.iv_custom_hash_copy);
+        ivCustomHashCopy.setOnClickListener(v -> copyHashFromEditText(etCustomHash));
+
+        ImageView ivCustomHashClear = view.findViewById(R.id.iv_custom_hash_clear);
         ivCustomHashClear.setOnClickListener(v -> etCustomHash.setText(""));
-        ivGeneratedHashCopy = view.findViewById(R.id.iv_generated_hash_copy);
-        ivGeneratedHashCopy.setOnClickListener(v -> {
-            new ClipboardText(
-                    context,
-                    etGeneratedHash.getText().toString()
-            ).copy();
-            showHashCopySnackbar();
-        });
-        ivGeneratedHashClear = view.findViewById(R.id.iv_generated_hash_clear);
+
+        ImageView ivGeneratedHashCopy = view.findViewById(R.id.iv_generated_hash_copy);
+        ivGeneratedHashCopy.setOnClickListener(v -> copyHashFromEditText(etGeneratedHash));
+
+        ImageView ivGeneratedHashClear = view.findViewById(R.id.iv_generated_hash_clear);
         ivGeneratedHashClear.setOnClickListener(v -> etGeneratedHash.setText(""));
 
         tvSelectedObjectName = view.findViewById(R.id.tv_selected_object_name);
@@ -445,14 +471,18 @@ public class HashCalculatorFragment extends BaseFragment
         tvSelectedHashType.setOnClickListener(v -> selectHashTypeFromList());
 
         btnGenerateFrom = view.findViewById(R.id.btn_generate_from);
-        btnGenerateFrom.setOnClickListener(v -> selectResourceToGenerateHash());
+        btnGenerateFrom.setOnClickListener(v -> showSourceSelectDialog());
 
         Button btnHashActions = view.findViewById(R.id.btn_hash_actions);
-        btnHashActions.setOnClickListener(v -> selectActionForHashes());
+        btnHashActions.setOnClickListener(v -> showActionSelectDialog());
 
         fragmentManager = getActivity().getSupportFragmentManager();
-        tvSelectedHashType.setText(SettingsHelper.getLastHashType(context).getTypeAsString());
-        tvSelectedObjectName.setMovementMethod(new ScrollingMovementMethod());
+        tvSelectedHashType.setText(
+                SettingsHelper.getLastHashType(context).getTypeAsString()
+        );
+        tvSelectedObjectName.setMovementMethod(
+                new ScrollingMovementMethod()
+        );
         if (startWithTextSelection) {
             userActionSelect(UserActionType.ENTER_TEXT);
             startWithTextSelection = false;
@@ -465,6 +495,37 @@ public class HashCalculatorFragment extends BaseFragment
         if (checkArguments(bundle)) {
             checkExternalDataPresence(bundle);
         }
+    }
+
+    private void copyHashFromEditText(
+            @NonNull EditText editText
+    ) {
+        String hash = editText.getText().toString();
+        if (!hash.isEmpty()) {
+            new Clipboard(
+                    context,
+                    hash
+            ).copy();
+            showHashCopySnackbar();
+        }
+    }
+
+    private void showSourceSelectDialog() {
+        SourceSelectActionsBottomSheet sourceSelectActionsBottomSheet
+                = new SourceSelectActionsBottomSheet();
+        sourceSelectActionsBottomSheet.show(
+                fragmentManager,
+                sourceSelectActionsBottomSheet.getClass().getCanonicalName()
+        );
+    }
+
+    private void showActionSelectDialog() {
+        ActionSelectActionsBottomSheet actionSelectActionsBottomSheet
+                = new ActionSelectActionsBottomSheet();
+        actionSelectActionsBottomSheet.show(
+                fragmentManager,
+                actionSelectActionsBottomSheet.getClass().getCanonicalName()
+        );
     }
 
     private void showHashCopySnackbar() {
@@ -523,12 +584,18 @@ public class HashCalculatorFragment extends BaseFragment
         try {
             Intent intent = new Intent();
             intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-            Uri uri = Uri.fromParts("package", context.getPackageName(), null);
+            Uri uri = Uri.fromParts(
+                    "package",
+                    context.getPackageName(),
+                    null
+            );
             intent.setData(uri);
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            LogTool.e(e);
-            context.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
+            L.e(e);
+            context.startActivity(
+                    new Intent(android.provider.Settings.ACTION_SETTINGS)
+            );
         }
     }
 
@@ -538,20 +605,42 @@ public class HashCalculatorFragment extends BaseFragment
         validateTextCase();
         checkMultilinePreference();
         checkFileManagerChanged();
-        hashTypeSelect(SettingsHelper.getLastHashType(context));
+        hashTypeSelect(
+                SettingsHelper.getLastHashType(context)
+        );
     }
 
     private void checkMultilinePreference() {
         if (SettingsHelper.isUsingMultilineHashFields(context)) {
-            validateMultilineFields(etCustomHash, TEXT_MULTILINE_LINES_COUNT, false);
-            validateMultilineFields(etGeneratedHash, TEXT_MULTILINE_LINES_COUNT, false);
+            validateMultilineFields(
+                    etCustomHash,
+                    TEXT_MULTILINE_LINES_COUNT,
+                    false
+            );
+            validateMultilineFields(
+                    etGeneratedHash,
+                    TEXT_MULTILINE_LINES_COUNT,
+                    false
+            );
         } else {
-            validateMultilineFields(etCustomHash, TEXT_SINGLE_LINE_LINES_COUNT, true);
-            validateMultilineFields(etGeneratedHash, TEXT_SINGLE_LINE_LINES_COUNT, true);
+            validateMultilineFields(
+                    etCustomHash,
+                    TEXT_SINGLE_LINE_LINES_COUNT,
+                    true
+            );
+            validateMultilineFields(
+                    etGeneratedHash,
+                    TEXT_SINGLE_LINE_LINES_COUNT,
+                    true
+            );
         }
     }
 
-    private void validateMultilineFields(@NonNull EditText editText, int lines, boolean singleLine) {
+    private void validateMultilineFields(
+            @NonNull EditText editText,
+            int lines,
+            boolean singleLine
+    ) {
         editText.setSingleLine(singleLine);
         editText.setMinLines(lines);
         editText.setMaxLines(lines);
@@ -570,7 +659,11 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(
+            int requestCode,
+            int resultCode,
+            Intent data
+    ) {
         if (data != null) {
             switch (requestCode) {
                 case FileManagerActivity.FILE_SELECT:
@@ -585,7 +678,7 @@ public class HashCalculatorFragment extends BaseFragment
                     try {
                         writeHashToFile(data.getData());
                     } catch (IOException e) {
-                        LogTool.e(e);
+                        L.e(e);
                     }
                     break;
             }
@@ -594,7 +687,10 @@ public class HashCalculatorFragment extends BaseFragment
 
     private void selectFileFromSystemFileManager(@Nullable Uri uri) {
         validateSelectedFile(uri);
-        SettingsHelper.setGenerateFromShareIntentMode(context, false);
+        SettingsHelper.setGenerateFromShareIntentMode(
+                context,
+                false
+        );
     }
 
     private void selectFileFromAppFileManager(@NonNull Intent data) {
@@ -602,7 +698,10 @@ public class HashCalculatorFragment extends BaseFragment
         if (path != null) {
             String lastPath = data.getStringExtra(FileManagerActivity.LAST_PATH);
             if (lastPath != null) {
-                SettingsHelper.savePathForInnerFileManager(context, lastPath);
+                SettingsHelper.savePathForInnerFileManager(
+                        context,
+                        lastPath
+                );
             }
             Uri uri = Uri.fromFile(new File(path));
             validateSelectedFile(uri);
@@ -611,11 +710,16 @@ public class HashCalculatorFragment extends BaseFragment
 
     private void writeHashToFile(@Nullable Uri uri) throws IOException {
         if (uri != null) {
-            ParcelFileDescriptor fileDescriptor = getActivity().getApplicationContext().getContentResolver()
+            ParcelFileDescriptor fileDescriptor = getActivity().getApplicationContext()
+                    .getContentResolver()
                     .openFileDescriptor(uri, "w");
             if (fileDescriptor != null) {
-                FileOutputStream outputStream = new FileOutputStream(fileDescriptor.getFileDescriptor());
-                outputStream.write(etGeneratedHash.getText().toString().getBytes());
+                FileOutputStream outputStream = new FileOutputStream(
+                        fileDescriptor.getFileDescriptor()
+                );
+                outputStream.write(
+                        etGeneratedHash.getText().toString().getBytes()
+                );
                 outputStream.close();
                 fileDescriptor.close();
             }

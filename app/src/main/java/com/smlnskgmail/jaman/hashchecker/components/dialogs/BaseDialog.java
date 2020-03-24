@@ -38,7 +38,9 @@ public abstract class BaseDialog extends Dialog {
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT
         );
-        getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
+        getWindow().getDecorView().setBackgroundResource(
+                android.R.color.transparent
+        );
     }
 
 }

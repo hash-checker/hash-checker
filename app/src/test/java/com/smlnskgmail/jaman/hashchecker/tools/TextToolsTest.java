@@ -12,13 +12,22 @@ public class TextToolsTest {
     @Test
     public void compareText() {
         assertTrue(
-                TextTools.compareText("equals", "equals")
+                TextTools.compareText(
+                        "equals",
+                        "equals"
+                )
         );
         assertTrue(
-                TextTools.compareText("Blob", "BLOB")
+                TextTools.compareText(
+                        "Blob",
+                        "BLOB"
+                )
         );
         assertFalse(
-                TextTools.compareText("equals", "blob")
+                TextTools.compareText(
+                        "equals",
+                        "blob"
+                )
         );
     }
 

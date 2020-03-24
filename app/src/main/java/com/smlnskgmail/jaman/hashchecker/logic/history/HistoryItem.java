@@ -5,28 +5,43 @@ import androidx.annotation.NonNull;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.smlnskgmail.jaman.hashchecker.logic.database.DBEntity;
+import com.smlnskgmail.jaman.hashchecker.logic.database.DbEntity;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
 
 import java.util.Date;
 import java.util.Objects;
 
 @DatabaseTable(tableName = "history")
-public class HistoryItem extends DBEntity {
+public class HistoryItem extends DbEntity {
 
-    @DatabaseField(columnName = "generation_date", dataType = DataType.DATE_STRING)
+    @DatabaseField(
+            columnName = "generation_date",
+            dataType = DataType.DATE_STRING
+    )
     private Date generationDate;
 
-    @DatabaseField(columnName = "hash_type", dataType = DataType.ENUM_STRING)
+    @DatabaseField(
+            columnName = "hash_type",
+            dataType = DataType.ENUM_STRING
+    )
     private HashType hashType;
 
-    @DatabaseField(columnName = "is_file", dataType = DataType.BOOLEAN)
+    @DatabaseField(
+            columnName = "is_file",
+            dataType = DataType.BOOLEAN
+    )
     private boolean isFile;
 
-    @DatabaseField(columnName = "object_value", dataType = DataType.STRING)
+    @DatabaseField(
+            columnName = "object_value",
+            dataType = DataType.STRING
+    )
     private String objectValue;
 
-    @DatabaseField(columnName = "hash_value", dataType = DataType.STRING)
+    @DatabaseField(
+            columnName = "hash_value",
+            dataType = DataType.STRING
+    )
     private String hashValue;
 
     public HistoryItem(
@@ -80,16 +95,22 @@ public class HistoryItem extends DBEntity {
             return false;
         }
         HistoryItem that = (HistoryItem) o;
-        return isFile == that.isFile &&
-                Objects.equals(generationDate, that.generationDate) &&
-                hashType == that.hashType &&
-                Objects.equals(objectValue, that.objectValue) &&
-                Objects.equals(hashValue, that.hashValue);
+        return isFile == that.isFile
+                && Objects.equals(generationDate, that.generationDate)
+                && hashType == that.hashType
+                && Objects.equals(objectValue, that.objectValue)
+                && Objects.equals(hashValue, that.hashValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(generationDate, hashType, isFile, objectValue, hashValue);
+        return Objects.hash(
+                generationDate,
+                hashType,
+                isFile,
+                objectValue,
+                hashValue
+        );
     }
 
 }

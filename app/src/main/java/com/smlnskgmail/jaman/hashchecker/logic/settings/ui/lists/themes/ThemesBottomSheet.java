@@ -4,12 +4,14 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListB
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
+import java.util.Arrays;
+
 public class ThemesBottomSheet extends BaseListBottomSheet {
 
     @Override
     public BaseListAdapter getItemsAdapter() {
         return new ThemesListAdapter(
-                getItems(),
+                Arrays.asList(Theme.values()),
                 this,
                 SettingsHelper.getSelectedTheme(getContext())
         );

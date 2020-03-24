@@ -31,7 +31,9 @@ public class GenerateHashFromTextTest extends BaseUITest {
     private static final int GENERATE_BUTTON_POSITION = 0;
 
     @Rule
-    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(
+            MainActivity.class
+    );
 
     @Override
     public void runTest() throws InterruptedException {
@@ -45,7 +47,10 @@ public class GenerateHashFromTextTest extends BaseUITest {
         clickById(R.id.btn_generate_from);
         secondDelay();
 
-        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, TEXT_BUTTON_POSITION);
+        inRecyclerViewClickOnPosition(
+                R.id.rv_bottom_sheet_list_items,
+                TEXT_BUTTON_POSITION
+        );
         secondDelay();
     }
 
@@ -66,11 +71,16 @@ public class GenerateHashFromTextTest extends BaseUITest {
         clickById(R.id.tv_selected_hash_type);
         secondDelay();
 
-        List<HashType> hashTypes = new ArrayList<>(Arrays.asList(HashType.values()));
+        List<HashType> hashTypes = new ArrayList<>(
+                Arrays.asList(HashType.values())
+        );
         int hashTypePosition = hashTypes.indexOf(TEST_HASH_TYPE);
         assertTrue(hashTypePosition >= 0);
 
-        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, hashTypePosition);
+        inRecyclerViewClickOnPosition(
+                R.id.rv_bottom_sheet_list_items,
+                hashTypePosition
+        );
 
         textEquals(
                 TEST_HASH_TYPE.getTypeAsString(),
@@ -83,9 +93,15 @@ public class GenerateHashFromTextTest extends BaseUITest {
         secondDelay();
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
-        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, GENERATE_BUTTON_POSITION);
+        inRecyclerViewClickOnPosition(
+                R.id.rv_bottom_sheet_list_items,
+                GENERATE_BUTTON_POSITION
+        );
 
-        countDownLatch.await(SECOND_IN_MILLIS, TimeUnit.MILLISECONDS);
+        countDownLatch.await(
+                SECOND_IN_MILLIS,
+                TimeUnit.MILLISECONDS
+        );
         secondDelay();
 
         textEquals(

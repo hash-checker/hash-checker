@@ -1,14 +1,14 @@
 package com.smlnskgmail.jaman.hashchecker;
 
 import com.smlnskgmail.jaman.hashchecker.calculator.GenerateHashFromTextTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.crc.CRC32JDKHashCalculatorTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.md.MD5JDKHashCalculatorTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA1JDKHashCalculatorTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA224JDKHashCalculatorTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA256JDKHashCalculatorTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA384JDKHashCalculatorTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA512JDKHashCalculatorTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.jdk.zeroleads.MessageDigestZeroLeadsJDKHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.crc.CRC32JdkHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.md.MD5JdkHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA1JdkHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA224JdkHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA256JdkHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA384JdkHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA512JdkHashCalculatorTest;
+import com.smlnskgmail.jaman.hashchecker.calculator.jdk.zeroleads.MessageDigestZeroLeadsJdkHashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.screenrunner.ScreenRunnerTest;
 
 import org.junit.runner.RunWith;
@@ -16,14 +16,14 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        MD5JDKHashCalculatorTest.class,
-        SHA1JDKHashCalculatorTest.class,
-        SHA224JDKHashCalculatorTest.class,
-        SHA256JDKHashCalculatorTest.class,
-        SHA384JDKHashCalculatorTest.class,
-        SHA512JDKHashCalculatorTest.class,
-        CRC32JDKHashCalculatorTest.class,
-        MessageDigestZeroLeadsJDKHashCalculatorTest.class,
+        MD5JdkHashCalculatorTest.class,
+        SHA1JdkHashCalculatorTest.class,
+        SHA224JdkHashCalculatorTest.class,
+        SHA256JdkHashCalculatorTest.class,
+        SHA384JdkHashCalculatorTest.class,
+        SHA512JdkHashCalculatorTest.class,
+        CRC32JdkHashCalculatorTest.class,
+        MessageDigestZeroLeadsJdkHashCalculatorTest.class,
         GenerateHashFromTextTest.class,
         ScreenRunnerTest.class
 })

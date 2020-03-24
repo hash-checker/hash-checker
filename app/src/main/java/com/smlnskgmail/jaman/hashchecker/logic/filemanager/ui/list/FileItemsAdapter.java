@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileItem;
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.support.FileSelectTarget;
+import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.FileSelectTarget;
 
 import java.util.List;
 
@@ -27,13 +27,25 @@ public class FileItemsAdapter extends RecyclerView.Adapter<FileDialogHolder> {
 
     @NonNull
     @Override
-    public FileDialogHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new FileDialogHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_file, parent, false), fileClickListener);
+    public FileDialogHolder onCreateViewHolder(
+            @NonNull ViewGroup parent,
+            int viewType
+    ) {
+        return new FileDialogHolder(
+                LayoutInflater.from(parent.getContext()).inflate(
+                        R.layout.item_file,
+                        parent,
+                        false
+                ),
+                fileClickListener
+        );
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final FileDialogHolder holder, int position) {
+    public void onBindViewHolder(
+            @NonNull final FileDialogHolder holder,
+            int position
+    ) {
         holder.bind(files.get(position));
     }
 

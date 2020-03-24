@@ -5,9 +5,9 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 
-public enum Language implements ListItemTarget {
+public enum Language implements ListItem {
 
     EN("English", "en"),
     DE("Deutsch", "de"),

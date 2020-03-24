@@ -22,8 +22,10 @@ import java.util.Locale;
 
 public class App extends android.app.Application {
 
-    public static final String ACTION_START_WITH_TEXT = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT";
-    public static final String ACTION_START_WITH_FILE = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FILE";
+    public static final String ACTION_START_WITH_TEXT
+            = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT";
+    public static final String ACTION_START_WITH_FILE
+            = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FILE";
 
     private static final String SHORTCUT_TEXT_ID = "shortcut_text";
     private static final String SHORTCUT_FILE_ID = "shortcut_file";
@@ -44,7 +46,10 @@ public class App extends android.app.Application {
             ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
             if (shortcutManager != null) {
                 shortcutManager.setDynamicShortcuts(
-                        Arrays.asList(getShortcutForTextType(), getShortcutForFileType())
+                        Arrays.asList(
+                                getShortcutForTextType(),
+                                getShortcutForFileType()
+                        )
                 );
             }
         }
@@ -83,11 +88,19 @@ public class App extends android.app.Application {
             @IdRes int iconResId,
             @NonNull String intentAction
     ) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(
+                this,
+                MainActivity.class
+        );
         intent.setAction(intentAction);
         return new ShortcutInfo.Builder(this, id)
                 .setShortLabel(getString(labelResId))
-                .setIcon(Icon.createWithResource(this, iconResId))
+                .setIcon(
+                        Icon.createWithResource(
+                                this,
+                                iconResId
+                        )
+                )
                 .setIntent(intent)
                 .build();
     }
@@ -110,7 +123,9 @@ public class App extends android.app.Application {
     }
 
     @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+    public void onConfigurationChanged(
+            @NonNull Configuration newConfig
+    ) {
         super.onConfigurationChanged(newConfig);
         setLocale(getApplicationContext());
     }

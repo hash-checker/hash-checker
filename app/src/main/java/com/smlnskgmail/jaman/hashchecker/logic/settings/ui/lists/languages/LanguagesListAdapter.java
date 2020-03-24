@@ -7,21 +7,20 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.tools.RestartAppTool;
+import com.smlnskgmail.jaman.hashchecker.logic.support.Restart;
 
 import java.util.List;
 
-public class LanguagesListAdapter extends BaseListAdapter {
+public class LanguagesListAdapter extends BaseListAdapter<Language> {
 
     private final Language selectedLanguage;
 
     LanguagesListAdapter(
-            @NonNull List<ListItemTarget> items,
+            @NonNull List<Language> items,
             @NonNull BaseListBottomSheet bottomSheet,
             @NonNull Language selectedLanguage
     ) {
@@ -30,14 +29,17 @@ public class LanguagesListAdapter extends BaseListAdapter {
     }
 
     @Override
-    protected BaseListHolder getItemsHolder(
+    protected BaseListHolder<Language> getItemsHolder(
             @NonNull View view,
             @NonNull Context themeContext
     ) {
-        return new LanguagesListHolder(view, themeContext);
+        return new LanguagesListHolder(
+                view,
+                themeContext
+        );
     }
 
-    private class LanguagesListHolder extends BaseListHolder {
+    private class LanguagesListHolder extends BaseListHolder<Language> {
 
         private Language languageAtPosition;
 
@@ -61,7 +63,7 @@ public class LanguagesListAdapter extends BaseListAdapter {
                                 languageAtPosition
                         );
                         dialog.dismiss();
-                        RestartAppTool.restartApp(
+                        Restart.restartApp(
                                 getBottomSheet().getActivity()
                         );
                     }
@@ -69,9 +71,9 @@ public class LanguagesListAdapter extends BaseListAdapter {
         }
 
         @Override
-        protected void bind(@NonNull ListItemTarget listItemTarget) {
-            languageAtPosition = (Language) listItemTarget;
-            super.bind(listItemTarget);
+        protected void bind(@NonNull Language listItem) {
+            languageAtPosition = listItem;
+            super.bind(listItem);
         }
 
         @Override

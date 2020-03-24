@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
-import com.smlnskgmail.jaman.hashchecker.tools.UITools;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-import static com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget.DEFAULT_ICON_VALUE;
+import static com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem.DEFAULT_ICON_VALUE;
 
-public abstract class BaseListHolder extends RecyclerView.ViewHolder {
+public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.ViewHolder {
 
     private final TextView tvItemTitle;
 
@@ -23,31 +23,56 @@ public abstract class BaseListHolder extends RecyclerView.ViewHolder {
 
     private final Context context;
 
-    protected BaseListHolder(@NonNull View itemView, @NonNull Context themeContext) {
+    protected BaseListHolder(
+            @NonNull View itemView,
+            @NonNull Context themeContext
+    ) {
         super(itemView);
 
         // Context with current theme
         context = themeContext;
         tvItemTitle = itemView.findViewById(R.id.tv_item_list_title);
         ivItemPrimaryIcon = itemView.findViewById(R.id.iv_item_list_icon);
-        ivItemAdditionalIcon = itemView.findViewById(R.id.iv_item_list_additional_icon);
+        ivItemAdditionalIcon = itemView.findViewById(
+                R.id.iv_item_list_additional_icon
+        );
     }
 
-    protected void bind(@NonNull final ListItemTarget listItemTarget) {
+    protected void bind(
+            @NonNull final T listItem
+    ) {
         itemView.setOnClickListener(v -> callItemClick());
-        tvItemTitle.setText(listItemTarget.getTitle(context));
-        int primaryIconResId = listItemTarget.getPrimaryIconResId();
+        tvItemTitle.setText(listItem.getTitle(context));
+        int primaryIconResId = listItem.getPrimaryIconResId();
         if (primaryIconResId != DEFAULT_ICON_VALUE) {
-            ivItemPrimaryIcon.setImageResource(listItemTarget.getPrimaryIconResId());
-            UITools.applyAccentColorToImage(context, ivItemPrimaryIcon.getDrawable());
+            ivItemPrimaryIcon.setImageResource(
+                    listItem.getPrimaryIconResId()
+            );
+            UIUtils.applyAccentColorToImage(
+                    context,
+                    ivItemPrimaryIcon.getDrawable()
+            );
         }
-        ivItemPrimaryIcon.setVisibility(getConditionToPrimaryIconVisibleState() ? View.VISIBLE : View.GONE);
-        int additionalIconResId = listItemTarget.getAdditionalIconResId();
+        ivItemPrimaryIcon.setVisibility(
+                getConditionToPrimaryIconVisibleState()
+                        ? View.VISIBLE
+                        : View.GONE
+        );
+        int additionalIconResId = listItem.getAdditionalIconResId();
         if (additionalIconResId != DEFAULT_ICON_VALUE) {
-            ivItemAdditionalIcon.setImageResource(listItemTarget.getAdditionalIconResId());
-            UITools.applyAccentColorToImage(context, ivItemAdditionalIcon.getDrawable());
+            ivItemAdditionalIcon.setImageResource(
+                    listItem.getAdditionalIconResId()
+            );
+            UIUtils.applyAccentColorToImage(
+                    context,
+                    ivItemAdditionalIcon.getDrawable()
+            );
         }
-        ivItemAdditionalIcon.setVisibility(getConditionToAdditionalIconVisibleState() ? View.VISIBLE : View.INVISIBLE);
+        ivItemAdditionalIcon.setVisibility(
+                getConditionToAdditionalIconVisibleState()
+                        ? View.VISIBLE
+                        : View.INVISIBLE
+        );
     }
 
     protected boolean getConditionToPrimaryIconVisibleState() {

@@ -23,7 +23,9 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 public class ScreenRunnerTest extends BaseUITest {
 
     @Rule
-    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(
+            MainActivity.class
+    );
 
     @Override
     public void runTest() {
@@ -61,7 +63,10 @@ public class ScreenRunnerTest extends BaseUITest {
         delayAndBack();
     }
 
-    private void showFragmentInMenu(@IdRes int menuTitleResId, boolean withBackAction) {
+    private void showFragmentInMenu(
+            @IdRes int menuTitleResId,
+            boolean withBackAction
+    ) {
         Context context = getContext();
         openActionBarOverflowOrOptionsMenu(context);
         clickByText(context.getString(menuTitleResId));
@@ -77,7 +82,10 @@ public class ScreenRunnerTest extends BaseUITest {
 
     private void clickOnSettingsItem(int settingsTitleResId) {
         onView(withId(R.id.recycler_view)).perform(
-                        RecyclerViewActions.actionOnItem(hasDescendant(withText(settingsTitleResId)), click())
+                        RecyclerViewActions.actionOnItem(
+                                hasDescendant(withText(settingsTitleResId)),
+                                click()
+                        )
         );
         delayAndBack();
     }

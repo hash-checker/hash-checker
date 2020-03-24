@@ -1,8 +1,10 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists;
 
+import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,25 +17,26 @@ import java.util.List;
 
 public abstract class BaseListBottomSheet extends BaseBottomSheet {
 
-    private final List<ListItemTarget> items = new ArrayList<>();
+    private final List<ListItem> items = new ArrayList<>();
 
     @Override
-    public void viewCreated(@NonNull View contentView) {
-        RecyclerView bottomSheetItems = contentView.findViewById(R.id.rv_bottom_sheet_list_items);
-        bottomSheetItems.setLayoutManager(new LinearLayoutManager(getContext()));
+    public void onViewCreated(
+            @NonNull View view,
+            @Nullable Bundle savedInstanceState
+    ) {
+        super.onViewCreated(view, savedInstanceState);
+        RecyclerView bottomSheetItems = view.findViewById(
+                R.id.rv_bottom_sheet_list_items
+        );
+        bottomSheetItems.setLayoutManager(
+                new LinearLayoutManager(
+                        getContext()
+                )
+        );
         bottomSheetItems.setAdapter(getItemsAdapter());
     }
 
     protected abstract BaseListAdapter getItemsAdapter();
-
-    @NonNull
-    protected List<ListItemTarget> getItems() {
-        return items;
-    }
-
-    public void setList(@NonNull List<ListItemTarget> listItemTargets) {
-        this.items.addAll(listItemTargets);
-    }
 
     @Override
     public int getLayoutResId() {

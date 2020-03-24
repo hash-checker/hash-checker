@@ -5,12 +5,12 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItemTarget;
+import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 
 import java.util.Arrays;
 import java.util.List;
 
-public enum WebLink implements ListItemTarget {
+public enum WebLink implements ListItem {
 
     SOURCE_CODE(
             R.string.title_web_link_github,
@@ -27,7 +27,11 @@ public enum WebLink implements ListItemTarget {
     private final int iconResId;
     private final int linkResId;
 
-    WebLink(int titleResId, int iconResId, int linkResId) {
+    WebLink(
+            int titleResId,
+            int iconResId,
+            int linkResId
+    ) {
         this.titleResId = titleResId;
         this.iconResId = iconResId;
         this.linkResId = linkResId;
@@ -52,7 +56,7 @@ public enum WebLink implements ListItemTarget {
         return DEFAULT_ICON_VALUE;
     }
 
-    public static List<ListItemTarget> getAuthorLinks() {
+    public static List<WebLink> getAuthorLinks() {
         return Arrays.asList(SOURCE_CODE, GOOGLE_PLAY);
     }
 

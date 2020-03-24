@@ -1,5 +1,4 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <style name="AppBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
         <item name="android:navigationBarColor">?attr/colorBackground</item>
@@ -91,5 +90,4 @@
         <item name="android:textColor">?attr/colorAccent</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
-
 </resources>

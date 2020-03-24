@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- app colors -->
     <attr name="colorPrimary" format="color" />
     <attr name="colorPrimaryDark" format="color" />
@@ -16,5 +15,4 @@
     <attr name="colorDialogBackground" format="color" />
     <attr name="colorBottomSheetBackground" format="color" />
     <attr name="colorSnackbarBackground" format="color" />
-
 </resources>

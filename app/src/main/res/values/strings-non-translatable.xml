@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- commons -->
     <string name="common_app_name" translatable="false">Hash Checker</string>
     <string name="common_app_author" translatable="false">fartem</string>
@@ -46,5 +45,4 @@
     <!-- feedback -->
     <string name="feedback_hash_checker_title" translatable="false">Hash Checker</string>
     <string name="feedback_android_title" translatable="false">Android</string>
-
 </resources>

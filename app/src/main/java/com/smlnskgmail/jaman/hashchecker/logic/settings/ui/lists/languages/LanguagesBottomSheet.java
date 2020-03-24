@@ -4,14 +4,18 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListB
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
+import java.util.Arrays;
+
 public class LanguagesBottomSheet extends BaseListBottomSheet {
 
     @Override
     protected BaseListAdapter getItemsAdapter() {
         return new LanguagesListAdapter(
-                getItems(),
+                Arrays.asList(Language.values()),
                 this,
-                SettingsHelper.getLanguage(getContext())
+                SettingsHelper.getLanguage(
+                        getContext()
+                )
         );
     }
 

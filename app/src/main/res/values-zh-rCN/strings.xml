@@ -2,62 +2,62 @@
 <resources>
     <!-- menu -->
     <string name="menu_title_settings">设置</string>
-    <string name="menu_title_feedback">反馈</string>
+    <string name="menu_title_feedback">向开发者反馈</string>
     <string name="menu_title_history">历史</string>
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">添加文字</string>
     <string name="title_warning_dialog">警告</string>
     <string name="title_permission_dialog">允许</string>
     <!-- messages -->
-    <string name="message_exit">长按后退按钮关闭应用程序</string>
+    <string name="message_exit">长按返回按钮以关闭应用程序</string>
     <string name="message_fill_fields">填写每个字段以进行比较</string>
     <string name="message_generate_hash_before_export">导出前生成哈希值</string>
-    <string name="message_match_result">比赛</string>
-    <string name="message_do_not_match_result">不符合</string>
+    <string name="message_match_result">吻合</string>
+    <string name="message_do_not_match_result">不匹配</string>
     <string name="message_generate_dialog">生成哈希，请稍候......</string>
-    <string name="message_select_object">点击“发件人”以选择所需的源类型</string>
-    <string name="message_request_storage_permission_error">无法授予读取设备文件存储的权限。 请再试一次</string>
-    <string name="message_request_storage_permission_denied">无法授予读取设备文件存储的权限。 您需要转到“设置”并自行提供</string>
-    <string name="message_error_start_file_selector">在您的设备上找不到文件管理器</string>
-    <string name="message_error_start_google_play">在您的设备上找不到Google Play应用或网络浏览器</string>
-    <string name="message_email_app_chooser">选择应用程序发送电子邮件</string>
-    <string name="message_change_theme">要更改主题，您需要重新启动应用程序</string>
-    <string name="message_change_language">要更改语言，您需要重新启动应用程序</string>
-    <string name="message_invalid_selected_source">无法从输入源生成哈希值。 请检查所选来源</string>
-    <string name="message_delete_all_history_items">删除所有历史记录项？</string>
+    <string name="message_select_object">点按\"浏览\"以选择想校验的文件</string>
+    <string name="message_request_storage_permission_error">无法获取储存权限   请再试一次</string>
+    <string name="message_request_storage_permission_denied">无法获取设备储存权限   请手动转到设置授权</string>
+    <string name="message_error_start_file_selector">无法在设备上找到文件管理</string>
+    <string name="message_error_start_google_play">在您的设备上找不到Google Play或浏览器</string>
+    <string name="message_email_app_chooser">选择一个应用以发送邮件</string>
+    <string name="message_change_theme">要应用新的主题，你需要重新启动应用程序</string>
+    <string name="message_change_language">您需要重新启动应用程序以生效更改的语言</string>
+    <string name="message_invalid_selected_source">无法从提供的文件生成哈希值  请重新检查文件来源</string>
+    <string name="message_delete_all_history_items">是否清空历史记录？</string>
     <!-- commons -->
     <string name="common_text">文本</string>
     <string name="common_file">文件</string>
-    <string name="common_add">加</string>
-    <string name="common_ok">好</string>
+    <string name="common_add">添加</string>
+    <string name="common_ok">确定</string>
     <string name="common_cancel">取消</string>
-    <string name="common_again">再次</string>
+    <string name="common_again">重试</string>
     <string name="common_date">日期</string>
     <!-- actions -->
-    <string name="action_from">从</string>
-    <string name="action_select">行动</string>
+    <string name="action_from">浏览文件</string>
+    <string name="action_select">生成哈希</string>
     <string name="action_exit_now">现在退出</string>
-    <string name="action_generate">生成</string>
-    <string name="action_compare">相比</string>
-    <string name="action_export_to_txt">导出为.txt</string>
+    <string name="action_generate">生成哈希值</string>
+    <string name="action_compare">对比哈希值</string>
+    <string name="action_export_to_txt">导出为\".txt\"</string>
     <!-- themes -->
-    <string name="title_theme_light">光</string>
-    <string name="title_theme_dark">暗</string>
+    <string name="title_theme_light">亮色模式</string>
+    <string name="title_theme_dark">夜间模式</string>
     <!-- titles -->
-    <string name="title_custom_hash">自定义哈希</string>
-    <string name="title_generated_hash">生成的哈希</string>
+    <string name="title_custom_hash">用来校验的哈希值</string>
+    <string name="title_generated_hash">文件生成的哈希值</string>
     <!-- hints -->
-    <string name="hint_input_text">在这打字</string>
+    <string name="hint_input_text">输入文字</string>
     <!-- settings titles -->
     <string name="settings_title_general">一般</string>
-    <string name="settings_title_app">应用</string>
-    <string name="settings_title_interface">接口</string>
+    <string name="settings_title_app">应用程序</string>
+    <string name="settings_title_interface">主题设置</string>
     <string name="settings_title_about">关于</string>
     <string name="settings_title_upper_case">大写</string>
     <string name="settings_title_author">作者</string>
-    <string name="settings_title_app_file_manager">内部文件管理器</string>
-    <string name="settings_title_version">版</string>
-    <string name="settings_title_vibration">振动</string>
+    <string name="settings_title_app_file_manager">内置的文件管理器</string>
+    <string name="settings_title_version">版本</string>
+    <string name="settings_title_vibration">振动反馈</string>
     <string name="settings_title_privacy">隐私</string>
     <string name="settings_title_export_user_data">导出用户数据</string>
     <string name="settings_title_privacy_policy">隐私政策</string>
@@ -67,7 +67,7 @@
     <string name="settings_title_multiline">多行哈希字段</string>
     <string name="settings_title_language">语言</string>
     <string name="settings_title_support">支持</string>
-    <string name="settings_title_help_with_translation">翻译帮助</string>
+    <string name="settings_title_help_with_translation">协助翻译</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">生产厂家</string>
     <string name="feedback_model">模型</string>
@@ -75,6 +75,6 @@
     <!-- file manager -->
     <string name="file_manager_select_storage_title">选择存储</string>
     <!-- history -->
-    <string name="history_item_click_text">哈希值复制到剪贴板</string>
-    <string name="history_empty_view_message">未找到历史记录项目</string>
+    <string name="history_item_click_text">将哈希值复制到剪切板</string>
+    <string name="history_empty_view_message">未找到历史记录</string>
 </resources>

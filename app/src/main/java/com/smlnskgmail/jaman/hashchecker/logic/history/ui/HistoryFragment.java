@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.adaptiverecyclerview.AdaptiveRecyclerView;
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.components.fragments.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.listadapter.HistoryItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.logic.history.ui.list.HistoryItemsAdapter;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryItemsLoaderTask;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryItemsLoaderTaskTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryPortion;
@@ -46,7 +46,11 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
         rvHistoryItems.setMessageView(view.findViewById(R.id.ll_history_empty_view));
         rvHistoryItems.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(
+                    @NonNull RecyclerView recyclerView,
+                    int dx,
+                    int dy
+            ) {
                 LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
                 int totalItemCount = layoutManager.getItemCount();
                 int lastVisibleItem = layoutManager.findLastVisibleItemPosition();

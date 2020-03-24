@@ -10,9 +10,9 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.vibrator.Vibrator;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.tools.UITools;
+import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
+import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public class AppSnackbar {
 
@@ -88,9 +88,13 @@ public class AppSnackbar {
                 )
         );
 
-        TextView snackbarText = snackbar.getView().findViewById(R.id.snackbar_text);
+        TextView snackbarText = snackbar.getView().findViewById(
+                R.id.snackbar_text
+        );
         snackbarText.setTextColor(
-                UITools.getCommonTextColor(context)
+                UIUtils.getCommonTextColor(
+                        context
+                )
         );
         snackbar.show();
 
