@@ -5,6 +5,7 @@ Hash Checker
 
 [![Travis CI](https://img.shields.io/travis/fartem/hash-checker)](https://travis-ci.org/fartem/hash-checker)
 [![Codecov](https://img.shields.io/codecov/c/github/fartem/hash-checker)](https://codecov.io/gh/fartem/hash-checker)
+[![Hits-of-Code](https://hitsofcode.com/github/fartem/hash-checker)](https://hitsofcode.com/view/github/fartem/hash-checker)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Hash%20Checker-brightgreen.svg?style=flat)](https://android-arsenal.com/details/3/7854)
 
 About application
