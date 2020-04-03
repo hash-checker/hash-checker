@@ -34,18 +34,18 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 
 | Language | Since version | Status |
 | --- | --- | --- |
-| English | 1.0.0 | Translated |
+| English | 1.0.0 | `Translated` |
 | Español | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/9) |
-| Deutsch | 2.9.6 | Translated |
+| Deutsch | 2.9.6 | `Translated` |
 | Français | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/11) |
 | Italiano | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/12) |
 | Magyar | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/13) |
 | Nederlands | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/14) |
 | Svenska | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/15) |
 | Ελληνικά | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/16) |
-| Русский | 2.9.6 | Translated |
+| Русский | 2.9.6 | `Translated` |
 | Polski | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/20) |
-| 简体中文 | 2.9.9 | Translated |
+| 简体中文 | 2.9.9 | `Translated` |
 | 한국어 | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/19) |
 | עברית | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/17) |
 | فارسی | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/18) |
