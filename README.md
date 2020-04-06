@@ -25,7 +25,7 @@ Supporting algorithms
 | [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
 | [SHA-384](https://en.wikipedia.org/wiki/SHA-2) | 1.4.0 | `Supporting` |
 | [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
-| [CRC32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Supporting` |
+| [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Supporting` |
 
 Supporting languages
 --------------------
