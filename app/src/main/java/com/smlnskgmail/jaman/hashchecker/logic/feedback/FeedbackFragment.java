@@ -79,18 +79,23 @@ public class FeedbackFragment extends BaseFragment {
             @NonNull String email
     ) {
         Intent emailIntent = new Intent(
-                Intent.ACTION_SENDTO,
-                Uri.fromParts(
-                        "mailto",
-                        email,
-                        null
-                )
+                Intent.ACTION_SENDTO
+        );
+        emailIntent.setData(
+                Uri.parse("mailto:")
+        );
+        emailIntent.putExtra(
+                Intent.EXTRA_EMAIL,
+                new String[] { email }
         );
         emailIntent.putExtra(
                 Intent.EXTRA_SUBJECT,
                 getString(R.string.common_app_name)
         );
-        emailIntent.putExtra(Intent.EXTRA_TEXT, text);
+        emailIntent.putExtra(
+                Intent.EXTRA_TEXT,
+                text
+        );
 
         String chooseMessage = String.format(
                 "%s:",
