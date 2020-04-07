@@ -1,7 +1,7 @@
 <img src="media/logo/ic_app.png" height="100px" />
 
 Hash Checker
-============
+=============
 
 [![Travis CI](https://travis-ci.org/fartem/parse-android-test-app.svg?branch=master)](https://travis-ci.org/fartem/parse-android-test-app)
 [![Codebeat](https://codebeat.co/badges/f50ffd5e-e62f-413c-b84a-4308a9399ae9)](https://codebeat.co/projects/github-com-fartem-hash-checker-master)
