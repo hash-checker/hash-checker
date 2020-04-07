@@ -5,7 +5,7 @@ Hash Checker
 
 [![Travis CI](https://img.shields.io/travis/fartem/hash-checker)](https://travis-ci.org/fartem/hash-checker)
 [![Codebeat](https://codebeat.co/badges/f50ffd5e-e62f-413c-b84a-4308a9399ae9)](https://codebeat.co/projects/github-com-fartem-hash-checker-master)
-[![Codecov](https://img.shields.io/codecov/c/github/fartem/hash-checker)](https://codecov.io/gh/fartem/hash-checker)
+[![Codecov](https://codecov.io/gh/fartem/hash-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/fartem/hash-checker)
 [![Hits-of-Code](https://hitsofcode.com/github/fartem/hash-checker)](https://hitsofcode.com/view/github/fartem/hash-checker)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Hash%20Checker-brightgreen.svg?style=flat)](https://android-arsenal.com/details/3/7854)
 
