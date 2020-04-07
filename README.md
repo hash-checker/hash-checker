@@ -1,9 +1,9 @@
 <img src="media/logo/ic_app.png" height="100px" />
 
 Hash Checker
-=============
+============
 
-[![Travis CI](https://img.shields.io/travis/fartem/hash-checker)](https://travis-ci.org/fartem/hash-checker)
+[![Travis CI](https://travis-ci.org/fartem/parse-android-test-app.svg?branch=master)](https://travis-ci.org/fartem/parse-android-test-app)
 [![Codebeat](https://codebeat.co/badges/f50ffd5e-e62f-413c-b84a-4308a9399ae9)](https://codebeat.co/projects/github-com-fartem-hash-checker-master)
 [![Codecov](https://codecov.io/gh/fartem/hash-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/fartem/hash-checker)
 [![Hits-of-Code](https://hitsofcode.com/github/fartem/hash-checker)](https://hitsofcode.com/view/github/fartem/hash-checker)
