@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class HistoryItemTest {
 
@@ -46,6 +47,20 @@ public class HistoryItemTest {
         assertEquals(
                 hashValue,
                 historyItem.getHashValue()
+        );
+
+        assertEquals(
+                historyItem,
+                historyItem
+        );
+
+        assertNotEquals(
+                historyItem,
+                null
+        );
+        assertNotEquals(
+                historyItem,
+                "String"
         );
     }
 

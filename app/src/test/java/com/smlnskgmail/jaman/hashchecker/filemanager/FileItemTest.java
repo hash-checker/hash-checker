@@ -6,6 +6,7 @@ import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileType;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class FileItemTest {
 
@@ -29,9 +30,20 @@ public class FileItemTest {
                 filePath,
                 fileItem.getFilePath()
         );
+
+
         assertEquals(
+                fileItem,
+                fileItem
+        );
+
+        assertNotEquals(
+                fileItem,
+                null
+        );
+        assertNotEquals(
                 filename,
-                fileItem.getFileName()
+                "String"
         );
     }
 
