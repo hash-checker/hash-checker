@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.history;
 
+import com.smlnskgmail.jaman.hashchecker.entities.BaseEntityTest;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 
@@ -10,24 +11,24 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class HistoryItemTest {
+public class HistoryItemTest extends BaseEntityTest {
 
-    @Test
+    private Date generationDate = new Date();
+    private HashType hashType = HashType.MD5;
+    private boolean isFile = true;
+    private String objectValue = "./Downloads/task_manager.apk";
+    private String hashValue = "9gkfnb7nvklckofdamvkdlsop16789dm";
+
+    private HistoryItem historyItem = new HistoryItem(
+            generationDate,
+            hashType,
+            isFile,
+            objectValue,
+            hashValue
+    );
+
+    @Override
     public void validateFields() {
-        Date generationDate = new Date();
-        HashType hashType = HashType.MD5;
-        boolean isFile = true;
-        String objectValue = "./Downloads/task_manager.apk";
-        String hashValue = "9gkfnb7nvklckofdamvkdlsop16789dm";
-
-        HistoryItem historyItem = new HistoryItem(
-                generationDate,
-                hashType,
-                isFile,
-                objectValue,
-                hashValue
-        );
-
         assertEquals(
                 generationDate,
                 historyItem.getGenerationDate()
@@ -50,22 +51,8 @@ public class HistoryItemTest {
         );
     }
 
-    @Test
+    @Override
     public void validateEquals() {
-        Date generationDate = new Date();
-        HashType hashType = HashType.MD5;
-        boolean isFile = true;
-        String objectValue = "./Downloads/task_manager.apk";
-        String hashValue = "9gkfnb7nvklckofdamvkdlsop16789dm";
-
-        HistoryItem historyItem = new HistoryItem(
-                generationDate,
-                hashType,
-                isFile,
-                objectValue,
-                hashValue
-        );
-
         assertEquals(
                 historyItem,
                 historyItem
@@ -131,22 +118,8 @@ public class HistoryItemTest {
         );
     }
 
-    @Test
+    @Override
     public void validateHashCode() {
-        Date generationDate = new Date();
-        HashType hashType = HashType.MD5;
-        boolean isFile = true;
-        String objectValue = "./Downloads/task_manager.apk";
-        String hashValue = "9gkfnb7nvklckofdamvkdlsop16789dm";
-
-        HistoryItem historyItem = new HistoryItem(
-                generationDate,
-                hashType,
-                isFile,
-                objectValue,
-                hashValue
-        );
-
         assertEquals(
                 historyItem.hashCode(),
                 historyItem.hashCode()
