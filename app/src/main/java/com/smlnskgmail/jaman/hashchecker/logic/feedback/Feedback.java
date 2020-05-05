@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 
-class Feedback {
+public class Feedback {
 
     private final String appVersionName = BuildConfig.VERSION_NAME;
     private final int appVersionCode = BuildConfig.VERSION_CODE;
@@ -15,7 +15,7 @@ class Feedback {
     private final String manufacturer = Build.MANUFACTURER;
     private final String model = Build.MODEL;
 
-    String getAppInfo() {
+    public String getAppInfo() {
         return String.format(
                 "%s (%s)",
                 appVersionName,
@@ -23,19 +23,19 @@ class Feedback {
         );
     }
 
-    String getOsVersion() {
+    public String getOsVersion() {
         return osVersion;
     }
 
-    String getManufacturer() {
+    public String getManufacturer() {
         return manufacturer;
     }
 
-    String getModel() {
+    public String getModel() {
         return model;
     }
 
-    String getConfiguredMessage(@NonNull String feedback) {
+    public String getConfiguredMessage(@NonNull String feedback) {
         return String.format(
                 "%s" +
                 "\n\n\n%s (%s)" +
