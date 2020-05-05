@@ -4,8 +4,6 @@ import com.smlnskgmail.jaman.hashchecker.entities.BaseEntityTest;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 
-import org.junit.Test;
-
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;

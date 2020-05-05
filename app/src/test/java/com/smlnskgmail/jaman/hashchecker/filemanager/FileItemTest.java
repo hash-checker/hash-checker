@@ -6,7 +6,6 @@ import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileType;
 
 import org.junit.Test;
 
-import java.lang.reflect.Field;
 import java.util.Arrays;
 
 import static org.hamcrest.core.Is.is;
