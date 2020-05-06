@@ -83,6 +83,16 @@ Privacy Policy
 
 * [fartem.github.io/hash-checker-privacy-policy.io](https://fartem.github.io/hash-checker-privacy-policy.io/)
 
+How to build unsigned .apk from command line without IDE
+-------------
+
+From project directory run:
+
+```shell
+gradlew clean
+gradlew assembleDebug
+```
+
 How to contribute
 -------------
 
