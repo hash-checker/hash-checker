@@ -93,6 +93,8 @@ gradlew clean
 gradlew assembleDebug
 ```
 
+Go to `app` -> `build` -> `outputs` -> `apk` -> `debug` and find `app-debug.apk`.
+
 How to contribute
 -------------
 

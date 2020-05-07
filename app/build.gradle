@@ -68,6 +68,12 @@ android {
             includeAndroidResources = true
         }
     }
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def versionName = android.defaultConfig.versionName
+            output.outputFileName = "hash-checker_${versionName}"
+        }
+    }
 }
 
 dependencies {
