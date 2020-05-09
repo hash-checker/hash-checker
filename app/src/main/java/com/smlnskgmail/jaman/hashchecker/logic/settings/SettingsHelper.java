@@ -147,7 +147,7 @@ public class SettingsHelper {
                 return theme;
             }
         }
-        return Theme.LIGHT;
+        return Theme.DARK;
     }
 
     /*
@@ -159,7 +159,7 @@ public class SettingsHelper {
         String theme = getStringPreference(
                 context,
                 context.getString(R.string.key_selected_theme),
-                Theme.LIGHT.toString()
+                Theme.DARK.toString()
         );
         if (validateAppTheme(context, theme)) {
             return theme;
@@ -176,7 +176,7 @@ public class SettingsHelper {
                 || theme.equals(Theme.DARK.toString())) {
             return true;
         }
-        saveTheme(context, Theme.LIGHT);
+        saveTheme(context, Theme.DARK);
         return false;
     }
 

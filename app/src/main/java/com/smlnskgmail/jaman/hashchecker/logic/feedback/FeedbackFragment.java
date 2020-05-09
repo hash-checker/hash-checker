@@ -1,7 +1,9 @@
 package com.smlnskgmail.jaman.hashchecker.logic.feedback;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,15 +12,28 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ShareCompat;
 
+import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 
 public class FeedbackFragment extends BaseFragment {
 
+    private final String osVersion = Build.VERSION.RELEASE;
+    private final String manufacturer = Build.MANUFACTURER;
+    private final String model = Build.MODEL;
+
     private EditText feedbackEdit;
 
-    private final Feedback feedback = new Feedback();
+    private final Feedback feedback = new Feedback(
+            BuildConfig.VERSION_NAME,
+            BuildConfig.VERSION_CODE,
+            osVersion,
+            manufacturer,
+            model
+    );
 
     @Override
     public void onViewCreated(
@@ -36,17 +51,17 @@ public class FeedbackFragment extends BaseFragment {
         applyInfoToTextView(
                 view,
                 R.id.tv_android_value,
-                feedback.getOsVersion()
+                osVersion
         );
         applyInfoToTextView(
                 view,
                 R.id.tv_manufacturer_value,
-                feedback.getManufacturer()
+                manufacturer
         );
         applyInfoToTextView(
                 view,
                 R.id.tv_model_value,
-                feedback.getModel()
+                model
         );
     }
 
@@ -79,34 +94,58 @@ public class FeedbackFragment extends BaseFragment {
             @NonNull String email
     ) {
         Intent emailIntent = new Intent(
-                Intent.ACTION_SENDTO
-        );
-        emailIntent.setData(
-                Uri.parse("mailto:")
+                Intent.ACTION_SEND
         );
         emailIntent.putExtra(
                 Intent.EXTRA_EMAIL,
                 new String[] { email }
         );
+
+        String subject = getString(R.string.common_app_name);
         emailIntent.putExtra(
                 Intent.EXTRA_SUBJECT,
-                getString(R.string.common_app_name)
+                subject
         );
         emailIntent.putExtra(
                 Intent.EXTRA_TEXT,
                 text
         );
 
+        Intent selectorIntent = new Intent(
+                Intent.ACTION_SENDTO
+        );
+        selectorIntent.setData(
+                Uri.parse(
+                        "mailto:"
+                )
+        );
+        emailIntent.setSelector(
+            selectorIntent
+        );
+
         String chooseMessage = String.format(
                 "%s:",
                 getString(R.string.message_email_app_chooser)
         );
-        startActivity(
-                Intent.createChooser(
-                        emailIntent,
-                        chooseMessage
-                )
-        );
+
+        try {
+            startActivity(
+                    Intent.createChooser(
+                            emailIntent,
+                            chooseMessage
+                    )
+            );
+        } catch (ActivityNotFoundException e) {
+            L.e(e);
+            ShareCompat.IntentBuilder
+                    .from(getActivity())
+                    .setText("message/rfc822")
+                    .addEmailTo(email)
+                    .setSubject(subject)
+                    .setText(text)
+                    .setChooserTitle(chooseMessage)
+                    .startChooser();
+        }
     }
 
     @Override

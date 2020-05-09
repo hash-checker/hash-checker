@@ -48,7 +48,7 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 | 简体中文 | 2.9.9 | `Translated` |
 | 한국어 | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/19) |
 | עברית | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/17) |
-| فارسی | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/18) |
+| فارسی | 2.9.9 | `Translated` |
 
 Screenshots
 -------------
@@ -89,11 +89,11 @@ How to build unsigned .apk from command line without IDE
 From project directory run:
 
 ```shell
-gradlew clean
-gradlew assembleDebug
+$ gradlew clean
+$ gradlew assembleDebug
 ```
 
-Go to `app` -> `build` -> `outputs` -> `apk` -> `debug` and find `app-debug.apk`.
+Go to `app` -> `build` -> `outputs` -> `apk` -> `debug` and find `hash-checker_VERSION.apk` where 'VERSION' is number of app version.
 
 How to contribute
 -------------
@@ -101,9 +101,9 @@ How to contribute
 Read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
 
 ```shell
-gradlew clean
-gradlew build
-gradlew connectedCheck
+$ gradlew clean
+$ gradlew build
+$ gradlew connectedCheck
 ```
 
 If you don't see any error messages, submit your pull request.

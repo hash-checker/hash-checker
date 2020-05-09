@@ -8,12 +8,26 @@ import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 
 public class Feedback {
 
-    private final String appVersionName = BuildConfig.VERSION_NAME;
-    private final int appVersionCode = BuildConfig.VERSION_CODE;
+    private final String appVersionName;
+    private final int appVersionCode;
 
-    private final String osVersion = Build.VERSION.RELEASE;
-    private final String manufacturer = Build.MANUFACTURER;
-    private final String model = Build.MODEL;
+    private final String osVersion;
+    private final String manufacturer;
+    private final String model;
+
+    public Feedback(
+            @NonNull String appVersionName,
+            int appVersionCode,
+            @NonNull String osVersion,
+            @NonNull String manufacturer,
+            @NonNull String model
+    ) {
+        this.appVersionName = appVersionName;
+        this.appVersionCode = appVersionCode;
+        this.osVersion = osVersion;
+        this.manufacturer = manufacturer;
+        this.model = model;
+    }
 
     public String getAppInfo() {
         return String.format(
@@ -21,18 +35,6 @@ public class Feedback {
                 appVersionName,
                 appVersionCode
         );
-    }
-
-    public String getOsVersion() {
-        return osVersion;
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public String getModel() {
-        return model;
     }
 
     public String getConfiguredMessage(@NonNull String feedback) {
