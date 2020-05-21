@@ -60,7 +60,7 @@ public class HashTypeTest {
     public void parseCRC32FromString() {
         assertEquals(
                 HashType.CRC_32,
-                HashType.getHashTypeFromString("CRC32")
+                HashType.getHashTypeFromString("CRC-32")
         );
     }
 
