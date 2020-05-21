@@ -15,7 +15,7 @@ public enum HashType implements ListItem {
     SHA_256("SHA-256"),
     SHA_384("SHA-384"),
     SHA_512("SHA-512"),
-    CRC_32("CRC32");
+    CRC_32("CRC-32");
 
     private final String hashName;
 
