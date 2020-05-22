@@ -50,7 +50,7 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 | עברית | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/17) |
 | فارسی | 2.9.9 | `Translated` |
 
-Screenshots
+Screenshots (Light theme)
 -------------
 
 <br/>
@@ -61,6 +61,9 @@ Screenshots
   <img src="media/screenshots/screenshot_04.png" width="170" />
   <img src="media/screenshots/screenshot_05.png" width="170" />
 </p>
+
+Screenshots (Dark theme)
+-------------
 
 <br/>
 <p align="center">
