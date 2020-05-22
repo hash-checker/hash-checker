@@ -62,6 +62,15 @@ Screenshots
   <img src="media/screenshots/screenshot_05.png" width="170" />
 </p>
 
+<br/>
+<p align="center">
+  <img src="media/screenshots/screenshot_06.png" width="170" />
+  <img src="media/screenshots/screenshot_07.png" width="170" />
+  <img src="media/screenshots/screenshot_08.png" width="170" />
+  <img src="media/screenshots/screenshot_09.png" width="170" />
+  <img src="media/screenshots/screenshot_10.png" width="170" />
+</p>
+
 Downloads
 -------------
 
