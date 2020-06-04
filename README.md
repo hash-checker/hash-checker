@@ -90,6 +90,11 @@ Articles
 
 * [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
 
+Black Duck Open Hub
+-------------
+
+* [Hash Checker (Android)](https://www.openhub.net/p/hash-checker)
+
 Privacy Policy
 -------------
 
