@@ -54,11 +54,11 @@ Screenshots (Light theme)
 
 <br/>
 <p align="center">
-  <img src="media/screenshots/screenshot_01.png" width="170" />
-  <img src="media/screenshots/screenshot_02.png" width="170" />
-  <img src="media/screenshots/screenshot_03.png" width="170" />
-  <img src="media/screenshots/screenshot_04.png" width="170" />
-  <img src="media/screenshots/screenshot_05.png" width="170" />
+  <img src="media/screenshots/screenshot_01.png" width="130" />
+  <img src="media/screenshots/screenshot_02.png" width="130" />
+  <img src="media/screenshots/screenshot_03.png" width="130" />
+  <img src="media/screenshots/screenshot_04.png" width="130" />
+  <img src="media/screenshots/screenshot_05.png" width="130" />
 </p>
 
 Screenshots (Dark theme)
@@ -66,11 +66,11 @@ Screenshots (Dark theme)
 
 <br/>
 <p align="center">
-  <img src="media/screenshots/screenshot_06.png" width="170" />
-  <img src="media/screenshots/screenshot_07.png" width="170" />
-  <img src="media/screenshots/screenshot_08.png" width="170" />
-  <img src="media/screenshots/screenshot_09.png" width="170" />
-  <img src="media/screenshots/screenshot_10.png" width="170" />
+  <img src="media/screenshots/screenshot_06.png" width="130" />
+  <img src="media/screenshots/screenshot_07.png" width="130" />
+  <img src="media/screenshots/screenshot_08.png" width="130" />
+  <img src="media/screenshots/screenshot_09.png" width="130" />
+  <img src="media/screenshots/screenshot_10.png" width="130" />
 </p>
 
 Downloads
