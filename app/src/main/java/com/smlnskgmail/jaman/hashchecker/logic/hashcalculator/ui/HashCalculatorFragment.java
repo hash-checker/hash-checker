@@ -14,7 +14,9 @@ import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
 import android.provider.Settings;
+import android.text.Editable;
 import android.text.InputFilter;
+import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
@@ -464,6 +466,50 @@ public class HashCalculatorFragment extends BaseFragment
 
         ImageView ivGeneratedHashClear = view.findViewById(R.id.iv_generated_hash_clear);
         ivGeneratedHashClear.setOnClickListener(v -> etGeneratedHash.setText(""));
+
+        etCustomHash.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int writtenTextLength = s.toString().length();
+                if(writtenTextLength > 0) {
+                    ivCustomHashClear.setVisibility(View.VISIBLE);
+                }else {
+                    ivCustomHashClear.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        etGeneratedHash.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int writtenTextLength = s.toString().length();
+                if(writtenTextLength > 0) {
+                    ivGeneratedHashClear.setVisibility(View.VISIBLE);
+                }else {
+                    ivGeneratedHashClear.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         tvSelectedObjectName = view.findViewById(R.id.tv_selected_object_name);
 
