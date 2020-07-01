@@ -32,6 +32,7 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.LanguagesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.AuthorWebLinksBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.PrivacyPolicyWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
@@ -107,7 +108,12 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializePrivacyPolicy() {
         findPreference(getString(R.string.key_privacy_policy))
                 .setOnPreferenceClickListener(preference -> {
-            WebUtils.openWebLink(context, context.getString(R.string.web_link_privacy_policy));
+                    PrivacyPolicyWebLinksBottomSheet privacyPolicyWebLinksBottomSheet
+                            = new PrivacyPolicyWebLinksBottomSheet();
+                    privacyPolicyWebLinksBottomSheet.show(
+                            fragmentManager,
+                            privacyPolicyWebLinksBottomSheet.getClass().getCanonicalName()
+                    );
             return false;
         });
     }
@@ -202,7 +208,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
             );
         } catch (ActivityNotFoundException e) {
             try {
-                link = Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName);
+                link = Uri.parse(
+                        "https://play.google.com/store/apps/details?id=" + appPackageName
+                );
                 context.startActivity(
                         new Intent(
                                 Intent.ACTION_VIEW,
@@ -231,7 +239,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeFileManagerSwitcher() {
         findPreference(getString(R.string.key_inner_file_manager))
                 .setOnPreferenceChangeListener((preference, o) -> {
-            SettingsHelper.setRefreshSelectedFileStatus(context, true);
+            SettingsHelper.setRefreshSelectedFileStatus(
+                    context,
+                    true
+            );
             return true;
         });
     }

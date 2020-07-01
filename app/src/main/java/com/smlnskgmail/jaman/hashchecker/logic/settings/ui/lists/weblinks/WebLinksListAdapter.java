@@ -16,7 +16,7 @@ public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
 
     WebLinksListAdapter(
             @NonNull List<WebLink> items,
-            @NonNull BaseListBottomSheet bottomSheet
+            @NonNull BaseListBottomSheet<WebLink> bottomSheet
     ) {
         super(items, bottomSheet);
     }

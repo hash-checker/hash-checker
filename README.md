@@ -128,3 +128,4 @@ Contributors
 -------------
 
 * [@fartem](https://github.com/fartem) as Artem Fomchenkov
+* [@Marwa-Eltayeb](https://github.com/Marwa-Eltayeb) as Marwa Said

@@ -11,35 +11,43 @@ import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
 import java.util.Date;
 import java.util.Objects;
 
-@DatabaseTable(tableName = "history")
+@DatabaseTable(tableName = HistoryItem.TABLE_HISTORY)
 public class HistoryItem extends DbEntity {
 
+    public static final String TABLE_HISTORY = "history";
+
+    public static final String COLUMN_GENERATION_DATE = "generation_date";
+    public static final String COLUMN_HASH_TYPE = "hash_type";
+    public static final String COLUMN_IS_FILE = "is_file";
+    public static final String COLUMN_OBJECT_VALUE = "object_value";
+    public static final String COLUMN_HASH_VALUE = "hash_value";
+
     @DatabaseField(
-            columnName = "generation_date",
+            columnName = HistoryItem.COLUMN_GENERATION_DATE,
             dataType = DataType.DATE_STRING
     )
     private Date generationDate;
 
     @DatabaseField(
-            columnName = "hash_type",
+            columnName = HistoryItem.COLUMN_HASH_TYPE,
             dataType = DataType.ENUM_STRING
     )
     private HashType hashType;
 
     @DatabaseField(
-            columnName = "is_file",
+            columnName = HistoryItem.COLUMN_IS_FILE,
             dataType = DataType.BOOLEAN
     )
     private boolean isFile;
 
     @DatabaseField(
-            columnName = "object_value",
+            columnName = HistoryItem.COLUMN_OBJECT_VALUE,
             dataType = DataType.STRING
     )
     private String objectValue;
 
     @DatabaseField(
-            columnName = "hash_value",
+            columnName = HistoryItem.COLUMN_HASH_VALUE,
             dataType = DataType.STRING
     )
     private String hashValue;

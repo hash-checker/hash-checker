@@ -21,6 +21,11 @@ public enum WebLink implements ListItem {
             R.string.title_web_link_google_play,
             R.drawable.ic_google_play,
             R.string.web_link_my_apps
+    ),
+    PRIVACY_POLICY(
+            R.string.settings_title_privacy_policy,
+            R.drawable.ic_settings_privacy_policy,
+            R.string.web_link_privacy_policy
     );
 
     private final int titleResId;
@@ -57,7 +62,10 @@ public enum WebLink implements ListItem {
     }
 
     public static List<WebLink> getAuthorLinks() {
-        return Arrays.asList(SOURCE_CODE, GOOGLE_PLAY);
+        return Arrays.asList(
+                SOURCE_CODE,
+                GOOGLE_PLAY
+        );
     }
 
 }

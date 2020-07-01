@@ -6,10 +6,10 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
 import java.util.Arrays;
 
-public class LanguagesBottomSheet extends BaseListBottomSheet {
+public class LanguagesBottomSheet extends BaseListBottomSheet<Language> {
 
     @Override
-    protected BaseListAdapter getItemsAdapter() {
+    protected BaseListAdapter<Language> getItemsAdapter() {
         return new LanguagesListAdapter(
                 Arrays.asList(Language.values()),
                 this,

@@ -35,7 +35,10 @@ public class App extends android.app.Application {
         super.onCreate();
         if (!SettingsHelper.isShortcutsIsCreated(this)) {
             createShortcuts();
-            SettingsHelper.saveShortcutsStatus(this, true);
+            SettingsHelper.saveShortcutsStatus(
+                    this,
+                    true
+            );
         }
         HelperFactory.setHelper(this);
         setLocale(getApplicationContext());
@@ -43,7 +46,9 @@ public class App extends android.app.Application {
 
     private void createShortcuts() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
+            ShortcutManager shortcutManager = getSystemService(
+                    ShortcutManager.class
+            );
             if (shortcutManager != null) {
                 shortcutManager.setDynamicShortcuts(
                         Arrays.asList(
@@ -118,7 +123,10 @@ public class App extends android.app.Application {
             if (language == null) {
                 language = Language.EN;
             }
-            SettingsHelper.saveLanguage(context, language);
+            SettingsHelper.saveLanguage(
+                    context,
+                    language
+            );
         }
     }
 
@@ -133,7 +141,10 @@ public class App extends android.app.Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        SettingsHelper.savePathForInnerFileManager(this, null);
+        SettingsHelper.savePathForInnerFileManager(
+                this,
+                null
+        );
         HelperFactory.releaseHelper();
     }
 

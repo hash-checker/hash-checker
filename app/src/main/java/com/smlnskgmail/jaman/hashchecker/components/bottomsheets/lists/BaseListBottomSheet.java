@@ -12,12 +12,7 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.BaseBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public abstract class BaseListBottomSheet extends BaseBottomSheet {
-
-    private final List<ListItem> items = new ArrayList<>();
+public abstract class BaseListBottomSheet<T> extends BaseBottomSheet {
 
     @Override
     public void onViewCreated(

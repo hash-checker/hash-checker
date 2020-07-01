@@ -23,7 +23,8 @@ public class UIUtils {
             @NonNull FragmentManager fragmentManager,
             @NonNull Fragment fragment
     ) {
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction
+                = fragmentManager.beginTransaction();
         fragmentTransaction.remove(fragment).commit();
         fragmentManager.popBackStackImmediate();
     }
@@ -38,12 +39,16 @@ public class UIUtils {
         );
     }
 
-    public static int getThemeResId(@NonNull Context context) {
+    public static int getThemeResId(
+            @NonNull Context context
+    ) {
         return SettingsHelper.getSelectedTheme(context).getThemeResId();
     }
 
     @SuppressLint("ResourceType")
-    public static int getAccentColor(@NonNull Context context) {
+    public static int getAccentColor(
+            @NonNull Context context
+    ) {
         return getColorFromAttrs(
                 context,
                 R.attr.colorAccent
@@ -51,7 +56,9 @@ public class UIUtils {
     }
 
     @SuppressLint("ResourceType")
-    public static int getCommonTextColor(@NonNull Context context) {
+    public static int getCommonTextColor(
+            @NonNull Context context
+    ) {
         return getColorFromAttrs(
                 context,
                 R.attr.colorCommonText
@@ -59,7 +66,9 @@ public class UIUtils {
     }
 
     @SuppressLint("ResourceType")
-    public static int getCommonBackgroundColor(@NonNull Context context) {
+    public static int getCommonBackgroundColor(
+            @NonNull Context context
+    ) {
         return getColorFromAttrs(
                 context,
                 R.attr.colorBackground

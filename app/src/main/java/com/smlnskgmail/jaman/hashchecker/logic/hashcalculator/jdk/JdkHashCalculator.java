@@ -67,7 +67,10 @@ public class JdkHashCalculator implements HashCalculator {
                 do {
                     read = inputStream.read(buffer);
                     if (read > 0) {
-                        jdkHashCalculatorDigest.update(buffer, read);
+                        jdkHashCalculatorDigest.update(
+                                buffer,
+                                read
+                        );
                     }
                 } while (read != -1);
                 return jdkHashCalculatorDigest.result();

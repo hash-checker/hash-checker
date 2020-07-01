@@ -14,7 +14,9 @@ import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
 import android.provider.Settings;
+import android.text.Editable;
 import android.text.InputFilter;
+import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
@@ -118,18 +120,24 @@ public class HashCalculatorFragment extends BaseFragment
         }
     };
 
-    private void showSnackbarWithoutAction(@NonNull String message) {
+    private void showSnackbarWithoutAction(
+            @NonNull String message
+    ) {
         new AppSnackbar(
                 context,
                 mainScreen,
                 message,
                 vibrator,
-                UIUtils.getAccentColor(context)
+                UIUtils.getAccentColor(
+                        context
+                )
         ).show();
     }
 
     @Override
-    public void userActionSelect(@NonNull UserActionType userActionType) {
+    public void userActionSelect(
+            @NonNull UserActionType userActionType
+    ) {
         switch (userActionType) {
             case ENTER_TEXT:
                 enterText();
@@ -169,7 +177,9 @@ public class HashCalculatorFragment extends BaseFragment
                 getContext(),
                 FileManagerActivity.class
         );
-        String lastPath = SettingsHelper.getLastPathForInnerFileManager(context);
+        String lastPath = SettingsHelper.getLastPathForInnerFileManager(
+                context
+        );
         if (lastPath != null) {
             openExplorerIntent.putExtra(
                     FileManagerActivity.LAST_PATH,
@@ -434,9 +444,16 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     @Override
-    public void hashTypeSelect(@NonNull HashType hashType) {
-        tvSelectedHashType.setText(hashType.getTypeAsString());
-        SettingsHelper.saveHashTypeAsLast(context, hashType);
+    public void hashTypeSelect(
+            @NonNull HashType hashType
+    ) {
+        tvSelectedHashType.setText(
+                hashType.getTypeAsString()
+        );
+        SettingsHelper.saveHashTypeAsLast(
+                context,
+                hashType
+        );
     }
 
     @Override
@@ -464,6 +481,19 @@ public class HashCalculatorFragment extends BaseFragment
 
         ImageView ivGeneratedHashClear = view.findViewById(R.id.iv_generated_hash_clear);
         ivGeneratedHashClear.setOnClickListener(v -> etGeneratedHash.setText(""));
+
+        etGeneratedHash.addTextChangedListener(
+                watcherForInputField(
+                        ivGeneratedHashCopy,
+                        ivGeneratedHashClear
+                )
+        );
+        etCustomHash.addTextChangedListener(
+                watcherForInputField(
+                        ivCustomHashCopy,
+                        ivCustomHashClear
+                )
+        );
 
         tvSelectedObjectName = view.findViewById(R.id.tv_selected_object_name);
 
@@ -495,6 +525,45 @@ public class HashCalculatorFragment extends BaseFragment
         if (checkArguments(bundle)) {
             checkExternalDataPresence(bundle);
         }
+    }
+
+    private TextWatcher watcherForInputField(
+            @NonNull ImageView copyButton,
+            @NonNull ImageView clearButton
+    ) {
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(
+                    CharSequence s,
+                    int start,
+                    int count,
+                    int after
+            ) {
+
+            }
+
+            @Override
+            public void onTextChanged(
+                    CharSequence s,
+                    int start,
+                    int before,
+                    int count
+            ) {
+                int writtenTextLength = s.toString().length();
+                if (writtenTextLength > 0) {
+                    copyButton.setVisibility(View.VISIBLE);
+                    clearButton.setVisibility(View.VISIBLE);
+                } else {
+                    copyButton.setVisibility(View.INVISIBLE);
+                    clearButton.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
     }
 
     private void copyHashFromEditText(

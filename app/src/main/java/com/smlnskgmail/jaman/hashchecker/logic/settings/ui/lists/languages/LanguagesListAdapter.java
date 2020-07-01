@@ -21,7 +21,7 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
 
     LanguagesListAdapter(
             @NonNull List<Language> items,
-            @NonNull BaseListBottomSheet bottomSheet,
+            @NonNull BaseListBottomSheet<Language> bottomSheet,
             @NonNull Language selectedLanguage
     ) {
         super(items, bottomSheet);

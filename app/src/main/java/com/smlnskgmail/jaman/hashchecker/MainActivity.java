@@ -44,14 +44,35 @@ public class MainActivity extends BaseActivity {
 
         HashCalculatorFragment mainFragment = new HashCalculatorFragment();
         if (scheme != null && scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
-            mainFragment.setArguments(getConfiguredBundleWithDataUri(intent.getData()));
-            SettingsHelper.setGenerateFromShareIntentMode(this, true);
+            mainFragment.setArguments(
+                    getConfiguredBundleWithDataUri(
+                            intent.getData()
+                    )
+            );
+            SettingsHelper.setGenerateFromShareIntentMode(
+                    this,
+                    true
+            );
         } else if (externalFileUri != null) {
-            mainFragment.setArguments(getConfiguredBundleWithDataUri(externalFileUri));
-            SettingsHelper.setGenerateFromShareIntentMode(this, true);
+            mainFragment.setArguments(
+                    getConfiguredBundleWithDataUri(
+                            externalFileUri
+                    )
+            );
+            SettingsHelper.setGenerateFromShareIntentMode(
+                    this,
+                    true
+            );
         } else {
-            mainFragment.setArguments(getBundleForShortcutAction(intent.getAction()));
-            SettingsHelper.setGenerateFromShareIntentMode(this, false);
+            mainFragment.setArguments(
+                    getBundleForShortcutAction(
+                            intent.getAction()
+                    )
+            );
+            SettingsHelper.setGenerateFromShareIntentMode(
+                    this,
+                    false
+            );
         }
 
         showFragment(mainFragment);
@@ -83,12 +104,20 @@ public class MainActivity extends BaseActivity {
     }
 
     @NonNull
-    private Bundle getBundleForShortcutAction(@Nullable String action) {
+    private Bundle getBundleForShortcutAction(
+            @Nullable String action
+    ) {
         Bundle shortcutArguments = new Bundle();
         if (action != null && action.equals(App.ACTION_START_WITH_TEXT)) {
-            shortcutArguments.putBoolean(App.ACTION_START_WITH_TEXT, true);
+            shortcutArguments.putBoolean(
+                    App.ACTION_START_WITH_TEXT,
+                    true
+            );
         } else if (action != null && action.equals(App.ACTION_START_WITH_FILE)) {
-            shortcutArguments.putBoolean(App.ACTION_START_WITH_FILE, true);
+            shortcutArguments.putBoolean(
+                    App.ACTION_START_WITH_FILE,
+                    true
+            );
         }
         return shortcutArguments;
     }

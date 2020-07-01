@@ -300,7 +300,10 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_file_explorer, menu);
+        getMenuInflater().inflate(
+                R.menu.menu_file_explorer,
+                menu
+        );
         return super.onCreateOptionsMenu(menu);
     }
 

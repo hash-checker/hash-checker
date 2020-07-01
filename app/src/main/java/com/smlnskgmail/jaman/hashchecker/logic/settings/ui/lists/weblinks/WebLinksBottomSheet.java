@@ -5,10 +5,10 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.B
 
 import java.util.List;
 
-abstract class WebLinksBottomSheet extends BaseListBottomSheet {
+abstract class WebLinksBottomSheet extends BaseListBottomSheet<WebLink> {
 
     @Override
-    public BaseListAdapter getItemsAdapter() {
+    public BaseListAdapter<WebLink> getItemsAdapter() {
         return new WebLinksListAdapter(
                 getLinks(),
                 this

@@ -98,6 +98,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
 
             QueryBuilder<HistoryItem, ?> queryBuilder = getDao(HistoryItem.class)
                     .queryBuilder()
+                    .orderBy(HistoryItem.COLUMN_GENERATION_DATE, false)
                     .limit(portion);
             if (page != -1L) {
                 queryBuilder.offset(page * portion);

@@ -1,10 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.logic.feedback;
 
-import android.os.Build;
-
 import androidx.annotation.NonNull;
-
-import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 
 public class Feedback {
 

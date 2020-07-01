@@ -63,11 +63,6 @@ public abstract class BaseListAdapter<T extends ListItem>
         return bottomSheet;
     }
 
-    @NonNull
-    protected List<T> getItems() {
-        return items;
-    }
-
     public void dismissBottomSheet() {
         bottomSheet.dismiss();
     }

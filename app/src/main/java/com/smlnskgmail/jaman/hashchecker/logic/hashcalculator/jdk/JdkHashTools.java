@@ -14,7 +14,10 @@ public class JdkHashTools {
     }
 
     public static String getStringFromLong(long data) {
-        return String.format("%08x", data);
+        return String.format(
+                "%08x",
+                data
+        );
     }
 
 }

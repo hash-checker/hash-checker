@@ -19,7 +19,7 @@ public class ActionsListAdapter extends BaseListAdapter<Action> {
 
     ActionsListAdapter(
             @NonNull List<Action> items,
-            @NonNull BaseListBottomSheet bottomSheet,
+            @NonNull BaseListBottomSheet<Action> bottomSheet,
             @NonNull UserActionTarget userActionTarget
     ) {
         super(items, bottomSheet);

@@ -21,7 +21,7 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
 
     ThemesListAdapter(
             @NonNull List<Theme> items,
-            @NonNull BaseListBottomSheet bottomSheet,
+            @NonNull BaseListBottomSheet<Theme> bottomSheet,
             @NonNull Theme selectedTheme
     ) {
         super(items, bottomSheet);

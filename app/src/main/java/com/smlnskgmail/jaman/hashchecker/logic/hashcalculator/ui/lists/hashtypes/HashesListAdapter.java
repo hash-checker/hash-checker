@@ -21,7 +21,7 @@ public class HashesListAdapter extends BaseListAdapter<HashType> {
 
     HashesListAdapter(
             @NonNull List<HashType> items,
-            @NonNull BaseListBottomSheet bottomSheet,
+            @NonNull BaseListBottomSheet<HashType> bottomSheet,
             @NonNull HashTypeSelectTarget hashTypeSelectListener
     ) {
         super(items, bottomSheet);

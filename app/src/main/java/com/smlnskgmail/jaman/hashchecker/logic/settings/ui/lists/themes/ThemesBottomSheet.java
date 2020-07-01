@@ -6,14 +6,16 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
 import java.util.Arrays;
 
-public class ThemesBottomSheet extends BaseListBottomSheet {
+public class ThemesBottomSheet extends BaseListBottomSheet<Theme> {
 
     @Override
-    public BaseListAdapter getItemsAdapter() {
+    public BaseListAdapter<Theme> getItemsAdapter() {
         return new ThemesListAdapter(
                 Arrays.asList(Theme.values()),
                 this,
-                SettingsHelper.getSelectedTheme(getContext())
+                SettingsHelper.getSelectedTheme(
+                        getContext()
+                )
         );
     }
 
