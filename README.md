@@ -1,7 +1,6 @@
 <img src="media/logo/ic_app.png" height="100px" />
 
-Hash Checker
-=============
+# Hash Checker
 
 <a href="https://github.com/fartem/hash-checker/releases">
   <img src="media/banners/bn_github.png" height="75px" />
@@ -15,13 +14,11 @@ Hash Checker
 [![Codecov](https://codecov.io/gh/fartem/hash-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/fartem/hash-checker)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Hash%20Checker-brightgreen.svg?style=flat)](https://android-arsenal.com/details/3/7854)
 
-About application
--------------
+## About application
 
 Fast and simple application for generating and comparison hashes from files or text.
 
-Supporting algorithms
--------------
+## Supporting algorithms
 
 | Name | Since version | Status |
 | --- | --- | --- |
@@ -33,8 +30,7 @@ Supporting algorithms
 | [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
 | [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Supporting` |
 
-Supporting languages
---------------------
+## Supporting languages
 
 You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
 
@@ -56,8 +52,7 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 | עברית | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/17) |
 | فارسی | 2.9.9 | `Translated` |
 
-Screenshots (Light theme)
--------------
+## Screenshots (Light theme)
 
 <br/>
 <p align="center">
@@ -68,8 +63,7 @@ Screenshots (Light theme)
   <img src="media/screenshots/screenshot_05.png" width="130" />
 </p>
 
-Screenshots (Dark theme)
--------------
+## Screenshots (Dark theme)
 
 <br/>
 <p align="center">
@@ -80,28 +74,23 @@ Screenshots (Dark theme)
   <img src="media/screenshots/screenshot_10.png" width="130" />
 </p>
 
-Videos
--------------
+## Videos
 
 * [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
 
-Articles
--------------
+## Articles
 
 * [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
 
-Black Duck Open Hub
--------------
+## Black Duck Open Hub
 
 * [Hash Checker (Android)](https://www.openhub.net/p/hash-checker)
 
-Privacy Policy
--------------
+## Privacy Policy
 
 * [fartem.github.io/hash-checker-privacy-policy.io](https://fartem.github.io/hash-checker-privacy-policy.io/)
 
-How to build unsigned .apk from command line without IDE
--------------
+## How to build unsigned .apk from command line without IDE
 
 From project directory run:
 
@@ -112,8 +101,7 @@ $ ./gradlew assembleDebug
 
 Go to `app` -> `build` -> `outputs` -> `apk` -> `debug` and find `hash-checker_VERSION.apk` where 'VERSION' is number of app version.
 
-How to contribute
--------------
+## How to contribute
 
 Read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
 
@@ -125,8 +113,7 @@ $ ./gradlew connectedCheck
 
 If you don't see any error messages, submit your pull request.
 
-Contributors
--------------
+## Contributors
 
 * [@fartem](https://github.com/fartem) as Artem Fomchenkov
 * [@Marwa-Eltayeb](https://github.com/Marwa-Eltayeb) as Marwa Said
