@@ -32,6 +32,7 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.LanguagesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.AuthorWebLinksBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.LibrariesWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.PrivacyPolicyWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
@@ -66,6 +67,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
         initializePrivacyPolicy();
         initializeUserDataExport();
         initializeAuthorLinks();
+        initializeLibrariesLinks();
         initializeRateButton();
         initializeHelpWithTranslationButton();
         initializeAppVersionInfo();
@@ -174,6 +176,19 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
             );
             return false;
         });
+    }
+
+    private void initializeLibrariesLinks() {
+        findPreference(getString(R.string.key_libraries))
+                .setOnPreferenceClickListener(preference -> {
+                    LibrariesWebLinksBottomSheet librariesWebLinksBottomSheet
+                            = new LibrariesWebLinksBottomSheet();
+                    librariesWebLinksBottomSheet.show(
+                            fragmentManager,
+                            librariesWebLinksBottomSheet.getClass().getCanonicalName()
+                    );
+                    return false;
+                });
     }
 
     private void initializeHelpWithTranslationButton() {

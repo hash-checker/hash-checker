@@ -26,6 +26,17 @@ public enum WebLink implements ListItem {
             R.string.settings_title_privacy_policy,
             R.drawable.ic_settings_privacy_policy,
             R.string.web_link_privacy_policy
+    ),
+
+    ADAPTIVERECYCLERVIEW(
+            R.string.library_name_adaptiverecyclerview,
+            R.drawable.ic_adaptiverecyclerview,
+            R.string.web_link_adaptiverecyclerview
+    ),
+    ORMLITE(
+            R.string.library_name_ormlite,
+            R.drawable.ic_ormlite,
+            R.string.web_link_ormlite
     );
 
     private final int titleResId;
@@ -65,6 +76,13 @@ public enum WebLink implements ListItem {
         return Arrays.asList(
                 SOURCE_CODE,
                 GOOGLE_PLAY
+        );
+    }
+
+    public static List<WebLink> getLibrariesLinks() {
+        return Arrays.asList(
+                ADAPTIVERECYCLERVIEW,
+                ORMLITE
         );
     }
 

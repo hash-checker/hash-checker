@@ -55,6 +55,7 @@
     <string name="settings_title_about">Di</string>
     <string name="settings_title_upper_case">Lettere maiuscole</string>
     <string name="settings_title_author">Autore</string>
+    <string name="settings_title_libraries">Biblioteche</string>
     <string name="settings_title_app_file_manager">File manager interno</string>
     <string name="settings_title_version">Versione</string>
     <string name="settings_title_vibration">Vibrazione</string>

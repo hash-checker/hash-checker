@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.29">
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/App.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/MainActivity.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/BaseActivity.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/BaseFragment.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/bottomsheets/BaseBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/bottomsheets/lists/BaseListBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/bottomsheets/lists/ListItem.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/bottomsheets/lists/adapter/BaseListAdapter.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/bottomsheets/lists/adapter/BaseListHolder.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/dialogs/BaseDialog.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/dialogs/system/AppAlertDialog.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/dialogs/system/AppProgressDialog.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/dialogs/system/AppSnackbar.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/states/AppBackClickTarget.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/components/states/AppResumeTarget.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/database/DatabaseExporter.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/database/DatabaseHelper.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/database/DbEntity.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/database/HelperFactory.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/database/ormlite/OrmLiteConfigUtil.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/database/ormlite/OrmLiteDatabaseHelper.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/feedback/Feedback.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/feedback/FeedbackFragment.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/filemanager/FileItem.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/filemanager/FileType.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/filemanager/ui/FileManagerActivity.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/filemanager/ui/FileSelectTarget.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/filemanager/ui/list/FileDialogHolder.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/filemanager/ui/list/FileItemsAdapter.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/HashCalculator.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/HashCalculatorTask.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/HashType.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/jdk/JdkHashCalculator.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/jdk/JdkHashCalculatorDigest.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/jdk/JdkHashTools.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/HashCalculatorFragment.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/TextTools.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/input/TextInputDialog.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/input/TextValueTarget.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/lists/actions/Action.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/lists/actions/types/UserActionTarget.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/lists/actions/types/UserActionType.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/lists/actions/ui/ActionSelectActionsBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/lists/actions/ui/ActionsBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/lists/actions/ui/ActionsListAdapter.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/lists/actions/ui/SourceSelectActionsBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/lists/hashtypes/GenerateToBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/lists/hashtypes/HashTypeSelectTarget.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/hashcalculator/ui/lists/hashtypes/HashesListAdapter.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/history/HistoryItem.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/history/ui/HistoryFragment.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/history/ui/list/HistoryItemHolder.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/history/ui/list/HistoryItemsAdapter.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/history/ui/loader/HistoryItemsLoaderTask.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/history/ui/loader/HistoryItemsLoaderTaskTarget.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/history/ui/loader/HistoryPortion.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/logs/L.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/SettingsHelper.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/SettingsFragment.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/languages/Language.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/languages/LanguagesBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/languages/LanguagesListAdapter.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/themes/Theme.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/themes/ThemesBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/themes/ThemesListAdapter.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/weblinks/AuthorWebLinksBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/weblinks/LibrariesWebLinksBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/weblinks/PrivacyPolicyWebLinksBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/weblinks/WebLink.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/weblinks/WebLinksBottomSheet.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/settings/ui/lists/weblinks/WebLinksListAdapter.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/support/Clipboard.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/support/Restart.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/logic/support/Vibrator.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/utils/LangUtils.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/utils/UIUtils.java">
+</file>
+<file name="/home/fartem/StudioProjects/hash-checker/app/src/main/java/com/smlnskgmail/jaman/hashchecker/utils/WebUtils.java">
+</file>
+</checkstyle>

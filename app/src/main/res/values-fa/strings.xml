@@ -55,6 +55,7 @@
     <string name="settings_title_about">در باره</string>
     <string name="settings_title_upper_case">حرف بزرگ</string>
     <string name="settings_title_author">نویسنده</string>
+    <string name="settings_title_libraries">کتابخانه ها</string>
     <string name="settings_title_app_file_manager">مدیر پرونده داخلی</string>
     <string name="settings_title_version">نسخه</string>
     <string name="settings_title_vibration">لرزش</string>

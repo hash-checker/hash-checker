@@ -55,6 +55,7 @@
     <string name="settings_title_about">About</string>
     <string name="settings_title_upper_case">Upper case</string>
     <string name="settings_title_author">Author</string>
+    <string name="settings_title_libraries">Libraries</string>
     <string name="settings_title_app_file_manager">Inner File manager</string>
     <string name="settings_title_version">Version</string>
     <string name="settings_title_vibration">Vibration</string>

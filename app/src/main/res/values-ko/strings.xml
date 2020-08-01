@@ -55,6 +55,7 @@
     <string name="settings_title_about">정보</string>
     <string name="settings_title_upper_case">대문자</string>
     <string name="settings_title_author">저자</string>
+    <string name="settings_title_libraries">라이브러리</string>
     <string name="settings_title_app_file_manager">내부 파일 관리자</string>
     <string name="settings_title_version">버전</string>
     <string name="settings_title_vibration">진동</string>

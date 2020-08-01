@@ -2,7 +2,7 @@
 <resources>
     <!-- menu -->
     <string name="menu_title_settings">Ustawienia</string>
-    <string name="menu_title_feedback">Sprzężenie zwrotne</string>
+    <string name="menu_title_feedback">Komunikacja zwrotna</string>
     <string name="menu_title_history">Historia</string>
     <!-- dialog titles -->
     <string name="title_dialog_enter_text">Dodaj tekst</string>
@@ -11,19 +11,19 @@
     <!-- messages -->
     <string name="message_exit">Naciśnij długo przycisk Wstecz, aby zamknąć aplikację</string>
     <string name="message_fill_fields">Wypełnij każde pole do porównania</string>
-    <string name="message_generate_hash_before_export">Wygeneruj wartość skrótu przed eksportem</string>
+    <string name="message_generate_hash_before_export">Wygeneruj wartość hash przed eksportem</string>
     <string name="message_match_result">Zgodne</string>
-    <string name="message_do_not_match_result">Nie pasuje</string>
-    <string name="message_generate_dialog">Generowanie skrótu, proszę czekać…</string>
-    <string name="message_select_object">Stuknij Od, aby wybrać wymagany typ źródła</string>
-    <string name="message_request_storage_permission_error">Nie można przyznać pozwolenia na odczyt przechowywania plików urządzenia. Proszę spróbuj ponownie</string>
-    <string name="message_request_storage_permission_denied">Nie można przyznać pozwolenia na odczyt przechowywania plików urządzenia. Musisz przejść do Ustawień i podać je samodzielnie</string>
+    <string name="message_do_not_match_result">Nie zgodne</string>
+    <string name="message_generate_dialog">Generowanie hash, proszę czekać…</string>
+    <string name="message_select_object">Stuknij \"Z\", aby wybrać źródło</string>
+    <string name="message_request_storage_permission_error">Nie można przyznać uprawnienia do odczytu pamięci plików urządzenia. Spróbuj ponownie.</string>
+    <string name="message_request_storage_permission_denied">Nie można przyznać uprawnienia do odczytu pamięci plików urządzenia.  Musisz przejść do Ustawień i podać je samodzielnie</string>
     <string name="message_error_start_file_selector">Nie można znaleźć menedżera plików na urządzeniu</string>
     <string name="message_error_start_google_play">Nie można znaleźć aplikacji Google Play ani przeglądarki internetowej na urządzeniu</string>
     <string name="message_email_app_chooser">Wybierz aplikację do wysłania wiadomości e-mail</string>
     <string name="message_change_theme">Aby zmienić motyw, musisz ponownie uruchomić aplikację</string>
     <string name="message_change_language">Aby zmienić język, musisz ponownie uruchomić aplikację</string>
-    <string name="message_invalid_selected_source">Nie można wygenerować wartości skrótu ze źródła wejściowego. Sprawdź wybrane źródło</string>
+    <string name="message_invalid_selected_source">Nie można wygenerować wartości hash ze źródła wejściowego. Sprawdź wybrane źródło</string>
     <string name="message_delete_all_history_items">Usunąć wszystkie elementy historii?</string>
     <!-- commons -->
     <string name="common_text">Tekst</string>
@@ -37,24 +37,25 @@
     <string name="action_from">Z</string>
     <string name="action_select">Akcja</string>
     <string name="action_exit_now">Wyjdź teraz</string>
-    <string name="action_generate">Generować</string>
-    <string name="action_compare">Porównać</string>
+    <string name="action_generate">Generuj</string>
+    <string name="action_compare">"Porównaj "</string>
     <string name="action_export_to_txt">Eksportuj jako \".txt\"</string>
     <!-- themes -->
-    <string name="title_theme_light">Światło</string>
+    <string name="title_theme_light">Jasny</string>
     <string name="title_theme_dark">Ciemny</string>
     <!-- titles -->
-    <string name="title_custom_hash">Niestandardowy skrót</string>
-    <string name="title_generated_hash">Generated hash</string>
+    <string name="title_custom_hash">Hash użytkownika</string>
+    <string name="title_generated_hash">Wygenerowany skrót</string>
     <!-- hints -->
     <string name="hint_input_text">Tekst tutaj</string>
     <!-- settings titles -->
-    <string name="settings_title_general">Generał</string>
-    <string name="settings_title_app">Podanie</string>
-    <string name="settings_title_interface">Berło</string>
-    <string name="settings_title_about">O</string>
+    <string name="settings_title_general">Ogólne</string>
+    <string name="settings_title_app">Aplikacja</string>
+    <string name="settings_title_interface">Interfejs</string>
+    <string name="settings_title_about">O aplikacji</string>
     <string name="settings_title_upper_case">Duże litery</string>
     <string name="settings_title_author">Autor</string>
+    <string name="settings_title_libraries">Biblioteki</string>
     <string name="settings_title_app_file_manager">Wewnętrzny menedżer plików</string>
     <string name="settings_title_version">Wersja</string>
     <string name="settings_title_vibration">Wibracja</string>
@@ -64,7 +65,7 @@
     <string name="settings_title_theme">Motyw</string>
     <string name="settings_title_rate_app">Oceń aplikację</string>
     <string name="settings_title_save_result_to_history">Zapisz wynik w Historii</string>
-    <string name="settings_title_multiline">Wieloliniowe pola mieszające</string>
+    <string name="settings_title_multiline">Wieloliniowe pola hash</string>
     <string name="settings_title_language">Język</string>
     <string name="settings_title_support">Wsparcie</string>
     <string name="settings_title_help_with_translation">Pomoc w tłumaczeniu</string>

@@ -12,7 +12,7 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.BaseBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 
-public abstract class BaseListBottomSheet<T> extends BaseBottomSheet {
+public abstract class BaseListBottomSheet<T extends ListItem> extends BaseBottomSheet {
 
     @Override
     public void onViewCreated(
@@ -31,7 +31,7 @@ public abstract class BaseListBottomSheet<T> extends BaseBottomSheet {
         bottomSheetItems.setAdapter(getItemsAdapter());
     }
 
-    protected abstract BaseListAdapter getItemsAdapter();
+    protected abstract BaseListAdapter<T> getItemsAdapter();
 
     @Override
     public int getLayoutResId() {

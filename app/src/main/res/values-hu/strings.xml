@@ -55,6 +55,7 @@
     <string name="settings_title_about">Ról ről</string>
     <string name="settings_title_upper_case">Nagybetűs</string>
     <string name="settings_title_author">Szerző</string>
+    <string name="settings_title_libraries">Könyvtárak</string>
     <string name="settings_title_app_file_manager">Belső fájlkezelő</string>
     <string name="settings_title_version">Változat</string>
     <string name="settings_title_vibration">Rezgés</string>

@@ -9,10 +9,10 @@ import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
 
 import java.util.Arrays;
 
-public class GenerateToBottomSheet extends BaseListBottomSheet {
+public class GenerateToBottomSheet extends BaseListBottomSheet<HashType> {
 
     @Override
-    public BaseListAdapter getItemsAdapter() {
+    public BaseListAdapter<HashType> getItemsAdapter() {
         Fragment fragment = getFragmentManager().findFragmentByTag(
                 BaseFragment.CURRENT_FRAGMENT_TAG
         );

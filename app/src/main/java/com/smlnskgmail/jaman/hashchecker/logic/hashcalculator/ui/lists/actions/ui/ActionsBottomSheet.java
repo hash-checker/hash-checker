@@ -10,10 +10,10 @@ import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.t
 
 import java.util.List;
 
-abstract class ActionsBottomSheet extends BaseListBottomSheet {
+abstract class ActionsBottomSheet extends BaseListBottomSheet<Action> {
 
     @Override
-    protected BaseListAdapter getItemsAdapter() {
+    protected BaseListAdapter<Action> getItemsAdapter() {
         Fragment parentFragment = getFragmentManager().findFragmentByTag(
                 BaseFragment.CURRENT_FRAGMENT_TAG
         );

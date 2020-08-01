@@ -9,6 +9,7 @@
     <!-- custom -->
     <attr name="colorCommonText" format="color" />
     <attr name="colorCommonUnselected" format="color" />
+    <attr name="colorCommonRoundedSelector" format="color" />
 
     <!-- backgrounds -->
     <attr name="colorBackground" format="color" />

@@ -55,6 +55,7 @@
     <string name="settings_title_about">על אודות</string>
     <string name="settings_title_upper_case">אותיות גדולות</string>
     <string name="settings_title_author">מחבר</string>
+    <string name="settings_title_libraries">ספריות</string>
     <string name="settings_title_app_file_manager">מנהל קבצים פנימיים</string>
     <string name="settings_title_version">גרסה</string>
     <string name="settings_title_vibration">רטט</string>
