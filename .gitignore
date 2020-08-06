@@ -61,3 +61,8 @@ fastlane/readme.md
 
 # OSX files
 .DS_Store
+
+# Outputs
+app/release/
+app/debug/
+
