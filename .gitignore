@@ -66,3 +66,9 @@ fastlane/readme.md
 app/release/
 app/debug/
 
+# Checkstyle
+checkstyle-result.xml
+
+# detekt
+detekt-config.yml
+
