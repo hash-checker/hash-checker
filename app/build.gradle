@@ -10,8 +10,8 @@ android {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 83
-        versionName '3.5.0'
+        versionCode 84
+        versionName '3.5.1'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
@@ -77,9 +77,9 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.material:material:1.2.0'
     implementation 'androidx.preference:preference:1.1.1'
 
     implementation 'com.smlnskgmail.jaman:adaptiverecyclerview:1.1.0'
