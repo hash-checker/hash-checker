@@ -90,6 +90,10 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 
 * [fartem.github.io/hash-checker-privacy-policy.io](https://fartem.github.io/hash-checker-privacy-policy.io/)
 
+## Feedback
+
+If you have any question or feature idea for app, you can open issue on [this page](https://github.com/fartem/hash-checker/issues) or contact me at email jaman.smlnsk@gmail.com.
+
 ## How to build unsigned .apk from command line without IDE
 
 From project directory run:
