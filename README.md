@@ -8,6 +8,9 @@
 <a href="https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker">
   <img src="media/banners/bn_google_play.png" height="75px" />
 </a>
+<a href="https://labs.xda-developers.com/store/app/com.smlnskgmail.jaman.hashchecker">
+  <img src="media/banners/bn_xda_labs.png" height="75px" />
+</a>
 
 [![Travis CI](https://travis-ci.org/fartem/hash-checker.svg?branch=master)](https://travis-ci.org/fartem/hash-checker)
 [![Codebeat](https://codebeat.co/badges/f50ffd5e-e62f-413c-b84a-4308a9399ae9)](https://codebeat.co/projects/github-com-fartem-hash-checker-master)
