@@ -91,7 +91,7 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 
 ## Privacy Policy
 
-* [fartem.github.io/hash-checker-privacy-policy.io](https://fartem.github.io/hash-checker-privacy-policy.io/)
+* [Web version](https://fartem.github.io/hash-checker-privacy-policy.io/)
 
 ## Feedback
 
