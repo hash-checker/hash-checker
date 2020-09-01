@@ -95,7 +95,7 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 
 ## Feedback
 
-If you have any question or feature idea for app, you can open issue on [this page](https://github.com/fartem/hash-checker/issues) or contact me at email jaman.smlnsk@gmail.com.
+If you have any question or feature idea for app, you can open issue on [this page](https://github.com/fartem/hash-checker/issues) or contact me by email jaman.smlnsk@gmail.com.
 
 ## How to build unsigned .apk from command line without IDE
 
