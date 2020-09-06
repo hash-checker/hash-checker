@@ -80,13 +80,13 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
   <img src="media/screenshots/screenshot_10.png" width="130" />
 </p>
 
+## How to use
+
+* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
+
 ## Videos
 
 * [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
-
-## Articles
-
-* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
 
 ## Black Duck Open Hub
 
