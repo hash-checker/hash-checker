@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply from: 'checkstyle.gradle'
 apply from: 'cpd.gradle'
 apply from: 'jacoco.gradle'
+apply from: 'utils.gradle'
 
 android {
     compileSdkVersion 29
