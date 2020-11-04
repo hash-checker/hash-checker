@@ -40,6 +40,8 @@ Fast and simple application for generating and comparison hashes from files or t
 
 You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
 
+__Languages in app__
+
 | Language | Since version | Status |
 | --- | --- | --- |
 | English | 1.0.0 | `Translated` |
@@ -57,6 +59,13 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 | 한국어 | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/19) |
 | עברית | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/17) |
 | فارسی | 2.9.9 | `Translated` |
+
+__Not translated__
+
+| Language | Since version | Status |
+| --- | --- | --- |
+| Bahasa Indonesia | - | [Help wanted](https://github.com/fartem/hash-checker/issues/36) |
+| भारतीय | - | [Help wanted](https://github.com/fartem/hash-checker/issues/37) |
 
 ## Screenshots (Light theme)
 
