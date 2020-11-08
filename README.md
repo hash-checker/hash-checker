@@ -65,7 +65,8 @@ __Not translated__
 | Language | Since version | Status |
 | --- | --- | --- |
 | Bahasa Indonesia | - | [Help wanted](https://github.com/fartem/hash-checker/issues/36) |
-| Українська мова | - | [Help wanted](https://github.com/fartem/hash-checker/issues/37) |
+| हिंदी | - | [Help wanted](https://github.com/fartem/hash-checker/issues/37) |
+| Українська мова | - | [Help wanted](https://github.com/fartem/hash-checker/issues/38) |
 | 日本語 | - | [Help wanted](https://github.com/fartem/hash-checker/issues/39) |
 | norsk | - | [Help wanted](https://github.com/fartem/hash-checker/issues/40) |
 | čeština | - | [Help wanted](https://github.com/fartem/hash-checker/issues/41) |
