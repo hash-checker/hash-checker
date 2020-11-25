@@ -8,8 +8,9 @@ tasks.whenTaskAdded { task ->
                 def defaultBundleName = "$releaseFlavorName/app-${releaseFlavorName}.aab"
                 def versionName = android.defaultConfig.versionName
                 def outputBundleName = "$releaseFlavorName/hash-checker_${versionName}.aab"
-                ant.move file: defaultBundleName,
-                        tofile: outputBundleName
+                ant.rename src: defaultBundleName,
+                        dest: outputBundleName,
+                        replace: true
             }
         }
     }
