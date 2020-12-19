@@ -11,13 +11,10 @@
         tools:ignore="AlwaysShowAction" />
 
     <item
-        android:id="@+id/menu_main_section_feedback"
-        android:title="@string/menu_title_feedback"
-        app:showAsAction="withText" />
-
-    <item
         android:id="@+id/menu_main_section_settings"
         android:title="@string/menu_title_settings"
-        app:showAsAction="withText" />
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction" />
 
 </menu>

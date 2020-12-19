@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
+import android.view.View;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
@@ -15,7 +16,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
 
 public class UIUtils {
 
@@ -93,6 +96,20 @@ public class UIUtils {
             int titleResId
     ) {
         actionBar.setTitle(titleResId);
+    }
+
+    public static void showSnackbar(
+            @NonNull Context context,
+            @NonNull View view,
+            @NonNull String message
+    ) {
+        new AppSnackbar(
+                context,
+                view,
+                message,
+                new Vibrator(context),
+                UIUtils.getAccentColor(context)
+        ).show();
     }
 
 }

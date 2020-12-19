@@ -18,15 +18,18 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
+import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
+import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.database.DatabaseExporter;
 import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.logic.feedback.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.LanguagesBottomSheet;
@@ -34,7 +37,6 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.ThemesBo
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.AuthorWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.LibrariesWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.PrivacyPolicyWebLinksBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
@@ -44,7 +46,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class SettingsFragment extends PreferenceFragmentCompat implements AppBackClickTarget {
+public class SettingsFragment extends PreferenceFragmentCompat implements AppBackClickTarget, AppResumeTarget {
 
     private ActionBar actionBar;
     private FragmentManager fragmentManager;
@@ -68,6 +70,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
         initializeUserDataExport();
         initializeAuthorLinks();
         initializeLibrariesLinks();
+        initializeFeedbackButton();
         initializeRateButton();
         initializeHelpWithTranslationButton();
         initializeAppVersionInfo();
@@ -144,25 +147,19 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 );
             } catch (ActivityNotFoundException e) {
                 L.e(e);
-                showSnackbar(
+                UIUtils.showSnackbar(
+                        context,
+                        getView(),
                         getString(R.string.message_error_start_file_selector)
                 );
             }
         } else {
-            showSnackbar(
+            UIUtils.showSnackbar(
+                    context,
+                    getView(),
                     getString(R.string.history_empty_view_message)
             );
         }
-    }
-
-    private void showSnackbar(@NonNull String message) {
-        new AppSnackbar(
-                context,
-                getView(),
-                message,
-                new Vibrator(context),
-                UIUtils.getAccentColor(context)
-        ).show();
     }
 
     private void initializeAuthorLinks() {
@@ -205,41 +202,37 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeRateButton() {
         findPreference(getString(R.string.key_rate_app))
                 .setOnPreferenceClickListener(preference -> {
-                    openGooglePlay();
+                    WebUtils.openGooglePlay(
+                            context,
+                            getView()
+                    );
                     return false;
                 });
     }
 
-    private void openGooglePlay() {
-        final String appPackageName = context.getPackageName();
-        Uri link;
-        try {
-            link = Uri.parse("market://details?id=" + appPackageName);
-            context.startActivity(
-                    new Intent(
-                            Intent.ACTION_VIEW,
-                            link
-                    )
-            );
-        } catch (ActivityNotFoundException e) {
-            try {
-                link = Uri.parse(
-                        "https://play.google.com/store/apps/details?id=" + appPackageName
-                );
-                context.startActivity(
-                        new Intent(
-                                Intent.ACTION_VIEW,
-                                link
-                        )
-                );
-            } catch (ActivityNotFoundException e2) {
-                L.e(e2);
-                showSnackbar(
-                        getString(R.string.message_error_start_google_play)
-                );
-            }
-        }
+    private void initializeFeedbackButton() {
+        findPreference(getString(R.string.key_feedback))
+                .setOnPreferenceClickListener(preference -> {
+                    showFragment(new FeedbackFragment());
+                    return false;
+                });
     }
+
+    private void showFragment(@NonNull Fragment fragment) {
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .add(
+                        android.R.id.content,
+                        fragment,
+                        BaseFragment.CURRENT_FRAGMENT_TAG
+                )
+                .setCustomAnimations(
+                        android.R.anim.fade_in,
+                        android.R.anim.fade_out
+                )
+                .addToBackStack(null)
+                .commit();
+    }
+
 
     private void initializeAppVersionInfo() {
         findPreference(getString(R.string.key_version)).setSummary(
@@ -338,11 +331,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     @Override
     public void onResume() {
         super.onResume();
-        UIUtils.setActionBarTitle(
-                actionBar,
-                R.string.menu_title_settings
-        );
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        appResume();
     }
 
     @Override
@@ -368,6 +357,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 fragmentManager,
                 this
         );
+    }
+
+    @Override
+    public void appResume() {
+        UIUtils.setActionBarTitle(
+                actionBar,
+                R.string.menu_title_settings
+        );
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        initializeActionBar();
     }
 
 }

@@ -77,6 +77,11 @@
             android:icon="@drawable/ic_settings_help_with_translation" />
 
         <Preference
+            android:title="@string/menu_title_feedback"
+            android:key="@string/key_feedback"
+            android:icon="@drawable/ic_settings_feedback" />
+
+        <Preference
             android:title="@string/settings_title_rate_app"
             android:key="@string/key_rate_app"
             android:icon="@drawable/ic_settings_rate_app" />

@@ -54,6 +54,7 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Clipboard;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -113,6 +114,21 @@ public class HashCalculatorFragment extends BaseFragment
                         hashValue
                 );
                 HelperFactory.getHelper().addHistoryItem(historyItem);
+            }
+            if (SettingsHelper.canShowRateAppDialog(context)) {
+                SettingsHelper.increaseHashGenerationCount(context);
+                AppAlertDialog.show(
+                        context,
+                        R.string.settings_title_rate_app,
+                        R.string.rate_app_message,
+                        R.string.rate_app_action,
+                        (dialog, which) -> WebUtils.openGooglePlay(
+                                context,
+                                getView()
+                        )
+                );
+            } else {
+                SettingsHelper.increaseHashGenerationCount(context);
             }
         }
         if (progressDialog != null && progressDialog.isShowing()) {

@@ -24,7 +24,9 @@
     <string name="key_selected_theme" translatable="false">selected_theme</string>
     <string name="key_generate_from_share_intent" translatable="false">generate_from_share_intent</string>
     <string name="key_refresh_selected_file" translatable="false">refresh_selected_file</string>
+    <string name="key_hash_generation_count" translatable="false">hash_generation_count</string>
     <string name="key_rate_app" translatable="false">rate_app</string>
+    <string name="key_feedback" translatable="false">feedback</string>
     <string name="key_save_result_to_history" translatable="false">save_result_to_history</string>
     <string name="key_multiline" translatable="false">multiline</string>
     <string name="key_help_with_translation" translatable="false">help_with_translation</string>
