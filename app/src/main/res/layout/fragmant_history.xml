@@ -19,9 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         arv:message_image="@drawable/ic_history"
-        arv:message_image_tint="?attr/colorCommonUnselected"
-        arv:message_text="@string/history_empty_view_message"
-        arv:message_text_color="?attr/colorCommonUnselected" />
+        arv:message_text="@string/history_empty_view_message" />
 
     <ProgressBar
         android:id="@+id/pb_history"
