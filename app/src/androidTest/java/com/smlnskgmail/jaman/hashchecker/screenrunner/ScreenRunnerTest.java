@@ -82,10 +82,10 @@ public class ScreenRunnerTest extends BaseUITest {
 
     private void clickOnSettingsItem(int settingsTitleResId) {
         onView(withId(R.id.recycler_view)).perform(
-                        RecyclerViewActions.actionOnItem(
-                                hasDescendant(withText(settingsTitleResId)),
-                                click()
-                        )
+                RecyclerViewActions.actionOnItem(
+                        hasDescendant(withText(settingsTitleResId)),
+                        click()
+                )
         );
         delayAndBack();
     }

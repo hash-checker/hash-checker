@@ -19,6 +19,7 @@ public interface HashCalculator {
             @NonNull Context context,
             @NonNull Uri path
     );
+
     String fromFile(@Nullable InputStream inputStream);
 
 }

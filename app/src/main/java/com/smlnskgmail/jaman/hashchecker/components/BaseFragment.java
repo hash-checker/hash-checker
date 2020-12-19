@@ -22,8 +22,7 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LangUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
-public abstract class BaseFragment extends Fragment
-        implements AppBackClickTarget, AppResumeTarget {
+public abstract class BaseFragment extends Fragment implements AppBackClickTarget, AppResumeTarget {
 
     public static final String CURRENT_FRAGMENT_TAG = "CURRENT_FRAGMENT";
 

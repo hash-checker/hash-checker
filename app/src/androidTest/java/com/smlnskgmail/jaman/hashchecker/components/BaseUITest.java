@@ -45,10 +45,10 @@ public abstract class BaseUITest {
     @SuppressWarnings("SameParameterValue")
     protected void inRecyclerViewClickOnPosition(int recyclerId, int position) {
         onView(withId(recyclerId)).perform(
-                        RecyclerViewActions.actionOnItemAtPosition(
-                                position,
-                                click()
-                        )
+                RecyclerViewActions.actionOnItemAtPosition(
+                        position,
+                        click()
+                )
         );
     }
 

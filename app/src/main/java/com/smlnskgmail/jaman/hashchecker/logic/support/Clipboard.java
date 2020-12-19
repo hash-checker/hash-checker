@@ -10,8 +10,8 @@ import com.smlnskgmail.jaman.hashchecker.R;
 
 public class Clipboard {
 
-    private Context context;
-    private String text;
+    private final Context context;
+    private final String text;
 
     public Clipboard(
             @NonNull Context context,

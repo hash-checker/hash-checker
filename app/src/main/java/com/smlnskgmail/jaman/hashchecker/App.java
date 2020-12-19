@@ -114,7 +114,7 @@ public class App extends android.app.Application {
         Language language = null;
         if (!SettingsHelper.languageIsInitialized(context)) {
             String deviceLocale = Locale.getDefault().toString();
-            for (Language lang: Language.values()) {
+            for (Language lang : Language.values()) {
                 if (deviceLocale.equals(lang.code())) {
                     language = lang;
                     break;

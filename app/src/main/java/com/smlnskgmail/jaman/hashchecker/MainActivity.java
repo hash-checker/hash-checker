@@ -160,7 +160,7 @@ public class MainActivity extends BaseActivity {
         if (fragment instanceof AppBackClickTarget) {
             ((AppBackClickTarget) fragment).appBackClick();
         }
-        for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
+        for (Fragment fragmentInApp : getSupportFragmentManager().getFragments()) {
             if (fragmentInApp instanceof AppResumeTarget) {
                 ((AppResumeTarget) fragmentInApp).appResume();
             }

@@ -18,12 +18,12 @@ import java.util.List;
 public abstract class BaseListAdapter<T extends ListItem>
         extends RecyclerView.Adapter<BaseListHolder<T>> {
 
-    private final BaseListBottomSheet bottomSheet;
+    private final BaseListBottomSheet<T> bottomSheet;
     private final List<T> items = new ArrayList<>();
 
     protected BaseListAdapter(
             @NonNull List<T> items,
-            @NonNull BaseListBottomSheet bottomSheet
+            @NonNull BaseListBottomSheet<T> bottomSheet
     ) {
         this.items.addAll(items);
         this.bottomSheet = bottomSheet;
@@ -59,7 +59,7 @@ public abstract class BaseListAdapter<T extends ListItem>
     );
 
     @NonNull
-    public BaseListBottomSheet getBottomSheet() {
+    public BaseListBottomSheet<T> getBottomSheet() {
         return bottomSheet;
     }
 

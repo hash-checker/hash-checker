@@ -142,7 +142,7 @@ public class SettingsHelper {
             @NonNull Context context
     ) {
         String selectedTheme = SettingsHelper.getTheme(context);
-        for (Theme theme: Theme.values()) {
+        for (Theme theme : Theme.values()) {
             if (theme.toString().equals(selectedTheme)) {
                 return theme;
             }

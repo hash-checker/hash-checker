@@ -26,7 +26,8 @@ public class MessageDigestZeroLeadsJdkHashCalculatorTest extends BaseJdkHashCalc
     }
 
     @Override
-    public void checkFile() {}
+    public void checkFile() {
+    }
 
     @Nullable
     @Override

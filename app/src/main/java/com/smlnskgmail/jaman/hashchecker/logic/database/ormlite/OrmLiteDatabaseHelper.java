@@ -53,7 +53,8 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
             ConnectionSource connectionSource
     ) {
         try {
-            for (Class clazz: tablesClasses) {
+            //noinspection rawtypes
+            for (Class clazz : tablesClasses) {
                 TableUtils.createTable(
                         connectionSource,
                         clazz

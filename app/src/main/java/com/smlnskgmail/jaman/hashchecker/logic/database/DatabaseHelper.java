@@ -12,13 +12,17 @@ public interface DatabaseHelper {
     void releaseHelper();
 
     void addHistoryItem(@NonNull HistoryItem historyItem);
+
     List<HistoryItem> historyItems(@NonNull HistoryPortion historyPortion);
+
     void deleteAllHistoryItems();
+
     boolean isHistoryItemsListIsEmpty();
 
     void backupCheckpoint();
 
     String getDatabaseFolder();
+
     String getDatabaseFileName();
 
 }

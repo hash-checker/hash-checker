@@ -34,7 +34,7 @@ public enum HashType implements ListItem {
 
     @NonNull
     public static HashType getHashTypeFromString(@NonNull String string) {
-        for (HashType hashType: values()) {
+        for (HashType hashType : values()) {
             if (hashType.hashName.equals(string)) {
                 return hashType;
             }

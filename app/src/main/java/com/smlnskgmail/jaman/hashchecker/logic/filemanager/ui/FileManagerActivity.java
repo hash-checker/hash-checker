@@ -57,7 +57,6 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
 
         if (getIntent().hasExtra(LAST_PATH)) {
             String lastPath = getIntent().getStringExtra(LAST_PATH);
-            //noinspection ConstantConditions
             if (new File(lastPath).exists()) {
                 loadDirectoryWithPath(currentPath = lastPath);
             }
@@ -102,11 +101,11 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
             }
 
             String[] lines = sb.toString().split("\n");
-            for (String line: lines) {
+            for (String line : lines) {
                 if (!line.toLowerCase(Locale.ENGLISH).contains("asec")) {
                     if (line.matches(reg)) {
                         String[] parts = line.split(" ");
-                        for (String part: parts) {
+                        for (String part : parts) {
                             if (part.startsWith("/")) {
                                 if (!part.toLowerCase(Locale.ENGLISH).contains("vold")) {
                                     String storageName;
@@ -128,7 +127,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
                                     }
                                     storageName = tempBuilder.toString();
                                     boolean equalState = false;
-                                    for (FileItem storage: storages) {
+                                    for (FileItem storage : storages) {
                                         if (("/storage/" + storageName).equals(storage.getFileName())) {
                                             equalState = true;
                                             break;
@@ -188,7 +187,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
                 return file.getName().compareTo(file2.getName());
             }
         });
-        for (File file: files) {
+        for (File file : files) {
             String path = file.getPath();
             String name = file.getName();
             if (file.isDirectory()) {
@@ -264,7 +263,6 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
                 if (file.isDirectory()) {
                     loadDirectoryWithPath(path);
                 } else {
-                    //noinspection ConstantConditions
                     selectionFinished(
                             file.getParent(),
                             fileItem.getFilePath()
@@ -343,7 +341,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     }
 
     private boolean isStorage(String path) {
-        for (FileItem storage: storages) {
+        for (FileItem storage : storages) {
             if (storage.getFilePath().equals(path)) {
                 return true;
             }

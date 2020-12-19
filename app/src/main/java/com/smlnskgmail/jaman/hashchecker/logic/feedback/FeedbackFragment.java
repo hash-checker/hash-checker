@@ -98,7 +98,7 @@ public class FeedbackFragment extends BaseFragment {
         );
         emailIntent.putExtra(
                 Intent.EXTRA_EMAIL,
-                new String[] { email }
+                new String[]{email}
         );
 
         String subject = getString(R.string.common_app_name);
@@ -120,7 +120,7 @@ public class FeedbackFragment extends BaseFragment {
                 )
         );
         emailIntent.setSelector(
-            selectorIntent
+                selectorIntent
         );
 
         String chooseMessage = String.format(

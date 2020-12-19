@@ -27,8 +27,7 @@ public class JdkHashCalculator implements HashCalculator {
     public void setHashType(
             @NonNull HashType hashType
     ) throws NoSuchAlgorithmException {
-        this.jdkHashCalculatorDigest
-                = JdkHashCalculatorDigest.instanceFor(hashType);
+        this.jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(hashType);
     }
 
     @Nullable

@@ -11,6 +11,7 @@ public interface ListItem {
     String getTitle(@NonNull Context context);
 
     int getPrimaryIconResId();
+
     int getAdditionalIconResId();
 
 }

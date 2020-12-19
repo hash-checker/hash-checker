@@ -23,4 +23,5 @@ import org.junit.runners.Suite;
         FileItemTest.class,
         HistoryItemTest.class
 })
-public class TestSuite {}
+public class TestSuite {
+}

@@ -23,8 +23,7 @@ public class UIUtils {
             @NonNull FragmentManager fragmentManager,
             @NonNull Fragment fragment
     ) {
-        FragmentTransaction fragmentTransaction
-                = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(fragment).commit();
         fragmentManager.popBackStackImmediate();
     }

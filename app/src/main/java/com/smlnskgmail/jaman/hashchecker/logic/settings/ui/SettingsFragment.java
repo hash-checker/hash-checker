@@ -86,25 +86,25 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeLanguageSettings() {
         findPreference(getString(R.string.key_language))
                 .setOnPreferenceClickListener(preference -> {
-            LanguagesBottomSheet languagesBottomSheet = new LanguagesBottomSheet();
-            languagesBottomSheet.show(
-                    fragmentManager,
-                    languagesBottomSheet.getClass().getCanonicalName()
-            );
-            return false;
-        });
+                    LanguagesBottomSheet languagesBottomSheet = new LanguagesBottomSheet();
+                    languagesBottomSheet.show(
+                            fragmentManager,
+                            languagesBottomSheet.getClass().getCanonicalName()
+                    );
+                    return false;
+                });
     }
 
     private void initializeThemesSettings() {
         findPreference(getString(R.string.key_theme))
                 .setOnPreferenceClickListener(preference -> {
-            ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
-            themesBottomSheet.show(
-                    fragmentManager,
-                    themesBottomSheet.getClass().getCanonicalName()
-            );
-            return false;
-        });
+                    ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
+                    themesBottomSheet.show(
+                            fragmentManager,
+                            themesBottomSheet.getClass().getCanonicalName()
+                    );
+                    return false;
+                });
     }
 
     private void initializePrivacyPolicy() {
@@ -116,16 +116,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                             fragmentManager,
                             privacyPolicyWebLinksBottomSheet.getClass().getCanonicalName()
                     );
-            return false;
-        });
+                    return false;
+                });
     }
 
     private void initializeUserDataExport() {
         findPreference(getString(R.string.key_export_user_data))
                 .setOnPreferenceClickListener(preference -> {
-            saveUserData();
-            return false;
-        });
+                    saveUserData();
+                    return false;
+                });
     }
 
     private void saveUserData() {
@@ -168,14 +168,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeAuthorLinks() {
         findPreference(getString(R.string.key_author))
                 .setOnPreferenceClickListener(preference -> {
-            AuthorWebLinksBottomSheet authorWebLinksBottomSheet
-                    = new AuthorWebLinksBottomSheet();
-            authorWebLinksBottomSheet.show(
-                    fragmentManager,
-                    authorWebLinksBottomSheet.getClass().getCanonicalName()
-            );
-            return false;
-        });
+                    AuthorWebLinksBottomSheet authorWebLinksBottomSheet
+                            = new AuthorWebLinksBottomSheet();
+                    authorWebLinksBottomSheet.show(
+                            fragmentManager,
+                            authorWebLinksBottomSheet.getClass().getCanonicalName()
+                    );
+                    return false;
+                });
     }
 
     private void initializeLibrariesLinks() {
@@ -194,20 +194,20 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeHelpWithTranslationButton() {
         findPreference(getString(R.string.key_help_with_translation))
                 .setOnPreferenceClickListener(preference -> {
-            WebUtils.openWebLink(
-                    context,
-                    context.getString(R.string.web_link_help_with_translation)
-            );
-            return false;
-        });
+                    WebUtils.openWebLink(
+                            context,
+                            context.getString(R.string.web_link_help_with_translation)
+                    );
+                    return false;
+                });
     }
 
     private void initializeRateButton() {
         findPreference(getString(R.string.key_rate_app))
                 .setOnPreferenceClickListener(preference -> {
-            openGooglePlay();
-            return false;
-        });
+                    openGooglePlay();
+                    return false;
+                });
     }
 
     private void openGooglePlay() {
@@ -254,12 +254,12 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeFileManagerSwitcher() {
         findPreference(getString(R.string.key_inner_file_manager))
                 .setOnPreferenceChangeListener((preference, o) -> {
-            SettingsHelper.setRefreshSelectedFileStatus(
-                    context,
-                    true
-            );
-            return true;
-        });
+                    SettingsHelper.setRefreshSelectedFileStatus(
+                            context,
+                            true
+                    );
+                    return true;
+                });
     }
 
     @Override

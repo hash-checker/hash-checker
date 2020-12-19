@@ -23,4 +23,5 @@ import org.junit.runners.Suite;
         CRC32JdkHashCalculatorTest.class,
         MessageDigestZeroLeadsJdkHashCalculatorTest.class
 })
-public class HashTestSuite {}
+public class HashTestSuite {
+}

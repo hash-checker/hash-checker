@@ -49,6 +49,7 @@ public class TextInputDialog extends BaseDialog {
             etTextValue.setSelection(textValue.length());
         }
     }
+
     @Override
     public void setupDialogStyle() {
         super.setupDialogStyle();

@@ -613,7 +613,7 @@ public class HashCalculatorFragment extends BaseFragment
 
     private void requestStoragePermission() {
         requestPermissions(
-                new String[]{ Manifest.permission.WRITE_EXTERNAL_STORAGE },
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                 FileManagerActivity.PERMISSION_STORAGE
         );
     }
