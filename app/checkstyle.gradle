@@ -1,7 +1,7 @@
 apply plugin: 'checkstyle'
 
 checkstyle {
-    toolVersion '8.29'
+    toolVersion '8.38'
     ignoreFailures false
     showViolations true
 }
@@ -9,13 +9,17 @@ checkstyle {
 task checkstyle(type: Checkstyle) {
     group 'verification'
 
-    config project.resources.text.fromUri(
-            'https://raw.githubusercontent.com/fartem/repository-rules/master/rules/java/checkstyle/checkstyle.xml'
-    )
+//    config project.resources.text.fromUri(
+//            'https://raw.githubusercontent.com/fartem/repository-rules/master/rules/java/checkstyle/checkstyle.xml'
+//    )
+    configFile rootProject.file('checkstyle.xml')
     source rootProject.file('app/src/main/java')
     classpath = files()
 
     reports {
+        html.enabled true
+        html.destination rootProject.file('checkstyle-result.html')
+
         xml.enabled true
         xml.destination rootProject.file('checkstyle-result.xml')
     }

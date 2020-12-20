@@ -71,8 +71,8 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     @Override
     public void onCreateOptionsMenu(
-            Menu menu,
-            MenuInflater inflater
+            @NonNull Menu menu,
+            @NonNull MenuInflater inflater
     ) {
         menu.clear();
         inflater.inflate(getMenuResId(), menu);

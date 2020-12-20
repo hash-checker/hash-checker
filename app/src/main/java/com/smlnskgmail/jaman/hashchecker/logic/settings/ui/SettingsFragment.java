@@ -274,7 +274,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     public void onActivityResult(
             int requestCode,
             int resultCode,
-            Intent data
+            @Nullable Intent data
     ) {
         if (data != null) {
             if (requestCode == SettingsHelper.FILE_CREATE) {
@@ -336,14 +336,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
 
     @Override
     public void onCreateOptionsMenu(
-            Menu menu,
+            @NonNull Menu menu,
             @NonNull MenuInflater inflater
     ) {
         menu.clear();
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             getActivity().onBackPressed();
             return true;

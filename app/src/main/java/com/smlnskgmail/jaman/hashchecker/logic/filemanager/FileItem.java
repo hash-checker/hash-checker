@@ -1,6 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.logic.filemanager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -38,7 +39,7 @@ public class FileItem {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(@Nullable Object o) {
         if (this == o) {
             return true;
         }

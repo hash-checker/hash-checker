@@ -1,1 +1,2 @@
+include ':checkstyle-rules'
 include ':app'

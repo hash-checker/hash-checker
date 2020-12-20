@@ -124,7 +124,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         hideKeyboard();
         switch (item.getItemId()) {
             case R.id.menu_main_section_settings:
