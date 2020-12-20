@@ -28,12 +28,12 @@ public class ActionsListAdapter extends BaseListAdapter<Action> {
 
     @Override
     protected BaseListHolder<Action> getItemsHolder(
-            @NonNull View view,
-            @NonNull Context themeContext
+            @NonNull Context themeContext,
+            @NonNull View view
     ) {
         return new ActionHolder(
-                view,
-                themeContext
+                themeContext,
+                view
         );
     }
 
@@ -42,10 +42,10 @@ public class ActionsListAdapter extends BaseListAdapter<Action> {
         private Action action;
 
         ActionHolder(
-                @NonNull View itemView,
-                @NonNull Context themeContext
+                @NonNull Context themeContext,
+                @NonNull View itemView
         ) {
-            super(itemView, themeContext);
+            super(themeContext, itemView);
         }
 
         @Override

@@ -30,12 +30,12 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
 
     @Override
     protected BaseListHolder<Language> getItemsHolder(
-            @NonNull View view,
-            @NonNull Context themeContext
+            @NonNull Context themeContext,
+            @NonNull View view
     ) {
         return new LanguagesListHolder(
-                view,
-                themeContext
+                themeContext,
+                view
         );
     }
 
@@ -44,10 +44,10 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
         private Language languageAtPosition;
 
         LanguagesListHolder(
-                @NonNull View itemView,
-                @NonNull Context themeContext
+                @NonNull Context themeContext,
+                @NonNull View itemView
         ) {
-            super(itemView, themeContext);
+            super(themeContext, itemView);
         }
 
         @Override

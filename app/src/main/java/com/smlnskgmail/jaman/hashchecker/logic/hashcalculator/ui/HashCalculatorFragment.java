@@ -238,15 +238,15 @@ public class HashCalculatorFragment extends BaseFragment
             progressDialog.show();
             if (isTextSelected) {
                 new HashCalculatorTask(
-                        hashType,
                         context,
+                        hashType,
                         tvSelectedObjectName.getText().toString(),
                         hashCalculatorTaskTarget
                 ).execute();
             } else {
                 new HashCalculatorTask(
-                        hashType,
                         context,
+                        hashType,
                         fileUri,
                         hashCalculatorTaskTarget
                 ).execute();

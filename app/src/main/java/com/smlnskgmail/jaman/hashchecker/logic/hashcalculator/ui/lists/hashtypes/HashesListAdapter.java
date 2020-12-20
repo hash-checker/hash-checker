@@ -33,12 +33,12 @@ public class HashesListAdapter extends BaseListAdapter<HashType> {
 
     @Override
     public BaseListHolder<HashType> getItemsHolder(
-            @NonNull View view,
-            @NonNull Context themeContext
+            @NonNull Context themeContext,
+            @NonNull View view
     ) {
         return new HashesListHolder(
-                view,
-                themeContext
+                themeContext,
+                view
         );
     }
 
@@ -47,10 +47,10 @@ public class HashesListAdapter extends BaseListAdapter<HashType> {
         private HashType hashTypeAtPosition;
 
         HashesListHolder(
-                @NonNull View itemView,
-                @NonNull Context themeContext
+                @NonNull Context themeContext,
+                @NonNull View itemView
         ) {
-            super(itemView, themeContext);
+            super(themeContext, itemView);
         }
 
         @Override

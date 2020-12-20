@@ -14,6 +14,9 @@
     <module name="NewlineAtEndOfFile" />
     <module name="SuppressWarningsFilter" />
     <module name="TreeWalker">
+        <module name="com.smlnskgmail.jaman.checkstyle.checks.ContextFirstParameterCheck">
+            <property name="id" value="ContextFirstParameterCheck" />
+        </module>
         <module name="com.smlnskgmail.jaman.checkstyle.checks.MethodParametersAnnotationCheck">
             <property name="id" value="MethodParametersAnnotationCheck" />
         </module>

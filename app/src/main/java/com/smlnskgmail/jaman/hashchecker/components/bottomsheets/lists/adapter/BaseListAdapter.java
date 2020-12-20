@@ -36,12 +36,12 @@ public abstract class BaseListAdapter<T extends ListItem>
             int viewType
     ) {
         return getItemsHolder(
+                getBottomSheet().getContext(),
                 LayoutInflater.from(parent.getContext()).inflate(
                         R.layout.item_list,
                         parent,
                         false
-                ),
-                getBottomSheet().getContext()
+                )
         );
     }
 
@@ -54,8 +54,8 @@ public abstract class BaseListAdapter<T extends ListItem>
     }
 
     protected abstract BaseListHolder<T> getItemsHolder(
-            @NonNull View view,
-            @NonNull Context themeContext
+            @NonNull Context themeContext,
+            @NonNull View view
     );
 
     @NonNull
