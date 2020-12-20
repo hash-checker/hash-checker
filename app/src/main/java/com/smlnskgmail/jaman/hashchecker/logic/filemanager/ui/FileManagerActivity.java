@@ -297,7 +297,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
         getMenuInflater().inflate(
                 R.menu.menu_file_explorer,
                 menu
@@ -306,7 +306,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_action_close_file_manager) {
             finish();
             return true;
@@ -340,7 +340,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
         );
     }
 
-    private boolean isStorage(String path) {
+    private boolean isStorage(@NonNull String path) {
         for (FileItem storage : storages) {
             if (storage.getFilePath().equals(path)) {
                 return true;

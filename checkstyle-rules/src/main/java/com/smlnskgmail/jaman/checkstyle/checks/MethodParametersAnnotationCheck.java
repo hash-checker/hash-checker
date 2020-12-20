@@ -1,4 +1,4 @@
-package com.example.checkstyle_rules;
+package com.smlnskgmail.jaman.checkstyle.checks;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
@@ -21,6 +21,8 @@ public class MethodParametersAnnotationCheck extends AbstractCheck {
             TokenTypes.LITERAL_FLOAT
     );
 
+    private static final String MESSAGE_KEY = "MethodParameterAnnotationCheck";
+
     @Override
     public void visitToken(DetailAST ast) {
         final DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
@@ -31,14 +33,19 @@ public class MethodParametersAnnotationCheck extends AbstractCheck {
                     TokenTypes.PARAMETER_DEF,
                     detailAST -> {
                         final DetailAST modifiers = detailAST.findFirstToken(TokenTypes.MODIFIERS);
-                        if (modifiers != null
-                                && !EXCLUDED_TYPES.contains(detailAST.findFirstToken(TokenTypes.TYPE).getFirstChild().getType())
-                                && modifiers.findFirstToken(TokenTypes.ANNOTATION) == null) {
-                            log(modifiers.getLineNo(), "");
+                        if (isInvalidParameter(detailAST)) {
+                            log(modifiers.getLineNo(), MESSAGE_KEY);
                         }
                     }
             );
         }
+    }
+
+    private boolean isInvalidParameter(DetailAST parameterAST) {
+        final DetailAST modifiers = parameterAST.findFirstToken(TokenTypes.MODIFIERS);
+        return modifiers != null
+                && !EXCLUDED_TYPES.contains(parameterAST.findFirstToken(TokenTypes.TYPE).getFirstChild().getType())
+                && modifiers.findFirstToken(TokenTypes.ANNOTATION) == null;
     }
 
     @Override

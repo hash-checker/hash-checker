@@ -100,7 +100,7 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
     }
 
     @Override
-    public void postLoad(List<HistoryItem> items) {
+    public void postLoad(@NonNull List<HistoryItem> items) {
         pbHistory.setVisibility(View.GONE);
         rvHistoryItems.setVisibility(View.VISIBLE);
         ((HistoryItemsAdapter) rvHistoryItems.getAdapter()).addHistoryItems(items);

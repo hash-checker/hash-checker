@@ -225,7 +225,7 @@ public class SettingsHelper {
 
     public static void saveTheme(
             @NonNull Context context,
-            Theme theme
+            @NonNull Theme theme
     ) {
         saveStringPreference(
                 context,

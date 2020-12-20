@@ -543,6 +543,7 @@ public class HashCalculatorFragment extends BaseFragment
         }
     }
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     private TextWatcher watcherForInputField(
             @NonNull ImageView copyButton,
             @NonNull ImageView clearButton
@@ -747,7 +748,7 @@ public class HashCalculatorFragment extends BaseFragment
     public void onActivityResult(
             int requestCode,
             int resultCode,
-            Intent data
+            @Nullable Intent data
     ) {
         if (data != null) {
             switch (requestCode) {

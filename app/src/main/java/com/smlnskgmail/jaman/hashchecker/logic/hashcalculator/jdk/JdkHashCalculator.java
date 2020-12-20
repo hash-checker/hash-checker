@@ -49,7 +49,6 @@ public class JdkHashCalculator implements HashCalculator {
                     context,
                     path
             );
-            Thread.sleep(5000);
             return fromFile(fileStream);
         } catch (Exception e) {
             L.e(e);

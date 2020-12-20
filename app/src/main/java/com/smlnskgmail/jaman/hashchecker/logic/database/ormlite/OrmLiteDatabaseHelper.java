@@ -46,7 +46,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
         );
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "MethodParametersAnnotationCheck"})
     @Override
     public void onCreate(
             SQLiteDatabase database,
@@ -65,6 +65,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
         }
     }
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     @Override
     public void onUpgrade(
             SQLiteDatabase database,

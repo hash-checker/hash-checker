@@ -1,6 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.logic.history;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
@@ -95,7 +96,7 @@ public class HistoryItem extends DbEntity {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(@Nullable Object o) {
         if (this == o) {
             return true;
         }

@@ -52,6 +52,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private FragmentManager fragmentManager;
     private Context context;
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     @SuppressLint("ResourceType")
     @Override
     public void onCreatePreferences(
