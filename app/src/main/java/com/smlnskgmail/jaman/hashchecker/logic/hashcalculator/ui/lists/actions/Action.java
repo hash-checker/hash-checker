@@ -8,6 +8,8 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.types.UserActionType;
 
+import org.jetbrains.annotations.NotNull;
+
 public enum Action implements ListItem {
 
     TEXT(
@@ -51,6 +53,7 @@ public enum Action implements ListItem {
         this.userActionType = userActionType;
     }
 
+    @NotNull
     @Override
     public String getTitle(@NonNull Context context) {
         return context.getString(titleResId);
@@ -66,6 +69,7 @@ public enum Action implements ListItem {
         return -1;
     }
 
+    @NonNull
     public UserActionType getUserActionType() {
         return userActionType;
     }

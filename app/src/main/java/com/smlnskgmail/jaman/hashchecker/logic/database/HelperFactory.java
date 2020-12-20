@@ -11,6 +11,7 @@ public class HelperFactory {
 
     private static DatabaseHelper databaseHelper;
 
+    @NonNull
     public static DatabaseHelper getHelper() {
         return databaseHelper;
     }

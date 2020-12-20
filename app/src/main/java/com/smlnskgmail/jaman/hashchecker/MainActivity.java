@@ -109,16 +109,18 @@ public class MainActivity extends BaseActivity {
             @Nullable String action
     ) {
         Bundle shortcutArguments = new Bundle();
-        if (action != null && action.equals(App.ACTION_START_WITH_TEXT)) {
-            shortcutArguments.putBoolean(
-                    App.ACTION_START_WITH_TEXT,
-                    true
-            );
-        } else if (action != null && action.equals(App.ACTION_START_WITH_FILE)) {
-            shortcutArguments.putBoolean(
-                    App.ACTION_START_WITH_FILE,
-                    true
-            );
+        if (action != null) {
+            if (action.equals(App.ACTION_START_WITH_TEXT)) {
+                shortcutArguments.putBoolean(
+                        App.ACTION_START_WITH_TEXT,
+                        true
+                );
+            } else if (action.equals(App.ACTION_START_WITH_FILE)) {
+                shortcutArguments.putBoolean(
+                        App.ACTION_START_WITH_FILE,
+                        true
+                );
+            }
         }
         return shortcutArguments;
     }

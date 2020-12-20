@@ -13,6 +13,7 @@ public interface DatabaseHelper {
 
     void addHistoryItem(@NonNull HistoryItem historyItem);
 
+    @NonNull
     List<HistoryItem> historyItems(@NonNull HistoryPortion historyPortion);
 
     void deleteAllHistoryItems();
@@ -21,8 +22,10 @@ public interface DatabaseHelper {
 
     void backupCheckpoint();
 
+    @NonNull
     String getDatabaseFolder();
 
+    @NonNull
     String getDatabaseFileName();
 
 }

@@ -8,6 +8,7 @@ public interface HistoryItemsLoaderTaskTarget<T> {
 
     void postLoad(@NonNull List<T> items);
 
+    @NonNull
     HistoryPortion dataPortion();
 
 }

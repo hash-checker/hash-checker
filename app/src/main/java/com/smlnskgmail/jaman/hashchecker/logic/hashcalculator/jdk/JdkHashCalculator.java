@@ -11,6 +11,8 @@ import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -30,7 +32,7 @@ public class JdkHashCalculator implements HashCalculator {
         this.jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(hashType);
     }
 
-    @Nullable
+    @NotNull
     @Override
     public String fromString(@NonNull String text) {
         byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
@@ -38,7 +40,7 @@ public class JdkHashCalculator implements HashCalculator {
         return jdkHashCalculatorDigest.result();
     }
 
-    @Nullable
+    @NotNull
     @Override
     public String fromFile(
             @NonNull Context context,
@@ -56,9 +58,9 @@ public class JdkHashCalculator implements HashCalculator {
         return null;
     }
 
-    @Nullable
+    @NotNull
     @Override
-    public String fromFile(@Nullable InputStream inputStream) {
+    public @NonNull String fromFile(@Nullable InputStream inputStream) {
         if (inputStream != null) {
             try {
                 byte[] buffer = new byte[1024];
@@ -80,6 +82,7 @@ public class JdkHashCalculator implements HashCalculator {
         return null;
     }
 
+    @NonNull
     private InputStream inputStreamFromUri(
             @NonNull Context context,
             @NonNull Uri path

@@ -31,6 +31,7 @@ public abstract class BaseListBottomSheet<T extends ListItem> extends BaseBottom
         bottomSheetItems.setAdapter(getItemsAdapter());
     }
 
+    @NonNull
     protected abstract BaseListAdapter<T> getItemsAdapter();
 
     @Override

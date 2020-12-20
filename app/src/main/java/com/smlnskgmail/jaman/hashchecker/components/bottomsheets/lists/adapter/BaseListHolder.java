@@ -87,10 +87,12 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
 
     }
 
+    @NonNull
     protected ImageView getIvItemAdditionalIcon() {
         return ivItemAdditionalIcon;
     }
 
+    @NonNull
     protected Context getContext() {
         return context;
     }

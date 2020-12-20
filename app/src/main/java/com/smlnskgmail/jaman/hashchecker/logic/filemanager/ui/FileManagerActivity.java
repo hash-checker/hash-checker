@@ -67,6 +67,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
         }
     }
 
+    @NonNull
     private List<FileItem> getExternalMounts() {
         List<FileItem> storages = new ArrayList<>();
         String path = Environment.getExternalStorageDirectory().getAbsolutePath();

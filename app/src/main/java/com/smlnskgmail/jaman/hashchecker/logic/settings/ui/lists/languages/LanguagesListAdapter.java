@@ -29,7 +29,7 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
     }
 
     @Override
-    protected BaseListHolder<Language> getItemsHolder(
+    protected @NonNull BaseListHolder<Language> getItemsHolder(
             @NonNull Context themeContext,
             @NonNull View view
     ) {

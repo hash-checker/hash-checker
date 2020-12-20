@@ -25,6 +25,7 @@ public class Feedback {
         this.model = model;
     }
 
+    @NonNull
     public String getAppInfo() {
         return String.format(
                 "%s (%s)",
@@ -33,6 +34,7 @@ public class Feedback {
         );
     }
 
+    @NonNull
     public String getConfiguredMessage(@NonNull String feedback) {
         return String.format(
                 "%s" +

@@ -360,6 +360,7 @@ public class HashCalculatorFragment extends BaseFragment
         }
     }
 
+    @NonNull
     private String fileNameFromUri(@NonNull Uri uri) {
         String scheme = uri.getScheme();
         if (scheme != null && scheme.equals("content")) {

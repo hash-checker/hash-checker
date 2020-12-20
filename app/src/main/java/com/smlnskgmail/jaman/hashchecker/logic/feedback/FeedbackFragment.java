@@ -25,7 +25,7 @@ public class FeedbackFragment extends BaseFragment {
     private final String manufacturer = Build.MANUFACTURER;
     private final String model = Build.MODEL;
 
-    private EditText feedbackEdit;
+    private EditText etFeedbackMessage;
 
     private final Feedback feedback = new Feedback(
             BuildConfig.VERSION_NAME,
@@ -41,7 +41,7 @@ public class FeedbackFragment extends BaseFragment {
             @Nullable Bundle savedInstanceState
     ) {
         super.onViewCreated(view, savedInstanceState);
-        feedbackEdit = view.findViewById(R.id.et_feedback_message);
+        etFeedbackMessage = view.findViewById(R.id.et_feedback_message);
 
         applyInfoToTextView(
                 view,
@@ -81,7 +81,7 @@ public class FeedbackFragment extends BaseFragment {
         } else if (item.getItemId() == R.id.menu_action_send_feedback) {
             sendEmail(
                     feedback.getConfiguredMessage(
-                            feedbackEdit.getText().toString()
+                            etFeedbackMessage.getText().toString()
                     ),
                     getString(R.string.common_email)
             );

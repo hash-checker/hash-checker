@@ -53,6 +53,7 @@ public abstract class BaseListAdapter<T extends ListItem>
         holder.bind(items.get(position));
     }
 
+    @NonNull
     protected abstract BaseListHolder<T> getItemsHolder(
             @NonNull Context themeContext,
             @NonNull View view

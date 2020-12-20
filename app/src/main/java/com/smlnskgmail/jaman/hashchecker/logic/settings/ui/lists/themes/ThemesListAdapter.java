@@ -29,7 +29,7 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
     }
 
     @Override
-    public BaseListHolder<Theme> getItemsHolder(
+    public @NonNull BaseListHolder<Theme> getItemsHolder(
             @NonNull Context themeContext,
             @NonNull View view
     ) {

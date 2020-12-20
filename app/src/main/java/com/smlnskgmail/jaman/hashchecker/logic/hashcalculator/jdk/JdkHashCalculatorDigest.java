@@ -19,6 +19,7 @@ public class JdkHashCalculatorDigest {
 
     }
 
+    @NonNull
     public static JdkHashCalculatorDigest instanceFor(
             @NonNull HashType hashType
     ) throws NoSuchAlgorithmException {
@@ -69,6 +70,7 @@ public class JdkHashCalculatorDigest {
         }
     }
 
+    @NonNull
     public String result() {
         return !useCRC32
                 ? JdkHashTools.getStringFromByteArray(messageDigest.digest())

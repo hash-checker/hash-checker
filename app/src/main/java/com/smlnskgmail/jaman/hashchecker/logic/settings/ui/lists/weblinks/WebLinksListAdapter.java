@@ -22,7 +22,7 @@ public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
     }
 
     @Override
-    public BaseListHolder<WebLink> getItemsHolder(
+    public @NonNull BaseListHolder<WebLink> getItemsHolder(
             @NonNull Context themeContext,
             @NonNull View view
     ) {

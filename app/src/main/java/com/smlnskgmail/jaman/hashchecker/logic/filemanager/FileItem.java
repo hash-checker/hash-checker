@@ -116,6 +116,7 @@ public class FileItem {
             );
         }
 
+        @NonNull
         static String getFileExtension(@NonNull String fileName) {
             int lastDotIndex = fileName.lastIndexOf('.');
             if (lastDotIndex != -1) {

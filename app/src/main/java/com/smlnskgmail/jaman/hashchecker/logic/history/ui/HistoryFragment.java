@@ -107,7 +107,7 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
     }
 
     @Override
-    public HistoryPortion dataPortion() {
+    public @NonNull HistoryPortion dataPortion() {
         return historyPortion;
     }
 

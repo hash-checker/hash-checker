@@ -27,7 +27,7 @@ public class ActionsListAdapter extends BaseListAdapter<Action> {
     }
 
     @Override
-    protected BaseListHolder<Action> getItemsHolder(
+    protected @NonNull BaseListHolder<Action> getItemsHolder(
             @NonNull Context themeContext,
             @NonNull View view
     ) {

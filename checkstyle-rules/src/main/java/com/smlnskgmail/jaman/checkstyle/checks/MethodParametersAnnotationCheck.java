@@ -43,6 +43,7 @@ public class MethodParametersAnnotationCheck extends AbstractCheck {
 
     private boolean isInvalidParameter(DetailAST parameterAST) {
         final DetailAST modifiers = parameterAST.findFirstToken(TokenTypes.MODIFIERS);
+        // TODO: add annotations check
         return modifiers != null
                 && !EXCLUDED_TYPES.contains(parameterAST.findFirstToken(TokenTypes.TYPE).getFirstChild().getType())
                 && modifiers.findFirstToken(TokenTypes.ANNOTATION) == null;

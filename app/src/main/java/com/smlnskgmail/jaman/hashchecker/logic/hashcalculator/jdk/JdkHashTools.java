@@ -6,6 +6,7 @@ public class JdkHashTools {
 
     private static final char[] HEX_DIGITS = "0123456789ABCDEF".toCharArray();
 
+    @NonNull
     public static String getStringFromByteArray(@NonNull byte[] data) {
         char[] chars = new char[data.length * 2];
         for (int i = 0; i < data.length; i++) {
@@ -15,6 +16,7 @@ public class JdkHashTools {
         return new String(chars).toLowerCase();
     }
 
+    @NonNull
     public static String getStringFromLong(long data) {
         return String.format(
                 "%08x",
