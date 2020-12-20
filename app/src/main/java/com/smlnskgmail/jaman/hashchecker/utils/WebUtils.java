@@ -13,6 +13,10 @@ import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 
 public class WebUtils {
 
+    private WebUtils() {
+
+    }
+
     public static void openGooglePlay(
             @NonNull Context context,
             @NonNull View view

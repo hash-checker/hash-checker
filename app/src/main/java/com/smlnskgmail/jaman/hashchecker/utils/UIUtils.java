@@ -22,6 +22,10 @@ import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
 
 public class UIUtils {
 
+    private UIUtils() {
+
+    }
+
     public static void removeFragment(
             @NonNull FragmentManager fragmentManager,
             @NonNull Fragment fragment

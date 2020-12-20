@@ -20,6 +20,9 @@
         <module name="com.smlnskgmail.jaman.checkstyle.checks.MethodParametersAnnotationCheck">
             <property name="id" value="MethodParametersAnnotationCheck" />
         </module>
+        <module name="com.smlnskgmail.jaman.checkstyle.checks.UtilityClassPrivateConstructorCheck">
+            <property name="id" value="UtilityClassPrivateConstructorCheck" />
+        </module>
         <module name="SuppressWarningsHolder" />
         <module name="IllegalTokenText">
             <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL" />
