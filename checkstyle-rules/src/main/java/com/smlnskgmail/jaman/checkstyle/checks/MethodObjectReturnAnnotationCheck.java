@@ -30,7 +30,7 @@ public class MethodObjectReturnAnnotationCheck extends AbstractCheck {
             // TODO: add annotations check
             final DetailAST modifiers = ast.findFirstToken(TokenTypes.MODIFIERS);
             if (modifiers.getChildCount(TokenTypes.ANNOTATION) == 0) {
-                log(ast.getLineNo(), String.valueOf(returnType.getFirstChild().getType()));
+                log(ast.getLineNo(), MESSAGE_KEY);
             }
         }
     }
