@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">Значение скопировано в буфер обмена</string>
     <string name="history_empty_view_message">История пуста</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Если вам нравится приложение, вы можете оценить его в Google Play</string>
+    <string name="rate_app_action">Оценить</string>
 </resources>

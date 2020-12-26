@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">مقدار هش در کلیپ بورد کپی شد</string>
     <string name="history_empty_view_message">موارد تاریخ یافت نشد</string>
+    <!-- rate app -->
+    <string name="rate_app_message">اگر برنامه را دوست دارید ، می توانید آن را در Google Play ارزیابی کنید</string>
+    <string name="rate_app_action">نرخ</string>
 </resources>

@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">Hash value copied to clipboard</string>
     <string name="history_empty_view_message">Elementi della cronologia non trovati</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Se ti piace l\'app, puoi valutarla su Google Play</string>
+    <string name="rate_app_action">Vota</string>
 </resources>

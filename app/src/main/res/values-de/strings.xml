@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">Hash-Wert in die Zwischenablage kopiert</string>
     <string name="history_empty_view_message">Verlaufselemente nicht gefunden</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Wenn Ihnen die App gefällt, können Sie sie in Google Play bewerten</string>
+    <string name="rate_app_action">Bewertung</string>
 </resources>

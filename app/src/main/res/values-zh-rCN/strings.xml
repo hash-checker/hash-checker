@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">将哈希值复制到剪切板</string>
     <string name="history_empty_view_message">未找到历史记录</string>
+    <!-- rate app -->
+    <string name="rate_app_message">如果您喜欢该应用，则可以在Google Play中对其评分</string>
+    <string name="rate_app_action">率</string>
 </resources>

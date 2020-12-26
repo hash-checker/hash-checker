@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">ערך Hash מועתק ללוח</string>
     <string name="history_empty_view_message">פריטי היסטוריה לא נמצאו</string>
+    <!-- rate app -->
+    <string name="rate_app_message">אם אתה אוהב את האפליקציה, אתה יכול לדרג אותה ב- Google Play</string>
+    <string name="rate_app_action">ציון</string>
 </resources>
