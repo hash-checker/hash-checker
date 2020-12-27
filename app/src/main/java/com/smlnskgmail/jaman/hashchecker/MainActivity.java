@@ -79,8 +79,9 @@ public class MainActivity extends BaseActivity {
         showFragment(mainFragment);
     }
 
-    private void showFragment(@NonNull Fragment fragment) {
-        getSupportFragmentManager().beginTransaction()
+    public void showFragment(@NonNull Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
                 .add(
                         android.R.id.content,
                         fragment,

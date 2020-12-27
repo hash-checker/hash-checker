@@ -23,6 +23,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
+import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
@@ -214,26 +215,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeFeedbackButton() {
         findPreference(getString(R.string.key_feedback))
                 .setOnPreferenceClickListener(preference -> {
-                    showFragment(new FeedbackFragment());
+                    ((MainActivity) getActivity()).showFragment(new FeedbackFragment());
                     return false;
                 });
     }
-
-    private void showFragment(@NonNull Fragment fragment) {
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .add(
-                        android.R.id.content,
-                        fragment,
-                        BaseFragment.CURRENT_FRAGMENT_TAG
-                )
-                .setCustomAnimations(
-                        android.R.anim.fade_in,
-                        android.R.anim.fade_out
-                )
-                .addToBackStack(null)
-                .commit();
-    }
-
 
     private void initializeAppVersionInfo() {
         findPreference(getString(R.string.key_version)).setSummary(
