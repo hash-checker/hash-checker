@@ -53,7 +53,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: ./gradlew -Pandroid.testInstrumentationRunnerArguments.class=com.smlnskgmail.jaman.hashcheckerlite.AndroidTestSuite connectedCheck --stacktrace
+          script: ./gradlew -Pandroid.testInstrumentationRunnerArguments.class=com.smlnskgmail.jaman.hashchecker.AndroidTestSuite connectedCheck --stacktrace
 
       - name: Send JaCoCo coverage report to Codecov
         uses: codecov/codecov-action@v1
