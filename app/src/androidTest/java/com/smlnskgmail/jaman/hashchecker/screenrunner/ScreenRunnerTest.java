@@ -1,8 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker.screenrunner;
 
-import android.content.Context;
-
-import androidx.annotation.IdRes;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.rule.ActivityTestRule;
 
@@ -13,7 +10,6 @@ import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
 import org.junit.Rule;
 
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -33,9 +29,8 @@ public class ScreenRunnerTest extends BaseUITest {
         showResourcesActions();
         showHashActions();
 
-        showSettingsFragment();
         showHistoryFragment();
-        showFragmentInMenu(R.string.menu_title_feedback, true);
+        showSettingsFragment();
     }
 
     private void showHashTypesSelector() {
@@ -56,23 +51,13 @@ public class ScreenRunnerTest extends BaseUITest {
     }
 
     private void showSettingsFragment() {
-        showFragmentInMenu(R.string.menu_title_settings, false);
+        clickById(R.id.menu_main_section_settings);
         clickOnSettingsItem(R.string.settings_title_language);
         clickOnSettingsItem(R.string.settings_title_theme);
         clickOnSettingsItem(R.string.settings_title_author);
+        clickOnSettingsItem(R.string.menu_title_feedback);
         delayAndBack();
-    }
-
-    private void showFragmentInMenu(
-            @IdRes int menuTitleResId,
-            boolean withBackAction
-    ) {
-        Context context = getContext();
-        openActionBarOverflowOrOptionsMenu(context);
-        clickByText(context.getString(menuTitleResId));
-        if (withBackAction) {
-            delayAndBack();
-        }
+        delayAndBack();
     }
 
     private void showHistoryFragment() {
