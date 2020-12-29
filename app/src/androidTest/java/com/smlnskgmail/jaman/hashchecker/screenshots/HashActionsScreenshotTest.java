@@ -4,17 +4,16 @@ import androidx.test.runner.AndroidJUnit4;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
-public class MainScreenScreenshotTest extends BaseScreenshotTest {
+public class HashActionsScreenshotTest extends BaseScreenshotTest {
 
-    @Test
     @Override
     public void runTest() {
+        clickById(R.id.btn_hash_actions);
         makeScreenshot(
-                "1_main_screen"
+                "3_hash_actions"
         );
     }
 

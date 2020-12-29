@@ -8,13 +8,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
-public class MainScreenScreenshotTest extends BaseScreenshotTest {
+public class SourceActionsScreenshotTest extends BaseScreenshotTest {
 
     @Test
     @Override
     public void runTest() {
+        clickById(R.id.btn_generate_from);
         makeScreenshot(
-                "1_main_screen"
+                "2_source_actions"
         );
     }
 

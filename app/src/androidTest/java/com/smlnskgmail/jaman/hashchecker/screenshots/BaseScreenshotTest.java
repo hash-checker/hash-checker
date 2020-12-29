@@ -4,14 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.test.rule.ActivityTestRule;
 
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
+import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
 
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.Test;
 
 import tools.fastlane.screengrab.FalconScreenshotStrategy;
 import tools.fastlane.screengrab.Screengrab;
 
-public abstract class BaseScreenshotTest {
+public abstract class BaseScreenshotTest extends BaseUITest {
 
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule
@@ -29,6 +31,7 @@ public abstract class BaseScreenshotTest {
     public void makeScreenshot(
             @NonNull String screenshotName
     ) {
+        secondDelay();
         Screengrab.screenshot(
                 screenshotName
         );
