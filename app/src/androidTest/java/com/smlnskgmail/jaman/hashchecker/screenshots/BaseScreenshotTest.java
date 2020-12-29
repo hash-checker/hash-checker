@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import tools.fastlane.screengrab.FalconScreenshotStrategy;
 import tools.fastlane.screengrab.Screengrab;
+import tools.fastlane.screengrab.UiAutomatorScreenshotStrategy;
 
 public abstract class BaseScreenshotTest extends BaseUITest {
 
@@ -22,9 +23,7 @@ public abstract class BaseScreenshotTest extends BaseUITest {
     @Before
     public void setup() {
         Screengrab.setDefaultScreenshotStrategy(
-                new FalconScreenshotStrategy(
-                        activityTestRule.getActivity()
-                )
+                new UiAutomatorScreenshotStrategy()
         );
     }
 

@@ -9,6 +9,7 @@ import org.junit.runners.Suite;
         SourceActionsScreenshotTest.class,
         HashActionsScreenshotTest.class,
         HashTypesScreenshotTest.class,
+        CompareHashesScreenshotTest.class,
 })
 public class ScreenshotsTestSuite {
 }
