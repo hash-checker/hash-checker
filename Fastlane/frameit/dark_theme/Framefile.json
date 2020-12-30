@@ -1,0 +1,39 @@
+{
+  "default": {
+    "force_device_type": "Google Pixel 3",
+    "background": "./background",
+    "padding": 75
+  },
+  "data": [
+    {
+      "filter": "1_main_screen",
+      "title": {
+        "text": "Minimalistic interface"
+      }
+    },
+    {
+      "filter": "2_source_actions",
+      "title": {
+        "text": "Simple navigation"
+      }
+    },
+    {
+      "filter": "3_hash_actions",
+      "title": {
+        "text": "Only needed actions"
+      }
+    },
+    {
+      "filter": "4_hash_types",
+      "title": {
+        "text": "Fast selection of a needed hash type"
+      }
+    },
+    {
+      "filter": "5_compare_hashes",
+      "title": {
+        "text": "Compare and get a result now!"
+      }
+    }
+  ]
+}
