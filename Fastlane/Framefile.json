@@ -1,0 +1,9 @@
+{
+  "default": {
+    "force_device_type": "Google Pixel 3",
+    "background": "./background.jpg"
+  },
+  "data": [
+
+  ]
+}

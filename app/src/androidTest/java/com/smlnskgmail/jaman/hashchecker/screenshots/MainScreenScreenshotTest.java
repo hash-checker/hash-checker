@@ -13,6 +13,7 @@ public class MainScreenScreenshotTest extends BaseScreenshotTest {
     @Test
     @Override
     public void runTest() {
+        secondDelay();
         makeScreenshot(
                 "1_main_screen"
         );
