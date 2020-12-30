@@ -13,7 +13,7 @@ public class MainScreenScreenshotTest extends BaseScreenshotTest {
     @Test
     @Override
     public void runTest() {
-        secondDelay();
+        clickById(R.id.tv_selected_object_name);
         makeScreenshot(
                 "1_main_screen"
         );
