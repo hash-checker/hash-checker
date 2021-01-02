@@ -88,11 +88,12 @@ dependencies {
     implementation 'com.j256.ormlite:ormlite-core:5.1'
     implementation 'com.j256.ormlite:ormlite-android:5.1'
 
+    // Checkstyle
+    checkstyle 'com.github.fartem:checkstyle-checks-java:master'
+    checkstyle 'com.github.fartem:checkstyle-checks-android:master'
+
     // Unit tests
     testImplementation 'junit:junit:4.13'
-
-    // Checkstyle
-    checkstyle project(':checkstyle-rules')
 
     // Android tests
     androidTestImplementation 'androidx.annotation:annotation:1.1.0'

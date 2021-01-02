@@ -20,6 +20,7 @@ allprojects {
         maven {
             url 'https://dl.bintray.com/fartem/android'
         }
+        maven { url "https://jitpack.io" }
     }
 }
 
