@@ -9,11 +9,9 @@ checkstyle {
 task checkstyle(type: Checkstyle) {
     group 'verification'
 
-//    config project.resources.text.fromUri(
-//            'https://raw.githubusercontent.com/fartem/repository-rules/master/rules/java/checkstyle/checkstyle.xml'
-//    )
-    configFile rootProject.file('checkstyle.xml')
-    source rootProject.file('app/src/main/java')
+    config project.resources.text.fromUri(
+            'https://raw.githubusercontent.com/fartem/repository-rules/master/rules/java/checkstyle/android/checkstyle.xml'
+    )
     classpath = files()
 
     reports {
