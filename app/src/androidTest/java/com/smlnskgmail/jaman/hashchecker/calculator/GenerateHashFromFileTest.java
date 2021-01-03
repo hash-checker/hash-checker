@@ -1,15 +1,13 @@
-package com.smlnskgmail.jaman.hashchecker.screenshots;
+package com.smlnskgmail.jaman.hashchecker.calculator;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 
 import androidx.test.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnit4;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-
-import org.junit.runner.RunWith;
+import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,8 +21,7 @@ import static com.smlnskgmail.jaman.hashchecker.components.matchers.TextMatcher.
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-@RunWith(AndroidJUnit4.class)
-public class CompareHashesScreenshotTest extends BaseScreenshotTest {
+public class GenerateHashFromFileTest extends BaseUITest {
 
     private static final int SELECT_FILE_BUTTON_POSITION = 1;
     private static final int GENERATE_HASH_BUTTON_POSITION = 0;
@@ -84,9 +81,6 @@ public class CompareHashesScreenshotTest extends BaseScreenshotTest {
         inRecyclerViewClickOnPosition(
                 R.id.rv_bottom_sheet_list_items,
                 COMPARE_HASHES_BUTTON_POSITION
-        );
-        makeScreenshot(
-                "5_compare_hashes"
         );
     }
 

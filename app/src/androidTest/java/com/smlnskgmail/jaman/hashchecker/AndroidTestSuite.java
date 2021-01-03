@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker;
 
+import com.smlnskgmail.jaman.hashchecker.calculator.GenerateHashFromFileTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.GenerateHashFromTextTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.crc.CRC32JdkHashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.md.MD5JdkHashCalculatorTest;
@@ -26,6 +27,7 @@ import org.junit.runners.Suite;
         SHA512JdkHashCalculatorTest.class,
         CRC32JdkHashCalculatorTest.class,
         MessageDigestZeroLeadsJdkHashCalculatorTest.class,
+        GenerateHashFromFileTest.class,
         GenerateHashFromTextTest.class,
         FeedbackTest.class,
         ClipboardTest.class,
