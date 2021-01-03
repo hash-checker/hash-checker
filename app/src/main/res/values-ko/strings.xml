@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">해시 값이 클립 보드에 복사되었습니다</string>
     <string name="history_empty_view_message">이력 항목을 찾을 수 없습니다</string>
+    <!-- rate app -->
+    <string name="rate_app_message">앱이 마음에 들면 Google Play에서 평가할 수 있습니다.</string>
+    <string name="rate_app_action">율</string>
 </resources>

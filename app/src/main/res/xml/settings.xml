@@ -23,7 +23,8 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:key="@string/key_category_app"
+    <PreferenceCategory
+        android:key="@string/key_category_app"
         android:title="@string/settings_title_app">
 
         <SwitchPreference
@@ -74,6 +75,11 @@
             android:title="@string/settings_title_help_with_translation"
             android:key="@string/key_help_with_translation"
             android:icon="@drawable/ic_settings_help_with_translation" />
+
+        <Preference
+            android:title="@string/menu_title_feedback"
+            android:key="@string/key_feedback"
+            android:icon="@drawable/ic_settings_feedback" />
 
         <Preference
             android:title="@string/settings_title_rate_app"

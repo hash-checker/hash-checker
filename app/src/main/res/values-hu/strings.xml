@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">A hasítóérték a vágólapra másolt</string>
     <string name="history_empty_view_message">Előzmények nem találhatóak</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Ha tetszik az alkalmazás, értékelheti a Google Playen</string>
+    <string name="rate_app_action">Mérték</string>
 </resources>

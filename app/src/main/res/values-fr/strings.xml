@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">Valeur de hachage copiée dans le presse-papier</string>
     <string name="history_empty_view_message">Articles d\'histoire non trouvés</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Si vous aimez l\'application, vous pouvez l\'évaluer sur Google Play</string>
+    <string name="rate_app_action">Taux</string>
 </resources>

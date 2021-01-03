@@ -3,12 +3,12 @@ package com.smlnskgmail.jaman.hashchecker.components.dialogs.system;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.R;
 
 public class AppProgressDialog {
 
@@ -18,20 +18,15 @@ public class AppProgressDialog {
             @NonNull Context context,
             @IdRes int textMessageResId
     ) {
-        android.app.ProgressDialog progressDialog
-                = new android.app.ProgressDialog(context);
+        ProgressDialog progressDialog = new ProgressDialog(context, R.style.AppAlertDialog);
         progressDialog.setMessage(
-                context.getString(
-                        textMessageResId
-                )
+                context.getText(textMessageResId)
         );
-        progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
         progressDialog.getWindow().setBackgroundDrawable(
-                new ColorDrawable(
-                        UIUtils.getCommonBackgroundColor(
-                                context
-                        )
+                ContextCompat.getDrawable(
+                        context,
+                        R.drawable.bg_dialog_rounded_corners
                 )
         );
         return progressDialog;

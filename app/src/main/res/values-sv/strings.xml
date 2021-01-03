@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">Hash-värde kopieras till urklipp</string>
     <string name="history_empty_view_message">Historikartiklar hittades inte</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Om du gillar appen kan du betygsätta den i Google Play</string>
+    <string name="rate_app_action">Betygsätta</string>
 </resources>

@@ -14,6 +14,10 @@ import java.util.Locale;
 
 public class LangUtils {
 
+    private LangUtils() {
+
+    }
+
     public static void setLocale(
             @NonNull Context context,
             @NonNull Language language

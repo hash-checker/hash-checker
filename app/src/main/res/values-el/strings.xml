@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">Η τιμή Hash αντιγράφηκε στο πρόχειρο</string>
     <string name="history_empty_view_message">Τα στοιχεία ιστορικού δεν βρέθηκαν</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Εάν σας αρέσει η εφαρμογή, μπορείτε να την αξιολογήσετε στο Google Play</string>
+    <string name="rate_app_action">Τιμή</string>
 </resources>

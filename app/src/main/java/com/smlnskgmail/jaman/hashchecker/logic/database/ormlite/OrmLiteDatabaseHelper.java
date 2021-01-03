@@ -46,14 +46,15 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
         );
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "MethodParametersAnnotationCheck"})
     @Override
     public void onCreate(
             SQLiteDatabase database,
             ConnectionSource connectionSource
     ) {
         try {
-            for (Class clazz: tablesClasses) {
+            //noinspection rawtypes
+            for (Class clazz : tablesClasses) {
                 TableUtils.createTable(
                         connectionSource,
                         clazz
@@ -64,6 +65,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
         }
     }
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     @Override
     public void onUpgrade(
             SQLiteDatabase database,
@@ -89,7 +91,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
     }
 
     @Override
-    public List<HistoryItem> historyItems(
+    public @NonNull List<HistoryItem> historyItems(
             @NonNull HistoryPortion historyPortion
     ) {
         try {
@@ -142,7 +144,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
     }
 
     @Override
-    public String getDatabaseFolder() {
+    public @NonNull String getDatabaseFolder() {
         return DATABASE_FOLDER;
     }
 

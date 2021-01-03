@@ -1,0 +1,45 @@
+{
+  "default": {
+    "force_device_type": "Google Pixel 3",
+    "frame": "CLEARLY_WHITE",
+    "background": "./background",
+    "padding": 75
+  },
+  "data": [
+    {
+      "filter": "1_main_screen",
+      "title": {
+        "text": "Minimalistic interface",
+        "font_size": 96
+      }
+    },
+    {
+      "filter": "2_source_actions",
+      "title": {
+        "text": "Simple navigation",
+        "font_size": 96
+      }
+    },
+    {
+      "filter": "3_hash_actions",
+      "title": {
+        "text": "Only needed actions",
+        "font_size": 96
+      }
+    },
+    {
+      "filter": "4_hash_types",
+      "title": {
+        "text": "Fast selection of\na needed hash type",
+        "font_size": 96
+      }
+    },
+    {
+      "filter": "5_compare_hashes",
+      "title": {
+        "text": "Compare and get\na result now!",
+        "font_size": 96
+      }
+    }
+  ]
+}

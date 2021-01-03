@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">Hash-waarde gekopieerd naar klembord</string>
     <string name="history_empty_view_message">Geschiedenisitems niet gevonden</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Als je de app leuk vindt, kun je deze beoordelen in Google Play</string>
+    <string name="rate_app_action">Beoordeel</string>
 </resources>

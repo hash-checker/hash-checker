@@ -11,8 +11,8 @@ android {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 85
-        versionName '3.5.2'
+        versionCode 86
+        versionName '3.6.0'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
@@ -88,6 +88,10 @@ dependencies {
     // ORMLite
     implementation 'com.j256.ormlite:ormlite-core:5.1'
     implementation 'com.j256.ormlite:ormlite-android:5.1'
+
+    // Checkstyle
+    checkstyle 'com.github.fartem:checkstyle-checks-java:master'
+    checkstyle 'com.github.fartem:checkstyle-checks-android:master'
 
     // Unit tests
     testImplementation 'junit:junit:4.13'

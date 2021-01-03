@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 
+import org.jetbrains.annotations.NotNull;
+
 public enum Theme implements ListItem {
 
     LIGHT(
@@ -26,6 +28,7 @@ public enum Theme implements ListItem {
         this.themeResId = themeResId;
     }
 
+    @NotNull
     @Override
     public String getTitle(@NonNull Context context) {
         return context.getString(titleResId);

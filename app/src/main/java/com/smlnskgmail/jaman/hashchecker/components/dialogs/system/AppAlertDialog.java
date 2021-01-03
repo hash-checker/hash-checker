@@ -33,7 +33,6 @@ public class AppAlertDialog {
                 .create();
         alertDialog.setOnShowListener(dialog -> {
             AlertDialog currentDialog = ((AlertDialog) dialog);
-
             int textColor = UIUtils.getAccentColor(context);
             currentDialog.getButton(
                     DialogInterface.BUTTON_POSITIVE

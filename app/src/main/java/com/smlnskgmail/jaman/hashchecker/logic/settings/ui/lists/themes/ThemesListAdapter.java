@@ -29,13 +29,13 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
     }
 
     @Override
-    public BaseListHolder<Theme> getItemsHolder(
-            @NonNull View view,
-            @NonNull Context themeContext
+    public @NonNull BaseListHolder<Theme> getItemsHolder(
+            @NonNull Context themeContext,
+            @NonNull View view
     ) {
         return new ThemesListHolder(
-                view,
-                themeContext
+                themeContext,
+                view
         );
     }
 
@@ -44,10 +44,10 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
         private Theme themeAtPosition;
 
         ThemesListHolder(
-                @NonNull View itemView,
-                @NonNull Context themeContext
+                @NonNull Context themeContext,
+                @NonNull View itemView
         ) {
-            super(itemView, themeContext);
+            super(themeContext, itemView);
         }
 
         @Override

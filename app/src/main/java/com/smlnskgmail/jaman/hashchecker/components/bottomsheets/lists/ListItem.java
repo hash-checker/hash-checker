@@ -8,9 +8,11 @@ public interface ListItem {
 
     int DEFAULT_ICON_VALUE = -1;
 
+    @NonNull
     String getTitle(@NonNull Context context);
 
     int getPrimaryIconResId();
+
     int getAdditionalIconResId();
 
 }

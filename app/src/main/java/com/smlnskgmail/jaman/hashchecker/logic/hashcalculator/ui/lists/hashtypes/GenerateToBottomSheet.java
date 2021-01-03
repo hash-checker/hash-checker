@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class GenerateToBottomSheet extends BaseListBottomSheet<HashType> {
 
     @Override
-    public BaseListAdapter<HashType> getItemsAdapter() {
+    public @androidx.annotation.NonNull BaseListAdapter<HashType> getItemsAdapter() {
         Fragment fragment = getFragmentManager().findFragmentByTag(
                 BaseFragment.CURRENT_FRAGMENT_TAG
         );

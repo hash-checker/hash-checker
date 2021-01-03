@@ -7,7 +7,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:4.1.1'
         classpath 'de.aaschmid:gradle-cpd-plugin:3.1'
         classpath 'com.hiya:jacoco-android:0.2'
     }
@@ -20,6 +20,7 @@ allprojects {
         maven {
             url 'https://dl.bintray.com/fartem/android'
         }
+        maven { url "https://jitpack.io" }
     }
 }
 

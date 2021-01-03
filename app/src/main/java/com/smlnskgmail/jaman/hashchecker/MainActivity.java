@@ -12,16 +12,18 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.feedback.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
+
+import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
@@ -74,12 +76,12 @@ public class MainActivity extends BaseActivity {
                     false
             );
         }
-
         showFragment(mainFragment);
     }
 
-    private void showFragment(@NonNull Fragment fragment) {
-        getSupportFragmentManager().beginTransaction()
+    public void showFragment(@NonNull Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
                 .add(
                         android.R.id.content,
                         fragment,
@@ -108,29 +110,28 @@ public class MainActivity extends BaseActivity {
             @Nullable String action
     ) {
         Bundle shortcutArguments = new Bundle();
-        if (action != null && action.equals(App.ACTION_START_WITH_TEXT)) {
-            shortcutArguments.putBoolean(
-                    App.ACTION_START_WITH_TEXT,
-                    true
-            );
-        } else if (action != null && action.equals(App.ACTION_START_WITH_FILE)) {
-            shortcutArguments.putBoolean(
-                    App.ACTION_START_WITH_FILE,
-                    true
-            );
+        if (action != null) {
+            if (action.equals(App.ACTION_START_WITH_TEXT)) {
+                shortcutArguments.putBoolean(
+                        App.ACTION_START_WITH_TEXT,
+                        true
+                );
+            } else if (action.equals(App.ACTION_START_WITH_FILE)) {
+                shortcutArguments.putBoolean(
+                        App.ACTION_START_WITH_FILE,
+                        true
+                );
+            }
         }
         return shortcutArguments;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         hideKeyboard();
         switch (item.getItemId()) {
             case R.id.menu_main_section_settings:
                 showFragment(new SettingsFragment());
-                break;
-            case R.id.menu_main_section_feedback:
-                showFragment(new FeedbackFragment());
                 break;
             case R.id.menu_main_section_history:
                 showFragment(new HistoryFragment());
@@ -154,15 +155,18 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentByTag(
                 BaseFragment.CURRENT_FRAGMENT_TAG
         );
         if (fragment instanceof AppBackClickTarget) {
             ((AppBackClickTarget) fragment).appBackClick();
         }
-        for (Fragment fragmentInApp: getSupportFragmentManager().getFragments()) {
-            if (fragmentInApp instanceof AppResumeTarget) {
-                ((AppResumeTarget) fragmentInApp).appResume();
+        List<Fragment> fragments = fragmentManager.getFragments();
+        if (!fragments.isEmpty()) {
+            Fragment nextFragment = fragments.get(fragments.size() - 1);
+            if (nextFragment instanceof AppResumeTarget) {
+                ((AppResumeTarget) nextFragment).appResume();
             }
         }
     }

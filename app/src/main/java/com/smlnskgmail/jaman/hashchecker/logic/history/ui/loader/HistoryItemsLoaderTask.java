@@ -19,6 +19,7 @@ public class HistoryItemsLoaderTask extends AsyncTask<Void, List<HistoryItem>, L
         this.loaderTaskTarget = loaderTaskTarget;
     }
 
+    @SuppressWarnings({"MethodParametersAnnotationCheck", "MethodObjectReturnAnnotationCheck"})
     @Override
     protected List<HistoryItem> doInBackground(Void... voids) {
         return HelperFactory.getHelper().historyItems(
@@ -26,6 +27,7 @@ public class HistoryItemsLoaderTask extends AsyncTask<Void, List<HistoryItem>, L
         );
     }
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     @Override
     protected void onPostExecute(List<HistoryItem> historyItems) {
         completeLoad(historyItems);

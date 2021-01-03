@@ -31,4 +31,5 @@ import org.junit.runners.Suite;
         ClipboardTest.class,
         ScreenRunnerTest.class
 })
-public class AndroidTestSuite {}
+public class AndroidTestSuite {
+}

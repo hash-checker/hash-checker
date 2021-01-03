@@ -19,11 +19,11 @@ public class JdkHashCalculatorDigest {
 
     }
 
+    @NonNull
     public static JdkHashCalculatorDigest instanceFor(
             @NonNull HashType hashType
     ) throws NoSuchAlgorithmException {
-        JdkHashCalculatorDigest jdkHashCalculatorDigest
-                = new JdkHashCalculatorDigest();
+        JdkHashCalculatorDigest jdkHashCalculatorDigest = new JdkHashCalculatorDigest();
         jdkHashCalculatorDigest.setHashType(hashType);
         return jdkHashCalculatorDigest;
     }
@@ -41,7 +41,7 @@ public class JdkHashCalculatorDigest {
         }
     }
 
-    public void update(byte[] input) {
+    public void update(@NonNull byte[] input) {
         if (!useCRC32) {
             messageDigest.reset();
             messageDigest.update(input);
@@ -52,7 +52,7 @@ public class JdkHashCalculatorDigest {
     }
 
     public void update(
-            byte[] input,
+            @NonNull byte[] input,
             int length
     ) {
         if (!useCRC32) {
@@ -69,7 +69,8 @@ public class JdkHashCalculatorDigest {
             );
         }
     }
-   
+
+    @NonNull
     public String result() {
         return !useCRC32
                 ? JdkHashTools.getStringFromByteArray(messageDigest.digest())

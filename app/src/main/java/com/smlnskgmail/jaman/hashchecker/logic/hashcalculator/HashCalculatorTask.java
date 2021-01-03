@@ -25,29 +25,29 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
     private final boolean isText;
 
     public HashCalculatorTask(
-            @NonNull HashType hashType,
             @NonNull Context context,
+            @NonNull HashType hashType,
             @NonNull Uri fileUri,
             @NonNull HashCalculatorTaskTarget completeListener
     ) {
-        this(hashType, context, completeListener, false);
+        this(context, hashType, completeListener, false);
         this.fileUri = fileUri;
     }
 
     public HashCalculatorTask(
-            @NonNull HashType hashType,
             @NonNull Context context,
+            @NonNull HashType hashType,
             @NonNull String textValue,
             @NonNull HashCalculatorTaskTarget completeListener
     ) {
-        this(hashType, context, completeListener, true);
+        this(context, hashType, completeListener, true);
         this.textValue = textValue;
 
     }
 
     private HashCalculatorTask(
-            @NonNull HashType hashType,
             @NonNull Context context,
+            @NonNull HashType hashType,
             @NonNull HashCalculatorTaskTarget completeListener,
             boolean isText
     ) {
@@ -57,6 +57,7 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
         this.isText = isText;
     }
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     @Override
     protected String doInBackground(Void... voids) {
         try {
@@ -71,6 +72,7 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
         }
     }
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     @Override
     protected void onPostExecute(String result) {
         completeListener.hashCalculationComplete(result);

@@ -24,8 +24,8 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
     private final Context context;
 
     protected BaseListHolder(
-            @NonNull View itemView,
-            @NonNull Context themeContext
+            @NonNull Context themeContext,
+            @NonNull View itemView
     ) {
         super(itemView);
 
@@ -87,10 +87,12 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
 
     }
 
+    @NonNull
     protected ImageView getIvItemAdditionalIcon() {
         return ivItemAdditionalIcon;
     }
 
+    @NonNull
     protected Context getContext() {
         return context;
     }

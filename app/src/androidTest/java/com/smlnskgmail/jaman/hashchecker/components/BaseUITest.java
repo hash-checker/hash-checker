@@ -1,9 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.components;
 
-import android.content.Context;
-
 import androidx.annotation.NonNull;
-import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.runner.AndroidJUnit4;
 
@@ -18,7 +15,6 @@ import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 public abstract class BaseUITest {
@@ -32,10 +28,6 @@ public abstract class BaseUITest {
         onView(withId(id)).perform(click());
     }
 
-    protected void clickByText(@NonNull String text) {
-        onView(withText(text)).perform(click());
-    }
-
     protected void textEquals(@NonNull String text, int textViewId) {
         onView(withId(textViewId)).check(
                 matches(TextMatcher.hasStringEqualsTo(text))
@@ -45,15 +37,11 @@ public abstract class BaseUITest {
     @SuppressWarnings("SameParameterValue")
     protected void inRecyclerViewClickOnPosition(int recyclerId, int position) {
         onView(withId(recyclerId)).perform(
-                        RecyclerViewActions.actionOnItemAtPosition(
-                                position,
-                                click()
-                        )
+                RecyclerViewActions.actionOnItemAtPosition(
+                        position,
+                        click()
+                )
         );
-    }
-
-    protected Context getContext() {
-        return InstrumentationRegistry.getTargetContext();
     }
 
     protected void delayAndBack() {

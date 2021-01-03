@@ -18,15 +18,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
+import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
+import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
+import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.database.DatabaseExporter;
 import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.logic.feedback.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.LanguagesBottomSheet;
@@ -34,7 +38,6 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.ThemesBo
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.AuthorWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.LibrariesWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.PrivacyPolicyWebLinksBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
@@ -44,12 +47,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class SettingsFragment extends PreferenceFragmentCompat implements AppBackClickTarget {
+public class SettingsFragment extends PreferenceFragmentCompat implements AppBackClickTarget, AppResumeTarget {
 
     private ActionBar actionBar;
     private FragmentManager fragmentManager;
     private Context context;
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     @SuppressLint("ResourceType")
     @Override
     public void onCreatePreferences(
@@ -68,6 +72,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
         initializeUserDataExport();
         initializeAuthorLinks();
         initializeLibrariesLinks();
+        initializeFeedbackButton();
         initializeRateButton();
         initializeHelpWithTranslationButton();
         initializeAppVersionInfo();
@@ -86,25 +91,25 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeLanguageSettings() {
         findPreference(getString(R.string.key_language))
                 .setOnPreferenceClickListener(preference -> {
-            LanguagesBottomSheet languagesBottomSheet = new LanguagesBottomSheet();
-            languagesBottomSheet.show(
-                    fragmentManager,
-                    languagesBottomSheet.getClass().getCanonicalName()
-            );
-            return false;
-        });
+                    LanguagesBottomSheet languagesBottomSheet = new LanguagesBottomSheet();
+                    languagesBottomSheet.show(
+                            fragmentManager,
+                            languagesBottomSheet.getClass().getCanonicalName()
+                    );
+                    return false;
+                });
     }
 
     private void initializeThemesSettings() {
         findPreference(getString(R.string.key_theme))
                 .setOnPreferenceClickListener(preference -> {
-            ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
-            themesBottomSheet.show(
-                    fragmentManager,
-                    themesBottomSheet.getClass().getCanonicalName()
-            );
-            return false;
-        });
+                    ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
+                    themesBottomSheet.show(
+                            fragmentManager,
+                            themesBottomSheet.getClass().getCanonicalName()
+                    );
+                    return false;
+                });
     }
 
     private void initializePrivacyPolicy() {
@@ -116,16 +121,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                             fragmentManager,
                             privacyPolicyWebLinksBottomSheet.getClass().getCanonicalName()
                     );
-            return false;
-        });
+                    return false;
+                });
     }
 
     private void initializeUserDataExport() {
         findPreference(getString(R.string.key_export_user_data))
                 .setOnPreferenceClickListener(preference -> {
-            saveUserData();
-            return false;
-        });
+                    saveUserData();
+                    return false;
+                });
     }
 
     private void saveUserData() {
@@ -144,38 +149,32 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 );
             } catch (ActivityNotFoundException e) {
                 L.e(e);
-                showSnackbar(
+                UIUtils.showSnackbar(
+                        context,
+                        getView(),
                         getString(R.string.message_error_start_file_selector)
                 );
             }
         } else {
-            showSnackbar(
+            UIUtils.showSnackbar(
+                    context,
+                    getView(),
                     getString(R.string.history_empty_view_message)
             );
         }
     }
 
-    private void showSnackbar(@NonNull String message) {
-        new AppSnackbar(
-                context,
-                getView(),
-                message,
-                new Vibrator(context),
-                UIUtils.getAccentColor(context)
-        ).show();
-    }
-
     private void initializeAuthorLinks() {
         findPreference(getString(R.string.key_author))
                 .setOnPreferenceClickListener(preference -> {
-            AuthorWebLinksBottomSheet authorWebLinksBottomSheet
-                    = new AuthorWebLinksBottomSheet();
-            authorWebLinksBottomSheet.show(
-                    fragmentManager,
-                    authorWebLinksBottomSheet.getClass().getCanonicalName()
-            );
-            return false;
-        });
+                    AuthorWebLinksBottomSheet authorWebLinksBottomSheet
+                            = new AuthorWebLinksBottomSheet();
+                    authorWebLinksBottomSheet.show(
+                            fragmentManager,
+                            authorWebLinksBottomSheet.getClass().getCanonicalName()
+                    );
+                    return false;
+                });
     }
 
     private void initializeLibrariesLinks() {
@@ -194,51 +193,31 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeHelpWithTranslationButton() {
         findPreference(getString(R.string.key_help_with_translation))
                 .setOnPreferenceClickListener(preference -> {
-            WebUtils.openWebLink(
-                    context,
-                    context.getString(R.string.web_link_help_with_translation)
-            );
-            return false;
-        });
+                    WebUtils.openWebLink(
+                            context,
+                            context.getString(R.string.web_link_help_with_translation)
+                    );
+                    return false;
+                });
     }
 
     private void initializeRateButton() {
         findPreference(getString(R.string.key_rate_app))
                 .setOnPreferenceClickListener(preference -> {
-            openGooglePlay();
-            return false;
-        });
+                    WebUtils.openGooglePlay(
+                            context,
+                            getView()
+                    );
+                    return false;
+                });
     }
 
-    private void openGooglePlay() {
-        final String appPackageName = context.getPackageName();
-        Uri link;
-        try {
-            link = Uri.parse("market://details?id=" + appPackageName);
-            context.startActivity(
-                    new Intent(
-                            Intent.ACTION_VIEW,
-                            link
-                    )
-            );
-        } catch (ActivityNotFoundException e) {
-            try {
-                link = Uri.parse(
-                        "https://play.google.com/store/apps/details?id=" + appPackageName
-                );
-                context.startActivity(
-                        new Intent(
-                                Intent.ACTION_VIEW,
-                                link
-                        )
-                );
-            } catch (ActivityNotFoundException e2) {
-                L.e(e2);
-                showSnackbar(
-                        getString(R.string.message_error_start_google_play)
-                );
-            }
-        }
+    private void initializeFeedbackButton() {
+        findPreference(getString(R.string.key_feedback))
+                .setOnPreferenceClickListener(preference -> {
+                    ((MainActivity) getActivity()).showFragment(new FeedbackFragment());
+                    return false;
+                });
     }
 
     private void initializeAppVersionInfo() {
@@ -254,12 +233,12 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void initializeFileManagerSwitcher() {
         findPreference(getString(R.string.key_inner_file_manager))
                 .setOnPreferenceChangeListener((preference, o) -> {
-            SettingsHelper.setRefreshSelectedFileStatus(
-                    context,
-                    true
-            );
-            return true;
-        });
+                    SettingsHelper.setRefreshSelectedFileStatus(
+                            context,
+                            true
+                    );
+                    return true;
+                });
     }
 
     @Override
@@ -281,7 +260,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     public void onActivityResult(
             int requestCode,
             int resultCode,
-            Intent data
+            @Nullable Intent data
     ) {
         if (data != null) {
             if (requestCode == SettingsHelper.FILE_CREATE) {
@@ -338,23 +317,19 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     @Override
     public void onResume() {
         super.onResume();
-        UIUtils.setActionBarTitle(
-                actionBar,
-                R.string.menu_title_settings
-        );
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        appResume();
     }
 
     @Override
     public void onCreateOptionsMenu(
-            Menu menu,
+            @NonNull Menu menu,
             @NonNull MenuInflater inflater
     ) {
         menu.clear();
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             getActivity().onBackPressed();
             return true;
@@ -368,6 +343,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 fragmentManager,
                 this
         );
+    }
+
+    @Override
+    public void appResume() {
+        UIUtils.setActionBarTitle(
+                actionBar,
+                R.string.menu_title_settings
+        );
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        initializeActionBar();
     }
 
 }

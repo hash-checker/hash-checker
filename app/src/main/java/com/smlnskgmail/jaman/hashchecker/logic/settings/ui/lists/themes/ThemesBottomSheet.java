@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class ThemesBottomSheet extends BaseListBottomSheet<Theme> {
 
     @Override
-    public BaseListAdapter<Theme> getItemsAdapter() {
+    public @androidx.annotation.NonNull BaseListAdapter<Theme> getItemsAdapter() {
         return new ThemesListAdapter(
                 Arrays.asList(Theme.values()),
                 this,

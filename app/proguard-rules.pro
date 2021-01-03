@@ -1,15 +1,5 @@
--keep class com.google.android.gms.measurement.** { *; }
--dontwarn com.google.android.gms.measurement.**
-
--dontwarn javax.persistence.**,javax.annotation.**,javax.lang.model.**,javax.tools.Diagnostic,javax.tools.Diagnostic$Kind
--dontwarn org.slf4j.**,org.joda.**
-
--assumenosideeffects class android.util.Log {
-    public static *** d(...);
-    public static *** v(...);
-    public static *** i(...);
-}
-
+# --- OrmLite START ---
+#noinspection ShrinkerUnresolvedReference
 -keep class com.j256.**
 -keepclassmembers class com.j256.** { *; }
 -keep enum com.j256.**
@@ -30,3 +20,4 @@
     @com.j256.ormlite.field.ForeignCollectionField <fields>;
     <init>();
 }
+# --- OrmLite END ---

@@ -60,10 +60,12 @@ public class DatabaseExporter {
         inputStream.close();
     }
 
+    @NonNull
     public static String getUserDataZip(@NonNull Context context) {
         return getAppFolder(context) + EXPORT_FILE;
     }
 
+    @NonNull
     private static String getAppFolder(@NonNull Context context) {
         return context.getApplicationInfo().dataDir + File.separator;
     }

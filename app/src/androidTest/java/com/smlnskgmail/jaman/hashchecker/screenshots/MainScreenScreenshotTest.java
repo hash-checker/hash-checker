@@ -2,6 +2,8 @@ package com.smlnskgmail.jaman.hashchecker.screenshots;
 
 import androidx.test.runner.AndroidJUnit4;
 
+import com.smlnskgmail.jaman.hashchecker.R;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -9,7 +11,9 @@ import org.junit.runner.RunWith;
 public class MainScreenScreenshotTest extends BaseScreenshotTest {
 
     @Test
-    public void makeMainScreenScreenshot() {
+    @Override
+    public void runTest() {
+        clickById(R.id.tv_selected_object_name);
         makeScreenshot(
                 "1_main_screen"
         );

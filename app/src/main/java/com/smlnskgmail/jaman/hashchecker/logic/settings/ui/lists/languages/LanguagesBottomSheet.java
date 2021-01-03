@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class LanguagesBottomSheet extends BaseListBottomSheet<Language> {
 
     @Override
-    protected BaseListAdapter<Language> getItemsAdapter() {
+    protected @androidx.annotation.NonNull BaseListAdapter<Language> getItemsAdapter() {
         return new LanguagesListAdapter(
                 Arrays.asList(Language.values()),
                 this,

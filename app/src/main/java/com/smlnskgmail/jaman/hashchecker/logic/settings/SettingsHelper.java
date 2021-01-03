@@ -16,6 +16,8 @@ public class SettingsHelper {
 
     public static final int FILE_CREATE = 3;
 
+    private static final int HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL = 5;
+
     public static void saveHashTypeAsLast(
             @NonNull Context context,
             @NonNull HashType hashType
@@ -27,6 +29,7 @@ public class SettingsHelper {
         );
     }
 
+    @NonNull
     public static HashType getLastHashType(
             @NonNull Context context
     ) {
@@ -138,11 +141,12 @@ public class SettingsHelper {
         );
     }
 
+    @NonNull
     public static Theme getSelectedTheme(
             @NonNull Context context
     ) {
         String selectedTheme = SettingsHelper.getTheme(context);
-        for (Theme theme: Theme.values()) {
+        for (Theme theme : Theme.values()) {
             if (theme.toString().equals(selectedTheme)) {
                 return theme;
             }
@@ -153,6 +157,7 @@ public class SettingsHelper {
     /*
      * Saved for old versions compatibility (where themes count > 2)
      */
+    @NonNull
     private static String getTheme(
             @NonNull Context context
     ) {
@@ -180,6 +185,7 @@ public class SettingsHelper {
         return false;
     }
 
+    @NonNull
     private static Theme getThemeAnalogue(
             @NonNull String theme
     ) {
@@ -223,7 +229,7 @@ public class SettingsHelper {
 
     public static void saveTheme(
             @NonNull Context context,
-            Theme theme
+            @NonNull Theme theme
     ) {
         saveStringPreference(
                 context,
@@ -274,6 +280,34 @@ public class SettingsHelper {
         );
     }
 
+    public static boolean canShowRateAppDialog(
+            @NonNull Context context
+    ) {
+        int hashGenerationCount = getIntPreference(
+                context,
+                context.getString(R.string.key_hash_generation_count),
+                0
+        );
+        return hashGenerationCount == HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL;
+    }
+
+    public static void increaseHashGenerationCount(
+            @NonNull Context context
+    ) {
+        int count = getIntPreference(
+                context,
+                context.getString(R.string.key_hash_generation_count),
+                0
+        );
+        if (count <= HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL) {
+            saveIntPreference(
+                    context,
+                    context.getString(R.string.key_hash_generation_count),
+                    ++count
+            );
+        }
+    }
+
     private static boolean containsPreference(
             @NonNull Context context,
             @NonNull String key
@@ -293,6 +327,7 @@ public class SettingsHelper {
                 .apply();
     }
 
+    @NonNull
     private static String getStringPreference(
             @NonNull Context context,
             @NonNull String key,
@@ -320,6 +355,26 @@ public class SettingsHelper {
     ) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(key, defaultValue);
+    }
+
+    private static void saveIntPreference(
+            @NonNull Context context,
+            @NonNull String key,
+            int value
+    ) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putInt(key, value)
+                .apply();
+    }
+
+    private static int getIntPreference(
+            @NonNull Context context,
+            @NonNull String key,
+            int defaultValue
+    ) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getInt(key, defaultValue);
     }
 
 }

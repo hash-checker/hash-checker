@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -57,6 +59,7 @@ public enum WebLink implements ListItem {
         return linkResId;
     }
 
+    @NotNull
     @Override
     public String getTitle(@NonNull Context context) {
         return context.getString(titleResId);
@@ -72,6 +75,7 @@ public enum WebLink implements ListItem {
         return DEFAULT_ICON_VALUE;
     }
 
+    @NonNull
     public static List<WebLink> getAuthorLinks() {
         return Arrays.asList(
                 SOURCE_CODE,
@@ -79,6 +83,7 @@ public enum WebLink implements ListItem {
         );
     }
 
+    @NonNull
     public static List<WebLink> getLibrariesLinks() {
         return Arrays.asList(
                 ADAPTIVERECYCLERVIEW,

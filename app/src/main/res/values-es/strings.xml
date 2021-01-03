@@ -78,4 +78,7 @@
     <!-- history -->
     <string name="history_item_click_text">Valor hash copiado al portapapeles</string>
     <string name="history_empty_view_message">Elementos del historial no encontrados</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Si te gusta la aplicación, puedes calificarla en Google Play</string>
+    <string name="rate_app_action">Velocidad</string>
 </resources>
