@@ -16,10 +16,6 @@ import tools.fastlane.screengrab.UiAutomatorScreenshotStrategy;
 
 public abstract class BaseScreenshotTest extends BaseUITest {
 
-    @Rule
-    public ActivityTestRule<MainActivity> activityTestRule
-            = new ActivityTestRule<>(MainActivity.class);
-
     @Before
     public void setup() {
         Screengrab.setDefaultScreenshotStrategy(

@@ -30,11 +30,6 @@ public class GenerateHashFromTextTest extends BaseUITest {
     private static final int TEXT_BUTTON_POSITION = 0;
     private static final int GENERATE_BUTTON_POSITION = 0;
 
-    @Rule
-    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(
-            MainActivity.class
-    );
-
     @Override
     public void runTest() throws InterruptedException {
         showInputDialog();

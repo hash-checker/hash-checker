@@ -18,11 +18,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 @Deprecated()
 public class ScreenRunnerTest extends BaseUITest {
 
-    @Rule
-    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(
-            MainActivity.class
-    );
-
     @Override
     public void runTest() {
         showHashTypesSelector();

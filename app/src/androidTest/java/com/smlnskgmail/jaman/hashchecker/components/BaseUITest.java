@@ -2,11 +2,14 @@ package com.smlnskgmail.jaman.hashchecker.components;
 
 import androidx.annotation.NonNull;
 import androidx.test.espresso.contrib.RecyclerViewActions;
+import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
+import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.components.matchers.TextMatcher;
 import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -20,6 +23,11 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 public abstract class BaseUITest {
 
     protected static final int SECOND_IN_MILLIS = 1000;
+
+    @Rule
+    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(
+            MainActivity.class
+    );
 
     @Test
     public abstract void runTest() throws Exception;
