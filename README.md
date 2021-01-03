@@ -11,6 +11,9 @@
 <a href="https://labs.xda-developers.com/store/app/com.smlnskgmail.jaman.hashchecker">
   <img src="media/banners/bn_xda_labs.png" height="75px" />
 </a>
+<a href="https://www.androidfilehost.com/?w=files&flid=316843">
+  <img src="media/banners/bn_android_file_host.png" height="75px" />
+</a>
 
 [![GitHubActions](https://github.com/fartem/hash-checker/workflows/Build/badge.svg)](https://github.com/fartem/hash-checker/actions?query=workflow%3ABuild)
 [![Codebeat](https://codebeat.co/badges/f50ffd5e-e62f-413c-b84a-4308a9399ae9)](https://codebeat.co/projects/github-com-fartem-hash-checker-master)
@@ -37,6 +40,8 @@ Fast and simple application for generating and comparison hashes from files or t
 
 You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
 
+__Languages in app__
+
 | Language | Since version | Status |
 | --- | --- | --- |
 | English | 1.0.0 | `Translated` |
@@ -54,6 +59,21 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 | 한국어 | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/19) |
 | עברית | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/17) |
 | فارسی | 2.9.9 | `Translated` |
+
+__Not translated__
+
+| Language | Since version | Status |
+| --- | --- | --- |
+| Bahasa Indonesia | - | [Help wanted](https://github.com/fartem/hash-checker/issues/36) |
+| हिंदी | - | [Help wanted](https://github.com/fartem/hash-checker/issues/37) |
+| Українська мова | - | [Help wanted](https://github.com/fartem/hash-checker/issues/38) |
+| 日本語 | - | [Help wanted](https://github.com/fartem/hash-checker/issues/39) |
+| norsk | - | [Help wanted](https://github.com/fartem/hash-checker/issues/40) |
+| čeština | - | [Help wanted](https://github.com/fartem/hash-checker/issues/41) |
+| suomi | - | [Help wanted](https://github.com/fartem/hash-checker/issues/42) |
+| Tiếng Việt | - | [Help wanted](https://github.com/fartem/hash-checker/issues/43) |
+| srpski | - | [Help wanted](https://github.com/fartem/hash-checker/issues/44) |
+| dansk | - | [Help wanted](https://github.com/fartem/hash-checker/issues/45) |
 
 ## Screenshots (Light theme)
 
@@ -77,13 +97,13 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
   <img src="media/screenshots/screenshot_10.png" width="130" />
 </p>
 
+## How to use
+
+* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
+
 ## Videos
 
 * [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
-
-## Articles
-
-* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
 
 ## Black Duck Open Hub
 
@@ -95,7 +115,7 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 
 ## Feedback
 
-If you have any question or feature idea for app, you can open issue on [this page](https://github.com/fartem/hash-checker/issues) or contact me at email jaman.smlnsk@gmail.com.
+If you have any question or feature idea for app, you can open issue on [this page](https://github.com/fartem/hash-checker/issues) or contact me by email jaman.smlnsk@gmail.com.
 
 ## How to build unsigned .apk from command line without IDE
 
@@ -124,3 +144,4 @@ If you don't see any error messages, submit your pull request.
 
 * [@fartem](https://github.com/fartem) as Artem Fomchenkov
 * [@Marwa-Eltayeb](https://github.com/Marwa-Eltayeb) as Marwa Said
+* [@vaqueraexe](https://github.com/vaqueraexe) as Sergio Amaya

@@ -1,0 +1,17 @@
+// Rename output release bundle
+tasks.whenTaskAdded { task ->
+    def releaseFlavorName = 'release'
+    if (task.name.startsWith('bundle')) {
+        def flavor = task.name.substring('bundle'.length()).uncapitalize()
+        if (flavor == releaseFlavorName) {
+            task.doLast {
+                def defaultBundleName = "$releaseFlavorName/app-${releaseFlavorName}.aab"
+                def versionName = android.defaultConfig.versionName
+                def outputBundleName = "$releaseFlavorName/hash-checker_${versionName}.aab"
+                ant.rename src: defaultBundleName,
+                        dest: outputBundleName,
+                        replace: true
+            }
+        }
+    }
+}
