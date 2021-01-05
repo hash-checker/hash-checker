@@ -15,6 +15,7 @@
   <img src="media/banners/bn_android_file_host.png" height="75px" />
 </a>
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/51f19c1c57a443bba0713785abe708c3)](https://app.codacy.com/gh/hash-checker/hash-checker?utm_source=github.com&utm_medium=referral&utm_content=hash-checker/hash-checker&utm_campaign=Badge_Grade)
 [![GitHubActions](https://github.com/fartem/hash-checker/workflows/Build/badge.svg)](https://github.com/fartem/hash-checker/actions?query=workflow%3ABuild)
 [![Codebeat](https://codebeat.co/badges/f50ffd5e-e62f-413c-b84a-4308a9399ae9)](https://codebeat.co/projects/github-com-fartem-hash-checker-master)
 [![Codecov](https://codecov.io/gh/fartem/hash-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/fartem/hash-checker)
