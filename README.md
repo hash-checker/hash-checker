@@ -2,7 +2,7 @@
 
 # Hash Checker
 
-<a href="https://github.com/fartem/hash-checker/releases">
+<a href="https://github.com/hash-checker/hash-checker/releases">
   <img src="media/banners/bn_github.png" height="75px" />
 </a>
 <a href="https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker">
@@ -15,9 +15,9 @@
   <img src="media/banners/bn_android_file_host.png" height="75px" />
 </a>
 
-[![GitHubActions](https://github.com/fartem/hash-checker/workflows/Build/badge.svg)](https://github.com/fartem/hash-checker/actions?query=workflow%3ABuild)
-[![Codebeat](https://codebeat.co/badges/f50ffd5e-e62f-413c-b84a-4308a9399ae9)](https://codebeat.co/projects/github-com-fartem-hash-checker-master)
-[![Codecov](https://codecov.io/gh/fartem/hash-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/fartem/hash-checker)
+[![GitHubActions](https://github.com/hash-checker/hash-checker/workflows/Build/badge.svg)](https://github.com/hash-checker/hash-checker/actions?query=workflow%3ABuild)
+[![Codebeat](https://codebeat.co/badges/f50ffd5e-e62f-413c-b84a-4308a9399ae9)](https://codebeat.co/projects/github-com-hash-checker-hash-checker-master)
+[![Codecov](https://codecov.io/gh/fartem/hash-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/hash-checker/hash-checker)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Hash%20Checker-brightgreen.svg?style=flat)](https://android-arsenal.com/details/3/7854)
 
 ## About application
@@ -45,35 +45,35 @@ __Languages in app__
 | Language | Since version | Status |
 | --- | --- | --- |
 | English | 1.0.0 | `Translated` |
-| Español | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/9) |
+| Español | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/9) |
 | Deutsch | 2.9.6 | `Translated` |
-| Français | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/11) |
-| Italiano | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/12) |
-| Magyar | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/13) |
-| Nederlands | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/14) |
-| Svenska | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/15) |
-| Ελληνικά | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/16) |
+| Français | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/11) |
+| Italiano | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/12) |
+| Magyar | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/13) |
+| Nederlands | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/14) |
+| Svenska | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/15) |
+| Ελληνικά | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/16) |
 | Русский | 2.9.6 | `Translated` |
-| Polski | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/20) |
+| Polski | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/20) |
 | 简体中文 | 2.9.9 | `Translated` |
-| 한국어 | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/19) |
-| עברית | 2.9.9 | [Help wanted](https://github.com/fartem/hash-checker/issues/17) |
+| 한국어 | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/19) |
+| עברית | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/17) |
 | فارسی | 2.9.9 | `Translated` |
 
 __Not translated__
 
 | Language | Since version | Status |
 | --- | --- | --- |
-| Bahasa Indonesia | - | [Help wanted](https://github.com/fartem/hash-checker/issues/36) |
-| हिंदी | - | [Help wanted](https://github.com/fartem/hash-checker/issues/37) |
-| Українська мова | - | [Help wanted](https://github.com/fartem/hash-checker/issues/38) |
-| 日本語 | - | [Help wanted](https://github.com/fartem/hash-checker/issues/39) |
-| norsk | - | [Help wanted](https://github.com/fartem/hash-checker/issues/40) |
-| čeština | - | [Help wanted](https://github.com/fartem/hash-checker/issues/41) |
-| suomi | - | [Help wanted](https://github.com/fartem/hash-checker/issues/42) |
-| Tiếng Việt | - | [Help wanted](https://github.com/fartem/hash-checker/issues/43) |
-| srpski | - | [Help wanted](https://github.com/fartem/hash-checker/issues/44) |
-| dansk | - | [Help wanted](https://github.com/fartem/hash-checker/issues/45) |
+| Bahasa Indonesia | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/36) |
+| हिंदी | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/37) |
+| Українська мова | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/38) |
+| 日本語 | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/39) |
+| norsk | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/40) |
+| čeština | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/41) |
+| suomi | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/42) |
+| Tiếng Việt | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/43) |
+| srpski | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/44) |
+| dansk | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/45) |
 
 ## Screenshots (Light theme)
 
@@ -111,11 +111,11 @@ __Not translated__
 
 ## Privacy Policy
 
-* [Web version](https://fartem.github.io/hash-checker-privacy-policy.io/)
+* [Web version](https://hash-checker.github.io/hash-checker-privacy-policy.io/)
 
 ## Feedback
 
-If you have any question or feature idea for app, you can open issue on [this page](https://github.com/fartem/hash-checker/issues) or contact me by email jaman.smlnsk@gmail.com.
+If you have any question or feature idea for app, you can open issue on [this page](https://github.com/hash-checker/hash-checker/issues) or contact me by email jaman.smlnsk@gmail.com.
 
 ## How to build unsigned .apk from command line without IDE
 
@@ -130,7 +130,7 @@ Go to `app` -> `build` -> `outputs` -> `apk` -> `debug` and find `hash-checker_V
 
 ## How to contribute
 
-Read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
+Read [Commit Convention](https://github.com/hash-checker/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
 
 ```shell
 $ ./gradlew clean
