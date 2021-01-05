@@ -9,9 +9,18 @@ checkstyle {
 task checkstyle(type: Checkstyle) {
     group 'verification'
 
-    config project.resources.text.fromUri(
-            'https://raw.githubusercontent.com/fartem/repository-rules/master/rules/java/checkstyle/android/checkstyle.xml'
-    )
+    def checkstyleConfigPath = "$rootDir/checkstyle.xml"
+    def checkstyleConfig = new File(checkstyleConfigPath)
+    new URL(
+            "https://raw.githubusercontent.com/fartem/repository-rules/master/rules/java/android/checkstyle.xml"
+    ).withInputStream {
+        i -> checkstyleConfig.withOutputStream {
+            it << i
+        }
+    }
+
+    configFile file(checkstyleConfigPath)
+    source rootProject.file('app/src/main/java')
     classpath = files()
 
     reports {
