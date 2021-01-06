@@ -2,14 +2,9 @@ package com.smlnskgmail.jaman.hashchecker.feedback;
 
 import android.os.Build;
 
-import androidx.test.rule.ActivityTestRule;
-
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
-import com.smlnskgmail.jaman.hashchecker.MainActivity;
-import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
 import com.smlnskgmail.jaman.hashchecker.logic.feedback.Feedback;
 
-import org.junit.Rule;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -1,13 +1,8 @@
 package com.smlnskgmail.jaman.hashchecker.calculator;
 
-import androidx.test.rule.ActivityTestRule;
-
-import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
-
-import org.junit.Rule;
 
 import java.util.ArrayList;
 import java.util.Arrays;
