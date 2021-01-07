@@ -4,7 +4,12 @@ This file contains all release notes from current project.
 
 Based on [keep a changelog](https://keepachangelog.com/en/1.0.0).
 
-## [3.6.0](https://github.com/fartem/hash-checker/releases/tag/3.5.1) - 2021-01-03
+## [3.6.1](https://github.com/fartem/hash-checker/releases/tag/3.6.1) - 2021-01-06
+
+Updated:
+- App links.
+
+## [3.6.0](https://github.com/fartem/hash-checker/releases/tag/3.6.0) - 2021-01-03
 
 Fixed:
 - bugs.
@@ -12,10 +17,10 @@ Fixed:
 Updated:
 - UI.
 
-## [3.5.2](https://github.com/fartem/hash-checker/releases/tag/3.5.1) - 2020-10-10
+## [3.5.2](https://github.com/fartem/hash-checker/releases/tag/3.5.2) - 2020-10-10
 
 Closed:
-- #9.
+- [#9 (Translation: Español)](https://github.com/hash-checker/hash-checker/issues/9).
 
 ## [3.5.1](https://github.com/fartem/hash-checker/releases/tag/3.5.1) - 2020-08-14
 
@@ -28,8 +33,8 @@ Added:
 - Information about using libraries.
 
 Closed:
-- Closed [#31](https://github.com/fartem/hash-checker/issues/31);
-- Closed [#28](https://github.com/fartem/hash-checker/issues/28).
+- [#31 (Replace email for feedback with artem.fomchenkov@pm.me)](https://github.com/hash-checker/hash-checker/issues/31);
+- [#28 (Add rounded foreground drawables to "Copy" and "Clear" buttons on main screen)](https://github.com/hash-checker/hash-checker/issues/28).
 
 Updated:
 - UI.
