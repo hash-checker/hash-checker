@@ -156,6 +156,7 @@ public class HistoryTest extends BaseUITest {
                 R.id.rv_history_items,
                 0
         );
+        onView(withText(R.string.common_ok)).perform(click());
         InstrumentationRegistry.getInstrumentation().runOnMainSync(
                 () -> {
                     Activity activity = activityTestRule.getActivity();
@@ -168,7 +169,6 @@ public class HistoryTest extends BaseUITest {
                             ),
                             TEST_RESULT
                     );
-                    onView(withText(R.string.common_ok)).perform(click());
                 }
         );
     }
