@@ -67,6 +67,7 @@ app/release/
 app/debug/
 
 # Checkstyle
+checkstyle.xml
 checkstyle-result.xml
 
 # detekt
