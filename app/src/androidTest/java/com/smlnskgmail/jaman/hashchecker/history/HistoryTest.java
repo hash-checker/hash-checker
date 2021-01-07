@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.ClipboardManager;
 import android.content.Context;
 
+import androidx.test.platform.app.InstrumentationRegistry;
+
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
 import com.smlnskgmail.jaman.hashchecker.components.matchers.RecyclerViewItemCountAssertion;
@@ -154,17 +156,21 @@ public class HistoryTest extends BaseUITest {
                 R.id.rv_history_items,
                 0
         );
-        Activity activity = activityTestRule.getActivity();
-        ClipboardManager clipboardManager = (ClipboardManager) activity.getSystemService(
-                Context.CLIPBOARD_SERVICE
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(
+                () -> {
+                    Activity activity = activityTestRule.getActivity();
+                    ClipboardManager clipboardManager = (ClipboardManager) activity.getSystemService(
+                            Context.CLIPBOARD_SERVICE
+                    );
+                    assertEquals(
+                            clipboardManager.getPrimaryClip().getItemAt(0).coerceToText(
+                                    activity
+                            ),
+                            TEST_RESULT
+                    );
+                    onView(withText(R.string.common_ok)).perform(click());
+                }
         );
-        assertEquals(
-                clipboardManager.getPrimaryClip().getItemAt(0).coerceToText(
-                        activity
-                ),
-                TEST_RESULT
-        );
-        onView(withText(R.string.common_ok)).perform(click());
     }
 
 }

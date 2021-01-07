@@ -38,4 +38,5 @@ import org.junit.runners.Suite;
         HistoryHelperTest.class,
 })
 public class AndroidTestSuite {
+
 }
