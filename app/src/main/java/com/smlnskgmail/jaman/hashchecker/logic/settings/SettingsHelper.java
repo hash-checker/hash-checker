@@ -100,7 +100,7 @@ public class SettingsHelper {
         );
     }
 
-    @Nullable
+    @NonNull
     public static String getLastPathForInnerFileManager(
             @NonNull Context context
     ) {

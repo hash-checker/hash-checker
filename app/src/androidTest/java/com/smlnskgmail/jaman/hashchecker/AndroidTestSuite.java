@@ -31,9 +31,9 @@ import org.junit.runners.Suite;
         MessageDigestZeroLeadsJdkHashCalculatorTest.class,
         GenerateHashFromFileTest.class,
         GenerateHashFromTextTest.class,
-        DatabaseExporterTest.class,
         HistoryTest.class,
         FeedbackTest.class,
+        DatabaseExporterTest.class,
         ScreenRunnerTest.class,
         HistoryHelperTest.class,
 })
