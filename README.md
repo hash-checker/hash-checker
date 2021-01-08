@@ -135,7 +135,7 @@ Read [Commit Convention](https://github.com/hash-checker/repository-rules/blob/m
 ```shell
 $ ./gradlew clean
 $ ./gradlew build
-$ ./gradlew connectedCheck
+$ ./gradlew -Pandroid.testInstrumentationRunnerArguments.class=com.smlnskgmail.jaman.hashchecker.AndroidTestSuite connectedCheck
 ```
 
 If you don't see any error messages, submit your pull request.
