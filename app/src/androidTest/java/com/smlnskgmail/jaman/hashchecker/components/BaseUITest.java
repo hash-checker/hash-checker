@@ -9,6 +9,7 @@ import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.components.matchers.TextMatcher;
 import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,8 +27,15 @@ public abstract class BaseUITest {
 
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(
-            MainActivity.class
+            MainActivity.class,
+            false,
+            false
     );
+
+    @Before
+    public void startActivity() {
+        activityTestRule.launchActivity(null);
+    }
 
     @Test
     public abstract void runTest() throws Exception;
