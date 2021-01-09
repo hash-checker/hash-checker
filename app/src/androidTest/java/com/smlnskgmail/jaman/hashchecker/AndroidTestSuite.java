@@ -14,6 +14,7 @@ import com.smlnskgmail.jaman.hashchecker.database.DatabaseExporterTest;
 import com.smlnskgmail.jaman.hashchecker.database.HistoryHelperTest;
 import com.smlnskgmail.jaman.hashchecker.feedback.FeedbackTest;
 import com.smlnskgmail.jaman.hashchecker.history.HistoryTest;
+import com.smlnskgmail.jaman.hashchecker.rateapp.RateAppDialogTest;
 import com.smlnskgmail.jaman.hashchecker.screenrunner.ScreenRunnerTest;
 
 import org.junit.runner.RunWith;
@@ -33,6 +34,7 @@ import org.junit.runners.Suite;
         GenerateHashFromTextTest.class,
         HistoryTest.class,
         FeedbackTest.class,
+        RateAppDialogTest.class,
         DatabaseExporterTest.class,
         ScreenRunnerTest.class,
         HistoryHelperTest.class,
