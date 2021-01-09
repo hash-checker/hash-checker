@@ -11,13 +11,13 @@ import static org.junit.Assert.assertNotEquals;
 
 public class HistoryItemTest extends BaseEntityTest {
 
-    private Date generationDate = new Date();
-    private HashType hashType = HashType.MD5;
-    private boolean isFile = true;
-    private String objectValue = "./Downloads/task_manager.apk";
-    private String hashValue = "9gkfnb7nvklckofdamvkdlsop16789dm";
+    private final Date generationDate = new Date();
+    private final HashType hashType = HashType.MD5;
+    private final boolean isFile = true;
+    private final String objectValue = "./Downloads/task_manager.apk";
+    private final String hashValue = "9gkfnb7nvklckofdamvkdlsop16789dm";
 
-    private HistoryItem historyItem = new HistoryItem(
+    private final HistoryItem historyItem = new HistoryItem(
             generationDate,
             hashType,
             isFile,
@@ -99,6 +99,16 @@ public class HistoryItemTest extends BaseEntityTest {
         assertNotEquals(
                 new HistoryItem(
                         generationDate,
+                        hashType,
+                        isFile,
+                        objectValue,
+                        ""
+                ),
+                historyItem
+        );
+        assertNotEquals(
+                new HistoryItem(
+                        null,
                         hashType,
                         isFile,
                         objectValue,
