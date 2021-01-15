@@ -17,11 +17,11 @@ import static org.junit.Assert.assertTrue;
 
 public class FileItemTest {
 
-    private FileType fileType = FileType.FILE;
-    private String filePath = "./";
-    private String filename = "img_01.png";
+    private final FileType fileType = FileType.FILE;
+    private final String filePath = "./";
+    private final String filename = "img_01.png";
 
-    private FileItem fileItem = new FileItem(
+    private final FileItem fileItem = new FileItem(
             fileType,
             filePath,
             filename

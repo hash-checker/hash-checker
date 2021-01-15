@@ -40,7 +40,6 @@ public class HashCalculatorTaskExceptionTest {
                 SECOND_IN_MILLIS,
                 TimeUnit.MILLISECONDS
         );
-
         assertNull(hashValueToAssert[0]);
     }
 

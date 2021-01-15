@@ -88,12 +88,10 @@ public class RateAppDialogTest extends BaseUITest {
         );
         int hashTypePosition = hashTypes.indexOf(TEST_HASH_TYPE);
         assertTrue(hashTypePosition >= 0);
-
         inRecyclerViewClickOnPosition(
                 R.id.rv_bottom_sheet_list_items,
                 hashTypePosition
         );
-
         textEquals(
                 TEST_HASH_TYPE.getTypeAsString(),
                 R.id.tv_selected_hash_type
@@ -109,7 +107,6 @@ public class RateAppDialogTest extends BaseUITest {
                 R.id.rv_bottom_sheet_list_items,
                 GENERATE_BUTTON_POSITION
         );
-
         countDownLatch.await(
                 SECOND_IN_MILLIS,
                 TimeUnit.MILLISECONDS

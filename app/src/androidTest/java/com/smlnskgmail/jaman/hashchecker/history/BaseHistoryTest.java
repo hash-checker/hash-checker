@@ -18,9 +18,7 @@ public abstract class BaseHistoryTest extends BaseUITest {
     protected void clearHistory() {
         clickById(R.id.menu_item_clean_history);
         onView(withText(R.string.common_ok)).perform(click());
-
         onView(withId(R.id.rv_history_items)).check(new RecyclerViewItemCountAssertion(0));
-
         delayAndBack();
     }
 
