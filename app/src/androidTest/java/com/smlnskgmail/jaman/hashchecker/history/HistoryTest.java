@@ -53,8 +53,9 @@ public class HistoryTest extends BaseHistoryTest {
     }
 
     private void checkGeneratedHashInHistory() {
-        onView(withId(R.id.rv_history_items)).check(new RecyclerViewItemCountAssertion(1));
-
+        onView(withId(R.id.rv_history_items)).check(
+                new RecyclerViewItemCountAssertion(1)
+        );
         textEquals(
                 TEST_TEXT,
                 R.id.tv_item_history_object_data
@@ -120,13 +121,11 @@ public class HistoryTest extends BaseHistoryTest {
 
     protected void selectHashType() {
         clickById(R.id.tv_selected_hash_type);
-
         List<HashType> hashTypes = new ArrayList<>(
                 Arrays.asList(HashType.values())
         );
         int hashTypePosition = hashTypes.indexOf(TEST_HASH_TYPE);
         assertTrue(hashTypePosition >= 0);
-
         inRecyclerViewClickOnPosition(
                 R.id.rv_bottom_sheet_list_items,
                 hashTypePosition
@@ -146,7 +145,6 @@ public class HistoryTest extends BaseHistoryTest {
                 R.id.rv_bottom_sheet_list_items,
                 GENERATE_BUTTON_POSITION
         );
-
         countDownLatch.await(
                 SECOND_IN_MILLIS,
                 TimeUnit.MILLISECONDS

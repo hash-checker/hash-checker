@@ -21,7 +21,6 @@ public class HistoryScrollTest extends BaseHistoryTest {
     public void runTest() throws InterruptedException {
         openHistory();
         clearHistory();
-
         for (int i = 0; i < 50; i++) {
             HelperFactory.getHelper().addHistoryItem(
                     new HistoryItem(
@@ -33,17 +32,21 @@ public class HistoryScrollTest extends BaseHistoryTest {
                     )
             );
         }
-
         openHistory();
-        onView(withId(R.id.rv_history_items)).check(new RecyclerViewItemCountAssertion(30));
-
-        onView(withId(R.id.rv_history_items)).perform(RecyclerViewActions.scrollToPosition(29));
+        onView(withId(R.id.rv_history_items)).check(
+                new RecyclerViewItemCountAssertion(30)
+        );
+        onView(withId(R.id.rv_history_items)).perform(
+                RecyclerViewActions.scrollToPosition(29)
+        );
         CountDownLatch countDownLatch = new CountDownLatch(1);
         countDownLatch.await(
                 SECOND_IN_MILLIS,
                 TimeUnit.MILLISECONDS
         );
-        onView(withId(R.id.rv_history_items)).check(new RecyclerViewItemCountAssertion(50));
+        onView(withId(R.id.rv_history_items)).check(
+                new RecyclerViewItemCountAssertion(50)
+        );
     }
 
 }

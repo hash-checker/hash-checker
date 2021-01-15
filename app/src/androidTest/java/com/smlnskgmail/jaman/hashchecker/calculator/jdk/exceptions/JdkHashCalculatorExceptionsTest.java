@@ -24,10 +24,9 @@ import static org.junit.Assert.assertNull;
 public class JdkHashCalculatorExceptionsTest {
 
     @Test
-    public void runTest() throws NoSuchAlgorithmException, FileNotFoundException {
+    public void runTest() throws NoSuchAlgorithmException {
         JdkHashCalculator jdkHashCalculator = new JdkHashCalculator();
         jdkHashCalculator.setHashType(HashType.MD5);
-
         assertNull(
                 jdkHashCalculator.fromFile(
                         new InputStreamMock()

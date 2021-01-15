@@ -28,8 +28,8 @@ public abstract class BaseJdkHashCalculatorTest {
     @Before
     public void initializeResources() throws NoSuchAlgorithmException {
         context = InstrumentationRegistry.getContext();
-        HashType hashType = getHashType();
 
+        HashType hashType = getHashType();
         assertNotNull(hashType);
 
         jdkHashCalculator = new JdkHashCalculator();
@@ -43,7 +43,6 @@ public abstract class BaseJdkHashCalculatorTest {
 
         String hashFromString = jdkHashCalculator.fromString(getTestingText());
         assertNotNull(hashFromString);
-
         assertEquals(hashValue, hashFromString);
     }
 
@@ -59,7 +58,6 @@ public abstract class BaseJdkHashCalculatorTest {
         String hashFromFile = jdkHashCalculator.fromFile(
                 context.getResources().getAssets().open(getTestingFile())
         );
-
         assertNotNull(hashFromFile);
         assertEquals(hashValue, hashFromFile);
     }

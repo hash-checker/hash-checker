@@ -23,6 +23,9 @@ import static org.junit.Assert.assertTrue;
 
 public class GenerateHashFromFileTest extends BaseUITest {
 
+    private static final String DOWNLOAD_DIRECTORY = "Download";
+    private static final String TEST_FILE_NAME = "tokens.txt";
+
     private static final int SELECT_FILE_BUTTON_POSITION = 1;
     private static final int GENERATE_HASH_BUTTON_POSITION = 0;
     private static final int COMPARE_HASHES_BUTTON_POSITION = 1;
@@ -33,13 +36,17 @@ public class GenerateHashFromFileTest extends BaseUITest {
     @Override
     public void runTest() throws IOException {
         File file = Environment.getExternalStorageDirectory();
-        File[] filteredFiles = file.listFiles((dir, name) -> name.equals("Download"));
+        File[] filteredFiles = file.listFiles(
+                (dir, name) -> name.equals(DOWNLOAD_DIRECTORY)
+        );
         assertEquals(
                 1,
                 filteredFiles.length
         );
         File downloads = filteredFiles[0];
-        File tokensFile = new File(downloads.getAbsolutePath() + "/tokens.txt");
+        File tokensFile = new File(
+                downloads.getAbsolutePath() + "/" + TEST_FILE_NAME
+        );
         if (tokensFile.exists()) {
             assertTrue(tokensFile.delete());
         }
@@ -64,7 +71,7 @@ public class GenerateHashFromFileTest extends BaseUITest {
                 R.id.rv_file_explorer_list,
                 FIRST_STORAGE_IN_FILE_MANAGER_MENU
         );
-        onView(withText("Download")).perform(click());
+        onView(withText(DOWNLOAD_DIRECTORY)).perform(click());
         inRecyclerViewClickOnPosition(
                 R.id.rv_file_explorer_list,
                 TOKENS_FILE_POSITION_IN_FILE_MANAGER

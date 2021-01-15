@@ -19,7 +19,6 @@ public class JdkHashCalculatorDigestTest {
                 HashType.MD5
         );
         jdkHashCalculatorDigest.update(input);
-
         assertEquals(
                 "0cbc6611f5540bd0809a388dc95a615b",
                 jdkHashCalculatorDigest.result()
@@ -32,7 +31,6 @@ public class JdkHashCalculatorDigestTest {
                 HashType.CRC_32
         );
         jdkHashCalculatorDigest.update(input);
-
         assertEquals(
                 "784dd132",
                 jdkHashCalculatorDigest.result()
