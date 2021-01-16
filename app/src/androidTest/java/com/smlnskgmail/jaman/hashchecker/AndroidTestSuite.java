@@ -1,5 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker;
 
+import com.smlnskgmail.jaman.hashchecker.appopen.OpenAppWithClipDataTest;
+import com.smlnskgmail.jaman.hashchecker.appopen.OpenAppWithIntentTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.GenerateHashFromFileTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.GenerateHashFromTextTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.HashCalculatorTaskExceptionTest;
@@ -37,6 +39,8 @@ import org.junit.runners.Suite;
         GenerateHashFromFileTest.class,
         GenerateHashFromTextTest.class,
         HashCalculatorTaskExceptionTest.class,
+        OpenAppWithIntentTest.class,
+        OpenAppWithClipDataTest.class,
         HistoryTest.class,
         HistoryScrollTest.class,
         FeedbackTest.class,

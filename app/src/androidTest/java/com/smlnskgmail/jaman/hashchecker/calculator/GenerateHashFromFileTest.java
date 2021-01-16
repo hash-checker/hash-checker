@@ -2,14 +2,13 @@ package com.smlnskgmail.jaman.hashchecker.calculator;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Environment;
 
 import androidx.test.InstrumentationRegistry;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
+import com.smlnskgmail.jaman.hashchecker.components.TestFileUtils;
 
-import java.io.File;
 import java.io.IOException;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -18,13 +17,8 @@ import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static com.smlnskgmail.jaman.hashchecker.components.matchers.TextMatcher.getText;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class GenerateHashFromFileTest extends BaseUITest {
-
-    private static final String DOWNLOAD_DIRECTORY = "Download";
-    private static final String TEST_FILE_NAME = "tokens.txt";
 
     private static final int SELECT_FILE_BUTTON_POSITION = 1;
     private static final int GENERATE_HASH_BUTTON_POSITION = 0;
@@ -35,22 +29,7 @@ public class GenerateHashFromFileTest extends BaseUITest {
 
     @Override
     public void runTest() throws IOException {
-        File file = Environment.getExternalStorageDirectory();
-        File[] filteredFiles = file.listFiles(
-                (dir, name) -> name.equals(DOWNLOAD_DIRECTORY)
-        );
-        assertEquals(
-                1,
-                filteredFiles.length
-        );
-        File downloads = filteredFiles[0];
-        File tokensFile = new File(
-                downloads.getAbsolutePath() + "/" + TEST_FILE_NAME
-        );
-        if (tokensFile.exists()) {
-            assertTrue(tokensFile.delete());
-        }
-        assertTrue(tokensFile.createNewFile());
+        TestFileUtils.createTestFileInDownloadFolder();
 
         Context context = InstrumentationRegistry.getTargetContext();
         SharedPreferences prefs = context.getSharedPreferences(
@@ -71,7 +50,7 @@ public class GenerateHashFromFileTest extends BaseUITest {
                 R.id.rv_file_explorer_list,
                 FIRST_STORAGE_IN_FILE_MANAGER_MENU
         );
-        onView(withText(DOWNLOAD_DIRECTORY)).perform(click());
+        onView(withText(TestFileUtils.DOWNLOAD_DIRECTORY)).perform(click());
         inRecyclerViewClickOnPosition(
                 R.id.rv_file_explorer_list,
                 TOKENS_FILE_POSITION_IN_FILE_MANAGER

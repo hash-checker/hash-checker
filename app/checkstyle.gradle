@@ -11,12 +11,15 @@ task checkstyle(type: Checkstyle) {
 
     def checkstyleConfigPath = "$rootDir/checkstyle.xml"
     def checkstyleConfig = new File(checkstyleConfigPath)
-    new URL(
-            "https://raw.githubusercontent.com/fartem/repository-rules/master/rules/java/android/checkstyle.xml"
-    ).withInputStream {
-        i -> checkstyleConfig.withOutputStream {
-            it << i
+    if (!checkstyleConfig.exists()) {
+        new URL(
+                "https://raw.githubusercontent.com/fartem/repository-rules/master/rules/java/android/checkstyle.xml"
+        ).withInputStream {
+            i -> checkstyleConfig.withOutputStream {
+                it << i
+            }
         }
+
     }
 
     configFile file(checkstyleConfigPath)

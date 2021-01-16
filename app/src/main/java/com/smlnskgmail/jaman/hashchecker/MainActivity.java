@@ -6,6 +6,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 
@@ -45,7 +46,8 @@ public class MainActivity extends BaseActivity {
         }
 
         HashCalculatorFragment mainFragment = new HashCalculatorFragment();
-        if (scheme != null && scheme.compareTo(ContentResolver.SCHEME_CONTENT) == 0) {
+        if (scheme != null
+                && (scheme.equals(ContentResolver.SCHEME_CONTENT) || scheme.equals(ContentResolver.SCHEME_FILE))) {
             mainFragment.setArguments(
                     getConfiguredBundleWithDataUri(
                             intent.getData()

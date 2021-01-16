@@ -19,10 +19,10 @@ public class HelperFactoryTest {
 
     @Test
     public void runTest() {
+        String helperMark = HelperFactory.getHelper().toString();
+
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
         HelperFactory.setHelper(context);
-
-        String helperMark = HelperFactory.getHelper().toString();
         assertNotEquals(
                 helperMark,
                 HelperFactory.getHelper().toString()
