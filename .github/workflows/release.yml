@@ -10,6 +10,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          repository: hash-checker/metadata
 
       - uses: actions/cache@v1
         with:
@@ -26,11 +28,21 @@ jobs:
         with:
           java-version: 1.8
 
-      #    - name: Build Release Bundle
-      #      run: ./gradlew
+      - name: Build Release Bundle
+        env:
+          RELEASE_KEYSTORE_PATH: ${{ secrets.RELEASE_KEYSTORE_PATH }}
+          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+        run: ./gradlew bundleRelease --stacktrace
 
       - name: Build Release APK
-        run: ./gradlew assembleDebug
+        env:
+          RELEASE_KEYSTORE_PATH: ${{ secrets.RELEASE_KEYSTORE_PATH }}
+          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+        run: ./gradlew assembleRelease --stacktrace
 
       - name: Create Release
         id: create_release
@@ -43,13 +55,22 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release artifacts
+      - name: Upload Release Bundle
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: 'app/build/outputs/apk/debug/hash-checker_debug.apk'
-          asset_name: hash-checker_${{ github.event.head_commit.message }}.apk
+          asset_path: 'app/build/outputs/bundle/release/hash-checker_release.aab'
+          asset_name: hash-checker_${{ github.event.head_commit.message }}.aab
           asset_content_type: application/zip
 
+      - name: Upload Release APK
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: 'app/build/outputs/apk/release/hash-checker_release.apk'
+          asset_name: hash-checker_${{ github.event.head_commit.message }}.apk
+          asset_content_type: application/zip
