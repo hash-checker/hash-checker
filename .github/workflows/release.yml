@@ -11,7 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/checkout@v2
+      - name: Checkout metadata
+        uses: actions/checkout@v2
         with:
           repository: hash-checker/metadata
           token: ${{ secrets.ACCESS_TOKEN }}
