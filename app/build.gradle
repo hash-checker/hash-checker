@@ -71,8 +71,15 @@ android {
     }
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
-            def versionName = android.defaultConfig.versionName
-            output.outputFileName = "hash-checker_${versionName}.apk"
+            def buildType = variant.buildType.name
+            def outputFilename
+            if (buildType == 'release') {
+                def versionName = android.defaultConfig.versionName
+                outputFilename = "hash-checker_${versionName}.apk"
+            } else {
+                outputFilename = "hash-checker_${buildType}.apk"
+            }
+            output.outputFileName = outputFilename
         }
     }
 }
