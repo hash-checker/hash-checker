@@ -12,7 +12,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: hash-checker/metadata
-          ref: 'master'
           token: ${{ secrets.GITHUB_TOKEN }}
           path: '.'
 
