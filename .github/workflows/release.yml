@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: hash-checker/metadata
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}
           path: '.'
 
       - uses: actions/cache@v1
