@@ -75,6 +75,3 @@ jobs:
           asset_path: 'app/build/outputs/apk/release/hash-checker_release.apk'
           asset_name: hash-checker_${{ github.event.head_commit.message }}.apk
           asset_content_type: application/zip
-v3:
-  6:
-    1:
