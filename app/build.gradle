@@ -33,6 +33,53 @@ android {
                 'sv',
                 'zh-rCN'
     }
+    signingConfigs {
+        release {
+            final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
+            final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
+            final ALIAS_KEY = 'RELEASE_KEY_ALIAS'
+            final PASSWORD_KEY = 'RELEASE_KEY_PASSWORD'
+            def keystoreProperties = new Properties()
+            def keystorePropertiesFile = rootProject.file("local.properties")
+            if (keystorePropertiesFile.exists()) {
+                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+            }
+            if (keystoreProperties[KEYSTORE_PATH] == null) {
+                keystoreProperties.put(
+                        KEYSTORE_PATH,
+                        System.getenv(KEYSTORE_PATH)
+                )
+                keystoreProperties.put(
+                        KEYSTORE_PASSWORD,
+                        System.getenv(KEYSTORE_PASSWORD)
+                )
+                keystoreProperties.put(
+                        ALIAS_KEY,
+                        System.getenv(ALIAS_KEY)
+                )
+                keystoreProperties.put(
+                        PASSWORD_KEY,
+                        System.getenv(PASSWORD_KEY)
+                )
+            }
+            if (!keystoreProperties.isEmpty()) {
+                try {
+                    storeFile file(keystoreProperties[KEYSTORE_PATH])
+                    storePassword keystoreProperties[KEYSTORE_PASSWORD]
+                    keyAlias keystoreProperties[ALIAS_KEY]
+                    keyPassword keystoreProperties[PASSWORD_KEY]
+                } catch (ignore) {
+                    throw new InvalidUserDataException(
+                            "You should define sign keys in gradle.properties or int ENV."
+                    )
+                }
+            } else {
+                throw new InvalidUserDataException(
+                        "You should define sign keys in gradle.properties or in ENV."
+                )
+            }
+        }
+    }
     buildTypes {
         debug {
             versionNameSuffix '-dev'
@@ -45,6 +92,8 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     'proguard-rules.pro'
+
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -72,14 +121,7 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             def buildType = variant.buildType.name
-            def outputFilename
-            if (buildType == 'release') {
-                def versionName = android.defaultConfig.versionName
-                outputFilename = "hash-checker_${versionName}.apk"
-            } else {
-                outputFilename = "hash-checker_${buildType}.apk"
-            }
-            output.outputFileName = outputFilename
+            output.outputFileName = "hash-checker_${buildType}.apk"
         }
     }
 }
