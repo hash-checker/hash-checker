@@ -37,7 +37,7 @@ android {
         release {
             final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
             final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
-            final ALIAS_KEY = 'RELEASE_KEYSTORE_ALIAS'
+            final ALIAS_KEY = 'RELEASE_KEY_ALIAS'
             final PASSWORD_KEY = 'RELEASE_KEY_PASSWORD'
             def keystoreProperties = new Properties()
             def keystorePropertiesFile = rootProject.file("local.properties")
