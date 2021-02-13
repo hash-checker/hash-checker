@@ -129,10 +129,11 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.preference:preference:1.1.1'
 
-    implementation 'com.smlnskgmail.jaman:adaptiverecyclerview:1.1.0'
+    // AdaptiveRecyclerView
+    implementation 'com.github.fartem:adaptive-recycler-view:master'
 
     // ORMLite
     implementation 'com.j256.ormlite:ormlite-core:5.1'
@@ -143,7 +144,7 @@ dependencies {
     checkstyle 'com.github.fartem:checkstyle-checks-android:master'
 
     // Unit tests
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.1'
 
     // Android tests
     androidTestImplementation 'androidx.annotation:annotation:1.1.0'
