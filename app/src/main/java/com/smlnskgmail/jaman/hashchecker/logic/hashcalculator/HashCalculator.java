@@ -13,16 +13,16 @@ public interface HashCalculator {
 
     void setHashType(@NonNull HashType hashType) throws NoSuchAlgorithmException;
 
-    @NonNull
+    @Nullable
     String fromString(@NonNull String text);
 
-    @NonNull
+    @Nullable
     String fromFile(
             @NonNull Context context,
             @NonNull Uri path
     );
 
-    @NonNull
+    @Nullable
     String fromFile(@Nullable InputStream inputStream);
 
 }
