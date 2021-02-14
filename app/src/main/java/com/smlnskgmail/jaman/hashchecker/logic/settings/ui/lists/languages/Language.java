@@ -7,8 +7,6 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 
-import org.jetbrains.annotations.NotNull;
-
 public enum Language implements ListItem {
 
     EN("English", "en"),
@@ -43,7 +41,7 @@ public enum Language implements ListItem {
         return code;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String getTitle(@NonNull Context context) {
         return originalName;

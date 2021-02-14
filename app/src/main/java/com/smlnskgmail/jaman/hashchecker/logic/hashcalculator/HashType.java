@@ -7,8 +7,6 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 
-import org.jetbrains.annotations.NotNull;
-
 public enum HashType implements ListItem {
 
     MD5("MD5"),
@@ -45,7 +43,7 @@ public enum HashType implements ListItem {
         return MD5;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String getTitle(@NonNull Context context) {
         return hashName;
