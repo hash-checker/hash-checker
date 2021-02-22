@@ -134,6 +134,7 @@ If you don't see any error messages, submit your pull request.
 * [@fartem](https://github.com/fartem) as Artem Fomchenkov
 * [@Marwa-Eltayeb](https://github.com/Marwa-Eltayeb) as Marwa Said
 * [@vaqueraexe](https://github.com/vaqueraexe) as Sergio Amaya
+* [@firaja](https://github.com/firaja) as David Bertoldi
 
 ## Special thanks
 
