@@ -11,8 +11,8 @@ android {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 87
-        versionName '3.6.1'
+        versionCode 88
+        versionName '3.6.2'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
@@ -33,6 +33,53 @@ android {
                 'sv',
                 'zh-rCN'
     }
+    signingConfigs {
+        release {
+            final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
+            final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
+            final ALIAS_KEY = 'RELEASE_KEY_ALIAS'
+            final PASSWORD_KEY = 'RELEASE_KEY_PASSWORD'
+            def keystoreProperties = new Properties()
+            def keystorePropertiesFile = rootProject.file("local.properties")
+            if (keystorePropertiesFile.exists()) {
+                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+            }
+            if (keystoreProperties[KEYSTORE_PATH] == null) {
+                keystoreProperties.put(
+                        KEYSTORE_PATH,
+                        System.getenv(KEYSTORE_PATH)
+                )
+                keystoreProperties.put(
+                        KEYSTORE_PASSWORD,
+                        System.getenv(KEYSTORE_PASSWORD)
+                )
+                keystoreProperties.put(
+                        ALIAS_KEY,
+                        System.getenv(ALIAS_KEY)
+                )
+                keystoreProperties.put(
+                        PASSWORD_KEY,
+                        System.getenv(PASSWORD_KEY)
+                )
+            }
+            if (!keystoreProperties.isEmpty()) {
+                try {
+                    storeFile file(keystoreProperties[KEYSTORE_PATH])
+                    storePassword keystoreProperties[KEYSTORE_PASSWORD]
+                    keyAlias keystoreProperties[ALIAS_KEY]
+                    keyPassword keystoreProperties[PASSWORD_KEY]
+                } catch (ignore) {
+                    throw new InvalidUserDataException(
+                            "You should define sign keys in gradle.properties or int ENV."
+                    )
+                }
+            } else {
+                throw new InvalidUserDataException(
+                        "You should define sign keys in gradle.properties or in ENV."
+                )
+            }
+        }
+    }
     buildTypes {
         debug {
             versionNameSuffix '-dev'
@@ -45,6 +92,8 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     'proguard-rules.pro'
+
+//            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -71,8 +120,8 @@ android {
     }
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
-            def versionName = android.defaultConfig.versionName
-            output.outputFileName = "hash-checker_${versionName}.apk"
+            def buildType = variant.buildType.name
+            output.outputFileName = "hash-checker_${buildType}.apk"
         }
     }
 }
@@ -80,10 +129,11 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.preference:preference:1.1.1'
 
-    implementation 'com.smlnskgmail.jaman:adaptiverecyclerview:1.1.0'
+    // AdaptiveRecyclerView
+    implementation 'com.github.fartem:adaptive-recycler-view:1.1.1'
 
     // ORMLite
     implementation 'com.j256.ormlite:ormlite-core:5.1'
@@ -94,7 +144,7 @@ dependencies {
     checkstyle 'com.github.fartem:checkstyle-checks-android:master'
 
     // Unit tests
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.1'
 
     // Android tests
     androidTestImplementation 'androidx.annotation:annotation:1.1.0'

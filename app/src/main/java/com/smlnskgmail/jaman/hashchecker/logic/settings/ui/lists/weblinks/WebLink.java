@@ -7,8 +7,6 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -59,7 +57,7 @@ public enum WebLink implements ListItem {
         return linkResId;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String getTitle(@NonNull Context context) {
         return context.getString(titleResId);
