@@ -90,8 +90,9 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
         }
     }
 
+    @NonNull
     @Override
-    public @NonNull List<HistoryItem> historyItems(
+    public List<HistoryItem> historyItems(
             @NonNull HistoryPortion historyPortion
     ) {
         try {
@@ -143,11 +144,13 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
         }
     }
 
+    @NonNull
     @Override
-    public @NonNull String getDatabaseFolder() {
+    public String getDatabaseFolder() {
         return DATABASE_FOLDER;
     }
 
+    @NonNull
     @Override
     public String getDatabaseFileName() {
         return DATABASE_NAME;
