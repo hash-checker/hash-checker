@@ -21,8 +21,9 @@ public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
         super(items, bottomSheet);
     }
 
+    @NonNull
     @Override
-    public @NonNull BaseListHolder<WebLink> getItemsHolder(
+    public BaseListHolder<WebLink> getItemsHolder(
             @NonNull Context themeContext,
             @NonNull View view
     ) {
