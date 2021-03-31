@@ -135,6 +135,7 @@ If you don't see any error messages, submit your pull request.
 * [@Marwa-Eltayeb](https://github.com/Marwa-Eltayeb) as Marwa Said
 * [@vaqueraexe](https://github.com/vaqueraexe) as Sergio Amaya
 * [@firaja](https://github.com/firaja) as David Bertoldi
+* [@fu7mu4](https://github.com/fu7mu4) as fu7mu4
 
 ## Special thanks
 
