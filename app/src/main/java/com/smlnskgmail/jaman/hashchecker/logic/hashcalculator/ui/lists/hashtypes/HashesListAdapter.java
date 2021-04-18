@@ -31,8 +31,9 @@ public class HashesListAdapter extends BaseListAdapter<HashType> {
         );
     }
 
+    @NonNull
     @Override
-    public @NonNull BaseListHolder<HashType> getItemsHolder(
+    public BaseListHolder<HashType> getItemsHolder(
             @NonNull Context themeContext,
             @NonNull View view
     ) {
