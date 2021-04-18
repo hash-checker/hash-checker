@@ -31,7 +31,8 @@ android {
                 'pl',
                 'ru',
                 'sv',
-                'zh-rCN'
+                'zh-rCN',
+                'ja'
     }
     signingConfigs {
         release {
@@ -136,8 +137,8 @@ dependencies {
     implementation 'com.github.fartem:adaptive-recycler-view:1.1.1'
 
     // ORMLite
-    implementation 'com.j256.ormlite:ormlite-core:5.1'
-    implementation 'com.j256.ormlite:ormlite-android:5.1'
+    implementation 'com.j256.ormlite:ormlite-core:5.3'
+    implementation 'com.j256.ormlite:ormlite-android:5.3'
 
     // Checkstyle
     checkstyle 'com.github.fartem:checkstyle-checks-java:1.1.0'
