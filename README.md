@@ -59,6 +59,7 @@ __Languages in app__
 | 한국어 | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/19) |
 | עברית | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/17) |
 | فارسی | 2.9.9 | `Translated` |
+| 日本語 | 3.6.3 | `Translated` |
 
 __Not translated__
 
@@ -67,7 +68,6 @@ __Not translated__
 | Bahasa Indonesia | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/36) |
 | हिंदी | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/37) |
 | Українська мова | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/38) |
-| 日本語 | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/39) |
 | norsk | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/40) |
 | čeština | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/41) |
 | suomi | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/42) |
