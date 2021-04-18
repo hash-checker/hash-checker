@@ -12,8 +12,8 @@ import com.smlnskgmail.jaman.hashchecker.R;
 
 public class AppProgressDialog {
 
-    @NonNull
     @SuppressLint("ResourceType")
+    @NonNull
     public static ProgressDialog getDialog(
             @NonNull Context context,
             @IdRes int textMessageResId

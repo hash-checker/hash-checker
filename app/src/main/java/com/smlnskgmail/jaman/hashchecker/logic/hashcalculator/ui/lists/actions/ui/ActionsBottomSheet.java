@@ -13,9 +13,8 @@ import java.util.List;
 
 abstract class ActionsBottomSheet extends BaseListBottomSheet<Action> {
 
-    @NonNull
     @Override
-    protected BaseListAdapter<Action> getItemsAdapter() {
+    protected @androidx.annotation.NonNull BaseListAdapter<Action> getItemsAdapter() {
         Fragment parentFragment = getFragmentManager().findFragmentByTag(
                 BaseFragment.CURRENT_FRAGMENT_TAG
         );

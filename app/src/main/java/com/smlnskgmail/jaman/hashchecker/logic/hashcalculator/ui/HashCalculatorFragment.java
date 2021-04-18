@@ -544,7 +544,6 @@ public class HashCalculatorFragment extends BaseFragment
         }
     }
 
-    @NonNull
     @SuppressWarnings("MethodParametersAnnotationCheck")
     private TextWatcher watcherForInputField(
             @NonNull ImageView copyButton,

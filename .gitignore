@@ -69,7 +69,6 @@ app/debug/
 # Checkstyle
 checkstyle.xml
 checkstyle-result.xml
-checkstyle-result.html
 
 # detekt
 detekt-config.yml

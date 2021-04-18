@@ -28,9 +28,8 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
         this.selectedTheme = selectedTheme;
     }
 
-    @NonNull
     @Override
-    public BaseListHolder<Theme> getItemsHolder(
+    public @NonNull BaseListHolder<Theme> getItemsHolder(
             @NonNull Context themeContext,
             @NonNull View view
     ) {

@@ -59,7 +59,6 @@ __Languages in app__
 | 한국어 | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/19) |
 | עברית | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/17) |
 | فارسی | 2.9.9 | `Translated` |
-| 日本語 | 3.6.3 | `Translated` |
 
 __Not translated__
 
@@ -68,6 +67,7 @@ __Not translated__
 | Bahasa Indonesia | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/36) |
 | हिंदी | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/37) |
 | Українська мова | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/38) |
+| 日本語 | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/39) |
 | norsk | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/40) |
 | čeština | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/41) |
 | suomi | - | [Help wanted](https://github.com/hash-checker/hash-checker/issues/42) |
@@ -135,7 +135,6 @@ If you don't see any error messages, submit your pull request.
 * [@Marwa-Eltayeb](https://github.com/Marwa-Eltayeb) as Marwa Said
 * [@vaqueraexe](https://github.com/vaqueraexe) as Sergio Amaya
 * [@firaja](https://github.com/firaja) as David Bertoldi
-* [@fu7mu4](https://github.com/fu7mu4) as fu7mu4
 
 ## Special thanks
 

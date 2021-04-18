@@ -9,9 +9,8 @@ import java.util.List;
 
 abstract class WebLinksBottomSheet extends BaseListBottomSheet<WebLink> {
 
-    @NonNull
     @Override
-    public BaseListAdapter<WebLink> getItemsAdapter() {
+    public @androidx.annotation.NonNull BaseListAdapter<WebLink> getItemsAdapter() {
         return new WebLinksListAdapter(
                 getLinks(),
                 this

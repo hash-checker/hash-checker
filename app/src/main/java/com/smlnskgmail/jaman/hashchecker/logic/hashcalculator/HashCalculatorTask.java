@@ -57,7 +57,6 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
         this.isText = isText;
     }
 
-    @Nullable
     @SuppressWarnings("MethodParametersAnnotationCheck")
     @Override
     protected String doInBackground(Void... voids) {

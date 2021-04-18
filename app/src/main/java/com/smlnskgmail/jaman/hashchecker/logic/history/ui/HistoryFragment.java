@@ -27,7 +27,7 @@ import java.util.List;
 public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderTaskTarget<HistoryItem> {
 
     private FrameLayout flHistory;
-    private AdaptiveRecyclerView arvHistoryItems;
+    private AdaptiveRecyclerView rvHistoryItems;
     private ProgressBar pbHistory;
 
     private final HistoryPortion historyPortion = new HistoryPortion();
@@ -42,9 +42,9 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
         super.onViewCreated(view, savedInstanceState);
         flHistory = view.findViewById(R.id.fl_history);
         pbHistory = view.findViewById(R.id.pb_history);
-        arvHistoryItems = view.findViewById(R.id.rv_history_items);
-        arvHistoryItems.setMessageView(view.findViewById(R.id.ll_history_empty_view));
-        arvHistoryItems.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        rvHistoryItems = view.findViewById(R.id.rv_history_items);
+        rvHistoryItems.setMessageView(view.findViewById(R.id.ll_history_empty_view));
+        rvHistoryItems.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(
                     @NonNull RecyclerView recyclerView,
@@ -88,13 +88,13 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
     }
 
     private void resetHistoryAdapter() {
-        arvHistoryItems.setAdapter(new HistoryItemsAdapter(flHistory));
+        rvHistoryItems.setAdapter(new HistoryItemsAdapter(flHistory));
     }
 
     private void load() {
         if (!historyPortion.isLoaded()) {
             pbHistory.setVisibility(View.VISIBLE);
-            arvHistoryItems.setVisibility(View.GONE);
+            rvHistoryItems.setVisibility(View.GONE);
             new HistoryItemsLoaderTask(this).execute();
         }
     }
@@ -102,13 +102,12 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
     @Override
     public void postLoad(@NonNull List<HistoryItem> items) {
         pbHistory.setVisibility(View.GONE);
-        arvHistoryItems.setVisibility(View.VISIBLE);
-        ((HistoryItemsAdapter) arvHistoryItems.getAdapter()).addHistoryItems(items);
+        rvHistoryItems.setVisibility(View.VISIBLE);
+        ((HistoryItemsAdapter) rvHistoryItems.getAdapter()).addHistoryItems(items);
     }
 
-    @NonNull
     @Override
-    public HistoryPortion dataPortion() {
+    public @NonNull HistoryPortion dataPortion() {
         return historyPortion;
     }
 

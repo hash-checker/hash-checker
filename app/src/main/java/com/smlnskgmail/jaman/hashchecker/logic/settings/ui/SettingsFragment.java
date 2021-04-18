@@ -327,9 +327,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     }
 
     @Override
-    public boolean onOptionsItemSelected(
-            @NonNull MenuItem item
-    ) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             getActivity().onBackPressed();
             return true;

@@ -28,9 +28,8 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
         this.selectedLanguage = selectedLanguage;
     }
 
-    @NonNull
     @Override
-    protected BaseListHolder<Language> getItemsHolder(
+    protected @NonNull BaseListHolder<Language> getItemsHolder(
             @NonNull Context themeContext,
             @NonNull View view
     ) {

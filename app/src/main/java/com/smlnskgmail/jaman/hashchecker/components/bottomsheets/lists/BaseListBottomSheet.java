@@ -20,15 +20,15 @@ public abstract class BaseListBottomSheet<T extends ListItem> extends BaseBottom
             @Nullable Bundle savedInstanceState
     ) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView rvItems = view.findViewById(
+        RecyclerView bottomSheetItems = view.findViewById(
                 R.id.rv_bottom_sheet_list_items
         );
-        rvItems.setLayoutManager(
+        bottomSheetItems.setLayoutManager(
                 new LinearLayoutManager(
                         getContext()
                 )
         );
-        rvItems.setAdapter(getItemsAdapter());
+        bottomSheetItems.setAdapter(getItemsAdapter());
     }
 
     @NonNull
