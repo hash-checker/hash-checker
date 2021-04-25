@@ -5,14 +5,14 @@ apply from: 'jacoco.gradle'
 apply from: 'utils.gradle'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.3'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.3'
     defaultConfig {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 89
-        versionName '3.6.3'
+        targetSdkVersion 30
+        versionCode 90
+        versionName '3.6.4'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
