@@ -4,7 +4,7 @@
     package="com.smlnskgmail.jaman.hashchecker">
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!--    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
 
     <application
         android:name=".App"
@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeLight"
         android:resizeableActivity="false"
-        android:requestLegacyExternalStorage="true"
+<!--        android:requestLegacyExternalStorage="true"-->
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
         tools:targetApi="n">
 
@@ -57,7 +57,7 @@
 
         </activity>
 
-        <activity android:name=".logic.filemanager.ui.FileManagerActivity" />
+<!--        <activity android:name=".logic.filemanager.ui.FileManagerActivity" />-->
 
     </application>
 
