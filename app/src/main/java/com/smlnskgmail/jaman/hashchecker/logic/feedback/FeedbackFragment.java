@@ -79,12 +79,14 @@ public class FeedbackFragment extends BaseFragment {
             getActivity().onBackPressed();
             return true;
         } else if (item.getItemId() == R.id.menu_action_send_feedback) {
-            sendEmail(
-                    feedback.getConfiguredMessage(
-                            etFeedbackMessage.getText().toString()
-                    ),
-                    getString(R.string.common_email)
-            );
+            if(!etFeedbackMessage.getText().toString().isEmpty()) {
+                sendEmail(
+                        feedback.getConfiguredMessage(
+                                etFeedbackMessage.getText().toString()
+                        ),
+                        getString(R.string.common_email)
+                );
+            }
         }
         return super.onOptionsItemSelected(item);
     }
