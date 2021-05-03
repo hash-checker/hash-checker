@@ -36,7 +36,7 @@ import org.junit.runners.Suite;
         CRC32JdkHashCalculatorTest.class,
         JdkHashCalculatorExceptionsTest.class,
         MessageDigestZeroLeadsJdkHashCalculatorTest.class,
-        GenerateHashFromFileTest.class,
+//        GenerateHashFromFileTest.class,
         GenerateHashFromTextTest.class,
         HashCalculatorTaskExceptionTest.class,
         OpenAppWithIntentTest.class,
