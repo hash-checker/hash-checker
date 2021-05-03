@@ -136,6 +136,7 @@ If you don't see any error messages, submit your pull request.
 * [@vaqueraexe](https://github.com/vaqueraexe) as Sergio Amaya
 * [@firaja](https://github.com/firaja) as David Bertoldi
 * [@fu7mu4](https://github.com/fu7mu4) as fu7mu4
+* [@AmrDeveloper](https://github.com/AmrDeveloper) as Amr Hesham
 
 ## Special thanks
 
