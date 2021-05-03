@@ -369,7 +369,7 @@ public class HashCalculatorFragment extends BaseFragment
                 assert cursor != null;
                 cursor.moveToPosition(0);
                 return cursor.getString(
-                        cursor.getColumnIndex(
+                        cursor.getColumnIndexOrThrow(
                                 OpenableColumns.DISPLAY_NAME
                         )
                 );
