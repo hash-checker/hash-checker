@@ -174,7 +174,7 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     private void searchFile() {
-        if (SettingsHelper.isUsingInnerFileManager(context)) {
+        if (SettingsHelper.isUsingInnerFileManager()) {
             if (ContextCompat.checkSelfPermission(
                     context,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE

@@ -16,7 +16,7 @@ public class OpenAppWithClipDataTest extends BaseOpenAppTest {
         ClipData clipData = new ClipData(
                 new ClipDescription(
                         "ClipData with the path to a test file",
-                        new String[] { "*/*" }
+                        new String[]{"*/*"}
                 ),
                 new ClipData.Item(
                         Uri.fromFile(
@@ -25,7 +25,7 @@ public class OpenAppWithClipDataTest extends BaseOpenAppTest {
                 )
         );
         startIntent.setClipData(
-               clipData
+                clipData
         );
         return startIntent;
     }

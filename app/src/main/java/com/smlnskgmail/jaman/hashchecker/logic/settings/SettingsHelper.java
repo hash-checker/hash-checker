@@ -80,13 +80,14 @@ public class SettingsHelper {
     }
 
     public static boolean isUsingInnerFileManager(
-            @NonNull Context context
+//            @NonNull Context context
     ) {
-        return getBooleanPreference(
-                context,
-                context.getString(R.string.key_inner_file_manager),
-                false
-        );
+        return false;
+//        return getBooleanPreference(
+//                context,
+//                context.getString(R.string.key_inner_file_manager),
+//                false
+//        );
     }
 
     public static void savePathForInnerFileManager(
