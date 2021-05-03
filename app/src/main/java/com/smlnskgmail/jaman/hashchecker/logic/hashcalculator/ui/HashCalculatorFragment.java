@@ -174,7 +174,7 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     private void searchFile() {
-        if (SettingsHelper.isUsingInnerFileManager(context)) {
+        if (SettingsHelper.isUsingInnerFileManager()) {
             if (ContextCompat.checkSelfPermission(
                     context,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -369,7 +369,7 @@ public class HashCalculatorFragment extends BaseFragment
                 assert cursor != null;
                 cursor.moveToPosition(0);
                 return cursor.getString(
-                        cursor.getColumnIndex(
+                        cursor.getColumnIndexOrThrow(
                                 OpenableColumns.DISPLAY_NAME
                         )
                 );

@@ -15,9 +15,10 @@ task checkstyle(type: Checkstyle) {
         new URL(
                 "https://raw.githubusercontent.com/fartem/repository-rules/master/rules/java/android/checkstyle.xml"
         ).withInputStream {
-            i -> checkstyleConfig.withOutputStream {
-                it << i
-            }
+            i ->
+                checkstyleConfig.withOutputStream {
+                    it << i
+                }
         }
 
     }

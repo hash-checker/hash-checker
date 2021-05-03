@@ -49,7 +49,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
 
         fileItemsAdapter = new FileItemsAdapter(
                 files,
-                FileManagerActivity.this
+                this
         );
         rvFilesList.setAdapter(fileItemsAdapter);
 
