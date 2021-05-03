@@ -85,7 +85,7 @@ public class JdkHashCalculator implements HashCalculator {
             @NonNull Context context,
             @NonNull Uri path
     ) throws Exception {
-        if (!SettingsHelper.isUsingInnerFileManager(context)
+        if (!SettingsHelper.isUsingInnerFileManager()
                 || SettingsHelper.getGenerateFromShareIntentStatus(context)) {
             return context.getContentResolver().openInputStream(path);
         }

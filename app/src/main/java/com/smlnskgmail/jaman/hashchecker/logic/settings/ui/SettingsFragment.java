@@ -63,7 +63,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
         context = getContext();
 
         initializeActionBar();
-        initializeFileManagerSwitcher();
+//        initializeFileManagerSwitcher();
         initializeLanguageSettings();
         initializeThemesSettings();
         initializePrivacyPolicy();
@@ -228,16 +228,16 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
         );
     }
 
-    private void initializeFileManagerSwitcher() {
-        findPreference(getString(R.string.key_inner_file_manager))
-                .setOnPreferenceChangeListener((preference, o) -> {
-                    SettingsHelper.setRefreshSelectedFileStatus(
-                            context,
-                            true
-                    );
-                    return true;
-                });
-    }
+//    private void initializeFileManagerSwitcher() {
+//        findPreference(getString(R.string.key_inner_file_manager))
+//                .setOnPreferenceChangeListener((preference, o) -> {
+//                    SettingsHelper.setRefreshSelectedFileStatus(
+//                            context,
+//                            true
+//                    );
+//                    return true;
+//                });
+//    }
 
     @Override
     public void onViewCreated(

@@ -137,13 +137,13 @@
             android:layout_marginStart="@dimen/common_margin_4"
             android:layout_marginEnd="@dimen/common_margin_4"
             android:layout_gravity="center"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:background="@drawable/bg_block"
             android:maxLines="2"
             android:scrollbars="vertical"
             android:text="@string/message_select_object"
             android:textColor="?attr/colorCommonText"
-            android:textAlignment="center"
+            android:textAlignment="gravity"
             android:textSize="@dimen/text_size_default" />
 
     </LinearLayout>
