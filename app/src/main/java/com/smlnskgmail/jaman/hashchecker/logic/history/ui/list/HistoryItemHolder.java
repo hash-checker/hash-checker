@@ -68,18 +68,10 @@ class HistoryItemHolder extends RecyclerView.ViewHolder {
         initializeObjectData(context, historyItem);
         initializeHashType(context, historyItem);
         initializeDate(context, historyItem);
-        itemView.setOnClickListener(v -> new AppSnackbar(
+        itemView.setOnClickListener(v -> new Clipboard(
                 context,
-                rootView,
-                context.getString(R.string.history_item_click_text),
-                context.getString(R.string.common_ok),
-                v1 -> new Clipboard(
-                        context,
-                        historyItem.getHashValue()
-                ).copy(),
-                new Vibrator(context),
-                UIUtils.getAccentColor(context)
-        ).show());
+                historyItem.getHashValue()
+        ).copy());
     }
 
     private void initializeObjectData(
