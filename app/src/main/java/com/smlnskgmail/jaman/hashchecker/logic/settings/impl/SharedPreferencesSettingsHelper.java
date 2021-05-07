@@ -286,8 +286,7 @@ public class SharedPreferencesSettingsHelper {
     ) {
         int hashGenerationCount = getIntPreference(
                 context,
-                context.getString(R.string.key_hash_generation_count),
-                0
+                context.getString(R.string.key_hash_generation_count)
         );
         return hashGenerationCount == HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL;
     }
@@ -297,8 +296,7 @@ public class SharedPreferencesSettingsHelper {
     ) {
         int count = getIntPreference(
                 context,
-                context.getString(R.string.key_hash_generation_count),
-                0
+                context.getString(R.string.key_hash_generation_count)
         );
         if (count <= HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL) {
             saveIntPreference(
@@ -371,11 +369,10 @@ public class SharedPreferencesSettingsHelper {
 
     private static int getIntPreference(
             @NonNull Context context,
-            @NonNull String key,
-            int defaultValue
+            @NonNull String key
     ) {
         return PreferenceManager.getDefaultSharedPreferences(context)
-                .getInt(key, defaultValue);
+                .getInt(key, 0);
     }
 
 }

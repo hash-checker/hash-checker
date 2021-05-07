@@ -14,7 +14,7 @@
     <string name="message_generate_hash_before_export">エクスポート前にハッシュ値を生成する</string>
     <string name="message_match_result">マッチ</string>
     <string name="message_do_not_match_result">非マッチ</string>
-    <string name="message_generate_dialog">ハッシュを生成しています。お待ちください...</string>
+    <string name="message_generate_dialog">ハッシュを生成しています。お待ちください…</string>
     <string name="message_select_object">[差出人]をタップして、必要なソースタイプを選択します</string>
     <string name="message_request_storage_permission_error">ファイルストーレジデバイスの読み取り権限が取得できませんでした。もう一度お試しください。</string>
     <string name="message_request_storage_permission_denied">ファイルストレージデバイスの読み取り権限が取得できませんでした。設定に移動して、読み取り権限を提供してうださい。</string>

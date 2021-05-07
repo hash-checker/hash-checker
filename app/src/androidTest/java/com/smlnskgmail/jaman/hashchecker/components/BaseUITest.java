@@ -26,7 +26,7 @@ public abstract class BaseUITest {
     protected static final int SECOND_IN_MILLIS = 1000;
 
     @Rule
-    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(
+    public final ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(
             MainActivity.class,
             false,
             false

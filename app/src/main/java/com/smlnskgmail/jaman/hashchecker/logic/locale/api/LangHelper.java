@@ -4,6 +4,6 @@ import androidx.annotation.NonNull;
 
 public interface LangHelper {
 
-    public void setLocale(@NonNull Language language);
+    void setLocale(@NonNull Language language);
 
 }

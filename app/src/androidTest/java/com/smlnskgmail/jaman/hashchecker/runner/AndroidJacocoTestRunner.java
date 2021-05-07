@@ -9,7 +9,7 @@ import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class AndroidJacocoTestRunner extends AndroidJUnitRunner {
 
@@ -24,7 +24,11 @@ public class AndroidJacocoTestRunner extends AndroidJUnitRunner {
         } catch (Throwable e) {
             final String trace = Log.getStackTraceString(e);
             try {
-                System.out.write(trace.getBytes(Charset.forName("UTF-8")));
+                System.out.write(
+                        trace.getBytes(
+                                StandardCharsets.UTF_8
+                        )
+                );
             } catch (IOException e1) {
                 LogUtils.e(e1);
             }

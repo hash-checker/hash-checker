@@ -120,10 +120,6 @@ public class HistoryItemTest extends BaseEntityTest {
                 historyItem,
                 null
         );
-        assertNotEquals(
-                historyItem,
-                "String"
-        );
     }
 
     @Override

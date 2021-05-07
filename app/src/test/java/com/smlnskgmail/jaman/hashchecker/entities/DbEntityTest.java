@@ -6,11 +6,11 @@ import static org.junit.Assert.assertEquals;
 
 public class DbEntityTest extends BaseEntityTest {
 
-    private final long id = 1;
     private final DbEntity dbEntity = new DbEntity();
 
     @Override
     public void validateFields() {
+        long id = 1;
         dbEntity.setId(id);
         assertEquals(
                 id,

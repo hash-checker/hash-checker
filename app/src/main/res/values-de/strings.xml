@@ -18,7 +18,7 @@
     <string name="message_select_object">Auf \"Von\" tippen, um die gewünschte Quelle auszuwählen</string>
     <string name="message_request_storage_permission_error">Kann nicht auf Dateisystem zugreifen! Bitte erneut versuchen.</string>
     <string name="message_request_storage_permission_denied">Kann nicht auf Dateisystem zugreifen! Sie müssen zu den Einstellungen gehen und den Zugriff erlauben!</string>
-    <string name="message_error_start_file_selector">Kann keinen Dateimanager finden...</string>
+    <string name="message_error_start_file_selector">Kann keinen Dateimanager finden…</string>
     <string name="message_error_start_google_play">Google Play-Dienste oder Webbrowser nicht gefunden!</string>
     <string name="message_email_app_chooser">Wähle Deine App zum Senden einer E-Mail</string>
     <string name="message_change_theme">Anwendung neu starten, um die Farbe zu ändern</string>

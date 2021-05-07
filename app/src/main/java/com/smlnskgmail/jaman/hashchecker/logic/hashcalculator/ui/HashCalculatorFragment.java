@@ -53,7 +53,6 @@ import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtypes
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Clipboard;
-import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
@@ -85,8 +84,6 @@ public class HashCalculatorFragment extends BaseFragment
 
     private Context context;
     private FragmentManager fragmentManager;
-
-    private Vibrator vibrator;
 
     private boolean startWithTextSelection;
     private boolean startWithFileSelection;
@@ -470,7 +467,6 @@ public class HashCalculatorFragment extends BaseFragment
     ) {
         super.onViewCreated(view, savedInstanceState);
         context = getContext();
-        vibrator = new Vibrator(context);
 
         mainScreen = view.findViewById(R.id.fl_main_screen);
 

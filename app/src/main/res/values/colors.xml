@@ -3,5 +3,4 @@
     <color name="colorAccentStatic">#009688</color>
     <color name="colorLauncherIconBackground">#FFFFFF</color>
     <color name="colorBackgroundShortcut">#eeeeee</color>
-    <color name="colorLightText">@android:color/white</color>
 </resources>

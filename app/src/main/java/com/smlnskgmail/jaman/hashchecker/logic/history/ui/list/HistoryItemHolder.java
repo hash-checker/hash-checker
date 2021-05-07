@@ -27,14 +27,11 @@ class HistoryItemHolder extends RecyclerView.ViewHolder {
     private final TextView tvHistoryItemDateTitle;
     private final TextView tvHistoryItemDate;
 
-    private final View rootView;
-
     HistoryItemHolder(
             @NonNull View itemView,
             @NonNull View rootView
     ) {
         super(itemView);
-        this.rootView = rootView;
         ivHistoryItemObjectIcon = itemView.findViewById(
                 R.id.iv_item_history_object_type_icon
         );
