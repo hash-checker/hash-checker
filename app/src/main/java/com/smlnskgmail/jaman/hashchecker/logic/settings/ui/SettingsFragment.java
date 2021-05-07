@@ -24,18 +24,19 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.database.DatabaseExporter;
 import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
-import com.smlnskgmail.jaman.hashchecker.logic.feedback.FeedbackFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseExporter;
+import com.smlnskgmail.jaman.hashchecker.logic.feedback.ui.FeedbackFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.LanguagesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.AuthorWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.LibrariesWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.PrivacyPolicyWebLinksBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
@@ -143,22 +144,22 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 );
                 startActivityForResult(
                         saveFileIntent,
-                        SettingsHelper.FILE_CREATE
+                        SharedPreferencesSettingsHelper.FILE_CREATE
                 );
             } catch (ActivityNotFoundException e) {
-                L.e(e);
-                UIUtils.showSnackbar(
+                LogUtils.e(e);
+                new AppSnackbar(
                         context,
                         getView(),
-                        getString(R.string.message_error_start_file_selector)
-                );
+                        R.string.message_error_start_file_selector
+                ).show();
             }
         } else {
-            UIUtils.showSnackbar(
+            new AppSnackbar(
                     context,
                     getView(),
-                    getString(R.string.history_empty_view_message)
-            );
+                    R.string.history_empty_view_message
+            ).show();
         }
     }
 
@@ -261,7 +262,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
             @Nullable Intent data
     ) {
         if (data != null) {
-            if (requestCode == SettingsHelper.FILE_CREATE) {
+            if (requestCode == SharedPreferencesSettingsHelper.FILE_CREATE) {
                 if (resultCode == Activity.RESULT_OK) {
                     copyUserDataToUserFolder(
                             data.getData()
@@ -291,7 +292,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                     );
                 }
             } catch (IOException e) {
-                L.e(e);
+                LogUtils.e(e);
             }
         }
     }
@@ -347,10 +348,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
 
     @Override
     public void appResume() {
-        UIUtils.setActionBarTitle(
-                actionBar,
-                R.string.menu_title_settings
-        );
+        actionBar.setTitle(R.string.menu_title_settings);
         actionBar.setDisplayHomeAsUpEnabled(true);
         initializeActionBar();
     }

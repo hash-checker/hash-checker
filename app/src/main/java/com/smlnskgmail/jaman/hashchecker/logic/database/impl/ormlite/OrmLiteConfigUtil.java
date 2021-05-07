@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.database.ormlite;
+package com.smlnskgmail.jaman.hashchecker.logic.database.impl.ormlite;
 
 import androidx.annotation.NonNull;
 

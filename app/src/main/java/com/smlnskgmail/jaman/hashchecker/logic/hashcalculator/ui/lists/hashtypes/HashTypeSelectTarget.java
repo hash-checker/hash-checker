@@ -2,7 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtype
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 
 public interface HashTypeSelectTarget {
 

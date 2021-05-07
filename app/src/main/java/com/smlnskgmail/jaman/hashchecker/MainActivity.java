@@ -20,7 +20,7 @@ import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
 
 import java.util.List;
@@ -55,7 +55,7 @@ public class MainActivity extends BaseActivity {
                             intent.getData()
                     )
             );
-            SettingsHelper.setGenerateFromShareIntentMode(
+            SharedPreferencesSettingsHelper.setGenerateFromShareIntentMode(
                     this,
                     true
             );
@@ -65,7 +65,7 @@ public class MainActivity extends BaseActivity {
                             externalFileUri
                     )
             );
-            SettingsHelper.setGenerateFromShareIntentMode(
+            SharedPreferencesSettingsHelper.setGenerateFromShareIntentMode(
                     this,
                     true
             );
@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity {
                             intent.getAction()
                     )
             );
-            SettingsHelper.setGenerateFromShareIntentMode(
+            SharedPreferencesSettingsHelper.setGenerateFromShareIntentMode(
                     this,
                     false
             );

@@ -1,8 +1,8 @@
-package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.jdk;
+package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

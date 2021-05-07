@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.jdk;
+package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk;
 
 import android.content.Context;
 import android.net.Uri;
@@ -6,10 +6,10 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashCalculator;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashCalculator;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -51,7 +51,7 @@ public class JdkHashCalculator implements HashCalculator {
             );
             return fromFile(fileStream);
         } catch (Exception e) {
-            L.e(e);
+            LogUtils.e(e);
         }
         return null;
     }
@@ -74,7 +74,7 @@ public class JdkHashCalculator implements HashCalculator {
                 } while (read != -1);
                 return jdkHashCalculatorDigest.result();
             } catch (IOException e) {
-                L.e(e);
+                LogUtils.e(e);
             }
         }
         return null;
@@ -85,8 +85,8 @@ public class JdkHashCalculator implements HashCalculator {
             @NonNull Context context,
             @NonNull Uri path
     ) throws Exception {
-        if (!SettingsHelper.isUsingInnerFileManager()
-                || SettingsHelper.getGenerateFromShareIntentStatus(context)) {
+        if (!SharedPreferencesSettingsHelper.isUsingInnerFileManager()
+                || SharedPreferencesSettingsHelper.getGenerateFromShareIntentStatus(context)) {
             return context.getContentResolver().openInputStream(path);
         }
         return new FileInputStream(

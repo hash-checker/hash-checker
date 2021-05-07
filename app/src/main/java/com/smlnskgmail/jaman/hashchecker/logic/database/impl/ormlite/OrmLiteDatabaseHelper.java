@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.database.ormlite;
+package com.smlnskgmail.jaman.hashchecker.logic.database.impl.ormlite;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,11 +11,11 @@ import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.logic.database.DatabaseHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.database.DbEntity;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DbEntity;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryPortion;
-import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
+import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 import java.io.File;
 import java.sql.SQLException;
@@ -61,7 +61,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
                 );
             }
         } catch (SQLException e) {
-            L.e(e);
+            LogUtils.e(e);
         }
     }
 
@@ -86,7 +86,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
         try {
             getDao(HistoryItem.class).create(historyItem);
         } catch (SQLException e) {
-            L.e(e);
+            LogUtils.e(e);
         }
     }
 
@@ -108,7 +108,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
             }
             return queryBuilder.query();
         } catch (SQLException e) {
-            L.e(e);
+            LogUtils.e(e);
         }
         return new ArrayList<>();
     }
@@ -120,7 +120,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
                     .deleteBuilder()
                     .delete();
         } catch (SQLException e) {
-            L.e(e);
+            LogUtils.e(e);
         }
     }
 
@@ -129,7 +129,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
         try {
             return getDao(HistoryItem.class).countOf() > 0;
         } catch (SQLException e) {
-            L.e(e);
+            LogUtils.e(e);
             return false;
         }
     }
@@ -140,7 +140,7 @@ public class OrmLiteDatabaseHelper extends OrmLiteSqliteOpenHelper implements Da
         try {
             getWritableDatabase().execSQL("PRAGMA wal_checkpoint");
         } catch (Exception e) {
-            L.e(e);
+            LogUtils.e(e);
         }
     }
 

@@ -10,7 +10,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListB
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Restart;
 
 import java.util.List;
@@ -83,7 +83,7 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
         }
 
         private void configureNewTheme() {
-            SettingsHelper.saveTheme(getContext(), themeAtPosition);
+            SharedPreferencesSettingsHelper.saveTheme(getContext(), themeAtPosition);
         }
 
         @Override

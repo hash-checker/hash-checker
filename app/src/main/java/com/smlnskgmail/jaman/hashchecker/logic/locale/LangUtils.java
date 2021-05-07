@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.utils;
+package com.smlnskgmail.jaman.hashchecker.logic.locale;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -8,7 +8,7 @@ import android.os.LocaleList;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.Language;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
 
 import java.util.Locale;
 

@@ -14,8 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.Language;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -33,9 +33,9 @@ public class App extends android.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (!SettingsHelper.isShortcutsIsCreated(this)) {
+        if (!SharedPreferencesSettingsHelper.isShortcutsIsCreated(this)) {
             createShortcuts();
-            SettingsHelper.saveShortcutsStatus(
+            SharedPreferencesSettingsHelper.saveShortcutsStatus(
                     this,
                     true
             );
@@ -112,7 +112,7 @@ public class App extends android.app.Application {
 
     private void setLocale(@NonNull Context context) {
         Language language = null;
-        if (!SettingsHelper.languageIsInitialized(context)) {
+        if (!SharedPreferencesSettingsHelper.languageIsInitialized(context)) {
             String deviceLocale = Locale.getDefault().toString();
             for (Language lang : Language.values()) {
                 if (deviceLocale.equals(lang.code())) {
@@ -123,7 +123,7 @@ public class App extends android.app.Application {
             if (language == null) {
                 language = Language.EN;
             }
-            SettingsHelper.saveLanguage(
+            SharedPreferencesSettingsHelper.saveLanguage(
                     context,
                     language
             );
@@ -141,7 +141,7 @@ public class App extends android.app.Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        SettingsHelper.savePathForInnerFileManager(
+        SharedPreferencesSettingsHelper.savePathForInnerFileManager(
                 this,
                 null
         );

@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.settings;
+package com.smlnskgmail.jaman.hashchecker.logic.settings.impl;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
@@ -7,12 +7,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.Language;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.Theme;
+import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
-public class SettingsHelper {
+public class SharedPreferencesSettingsHelper {
 
     public static final int FILE_CREATE = 3;
 
@@ -41,7 +41,7 @@ public class SettingsHelper {
         try {
             return HashType.valueOf(hashValue);
         } catch (IllegalArgumentException e) {
-            L.e(e);
+            LogUtils.e(e);
             return HashType.MD5;
         }
     }
@@ -146,7 +146,7 @@ public class SettingsHelper {
     public static Theme getSelectedTheme(
             @NonNull Context context
     ) {
-        String selectedTheme = SettingsHelper.getTheme(context);
+        String selectedTheme = SharedPreferencesSettingsHelper.getTheme(context);
         for (Theme theme : Theme.values()) {
             if (theme.toString().equals(selectedTheme)) {
                 return theme;

@@ -5,8 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.utils.LangUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.LangUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -15,7 +15,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         LangUtils.setLocale(
                 this,
-                SettingsHelper.getLanguage(this)
+                SharedPreferencesSettingsHelper.getLanguage(this)
         );
         setTheme(UIUtils.getThemeResId(this));
         super.onCreate(savedInstanceState);

@@ -1,7 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.calculator.jdk;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.jdk.JdkHashCalculatorDigest;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk.JdkHashCalculatorDigest;
 
 import org.junit.Test;
 

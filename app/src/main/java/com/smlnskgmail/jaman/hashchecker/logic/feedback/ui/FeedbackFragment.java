@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.feedback;
+package com.smlnskgmail.jaman.hashchecker.logic.feedback.ui;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -17,7 +17,8 @@ import androidx.core.app.ShareCompat;
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
+import com.smlnskgmail.jaman.hashchecker.logic.feedback.Feedback;
+import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 public class FeedbackFragment extends BaseFragment {
 
@@ -139,7 +140,7 @@ public class FeedbackFragment extends BaseFragment {
                     )
             );
         } catch (ActivityNotFoundException e) {
-            L.e(e);
+            LogUtils.e(e);
             ShareCompat.IntentBuilder
                     .from(getActivity())
                     .setText("message/rfc822")

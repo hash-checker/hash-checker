@@ -18,8 +18,8 @@ import androidx.fragment.app.Fragment;
 
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.utils.LangUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.LangUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public abstract class BaseFragment extends Fragment implements AppBackClickTarget, AppResumeTarget {
@@ -36,7 +36,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
         Context context = view.getContext();
         LangUtils.setLocale(
                 context,
-                SettingsHelper.getLanguage(context)
+                SharedPreferencesSettingsHelper.getLanguage(context)
         );
         super.onViewCreated(view, savedInstanceState);
     }
@@ -52,10 +52,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
         if (actionBar == null) {
             actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         }
-        UIUtils.setActionBarTitle(
-                actionBar,
-                getActionBarTitleResId()
-        );
+        actionBar.setTitle(getActionBarTitleResId());
         if (setAllowBackAction()) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(

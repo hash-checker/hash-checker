@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.entities;
 
-import com.smlnskgmail.jaman.hashchecker.logic.database.DbEntity;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DbEntity;
 
 import static org.junit.Assert.assertEquals;
 

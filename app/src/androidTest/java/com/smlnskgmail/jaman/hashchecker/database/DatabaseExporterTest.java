@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.test.InstrumentationRegistry;
 
-import com.smlnskgmail.jaman.hashchecker.logic.database.DatabaseExporter;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseExporter;
 
 import org.junit.Test;
 

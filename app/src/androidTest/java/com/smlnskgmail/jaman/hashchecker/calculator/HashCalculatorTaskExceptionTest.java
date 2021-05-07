@@ -6,8 +6,8 @@ import android.net.Uri;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashCalculatorTask;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashCalculatorTask;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

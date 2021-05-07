@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator;
+package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -8,8 +8,8 @@ import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.jdk.JdkHashCalculator;
-import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk.JdkHashCalculator;
+import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 public class HashCalculatorTask extends AsyncTask<Void, String, String> {
 
@@ -68,7 +68,7 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
                     ? hashCalculator.fromFile(context, fileUri)
                     : hashCalculator.fromString(textValue);
         } catch (Exception e) {
-            L.e(e);
+            LogUtils.e(e);
             return null;
         }
     }

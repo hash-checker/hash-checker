@@ -1,8 +1,10 @@
-package com.smlnskgmail.jaman.hashchecker.logic.database;
+package com.smlnskgmail.jaman.hashchecker.logic.database.api;
 
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+
+import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
 
 import java.io.File;
 import java.io.FileInputStream;

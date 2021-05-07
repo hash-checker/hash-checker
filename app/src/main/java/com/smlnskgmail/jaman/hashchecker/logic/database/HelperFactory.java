@@ -6,7 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.smlnskgmail.jaman.hashchecker.logic.database.ormlite.OrmLiteDatabaseHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.database.impl.ormlite.OrmLiteDatabaseHelper;
 
 public class HelperFactory {
 

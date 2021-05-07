@@ -8,7 +8,7 @@ import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.matchers.RecyclerViewItemCountAssertion;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 
 import java.text.DateFormat;
 import java.util.ArrayList;

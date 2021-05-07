@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class HashesListAdapter extends BaseListAdapter<HashType> {
     ) {
         super(items, bottomSheet);
         this.hashTypeSelectListener = hashTypeSelectListener;
-        selectedHashType = SettingsHelper.getLastHashType(
+        selectedHashType = SharedPreferencesSettingsHelper.getLastHashType(
                 getBottomSheet().getContext()
         );
     }

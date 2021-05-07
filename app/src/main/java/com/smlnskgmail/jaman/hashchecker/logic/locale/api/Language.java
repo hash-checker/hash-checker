@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages;
+package com.smlnskgmail.jaman.hashchecker.logic.locale.api;
 
 import android.content.Context;
 

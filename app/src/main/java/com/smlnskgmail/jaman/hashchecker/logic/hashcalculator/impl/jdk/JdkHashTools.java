@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.jdk;
+package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk;
 
 import androidx.annotation.NonNull;
 

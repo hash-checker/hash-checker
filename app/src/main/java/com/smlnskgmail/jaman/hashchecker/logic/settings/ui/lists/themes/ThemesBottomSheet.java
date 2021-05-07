@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 
 import java.util.Arrays;
 
@@ -16,7 +16,7 @@ public class ThemesBottomSheet extends BaseListBottomSheet<Theme> {
         return new ThemesListAdapter(
                 Arrays.asList(Theme.values()),
                 this,
-                SettingsHelper.getSelectedTheme(
+                SharedPreferencesSettingsHelper.getSelectedTheme(
                         getContext()
                 )
         );

@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 
 import java.util.Arrays;
 

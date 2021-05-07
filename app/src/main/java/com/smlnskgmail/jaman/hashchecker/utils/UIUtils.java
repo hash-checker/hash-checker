@@ -6,19 +6,15 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
-import android.view.View;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 
 public class UIUtils {
 
@@ -48,7 +44,7 @@ public class UIUtils {
     public static int getThemeResId(
             @NonNull Context context
     ) {
-        return SettingsHelper.getSelectedTheme(context).getThemeResId();
+        return SharedPreferencesSettingsHelper.getSelectedTheme(context).getThemeResId();
     }
 
     @SuppressLint("ResourceType")
@@ -93,27 +89,6 @@ public class UIUtils {
                 true
         );
         return typedValue.data;
-    }
-
-    public static void setActionBarTitle(
-            @NonNull ActionBar actionBar,
-            int titleResId
-    ) {
-        actionBar.setTitle(titleResId);
-    }
-
-    public static void showSnackbar(
-            @NonNull Context context,
-            @NonNull View view,
-            @NonNull String message
-    ) {
-        new AppSnackbar(
-                context,
-                view,
-                message,
-                new Vibrator(context),
-                UIUtils.getAccentColor(context)
-        ).show();
     }
 
 }

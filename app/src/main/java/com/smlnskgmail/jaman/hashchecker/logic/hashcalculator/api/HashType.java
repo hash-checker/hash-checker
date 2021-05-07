@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator;
+package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api;
 
 import android.content.Context;
 

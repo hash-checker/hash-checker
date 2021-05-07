@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.logic.database;
+package com.smlnskgmail.jaman.hashchecker.logic.database.api;
 
 import com.j256.ormlite.field.DatabaseField;
 

@@ -2,7 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.calculator;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 
 import java.util.ArrayList;
 import java.util.Arrays;

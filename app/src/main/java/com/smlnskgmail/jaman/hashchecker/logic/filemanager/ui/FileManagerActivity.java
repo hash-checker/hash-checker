@@ -13,8 +13,7 @@ import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileItem;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileType;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.list.FileItemsAdapter;
-import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 import java.io.File;
 import java.io.InputStream;
@@ -97,7 +96,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
                 }
                 is.close();
             } catch (Exception e) {
-                L.e(e);
+                LogUtils.e(e);
                 return storages;
             }
 
@@ -153,7 +152,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
                 }
             }
         } catch (Exception e) {
-            L.e(e);
+            LogUtils.e(e);
             return storages;
         }
         return storages;
@@ -335,8 +334,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     }
 
     private void resetTitle() {
-        UIUtils.setActionBarTitle(
-                getSupportActionBar(),
+        getSupportActionBar().setTitle(
                 R.string.file_manager_select_storage_title
         );
     }

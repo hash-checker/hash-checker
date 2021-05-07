@@ -9,11 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Clipboard;
-import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.text.DateFormat;
 
