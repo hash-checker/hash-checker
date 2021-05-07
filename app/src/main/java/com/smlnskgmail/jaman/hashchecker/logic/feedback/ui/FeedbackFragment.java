@@ -1,6 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.logic.feedback.ui;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -14,13 +15,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ShareCompat;
 
+import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.feedback.Feedback;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
+import javax.inject.Inject;
+
 public class FeedbackFragment extends BaseFragment {
+
+    @Inject
+    SettingsHelper settingsHelper;
 
     private final String osVersion = Build.VERSION.RELEASE;
     private final String manufacturer = Build.MANUFACTURER;
@@ -35,6 +43,12 @@ public class FeedbackFragment extends BaseFragment {
             manufacturer,
             model
     );
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        App.appComponent.inject(this);
+        super.onAttach(context);
+    }
 
     @Override
     public void onViewCreated(
@@ -64,6 +78,12 @@ public class FeedbackFragment extends BaseFragment {
                 R.id.tv_model_value,
                 model
         );
+    }
+
+    @NonNull
+    @Override
+    protected SettingsHelper settingsHelper() {
+        return settingsHelper;
     }
 
     private void applyInfoToTextView(

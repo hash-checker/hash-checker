@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.logic.history.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.adaptiverecyclerview.AdaptiveRecyclerView;
+import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
@@ -21,10 +23,16 @@ import com.smlnskgmail.jaman.hashchecker.logic.history.ui.list.HistoryItemsAdapt
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryItemsLoaderTask;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryItemsLoaderTaskTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryPortion;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderTaskTarget<HistoryItem> {
+
+    @Inject
+    SettingsHelper settingsHelper;
 
     private FrameLayout flHistory;
     private AdaptiveRecyclerView arvHistoryItems;
@@ -33,6 +41,12 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
     private final HistoryPortion historyPortion = new HistoryPortion();
 
     private boolean isLoading;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        App.appComponent.inject(this);
+        super.onAttach(context);
+    }
 
     @Override
     public void onViewCreated(
@@ -67,6 +81,12 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
         });
         resetHistoryAdapter();
         load();
+    }
+
+    @NonNull
+    @Override
+    protected SettingsHelper settingsHelper() {
+        return settingsHelper;
     }
 
     @Override

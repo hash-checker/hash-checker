@@ -5,5 +5,4 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public abstract class BaseBottomSheet extends BottomSheetDialogFragment {
 
 
-
 }

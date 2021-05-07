@@ -1,7 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
@@ -13,14 +12,24 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
+import com.smlnskgmail.jaman.hashchecker.di.components.AppComponent;
+import com.smlnskgmail.jaman.hashchecker.di.components.DaggerAppComponent;
+import com.smlnskgmail.jaman.hashchecker.di.modules.DatabaseHelperModule;
+import com.smlnskgmail.jaman.hashchecker.di.modules.LangHelperModule;
+import com.smlnskgmail.jaman.hashchecker.di.modules.SettingsHelperModule;
 import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.logic.database.impl.ormlite.OrmLiteDatabaseHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.impl.LangHelperImpl;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 
 import java.util.Arrays;
 import java.util.Locale;
 
 public class App extends android.app.Application {
+
+    public static AppComponent appComponent;
 
     public static final String ACTION_START_WITH_TEXT
             = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT";
@@ -30,18 +39,40 @@ public class App extends android.app.Application {
     private static final String SHORTCUT_TEXT_ID = "shortcut_text";
     private static final String SHORTCUT_FILE_ID = "shortcut_file";
 
+    private SettingsHelper settingsHelper;
+
     @Override
     public void onCreate() {
         super.onCreate();
-        if (!SharedPreferencesSettingsHelper.isShortcutsIsCreated(this)) {
+        settingsHelper = new SharedPreferencesSettingsHelper(this);
+        appComponent = DaggerAppComponent
+                .builder()
+                .databaseHelperModule(
+                        new DatabaseHelperModule(
+                                new OrmLiteDatabaseHelper(
+                                        this
+                                )
+                        )
+                )
+                .settingsHelperModule(
+                        new SettingsHelperModule(
+                                settingsHelper
+                        )
+                )
+                .langHelperModule(
+                        new LangHelperModule(
+                                new LangHelperImpl(
+                                        this
+                                )
+                        )
+                )
+                .build();
+        if (!settingsHelper.isShortcutsIsCreated()) {
             createShortcuts();
-            SharedPreferencesSettingsHelper.saveShortcutsStatus(
-                    this,
-                    true
-            );
+            settingsHelper.saveShortcutsStatus(true);
         }
         HelperFactory.setHelper(this);
-        setLocale(getApplicationContext());
+        setLocale();
     }
 
     private void createShortcuts() {
@@ -110,9 +141,9 @@ public class App extends android.app.Application {
                 .build();
     }
 
-    private void setLocale(@NonNull Context context) {
+    private void setLocale() {
         Language language = null;
-        if (!SharedPreferencesSettingsHelper.languageIsInitialized(context)) {
+        if (!settingsHelper.languageIsInitialized()) {
             String deviceLocale = Locale.getDefault().toString();
             for (Language lang : Language.values()) {
                 if (deviceLocale.equals(lang.code())) {
@@ -123,10 +154,7 @@ public class App extends android.app.Application {
             if (language == null) {
                 language = Language.EN;
             }
-            SharedPreferencesSettingsHelper.saveLanguage(
-                    context,
-                    language
-            );
+            settingsHelper.saveLanguage(language);
         }
     }
 
@@ -135,16 +163,13 @@ public class App extends android.app.Application {
             @NonNull Configuration newConfig
     ) {
         super.onConfigurationChanged(newConfig);
-        setLocale(getApplicationContext());
+        setLocale();
     }
 
     @Override
     public void onTerminate() {
         super.onTerminate();
-        SharedPreferencesSettingsHelper.savePathForInnerFileManager(
-                this,
-                null
-        );
+        settingsHelper.savePathForInnerFileManager(null);
         HelperFactory.releaseHelper();
     }
 

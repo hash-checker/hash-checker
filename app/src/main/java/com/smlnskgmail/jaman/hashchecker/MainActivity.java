@@ -20,10 +20,12 @@ import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity {
 
@@ -32,6 +34,21 @@ public class MainActivity extends BaseActivity {
 
     private static final int MENU_MAIN_SECTION_SETTINGS = R.id.menu_main_section_settings;
     private static final int MENU_MAIN_SECTION_HISTORY = R.id.menu_main_section_history;
+
+    @Inject
+    SettingsHelper settingsHelper;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        App.appComponent.inject(this);
+        super.onCreate(savedInstanceState);
+    }
+
+    @NonNull
+    @Override
+    protected SettingsHelper settingsHelper() {
+        return settingsHelper;
+    }
 
     @Override
     public void create() {
@@ -55,30 +72,21 @@ public class MainActivity extends BaseActivity {
                             intent.getData()
                     )
             );
-            SharedPreferencesSettingsHelper.setGenerateFromShareIntentMode(
-                    this,
-                    true
-            );
+            settingsHelper.setGenerateFromShareIntentMode(true);
         } else if (externalFileUri != null) {
             mainFragment.setArguments(
                     getConfiguredBundleWithDataUri(
                             externalFileUri
                     )
             );
-            SharedPreferencesSettingsHelper.setGenerateFromShareIntentMode(
-                    this,
-                    true
-            );
+            settingsHelper.setGenerateFromShareIntentMode(true);
         } else if (intent != null) {
             mainFragment.setArguments(
                     getBundleForShortcutAction(
                             intent.getAction()
                     )
             );
-            SharedPreferencesSettingsHelper.setGenerateFromShareIntentMode(
-                    this,
-                    false
-            );
+            settingsHelper.setGenerateFromShareIntentMode(false);
         }
         showFragment(mainFragment);
     }

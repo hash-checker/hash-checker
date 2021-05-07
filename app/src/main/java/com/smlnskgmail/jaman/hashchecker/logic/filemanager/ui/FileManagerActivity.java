@@ -1,18 +1,22 @@
 package com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileItem;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileType;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.list.FileItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 import java.io.File;
@@ -21,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+
+import javax.inject.Inject;
 
 public class FileManagerActivity extends BaseActivity implements FileSelectTarget {
 
@@ -34,12 +40,27 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
 
     private static final String BACK_FOLDER = "../";
 
+    @Inject
+    SettingsHelper settingsHelper;
+
     private FileItemsAdapter fileItemsAdapter;
 
     private final List<FileItem> files = new ArrayList<>();
     private final List<FileItem> storages = new ArrayList<>();
 
     private String currentPath = null;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        App.appComponent.inject(this);
+        super.onCreate(savedInstanceState);
+    }
+
+    @NonNull
+    @Override
+    protected SettingsHelper settingsHelper() {
+        return settingsHelper;
+    }
 
     @Override
     public void create() {

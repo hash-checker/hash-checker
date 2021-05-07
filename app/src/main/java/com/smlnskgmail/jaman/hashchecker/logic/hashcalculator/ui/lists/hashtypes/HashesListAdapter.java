@@ -10,7 +10,6 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListB
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 
 import java.util.List;
 
@@ -22,13 +21,12 @@ public class HashesListAdapter extends BaseListAdapter<HashType> {
     HashesListAdapter(
             @NonNull List<HashType> items,
             @NonNull BaseListBottomSheet<HashType> bottomSheet,
-            @NonNull HashTypeSelectTarget hashTypeSelectListener
+            @NonNull HashTypeSelectTarget hashTypeSelectListener,
+            @NonNull HashType lastHashType
     ) {
         super(items, bottomSheet);
         this.hashTypeSelectListener = hashTypeSelectListener;
-        selectedHashType = SharedPreferencesSettingsHelper.getLastHashType(
-                getBottomSheet().getContext()
-        );
+        selectedHashType = lastHashType;
     }
 
     @NonNull

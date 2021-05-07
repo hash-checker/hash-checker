@@ -1,7 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker.logic.settings.api;
 
-import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -14,14 +12,14 @@ public interface SettingsHelper {
     void saveHashTypeAsLast(@NonNull HashType hashType);
 
     @NonNull
-    HashType getLastHashType(@NonNull Context context);
+    HashType getLastHashType();
 
     boolean languageIsInitialized();
 
     void saveLanguage(@NonNull Language language);
 
     @NonNull
-    Language getLanguage(@NonNull Context context);
+    Language getLanguage();
 
     boolean isUsingInnerFileManager();
 

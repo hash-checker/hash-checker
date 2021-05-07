@@ -133,6 +133,11 @@ dependencies {
     // AdaptiveRecyclerView
     implementation 'com.github.fartem:adaptive-recycler-view:1.1.1'
 
+    // Dagger
+    implementation 'com.google.dagger:dagger:2.34.1'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.34.1'
+    androidTestAnnotationProcessor 'com.google.dagger:dagger-compiler:2.34.1'
+
     // ORMLite
     implementation 'com.j256.ormlite:ormlite-core:5.3'
     implementation 'com.j256.ormlite:ormlite-android:5.3'

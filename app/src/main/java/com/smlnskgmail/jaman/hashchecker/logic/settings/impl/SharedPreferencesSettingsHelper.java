@@ -9,32 +9,38 @@ import androidx.annotation.Nullable;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.Theme;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
-public class SharedPreferencesSettingsHelper {
+public class SharedPreferencesSettingsHelper implements SettingsHelper {
+
+    private final Context context;
 
     public static final int FILE_CREATE = 3;
 
     private static final int HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL = 5;
 
-    public static void saveHashTypeAsLast(
-            @NonNull Context context,
+    public SharedPreferencesSettingsHelper(
+            @NonNull Context context
+    ) {
+        this.context = context;
+    }
+
+    @Override
+    public void saveHashTypeAsLast(
             @NonNull HashType hashType
     ) {
         saveStringPreference(
-                context,
                 context.getString(R.string.key_last_type_value),
                 hashType.toString()
         );
     }
 
     @NonNull
-    public static HashType getLastHashType(
-            @NonNull Context context
-    ) {
+    @Override
+    public HashType getLastHashType() {
         String hashValue = getStringPreference(
-                context,
                 context.getString(R.string.key_last_type_value),
                 HashType.MD5.getHashName()
         );
@@ -46,42 +52,36 @@ public class SharedPreferencesSettingsHelper {
         }
     }
 
-    public static boolean languageIsInitialized(
-            @NonNull Context context
-    ) {
+    @Override
+    public boolean languageIsInitialized() {
         return containsPreference(
-                context,
                 context.getString(R.string.key_language)
         );
     }
 
-    public static void saveLanguage(
-            @NonNull Context context,
+    @Override
+    public void saveLanguage(
             @NonNull Language language
     ) {
         saveStringPreference(
-                context,
                 context.getString(R.string.key_language),
                 language.toString()
         );
     }
 
     @NonNull
-    public static Language getLanguage(
-            @NonNull Context context
-    ) {
+    @Override
+    public Language getLanguage() {
         return Language.valueOf(
                 getStringPreference(
-                        context,
                         context.getString(R.string.key_language),
                         Language.EN.toString()
                 )
         );
     }
 
-    public static boolean isUsingInnerFileManager(
-//            @NonNull Context context
-    ) {
+    @Override
+    public boolean isUsingInnerFileManager() {
         return false;
 //        return getBooleanPreference(
 //                context,
@@ -90,63 +90,53 @@ public class SharedPreferencesSettingsHelper {
 //        );
     }
 
-    public static void savePathForInnerFileManager(
-            @NonNull Context context,
+    @Override
+    public void savePathForInnerFileManager(
             @Nullable String path
     ) {
         saveStringPreference(
-                context,
                 context.getString(R.string.key_last_path),
                 path
         );
     }
 
     @NonNull
-    public static String getLastPathForInnerFileManager(
-            @NonNull Context context
-    ) {
+    @Override
+    public String getLastPathForInnerFileManager() {
         return getStringPreference(
-                context,
                 context.getString(R.string.key_last_path),
                 null
         );
     }
 
-    public static boolean isUsingMultilineHashFields(
-            @NonNull Context context
-    ) {
+    @Override
+    public boolean isUsingMultilineHashFields() {
         return getBooleanPreference(
-                context,
                 context.getString(R.string.key_multiline),
                 false
         );
     }
 
-    public static boolean canSaveResultToHistory(
-            @NonNull Context context
-    ) {
+    @Override
+    public boolean canSaveResultToHistory() {
         return getBooleanPreference(
-                context,
                 context.getString(R.string.key_save_result_to_history),
                 true
         );
     }
 
-    public static boolean getVibrateAccess(
-            @NonNull Context context
-    ) {
+    @Override
+    public boolean getVibrateAccess() {
         return getBooleanPreference(
-                context,
                 context.getString(R.string.key_vibrate),
                 true
         );
     }
 
     @NonNull
-    public static Theme getSelectedTheme(
-            @NonNull Context context
-    ) {
-        String selectedTheme = SharedPreferencesSettingsHelper.getTheme(context);
+    @Override
+    public Theme getSelectedTheme() {
+        String selectedTheme = getTheme();
         for (Theme theme : Theme.values()) {
             if (theme.toString().equals(selectedTheme)) {
                 return theme;
@@ -159,30 +149,26 @@ public class SharedPreferencesSettingsHelper {
      * Saved for old versions compatibility (where themes count > 2)
      */
     @NonNull
-    private static String getTheme(
-            @NonNull Context context
-    ) {
+    private String getTheme() {
         String theme = getStringPreference(
-                context,
                 context.getString(R.string.key_selected_theme),
                 Theme.DARK.toString()
         );
-        if (validateAppTheme(context, theme)) {
+        if (validateAppTheme(theme)) {
             return theme;
         } else {
             return getThemeAnalogue(theme).toString();
         }
     }
 
-    private static boolean validateAppTheme(
-            @NonNull Context context,
+    private boolean validateAppTheme(
             @NonNull String theme
     ) {
         if (theme.equals(Theme.LIGHT.toString())
                 || theme.equals(Theme.DARK.toString())) {
             return true;
         }
-        saveTheme(context, Theme.DARK);
+        saveTheme(Theme.DARK);
         return false;
     }
 
@@ -197,126 +183,107 @@ public class SharedPreferencesSettingsHelper {
         }
     }
 
-    public static boolean useUpperCase(
-            @NonNull Context context
-    ) {
+    @Override
+    public boolean useUpperCase() {
         return getBooleanPreference(
-                context,
                 context.getString(R.string.key_upper_case),
                 false
         );
     }
 
-    public static boolean isShortcutsIsCreated(
-            @NonNull Context context
-    ) {
+    @Override
+    public boolean isShortcutsIsCreated() {
         return getBooleanPreference(
-                context,
                 context.getString(R.string.key_shortcuts_created),
                 false
         );
     }
 
-    public static void saveShortcutsStatus(
-            @NonNull Context context,
+    @Override
+    public void saveShortcutsStatus(
             boolean value
     ) {
         saveBooleanPreference(
-                context,
                 context.getString(R.string.key_shortcuts_created),
                 value
         );
     }
 
-    public static void saveTheme(
-            @NonNull Context context,
+    @Override
+    public void saveTheme(
             @NonNull Theme theme
     ) {
         saveStringPreference(
-                context,
                 context.getString(R.string.key_selected_theme),
                 theme.toString()
         );
     }
 
-    public static boolean getGenerateFromShareIntentStatus(
-            @NonNull Context context
-    ) {
+    @Override
+    public boolean getGenerateFromShareIntentStatus() {
         return getBooleanPreference(
-                context,
                 context.getString(R.string.key_generate_from_share_intent),
                 false
         );
     }
 
-    public static void setGenerateFromShareIntentMode(
-            @NonNull Context context,
+    @Override
+    public void setGenerateFromShareIntentMode(
             boolean status
     ) {
         saveBooleanPreference(
-                context,
                 context.getString(R.string.key_generate_from_share_intent),
                 status
         );
     }
 
-    public static boolean refreshSelectedFile(
-            @NonNull Context context
-    ) {
+    @Override
+    public boolean refreshSelectedFile() {
         return getBooleanPreference(
-                context,
                 context.getString(R.string.key_refresh_selected_file),
                 false
         );
     }
 
-    public static void setRefreshSelectedFileStatus(
-            @NonNull Context context,
+    @Override
+    public void setRefreshSelectedFileStatus(
             boolean status
     ) {
         saveBooleanPreference(
-                context,
                 context.getString(R.string.key_refresh_selected_file),
                 status
         );
     }
 
-    public static boolean canShowRateAppDialog(
-            @NonNull Context context
-    ) {
+    @Override
+    public boolean canShowRateAppDialog() {
         int hashGenerationCount = getIntPreference(
-                context,
                 context.getString(R.string.key_hash_generation_count)
         );
         return hashGenerationCount == HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL;
     }
 
-    public static void increaseHashGenerationCount(
-            @NonNull Context context
-    ) {
+    @Override
+    public void increaseHashGenerationCount() {
         int count = getIntPreference(
-                context,
                 context.getString(R.string.key_hash_generation_count)
         );
         if (count <= HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL) {
             saveIntPreference(
-                    context,
                     context.getString(R.string.key_hash_generation_count),
                     ++count
             );
         }
     }
 
-    private static boolean containsPreference(
-            @NonNull Context context,
+    private boolean containsPreference(
             @NonNull String key
     ) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .contains(key);
     }
 
-    private static void saveStringPreference(
-            @NonNull Context context,
+    private void saveStringPreference(
             @NonNull String key,
             @Nullable String value
     ) {
@@ -327,8 +294,7 @@ public class SharedPreferencesSettingsHelper {
     }
 
     @NonNull
-    private static String getStringPreference(
-            @NonNull Context context,
+    private String getStringPreference(
             @NonNull String key,
             @Nullable String defaultValue
     ) {
@@ -336,8 +302,7 @@ public class SharedPreferencesSettingsHelper {
                 .getString(key, defaultValue);
     }
 
-    private static void saveBooleanPreference(
-            @NonNull Context context,
+    private void saveBooleanPreference(
             @NonNull String key,
             boolean value
     ) {
@@ -347,8 +312,7 @@ public class SharedPreferencesSettingsHelper {
                 .apply();
     }
 
-    private static boolean getBooleanPreference(
-            @NonNull Context context,
+    private boolean getBooleanPreference(
             @NonNull String key,
             boolean defaultValue
     ) {
@@ -356,8 +320,7 @@ public class SharedPreferencesSettingsHelper {
                 .getBoolean(key, defaultValue);
     }
 
-    private static void saveIntPreference(
-            @NonNull Context context,
+    private void saveIntPreference(
             @NonNull String key,
             int value
     ) {
@@ -367,8 +330,7 @@ public class SharedPreferencesSettingsHelper {
                 .apply();
     }
 
-    private static int getIntPreference(
-            @NonNull Context context,
+    private int getIntPreference(
             @NonNull String key
     ) {
         return PreferenceManager.getDefaultSharedPreferences(context)

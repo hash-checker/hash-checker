@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.LangUtils;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 public abstract class BaseFragment extends Fragment implements AppBackClickTarget, AppResumeTarget {
@@ -36,10 +36,13 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
         Context context = view.getContext();
         LangUtils.setLocale(
                 context,
-                SharedPreferencesSettingsHelper.getLanguage(context)
+                settingsHelper().getLanguage()
         );
         super.onViewCreated(view, savedInstanceState);
     }
+
+    @NonNull
+    protected abstract SettingsHelper settingsHelper();
 
     @Override
     public void onResume() {
