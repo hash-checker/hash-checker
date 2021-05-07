@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
 import android.provider.Settings;
@@ -91,6 +92,8 @@ public class HashCalculatorFragment extends BaseFragment
     private boolean startWithFileSelection;
 
     private boolean isTextSelected;
+
+    private boolean isBackButtonDoubleTap = false;
 
     private final HashCalculatorTask.HashCalculatorTaskTarget hashCalculatorTaskTarget = hashValue -> {
         if (hashValue == null) {
@@ -411,12 +414,21 @@ public class HashCalculatorFragment extends BaseFragment
 
     @Override
     public void appBackClick() {
-        showSnachbarWithAction(
-                getView().findViewById(R.id.fl_main_screen),
-                getString(R.string.message_exit),
-                getString(R.string.action_exit_now),
-                v -> getActivity().finish()
-        );
+        if (!isBackButtonDoubleTap) {
+            isBackButtonDoubleTap = true;
+            showSnachbarWithAction(
+                    getView().findViewById(R.id.fl_main_screen),
+                    getString(R.string.message_exit),
+                    getString(R.string.action_exit_now),
+                    v -> getActivity().finish()
+            );
+            new Handler().postDelayed(
+                    () -> isBackButtonDoubleTap = false,
+                    300
+            );
+        } else {
+            getActivity().finish();
+        }
     }
 
     private void showSnachbarWithAction(

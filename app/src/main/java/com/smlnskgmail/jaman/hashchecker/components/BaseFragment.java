@@ -33,7 +33,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
             @NonNull View view,
             @Nullable Bundle savedInstanceState
     ) {
-        Context context = getContext();
+        Context context = view.getContext();
         LangUtils.setLocale(
                 context,
                 SettingsHelper.getLanguage(context)

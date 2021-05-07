@@ -30,6 +30,9 @@ public class MainActivity extends BaseActivity {
     public static final String URI_FROM_EXTERNAL_APP
             = "com.smlnskgmail.jaman.hashchecker.URI_FROM_EXTERNAL_APP";
 
+    private static final int MENU_MAIN_SECTION_SETTINGS = R.id.menu_main_section_settings;
+    private static final int MENU_MAIN_SECTION_HISTORY = R.id.menu_main_section_history;
+
     @Override
     public void create() {
         Intent intent = getIntent();
@@ -66,7 +69,7 @@ public class MainActivity extends BaseActivity {
                     this,
                     true
             );
-        } else {
+        } else if (intent != null) {
             mainFragment.setArguments(
                     getBundleForShortcutAction(
                             intent.getAction()
@@ -131,10 +134,10 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         hideKeyboard();
         switch (item.getItemId()) {
-            case R.id.menu_main_section_settings:
+            case MENU_MAIN_SECTION_SETTINGS:
                 showFragment(new SettingsFragment());
                 break;
-            case R.id.menu_main_section_history:
+            case MENU_MAIN_SECTION_HISTORY:
                 showFragment(new HistoryFragment());
                 break;
 

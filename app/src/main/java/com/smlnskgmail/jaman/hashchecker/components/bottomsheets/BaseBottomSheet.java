@@ -1,9 +1,11 @@
 package com.smlnskgmail.jaman.hashchecker.components.bottomsheets;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,8 +20,10 @@ public abstract class BaseBottomSheet extends BottomSheetDialogFragment {
             @NonNull View view,
             @Nullable Bundle savedInstanceState
     ) {
-        getDialog().getWindow().getAttributes().windowAnimations
-                = R.style.DialogAnimation;
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        }
     }
 
     @Nullable
