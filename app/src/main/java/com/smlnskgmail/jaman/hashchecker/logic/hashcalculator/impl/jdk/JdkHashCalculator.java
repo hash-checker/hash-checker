@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashCalculator;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 import java.io.File;
@@ -22,6 +22,14 @@ import java.security.NoSuchAlgorithmException;
 public class JdkHashCalculator implements HashCalculator {
 
     private JdkHashCalculatorDigest jdkHashCalculatorDigest;
+
+    private final SettingsHelper settingsHelper;
+
+    public JdkHashCalculator(
+            @NonNull SettingsHelper settingsHelper
+    ) {
+        this.settingsHelper = settingsHelper;
+    }
 
     @Override
     public void setHashType(
@@ -85,8 +93,8 @@ public class JdkHashCalculator implements HashCalculator {
             @NonNull Context context,
             @NonNull Uri path
     ) throws Exception {
-        if (!SharedPreferencesSettingsHelper.isUsingInnerFileManager()
-                || SharedPreferencesSettingsHelper.getGenerateFromShareIntentStatus(context)) {
+        if (!settingsHelper.isUsingInnerFileManager()
+                || settingsHelper.getGenerateFromShareIntentStatus()) {
             return context.getContentResolver().openInputStream(path);
         }
         return new FileInputStream(

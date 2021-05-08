@@ -38,7 +38,7 @@ import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
-import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.FileManagerActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashCalculatorTask;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
@@ -51,9 +51,11 @@ import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.u
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtypes.GenerateToBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtypes.HashTypeSelectTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Clipboard;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
@@ -72,7 +74,16 @@ public class HashCalculatorFragment extends BaseFragment
     private static final int TEXT_SINGLE_LINE_LINES_COUNT = 1;
 
     @Inject
+    DatabaseHelper databaseHelper;
+
+    @Inject
     SettingsHelper settingsHelper;
+
+    @Inject
+    LangHelper langHelper;
+
+    @Inject
+    ThemeHelper themeHelper;
 
     private View mainScreen;
 
@@ -117,20 +128,23 @@ public class HashCalculatorFragment extends BaseFragment
                         objectValue,
                         hashValue
                 );
-                HelperFactory.getHelper().addHistoryItem(historyItem);
+                databaseHelper.addHistoryItem(historyItem);
             }
             if (settingsHelper.canShowRateAppDialog()) {
                 settingsHelper.increaseHashGenerationCount();
-                AppAlertDialog.show(
+                new AppAlertDialog(
                         context,
                         R.string.settings_title_rate_app,
                         R.string.rate_app_message,
                         R.string.rate_app_action,
                         (dialog, which) -> WebUtils.openGooglePlay(
                                 context,
-                                getView()
-                        )
-                );
+                                getView(),
+                                settingsHelper,
+                                themeHelper
+                        ),
+                        themeHelper
+                ).show();
             } else {
                 settingsHelper.increaseHashGenerationCount();
             }
@@ -140,11 +154,13 @@ public class HashCalculatorFragment extends BaseFragment
         }
     };
 
+    // CPD-OFF
     @Override
     public void onAttach(@NonNull Context context) {
         App.appComponent.inject(this);
         super.onAttach(context);
     }
+    // CPD-ON
 
     private void showSnackbarWithoutAction(
             @StringRes int messageResId
@@ -152,7 +168,9 @@ public class HashCalculatorFragment extends BaseFragment
         new AppSnackbar(
                 context,
                 mainScreen,
-                messageResId
+                messageResId,
+                settingsHelper,
+                themeHelper
         ).show();
     }
 
@@ -241,14 +259,16 @@ public class HashCalculatorFragment extends BaseFragment
                         context,
                         hashType,
                         tvSelectedObjectName.getText().toString(),
-                        hashCalculatorTaskTarget
+                        hashCalculatorTaskTarget,
+                        settingsHelper
                 ).execute();
             } else {
                 new HashCalculatorTask(
                         context,
                         hashType,
                         fileUri,
-                        hashCalculatorTaskTarget
+                        hashCalculatorTaskTarget,
+                        settingsHelper
                 ).execute();
             }
         } else {
@@ -429,7 +449,9 @@ public class HashCalculatorFragment extends BaseFragment
                 mainScreen,
                 messageResId,
                 actionText,
-                action
+                action,
+                settingsHelper,
+                themeHelper
         ).show();
     }
 
@@ -539,8 +561,8 @@ public class HashCalculatorFragment extends BaseFragment
 
     @NonNull
     @Override
-    protected SettingsHelper settingsHelper() {
-        return settingsHelper;
+    protected LangHelper langHelper() {
+        return langHelper;
     }
 
     @NonNull
@@ -653,13 +675,14 @@ public class HashCalculatorFragment extends BaseFragment
                             v -> requestStoragePermission()
                     );
                 } else {
-                    AppAlertDialog.show(
+                    new AppAlertDialog(
                             context,
                             R.string.title_permission_dialog,
                             R.string.message_request_storage_permission_denied,
                             R.string.menu_title_settings,
-                            (dialog, which) -> openAppSettings()
-                    );
+                            (dialog, which) -> openAppSettings(),
+                            themeHelper
+                    ).show();
                 }
             }
         }

@@ -10,6 +10,8 @@ import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.Theme;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 import java.util.Arrays;
 
@@ -19,6 +21,9 @@ public class ThemesBottomSheet extends BaseListBottomSheet<Theme> {
 
     @Inject
     SettingsHelper settingsHelper;
+
+    @Inject
+    ThemeHelper themeHelper;
 
     @Override
     public void onViewCreated(
@@ -35,7 +40,7 @@ public class ThemesBottomSheet extends BaseListBottomSheet<Theme> {
         return new ThemesListAdapter(
                 Arrays.asList(Theme.values()),
                 this,
-                settingsHelper.getSelectedTheme()
+                themeHelper
         );
     }
 

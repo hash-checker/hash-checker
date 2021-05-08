@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 public class WebUtils {
 
@@ -19,7 +21,9 @@ public class WebUtils {
 
     public static void openGooglePlay(
             @NonNull Context context,
-            @NonNull View view
+            @NonNull View view,
+            @NonNull SettingsHelper settingsHelper,
+            @NonNull ThemeHelper themeHelper
     ) {
         final String appPackageName = context.getPackageName();
         Uri link;
@@ -47,7 +51,9 @@ public class WebUtils {
                 new AppSnackbar(
                         context,
                         view,
-                        R.string.message_error_start_google_play
+                        R.string.message_error_start_google_play,
+                        settingsHelper,
+                        themeHelper
                 ).show();
             }
         }

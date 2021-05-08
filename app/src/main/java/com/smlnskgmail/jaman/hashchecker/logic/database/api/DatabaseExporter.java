@@ -4,8 +4,6 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -18,13 +16,14 @@ public class DatabaseExporter {
     public static final String EXPORT_FILE = "hash_checker_user_data.zip";
 
     public static void exportDatabase(
-            @NonNull Context context
+            @NonNull Context context,
+            @NonNull DatabaseHelper databaseHelper
     ) throws IOException {
-        HelperFactory.getHelper().backupCheckpoint();
+        databaseHelper.backupCheckpoint();
         String appFolder = getAppFolder(context);
 
-        String databaseFolder = HelperFactory.getHelper().getDatabaseFolder();
-        String databaseName = HelperFactory.getHelper().getDatabaseFileName();
+        String databaseFolder = databaseHelper.getDatabaseFolder();
+        String databaseName = databaseHelper.getDatabaseFileName();
         String databasePath = appFolder + databaseFolder + databaseName;
         createZip(
                 context,

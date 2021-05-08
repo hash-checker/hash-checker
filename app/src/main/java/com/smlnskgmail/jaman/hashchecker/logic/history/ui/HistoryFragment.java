@@ -17,13 +17,14 @@ import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.list.HistoryItemsAdapter;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryItemsLoaderTask;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryItemsLoaderTaskTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.loader.HistoryPortion;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 import java.util.List;
 
@@ -32,7 +33,13 @@ import javax.inject.Inject;
 public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderTaskTarget<HistoryItem> {
 
     @Inject
-    SettingsHelper settingsHelper;
+    DatabaseHelper databaseHelper;
+
+    @Inject
+    LangHelper langHelper;
+
+    @Inject
+    ThemeHelper themeHelper;
 
     private FrameLayout flHistory;
     private AdaptiveRecyclerView arvHistoryItems;
@@ -42,11 +49,13 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
 
     private boolean isLoading;
 
+    // CPD-OFF
     @Override
     public void onAttach(@NonNull Context context) {
         App.appComponent.inject(this);
         super.onAttach(context);
     }
+    // CPD-ON
 
     @Override
     public void onViewCreated(
@@ -85,23 +94,24 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
 
     @NonNull
     @Override
-    protected SettingsHelper settingsHelper() {
-        return settingsHelper;
+    protected LangHelper langHelper() {
+        return langHelper;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_item_clean_history) {
-            AppAlertDialog.show(
+            new AppAlertDialog(
                     getContext(),
                     R.string.title_warning_dialog,
                     R.string.message_delete_all_history_items,
                     R.string.common_ok,
                     (dialog, which) -> {
-                        HelperFactory.getHelper().deleteAllHistoryItems();
+                        databaseHelper.deleteAllHistoryItems();
                         resetHistoryAdapter();
-                    }
-            );
+                    },
+                    themeHelper
+            ).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -115,7 +125,10 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
         if (!historyPortion.isLoaded()) {
             pbHistory.setVisibility(View.VISIBLE);
             arvHistoryItems.setVisibility(View.GONE);
-            new HistoryItemsLoaderTask(this).execute();
+            new HistoryItemsLoaderTask(
+                    this,
+                    databaseHelper
+            ).execute();
         }
     }
 

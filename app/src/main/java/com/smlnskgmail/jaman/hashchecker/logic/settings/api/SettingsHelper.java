@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.Theme;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.Theme;
 
 public interface SettingsHelper {
 
@@ -37,13 +37,13 @@ public interface SettingsHelper {
     @NonNull
     Theme getSelectedTheme();
 
+    void saveTheme(@NonNull Theme theme);
+
     boolean useUpperCase();
 
     boolean isShortcutsIsCreated();
 
     void saveShortcutsStatus(boolean value);
-
-    void saveTheme(@NonNull Theme theme);
 
     boolean getGenerateFromShareIntentStatus();
 

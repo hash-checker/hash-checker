@@ -10,23 +10,30 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListB
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Restart;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 import java.util.List;
 
 public class LanguagesListAdapter extends BaseListAdapter<Language> {
 
     private final Language selectedLanguage;
+    private final LangHelper langHelper;
+    private final ThemeHelper themeHelper;
 
     LanguagesListAdapter(
             @NonNull List<Language> items,
             @NonNull BaseListBottomSheet<Language> bottomSheet,
-            @NonNull Language selectedLanguage
+            @NonNull Language selectedLanguage,
+            @NonNull LangHelper langHelper,
+            @NonNull ThemeHelper themeHelper
     ) {
         super(items, bottomSheet);
         this.selectedLanguage = selectedLanguage;
+        this.langHelper = langHelper;
+        this.themeHelper = themeHelper;
     }
 
     @NonNull
@@ -49,27 +56,27 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
                 @NonNull Context themeContext,
                 @NonNull View itemView
         ) {
-            super(themeContext, itemView);
+            super(themeContext, itemView, themeHelper);
         }
 
         @Override
         protected void callItemClick() {
-            AppAlertDialog.show(
+            new AppAlertDialog(
                     getContext(),
                     R.string.title_warning_dialog,
                     R.string.message_change_language,
                     R.string.common_ok,
                     (dialog, which) -> {
-                        SharedPreferencesSettingsHelper.saveLanguage(
-                                getContext(),
+                        langHelper.setLanguage(
                                 languageAtPosition
                         );
                         dialog.dismiss();
                         Restart.restartApp(
                                 getBottomSheet().getActivity()
                         );
-                    }
-            );
+                    },
+                    themeHelper
+            ).show();
         }
 
         @Override

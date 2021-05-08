@@ -10,22 +10,23 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListB
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Restart;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.Theme;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 import java.util.List;
 
 public class ThemesListAdapter extends BaseListAdapter<Theme> {
 
-    private final Theme selectedTheme;
+    private final ThemeHelper themeHelper;
 
     ThemesListAdapter(
             @NonNull List<Theme> items,
             @NonNull BaseListBottomSheet<Theme> bottomSheet,
-            @NonNull Theme selectedTheme
+            @NonNull ThemeHelper themeHelper
     ) {
         super(items, bottomSheet);
-        this.selectedTheme = selectedTheme;
+        this.themeHelper = themeHelper;
     }
 
     @NonNull
@@ -48,12 +49,12 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
                 @NonNull Context themeContext,
                 @NonNull View itemView
         ) {
-            super(themeContext, itemView);
+            super(themeContext, itemView, themeHelper);
         }
 
         @Override
         protected void callItemClick() {
-            if (themeAtPosition == selectedTheme) {
+            if (themeAtPosition == themeHelper.currentTheme()) {
                 dismissBottomSheet();
             } else {
                 showThemeApplyDialog();
@@ -67,7 +68,7 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
         }
 
         private void showThemeApplyDialog() {
-            AppAlertDialog.show(
+            new AppAlertDialog(
                     getContext(),
                     R.string.title_warning_dialog,
                     R.string.message_change_theme,
@@ -78,12 +79,13 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
                         Restart.restartApp(
                                 getBottomSheet().getActivity()
                         );
-                    }
-            );
+                    },
+                    themeHelper
+            ).show();
         }
 
         private void configureNewTheme() {
-            SharedPreferencesSettingsHelper.saveTheme(getContext(), themeAtPosition);
+            themeHelper.setCurrentTheme(themeAtPosition);
         }
 
         @Override
@@ -93,7 +95,7 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
 
         @Override
         protected boolean getConditionToAdditionalIconVisibleState() {
-            return themeAtPosition == selectedTheme;
+            return themeAtPosition == themeHelper.currentTheme();
         }
 
     }

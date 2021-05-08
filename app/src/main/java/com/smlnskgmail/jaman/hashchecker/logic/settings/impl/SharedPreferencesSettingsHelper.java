@@ -10,16 +10,16 @@ import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.Theme;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.Theme;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 public class SharedPreferencesSettingsHelper implements SettingsHelper {
 
-    private final Context context;
-
     public static final int FILE_CREATE = 3;
 
     private static final int HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL = 5;
+
+    private final Context context;
 
     public SharedPreferencesSettingsHelper(
             @NonNull Context context
@@ -184,6 +184,16 @@ public class SharedPreferencesSettingsHelper implements SettingsHelper {
     }
 
     @Override
+    public void saveTheme(
+            @NonNull Theme theme
+    ) {
+        saveStringPreference(
+                context.getString(R.string.key_selected_theme),
+                theme.toString()
+        );
+    }
+
+    @Override
     public boolean useUpperCase() {
         return getBooleanPreference(
                 context.getString(R.string.key_upper_case),
@@ -206,16 +216,6 @@ public class SharedPreferencesSettingsHelper implements SettingsHelper {
         saveBooleanPreference(
                 context.getString(R.string.key_shortcuts_created),
                 value
-        );
-    }
-
-    @Override
-    public void saveTheme(
-            @NonNull Theme theme
-    ) {
-        saveStringPreference(
-                context.getString(R.string.key_selected_theme),
-                theme.toString()
         );
     }
 

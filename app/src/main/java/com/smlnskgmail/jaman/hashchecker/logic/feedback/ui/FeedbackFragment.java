@@ -20,7 +20,7 @@ import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.feedback.Feedback;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 import javax.inject.Inject;
@@ -28,7 +28,7 @@ import javax.inject.Inject;
 public class FeedbackFragment extends BaseFragment {
 
     @Inject
-    SettingsHelper settingsHelper;
+    LangHelper langHelper;
 
     private final String osVersion = Build.VERSION.RELEASE;
     private final String manufacturer = Build.MANUFACTURER;
@@ -44,11 +44,13 @@ public class FeedbackFragment extends BaseFragment {
             model
     );
 
+    // CPD-OFF
     @Override
     public void onAttach(@NonNull Context context) {
         App.appComponent.inject(this);
         super.onAttach(context);
     }
+    // CPD-ON
 
     @Override
     public void onViewCreated(
@@ -82,8 +84,8 @@ public class FeedbackFragment extends BaseFragment {
 
     @NonNull
     @Override
-    protected SettingsHelper settingsHelper() {
-        return settingsHelper;
+    protected LangHelper langHelper() {
+        return langHelper;
     }
 
     private void applyInfoToTextView(

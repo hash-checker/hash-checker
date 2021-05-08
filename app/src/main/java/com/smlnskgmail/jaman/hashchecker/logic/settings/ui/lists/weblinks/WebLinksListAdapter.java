@@ -8,17 +8,22 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
 import java.util.List;
 
 public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
 
+    private final ThemeHelper themeHelper;
+
     WebLinksListAdapter(
             @NonNull List<WebLink> items,
-            @NonNull BaseListBottomSheet<WebLink> bottomSheet
+            @NonNull BaseListBottomSheet<WebLink> bottomSheet,
+            @NonNull ThemeHelper themeHelper
     ) {
         super(items, bottomSheet);
+        this.themeHelper = themeHelper;
     }
 
     @NonNull
@@ -41,7 +46,7 @@ public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
                 @NonNull Context themeContext,
                 @NonNull View itemView
         ) {
-            super(themeContext, itemView);
+            super(themeContext, itemView, themeHelper);
         }
 
         @Override

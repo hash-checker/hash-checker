@@ -10,20 +10,24 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.B
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.Action;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.types.UserActionTarget;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 import java.util.List;
 
 public class ActionsListAdapter extends BaseListAdapter<Action> {
 
     private final UserActionTarget userActionTarget;
+    private final ThemeHelper themeHelper;
 
     ActionsListAdapter(
             @NonNull List<Action> items,
             @NonNull BaseListBottomSheet<Action> bottomSheet,
-            @NonNull UserActionTarget userActionTarget
+            @NonNull UserActionTarget userActionTarget,
+            @NonNull ThemeHelper themeHelper
     ) {
         super(items, bottomSheet);
         this.userActionTarget = userActionTarget;
+        this.themeHelper = themeHelper;
     }
 
     @NonNull
@@ -46,7 +50,7 @@ public class ActionsListAdapter extends BaseListAdapter<Action> {
                 @NonNull Context themeContext,
                 @NonNull View itemView
         ) {
-            super(themeContext, itemView);
+            super(themeContext, itemView, themeHelper);
         }
 
         @Override

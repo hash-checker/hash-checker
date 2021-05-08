@@ -16,7 +16,9 @@ import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileItem;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.FileType;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.list.FileItemsAdapter;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 import java.io.File;
@@ -43,6 +45,12 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     @Inject
     SettingsHelper settingsHelper;
 
+    @Inject
+    LangHelper langHelper;
+
+    @Inject
+    ThemeHelper themeHelper;
+
     private FileItemsAdapter fileItemsAdapter;
 
     private final List<FileItem> files = new ArrayList<>();
@@ -50,6 +58,7 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
 
     private String currentPath = null;
 
+    // CPD-OFF
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         App.appComponent.inject(this);
@@ -61,6 +70,19 @@ public class FileManagerActivity extends BaseActivity implements FileSelectTarge
     protected SettingsHelper settingsHelper() {
         return settingsHelper;
     }
+
+    @NonNull
+    @Override
+    protected LangHelper langHelper() {
+        return langHelper;
+    }
+
+    @NonNull
+    @Override
+    protected ThemeHelper themeHelper() {
+        return themeHelper;
+    }
+    // CPD-ON
 
     @Override
     public void create() {

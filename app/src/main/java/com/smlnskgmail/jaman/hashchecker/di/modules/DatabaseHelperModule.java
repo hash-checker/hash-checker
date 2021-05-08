@@ -18,6 +18,7 @@ public class DatabaseHelperModule {
         this.databaseHelper = databaseHelper;
     }
 
+    @NonNull
     @Provides
     public DatabaseHelper databaseHelper() {
         return databaseHelper;

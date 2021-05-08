@@ -17,12 +17,15 @@ import com.smlnskgmail.jaman.hashchecker.di.components.DaggerAppComponent;
 import com.smlnskgmail.jaman.hashchecker.di.modules.DatabaseHelperModule;
 import com.smlnskgmail.jaman.hashchecker.di.modules.LangHelperModule;
 import com.smlnskgmail.jaman.hashchecker.di.modules.SettingsHelperModule;
-import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.di.modules.ThemeHelperModule;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.database.impl.ormlite.OrmLiteDatabaseHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.impl.LangHelperImpl;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.impl.ThemeHelperImpl;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -39,19 +42,25 @@ public class App extends android.app.Application {
     private static final String SHORTCUT_TEXT_ID = "shortcut_text";
     private static final String SHORTCUT_FILE_ID = "shortcut_file";
 
+    private DatabaseHelper databaseHelper;
     private SettingsHelper settingsHelper;
+    private LangHelper langHelper;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        databaseHelper = new OrmLiteDatabaseHelper(this);
         settingsHelper = new SharedPreferencesSettingsHelper(this);
+        langHelper = new LangHelperImpl(
+                this,
+                settingsHelper
+        );
+        setTheme(settingsHelper.getSelectedTheme().getThemeResId());
         appComponent = DaggerAppComponent
                 .builder()
                 .databaseHelperModule(
                         new DatabaseHelperModule(
-                                new OrmLiteDatabaseHelper(
-                                        this
-                                )
+                                databaseHelper
                         )
                 )
                 .settingsHelperModule(
@@ -61,8 +70,14 @@ public class App extends android.app.Application {
                 )
                 .langHelperModule(
                         new LangHelperModule(
-                                new LangHelperImpl(
-                                        this
+                                langHelper
+                        )
+                )
+                .themeHelperModule(
+                        new ThemeHelperModule(
+                                new ThemeHelperImpl(
+                                        this,
+                                        settingsHelper
                                 )
                         )
                 )
@@ -71,7 +86,6 @@ public class App extends android.app.Application {
             createShortcuts();
             settingsHelper.saveShortcutsStatus(true);
         }
-        HelperFactory.setHelper(this);
         setLocale();
     }
 
@@ -154,7 +168,7 @@ public class App extends android.app.Application {
             if (language == null) {
                 language = Language.EN;
             }
-            settingsHelper.saveLanguage(language);
+            langHelper.setLanguage(language);
         }
     }
 
@@ -170,7 +184,7 @@ public class App extends android.app.Application {
     public void onTerminate() {
         super.onTerminate();
         settingsHelper.savePathForInnerFileManager(null);
-        HelperFactory.releaseHelper();
+        databaseHelper.releaseHelper();
     }
 
 }

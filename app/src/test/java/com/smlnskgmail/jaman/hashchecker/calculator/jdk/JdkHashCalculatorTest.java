@@ -74,7 +74,7 @@ public class JdkHashCalculatorTest {
     private JdkHashCalculator getJdkHashCalculatorFor(
             @NonNull HashType hashType
     ) throws NoSuchAlgorithmException {
-        JdkHashCalculator jdkHashCalculator = new JdkHashCalculator();
+        JdkHashCalculator jdkHashCalculator = new JdkHashCalculator(null);
         jdkHashCalculator.setHashType(hashType);
         return jdkHashCalculator;
     }

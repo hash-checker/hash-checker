@@ -11,9 +11,9 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 public class AppSnackbar {
 
@@ -24,29 +24,39 @@ public class AppSnackbar {
     private final int messageResId;
     private String actionText;
     private View.OnClickListener action;
+    private final SettingsHelper settingsHelper;
+    private final ThemeHelper themeHelper;
 
     public AppSnackbar(
             @NonNull Context context,
             @NonNull View parent,
             @StringRes int messageResId,
             @NonNull String actionText,
-            @NonNull View.OnClickListener action
+            @NonNull View.OnClickListener action,
+            @NonNull SettingsHelper settingsHelper,
+            @NonNull ThemeHelper themeHelper
     ) {
         this.context = context;
         this.parent = parent;
         this.messageResId = messageResId;
         this.actionText = actionText;
         this.action = action;
+        this.settingsHelper = settingsHelper;
+        this.themeHelper = themeHelper;
     }
 
     public AppSnackbar(
             @NonNull Context context,
             @NonNull View parent,
-            @StringRes int messageResId
+            @StringRes int messageResId,
+            @NonNull SettingsHelper settingsHelper,
+            @NonNull ThemeHelper themeHelper
     ) {
         this.context = context;
         this.parent = parent;
         this.messageResId = messageResId;
+        this.settingsHelper = settingsHelper;
+        this.themeHelper = themeHelper;
     }
 
     public void show() {
@@ -72,9 +82,7 @@ public class AppSnackbar {
                     );
         }
         snackbar.setActionTextColor(
-                UIUtils.getAccentColor(
-                        context
-                )
+                themeHelper.getAccentColor()
         );
         snackbar.getView().setBackground(
                 ContextCompat.getDrawable(
@@ -87,13 +95,11 @@ public class AppSnackbar {
                 R.id.snackbar_text
         );
         tvSnackbar.setTextColor(
-                UIUtils.getCommonTextColor(
-                        context
-                )
+                themeHelper.getCommonTextColor()
         );
         snackbar.show();
 
-        if (SharedPreferencesSettingsHelper.getVibrateAccess(context)) {
+        if (settingsHelper.getVibrateAccess()) {
             new Vibrator(context).vibrate();
         }
     }

@@ -20,8 +20,10 @@ import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 import java.util.List;
 
@@ -38,6 +40,12 @@ public class MainActivity extends BaseActivity {
     @Inject
     SettingsHelper settingsHelper;
 
+    @Inject
+    LangHelper langHelper;
+
+    @Inject
+    ThemeHelper themeHelper;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         App.appComponent.inject(this);
@@ -48,6 +56,18 @@ public class MainActivity extends BaseActivity {
     @Override
     protected SettingsHelper settingsHelper() {
         return settingsHelper;
+    }
+
+    @NonNull
+    @Override
+    protected LangHelper langHelper() {
+        return langHelper;
+    }
+
+    @NonNull
+    @Override
+    protected ThemeHelper themeHelper() {
+        return themeHelper;
     }
 
     @Override

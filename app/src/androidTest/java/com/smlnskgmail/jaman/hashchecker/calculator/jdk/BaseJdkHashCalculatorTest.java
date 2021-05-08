@@ -32,7 +32,7 @@ public abstract class BaseJdkHashCalculatorTest {
         HashType hashType = getHashType();
         assertNotNull(hashType);
 
-        jdkHashCalculator = new JdkHashCalculator();
+        jdkHashCalculator = new JdkHashCalculator(settingsHelper);
         jdkHashCalculator.setHashType(hashType);
     }
 

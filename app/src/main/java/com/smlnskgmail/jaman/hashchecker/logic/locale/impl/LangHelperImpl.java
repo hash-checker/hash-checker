@@ -10,21 +10,33 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 
 import java.util.Locale;
 
 public class LangHelperImpl implements LangHelper {
 
     private final Context context;
+    private final SettingsHelper settingsHelper;
 
     public LangHelperImpl(
-            @NonNull Context context
+            @NonNull Context context,
+            @NonNull SettingsHelper settingsHelper
     ) {
         this.context = context;
+        this.settingsHelper = settingsHelper;
     }
 
     @Override
-    public void setLocale(@NonNull Language language) {
+    public void setLanguage(@NonNull Language language) {
+        setLanguage(context, language);
+        settingsHelper.saveLanguage(language);
+    }
+
+    private void setLanguage(
+            @NonNull Context context,
+            @NonNull Language language
+    ) {
         Locale locale;
         if (language != Language.ZH) {
             locale = new Locale(
@@ -50,6 +62,17 @@ public class LangHelperImpl implements LangHelper {
                 config,
                 resources.getDisplayMetrics()
         );
+    }
+
+    @Override
+    public void applyLanguage(@NonNull Context context) {
+        setLanguage(context, currentLanguage());
+    }
+
+    @NonNull
+    @Override
+    public Language currentLanguage() {
+        return settingsHelper.getLanguage();
     }
 
 }

@@ -10,6 +10,7 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListB
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 import java.util.List;
 
@@ -17,16 +18,19 @@ public class HashesListAdapter extends BaseListAdapter<HashType> {
 
     private final HashType selectedHashType;
     private final HashTypeSelectTarget hashTypeSelectListener;
+    private final ThemeHelper themeHelper;
 
     HashesListAdapter(
             @NonNull List<HashType> items,
             @NonNull BaseListBottomSheet<HashType> bottomSheet,
             @NonNull HashTypeSelectTarget hashTypeSelectListener,
-            @NonNull HashType lastHashType
+            @NonNull HashType selectedHashType,
+            @NonNull ThemeHelper themeHelper
     ) {
         super(items, bottomSheet);
         this.hashTypeSelectListener = hashTypeSelectListener;
-        selectedHashType = lastHashType;
+        this.selectedHashType = selectedHashType;
+        this.themeHelper = themeHelper;
     }
 
     @NonNull
@@ -49,7 +53,7 @@ public class HashesListAdapter extends BaseListAdapter<HashType> {
                 @NonNull Context themeContext,
                 @NonNull View itemView
         ) {
-            super(themeContext, itemView);
+            super(themeContext, itemView, themeHelper);
         }
 
         @Override

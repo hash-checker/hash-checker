@@ -5,7 +5,8 @@
     android:id="@+id/fl_history"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorBackground">
 
     <com.smlnskgmail.jaman.adaptiverecyclerview.AdaptiveRecyclerView
         android:id="@+id/rv_history_items"

@@ -18,6 +18,7 @@ public class LangHelperModule {
         this.langHelper = langHelper;
     }
 
+    @NonNull
     @Provides
     public LangHelper langHelper() {
         return langHelper;

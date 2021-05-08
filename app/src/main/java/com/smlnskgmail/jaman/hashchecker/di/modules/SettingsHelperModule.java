@@ -18,6 +18,7 @@ public class SettingsHelperModule {
         this.settingsHelper = settingsHelper;
     }
 
+    @NonNull
     @Provides
     public SettingsHelper settingsHelper() {
         return settingsHelper;
