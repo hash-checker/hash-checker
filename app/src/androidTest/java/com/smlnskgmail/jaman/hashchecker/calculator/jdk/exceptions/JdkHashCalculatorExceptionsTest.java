@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 
 import static org.junit.Assert.assertNull;
 
@@ -28,7 +29,7 @@ import static org.junit.Assert.assertNull;
 public class JdkHashCalculatorExceptionsTest {
 
     @Test
-    public void runTest() throws NoSuchAlgorithmException {
+    public void runTest() throws NoSuchAlgorithmException, NoSuchProviderException {
         JdkHashCalculator jdkHashCalculator = new JdkHashCalculator(
                 new SettingsHelperMock()
         );

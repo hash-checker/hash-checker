@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.test.InstrumentationRegistry;
 
 import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseExporter;
+import com.smlnskgmail.jaman.hashchecker.logic.database.impl.ormlite.OrmLiteDatabaseHelper;
 
 import org.junit.Test;
 
@@ -25,7 +26,12 @@ public class DatabaseExporterTest {
             if (databaseCopy.exists()) {
                 assertTrue(databaseCopy.delete());
             }
-            DatabaseExporter.exportDatabase(context);
+            DatabaseExporter.exportDatabase(
+                    context,
+                    new OrmLiteDatabaseHelper(
+                            context
+                    )
+            );
             assertTrue(databaseCopy.exists());
         } catch (IOException e) {
             e.printStackTrace();

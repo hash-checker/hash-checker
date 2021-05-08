@@ -14,10 +14,7 @@ import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA384JdkHashCalcula
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA512JdkHashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.zeroleads.MessageDigestZeroLeadsJdkHashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.database.DatabaseExporterTest;
-import com.smlnskgmail.jaman.hashchecker.database.HelperFactoryTest;
 import com.smlnskgmail.jaman.hashchecker.feedback.FeedbackTest;
-import com.smlnskgmail.jaman.hashchecker.history.HistoryScrollTest;
-import com.smlnskgmail.jaman.hashchecker.history.HistoryTest;
 import com.smlnskgmail.jaman.hashchecker.rateapp.RateAppDialogTest;
 import com.smlnskgmail.jaman.hashchecker.screenrunner.ScreenRunnerTest;
 
@@ -40,15 +37,12 @@ import org.junit.runners.Suite;
         HashCalculatorTaskExceptionTest.class,
         OpenAppWithIntentTest.class,
         OpenAppWithClipDataTest.class,
-        HistoryTest.class,
-        HistoryScrollTest.class,
         FeedbackTest.class,
         RateAppDialogTest.class,
         DatabaseExporterTest.class,
 //        HashValueInUpperCaseTest.class,
 //        HashValueInLowerCaseTest.class,
         ScreenRunnerTest.class,
-        HelperFactoryTest.class,
 })
 public class AndroidTestSuite {
 
