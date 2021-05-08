@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
+import com.github.aelstad.keccakj.provider.Constants;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
 
@@ -15,6 +16,10 @@ public enum HashType implements ListItem {
     SHA_256("SHA-256"),
     SHA_384("SHA-384"),
     SHA_512("SHA-512"),
+    SHA3_224(Constants.SHA3_224),
+    SHA3_256(Constants.SHA3_256),
+    SHA3_384(Constants.SHA3_384),
+    SHA3_512(Constants.SHA3_512),
     CRC_32("CRC-32");
 
     private final String hashName;
@@ -57,6 +62,13 @@ public enum HashType implements ListItem {
     @Override
     public int getAdditionalIconResId() {
         return R.drawable.ic_done;
+    }
+
+    public boolean isKeccakj() {
+        return this == SHA3_224
+                || this == SHA3_256
+                || this == SHA3_384
+                || this == SHA3_512;
     }
 
 }

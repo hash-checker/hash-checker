@@ -24,6 +24,7 @@ public enum Language implements ListItem {
     RU("Русский", "ru"),
     SV("Svenska", "sv"),
     ZH("中文(简体)", "zh-rCN"),
+    VI("Tiếng Việt", "vi"),
     JA("日本語", "ja");
 
     private final String originalName;

@@ -6,6 +6,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.github.aelstad.keccakj.provider.Constants;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashCalculator;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
@@ -18,6 +19,7 @@ import java.io.InputStream;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 
 public class JdkHashCalculator implements HashCalculator {
 
@@ -34,8 +36,15 @@ public class JdkHashCalculator implements HashCalculator {
     @Override
     public void setHashType(
             @NonNull HashType hashType
-    ) throws NoSuchAlgorithmException {
-        this.jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(hashType);
+    ) throws NoSuchAlgorithmException, NoSuchProviderException {
+        if (hashType.isKeccakj()) {
+            jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(
+                    hashType,
+                    Constants.PROVIDER
+            );
+        } else {
+            jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(hashType);
+        }
     }
 
     @Nullable

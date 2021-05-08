@@ -32,6 +32,7 @@ android {
                 'ru',
                 'sv',
                 'zh-rCN',
+                'vi',
                 'ja'
     }
     signingConfigs {
@@ -129,6 +130,9 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.preference:preference:1.1.1'
+
+    // SHA-3
+    implementation 'com.github.aelstad:keccakj:1.1.0'
 
     // AdaptiveRecyclerView
     implementation 'com.github.fartem:adaptive-recycler-view:1.1.1'

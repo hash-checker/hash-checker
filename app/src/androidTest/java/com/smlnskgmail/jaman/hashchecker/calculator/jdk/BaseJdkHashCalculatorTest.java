@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -26,13 +27,13 @@ public abstract class BaseJdkHashCalculatorTest {
     private Context context;
 
     @Before
-    public void initializeResources() throws NoSuchAlgorithmException {
+    public void initializeResources() throws NoSuchAlgorithmException, NoSuchProviderException {
         context = InstrumentationRegistry.getContext();
 
         HashType hashType = getHashType();
         assertNotNull(hashType);
 
-        jdkHashCalculator = new JdkHashCalculator(settingsHelper);
+        jdkHashCalculator = new JdkHashCalculator(null);
         jdkHashCalculator.setHashType(hashType);
     }
 

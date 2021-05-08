@@ -35,6 +35,10 @@ Fast and simple application for generating and comparison hashes from files or t
 | [SHA-384](https://en.wikipedia.org/wiki/SHA-2) | 1.4.0 | `Supporting` |
 | [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
 | [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Supporting` |
+| [SHA3-224](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
+| [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
+| [SHA3-384](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
+| [SHA3-512](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
 
 ## Supporting languages
 
@@ -60,6 +64,7 @@ __Languages in app__
 | עברית | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/17) |
 | فارسی | 2.9.9 | `Translated` |
 | 日本語 | 3.6.3 | `Translated` |
+| Tiếng Việt | 3.6.5 | `Translated` |
 
 __Not translated__
 

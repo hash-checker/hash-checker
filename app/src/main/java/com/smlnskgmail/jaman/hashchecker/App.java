@@ -12,6 +12,7 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
+import com.github.aelstad.keccakj.provider.KeccakjProvider;
 import com.smlnskgmail.jaman.hashchecker.di.components.AppComponent;
 import com.smlnskgmail.jaman.hashchecker.di.components.DaggerAppComponent;
 import com.smlnskgmail.jaman.hashchecker.di.modules.DatabaseHelperModule;
@@ -27,6 +28,7 @@ import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.themes.impl.ThemeHelperImpl;
 
+import java.security.Security;
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -49,6 +51,7 @@ public class App extends android.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Security.addProvider(new KeccakjProvider());
         databaseHelper = new OrmLiteDatabaseHelper(this);
         settingsHelper = new SharedPreferencesSettingsHelper(this);
         langHelper = new LangHelperImpl(

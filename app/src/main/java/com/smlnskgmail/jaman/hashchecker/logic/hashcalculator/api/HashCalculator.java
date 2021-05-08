@@ -8,10 +8,11 @@ import androidx.annotation.Nullable;
 
 import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 
 public interface HashCalculator {
 
-    void setHashType(@NonNull HashType hashType) throws NoSuchAlgorithmException;
+    void setHashType(@NonNull HashType hashType) throws NoSuchAlgorithmException, NoSuchProviderException;
 
     @Nullable
     String fromString(@NonNull String text);

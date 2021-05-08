@@ -1,11 +1,13 @@
 package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.zip.CRC32;
 
 public class JdkHashCalculatorDigest {
@@ -22,19 +24,43 @@ public class JdkHashCalculatorDigest {
     @NonNull
     public static JdkHashCalculatorDigest instanceFor(
             @NonNull HashType hashType
-    ) throws NoSuchAlgorithmException {
+    ) throws NoSuchAlgorithmException, NoSuchProviderException {
         JdkHashCalculatorDigest jdkHashCalculatorDigest = new JdkHashCalculatorDigest();
-        jdkHashCalculatorDigest.setHashType(hashType);
+        jdkHashCalculatorDigest.setHashType(
+                hashType,
+                null
+        );
+        return jdkHashCalculatorDigest;
+    }
+
+    @NonNull
+    public static JdkHashCalculatorDigest instanceFor(
+            @NonNull HashType hashType,
+            @NonNull String provider
+    ) throws NoSuchAlgorithmException, NoSuchProviderException {
+        JdkHashCalculatorDigest jdkHashCalculatorDigest = new JdkHashCalculatorDigest();
+        jdkHashCalculatorDigest.setHashType(
+                hashType,
+                provider
+        );
         return jdkHashCalculatorDigest;
     }
 
     private void setHashType(
-            @NonNull HashType hashType
-    ) throws NoSuchAlgorithmException {
+            @NonNull HashType hashType,
+            @Nullable String provider
+    ) throws NoSuchAlgorithmException, NoSuchProviderException {
         if (hashType != HashType.CRC_32) {
-            messageDigest = MessageDigest.getInstance(
-                    hashType.getHashName()
-            );
+            if (provider == null) {
+                messageDigest = MessageDigest.getInstance(
+                        hashType.getHashName()
+                );
+            } else {
+                messageDigest = MessageDigest.getInstance(
+                        hashType.getHashName(),
+                        provider
+                );
+            }
         } else {
             crc32 = new CRC32();
             useCRC32 = true;
