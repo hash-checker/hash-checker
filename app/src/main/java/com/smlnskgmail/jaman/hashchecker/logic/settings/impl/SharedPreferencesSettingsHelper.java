@@ -72,12 +72,14 @@ public class SharedPreferencesSettingsHelper implements SettingsHelper {
     @NonNull
     @Override
     public Language getLanguage() {
-        return Language.valueOf(
-                getStringPreference(
-                        context.getString(R.string.key_language),
-                        Language.EN.toString()
-                )
+        String lang = getStringPreference(
+                context.getString(R.string.key_language),
+                Language.EN.toString()
         );
+        if (lang.equalsIgnoreCase("iw")) {
+            return Language.HE;
+        }
+        return Language.valueOf(lang);
     }
 
     @Override
