@@ -1,7 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker;
 
-import com.smlnskgmail.jaman.hashchecker.appopen.OpenAppWithClipDataTest;
-import com.smlnskgmail.jaman.hashchecker.appopen.OpenAppWithIntentTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.GenerateHashFromTextTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.HashCalculatorTaskExceptionTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.crc.CRC32JdkHashCalculatorTest;
