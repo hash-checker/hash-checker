@@ -65,7 +65,6 @@ jobs:
         with:
           api-level: 27
           profile: Nexus 6
-          sdcard-path-or-size: 100M
           script: ./gradlew -Pandroid.testInstrumentationRunnerArguments.class=com.smlnskgmail.jaman.hashchecker.AndroidTestSuite connectedCheck --stacktrace
 
       - name: Send JaCoCo coverage report to Codecov
