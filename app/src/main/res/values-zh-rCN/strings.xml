@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">如果您喜欢该应用，则可以在Google Play中对其评分</string>
     <string name="rate_app_action">率</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">刚刚下载了一个更新</string>
+    <string name="update_restart_action">重新开始</string>
 </resources>

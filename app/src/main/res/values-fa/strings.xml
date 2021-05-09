@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">اگر برنامه را دوست دارید ، می توانید آن را در Google Play ارزیابی کنید</string>
     <string name="rate_app_action">نرخ</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">به روزرسانی بارگیری شده است</string>
+    <string name="update_restart_action">راه اندازی مجدد</string>
 </resources>

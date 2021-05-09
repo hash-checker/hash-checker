@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">あなたがアプリが好きなら、あなたはグーグルプレイでそれを評価することができます</string>
     <string name="rate_app_action">割合</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">アップデートがダウンロードされました</string>
+    <string name="update_restart_action">再起動</string>
 </resources>

@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">Om du gillar appen kan du betygsätta den i Google Play</string>
     <string name="rate_app_action">Betygsätta</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">En uppdatering har just laddats ner</string>
+    <string name="update_restart_action">Omstart</string>
 </resources>

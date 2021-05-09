@@ -14,7 +14,7 @@
     <string name="message_generate_hash_before_export">Tạo giá trị băm trước khi xác nhận</string>
     <string name="message_match_result">So sánh</string>
     <string name="message_do_not_match_result">Không thể so sánh được</string>
-    <string name="message_generate_dialog">Đang tạo mã băm, vui lòng chờ...</string>
+    <string name="message_generate_dialog">Đang tạo mã băm, vui lòng chờ…</string>
     <string name="message_select_object">Nhấn vào \"Kho dữ liệu\" để chọn file cần thiết</string>
     <string name="message_request_storage_permission_error">Không có quyền đọc bộ nhớ tệp thiết bị. Vui lòng thử lại</string>
     <string name="message_request_storage_permission_denied">Không thể đọc bộ nhớ tệp thiết bị. Vui lòng đi tới Cài đặt và cho phép truy cập.</string>
@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">Nếu bạn thích ứng dụng, bạn hãy xếp hạng nó trên Google Play</string>
     <string name="rate_app_action">Tỉ lệ</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">Bản cập nhật vừa được tải xuống</string>
+    <string name="update_restart_action">Khởi động lại</string>
 </resources>

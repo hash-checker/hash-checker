@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">אם אתה אוהב את האפליקציה, אתה יכול לדרג אותה ב- Google Play</string>
     <string name="rate_app_action">ציון</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">זה עתה הורד עדכון</string>
+    <string name="update_restart_action">איתחול</string>
 </resources>
