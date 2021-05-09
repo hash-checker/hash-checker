@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">If you like the app, you can rate it in Google Play</string>
     <string name="rate_app_action">Rate</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">An update has just been downloaded</string>
+    <string name="update_restart_action">Restart</string>
 </resources>
