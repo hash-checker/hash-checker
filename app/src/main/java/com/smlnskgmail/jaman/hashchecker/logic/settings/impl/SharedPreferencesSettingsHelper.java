@@ -77,6 +77,7 @@ public class SharedPreferencesSettingsHelper implements SettingsHelper {
                 Language.EN.toString()
         );
         if (lang.equalsIgnoreCase("iw")) {
+            saveLanguage(Language.HE);
             return Language.HE;
         }
         return Language.valueOf(lang);
