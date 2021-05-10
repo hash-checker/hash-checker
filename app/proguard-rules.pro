@@ -21,3 +21,10 @@
     <init>();
 }
 # --- OrmLite END ---
+
+-keep class com.github.aelstad.**
+-keepclassmembers class com.github.aelstad** { *; }
+-keep enum com.github.aelstad.**
+-keepclassmembers enum com.github.aelstad.** { *; }
+-keep interface com.github.aelstad.**
+-keepclassmembers interface com.github.aelstad.** { *; }
