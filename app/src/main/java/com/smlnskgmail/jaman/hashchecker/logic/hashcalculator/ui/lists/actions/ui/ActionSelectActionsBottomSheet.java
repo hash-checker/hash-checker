@@ -34,7 +34,7 @@ public class ActionSelectActionsBottomSheet extends ActionsBottomSheet {
 
     @NonNull
     @Override
-    List<Action> getActions() {
+    protected List<Action> getActions() {
         return Arrays.asList(
                 Action.GENERATE,
                 Action.COMPARE,

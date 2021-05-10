@@ -24,6 +24,6 @@ abstract class WebLinksBottomSheet extends BaseListBottomSheet<WebLink> {
     protected abstract ThemeHelper themeHelper();
 
     @NonNull
-    abstract List<WebLink> getLinks();
+    protected abstract List<WebLink> getLinks();
 
 }

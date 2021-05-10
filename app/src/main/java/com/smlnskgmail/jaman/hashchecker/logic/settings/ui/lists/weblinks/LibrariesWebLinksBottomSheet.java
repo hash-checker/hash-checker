@@ -32,7 +32,7 @@ public class LibrariesWebLinksBottomSheet extends WebLinksBottomSheet {
 
     @NonNull
     @Override
-    List<WebLink> getLinks() {
+    protected List<WebLink> getLinks() {
         return WebLink.getLibrariesLinks();
     }
 

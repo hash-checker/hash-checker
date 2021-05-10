@@ -32,6 +32,6 @@ abstract class ActionsBottomSheet extends BaseListBottomSheet<Action> {
     protected abstract ThemeHelper themeHelper();
 
     @NonNull
-    abstract List<Action> getActions();
+    protected abstract List<Action> getActions();
 
 }

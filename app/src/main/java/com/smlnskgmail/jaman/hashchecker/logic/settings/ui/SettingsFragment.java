@@ -32,7 +32,6 @@ import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseExporter;
 import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.feedback.ui.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.LanguagesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.AuthorWebLinksBottomSheet;
@@ -166,7 +165,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 );
                 startActivityForResult(
                         saveFileIntent,
-                        SharedPreferencesSettingsHelper.FILE_CREATE
+                        SettingsHelper.FILE_CREATE
                 );
             } catch (ActivityNotFoundException e) {
                 LogUtils.e(e);
@@ -287,14 +286,12 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
             int resultCode,
             @Nullable Intent data
     ) {
-        if (data != null) {
-            if (requestCode == SharedPreferencesSettingsHelper.FILE_CREATE) {
-                if (resultCode == Activity.RESULT_OK) {
-                    copyUserDataToUserFolder(
-                            data.getData()
-                    );
-                }
-            }
+        if (data != null
+                && requestCode == SettingsHelper.FILE_CREATE
+                && resultCode == Activity.RESULT_OK) {
+            copyUserDataToUserFolder(
+                    data.getData()
+            );
         }
     }
 

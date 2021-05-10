@@ -33,7 +33,7 @@ public class PrivacyPolicyWebLinksBottomSheet extends WebLinksBottomSheet {
 
     @NonNull
     @Override
-    List<WebLink> getLinks() {
+    protected List<WebLink> getLinks() {
         return Collections.singletonList(
                 WebLink.PRIVACY_POLICY
         );

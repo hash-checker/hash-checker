@@ -76,11 +76,9 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (setAllowBackAction()) {
-            if (item.getItemId() == android.R.id.home) {
-                getActivity().onBackPressed();
-                return true;
-            }
+        if (setAllowBackAction() && item.getItemId() == android.R.id.home) {
+            getActivity().onBackPressed();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

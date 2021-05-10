@@ -15,7 +15,6 @@ import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
 import android.provider.Settings;
-import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
@@ -28,7 +27,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
 import com.smlnskgmail.jaman.hashchecker.App;
@@ -38,6 +36,7 @@ import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
+import com.smlnskgmail.jaman.hashchecker.components.watchers.AppTextWatcher;
 import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.FileManagerActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashCalculatorTask;
@@ -53,7 +52,6 @@ import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtypes
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Clipboard;
 import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
@@ -194,39 +192,43 @@ public class HashCalculatorFragment extends BaseFragment
             case EXPORT_AS_TXT:
                 saveGeneratedHashAsTextFile();
                 break;
+            default:
+                throw new IllegalArgumentException(
+                        "Unknown UserActionType"
+                );
         }
     }
 
     private void searchFile() {
-        if (settingsHelper.isUsingInnerFileManager()) {
-            if (ContextCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED) {
-                requestStoragePermission();
-            } else {
-                openInnerFileManager();
-            }
-        } else {
+//        if (settingsHelper.isUsingInnerFileManager()) {
+//            if (ContextCompat.checkSelfPermission(
+//                    context,
+//                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+//            ) != PackageManager.PERMISSION_GRANTED) {
+//                requestStoragePermission();
+//            } else {
+//                openInnerFileManager();
+//            }
+//        } else {
             openSystemFileManager();
-        }
+//        }
     }
 
-    private void openInnerFileManager() {
-        Intent openExplorerIntent = new Intent(
-                getContext(),
-                FileManagerActivity.class
-        );
-        String lastPath = settingsHelper.getLastPathForInnerFileManager();
-        openExplorerIntent.putExtra(
-                FileManagerActivity.LAST_PATH,
-                lastPath
-        );
-        startActivityForResult(
-                openExplorerIntent,
-                FileManagerActivity.FILE_SELECT_FROM_FILE_MANAGER
-        );
-    }
+//    private void openInnerFileManager() {
+//        Intent openExplorerIntent = new Intent(
+//                getContext(),
+//                FileManagerActivity.class
+//        );
+//        String lastPath = settingsHelper.getLastPathForInnerFileManager();
+//        openExplorerIntent.putExtra(
+//                FileManagerActivity.LAST_PATH,
+//                lastPath
+//        );
+//        startActivityForResult(
+//                openExplorerIntent,
+//                FileManagerActivity.FILE_SELECT_FROM_FILE_MANAGER
+//        );
+//    }
 
     private void openSystemFileManager() {
         try {
@@ -277,9 +279,9 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     private void compareHashes() {
-        if (TextTools.fieldIsNotEmpty(etCustomHash)
-                && TextTools.fieldIsNotEmpty(etGeneratedHash)) {
-            boolean equal = TextTools.compareText(
+        if (TextUtils.fieldIsNotEmpty(etCustomHash)
+                && TextUtils.fieldIsNotEmpty(etGeneratedHash)) {
+            boolean equal = TextUtils.compareText(
                     etCustomHash.getText().toString(),
                     etGeneratedHash.getText().toString()
             );
@@ -302,7 +304,7 @@ public class HashCalculatorFragment extends BaseFragment
 
     private void saveGeneratedHashAsTextFile() {
         if ((fileUri != null
-                || isTextSelected) && TextTools.fieldIsNotEmpty(etGeneratedHash)) {
+                || isTextSelected) && TextUtils.fieldIsNotEmpty(etGeneratedHash)) {
             String filename = getString(
                     isTextSelected
                             ? R.string.filename_hash_from_text
@@ -325,7 +327,7 @@ public class HashCalculatorFragment extends BaseFragment
             );
             startActivityForResult(
                     saveTextFileIntent,
-                    SharedPreferencesSettingsHelper.FILE_CREATE
+                    SettingsHelper.FILE_CREATE
             );
         } catch (ActivityNotFoundException e) {
             LogUtils.e(e);
@@ -464,11 +466,11 @@ public class HashCalculatorFragment extends BaseFragment
         etGeneratedHash.setFilters(fieldFilters);
 
         if (useUpperCase) {
-            TextTools.convertToUpperCase(etCustomHash);
-            TextTools.convertToUpperCase(etGeneratedHash);
+            TextUtils.convertToUpperCase(etCustomHash);
+            TextUtils.convertToUpperCase(etGeneratedHash);
         } else {
-            TextTools.convertToLowerCase(etCustomHash);
-            TextTools.convertToLowerCase(etGeneratedHash);
+            TextUtils.convertToLowerCase(etCustomHash);
+            TextUtils.convertToLowerCase(etGeneratedHash);
         }
 
         etCustomHash.setSelection(
@@ -571,17 +573,7 @@ public class HashCalculatorFragment extends BaseFragment
             @NonNull ImageView copyButton,
             @NonNull ImageView clearButton
     ) {
-        return new TextWatcher() {
-            @Override
-            public void beforeTextChanged(
-                    CharSequence s,
-                    int start,
-                    int count,
-                    int after
-            ) {
-
-            }
-
+        return new AppTextWatcher() {
             @Override
             public void onTextChanged(
                     CharSequence s,
@@ -597,11 +589,6 @@ public class HashCalculatorFragment extends BaseFragment
                     copyButton.setVisibility(View.INVISIBLE);
                     clearButton.setVisibility(View.INVISIBLE);
                 }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
             }
         };
     }
@@ -702,7 +689,7 @@ public class HashCalculatorFragment extends BaseFragment
         } catch (ActivityNotFoundException e) {
             LogUtils.e(e);
             context.startActivity(
-                    new Intent(android.provider.Settings.ACTION_SETTINGS)
+                    new Intent(Settings.ACTION_SETTINGS)
             );
         }
     }
@@ -780,7 +767,7 @@ public class HashCalculatorFragment extends BaseFragment
                 case FileManagerActivity.FILE_SELECT_FROM_FILE_MANAGER:
                     selectFileFromAppFileManager(data);
                     break;
-                case SharedPreferencesSettingsHelper.FILE_CREATE:
+                case SettingsHelper.FILE_CREATE:
                     try {
                         writeHashToFile(data.getData());
                     } catch (IOException e) {

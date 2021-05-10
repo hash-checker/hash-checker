@@ -49,8 +49,7 @@ public class HistoryItemsAdapter extends RecyclerView.Adapter<HistoryItemHolder>
                         R.layout.item_history_data,
                         viewGroup,
                         false
-                ),
-                rootView
+                )
         );
     }
 

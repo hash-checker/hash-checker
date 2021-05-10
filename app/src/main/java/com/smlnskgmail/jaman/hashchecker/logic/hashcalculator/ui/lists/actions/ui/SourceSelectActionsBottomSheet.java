@@ -34,7 +34,7 @@ public class SourceSelectActionsBottomSheet extends ActionsBottomSheet {
 
     @NonNull
     @Override
-    List<Action> getActions() {
+    protected List<Action> getActions() {
         return Arrays.asList(
                 Action.TEXT,
                 Action.FILE

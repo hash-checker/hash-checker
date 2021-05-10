@@ -15,10 +15,6 @@ import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 public class SharedPreferencesSettingsHelper implements SettingsHelper {
 
-    public static final int FILE_CREATE = 3;
-
-    private static final int HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL = 5;
-
     private final Context context;
 
     public SharedPreferencesSettingsHelper(
