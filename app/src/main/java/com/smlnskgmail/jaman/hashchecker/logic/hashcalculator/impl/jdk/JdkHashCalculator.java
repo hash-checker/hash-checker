@@ -12,11 +12,8 @@ import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -102,15 +99,15 @@ public class JdkHashCalculator implements HashCalculator {
             @NonNull Context context,
             @NonNull Uri path
     ) throws Exception {
-        if (!settingsHelper.isUsingInnerFileManager()
-                || settingsHelper.getGenerateFromShareIntentStatus()) {
-            return context.getContentResolver().openInputStream(path);
-        }
-        return new FileInputStream(
-                new File(
-                        new URI(path.toString())
-                )
-        );
+//        if (!settingsHelper.isUsingInnerFileManager()
+//                || settingsHelper.getGenerateFromShareIntentStatus()) {
+        return context.getContentResolver().openInputStream(path);
+//        }
+//        return new FileInputStream(
+//                new File(
+//                        new URI(path.toString())
+//                )
+//        );
     }
 
 }
