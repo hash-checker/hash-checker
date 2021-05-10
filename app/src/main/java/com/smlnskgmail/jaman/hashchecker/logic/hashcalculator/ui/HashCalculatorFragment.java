@@ -1,20 +1,17 @@
 package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
-import android.provider.Settings;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -28,7 +25,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
 import com.smlnskgmail.jaman.hashchecker.App;
@@ -198,35 +194,36 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     private void searchFile() {
-        if (settingsHelper.isUsingInnerFileManager()) {
-            if (ContextCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED) {
-                requestStoragePermission();
-            } else {
-                openInnerFileManager();
-            }
-        } else {
-            openSystemFileManager();
-        }
+//        if (settingsHelper.isUsingInnerFileManager()) {
+//            if (ContextCompat.checkSelfPermission(
+//                    context,
+//                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+//            ) != PackageManager.PERMISSION_GRANTED) {
+//                requestStoragePermission();
+//            } else {
+//                openInnerFileManager();
+//            }
+//        } else {
+//            openSystemFileManager();
+//        }
+        openSystemFileManager();
     }
 
-    private void openInnerFileManager() {
-        Intent openExplorerIntent = new Intent(
-                getContext(),
-                FileManagerActivity.class
-        );
-        String lastPath = settingsHelper.getLastPathForInnerFileManager();
-        openExplorerIntent.putExtra(
-                FileManagerActivity.LAST_PATH,
-                lastPath
-        );
-        startActivityForResult(
-                openExplorerIntent,
-                FileManagerActivity.FILE_SELECT_FROM_FILE_MANAGER
-        );
-    }
+//    private void openInnerFileManager() {
+//        Intent openExplorerIntent = new Intent(
+//                getContext(),
+//                FileManagerActivity.class
+//        );
+//        String lastPath = settingsHelper.getLastPathForInnerFileManager();
+//        openExplorerIntent.putExtra(
+//                FileManagerActivity.LAST_PATH,
+//                lastPath
+//        );
+//        startActivityForResult(
+//                openExplorerIntent,
+//                FileManagerActivity.FILE_SELECT_FROM_FILE_MANAGER
+//        );
+//    }
 
     private void openSystemFileManager() {
         try {
@@ -649,63 +646,63 @@ public class HashCalculatorFragment extends BaseFragment
         }
     }
 
-    private void requestStoragePermission() {
-        requestPermissions(
-                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                FileManagerActivity.PERMISSION_STORAGE
-        );
-    }
+//    private void requestStoragePermission() {
+//        requestPermissions(
+//                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+//                FileManagerActivity.PERMISSION_STORAGE
+//        );
+//    }
 
-    @Override
-    public void onRequestPermissionsResult(
-            int requestCode,
-            @NonNull String[] permissions,
-            @NonNull int[] grantResults
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == FileManagerActivity.PERMISSION_STORAGE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                searchFile();
-            } else {
-                if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    showSnachbarWithAction(
-                            mainScreen,
-                            R.string.message_request_storage_permission_error,
-                            getString(R.string.common_again),
-                            v -> requestStoragePermission()
-                    );
-                } else {
-                    new AppAlertDialog(
-                            context,
-                            R.string.title_permission_dialog,
-                            R.string.message_request_storage_permission_denied,
-                            R.string.menu_title_settings,
-                            (dialog, which) -> openAppSettings(),
-                            themeHelper
-                    ).show();
-                }
-            }
-        }
-    }
+//    @Override
+//    public void onRequestPermissionsResult(
+//            int requestCode,
+//            @NonNull String[] permissions,
+//            @NonNull int[] grantResults
+//    ) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if (requestCode == FileManagerActivity.PERMISSION_STORAGE) {
+//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                searchFile();
+//            } else {
+//                if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+//                    showSnachbarWithAction(
+//                            mainScreen,
+//                            R.string.message_request_storage_permission_error,
+//                            getString(R.string.common_again),
+//                            v -> requestStoragePermission()
+//                    );
+//                } else {
+//                    new AppAlertDialog(
+//                            context,
+//                            R.string.title_permission_dialog,
+//                            R.string.message_request_storage_permission_denied,
+//                            R.string.menu_title_settings,
+//                            (dialog, which) -> openAppSettings(),
+//                            themeHelper
+//                    ).show();
+//                }
+//            }
+//        }
+//    }
 
-    private void openAppSettings() {
-        try {
-            Intent intent = new Intent();
-            intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-            Uri uri = Uri.fromParts(
-                    "package",
-                    context.getPackageName(),
-                    null
-            );
-            intent.setData(uri);
-            context.startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            LogUtils.e(e);
-            context.startActivity(
-                    new Intent(android.provider.Settings.ACTION_SETTINGS)
-            );
-        }
-    }
+//    private void openAppSettings() {
+//        try {
+//            Intent intent = new Intent();
+//            intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+//            Uri uri = Uri.fromParts(
+//                    "package",
+//                    context.getPackageName(),
+//                    null
+//            );
+//            intent.setData(uri);
+//            context.startActivity(intent);
+//        } catch (ActivityNotFoundException e) {
+//            LogUtils.e(e);
+//            context.startActivity(
+//                    new Intent(android.provider.Settings.ACTION_SETTINGS)
+//            );
+//        }
+//    }
 
     @Override
     public void appResume() {
@@ -777,9 +774,6 @@ public class HashCalculatorFragment extends BaseFragment
                         selectFileFromSystemFileManager(data.getData());
                     }
                     break;
-                case FileManagerActivity.FILE_SELECT_FROM_FILE_MANAGER:
-                    selectFileFromAppFileManager(data);
-                    break;
                 case SharedPreferencesSettingsHelper.FILE_CREATE:
                     try {
                         writeHashToFile(data.getData());
@@ -792,21 +786,21 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     private void selectFileFromSystemFileManager(@Nullable Uri uri) {
-        validateSelectedFile(uri);
         settingsHelper.setGenerateFromShareIntentMode(false);
+        validateSelectedFile(uri);
     }
 
-    private void selectFileFromAppFileManager(@NonNull Intent data) {
-        String path = data.getStringExtra(FileManagerActivity.FILE_SELECT_DATA);
-        if (path != null) {
-            String lastPath = data.getStringExtra(FileManagerActivity.LAST_PATH);
-            if (lastPath != null) {
-                settingsHelper.savePathForInnerFileManager(lastPath);
-            }
-            Uri uri = Uri.fromFile(new File(path));
-            validateSelectedFile(uri);
-        }
-    }
+//    private void selectFileFromAppFileManager(@NonNull Intent data) {
+//        String path = data.getStringExtra(FileManagerActivity.FILE_SELECT_DATA);
+//        if (path != null) {
+//            String lastPath = data.getStringExtra(FileManagerActivity.LAST_PATH);
+//            if (lastPath != null) {
+//                settingsHelper.savePathForInnerFileManager(lastPath);
+//            }
+//            Uri uri = Uri.fromFile(new File(path));
+//            validateSelectedFile(uri);
+//        }
+//    }
 
     private void writeHashToFile(@Nullable Uri uri) throws IOException {
         if (uri != null) {
