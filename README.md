@@ -146,3 +146,4 @@ If you don't see any error messages, submit your pull request.
 ## Special thanks
 
 * [@IzzySoft](https://github.com/IzzySoft) as Izzy for uploading the app to [IzzySoft Apt Repositories](https://apt.izzysoft.de)
+* [@lexterror](https://github.com/lexterror) as mrrmx for useful feature requests
