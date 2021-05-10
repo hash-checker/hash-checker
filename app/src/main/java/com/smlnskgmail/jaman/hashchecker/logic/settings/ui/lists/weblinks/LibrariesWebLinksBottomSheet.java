@@ -14,7 +14,7 @@ import javax.inject.Inject;
 public class LibrariesWebLinksBottomSheet extends WebLinksBottomSheet {
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
     // CPD-OFF
     @Override

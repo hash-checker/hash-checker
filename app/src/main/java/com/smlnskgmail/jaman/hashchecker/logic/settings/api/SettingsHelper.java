@@ -29,8 +29,8 @@ public interface SettingsHelper {
 
     void savePathForInnerFileManager(@Nullable String path);
 
-    @NonNull
-    String getLastPathForInnerFileManager();
+//    @NonNull
+//    String getLastPathForInnerFileManager();
 
     boolean isUsingMultilineHashFields();
 

@@ -96,14 +96,14 @@ public class SharedPreferencesSettingsHelper implements SettingsHelper {
         );
     }
 
-    @NonNull
-    @Override
-    public String getLastPathForInnerFileManager() {
-        return getStringPreference(
-                context.getString(R.string.key_last_path),
-                null
-        );
-    }
+//    @NonNull
+//    @Override
+//    public String getLastPathForInnerFileManager() {
+//        return getStringPreference(
+//                context.getString(R.string.key_last_path),
+//                null
+//        );
+//    }
 
     @Override
     public boolean isUsingMultilineHashFields() {

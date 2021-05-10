@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -33,15 +32,14 @@ import javax.inject.Inject;
 public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderTaskTarget<HistoryItem> {
 
     @Inject
-    DatabaseHelper databaseHelper;
+    public DatabaseHelper databaseHelper;
 
     @Inject
-    LangHelper langHelper;
+    public LangHelper langHelper;
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
-    private FrameLayout flHistory;
     private AdaptiveRecyclerView arvHistoryItems;
     private ProgressBar pbHistory;
 
@@ -63,7 +61,6 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
             @Nullable Bundle savedInstanceState
     ) {
         super.onViewCreated(view, savedInstanceState);
-        flHistory = view.findViewById(R.id.fl_history);
         pbHistory = view.findViewById(R.id.pb_history);
         arvHistoryItems = view.findViewById(R.id.rv_history_items);
         arvHistoryItems.setMessageView(view.findViewById(R.id.ll_history_empty_view));
@@ -75,11 +72,13 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
                     int dy
             ) {
                 LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-                int totalItemCount = layoutManager.getItemCount();
-                int lastVisibleItem = layoutManager.findLastVisibleItemPosition();
-                if (canLoad(totalItemCount, lastVisibleItem)) {
-                    isLoading = true;
-                    load();
+                if (layoutManager != null) {
+                    int totalItemCount = layoutManager.getItemCount();
+                    int lastVisibleItem = layoutManager.findLastVisibleItemPosition();
+                    if (canLoad(totalItemCount, lastVisibleItem)) {
+                        isLoading = true;
+                        load();
+                    }
                 }
             }
 
@@ -101,24 +100,27 @@ public class HistoryFragment extends BaseFragment implements HistoryItemsLoaderT
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_item_clean_history) {
-            new AppAlertDialog(
-                    getContext(),
-                    R.string.title_warning_dialog,
-                    R.string.message_delete_all_history_items,
-                    R.string.common_ok,
-                    (dialog, which) -> {
-                        databaseHelper.deleteAllHistoryItems();
-                        resetHistoryAdapter();
-                    },
-                    themeHelper
-            ).show();
+            Context context = getContext();
+            if (context != null) {
+                new AppAlertDialog(
+                        context,
+                        R.string.title_warning_dialog,
+                        R.string.message_delete_all_history_items,
+                        R.string.common_ok,
+                        (dialog, which) -> {
+                            databaseHelper.deleteAllHistoryItems();
+                            resetHistoryAdapter();
+                        },
+                        themeHelper
+                ).show();
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void resetHistoryAdapter() {
-        arvHistoryItems.setAdapter(new HistoryItemsAdapter(flHistory));
+        arvHistoryItems.setAdapter(new HistoryItemsAdapter());
     }
 
     private void load() {

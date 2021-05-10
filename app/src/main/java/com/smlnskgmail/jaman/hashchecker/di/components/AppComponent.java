@@ -9,7 +9,6 @@ import com.smlnskgmail.jaman.hashchecker.di.modules.SettingsHelperModule;
 import com.smlnskgmail.jaman.hashchecker.di.modules.ThemeHelperModule;
 import com.smlnskgmail.jaman.hashchecker.di.scopes.ApplicationScope;
 import com.smlnskgmail.jaman.hashchecker.logic.feedback.ui.FeedbackFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.FileManagerActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.ui.ActionSelectActionsBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.ui.SourceSelectActionsBottomSheet;
@@ -34,8 +33,6 @@ import dagger.Component;
 public interface AppComponent {
 
     void inject(@NonNull MainActivity mainActivity);
-
-    void inject(@NonNull FileManagerActivity fileManagerActivity);
 
     void inject(@NonNull HashCalculatorFragment hashCalculatorFragment);
 

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/common_margin_2"
-    android:foreground="?android:selectableItemBackground">
+    android:foreground="?android:selectableItemBackground"
+    tools:ignore="UnusedAttribute">
 
     <ImageView
         android:id="@+id/iv_item_list_icon"

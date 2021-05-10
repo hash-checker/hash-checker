@@ -53,13 +53,13 @@ import javax.inject.Inject;
 public class SettingsFragment extends PreferenceFragmentCompat implements AppBackClickTarget, AppResumeTarget {
 
     @Inject
-    DatabaseHelper databaseHelper;
+    public DatabaseHelper databaseHelper;
 
     @Inject
-    SettingsHelper settingsHelper;
+    public SettingsHelper settingsHelper;
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
     private ActionBar actionBar;
     private FragmentManager fragmentManager;

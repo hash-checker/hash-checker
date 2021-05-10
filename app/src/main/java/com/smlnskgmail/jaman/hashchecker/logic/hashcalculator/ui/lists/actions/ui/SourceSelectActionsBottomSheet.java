@@ -16,7 +16,7 @@ import javax.inject.Inject;
 public class SourceSelectActionsBottomSheet extends ActionsBottomSheet {
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
     // CPD-OFF
     @Override

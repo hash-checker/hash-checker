@@ -28,7 +28,7 @@ import javax.inject.Inject;
 public class FeedbackFragment extends BaseFragment {
 
     @Inject
-    LangHelper langHelper;
+    public LangHelper langHelper;
 
     private final String osVersion = Build.VERSION.RELEASE;
     private final String manufacturer = Build.MANUFACTURER;

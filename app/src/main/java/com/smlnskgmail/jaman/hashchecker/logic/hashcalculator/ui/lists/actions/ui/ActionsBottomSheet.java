@@ -17,13 +17,16 @@ abstract class ActionsBottomSheet extends BaseListBottomSheet<Action> {
     @NonNull
     @Override
     protected BaseListAdapter<Action> getItemsAdapter() {
-        Fragment parentFragment = getFragmentManager().findFragmentByTag(
+        Fragment parentFragment = getParentFragmentManager().findFragmentByTag(
                 BaseFragment.CURRENT_FRAGMENT_TAG
         );
+        UserActionTarget userActionTarget = parentFragment == null
+                ? null
+                : (UserActionTarget) parentFragment;
         return new ActionsListAdapter(
                 getActions(),
                 this,
-                (UserActionTarget) parentFragment,
+                userActionTarget,
                 themeHelper()
         );
     }

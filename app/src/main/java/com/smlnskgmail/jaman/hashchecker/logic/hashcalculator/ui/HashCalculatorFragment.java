@@ -72,16 +72,16 @@ public class HashCalculatorFragment extends BaseFragment
     private static final int TEXT_SINGLE_LINE_LINES_COUNT = 1;
 
     @Inject
-    DatabaseHelper databaseHelper;
+    public DatabaseHelper databaseHelper;
 
     @Inject
-    SettingsHelper settingsHelper;
+    public SettingsHelper settingsHelper;
 
     @Inject
-    LangHelper langHelper;
+    public LangHelper langHelper;
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
     private View mainScreen;
 
@@ -210,7 +210,7 @@ public class HashCalculatorFragment extends BaseFragment
 //                openInnerFileManager();
 //            }
 //        } else {
-            openSystemFileManager();
+        openSystemFileManager();
 //        }
     }
 
