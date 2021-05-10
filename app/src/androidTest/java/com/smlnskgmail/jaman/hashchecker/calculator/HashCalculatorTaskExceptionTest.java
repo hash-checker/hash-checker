@@ -6,8 +6,8 @@ import android.net.Uri;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashCalculatorTask;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashCalculatorTask;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,7 +31,8 @@ public class HashCalculatorTaskExceptionTest {
                 context,
                 HashType.MD5,
                 Uri.fromFile(new File("")),
-                hashValue -> hashValueToAssert[0] = hashValue
+                hashValue -> hashValueToAssert[0] = hashValue,
+                null
         );
         hashCalculatorTask.execute();
 

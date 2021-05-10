@@ -4,21 +4,37 @@ import android.content.Context;
 import android.content.DialogInterface;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 public class AppAlertDialog {
 
-    public static void show(
+    private final Context context;
+    private final int titleResId;
+    private final int messageResId;
+    private final int positiveButtonTextResId;
+    private final DialogInterface.OnClickListener positiveClickListener;
+    private final ThemeHelper themeHelper;
+
+    public AppAlertDialog(
             @NonNull Context context,
             int titleResId,
             int messageResId,
             int positiveButtonTextResId,
-            @Nullable DialogInterface.OnClickListener positiveClickListener
+            @NonNull DialogInterface.OnClickListener positiveClickListener,
+            @NonNull ThemeHelper themeHelper
     ) {
+        this.context = context;
+        this.titleResId = titleResId;
+        this.messageResId = messageResId;
+        this.positiveButtonTextResId = positiveButtonTextResId;
+        this.positiveClickListener = positiveClickListener;
+        this.themeHelper = themeHelper;
+    }
+
+    public void show() {
         AlertDialog alertDialog = new AlertDialog.Builder(context, R.style.AppAlertDialog)
                 .setTitle(titleResId)
                 .setMessage(messageResId)
@@ -33,7 +49,7 @@ public class AppAlertDialog {
                 .create();
         alertDialog.setOnShowListener(dialog -> {
             AlertDialog currentDialog = ((AlertDialog) dialog);
-            int textColor = UIUtils.getAccentColor(context);
+            int textColor = themeHelper.getAccentColor();
             currentDialog.getButton(
                     DialogInterface.BUTTON_POSITIVE
             ).setTextColor(textColor);

@@ -9,11 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Clipboard;
-import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 
 import java.text.DateFormat;
 
@@ -30,14 +27,11 @@ class HistoryItemHolder extends RecyclerView.ViewHolder {
     private final TextView tvHistoryItemDateTitle;
     private final TextView tvHistoryItemDate;
 
-    private final View rootView;
-
     HistoryItemHolder(
             @NonNull View itemView,
             @NonNull View rootView
     ) {
         super(itemView);
-        this.rootView = rootView;
         ivHistoryItemObjectIcon = itemView.findViewById(
                 R.id.iv_item_history_object_type_icon
         );

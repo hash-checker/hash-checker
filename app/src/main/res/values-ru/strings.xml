@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">Если вам нравится приложение, вы можете оценить его в Google Play</string>
     <string name="rate_app_action">Оценить</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">Обновление загружено</string>
+    <string name="update_restart_action">Применить</string>
 </resources>

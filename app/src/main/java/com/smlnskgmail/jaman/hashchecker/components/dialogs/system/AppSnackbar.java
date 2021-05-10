@@ -6,13 +6,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 public class AppSnackbar {
 
@@ -20,48 +21,48 @@ public class AppSnackbar {
 
     private final Context context;
     private final View parent;
-    private final String message;
+    private final int messageResId;
     private String actionText;
     private View.OnClickListener action;
-    private final Vibrator vibrator;
-    private final int textColor;
+    private final SettingsHelper settingsHelper;
+    private final ThemeHelper themeHelper;
 
     public AppSnackbar(
             @NonNull Context context,
             @NonNull View parent,
-            @NonNull String message,
+            @StringRes int messageResId,
             @NonNull String actionText,
             @NonNull View.OnClickListener action,
-            @NonNull Vibrator vibrator,
-            int textColor
+            @NonNull SettingsHelper settingsHelper,
+            @NonNull ThemeHelper themeHelper
     ) {
         this.context = context;
         this.parent = parent;
-        this.message = message;
+        this.messageResId = messageResId;
         this.actionText = actionText;
         this.action = action;
-        this.vibrator = vibrator;
-        this.textColor = textColor;
+        this.settingsHelper = settingsHelper;
+        this.themeHelper = themeHelper;
     }
 
     public AppSnackbar(
             @NonNull Context context,
             @NonNull View parent,
-            @NonNull String message,
-            @NonNull Vibrator vibrator,
-            int textColor
+            @StringRes int messageResId,
+            @NonNull SettingsHelper settingsHelper,
+            @NonNull ThemeHelper themeHelper
     ) {
         this.context = context;
         this.parent = parent;
-        this.message = message;
-        this.vibrator = vibrator;
-        this.textColor = textColor;
+        this.messageResId = messageResId;
+        this.settingsHelper = settingsHelper;
+        this.themeHelper = themeHelper;
     }
 
     public void show() {
         Snackbar snackbar = Snackbar.make(
                 parent,
-                message,
+                messageResId,
                 Snackbar.LENGTH_SHORT
         );
         if (action != null) {
@@ -80,7 +81,9 @@ public class AppSnackbar {
                             COMMON_SNACKBAR_MARGIN
                     );
         }
-        snackbar.setActionTextColor(textColor);
+        snackbar.setActionTextColor(
+                themeHelper.getAccentColor()
+        );
         snackbar.getView().setBackground(
                 ContextCompat.getDrawable(
                         context,
@@ -92,14 +95,12 @@ public class AppSnackbar {
                 R.id.snackbar_text
         );
         tvSnackbar.setTextColor(
-                UIUtils.getCommonTextColor(
-                        context
-                )
+                themeHelper.getCommonTextColor()
         );
         snackbar.show();
 
-        if (SettingsHelper.getVibrateAccess(context)) {
-            vibrator.vibrate();
+        if (settingsHelper.getVibrateAccess()) {
+            new Vibrator(context).vibrate();
         }
     }
 

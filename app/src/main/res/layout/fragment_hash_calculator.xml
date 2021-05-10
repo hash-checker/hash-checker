@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fl_main_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,9 +26,9 @@
             android:padding="@dimen/common_margin"
             android:background="@drawable/bg_block"
             android:foreground="?android:selectableItemBackground"
-            android:drawableEnd="@drawable/ic_little_arrow_down"
             android:textSize="@dimen/text_size_info"
             android:textColor="?attr/colorAccent"
+            app:drawableEndCompat="@drawable/ic_little_arrow_down"
             tools:text="MD5"
             tools:ignore="UnusedAttribute" />
 
@@ -53,6 +54,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_field_custom_hash"
                     style="@style/AppEditTextHashValue"
+                    android:layout_width="0dp"
                     android:layout_weight="1">
 
                     <EditText
@@ -86,6 +88,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_field_generated_hash"
                     style="@style/AppEditTextHashValue"
+                    android:layout_width="0dp"
                     android:layout_weight="1">
 
                     <EditText

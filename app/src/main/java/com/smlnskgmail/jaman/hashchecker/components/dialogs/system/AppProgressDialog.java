@@ -18,7 +18,10 @@ public class AppProgressDialog {
             @NonNull Context context,
             @IdRes int textMessageResId
     ) {
-        ProgressDialog progressDialog = new ProgressDialog(context, R.style.AppAlertDialog);
+        ProgressDialog progressDialog = new ProgressDialog(
+                context,
+                R.style.AppAlertDialog
+        );
         progressDialog.setMessage(
                 context.getText(textMessageResId)
         );

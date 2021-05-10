@@ -21,21 +21,25 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.database.DatabaseExporter;
-import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
-import com.smlnskgmail.jaman.hashchecker.logic.feedback.FeedbackFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseExporter;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.feedback.ui.FeedbackFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.LanguagesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.AuthorWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.LibrariesWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.PrivacyPolicyWebLinksBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
@@ -45,11 +49,30 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import javax.inject.Inject;
+
 public class SettingsFragment extends PreferenceFragmentCompat implements AppBackClickTarget, AppResumeTarget {
+
+    @Inject
+    DatabaseHelper databaseHelper;
+
+    @Inject
+    SettingsHelper settingsHelper;
+
+    @Inject
+    ThemeHelper themeHelper;
 
     private ActionBar actionBar;
     private FragmentManager fragmentManager;
     private Context context;
+
+    // CPD-OFF
+    @Override
+    public void onAttach(@NonNull Context context) {
+        App.appComponent.inject(this);
+        super.onAttach(context);
+    }
+    // CPD-ON
 
     @SuppressWarnings("MethodParametersAnnotationCheck")
     @SuppressLint("ResourceType")
@@ -132,7 +155,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     }
 
     private void saveUserData() {
-        if (HelperFactory.getHelper().isHistoryItemsListIsEmpty()) {
+        if (databaseHelper.isHistoryItemsListIsEmpty()) {
             try {
                 Intent saveFileIntent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
                 saveFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -143,22 +166,26 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 );
                 startActivityForResult(
                         saveFileIntent,
-                        SettingsHelper.FILE_CREATE
+                        SharedPreferencesSettingsHelper.FILE_CREATE
                 );
             } catch (ActivityNotFoundException e) {
-                L.e(e);
-                UIUtils.showSnackbar(
+                LogUtils.e(e);
+                new AppSnackbar(
                         context,
                         getView(),
-                        getString(R.string.message_error_start_file_selector)
-                );
+                        R.string.message_error_start_file_selector,
+                        settingsHelper,
+                        themeHelper
+                ).show();
             }
         } else {
-            UIUtils.showSnackbar(
+            new AppSnackbar(
                     context,
                     getView(),
-                    getString(R.string.history_empty_view_message)
-            );
+                    R.string.history_empty_view_message,
+                    settingsHelper,
+                    themeHelper
+            ).show();
         }
     }
 
@@ -204,7 +231,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                 .setOnPreferenceClickListener(preference -> {
                     WebUtils.openGooglePlay(
                             context,
-                            getView()
+                            getView(),
+                            settingsHelper,
+                            themeHelper
                     );
                     return false;
                 });
@@ -247,9 +276,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
         super.onViewCreated(view, savedInstanceState);
         setHasOptionsMenu(true);
         view.setBackgroundColor(
-                UIUtils.getCommonBackgroundColor(
-                        context
-                )
+                themeHelper.getCommonBackgroundColor()
         );
         setDividerHeight(0);
     }
@@ -261,7 +288,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
             @Nullable Intent data
     ) {
         if (data != null) {
-            if (requestCode == SettingsHelper.FILE_CREATE) {
+            if (requestCode == SharedPreferencesSettingsHelper.FILE_CREATE) {
                 if (resultCode == Activity.RESULT_OK) {
                     copyUserDataToUserFolder(
                             data.getData()
@@ -274,7 +301,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void copyUserDataToUserFolder(@Nullable Uri uri) {
         if (uri != null) {
             try {
-                DatabaseExporter.exportDatabase(context);
+                DatabaseExporter.exportDatabase(
+                        context,
+                        databaseHelper
+                );
                 ParcelFileDescriptor descriptor = context.getApplicationContext().getContentResolver()
                         .openFileDescriptor(uri, "w");
                 if (descriptor != null) {
@@ -291,7 +321,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                     );
                 }
             } catch (IOException e) {
-                L.e(e);
+                LogUtils.e(e);
             }
         }
     }
@@ -347,10 +377,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
 
     @Override
     public void appResume() {
-        UIUtils.setActionBarTitle(
-                actionBar,
-                R.string.menu_title_settings
-        );
+        actionBar.setTitle(R.string.menu_title_settings);
         actionBar.setDisplayHomeAsUpEnabled(true);
         initializeActionBar();
     }

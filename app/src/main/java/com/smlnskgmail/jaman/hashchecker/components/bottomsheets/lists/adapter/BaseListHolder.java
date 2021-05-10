@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 import static com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem.DEFAULT_ICON_VALUE;
 
@@ -23,14 +23,18 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
 
     private final Context context;
 
+    private final ThemeHelper themeHelper;
+
     protected BaseListHolder(
             @NonNull Context themeContext,
-            @NonNull View itemView
+            @NonNull View itemView,
+            @NonNull ThemeHelper themeHelper
     ) {
         super(itemView);
 
         // Context with current theme
         context = themeContext;
+        this.themeHelper = themeHelper;
         tvItemTitle = itemView.findViewById(R.id.tv_item_list_title);
         ivItemPrimaryIcon = itemView.findViewById(R.id.iv_item_list_icon);
         ivItemAdditionalIcon = itemView.findViewById(
@@ -38,9 +42,7 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
         );
     }
 
-    protected void bind(
-            @NonNull final T listItem
-    ) {
+    protected void bind(@NonNull final T listItem) {
         itemView.setOnClickListener(v -> callItemClick());
         tvItemTitle.setText(listItem.getTitle(context));
         int primaryIconResId = listItem.getPrimaryIconResId();
@@ -48,8 +50,7 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
             ivItemPrimaryIcon.setImageResource(
                     listItem.getPrimaryIconResId()
             );
-            UIUtils.applyAccentColorToImage(
-                    context,
+            themeHelper.applyAccentColorToImage(
                     ivItemPrimaryIcon.getDrawable()
             );
         }
@@ -63,8 +64,7 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
             ivItemAdditionalIcon.setImageResource(
                     listItem.getAdditionalIconResId()
             );
-            UIUtils.applyAccentColorToImage(
-                    context,
+            themeHelper.applyAccentColorToImage(
                     ivItemAdditionalIcon.getDrawable()
             );
         }

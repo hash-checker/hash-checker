@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">Εάν σας αρέσει η εφαρμογή, μπορείτε να την αξιολογήσετε στο Google Play</string>
     <string name="rate_app_action">Τιμή</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">Μόλις πραγματοποιήθηκε λήψη μιας ενημέρωσης</string>
+    <string name="update_restart_action">Επανεκκίνηση</string>
 </resources>

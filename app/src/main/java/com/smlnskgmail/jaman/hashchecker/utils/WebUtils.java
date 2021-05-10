@@ -9,7 +9,9 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
+import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 public class WebUtils {
 
@@ -19,7 +21,9 @@ public class WebUtils {
 
     public static void openGooglePlay(
             @NonNull Context context,
-            @NonNull View view
+            @NonNull View view,
+            @NonNull SettingsHelper settingsHelper,
+            @NonNull ThemeHelper themeHelper
     ) {
         final String appPackageName = context.getPackageName();
         Uri link;
@@ -43,14 +47,14 @@ public class WebUtils {
                         )
                 );
             } catch (ActivityNotFoundException e2) {
-                L.e(e2);
-                UIUtils.showSnackbar(
+                LogUtils.e(e2);
+                new AppSnackbar(
                         context,
                         view,
-                        context.getString(
-                                R.string.message_error_start_google_play
-                        )
-                );
+                        R.string.message_error_start_google_play,
+                        settingsHelper,
+                        themeHelper
+                ).show();
             }
         }
     }
@@ -67,7 +71,7 @@ public class WebUtils {
                     )
             );
         } catch (ActivityNotFoundException e) {
-            L.e(e);
+            LogUtils.e(e);
         }
     }
 

@@ -36,7 +36,7 @@ public abstract class BaseListAdapter<T extends ListItem>
             int viewType
     ) {
         return getItemsHolder(
-                getBottomSheet().getContext(),
+                parent.getContext(),
                 LayoutInflater.from(parent.getContext()).inflate(
                         R.layout.item_list,
                         parent,

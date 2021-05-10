@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
 import android.provider.Settings;
@@ -26,6 +27,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
@@ -36,10 +38,10 @@ import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
-import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.FileManagerActivity;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashCalculatorTask;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.HashType;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashCalculatorTask;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.input.TextInputDialog;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.input.TextValueTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.types.UserActionTarget;
@@ -49,11 +51,12 @@ import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.u
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtypes.GenerateToBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtypes.HashTypeSelectTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.logic.logs.L;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.support.Clipboard;
-import com.smlnskgmail.jaman.hashchecker.logic.support.Vibrator;
-import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
 import java.io.File;
@@ -62,11 +65,25 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.inject.Inject;
+
 public class HashCalculatorFragment extends BaseFragment
         implements TextValueTarget, UserActionTarget, HashTypeSelectTarget {
 
     private static final int TEXT_MULTILINE_LINES_COUNT = 3;
     private static final int TEXT_SINGLE_LINE_LINES_COUNT = 1;
+
+    @Inject
+    DatabaseHelper databaseHelper;
+
+    @Inject
+    SettingsHelper settingsHelper;
+
+    @Inject
+    LangHelper langHelper;
+
+    @Inject
+    ThemeHelper themeHelper;
 
     private View mainScreen;
 
@@ -85,22 +102,20 @@ public class HashCalculatorFragment extends BaseFragment
     private Context context;
     private FragmentManager fragmentManager;
 
-    private Vibrator vibrator;
-
     private boolean startWithTextSelection;
     private boolean startWithFileSelection;
 
     private boolean isTextSelected;
 
+    private boolean isBackButtonDoubleTap = false;
+
     private final HashCalculatorTask.HashCalculatorTaskTarget hashCalculatorTaskTarget = hashValue -> {
         if (hashValue == null) {
             etGeneratedHash.setText("");
-            showSnackbarWithoutAction(
-                    getString(R.string.message_invalid_selected_source)
-            );
+            showSnackbarWithoutAction(R.string.message_invalid_selected_source);
         } else {
             etGeneratedHash.setText(hashValue);
-            if (SettingsHelper.canSaveResultToHistory(context)) {
+            if (settingsHelper.canSaveResultToHistory()) {
                 Date date = Calendar.getInstance().getTime();
                 String objectValue = tvSelectedObjectName.getText().toString();
                 HashType hashType = HashType.getHashTypeFromString(
@@ -113,22 +128,25 @@ public class HashCalculatorFragment extends BaseFragment
                         objectValue,
                         hashValue
                 );
-                HelperFactory.getHelper().addHistoryItem(historyItem);
+                databaseHelper.addHistoryItem(historyItem);
             }
-            if (SettingsHelper.canShowRateAppDialog(context)) {
-                SettingsHelper.increaseHashGenerationCount(context);
-                AppAlertDialog.show(
+            if (settingsHelper.canShowRateAppDialog()) {
+                settingsHelper.increaseHashGenerationCount();
+                new AppAlertDialog(
                         context,
                         R.string.settings_title_rate_app,
                         R.string.rate_app_message,
                         R.string.rate_app_action,
                         (dialog, which) -> WebUtils.openGooglePlay(
                                 context,
-                                getView()
-                        )
-                );
+                                getView(),
+                                settingsHelper,
+                                themeHelper
+                        ),
+                        themeHelper
+                ).show();
             } else {
-                SettingsHelper.increaseHashGenerationCount(context);
+                settingsHelper.increaseHashGenerationCount();
             }
         }
         if (progressDialog != null && progressDialog.isShowing()) {
@@ -136,17 +154,23 @@ public class HashCalculatorFragment extends BaseFragment
         }
     };
 
+    // CPD-OFF
+    @Override
+    public void onAttach(@NonNull Context context) {
+        App.appComponent.inject(this);
+        super.onAttach(context);
+    }
+    // CPD-ON
+
     private void showSnackbarWithoutAction(
-            @NonNull String message
+            @StringRes int messageResId
     ) {
         new AppSnackbar(
                 context,
                 mainScreen,
-                message,
-                vibrator,
-                UIUtils.getAccentColor(
-                        context
-                )
+                messageResId,
+                settingsHelper,
+                themeHelper
         ).show();
     }
 
@@ -174,7 +198,7 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     private void searchFile() {
-        if (SettingsHelper.isUsingInnerFileManager()) {
+        if (settingsHelper.isUsingInnerFileManager()) {
             if (ContextCompat.checkSelfPermission(
                     context,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -193,15 +217,11 @@ public class HashCalculatorFragment extends BaseFragment
                 getContext(),
                 FileManagerActivity.class
         );
-        String lastPath = SettingsHelper.getLastPathForInnerFileManager(
-                context
+        String lastPath = settingsHelper.getLastPathForInnerFileManager();
+        openExplorerIntent.putExtra(
+                FileManagerActivity.LAST_PATH,
+                lastPath
         );
-        if (lastPath != null) {
-            openExplorerIntent.putExtra(
-                    FileManagerActivity.LAST_PATH,
-                    lastPath
-            );
-        }
         startActivityForResult(
                 openExplorerIntent,
                 FileManagerActivity.FILE_SELECT_FROM_FILE_MANAGER
@@ -218,10 +238,8 @@ public class HashCalculatorFragment extends BaseFragment
                     FileManagerActivity.FILE_SELECT
             );
         } catch (ActivityNotFoundException e) {
-            L.e(e);
-            showSnackbarWithoutAction(
-                    getString(R.string.message_error_start_file_selector)
-            );
+            LogUtils.e(e);
+            showSnackbarWithoutAction(R.string.message_error_start_file_selector);
         }
     }
 
@@ -241,20 +259,20 @@ public class HashCalculatorFragment extends BaseFragment
                         context,
                         hashType,
                         tvSelectedObjectName.getText().toString(),
-                        hashCalculatorTaskTarget
+                        hashCalculatorTaskTarget,
+                        settingsHelper
                 ).execute();
             } else {
                 new HashCalculatorTask(
                         context,
                         hashType,
                         fileUri,
-                        hashCalculatorTaskTarget
+                        hashCalculatorTaskTarget,
+                        settingsHelper
                 ).execute();
             }
         } else {
-            showSnackbarWithoutAction(
-                    getString(R.string.message_select_object)
-            );
+            showSnackbarWithoutAction(R.string.message_select_object);
         }
     }
 
@@ -266,15 +284,11 @@ public class HashCalculatorFragment extends BaseFragment
                     etGeneratedHash.getText().toString()
             );
             showSnackbarWithoutAction(
-                    getString(
-                            equal ? R.string.message_match_result
-                                    : R.string.message_do_not_match_result
-                    )
+                    equal ? R.string.message_match_result
+                            : R.string.message_do_not_match_result
             );
         } else {
-            showSnackbarWithoutAction(
-                    getString(R.string.message_fill_fields)
-            );
+            showSnackbarWithoutAction(R.string.message_fill_fields);
         }
     }
 
@@ -296,9 +310,7 @@ public class HashCalculatorFragment extends BaseFragment
             );
             saveTextFile(filename);
         } else {
-            showSnackbarWithoutAction(
-                    getString(R.string.message_generate_hash_before_export)
-            );
+            showSnackbarWithoutAction(R.string.message_generate_hash_before_export);
         }
     }
 
@@ -313,13 +325,11 @@ public class HashCalculatorFragment extends BaseFragment
             );
             startActivityForResult(
                     saveTextFileIntent,
-                    SettingsHelper.FILE_CREATE
+                    SharedPreferencesSettingsHelper.FILE_CREATE
             );
         } catch (ActivityNotFoundException e) {
-            L.e(e);
-            showSnackbarWithoutAction(
-                    getString(R.string.message_error_start_file_selector)
-            );
+            LogUtils.e(e);
+            showSnackbarWithoutAction(R.string.message_error_start_file_selector);
         }
     }
 
@@ -374,7 +384,7 @@ public class HashCalculatorFragment extends BaseFragment
                         )
                 );
             } catch (Exception e) {
-                L.e(e);
+                LogUtils.e(e);
             }
         }
         return new File(uri.getPath()).getName();
@@ -411,33 +421,42 @@ public class HashCalculatorFragment extends BaseFragment
 
     @Override
     public void appBackClick() {
-        showSnachbarWithAction(
-                getView().findViewById(R.id.fl_main_screen),
-                getString(R.string.message_exit),
-                getString(R.string.action_exit_now),
-                v -> getActivity().finish()
-        );
+        if (!isBackButtonDoubleTap) {
+            isBackButtonDoubleTap = true;
+            showSnachbarWithAction(
+                    getView().findViewById(R.id.fl_main_screen),
+                    R.string.message_exit,
+                    getString(R.string.action_exit_now),
+                    v -> getActivity().finish()
+            );
+            new Handler().postDelayed(
+                    () -> isBackButtonDoubleTap = false,
+                    300
+            );
+        } else {
+            getActivity().finish();
+        }
     }
 
     private void showSnachbarWithAction(
             @NonNull View mainScreen,
-            @NonNull String message,
+            @StringRes int messageResId,
             @NonNull String actionText,
             @NonNull View.OnClickListener action
     ) {
         new AppSnackbar(
                 context,
                 mainScreen,
-                message,
+                messageResId,
                 actionText,
                 action,
-                vibrator,
-                UIUtils.getAccentColor(context)
+                settingsHelper,
+                themeHelper
         ).show();
     }
 
     private void validateTextCase() {
-        boolean useUpperCase = SettingsHelper.useUpperCase(context);
+        boolean useUpperCase = settingsHelper.useUpperCase();
         InputFilter[] fieldFilters = useUpperCase
                 ? new InputFilter[]{new InputFilter.AllCaps()}
                 : new InputFilter[]{};
@@ -467,10 +486,7 @@ public class HashCalculatorFragment extends BaseFragment
         tvSelectedHashType.setText(
                 hashType.getTypeAsString()
         );
-        SettingsHelper.saveHashTypeAsLast(
-                context,
-                hashType
-        );
+        settingsHelper.saveHashTypeAsLast(hashType);
     }
 
     @Override
@@ -480,7 +496,6 @@ public class HashCalculatorFragment extends BaseFragment
     ) {
         super.onViewCreated(view, savedInstanceState);
         context = getContext();
-        vibrator = new Vibrator(context);
 
         mainScreen = view.findViewById(R.id.fl_main_screen);
 
@@ -525,7 +540,7 @@ public class HashCalculatorFragment extends BaseFragment
 
         fragmentManager = getActivity().getSupportFragmentManager();
         tvSelectedHashType.setText(
-                SettingsHelper.getLastHashType(context).getTypeAsString()
+                settingsHelper.getLastHashType().getTypeAsString()
         );
         tvSelectedObjectName.setMovementMethod(
                 new ScrollingMovementMethod()
@@ -542,6 +557,12 @@ public class HashCalculatorFragment extends BaseFragment
         if (checkArguments(bundle)) {
             checkExternalDataPresence(bundle);
         }
+    }
+
+    @NonNull
+    @Override
+    protected LangHelper langHelper() {
+        return langHelper;
     }
 
     @NonNull
@@ -617,9 +638,7 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     private void showHashCopySnackbar() {
-        showSnackbarWithoutAction(
-                getString(R.string.history_item_click_text)
-        );
+        showSnackbarWithoutAction(R.string.history_item_click_text);
     }
 
     private void checkExternalDataPresence(@NonNull Bundle dataArguments) {
@@ -651,18 +670,19 @@ public class HashCalculatorFragment extends BaseFragment
                 if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     showSnachbarWithAction(
                             mainScreen,
-                            getString(R.string.message_request_storage_permission_error),
+                            R.string.message_request_storage_permission_error,
                             getString(R.string.common_again),
                             v -> requestStoragePermission()
                     );
                 } else {
-                    AppAlertDialog.show(
+                    new AppAlertDialog(
                             context,
                             R.string.title_permission_dialog,
                             R.string.message_request_storage_permission_denied,
                             R.string.menu_title_settings,
-                            (dialog, which) -> openAppSettings()
-                    );
+                            (dialog, which) -> openAppSettings(),
+                            themeHelper
+                    ).show();
                 }
             }
         }
@@ -680,7 +700,7 @@ public class HashCalculatorFragment extends BaseFragment
             intent.setData(uri);
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            L.e(e);
+            LogUtils.e(e);
             context.startActivity(
                     new Intent(android.provider.Settings.ACTION_SETTINGS)
             );
@@ -693,13 +713,11 @@ public class HashCalculatorFragment extends BaseFragment
         validateTextCase();
         checkMultilinePreference();
         checkFileManagerChanged();
-        hashTypeSelect(
-                SettingsHelper.getLastHashType(context)
-        );
+        hashTypeSelect(settingsHelper.getLastHashType());
     }
 
     private void checkMultilinePreference() {
-        if (SettingsHelper.isUsingMultilineHashFields(context)) {
+        if (settingsHelper.isUsingMultilineHashFields()) {
             validateMultilineFields(
                     etCustomHash,
                     TEXT_MULTILINE_LINES_COUNT,
@@ -736,13 +754,13 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     private void checkFileManagerChanged() {
-        if (SettingsHelper.refreshSelectedFile(context)) {
+        if (settingsHelper.refreshSelectedFile()) {
             if (!isTextSelected && fileUri != null) {
                 fileUri = null;
                 tvSelectedObjectName.setText(getString(R.string.message_select_object));
                 btnGenerateFrom.setText(getString(R.string.action_from));
             }
-            SettingsHelper.setRefreshSelectedFileStatus(context, false);
+            settingsHelper.setRefreshSelectedFileStatus(false);
         }
     }
 
@@ -762,11 +780,11 @@ public class HashCalculatorFragment extends BaseFragment
                 case FileManagerActivity.FILE_SELECT_FROM_FILE_MANAGER:
                     selectFileFromAppFileManager(data);
                     break;
-                case SettingsHelper.FILE_CREATE:
+                case SharedPreferencesSettingsHelper.FILE_CREATE:
                     try {
                         writeHashToFile(data.getData());
                     } catch (IOException e) {
-                        L.e(e);
+                        LogUtils.e(e);
                     }
                     break;
             }
@@ -775,10 +793,7 @@ public class HashCalculatorFragment extends BaseFragment
 
     private void selectFileFromSystemFileManager(@Nullable Uri uri) {
         validateSelectedFile(uri);
-        SettingsHelper.setGenerateFromShareIntentMode(
-                context,
-                false
-        );
+        settingsHelper.setGenerateFromShareIntentMode(false);
     }
 
     private void selectFileFromAppFileManager(@NonNull Intent data) {
@@ -786,10 +801,7 @@ public class HashCalculatorFragment extends BaseFragment
         if (path != null) {
             String lastPath = data.getStringExtra(FileManagerActivity.LAST_PATH);
             if (lastPath != null) {
-                SettingsHelper.savePathForInnerFileManager(
-                        context,
-                        lastPath
-                );
+                settingsHelper.savePathForInnerFileManager(lastPath);
             }
             Uri uri = Uri.fromFile(new File(path));
             validateSelectedFile(uri);

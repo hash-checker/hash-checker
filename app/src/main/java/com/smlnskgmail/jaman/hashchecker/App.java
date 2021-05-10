@@ -1,7 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
@@ -13,14 +12,29 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.Language;
+import com.github.aelstad.keccakj.provider.KeccakjProvider;
+import com.smlnskgmail.jaman.hashchecker.di.components.AppComponent;
+import com.smlnskgmail.jaman.hashchecker.di.components.DaggerAppComponent;
+import com.smlnskgmail.jaman.hashchecker.di.modules.DatabaseHelperModule;
+import com.smlnskgmail.jaman.hashchecker.di.modules.LangHelperModule;
+import com.smlnskgmail.jaman.hashchecker.di.modules.SettingsHelperModule;
+import com.smlnskgmail.jaman.hashchecker.di.modules.ThemeHelperModule;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.database.impl.ormlite.OrmLiteDatabaseHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.impl.LangHelperImpl;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.impl.ThemeHelperImpl;
 
+import java.security.Security;
 import java.util.Arrays;
 import java.util.Locale;
 
 public class App extends android.app.Application {
+
+    public static AppComponent appComponent;
 
     public static final String ACTION_START_WITH_TEXT
             = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT";
@@ -30,18 +44,52 @@ public class App extends android.app.Application {
     private static final String SHORTCUT_TEXT_ID = "shortcut_text";
     private static final String SHORTCUT_FILE_ID = "shortcut_file";
 
+    private DatabaseHelper databaseHelper;
+    private SettingsHelper settingsHelper;
+    private LangHelper langHelper;
+
     @Override
     public void onCreate() {
         super.onCreate();
-        if (!SettingsHelper.isShortcutsIsCreated(this)) {
+        Security.addProvider(new KeccakjProvider());
+        databaseHelper = new OrmLiteDatabaseHelper(this);
+        settingsHelper = new SharedPreferencesSettingsHelper(this);
+        langHelper = new LangHelperImpl(
+                this,
+                settingsHelper
+        );
+        setTheme(settingsHelper.getSelectedTheme().getThemeResId());
+        appComponent = DaggerAppComponent
+                .builder()
+                .databaseHelperModule(
+                        new DatabaseHelperModule(
+                                databaseHelper
+                        )
+                )
+                .settingsHelperModule(
+                        new SettingsHelperModule(
+                                settingsHelper
+                        )
+                )
+                .langHelperModule(
+                        new LangHelperModule(
+                                langHelper
+                        )
+                )
+                .themeHelperModule(
+                        new ThemeHelperModule(
+                                new ThemeHelperImpl(
+                                        this,
+                                        settingsHelper
+                                )
+                        )
+                )
+                .build();
+        if (!settingsHelper.isShortcutsIsCreated()) {
             createShortcuts();
-            SettingsHelper.saveShortcutsStatus(
-                    this,
-                    true
-            );
+            settingsHelper.saveShortcutsStatus(true);
         }
-        HelperFactory.setHelper(this);
-        setLocale(getApplicationContext());
+        setLocale();
     }
 
     private void createShortcuts() {
@@ -110,9 +158,9 @@ public class App extends android.app.Application {
                 .build();
     }
 
-    private void setLocale(@NonNull Context context) {
+    private void setLocale() {
         Language language = null;
-        if (!SettingsHelper.languageIsInitialized(context)) {
+        if (!settingsHelper.languageIsInitialized()) {
             String deviceLocale = Locale.getDefault().toString();
             for (Language lang : Language.values()) {
                 if (deviceLocale.equals(lang.code())) {
@@ -123,10 +171,7 @@ public class App extends android.app.Application {
             if (language == null) {
                 language = Language.EN;
             }
-            SettingsHelper.saveLanguage(
-                    context,
-                    language
-            );
+            langHelper.setLanguage(language);
         }
     }
 
@@ -135,17 +180,14 @@ public class App extends android.app.Application {
             @NonNull Configuration newConfig
     ) {
         super.onConfigurationChanged(newConfig);
-        setLocale(getApplicationContext());
+        setLocale();
     }
 
     @Override
     public void onTerminate() {
         super.onTerminate();
-        SettingsHelper.savePathForInnerFileManager(
-                this,
-                null
-        );
-        HelperFactory.releaseHelper();
+        settingsHelper.savePathForInnerFileManager(null);
+        databaseHelper.releaseHelper();
     }
 
 }

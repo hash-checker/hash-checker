@@ -68,7 +68,7 @@
     <string name="settings_title_multiline">Campos hash multilínea</string>
     <string name="settings_title_language">Idioma</string>
     <string name="settings_title_support">Apoyo</string>
-    <string name="settings_title_help_with_translation">Ayuda con la traduccion</string>
+    <string name="settings_title_help_with_translation">Ayuda con la traducción</string>
     <!-- feedback -->
     <string name="feedback_manufacturer">Fabricante</string>
     <string name="feedback_model">Modelo</string>
@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">Si te gusta la aplicación, puedes calificarla en Google Play</string>
     <string name="rate_app_action">Velocidad</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">Se acaba de descargar una actualización</string>
+    <string name="update_restart_action">Reanudar</string>
 </resources>

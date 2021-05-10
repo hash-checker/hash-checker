@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">Als je de app leuk vindt, kun je deze beoordelen in Google Play</string>
     <string name="rate_app_action">Beoordeel</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">Er is zojuist een update gedownload</string>
+    <string name="update_restart_action">Herstarten</string>
 </resources>

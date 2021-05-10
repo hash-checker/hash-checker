@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">앱이 마음에 들면 Google Play에서 평가할 수 있습니다.</string>
     <string name="rate_app_action">율</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">업데이트가 방금 다운로드되었습니다</string>
+    <string name="update_restart_action">재시작</string>
 </resources>

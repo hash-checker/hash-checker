@@ -1,8 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker;
 
-import com.smlnskgmail.jaman.hashchecker.appopen.OpenAppWithClipDataTest;
-import com.smlnskgmail.jaman.hashchecker.appopen.OpenAppWithIntentTest;
-import com.smlnskgmail.jaman.hashchecker.calculator.GenerateHashFromFileTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.GenerateHashFromTextTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.HashCalculatorTaskExceptionTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.crc.CRC32JdkHashCalculatorTest;
@@ -15,10 +12,7 @@ import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA384JdkHashCalcula
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA512JdkHashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.zeroleads.MessageDigestZeroLeadsJdkHashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.database.DatabaseExporterTest;
-import com.smlnskgmail.jaman.hashchecker.database.HelperFactoryTest;
 import com.smlnskgmail.jaman.hashchecker.feedback.FeedbackTest;
-import com.smlnskgmail.jaman.hashchecker.history.HistoryScrollTest;
-import com.smlnskgmail.jaman.hashchecker.history.HistoryTest;
 import com.smlnskgmail.jaman.hashchecker.rateapp.RateAppDialogTest;
 import com.smlnskgmail.jaman.hashchecker.screenrunner.ScreenRunnerTest;
 
@@ -39,17 +33,14 @@ import org.junit.runners.Suite;
 //        GenerateHashFromFileTest.class,
         GenerateHashFromTextTest.class,
         HashCalculatorTaskExceptionTest.class,
-        OpenAppWithIntentTest.class,
-        OpenAppWithClipDataTest.class,
-        HistoryTest.class,
-        HistoryScrollTest.class,
+//        OpenAppWithIntentTest.class,
+//        OpenAppWithClipDataTest.class,
         FeedbackTest.class,
         RateAppDialogTest.class,
         DatabaseExporterTest.class,
 //        HashValueInUpperCaseTest.class,
 //        HashValueInLowerCaseTest.class,
         ScreenRunnerTest.class,
-        HelperFactoryTest.class,
 })
 public class AndroidTestSuite {
 

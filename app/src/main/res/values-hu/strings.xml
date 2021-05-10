@@ -81,4 +81,7 @@
     <!-- rate app -->
     <string name="rate_app_message">Ha tetszik az alkalmazás, értékelheti a Google Playen</string>
     <string name="rate_app_action">Mérték</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">A frissítés éppen letöltésre került</string>
+    <string name="update_restart_action">Újrakezd</string>
 </resources>

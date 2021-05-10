@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.logic.database.HelperFactory;
+import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 
 import java.util.List;
@@ -12,17 +12,20 @@ import java.util.List;
 public class HistoryItemsLoaderTask extends AsyncTask<Void, List<HistoryItem>, List<HistoryItem>> {
 
     private final HistoryItemsLoaderTaskTarget<HistoryItem> loaderTaskTarget;
+    private final DatabaseHelper databaseHelper;
 
     public HistoryItemsLoaderTask(
-            @NonNull HistoryItemsLoaderTaskTarget<HistoryItem> loaderTaskTarget
+            @NonNull HistoryItemsLoaderTaskTarget<HistoryItem> loaderTaskTarget,
+            @NonNull DatabaseHelper databaseHelper
     ) {
         this.loaderTaskTarget = loaderTaskTarget;
+        this.databaseHelper = databaseHelper;
     }
 
     @SuppressWarnings({"MethodParametersAnnotationCheck", "MethodObjectReturnAnnotationCheck"})
     @Override
     protected List<HistoryItem> doInBackground(Void... voids) {
-        return HelperFactory.getHelper().historyItems(
+        return databaseHelper.historyItems(
                 loaderTaskTarget.dataPortion()
         );
     }

@@ -11,8 +11,8 @@ android {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 90
-        versionName '3.6.4'
+        versionCode 91
+        versionName '3.6.5'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
@@ -32,6 +32,7 @@ android {
                 'ru',
                 'sv',
                 'zh-rCN',
+                'vi',
                 'ja'
     }
     signingConfigs {
@@ -130,8 +131,16 @@ dependencies {
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.preference:preference:1.1.1'
 
+    // SHA-3
+    implementation 'com.github.aelstad:keccakj:1.1.0'
+
     // AdaptiveRecyclerView
     implementation 'com.github.fartem:adaptive-recycler-view:1.1.1'
+
+    // Dagger
+    implementation 'com.google.dagger:dagger:2.34.1'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.34.1'
+    androidTestAnnotationProcessor 'com.google.dagger:dagger-compiler:2.34.1'
 
     // ORMLite
     implementation 'com.j256.ormlite:ormlite-core:5.3'

@@ -20,15 +20,55 @@ import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
+import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
+import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity {
 
     public static final String URI_FROM_EXTERNAL_APP
             = "com.smlnskgmail.jaman.hashchecker.URI_FROM_EXTERNAL_APP";
+
+    private static final int MENU_MAIN_SECTION_SETTINGS = R.id.menu_main_section_settings;
+    private static final int MENU_MAIN_SECTION_HISTORY = R.id.menu_main_section_history;
+
+    @Inject
+    SettingsHelper settingsHelper;
+
+    @Inject
+    LangHelper langHelper;
+
+    @Inject
+    ThemeHelper themeHelper;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        App.appComponent.inject(this);
+        super.onCreate(savedInstanceState);
+    }
+
+    @NonNull
+    @Override
+    protected SettingsHelper settingsHelper() {
+        return settingsHelper;
+    }
+
+    @NonNull
+    @Override
+    protected LangHelper langHelper() {
+        return langHelper;
+    }
+
+    @NonNull
+    @Override
+    protected ThemeHelper themeHelper() {
+        return themeHelper;
+    }
 
     @Override
     public void create() {
@@ -52,30 +92,21 @@ public class MainActivity extends BaseActivity {
                             intent.getData()
                     )
             );
-            SettingsHelper.setGenerateFromShareIntentMode(
-                    this,
-                    true
-            );
+            settingsHelper.setGenerateFromShareIntentMode(true);
         } else if (externalFileUri != null) {
             mainFragment.setArguments(
                     getConfiguredBundleWithDataUri(
                             externalFileUri
                     )
             );
-            SettingsHelper.setGenerateFromShareIntentMode(
-                    this,
-                    true
-            );
-        } else {
+            settingsHelper.setGenerateFromShareIntentMode(true);
+        } else if (intent != null) {
             mainFragment.setArguments(
                     getBundleForShortcutAction(
                             intent.getAction()
                     )
             );
-            SettingsHelper.setGenerateFromShareIntentMode(
-                    this,
-                    false
-            );
+            settingsHelper.setGenerateFromShareIntentMode(false);
         }
         showFragment(mainFragment);
     }
@@ -131,10 +162,10 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         hideKeyboard();
         switch (item.getItemId()) {
-            case R.id.menu_main_section_settings:
+            case MENU_MAIN_SECTION_SETTINGS:
                 showFragment(new SettingsFragment());
                 break;
-            case R.id.menu_main_section_history:
+            case MENU_MAIN_SECTION_HISTORY:
                 showFragment(new HistoryFragment());
                 break;
 

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<resources>
+    <!-- menu -->
+    <string name="menu_title_settings">Cài đặt</string>
+    <string name="menu_title_feedback">Phản hồi</string>
+    <string name="menu_title_history">Lịch sử</string>
+    <!-- dialog titles -->
+    <string name="title_dialog_enter_text">Thêm văn bản</string>
+    <string name="title_warning_dialog">Cảnh báo</string>
+    <string name="title_permission_dialog">Cho phép</string>
+    <!-- messages -->
+    <string name="message_exit">Nhấn vào nút \"Thoát\" để đóng ứng dụng</string>
+    <string name="message_fill_fields">Nhập vào mỗi trường để so sánh</string>
+    <string name="message_generate_hash_before_export">Tạo giá trị băm trước khi xác nhận</string>
+    <string name="message_match_result">So sánh</string>
+    <string name="message_do_not_match_result">Không thể so sánh được</string>
+    <string name="message_generate_dialog">Đang tạo mã băm, vui lòng chờ…</string>
+    <string name="message_select_object">Nhấn vào \"Kho dữ liệu\" để chọn file cần thiết</string>
+    <string name="message_request_storage_permission_error">Không có quyền đọc bộ nhớ tệp thiết bị. Vui lòng thử lại</string>
+    <string name="message_request_storage_permission_denied">Không thể đọc bộ nhớ tệp thiết bị. Vui lòng đi tới Cài đặt và cho phép truy cập.</string>
+    <string name="message_error_start_file_selector">Không thể tìm thấy trình quản lý tệp trên thiết bị của bạn</string>
+    <string name="message_error_start_google_play">Không thể tìm thấy ứng dụng Google Play hoặc trình duyệt web trên thiết bị của bạn</string>
+    <string name="message_email_app_chooser">Chọn ứng dụng để gửi email</string>
+    <string name="message_change_theme">Để thay đổi chủ đề, bạn cần khởi động lại ứng dụng</string>
+    <string name="message_change_language">Để thay đổi ngôn ngữ, bạn cần khởi động lại ứng dụng</string>
+    <string name="message_invalid_selected_source">Không thể tạo giá trị băm từ nguồn đầu vào. Hãy thử kiểm tra nguồn đã chọn</string>
+    <string name="message_delete_all_history_items">Xoá toàn bộ lịch sử. Chắc chứ?</string>
+    <!-- commons -->
+    <string name="common_text">Văn bản</string>
+    <string name="common_file">File</string>
+    <string name="common_add">Thêm</string>
+    <string name="common_ok">Ok</string>
+    <string name="common_cancel">Hủy bỏ</string>
+    <string name="common_again">Thử lại</string>
+    <string name="common_date">Ngày</string>
+    <!-- actions -->
+    <string name="action_from">Chọn File</string>
+    <string name="action_select">Hoạt động</string>
+    <string name="action_exit_now">Thoát</string>
+    <string name="action_generate">Tạo</string>
+    <string name="action_compare">So sánh</string>
+    <string name="action_export_to_txt">Xuất dưới dạng \"txt</string>
+    <!-- themes -->
+    <string name="title_theme_light">Sáng</string>
+    <string name="title_theme_dark">Tối</string>
+    <!-- titles -->
+    <string name="title_custom_hash">Tùy chọn băm</string>
+    <string name="title_generated_hash">Băm đã tạo</string>
+    <!-- hints -->
+    <string name="hint_input_text">Nhập văn bản ở đây</string>
+    <!-- settings titles -->
+    <string name="settings_title_general">Chung</string>
+    <string name="settings_title_app">Ứng dụng</string>
+    <string name="settings_title_interface">Giao diện</string>
+    <string name="settings_title_about">Về</string>
+    <string name="settings_title_upper_case">Chữ in hoa</string>
+    <string name="settings_title_author">Tác giả</string>
+    <string name="settings_title_libraries">Thư viện</string>
+    <string name="settings_title_app_file_manager">Trình quản lý tập tin</string>
+    <string name="settings_title_version">Phiên bản</string>
+    <string name="settings_title_vibration">Rung</string>
+    <string name="settings_title_privacy">Riêng tư</string>
+    <string name="settings_title_export_user_data">Xuất dữ liệu người dùng</string>
+    <string name="settings_title_privacy_policy">Chính sách bảo mật</string>
+    <string name="settings_title_theme">Chủ đề</string>
+    <string name="settings_title_rate_app">Đánh giá ứng dụng</string>
+    <string name="settings_title_save_result_to_history">Lưu kết quả vào Lịch sử</string>
+    <string name="settings_title_multiline">Các trường băm đa dòng</string>
+    <string name="settings_title_language">Ngôn ngữ</string>
+    <string name="settings_title_support">Hỗ trợ</string>
+    <string name="settings_title_help_with_translation">Giúp chúng tôi dịch ứng dụng</string>
+    <!-- feedback -->
+    <string name="feedback_manufacturer">Nhà sản xuất</string>
+    <string name="feedback_model">Mô hình</string>
+    <string name="feedback_message">Nhắn tin</string>
+    <!-- file manager -->
+    <string name="file_manager_select_storage_title">Chọn nơi lưu trữ</string>
+    <!-- history -->
+    <string name="history_item_click_text">Giá trị băm đã được sao chép vào khay nhớ tạm</string>
+    <string name="history_empty_view_message">Không tìm thấy lịch sử</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Nếu bạn thích ứng dụng, bạn hãy xếp hạng nó trên Google Play</string>
+    <string name="rate_app_action">Tỉ lệ</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">Bản cập nhật vừa được tải xuống</string>
+    <string name="update_restart_action">Khởi động lại</string>
+</resources>
