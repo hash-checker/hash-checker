@@ -52,7 +52,7 @@ class HistoryItemHolder extends RecyclerView.ViewHolder {
         );
     }
 
-    void bind(
+    protected void bind(
             @NonNull HistoryItem historyItem
     ) {
         Context context = itemView.getContext();

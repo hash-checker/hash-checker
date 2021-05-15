@@ -5,6 +5,7 @@ import android.text.TextWatcher;
 
 public abstract class AppTextWatcher implements TextWatcher {
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     @Override
     public void beforeTextChanged(
             CharSequence s,
@@ -15,6 +16,7 @@ public abstract class AppTextWatcher implements TextWatcher {
 
     }
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     @Override
     public void onTextChanged(
             CharSequence s,
@@ -25,6 +27,7 @@ public abstract class AppTextWatcher implements TextWatcher {
 
     }
 
+    @SuppressWarnings("MethodParametersAnnotationCheck")
     @Override
     public void afterTextChanged(Editable s) {
 

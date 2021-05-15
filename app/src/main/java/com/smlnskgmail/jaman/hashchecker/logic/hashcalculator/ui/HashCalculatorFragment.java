@@ -251,10 +251,10 @@ public class HashCalculatorFragment extends BaseFragment
             HashType hashType = HashType.getHashTypeFromString(
                     tvSelectedHashType.getText().toString()
             );
-            progressDialog = AppProgressDialog.getDialog(
+            progressDialog = new AppProgressDialog(
                     context,
                     R.string.message_generate_dialog
-            );
+            ).getDialog();
             progressDialog.show();
             if (isTextSelected) {
                 new HashCalculatorTask(

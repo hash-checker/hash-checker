@@ -99,8 +99,8 @@ public class JdkHashCalculatorDigest {
     @NonNull
     public String result() {
         return !useCRC32
-                ? JdkHashTools.getStringFromByteArray(messageDigest.digest())
-                : JdkHashTools.getStringFromLong(crc32.getValue());
+                ? JdkHashUtils.getStringFromByteArray(messageDigest.digest())
+                : JdkHashUtils.getStringFromLong(crc32.getValue());
     }
 
 }

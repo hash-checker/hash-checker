@@ -83,9 +83,7 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
         return false;
     }
 
-    protected void callItemClick() {
-
-    }
+    protected abstract void callItemClick();
 
     @NonNull
     protected ImageView getIvItemAdditionalIcon() {

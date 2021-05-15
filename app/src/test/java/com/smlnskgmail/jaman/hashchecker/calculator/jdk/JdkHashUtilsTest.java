@@ -1,12 +1,12 @@
 package com.smlnskgmail.jaman.hashchecker.calculator.jdk;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk.JdkHashTools;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk.JdkHashUtils;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class JdkHashToolsTest {
+public class JdkHashUtilsTest {
 
     @Test
     public void stringFromBytesArray() {
@@ -32,7 +32,7 @@ public class JdkHashToolsTest {
 
         assertEquals(
                 "0cbc6611f5540bd0809a388dc95a615b",
-                JdkHashTools.getStringFromByteArray(input)
+                JdkHashUtils.getStringFromByteArray(input)
         );
     }
 
@@ -41,7 +41,7 @@ public class JdkHashToolsTest {
         // Text: Test (one word)
         assertEquals(
                 "784dd132",
-                JdkHashTools.getStringFromLong(2018365746)
+                JdkHashUtils.getStringFromLong(2018365746)
         );
     }
 
