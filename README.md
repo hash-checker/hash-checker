@@ -22,7 +22,7 @@
 
 ## About application
 
-Fast and simple application for generating and comparison hashes from files or text.
+Fast and simple application for generating and comparing hashes from file or text.
 
 ## Supporting algorithms
 
