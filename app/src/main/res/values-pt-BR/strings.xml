@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<resources>
+    <!-- menu -->
+    <string name="menu_title_settings">Configuração</string>
+    <string name="menu_title_feedback">Feedback</string>
+    <string name="menu_title_history">Histórico</string>
+    <!-- dialog titles -->
+    <string name="title_dialog_enter_text">Adicionar texto</string>
+    <string name="title_warning_dialog">Aviso</string>
+    <string name="title_permission_dialog">Permissão</string>
+    <!-- messages -->
+    <string name="message_exit">Duplo clique no botão de voltar para fechar a aplicação</string>
+    <string name="message_fill_fields">Preencha cada campo para comparação</string>
+    <string name="message_generate_hash_before_export">Gere valor do hash antes de exportar</string>
+    <string name="message_match_result">Coincide</string>
+    <string name="message_do_not_match_result">Não coincide</string>
+    <string name="message_generate_dialog">Gerando hash, por favor aguarde…</string>
+    <string name="message_select_object">Clique em Origem para selecionar o tipo da origem</string>
+    <string name="message_request_storage_permission_error">Permissão de leitura ao armazenamento não concedida. Favor tentar novamente</string>
+    <string name="message_request_storage_permission_denied">Permissão de leitura ao armazenamento não concedida. Vá em Configurações e conceda a permissão</string>
+    <string name="message_error_start_file_selector">Não encontrei um gerenciador de arquivos em seu dispositivo</string>
+    <string name="message_error_start_google_play">Não encontrei o aplicativo Google Play nem um navegador internet em seu dispositivo</string>
+    <string name="message_email_app_chooser">Escolha o aplicativo para enviar um e-mail</string>
+    <string name="message_change_theme">Para alterar o tema, é necessário reiniciar o aplicativo</string>
+    <string name="message_change_language">Para alterar o idioma, é necessário reiniciar o aplicativo</string>
+    <string name="message_invalid_selected_source">Não consigo gerar um valor hash da origem selecionada. Favor verificar a origem</string>
+    <string name="message_delete_all_history_items">Apagar todos os itens do histórico?</string>
+    <!-- commons -->
+    <string name="common_text">Texto</string>
+    <string name="common_file">Arquivo</string>
+    <string name="common_add">Adicionar</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancelar</string>
+    <string name="common_again">Repetir</string>
+    <string name="common_date">Data</string>
+    <!-- actions -->
+    <string name="action_from">Origem</string>
+    <string name="action_select">Ação</string>
+    <string name="action_exit_now">Sair agora</string>
+    <string name="action_generate">Gerar</string>
+    <string name="action_compare">Comparar</string>
+    <string name="action_export_to_txt">Exportar para \".txt\"</string>
+    <!-- themes -->
+    <string name="title_theme_light">Claro</string>
+    <string name="title_theme_dark">Escuro</string>
+    <!-- titles -->
+    <string name="title_custom_hash">Hash inserido</string>
+    <string name="title_generated_hash">Hash gerado</string>
+    <!-- hints -->
+    <string name="hint_input_text">Texto aqui</string>
+    <!-- settings titles -->
+    <string name="settings_title_general">Geral</string>
+    <string name="settings_title_app">Aplicação</string>
+    <string name="settings_title_interface">Interface</string>
+    <string name="settings_title_about">Sobre</string>
+    <string name="settings_title_upper_case">Maiúsculas</string>
+    <string name="settings_title_author">Autor</string>
+    <string name="settings_title_libraries">Bibliotecas</string>
+    <string name="settings_title_app_file_manager">Gerenciador de arquivos interno</string>
+    <string name="settings_title_version">Versão</string>
+    <string name="settings_title_vibration">Vibração</string>
+    <string name="settings_title_privacy">Privacidade</string>
+    <string name="settings_title_export_user_data">Exportar dados de usuário</string>
+    <string name="settings_title_privacy_policy">Política de Privacidade</string>
+    <string name="settings_title_theme">Tema</string>
+    <string name="settings_title_rate_app">Avaliar aplicativo</string>
+    <string name="settings_title_save_result_to_history">Salvar resultado no Histórico</string>
+    <string name="settings_title_multiline">Campos hash multilinha</string>
+    <string name="settings_title_language">Idioma</string>
+    <string name="settings_title_support">Suporte</string>
+    <string name="settings_title_help_with_translation">Ajudar na tradução</string>
+    <!-- feedback -->
+    <string name="feedback_manufacturer">Fabricante</string>
+    <string name="feedback_model">Modelo</string>
+    <string name="feedback_message">Mensagem</string>
+    <!-- file manager -->
+    <string name="file_manager_select_storage_title">Selecionar armazenamento</string>
+    <!-- history -->
+    <string name="history_item_click_text">Hash copiado para a área de transferência</string>
+    <string name="history_empty_view_message">Itens de histórico não encontrados</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Se você gosta do aplicativo, você pode avaliar ele no Google Play</string>
+    <string name="rate_app_action">Avaliar</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">Uma atualização acaba de ser baixada</string>
+    <string name="update_restart_action">Reiniciar</string>
+</resources>
