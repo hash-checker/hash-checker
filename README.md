@@ -146,7 +146,7 @@ If you don't see any error messages, submit your pull request.
 * [@fu7mu4](https://github.com/fu7mu4) as fu7mu4
 * [@AmrDeveloper](https://github.com/AmrDeveloper) as Amr Hesham
 * [@vipozdn](https://github.com/vipozdn) as Victor
-* [itamarc](https://github.com/itamarc) as Itamar Carvalho
+* [@itamarc](https://github.com/itamarc) as Itamar Carvalho
 
 ## Special thanks
 
