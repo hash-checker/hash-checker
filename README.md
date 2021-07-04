@@ -59,6 +59,7 @@ __Languages in app__
 | Ελληνικά | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/16) |
 | Русский | 2.9.6 | `Translated` |
 | Polski | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/20) |
+| Português (Brasil) | 3.7.0 | `Translated` |
 | 简体中文 | 2.9.9 | `Translated` |
 | 한국어 | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/19) |
 | עברית | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/17) |
@@ -144,6 +145,7 @@ If you don't see any error messages, submit your pull request.
 * [@firaja](https://github.com/firaja) as David Bertoldi
 * [@fu7mu4](https://github.com/fu7mu4) as fu7mu4
 * [@AmrDeveloper](https://github.com/AmrDeveloper) as Amr Hesham
+* [itamarc](https://github.com/itamarc) as Itamar Carvalho
 
 ## Special thanks
 
