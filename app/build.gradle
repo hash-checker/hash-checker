@@ -37,48 +37,41 @@ android {
     }
     signingConfigs {
         release {
-            final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
-            final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
-            final ALIAS_KEY = 'RELEASE_KEY_ALIAS'
-            final PASSWORD_KEY = 'RELEASE_KEY_PASSWORD'
-            def keystoreProperties = new Properties()
-            def keystorePropertiesFile = rootProject.file("local.properties")
-            if (keystorePropertiesFile.exists()) {
-                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-            }
-            if (keystoreProperties[KEYSTORE_PATH] == null) {
-                keystoreProperties.put(
-                        KEYSTORE_PATH,
-                        System.getenv(KEYSTORE_PATH)
-                )
-                keystoreProperties.put(
-                        KEYSTORE_PASSWORD,
-                        System.getenv(KEYSTORE_PASSWORD)
-                )
-                keystoreProperties.put(
-                        ALIAS_KEY,
-                        System.getenv(ALIAS_KEY)
-                )
-                keystoreProperties.put(
-                        PASSWORD_KEY,
-                        System.getenv(PASSWORD_KEY)
-                )
-            }
-            if (!keystoreProperties.isEmpty()) {
-                try {
+            def env = System.getenv();
+            if (env['CI'] && env['GITHUB_WORKFLOW'] == 'Release') {
+                final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
+                final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
+                final ALIAS_KEY = 'RELEASE_KEY_ALIAS'
+                final PASSWORD_KEY = 'RELEASE_KEY_PASSWORD'
+                def keystoreProperties = new Properties()
+                def keystorePropertiesFile = rootProject.file("local.properties")
+                if (keystorePropertiesFile.exists()) {
+                    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+                }
+                if (keystoreProperties[KEYSTORE_PATH] == null) {
+                    keystoreProperties.put(
+                            KEYSTORE_PATH,
+                            env[KEYSTORE_PATH]
+                    )
+                    keystoreProperties.put(
+                            KEYSTORE_PASSWORD,
+                            env[KEYSTORE_PASSWORD]
+                    )
+                    keystoreProperties.put(
+                            ALIAS_KEY,
+                            env[ALIAS_KEY]
+                    )
+                    keystoreProperties.put(
+                            PASSWORD_KEY,
+                            env[PASSWORD_KEY]
+                    )
+                }
+                if (!keystoreProperties.isEmpty()) {
                     storeFile file(keystoreProperties[KEYSTORE_PATH])
                     storePassword keystoreProperties[KEYSTORE_PASSWORD]
                     keyAlias keystoreProperties[ALIAS_KEY]
                     keyPassword keystoreProperties[PASSWORD_KEY]
-                } catch (ignore) {
-                    throw new InvalidUserDataException(
-                            "You should define sign keys in gradle.properties or int ENV."
-                    )
                 }
-            } else {
-                throw new InvalidUserDataException(
-                        "You should define sign keys in gradle.properties or in ENV."
-                )
             }
         }
     }
@@ -126,9 +119,9 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.preference:preference:1.1.1'
 
     // SHA-3
@@ -156,10 +149,10 @@ dependencies {
     // Android tests
     //noinspection GradleDependency
     androidTestImplementation 'androidx.annotation:annotation:1.1.0'
-    androidTestImplementation 'androidx.test:runner:1.3.0'
-    androidTestImplementation 'androidx.test:rules:1.3.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
 
     // Screenshots
     androidTestImplementation 'tools.fastlane:screengrab:2.0.0'
