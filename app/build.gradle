@@ -101,7 +101,7 @@ android {
 
     flavorDimensions "distribute-version"
     productFlavors {
-        thirdpartyStores {
+        thirdPartyStores {
             dimension "distribute-version"
             applicationIdSuffix ".thirdparty"
             versionNameSuffix "-thirdparty"
