@@ -55,22 +55,42 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Bundle
+      - name: Upload Release Bundle with Google Play services
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: 'app/build/outputs/bundle/release/hash-checker_release.aab'
-          asset_name: hash-checker_${{ github.event.head_commit.message }}.aab
+          asset_path: 'app/build/outputs/bundle/googlePlay/release/hash-checker_release.aab'
+          asset_name: hash-checker_google-play_${{ github.event.head_commit.message }}.aab
           asset_content_type: application/zip
 
-      - name: Upload Release APK
+      - name: Upload Release Bundle without Google Play services
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: 'app/build/outputs/apk/release/hash-checker_release.apk'
-          asset_name: hash-checker_${{ github.event.head_commit.message }}.apk
+          asset_path: 'app/build/outputs/bundle/thirdPartyStores/release/hash-checker_release.aab'
+          asset_name: hash-checker_no-google-play_${{ github.event.head_commit.message }}.aab
+          asset_content_type: application/zip
+
+      - name: Upload Release APK with Google Play services
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: 'app/build/outputs/apk/googlePlay/release/hash-checker_release.apk'
+          asset_name: hash-checker_google-play_${{ github.event.head_commit.message }}.apk
+          asset_content_type: application/zip
+
+      - name: Upload Release APK without Google Play services
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: 'app/build/outputs/apk/thirdPartyStores/release/hash-checker_release.apk'
+          asset_name: hash-checker_no-google-play_${{ github.event.head_commit.message }}.apk
           asset_content_type: application/zip
