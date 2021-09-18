@@ -98,6 +98,19 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    flavorDimensions "distribute-version"
+    productFlavors {
+        thirdPartyStores {
+            dimension "distribute-version"
+            applicationIdSuffix ".thirdparty"
+            versionNameSuffix "-thirdparty"
+        }
+        googlePlay {
+            dimension "distribute-version"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -164,5 +177,5 @@ dependencies {
     androidTestImplementation 'tools.fastlane:screengrab:2.0.0'
 
     // Google Play Core Library
-    implementation 'com.google.android.play:core:1.10.0'
+    googlePlayImplementation 'com.google.android.play:core:1.10.0'
 }
