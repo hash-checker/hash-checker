@@ -39,43 +39,58 @@ android {
         release {
             final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
             final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
-            final ALIAS_KEY = 'RELEASE_KEY_ALIAS'
-            final PASSWORD_KEY = 'RELEASE_KEY_PASSWORD'
+            final KEY_ALIAS = 'RELEASE_KEY_ALIAS'
+            final KEY_PASSWORD = 'RELEASE_KEY_PASSWORD'
             def keystoreProperties = new Properties()
             def keystorePropertiesFile = rootProject.file("local.properties")
             if (keystorePropertiesFile.exists()) {
                 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
             }
-            if (keystoreProperties[KEYSTORE_PATH] == null) {
-                keystoreProperties.put(
+            def hasSignConfigInProperties = propertiesHasSignConfig(
+                    keystoreProperties,
+                    KEYSTORE_PATH,
+                    KEYSTORE_PASSWORD,
+                    KEY_ALIAS,
+                    KEY_PASSWORD
+            )
+            if (!hasSignConfigInProperties) {
+                hasSignConfigInProperties = envHasSignConfig(
                         KEYSTORE_PATH,
-                        System.getenv(KEYSTORE_PATH)
-                )
-                keystoreProperties.put(
                         KEYSTORE_PASSWORD,
-                        System.getenv(KEYSTORE_PASSWORD)
+                        KEY_ALIAS,
+                        KEY_PASSWORD
                 )
-                keystoreProperties.put(
-                        ALIAS_KEY,
-                        System.getenv(ALIAS_KEY)
-                )
-                keystoreProperties.put(
-                        PASSWORD_KEY,
-                        System.getenv(PASSWORD_KEY)
-                )
+                if (hasSignConfigInProperties) {
+                    keystoreProperties.put(
+                            KEYSTORE_PATH,
+                            System.getenv(KEYSTORE_PATH)
+                    )
+                    keystoreProperties.put(
+                            KEYSTORE_PASSWORD,
+                            System.getenv(KEYSTORE_PASSWORD)
+                    )
+                    keystoreProperties.put(
+                            KEY_ALIAS,
+                            System.getenv(KEY_ALIAS)
+                    )
+                    keystoreProperties.put(
+                            KEY_PASSWORD,
+                            System.getenv(KEY_PASSWORD)
+                    )
+                }
             }
-            if (!keystoreProperties.isEmpty()) {
+            if (hasSignConfigInProperties) {
                 try {
                     storeFile file(keystoreProperties[KEYSTORE_PATH])
                     storePassword keystoreProperties[KEYSTORE_PASSWORD]
-                    keyAlias keystoreProperties[ALIAS_KEY]
-                    keyPassword keystoreProperties[PASSWORD_KEY]
+                    keyAlias keystoreProperties[KEY_ALIAS]
+                    keyPassword keystoreProperties[KEY_PASSWORD]
                 } catch (ignore) {
                     throw new InvalidUserDataException(
                             "You should define sign keys in gradle.properties or int ENV."
                     )
                 }
-            } else {
+            } else if (System.getenv('CI')) {
                 throw new InvalidUserDataException(
                         "You should define sign keys in gradle.properties or in ENV."
                 )
@@ -136,6 +151,27 @@ android {
             output.outputFileName = "hash-checker_${buildType}.apk"
         }
     }
+}
+
+static boolean propertiesHasSignConfig(
+        properties,
+        path,
+        password,
+        keyAlias,
+        keyPassword
+) {
+    def has = { key -> properties.containsKey(key) }
+    return has(path) && has(password) && has(keyAlias) && has(keyPassword)
+}
+
+static boolean envHasSignConfig(
+        path,
+        password,
+        keyAlias,
+        keyPassword
+) {
+    def has = { key -> System.getenv().containsKey(key) }
+    return has(path) && has(password) && has(keyAlias) && has(keyPassword)
 }
 
 dependencies {
