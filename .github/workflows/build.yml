@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  checks:
+  checks_and_tests:
     runs-on: ubuntu-latest
     env:
       RELEASE_KEYSTORE_PATH: ${{ secrets.RELEASE_KEYSTORE_PATH }}
@@ -36,7 +36,10 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew check --stacktrace
 
-  tests:
+      - name: Send JaCoCo coverage report to Codecov
+        uses: codecov/codecov-action@v1
+
+  intergation_tests:
     runs-on: macos-latest
     env:
       RELEASE_KEYSTORE_PATH: ${{ secrets.RELEASE_KEYSTORE_PATH }}
@@ -56,9 +59,6 @@ jobs:
         with:
           path: ~/.gradle/wrapper
           key: wrapper-${{ runner.os }}-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
-
-      - name: Run Unit tests
-        run: ./gradlew jacocoTestReport
 
       - name: Run Instrumentation tests
         uses: reactivecircus/android-emulator-runner@v2
