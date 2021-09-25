@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  checks:
+  checks_and_tests:
     runs-on: ubuntu-latest
     env:
       RELEASE_KEYSTORE_PATH: ${{ secrets.RELEASE_KEYSTORE_PATH }}
