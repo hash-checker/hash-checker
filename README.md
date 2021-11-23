@@ -22,23 +22,23 @@
 
 ## About application
 
-Fast and simple application that allows you to generate and compare hashes from files or text.
+Fast and simple application that allows you to generate and compare hashes from files and text.
 
 ## Supporting algorithms
 
 | Name | Since version | Status |
 | --- | --- | --- |
-| [MD5](https://en.wikipedia.org/wiki/MD5) | 1.0.0 | `Supporting` |
-| [SHA-1](https://en.wikipedia.org/wiki/SHA-1) | 1.0.0 | `Supporting` |
-| [SHA-224](https://en.wikipedia.org/wiki/SHA-2) | 1.4.0 | `Supporting` |
-| [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
-| [SHA-384](https://en.wikipedia.org/wiki/SHA-2) | 1.4.0 | `Supporting` |
-| [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
-| [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Supporting` |
-| [SHA3-224](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
-| [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
-| [SHA3-384](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
-| [SHA3-512](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
+| [MD5](https://en.wikipedia.org/wiki/MD5) | 1.0.0 | `Available` |
+| [SHA-1](https://en.wikipedia.org/wiki/SHA-1) | 1.0.0 | `Available` |
+| [SHA-224](https://en.wikipedia.org/wiki/SHA-2) | 1.4.0 | `Available` |
+| [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Available` |
+| [SHA-384](https://en.wikipedia.org/wiki/SHA-2) | 1.4.0 | `Available` |
+| [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Available` |
+| [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Available` |
+| [SHA3-224](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Available` |
+| [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Available` |
+| [SHA3-384](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Available` |
+| [SHA3-512](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Available` |
 
 ## Supporting languages
 
