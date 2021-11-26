@@ -79,12 +79,6 @@ public class MainActivity extends BaseActivity {
 
     @NonNull
     @Override
-    protected SettingsHelper settingsHelper() {
-        return settingsHelper;
-    }
-
-    @NonNull
-    @Override
     protected LangHelper langHelper() {
         return langHelper;
     }
