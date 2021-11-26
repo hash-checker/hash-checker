@@ -11,8 +11,8 @@ android {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 93
-        versionName '3.6.7'
+        versionCode 94
+        versionName '3.6.8'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
@@ -214,5 +214,5 @@ dependencies {
     androidTestImplementation 'tools.fastlane:screengrab:2.0.0'
 
     // Google Play Core Library
-    googlePlayImplementation 'com.google.android.play:core:1.10.0'
+    googlePlayImplementation 'com.google.android.play:core:1.10.2'
 }

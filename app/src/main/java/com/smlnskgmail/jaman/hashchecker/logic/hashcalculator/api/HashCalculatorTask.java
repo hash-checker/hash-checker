@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk.JdkHashCalculator;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 public class HashCalculatorTask extends AsyncTask<Void, String, String> {
@@ -19,7 +18,7 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
 
     private final HashCalculatorTaskTarget completeListener;
     private final HashType hashType;
-    private final SettingsHelper settingsHelper;
+//    private final SettingsHelper settingsHelper;
 
     private Uri fileUri;
     private String textValue;
@@ -30,10 +29,9 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
             @NonNull Context context,
             @NonNull HashType hashType,
             @NonNull Uri fileUri,
-            @NonNull HashCalculatorTaskTarget completeListener,
-            @NonNull SettingsHelper settingsHelper
+            @NonNull HashCalculatorTaskTarget completeListener
     ) {
-        this(context, hashType, completeListener, false, settingsHelper);
+        this(context, hashType, completeListener, false);
         this.fileUri = fileUri;
     }
 
@@ -41,10 +39,9 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
             @NonNull Context context,
             @NonNull HashType hashType,
             @NonNull String textValue,
-            @NonNull HashCalculatorTaskTarget completeListener,
-            @NonNull SettingsHelper settingsHelper
+            @NonNull HashCalculatorTaskTarget completeListener
     ) {
-        this(context, hashType, completeListener, true, settingsHelper);
+        this(context, hashType, completeListener, true);
         this.textValue = textValue;
 
     }
@@ -53,14 +50,12 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
             @NonNull Context context,
             @NonNull HashType hashType,
             @NonNull HashCalculatorTaskTarget completeListener,
-            boolean isText,
-            @NonNull SettingsHelper settingsHelper
+            boolean isText
     ) {
         this.hashType = hashType;
         this.context = context;
         this.completeListener = completeListener;
         this.isText = isText;
-        this.settingsHelper = settingsHelper;
     }
 
     @Nullable
@@ -68,7 +63,7 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
     @Override
     protected String doInBackground(Void... voids) {
         try {
-            HashCalculator hashCalculator = new JdkHashCalculator(settingsHelper);
+            HashCalculator hashCalculator = new JdkHashCalculator();
             hashCalculator.setHashType(hashType);
             return !isText
                     ? hashCalculator.fromFile(context, fileUri)

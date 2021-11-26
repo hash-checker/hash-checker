@@ -259,16 +259,14 @@ public class HashCalculatorFragment extends BaseFragment
                         context,
                         hashType,
                         tvSelectedObjectName.getText().toString(),
-                        hashCalculatorTaskTarget,
-                        settingsHelper
+                        hashCalculatorTaskTarget
                 ).execute();
             } else {
                 new HashCalculatorTask(
                         context,
                         hashType,
                         fileUri,
-                        hashCalculatorTaskTarget,
-                        settingsHelper
+                        hashCalculatorTaskTarget
                 ).execute();
             }
         } else {

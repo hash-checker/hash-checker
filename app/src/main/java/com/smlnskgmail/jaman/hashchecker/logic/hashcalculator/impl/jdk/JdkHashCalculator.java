@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import com.github.aelstad.keccakj.provider.Constants;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashCalculator;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 import java.io.IOException;
@@ -22,12 +21,12 @@ public class JdkHashCalculator implements HashCalculator {
 
     private JdkHashCalculatorDigest jdkHashCalculatorDigest;
 
-    private final SettingsHelper settingsHelper;
+//    private final SettingsHelper settingsHelper;
 
     public JdkHashCalculator(
-            @NonNull SettingsHelper settingsHelper
+//            @NonNull SettingsHelper settingsHelper
     ) {
-        this.settingsHelper = settingsHelper;
+//        this.settingsHelper = settingsHelper;
     }
 
     @Override
@@ -94,6 +93,7 @@ public class JdkHashCalculator implements HashCalculator {
         return null;
     }
 
+    @SuppressWarnings("CommentedOutCode")
     @Nullable
     private InputStream inputStreamFromUri(
             @NonNull Context context,
