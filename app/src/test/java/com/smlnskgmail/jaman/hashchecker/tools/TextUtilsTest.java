@@ -1,30 +1,30 @@
 package com.smlnskgmail.jaman.hashchecker.tools;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.TextTools;
+import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.TextUtils;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class TextToolsTest {
+public class TextUtilsTest {
 
     @Test
     public void compareText() {
         assertTrue(
-                TextTools.compareText(
+                TextUtils.compareText(
                         "equals",
                         "equals"
                 )
         );
         assertTrue(
-                TextTools.compareText(
+                TextUtils.compareText(
                         "Blob",
                         "BLOB"
                 )
         );
         assertFalse(
-                TextTools.compareText(
+                TextUtils.compareText(
                         "equals",
                         "blob"
                 )

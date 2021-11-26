@@ -9,6 +9,10 @@ import com.smlnskgmail.jaman.hashchecker.logic.themes.api.Theme;
 
 public interface SettingsHelper {
 
+    int FILE_CREATE = 3;
+
+    int HASH_GENERATION_COUNT_BEFORE_RATE_APP_DIALOG_CALL = 5;
+
     void saveHashTypeAsLast(@NonNull HashType hashType);
 
     @NonNull
@@ -25,8 +29,8 @@ public interface SettingsHelper {
 
     void savePathForInnerFileManager(@Nullable String path);
 
-    @NonNull
-    String getLastPathForInnerFileManager();
+//    @NonNull
+//    String getLastPathForInnerFileManager();
 
     boolean isUsingMultilineHashFields();
 

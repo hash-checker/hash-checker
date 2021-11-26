@@ -1,7 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.logic.history.ui.list;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,13 +14,7 @@ import java.util.List;
 
 public class HistoryItemsAdapter extends RecyclerView.Adapter<HistoryItemHolder> {
 
-    private final View rootView;
-
     private final List<HistoryItem> historyItems = new ArrayList<>();
-
-    public HistoryItemsAdapter(@NonNull View rootView) {
-        this.rootView = rootView;
-    }
 
     public void addHistoryItems(
             @NonNull List<HistoryItem> historyItems
@@ -49,8 +42,7 @@ public class HistoryItemsAdapter extends RecyclerView.Adapter<HistoryItemHolder>
                         R.layout.item_history_data,
                         viewGroup,
                         false
-                ),
-                rootView
+                )
         );
     }
 

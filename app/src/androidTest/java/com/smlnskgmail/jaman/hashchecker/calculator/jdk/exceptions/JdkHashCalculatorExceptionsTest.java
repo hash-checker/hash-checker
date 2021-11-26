@@ -97,12 +97,6 @@ class SettingsHelperMock implements SettingsHelper {
 
     }
 
-    @NonNull
-    @Override
-    public String getLastPathForInnerFileManager() {
-        return null;
-    }
-
     @Override
     public boolean isUsingMultilineHashFields() {
         return false;

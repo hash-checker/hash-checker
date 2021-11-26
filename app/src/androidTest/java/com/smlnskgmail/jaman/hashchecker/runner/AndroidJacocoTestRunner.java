@@ -11,14 +11,19 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 
+@SuppressWarnings("unused")
 public class AndroidJacocoTestRunner extends AndroidJUnitRunner {
 
+    @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public void finish(int resultCode, Bundle results) {
         try {
             Class rt = Class.forName("org.jacoco.agent.rt.RT");
             Method getAgent = rt.getMethod("getAgent");
-            Method dump = getAgent.getReturnType().getMethod("dump", boolean.class);
+            Method dump = getAgent.getReturnType().getMethod(
+                    "dump",
+                    boolean.class
+            );
             Object agent = getAgent.invoke(null);
             dump.invoke(agent, false);
         } catch (Throwable e) {

@@ -27,7 +27,7 @@ class FileDialogHolder extends RecyclerView.ViewHolder {
         this.fileClickListener = fileClickListener;
     }
 
-    void bind(@NonNull FileItem file) {
+    protected void bind(@NonNull FileItem file) {
         loadItem(file);
         itemView.setOnClickListener(
                 v -> fileClickListener.fileSelect(

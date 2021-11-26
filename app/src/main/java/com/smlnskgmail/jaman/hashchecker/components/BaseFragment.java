@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.components;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -76,11 +77,12 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (setAllowBackAction()) {
-            if (item.getItemId() == android.R.id.home) {
-                getActivity().onBackPressed();
-                return true;
+        if (setAllowBackAction() && item.getItemId() == android.R.id.home) {
+            Activity activity = getActivity();
+            if (activity != null) {
+                activity.onBackPressed();
             }
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -119,10 +121,13 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     @Override
     public void appBackClick() {
-        UIUtils.removeFragment(
-                getActivity().getSupportFragmentManager(),
-                this
-        );
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if (activity != null) {
+            UIUtils.removeFragment(
+                    activity.getSupportFragmentManager(),
+                    this
+            );
+        }
     }
 
 }

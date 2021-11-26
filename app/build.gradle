@@ -5,14 +5,14 @@ apply from: 'jacoco.gradle'
 apply from: 'utils.gradle'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion '30.0.3'
     defaultConfig {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 92
-        versionName '3.6.6'
+        targetSdkVersion 31
+        versionCode 93
+        versionName '3.6.7'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
@@ -39,43 +39,58 @@ android {
         release {
             final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
             final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
-            final ALIAS_KEY = 'RELEASE_KEY_ALIAS'
-            final PASSWORD_KEY = 'RELEASE_KEY_PASSWORD'
+            final KEY_ALIAS = 'RELEASE_KEY_ALIAS'
+            final KEY_PASSWORD = 'RELEASE_KEY_PASSWORD'
             def keystoreProperties = new Properties()
             def keystorePropertiesFile = rootProject.file("local.properties")
             if (keystorePropertiesFile.exists()) {
                 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
             }
-            if (keystoreProperties[KEYSTORE_PATH] == null) {
-                keystoreProperties.put(
+            def hasSignConfigInProperties = propertiesHasSignConfig(
+                    keystoreProperties,
+                    KEYSTORE_PATH,
+                    KEYSTORE_PASSWORD,
+                    KEY_ALIAS,
+                    KEY_PASSWORD
+            )
+            if (!hasSignConfigInProperties) {
+                hasSignConfigInProperties = envHasSignConfig(
                         KEYSTORE_PATH,
-                        System.getenv(KEYSTORE_PATH)
-                )
-                keystoreProperties.put(
                         KEYSTORE_PASSWORD,
-                        System.getenv(KEYSTORE_PASSWORD)
+                        KEY_ALIAS,
+                        KEY_PASSWORD
                 )
-                keystoreProperties.put(
-                        ALIAS_KEY,
-                        System.getenv(ALIAS_KEY)
-                )
-                keystoreProperties.put(
-                        PASSWORD_KEY,
-                        System.getenv(PASSWORD_KEY)
-                )
+                if (hasSignConfigInProperties) {
+                    keystoreProperties.put(
+                            KEYSTORE_PATH,
+                            System.getenv(KEYSTORE_PATH)
+                    )
+                    keystoreProperties.put(
+                            KEYSTORE_PASSWORD,
+                            System.getenv(KEYSTORE_PASSWORD)
+                    )
+                    keystoreProperties.put(
+                            KEY_ALIAS,
+                            System.getenv(KEY_ALIAS)
+                    )
+                    keystoreProperties.put(
+                            KEY_PASSWORD,
+                            System.getenv(KEY_PASSWORD)
+                    )
+                }
             }
-            if (!keystoreProperties.isEmpty()) {
+            if (hasSignConfigInProperties) {
                 try {
                     storeFile file(keystoreProperties[KEYSTORE_PATH])
                     storePassword keystoreProperties[KEYSTORE_PASSWORD]
-                    keyAlias keystoreProperties[ALIAS_KEY]
-                    keyPassword keystoreProperties[PASSWORD_KEY]
+                    keyAlias keystoreProperties[KEY_ALIAS]
+                    keyPassword keystoreProperties[KEY_PASSWORD]
                 } catch (ignore) {
                     throw new InvalidUserDataException(
                             "You should define sign keys in gradle.properties or int ENV."
                     )
                 }
-            } else {
+            } else if (System.getenv('CI')) {
                 throw new InvalidUserDataException(
                         "You should define sign keys in gradle.properties or in ENV."
                 )
@@ -98,6 +113,19 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    flavorDimensions "distribute-version"
+    productFlavors {
+        thirdPartyStores {
+            dimension "distribute-version"
+            applicationIdSuffix ".thirdparty"
+            versionNameSuffix "-thirdparty"
+        }
+        googlePlay {
+            dimension "distribute-version"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -125,10 +153,31 @@ android {
     }
 }
 
+static boolean propertiesHasSignConfig(
+        properties,
+        path,
+        password,
+        keyAlias,
+        keyPassword
+) {
+    def has = { key -> properties.containsKey(key) }
+    return has(path) && has(password) && has(keyAlias) && has(keyPassword)
+}
+
+static boolean envHasSignConfig(
+        path,
+        password,
+        keyAlias,
+        keyPassword
+) {
+    def has = { key -> System.getenv().containsKey(key) }
+    return has(path) && has(password) && has(keyAlias) && has(keyPassword)
+}
+
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.preference:preference:1.1.1'
 
     // SHA-3
@@ -154,12 +203,16 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
 
     // Android tests
+    //noinspection GradleDependency
     androidTestImplementation 'androidx.annotation:annotation:1.1.0'
-    androidTestImplementation 'androidx.test:runner:1.3.0'
-    androidTestImplementation 'androidx.test:rules:1.3.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
 
     // Screenshots
     androidTestImplementation 'tools.fastlane:screengrab:2.0.0'
+
+    // Google Play Core Library
+    googlePlayImplementation 'com.google.android.play:core:1.10.0'
 }

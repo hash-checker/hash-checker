@@ -16,7 +16,7 @@ import javax.inject.Inject;
 public class ActionSelectActionsBottomSheet extends ActionsBottomSheet {
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
     // CPD-OFF
     @Override
@@ -34,7 +34,7 @@ public class ActionSelectActionsBottomSheet extends ActionsBottomSheet {
 
     @NonNull
     @Override
-    List<Action> getActions() {
+    protected List<Action> getActions() {
         return Arrays.asList(
                 Action.GENERATE,
                 Action.COMPARE,

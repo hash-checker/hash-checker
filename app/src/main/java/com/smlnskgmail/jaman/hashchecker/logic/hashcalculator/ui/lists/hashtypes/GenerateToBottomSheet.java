@@ -20,10 +20,10 @@ import javax.inject.Inject;
 public class GenerateToBottomSheet extends BaseListBottomSheet<HashType> {
 
     @Inject
-    SettingsHelper settingsHelper;
+    public SettingsHelper settingsHelper;
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
     // CPD-OFF
     @Override

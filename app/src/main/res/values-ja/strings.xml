@@ -79,7 +79,7 @@
     <string name="history_item_click_text">クリップボードにコピーされたハッシュ値</string>
     <string name="history_empty_view_message">履歴項目が見つかりません</string>
     <!-- rate app -->
-    <string name="rate_app_message">あなたがアプリが好きなら、あなたはグーグルプレイでそれを評価することができます</string>
+    <string name="rate_app_message">あなたがアプリが好きなら、あなたはGoogle Playでそれを評価することができます</string>
     <string name="rate_app_action">割合</string>
     <!-- in-app updates -->
     <string name="update_downloaded_message">アップデートがダウンロードされました</string>

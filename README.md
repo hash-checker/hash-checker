@@ -22,7 +22,7 @@
 
 ## About application
 
-Fast and simple application for generating and comparison hashes from files or text.
+Fast and simple application that allows you to generate and compare hashes from files and text.
 
 ## Supporting algorithms
 
@@ -59,6 +59,7 @@ __Languages in app__
 | Ελληνικά | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/16) |
 | Русский | 2.9.6 | `Translated` |
 | Polski | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/20) |
+| Português (Brasil) | 3.7.0 | `Translated` |
 | 简体中文 | 2.9.9 | `Translated` |
 | 한국어 | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/19) |
 | עברית | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/17) |
@@ -124,7 +125,9 @@ If you have any question or feature idea for app, you can open issue on [this pa
 
 ## How to contribute
 
-Read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
+Start with [How to build a project](https://github.com/hash-checker/hash-checker/wiki/How-to-build-a-project).
+
+Before commit, read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
 
 ```shell
 $ ./gradlew clean
@@ -142,6 +145,8 @@ If you don't see any error messages, submit your pull request.
 * [@firaja](https://github.com/firaja) as David Bertoldi
 * [@fu7mu4](https://github.com/fu7mu4) as fu7mu4
 * [@AmrDeveloper](https://github.com/AmrDeveloper) as Amr Hesham
+* [@vipozdn](https://github.com/vipozdn) as Victor
+* [@itamarc](https://github.com/itamarc) as Itamar Carvalho
 
 ## Special thanks
 

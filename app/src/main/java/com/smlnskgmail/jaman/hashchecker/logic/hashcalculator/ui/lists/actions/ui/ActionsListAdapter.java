@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
@@ -22,7 +23,7 @@ public class ActionsListAdapter extends BaseListAdapter<Action> {
     ActionsListAdapter(
             @NonNull List<Action> items,
             @NonNull BaseListBottomSheet<Action> bottomSheet,
-            @NonNull UserActionTarget userActionTarget,
+            @Nullable UserActionTarget userActionTarget,
             @NonNull ThemeHelper themeHelper
     ) {
         super(items, bottomSheet);
@@ -61,9 +62,11 @@ public class ActionsListAdapter extends BaseListAdapter<Action> {
 
         @Override
         protected void callItemClick() {
-            userActionTarget.userActionSelect(
-                    action.getUserActionType()
-            );
+            if (userActionTarget != null) {
+                userActionTarget.userActionSelect(
+                        action.getUserActionType()
+                );
+            }
             dismissBottomSheet();
         }
 

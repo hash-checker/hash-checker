@@ -20,10 +20,10 @@ import javax.inject.Inject;
 public class ThemesBottomSheet extends BaseListBottomSheet<Theme> {
 
     @Inject
-    SettingsHelper settingsHelper;
+    public SettingsHelper settingsHelper;
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
     @Override
     public void onViewCreated(
