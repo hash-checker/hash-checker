@@ -4,16 +4,20 @@ This file contains all release notes from current project.
 
 Based on [keep a changelog](https://keepachangelog.com/en/1.0.0).
 
-## [3.6.6](https://github.com/fartem/hash-checker/releases/tag/3.6.2) - 2021-05-10
+## [3.6.7](https://github.com/fartem/hash-checker/releases/tag/3.6.7) - 2021-11-26
+
+Closed [3.6.7](https://github.com/hash-checker/hash-checker/projects/4).
+
+## [3.6.6](https://github.com/fartem/hash-checker/releases/tag/3.6.6) - 2021-05-10
 
 Fixed:
 - SHA-3 hash generation.
 
-## [3.6.5](https://github.com/fartem/hash-checker/releases/tag/3.6.2) - 2021-05-10
+## [3.6.5](https://github.com/fartem/hash-checker/releases/tag/3.6.5) - 2021-05-10
 
-## [3.6.4](https://github.com/fartem/hash-checker/releases/tag/3.6.2) - 2021-05-03
+## [3.6.4](https://github.com/fartem/hash-checker/releases/tag/3.6.4) - 2021-05-03
 
-## [3.6.3](https://github.com/fartem/hash-checker/releases/tag/3.6.2) - 2021-04-18
+## [3.6.3](https://github.com/fartem/hash-checker/releases/tag/3.6.3) - 2021-04-18
 
 ## [3.6.2](https://github.com/fartem/hash-checker/releases/tag/3.6.2) - 2021-02-23
 
