@@ -7,6 +7,7 @@ import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.espresso.ViewAssertion;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 // https://stackoverflow.com/a/37339656/10684765
 public class RecyclerViewItemCountAssertion implements ViewAssertion {
@@ -17,6 +18,7 @@ public class RecyclerViewItemCountAssertion implements ViewAssertion {
         this.expectedCount = expectedCount;
     }
 
+    @SuppressWarnings("rawtypes")
     @Override
     public void check(View view, NoMatchingViewException noViewFoundException) {
         if (noViewFoundException != null) {
@@ -24,7 +26,11 @@ public class RecyclerViewItemCountAssertion implements ViewAssertion {
         }
         RecyclerView recyclerView = (RecyclerView) view;
         RecyclerView.Adapter adapter = recyclerView.getAdapter();
-        assertEquals(adapter.getItemCount(), expectedCount);
+        assertNotNull(adapter);
+        assertEquals(
+                adapter.getItemCount(),
+                expectedCount
+        );
     }
 
 }

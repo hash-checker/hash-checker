@@ -1,23 +1,29 @@
 package com.smlnskgmail.jaman.hashchecker.components.dialogs.system;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 
-import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 
 import com.smlnskgmail.jaman.hashchecker.R;
 
 public class AppProgressDialog {
 
-    @NonNull
-    @SuppressLint("ResourceType")
-    public static ProgressDialog getDialog(
+    private final Context context;
+    private final int textMessageResId;
+
+    public AppProgressDialog(
             @NonNull Context context,
-            @IdRes int textMessageResId
+            @StringRes int textMessageResId
     ) {
+        this.context = context;
+        this.textMessageResId = textMessageResId;
+    }
+
+    @NonNull
+    public ProgressDialog getDialog() {
         ProgressDialog progressDialog = new ProgressDialog(
                 context,
                 R.style.AppAlertDialog

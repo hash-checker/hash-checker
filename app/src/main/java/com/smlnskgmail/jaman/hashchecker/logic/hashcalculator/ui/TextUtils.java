@@ -4,13 +4,17 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 
-public class TextTools {
+public class TextUtils {
+
+    private TextUtils() {
+
+    }
 
     public static boolean compareText(
             @NonNull String firstValue,
             @NonNull String secondValue
     ) {
-        return firstValue.equalsIgnoreCase(secondValue.toLowerCase());
+        return firstValue.equalsIgnoreCase(secondValue);
     }
 
     public static boolean fieldIsNotEmpty(@NonNull EditText fieldToCheck) {

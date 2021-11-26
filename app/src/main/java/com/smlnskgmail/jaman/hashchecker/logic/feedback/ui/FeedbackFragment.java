@@ -28,7 +28,7 @@ import javax.inject.Inject;
 public class FeedbackFragment extends BaseFragment {
 
     @Inject
-    LangHelper langHelper;
+    public LangHelper langHelper;
 
     private final String osVersion = Build.VERSION.RELEASE;
     private final String manufacturer = Build.MANUFACTURER;
@@ -98,11 +98,11 @@ public class FeedbackFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        String feedbackMessage = etFeedbackMessage.getText().toString();
         if (item.getItemId() == android.R.id.home) {
             getActivity().onBackPressed();
             return true;
         } else if (item.getItemId() == R.id.menu_action_send_feedback) {
+            String feedbackMessage = etFeedbackMessage.getText().toString();
             if (!feedbackMessage.isEmpty()) {
                 sendEmail(
                         feedback.getConfiguredMessage(

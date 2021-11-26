@@ -37,7 +37,7 @@
     <string name="action_from">Da</string>
     <string name="action_select">Azione</string>
     <string name="action_exit_now">Esci adesso</string>
-    <string name="action_generate">Crea</string>
+    <string name="action_generate">Genera</string>
     <string name="action_compare">Confronta</string>
     <string name="action_export_to_txt">Esporta come \".txt\"</string>
     <!-- themes -->
@@ -52,7 +52,7 @@
     <string name="settings_title_general">Generale</string>
     <string name="settings_title_app">Applicazione</string>
     <string name="settings_title_interface">Interfaccia</string>
-    <string name="settings_title_about">About</string>
+    <string name="settings_title_about">Informazioni</string>
     <string name="settings_title_upper_case">Lettere maiuscole</string>
     <string name="settings_title_author">Autore</string>
     <string name="settings_title_libraries">Librerie</string>
@@ -76,7 +76,7 @@
     <!-- file manager -->
     <string name="file_manager_select_storage_title">Seleziona memoria</string>
     <!-- history -->
-    <string name="history_item_click_text">Hash copiato nella clipoard</string>
+    <string name="history_item_click_text">Valore hash copiato negli appunti</string>
     <string name="history_empty_view_message">Elementi della cronologia non trovati</string>
     <!-- rate app -->
     <string name="rate_app_message">Se ti piace l\'app, puoi valutarla su Google Play</string>

@@ -1,5 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 
@@ -12,8 +13,8 @@ import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.B
 import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
-import com.smlnskgmail.jaman.hashchecker.logic.support.Restart;
 import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
 import java.util.List;
 
@@ -71,9 +72,10 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
                                 languageAtPosition
                         );
                         dialog.dismiss();
-                        Restart.restartApp(
-                                getBottomSheet().getActivity()
-                        );
+                        Activity activity = getBottomSheet().getActivity();
+                        if (activity != null) {
+                            AppUtils.restartApp(activity);
+                        }
                     },
                     themeHelper
             ).show();

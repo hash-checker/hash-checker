@@ -38,24 +38,18 @@ public class MainActivity extends BaseActivity {
     private static final int MENU_MAIN_SECTION_HISTORY = R.id.menu_main_section_history;
 
     @Inject
-    SettingsHelper settingsHelper;
+    public SettingsHelper settingsHelper;
 
     @Inject
-    LangHelper langHelper;
+    public LangHelper langHelper;
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         App.appComponent.inject(this);
         super.onCreate(savedInstanceState);
-    }
-
-    @NonNull
-    @Override
-    protected SettingsHelper settingsHelper() {
-        return settingsHelper;
     }
 
     @NonNull

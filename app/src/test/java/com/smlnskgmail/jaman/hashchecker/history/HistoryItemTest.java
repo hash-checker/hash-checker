@@ -4,6 +4,7 @@ import com.smlnskgmail.jaman.hashchecker.entities.BaseEntityTest;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -108,7 +109,7 @@ public class HistoryItemTest extends BaseEntityTest {
         );
         assertNotEquals(
                 new HistoryItem(
-                        null,
+                        Calendar.getInstance().getTime(),
                         hashType,
                         isFile,
                         objectValue,

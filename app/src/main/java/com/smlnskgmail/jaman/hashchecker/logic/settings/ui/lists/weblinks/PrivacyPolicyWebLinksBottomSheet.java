@@ -15,7 +15,7 @@ import javax.inject.Inject;
 public class PrivacyPolicyWebLinksBottomSheet extends WebLinksBottomSheet {
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
     // CPD-OFF
     @Override
@@ -33,7 +33,7 @@ public class PrivacyPolicyWebLinksBottomSheet extends WebLinksBottomSheet {
 
     @NonNull
     @Override
-    List<WebLink> getLinks() {
+    protected List<WebLink> getLinks() {
         return Collections.singletonList(
                 WebLink.PRIVACY_POLICY
         );

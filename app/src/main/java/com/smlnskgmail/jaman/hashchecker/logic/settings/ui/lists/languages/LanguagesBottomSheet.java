@@ -18,10 +18,10 @@ import javax.inject.Inject;
 public class LanguagesBottomSheet extends BaseListBottomSheet<Language> {
 
     @Inject
-    LangHelper langHelper;
+    public LangHelper langHelper;
 
     @Inject
-    ThemeHelper themeHelper;
+    public ThemeHelper themeHelper;
 
     // CPD-OFF
     @Override
