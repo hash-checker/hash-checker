@@ -61,7 +61,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: 'app/build/outputs/bundle/googlePlay/release/hash-checker_release.aab'
+          asset_path: 'app/build/outputs/bundle/googlePlayRelease/hash-checker_release.aab'
           asset_name: hash-checker_google-play_${{ github.event.head_commit.message }}.aab
           asset_content_type: application/zip
 
@@ -71,7 +71,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: 'app/build/outputs/bundle/thirdPartyStores/release/hash-checker_release.aab'
+          asset_path: 'app/build/outputs/bundle/thirdPartyStoresRelease/hash-checker_release.aab'
           asset_name: hash-checker_no-google-play_${{ github.event.head_commit.message }}.aab
           asset_content_type: application/zip
 

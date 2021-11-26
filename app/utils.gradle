@@ -1,12 +1,24 @@
 // Rename output release bundle
 tasks.whenTaskAdded { task ->
-    def releaseFlavorName = 'release'
+    def releaseFlavorNameGooglePlay = 'googlePlayRelease'
+    def releaseFlavorBundleSuffixGooglePlay = 'googlePlay-release'
+    def releaseFlavorNameThirdPartyStores = 'thirdPartyStoresRelease'
+    def releaseFlavorBundleSuffixThirdPartyStores = 'thirdPartyStores-release'
     if (task.name.startsWith('bundle')) {
-        def flavor = task.name.substring('bundle'.length()).uncapitalize()
-        if (flavor == releaseFlavorName) {
+        def flavor = null
+        def suffix = null
+        def taskName = task.name.substring('bundle'.length()).uncapitalize()
+        if (taskName == releaseFlavorNameGooglePlay) {
+            flavor = releaseFlavorNameGooglePlay
+            suffix = releaseFlavorBundleSuffixGooglePlay
+        } else if (taskName == releaseFlavorNameThirdPartyStores) {
+            flavor = releaseFlavorNameThirdPartyStores
+            suffix = releaseFlavorBundleSuffixThirdPartyStores
+        }
+        if (flavor != null) {
             task.doLast {
-                def defaultBundleName = "build/outputs/bundle/$releaseFlavorName/app-${releaseFlavorName}.aab"
-                def outputBundleName = "build/outputs/bundle/$releaseFlavorName/hash-checker_release.aab"
+                def defaultBundleName = "build/outputs/bundle/$flavor/app-${suffix}.aab"
+                def outputBundleName = "build/outputs/bundle/$flavor/hash-checker_release.aab"
                 ant.rename src: defaultBundleName,
                         dest: outputBundleName,
                         replace: true
