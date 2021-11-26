@@ -11,7 +11,7 @@ android {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 92
+        versionCode 93
         versionName '3.6.7'
         vectorDrawables.useSupportLibrary = true
 
@@ -37,41 +37,63 @@ android {
     }
     signingConfigs {
         release {
-            def env = System.getenv();
-            if (env['CI'] && env['GITHUB_WORKFLOW'] == 'Release') {
-                final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
-                final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
-                final ALIAS_KEY = 'RELEASE_KEY_ALIAS'
-                final PASSWORD_KEY = 'RELEASE_KEY_PASSWORD'
-                def keystoreProperties = new Properties()
-                def keystorePropertiesFile = rootProject.file("local.properties")
-                if (keystorePropertiesFile.exists()) {
-                    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-                }
-                if (keystoreProperties[KEYSTORE_PATH] == null) {
+            final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
+            final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
+            final KEY_ALIAS = 'RELEASE_KEY_ALIAS'
+            final KEY_PASSWORD = 'RELEASE_KEY_PASSWORD'
+            def keystoreProperties = new Properties()
+            def keystorePropertiesFile = rootProject.file("local.properties")
+            if (keystorePropertiesFile.exists()) {
+                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+            }
+            def hasSignConfigInProperties = propertiesHasSignConfig(
+                    keystoreProperties,
+                    KEYSTORE_PATH,
+                    KEYSTORE_PASSWORD,
+                    KEY_ALIAS,
+                    KEY_PASSWORD
+            )
+            if (!hasSignConfigInProperties) {
+                hasSignConfigInProperties = envHasSignConfig(
+                        KEYSTORE_PATH,
+                        KEYSTORE_PASSWORD,
+                        KEY_ALIAS,
+                        KEY_PASSWORD
+                )
+                if (hasSignConfigInProperties) {
                     keystoreProperties.put(
                             KEYSTORE_PATH,
-                            env[KEYSTORE_PATH]
+                            System.getenv(KEYSTORE_PATH)
                     )
                     keystoreProperties.put(
                             KEYSTORE_PASSWORD,
-                            env[KEYSTORE_PASSWORD]
+                            System.getenv(KEYSTORE_PASSWORD)
                     )
                     keystoreProperties.put(
-                            ALIAS_KEY,
-                            env[ALIAS_KEY]
+                            KEY_ALIAS,
+                            System.getenv(KEY_ALIAS)
                     )
                     keystoreProperties.put(
-                            PASSWORD_KEY,
-                            env[PASSWORD_KEY]
+                            KEY_PASSWORD,
+                            System.getenv(KEY_PASSWORD)
                     )
                 }
-                if (!keystoreProperties.isEmpty()) {
+            }
+            if (hasSignConfigInProperties) {
+                try {
                     storeFile file(keystoreProperties[KEYSTORE_PATH])
                     storePassword keystoreProperties[KEYSTORE_PASSWORD]
-                    keyAlias keystoreProperties[ALIAS_KEY]
-                    keyPassword keystoreProperties[PASSWORD_KEY]
+                    keyAlias keystoreProperties[KEY_ALIAS]
+                    keyPassword keystoreProperties[KEY_PASSWORD]
+                } catch (ignore) {
+                    throw new InvalidUserDataException(
+                            "You should define sign keys in gradle.properties or int ENV."
+                    )
                 }
+            } else if (System.getenv('CI')) {
+                throw new InvalidUserDataException(
+                        "You should define sign keys in gradle.properties or in ENV."
+                )
             }
         }
     }
@@ -91,6 +113,19 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    flavorDimensions "distribute-version"
+    productFlavors {
+        thirdPartyStores {
+            dimension "distribute-version"
+            applicationIdSuffix ".thirdparty"
+            versionNameSuffix "-thirdparty"
+        }
+        googlePlay {
+            dimension "distribute-version"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -116,6 +151,27 @@ android {
             output.outputFileName = "hash-checker_${buildType}.apk"
         }
     }
+}
+
+static boolean propertiesHasSignConfig(
+        properties,
+        path,
+        password,
+        keyAlias,
+        keyPassword
+) {
+    def has = { key -> properties.containsKey(key) }
+    return has(path) && has(password) && has(keyAlias) && has(keyPassword)
+}
+
+static boolean envHasSignConfig(
+        path,
+        password,
+        keyAlias,
+        keyPassword
+) {
+    def has = { key -> System.getenv().containsKey(key) }
+    return has(path) && has(password) && has(keyAlias) && has(keyPassword)
 }
 
 dependencies {
@@ -156,4 +212,7 @@ dependencies {
 
     // Screenshots
     androidTestImplementation 'tools.fastlane:screengrab:2.0.0'
+
+    // Google Play Core Library
+    googlePlayImplementation 'com.google.android.play:core:1.10.0'
 }

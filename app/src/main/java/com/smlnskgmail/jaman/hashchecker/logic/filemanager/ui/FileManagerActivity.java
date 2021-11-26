@@ -4,14 +4,14 @@ import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
 
 public abstract class FileManagerActivity extends BaseActivity implements FileSelectTarget {
 
-    public static final String FILE_SELECT_DATA = "file_select_data";
-    public static final String LAST_PATH = "last_path";
-
+    //    public static final String FILE_SELECT_DATA = "file_select_data";
+//    public static final String LAST_PATH = "last_path";
+//
     public static final int FILE_SELECT = 1;
-    public static final int FILE_SELECT_FROM_FILE_MANAGER = 2;
-
-    public static final int PERMISSION_STORAGE = 3;
-
+//    public static final int FILE_SELECT_FROM_FILE_MANAGER = 2;
+//
+//    public static final int PERMISSION_STORAGE = 3;
+//
 //    private static final String BACK_FOLDER = "../";
 //
 //    @Inject
