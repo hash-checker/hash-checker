@@ -54,4 +54,9 @@ public abstract class BaseListBottomSheet<T extends ListItem> extends BottomShee
     @NonNull
     protected abstract BaseListAdapter<T> getItemsAdapter();
 
+    @Nullable
+    public String key() {
+        return getClass().getCanonicalName();
+    }
+
 }

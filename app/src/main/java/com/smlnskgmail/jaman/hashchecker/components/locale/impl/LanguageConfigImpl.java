@@ -10,27 +10,27 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.Language;
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.components.settings.api.Settings;
 
 import java.util.Locale;
 
 public class LanguageConfigImpl implements LanguageConfig {
 
     private final Context context;
-    private final SettingsHelper settingsHelper;
+    private final Settings settings;
 
     public LanguageConfigImpl(
             @NonNull Context context,
-            @NonNull SettingsHelper settingsHelper
+            @NonNull Settings settings
     ) {
         this.context = context;
-        this.settingsHelper = settingsHelper;
+        this.settings = settings;
     }
 
     @Override
     public void setLanguage(@NonNull Language language) {
         setLanguage(context, language);
-        settingsHelper.saveLanguage(language);
+        settings.saveLanguage(language);
     }
 
     private void setLanguage(
@@ -72,7 +72,7 @@ public class LanguageConfigImpl implements LanguageConfig {
     @NonNull
     @Override
     public Language currentLanguage() {
-        return settingsHelper.getLanguage();
+        return settings.getLanguage();
     }
 
 }

@@ -1,5 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.calculator.jdk.exceptions;
 
+import static org.junit.Assert.assertNull;
+
 import android.content.Context;
 import android.net.Uri;
 
@@ -8,11 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk.JdkHashCalculator;
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.Language;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.components.settings.api.Settings;
 import com.smlnskgmail.jaman.hashchecker.components.theme.api.Theme;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashCalculator;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,19 +22,13 @@ import org.junit.runner.RunWith;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-
-import static org.junit.Assert.assertNull;
 
 @RunWith(AndroidJUnit4.class)
 public class JdkHashCalculatorExceptionsTest {
 
     @Test
-    public void runTest() throws NoSuchAlgorithmException, NoSuchProviderException {
-        JdkHashCalculator jdkHashCalculator = new JdkHashCalculator(
-                new SettingsHelperMock()
-        );
+    public void runTest() {
+        JdkHashCalculator jdkHashCalculator = new JdkHashCalculator();
         jdkHashCalculator.setHashType(HashType.MD5);
         assertNull(
                 jdkHashCalculator.fromFile(
@@ -58,7 +54,7 @@ class InputStreamMock extends InputStream {
     }
 }
 
-class SettingsHelperMock implements SettingsHelper {
+class SettingsMock implements Settings {
 
     @Override
     public void saveHashTypeAsLast(@NonNull HashType hashType) {

@@ -1,10 +1,10 @@
 package com.smlnskgmail.jaman.hashchecker.calculator.jdk;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk.JdkHashUtils;
+import static org.junit.Assert.assertEquals;
+
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashUtils;
 
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
 
 public class JdkHashUtilsTest {
 

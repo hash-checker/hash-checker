@@ -1,12 +1,12 @@
 package com.smlnskgmail.jaman.hashchecker.ui;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import android.os.Environment;
 
 import java.io.File;
 import java.io.IOException;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class TestFileUtils {
 

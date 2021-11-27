@@ -1,5 +1,8 @@
 package com.smlnskgmail.jaman.hashchecker.ui.matchers;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -10,9 +13,6 @@ import androidx.test.espresso.ViewAction;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
-
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 
 public class TextMatcher {
 

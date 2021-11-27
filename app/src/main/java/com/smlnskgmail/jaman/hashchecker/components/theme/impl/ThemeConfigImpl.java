@@ -11,28 +11,28 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.settings.api.Settings;
 import com.smlnskgmail.jaman.hashchecker.components.theme.api.Theme;
 import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 
 public class ThemeConfigImpl implements ThemeConfig {
 
     private final Context context;
-    private final SettingsHelper settingsHelper;
+    private final Settings settings;
 
     public ThemeConfigImpl(
             @NonNull Context context,
-            @NonNull SettingsHelper settingsHelper
+            @NonNull Settings settings
     ) {
         this.context = context;
-        this.settingsHelper = settingsHelper;
+        this.settings = settings;
     }
 
     @Override
     public void setCurrentTheme(
             @NonNull Theme theme
     ) {
-        settingsHelper.saveTheme(theme);
+        settings.saveTheme(theme);
         Resources.Theme appTheme = context.getTheme();
         appTheme.applyStyle(
                 theme.getThemeResId(),
@@ -43,7 +43,7 @@ public class ThemeConfigImpl implements ThemeConfig {
     @NonNull
     @Override
     public Theme currentTheme() {
-        return settingsHelper.getSelectedTheme();
+        return settings.getSelectedTheme();
     }
 
     @Override

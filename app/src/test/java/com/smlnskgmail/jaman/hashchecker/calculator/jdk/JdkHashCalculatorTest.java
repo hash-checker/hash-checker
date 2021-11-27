@@ -1,10 +1,12 @@
 package com.smlnskgmail.jaman.hashchecker.calculator.jdk;
 
+import static org.junit.Assert.assertEquals;
+
 import androidx.annotation.NonNull;
 
 import com.github.aelstad.keccakj.provider.KeccakjProvider;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk.JdkHashCalculator;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashCalculator;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,8 +14,6 @@ import org.junit.Test;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Security;
-
-import static org.junit.Assert.assertEquals;
 
 public class JdkHashCalculatorTest {
 
@@ -114,8 +114,8 @@ public class JdkHashCalculatorTest {
 
     private JdkHashCalculator getJdkHashCalculatorFor(
             @NonNull HashType hashType
-    ) throws NoSuchAlgorithmException, NoSuchProviderException {
-        JdkHashCalculator jdkHashCalculator = new JdkHashCalculator(null);
+    ) {
+        JdkHashCalculator jdkHashCalculator = new JdkHashCalculator();
         jdkHashCalculator.setHashType(hashType);
         return jdkHashCalculator;
     }

@@ -1,14 +1,14 @@
 package com.smlnskgmail.jaman.hashchecker.calculator.jdk;
 
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.impl.jdk.JdkHashCalculatorDigest;
+import static org.junit.Assert.assertEquals;
+
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashCalculatorDigest;
 
 import org.junit.Test;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
-
-import static org.junit.Assert.assertEquals;
 
 public class JdkHashCalculatorDigestTest {
 

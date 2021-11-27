@@ -14,16 +14,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;
+import com.smlnskgmail.jaman.hashchecker.components.settings.api.Settings;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
+import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.HashCalculatorFragment;
+import com.smlnskgmail.jaman.hashchecker.features.history.view.HistoryFragment;
+import com.smlnskgmail.jaman.hashchecker.features.settings.view.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.ui.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.ui.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.components.locale.api.LangHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
-import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeHelper;
 
 import java.util.List;
 
@@ -38,13 +38,13 @@ public class MainActivity extends BaseActivity {
     private static final int MENU_MAIN_SECTION_HISTORY = R.id.menu_main_section_history;
 
     @Inject
-    public SettingsHelper settingsHelper;
+    public Settings settings;
 
     @Inject
-    public LangHelper langHelper;
+    public LanguageConfig languageConfig;
 
     @Inject
-    public ThemeHelper themeHelper;
+    public ThemeConfig themeConfig;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,14 +54,14 @@ public class MainActivity extends BaseActivity {
 
     @NonNull
     @Override
-    protected LangHelper langHelper() {
-        return langHelper;
+    protected LanguageConfig langHelper() {
+        return languageConfig;
     }
 
     @NonNull
     @Override
-    protected ThemeHelper themeHelper() {
-        return themeHelper;
+    protected ThemeConfig themeHelper() {
+        return themeConfig;
     }
 
     @Override
@@ -86,21 +86,21 @@ public class MainActivity extends BaseActivity {
                             intent.getData()
                     )
             );
-            settingsHelper.setGenerateFromShareIntentMode(true);
+            settings.setGenerateFromShareIntentMode(true);
         } else if (externalFileUri != null) {
             mainFragment.setArguments(
                     getConfiguredBundleWithDataUri(
                             externalFileUri
                     )
             );
-            settingsHelper.setGenerateFromShareIntentMode(true);
+            settings.setGenerateFromShareIntentMode(true);
         } else if (intent != null) {
             mainFragment.setArguments(
                     getBundleForShortcutAction(
                             intent.getAction()
                     )
             );
-            settingsHelper.setGenerateFromShareIntentMode(false);
+            settings.setGenerateFromShareIntentMode(false);
         }
         showFragment(mainFragment);
     }

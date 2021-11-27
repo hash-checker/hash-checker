@@ -11,9 +11,9 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.settings.api.Settings;
 import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
 import com.smlnskgmail.jaman.hashchecker.components.vibrator.Vibrator;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 
 public class AppSnackbar {
 
@@ -24,7 +24,7 @@ public class AppSnackbar {
     private final int messageResId;
     private String actionText;
     private View.OnClickListener action;
-    private final SettingsHelper settingsHelper;
+    private final Settings settings;
     private final ThemeConfig themeConfig;
 
     public AppSnackbar(
@@ -33,7 +33,7 @@ public class AppSnackbar {
             @StringRes int messageResId,
             @NonNull String actionText,
             @NonNull View.OnClickListener action,
-            @NonNull SettingsHelper settingsHelper,
+            @NonNull Settings settings,
             @NonNull ThemeConfig themeConfig
     ) {
         this.context = context;
@@ -41,7 +41,7 @@ public class AppSnackbar {
         this.messageResId = messageResId;
         this.actionText = actionText;
         this.action = action;
-        this.settingsHelper = settingsHelper;
+        this.settings = settings;
         this.themeConfig = themeConfig;
     }
 
@@ -49,13 +49,13 @@ public class AppSnackbar {
             @NonNull Context context,
             @NonNull View parent,
             @StringRes int messageResId,
-            @NonNull SettingsHelper settingsHelper,
+            @NonNull Settings settings,
             @NonNull ThemeConfig themeConfig
     ) {
         this.context = context;
         this.parent = parent;
         this.messageResId = messageResId;
-        this.settingsHelper = settingsHelper;
+        this.settings = settings;
         this.themeConfig = themeConfig;
     }
 
@@ -99,7 +99,7 @@ public class AppSnackbar {
         );
         snackbar.show();
 
-        if (settingsHelper.getVibrateAccess()) {
+        if (settings.getVibrateAccess()) {
             new Vibrator(context).vibrate();
         }
     }

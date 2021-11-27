@@ -1,13 +1,13 @@
 package com.smlnskgmail.jaman.hashchecker.ui.matchers;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.espresso.ViewAssertion;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 // https://stackoverflow.com/a/37339656/10684765
 public class RecyclerViewItemCountAssertion implements ViewAssertion {

@@ -24,15 +24,15 @@ import com.google.android.play.core.install.model.InstallStatus;
 import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.android.play.core.tasks.Task;
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;
+import com.smlnskgmail.jaman.hashchecker.components.settings.api.Settings;
 import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
+import com.smlnskgmail.jaman.hashchecker.features.history.view.HistoryFragment;
+import com.smlnskgmail.jaman.hashchecker.features.settings.view.SettingsFragment;
+import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.ui.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.ui.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
-import com.smlnskgmail.jaman.hashchecker.features.history.view.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
 
 import java.util.List;
 
@@ -49,7 +49,7 @@ public class MainActivity extends BaseActivity {
     private static final int REQUEST_APP_UPDATE = 1;
 
     @Inject
-    SettingsHelper settingsHelper;
+    Settings settings;
 
     @Inject
     LanguageConfig languageConfig;
@@ -111,21 +111,21 @@ public class MainActivity extends BaseActivity {
                             intent.getData()
                     )
             );
-            settingsHelper.setGenerateFromShareIntentMode(true);
+            settings.setGenerateFromShareIntentMode(true);
         } else if (externalFileUri != null) {
             mainFragment.setArguments(
                     getConfiguredBundleWithDataUri(
                             externalFileUri
                     )
             );
-            settingsHelper.setGenerateFromShareIntentMode(true);
+            settings.setGenerateFromShareIntentMode(true);
         } else if (intent != null) {
             mainFragment.setArguments(
                     getBundleForShortcutAction(
                             intent.getAction()
                     )
             );
-            settingsHelper.setGenerateFromShareIntentMode(false);
+            settings.setGenerateFromShareIntentMode(false);
         }
         showFragment(mainFragment);
         checkForUpdateAvailability();

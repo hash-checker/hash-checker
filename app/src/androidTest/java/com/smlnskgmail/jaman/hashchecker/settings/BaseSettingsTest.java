@@ -1,5 +1,10 @@
 package com.smlnskgmail.jaman.hashchecker.settings;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static org.junit.Assert.assertTrue;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -7,19 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.typeText;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static org.junit.Assert.assertTrue;
 
 public abstract class BaseSettingsTest extends BaseUITest {
 

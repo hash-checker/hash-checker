@@ -11,6 +11,7 @@ import android.os.Build;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.preference.PreferenceManager;
 
 import com.github.aelstad.keccakj.provider.KeccakjProvider;
 import com.smlnskgmail.jaman.hashchecker.components.localdatastorage.api.LocalDataStorage;
@@ -18,6 +19,8 @@ import com.smlnskgmail.jaman.hashchecker.components.localdatastorage.impl.ormlit
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.Language;
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;
 import com.smlnskgmail.jaman.hashchecker.components.locale.impl.LanguageConfigImpl;
+import com.smlnskgmail.jaman.hashchecker.components.settings.api.Settings;
+import com.smlnskgmail.jaman.hashchecker.components.settings.impl.SharedPreferencesSettings;
 import com.smlnskgmail.jaman.hashchecker.components.theme.impl.ThemeConfigImpl;
 import com.smlnskgmail.jaman.hashchecker.di.components.AppComponent;
 import com.smlnskgmail.jaman.hashchecker.di.components.DaggerAppComponent;
@@ -25,8 +28,6 @@ import com.smlnskgmail.jaman.hashchecker.di.modules.DatabaseHelperModule;
 import com.smlnskgmail.jaman.hashchecker.di.modules.LangHelperModule;
 import com.smlnskgmail.jaman.hashchecker.di.modules.SettingsHelperModule;
 import com.smlnskgmail.jaman.hashchecker.di.modules.ThemeHelperModule;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
 
 import java.security.Security;
 import java.util.Arrays;
@@ -45,7 +46,7 @@ public class App extends android.app.Application {
     private static final String SHORTCUT_FILE_ID = "shortcut_file";
 
     private LocalDataStorage localDataStorage;
-    private SettingsHelper settingsHelper;
+    private Settings settings;
     private LanguageConfig languageConfig;
 
     @Override
@@ -53,12 +54,21 @@ public class App extends android.app.Application {
         super.onCreate();
         Security.addProvider(new KeccakjProvider());
         localDataStorage = new OrmLiteLocalDataStorage(this);
-        settingsHelper = new SharedPreferencesSettingsHelper(this);
+        settings = new SharedPreferencesSettings(
+                PreferenceManager.getDefaultSharedPreferences(this),
+                new SharedPreferencesSettings.SharedPreferencesSettingsKeyExtractor() {
+                    @NonNull
+                    @Override
+                    public String extractById(int resId) {
+                        return getString(resId);
+                    }
+                }
+        );
         languageConfig = new LanguageConfigImpl(
                 this,
-                settingsHelper
+                settings
         );
-        setTheme(settingsHelper.getSelectedTheme().getThemeResId());
+        setTheme(settings.getSelectedTheme().getThemeResId());
         appComponent = DaggerAppComponent
                 .builder()
                 .databaseHelperModule(
@@ -68,7 +78,7 @@ public class App extends android.app.Application {
                 )
                 .settingsHelperModule(
                         new SettingsHelperModule(
-                                settingsHelper
+                                settings
                         )
                 )
                 .langHelperModule(
@@ -80,14 +90,14 @@ public class App extends android.app.Application {
                         new ThemeHelperModule(
                                 new ThemeConfigImpl(
                                         this,
-                                        settingsHelper
+                                        settings
                                 )
                         )
                 )
                 .build();
-        if (!settingsHelper.isShortcutsIsCreated()) {
+        if (!settings.isShortcutsIsCreated()) {
             createShortcuts();
-            settingsHelper.saveShortcutsStatus(true);
+            settings.saveShortcutsStatus(true);
         }
         setLocale();
     }
@@ -160,7 +170,7 @@ public class App extends android.app.Application {
 
     private void setLocale() {
         Language language = null;
-        if (!settingsHelper.languageIsInitialized()) {
+        if (!settings.languageIsInitialized()) {
             String deviceLocale = Locale.getDefault().toString();
             for (Language lang : Language.values()) {
                 if (deviceLocale.equals(lang.code())) {
@@ -186,7 +196,6 @@ public class App extends android.app.Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        settingsHelper.savePathForInnerFileManager(null);
         localDataStorage.releaseHelper();
     }
 

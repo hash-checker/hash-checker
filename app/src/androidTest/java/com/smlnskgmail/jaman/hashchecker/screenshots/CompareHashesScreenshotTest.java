@@ -1,5 +1,12 @@
 package com.smlnskgmail.jaman.hashchecker.screenshots;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static com.smlnskgmail.jaman.hashchecker.ui.matchers.TextMatcher.getText;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -12,13 +19,6 @@ import com.smlnskgmail.jaman.hashchecker.ui.TestFileUtils;
 import org.junit.runner.RunWith;
 
 import java.io.IOException;
-
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.replaceText;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static com.smlnskgmail.jaman.hashchecker.ui.matchers.TextMatcher.getText;
 
 @RunWith(AndroidJUnit4.class)
 public class CompareHashesScreenshotTest extends BaseScreenshotTest {
