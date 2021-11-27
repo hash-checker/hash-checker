@@ -31,10 +31,7 @@ public enum Language implements ListItem {
     private final String originalName;
     private final String code;
 
-    Language(
-            @NonNull String originalName,
-            @NonNull String code
-    ) {
+    Language(@NonNull String originalName, @NonNull String code) {
         this.originalName = originalName;
         this.code = code;
     }

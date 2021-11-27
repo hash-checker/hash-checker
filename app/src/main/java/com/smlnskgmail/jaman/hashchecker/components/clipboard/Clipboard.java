@@ -13,10 +13,7 @@ public class Clipboard {
     private final Context context;
     private final String text;
 
-    public Clipboard(
-            @NonNull Context context,
-            @NonNull String text
-    ) {
+    public Clipboard(@NonNull Context context, @NonNull String text) {
         this.context = context;
         this.text = text;
     }

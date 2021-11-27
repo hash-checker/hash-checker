@@ -28,24 +28,15 @@ public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
 
     @NonNull
     @Override
-    public BaseListHolder<WebLink> getItemsHolder(
-            @NonNull Context themeContext,
-            @NonNull View view
-    ) {
-        return new WebLinksListHolder(
-                themeContext,
-                view
-        );
+    public BaseListHolder<WebLink> getItemsHolder(@NonNull Context themeContext, @NonNull View view) {
+        return new WebLinksListHolder(themeContext, view);
     }
 
     private class WebLinksListHolder extends BaseListHolder<WebLink> {
 
         private WebLink webLink;
 
-        WebLinksListHolder(
-                @NonNull Context themeContext,
-                @NonNull View itemView
-        ) {
+        WebLinksListHolder(@NonNull Context themeContext, @NonNull View itemView) {
             super(themeContext, itemView, themeConfig);
         }
 
@@ -57,13 +48,8 @@ public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
 
         @Override
         protected void callItemClick() {
-            String link = getContext().getString(
-                    webLink.getLinkResId()
-            );
-            WebUtils.openWebLink(
-                    getContext(),
-                    link
-            );
+            String link = getContext().getString(webLink.getLinkResId());
+            WebUtils.openWebLink(getContext(), link);
             dismissBottomSheet();
         }
 

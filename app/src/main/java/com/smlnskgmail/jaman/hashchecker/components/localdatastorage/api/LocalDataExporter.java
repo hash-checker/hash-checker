@@ -25,11 +25,7 @@ public class LocalDataExporter {
         String databaseFolder = localDataStorage.getDatabaseFolder();
         String databaseName = localDataStorage.getDatabaseFileName();
         String databasePath = appFolder + databaseFolder + databaseName;
-        createZip(
-                context,
-                databaseName,
-                new File(databasePath)
-        );
+        createZip(context, databaseName, new File(databasePath));
     }
 
     private static void createZip(
@@ -39,23 +35,15 @@ public class LocalDataExporter {
     ) throws IOException {
         FileInputStream inputStream = new FileInputStream(database);
         ZipOutputStream zipOutputStream = new ZipOutputStream(
-                new FileOutputStream(
-                        getUserDataZip(context)
-                )
+                new FileOutputStream(getUserDataZip(context))
         );
-        zipOutputStream.putNextEntry(
-                new ZipEntry(databaseName)
-        );
+        zipOutputStream.putNextEntry(new ZipEntry(databaseName));
 
         int bufferSize = 1024;
         byte[] buffer = new byte[bufferSize];
         int count;
         while ((count = inputStream.read(buffer)) > 0) {
-            zipOutputStream.write(
-                    buffer,
-                    0,
-                    count
-            );
+            zipOutputStream.write(buffer, 0, count);
         }
         zipOutputStream.close();
         inputStream.close();

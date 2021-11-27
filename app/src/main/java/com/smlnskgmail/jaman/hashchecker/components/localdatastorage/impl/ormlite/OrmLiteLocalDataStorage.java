@@ -37,28 +37,16 @@ public class OrmLiteLocalDataStorage extends OrmLiteSqliteOpenHelper implements 
     );
 
     public OrmLiteLocalDataStorage(@NonNull Context context) {
-        super(
-                context,
-                DATABASE_NAME,
-                null,
-                DATABASE_VERSION,
-                R.raw.ormlite_config
-        );
+        super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
     }
 
     @SuppressWarnings({"unchecked", "MethodParametersAnnotationCheck"})
     @Override
-    public void onCreate(
-            SQLiteDatabase database,
-            ConnectionSource connectionSource
-    ) {
+    public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
             //noinspection rawtypes
             for (Class clazz : tablesClasses) {
-                TableUtils.createTable(
-                        connectionSource,
-                        clazz
-                );
+                TableUtils.createTable(connectionSource, clazz);
             }
         } catch (SQLException e) {
             LogUtils.e(e);

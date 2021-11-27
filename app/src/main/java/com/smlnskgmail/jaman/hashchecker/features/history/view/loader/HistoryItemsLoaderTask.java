@@ -25,9 +25,7 @@ public class HistoryItemsLoaderTask extends AsyncTask<Void, List<HistoryItem>, L
     @SuppressWarnings({"MethodParametersAnnotationCheck", "MethodObjectReturnAnnotationCheck"})
     @Override
     protected List<HistoryItem> doInBackground(Void... voids) {
-        return localDataStorage.historyItems(
-                loaderTaskTarget.dataPortion()
-        );
+        return localDataStorage.historyItems(loaderTaskTarget.dataPortion());
     }
 
     @SuppressWarnings("MethodParametersAnnotationCheck")
@@ -38,9 +36,7 @@ public class HistoryItemsLoaderTask extends AsyncTask<Void, List<HistoryItem>, L
 
     private void completeLoad(@NonNull List<HistoryItem> historyItems) {
         HistoryPortion historyPortion = loaderTaskTarget.dataPortion();
-        historyPortion.setLoaded(
-                historyItems.size() < loaderTaskTarget.dataPortion().pageSize()
-        );
+        historyPortion.setLoaded(historyItems.size() < loaderTaskTarget.dataPortion().pageSize());
         historyPortion.setPage(loaderTaskTarget.dataPortion().page() + 1);
         loaderTaskTarget.postLoad(historyItems);
     }

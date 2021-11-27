@@ -20,10 +20,7 @@ public class HistoryPresenterImpl implements HistoryPresenter {
     private boolean isLoading = false;
 
     @Override
-    public void init(
-            @NonNull HistoryView view,
-            @NonNull LocalDataStorage localDataStorage
-    ) {
+    public void init(@NonNull HistoryView view, @NonNull LocalDataStorage localDataStorage) {
         this.view = view;
         this.localDataStorage = localDataStorage;
         load();
@@ -39,10 +36,7 @@ public class HistoryPresenterImpl implements HistoryPresenter {
         if (!historyPortion.isLoaded()) {
             isLoading = true;
             view.setLoading();
-            new HistoryItemsLoaderTask(
-                    this,
-                    localDataStorage
-            ).execute();
+            new HistoryItemsLoaderTask(this, localDataStorage).execute();
         }
     }
 

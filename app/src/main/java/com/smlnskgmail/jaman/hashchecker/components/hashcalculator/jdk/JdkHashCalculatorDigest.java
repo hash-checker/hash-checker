@@ -39,10 +39,7 @@ public class JdkHashCalculatorDigest {
             @NonNull String provider
     ) throws NoSuchAlgorithmException, NoSuchProviderException {
         JdkHashCalculatorDigest jdkHashCalculatorDigest = new JdkHashCalculatorDigest();
-        jdkHashCalculatorDigest.setHashType(
-                hashType,
-                provider
-        );
+        jdkHashCalculatorDigest.setHashType(hashType, provider);
         return jdkHashCalculatorDigest;
     }
 
@@ -52,9 +49,7 @@ public class JdkHashCalculatorDigest {
     ) throws NoSuchAlgorithmException, NoSuchProviderException {
         if (hashType != HashType.CRC_32) {
             if (provider == null) {
-                messageDigest = MessageDigest.getInstance(
-                        hashType.getHashName()
-                );
+                messageDigest = MessageDigest.getInstance(hashType.getHashName());
             } else {
                 messageDigest = MessageDigest.getInstance(
                         hashType.getHashName(),
@@ -77,22 +72,11 @@ public class JdkHashCalculatorDigest {
         }
     }
 
-    public void update(
-            @NonNull byte[] input,
-            int length
-    ) {
+    public void update(@NonNull byte[] input, int length) {
         if (!useCRC32) {
-            messageDigest.update(
-                    input,
-                    0,
-                    length
-            );
+            messageDigest.update(input, 0, length);
         } else {
-            crc32.update(
-                    input,
-                    0,
-                    length
-            );
+            crc32.update(input, 0, length);
         }
     }
 

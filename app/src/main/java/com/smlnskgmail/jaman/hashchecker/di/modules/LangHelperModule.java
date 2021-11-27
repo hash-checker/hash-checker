@@ -12,9 +12,7 @@ public class LangHelperModule {
 
     private final LanguageConfig languageConfig;
 
-    public LangHelperModule(
-            @NonNull LanguageConfig languageConfig
-    ) {
+    public LangHelperModule(@NonNull LanguageConfig languageConfig) {
         this.languageConfig = languageConfig;
     }
 

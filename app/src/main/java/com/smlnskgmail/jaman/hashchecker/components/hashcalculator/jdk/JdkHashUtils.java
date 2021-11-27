@@ -22,10 +22,7 @@ public class JdkHashUtils {
 
     @NonNull
     public static String getStringFromLong(long data) {
-        return String.format(
-                "%08x",
-                data
-        );
+        return String.format("%08x", data);
     }
 
 }

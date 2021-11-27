@@ -12,9 +12,7 @@ public class ThemeHelperModule {
 
     private final ThemeConfig themeConfig;
 
-    public ThemeHelperModule(
-            @NonNull ThemeConfig themeConfig
-    ) {
+    public ThemeHelperModule(@NonNull ThemeConfig themeConfig) {
         this.themeConfig = themeConfig;
     }
 

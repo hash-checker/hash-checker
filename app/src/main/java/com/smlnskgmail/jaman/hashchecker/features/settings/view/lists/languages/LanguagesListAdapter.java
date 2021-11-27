@@ -39,24 +39,15 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
 
     @NonNull
     @Override
-    protected BaseListHolder<Language> getItemsHolder(
-            @NonNull Context themeContext,
-            @NonNull View view
-    ) {
-        return new LanguagesListHolder(
-                themeContext,
-                view
-        );
+    protected BaseListHolder<Language> getItemsHolder(@NonNull Context themeContext, @NonNull View view) {
+        return new LanguagesListHolder(themeContext, view);
     }
 
     private class LanguagesListHolder extends BaseListHolder<Language> {
 
         private Language languageAtPosition;
 
-        LanguagesListHolder(
-                @NonNull Context themeContext,
-                @NonNull View itemView
-        ) {
+        LanguagesListHolder(@NonNull Context themeContext, @NonNull View itemView) {
             super(themeContext, itemView, themeConfig);
         }
 
@@ -68,9 +59,7 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
                     R.string.message_change_language,
                     R.string.common_ok,
                     (dialog, which) -> {
-                        languageConfig.setLanguage(
-                                languageAtPosition
-                        );
+                        languageConfig.setLanguage(languageAtPosition);
                         dialog.dismiss();
                         Activity activity = getBottomSheet().getActivity();
                         if (activity != null) {

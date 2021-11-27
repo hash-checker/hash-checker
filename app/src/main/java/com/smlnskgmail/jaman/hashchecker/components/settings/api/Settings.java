@@ -1,11 +1,10 @@
 package com.smlnskgmail.jaman.hashchecker.components.settings.api;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.Language;
 import com.smlnskgmail.jaman.hashchecker.components.theme.api.Theme;
-import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
 
 public interface Settings {
 

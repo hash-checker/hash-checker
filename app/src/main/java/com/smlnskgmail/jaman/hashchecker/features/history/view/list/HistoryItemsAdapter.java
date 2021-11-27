@@ -16,27 +16,19 @@ public class HistoryItemsAdapter extends RecyclerView.Adapter<HistoryItemHolder>
 
     private final List<HistoryItem> historyItems = new ArrayList<>();
 
-    public void addHistoryItems(
-            @NonNull List<HistoryItem> historyItems
-    ) {
+    public void addHistoryItems(@NonNull List<HistoryItem> historyItems) {
         this.historyItems.addAll(historyItems);
         notifyDataSetChanged();
     }
 
     @Override
-    public void onBindViewHolder(
-            @NonNull HistoryItemHolder historyItemHolder,
-            int position
-    ) {
+    public void onBindViewHolder(@NonNull HistoryItemHolder historyItemHolder, int position) {
         historyItemHolder.bind(historyItems.get(position));
     }
 
     @NonNull
     @Override
-    public HistoryItemHolder onCreateViewHolder(
-            @NonNull ViewGroup viewGroup,
-            int viewType
-    ) {
+    public HistoryItemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         return new HistoryItemHolder(
                 LayoutInflater.from(viewGroup.getContext()).inflate(
                         R.layout.item_history_data,

@@ -28,10 +28,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
     private ActionBar actionBar;
 
     @Override
-    public void onViewCreated(
-            @NonNull View view,
-            @Nullable Bundle savedInstanceState
-    ) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         langHelper().applyLanguage(view.getContext());
         super.onViewCreated(view, savedInstanceState);
     }
@@ -65,10 +62,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
     }
 
     @Override
-    public void onCreateOptionsMenu(
-            @NonNull Menu menu,
-            @NonNull MenuInflater inflater
-    ) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         menu.clear();
         inflater.inflate(getMenuResId(), menu);
     }
@@ -110,11 +104,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
             @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState
     ) {
-        return inflater.inflate(
-                getLayoutResId(),
-                container,
-                false
-        );
+        return inflater.inflate(getLayoutResId(), container, false);
     }
 
     protected abstract int getLayoutResId();

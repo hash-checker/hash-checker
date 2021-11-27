@@ -11,9 +11,7 @@ public class Vibrator {
     private final android.os.Vibrator vibrator;
 
     public Vibrator(Context context) {
-        vibrator = (android.os.Vibrator) context.getSystemService(
-                Context.VIBRATOR_SERVICE
-        );
+        vibrator = (android.os.Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
     }
 
     public void vibrate() {

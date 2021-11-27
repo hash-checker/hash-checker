@@ -12,9 +12,7 @@ public class DatabaseHelperModule {
 
     private final LocalDataStorage localDataStorage;
 
-    public DatabaseHelperModule(
-            @NonNull LocalDataStorage localDataStorage
-    ) {
+    public DatabaseHelperModule(@NonNull LocalDataStorage localDataStorage) {
         this.localDataStorage = localDataStorage;
     }
 

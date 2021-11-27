@@ -53,10 +53,7 @@ public class HistoryFragment extends BaseFragment implements HistoryView {
     // CPD-ON
 
     @Override
-    public void onViewCreated(
-            @NonNull View view,
-            @Nullable Bundle savedInstanceState
-    ) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         pbHistory = view.findViewById(R.id.pb_history);
         arvHistoryItems = view.findViewById(R.id.rv_history_items);
@@ -64,11 +61,7 @@ public class HistoryFragment extends BaseFragment implements HistoryView {
         arvHistoryItems.setAdapter(new HistoryItemsAdapter());
         arvHistoryItems.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(
-                    @NonNull RecyclerView recyclerView,
-                    int dx,
-                    int dy
-            ) {
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
                 if (layoutManager != null) {
                     int totalItemCount = layoutManager.getItemCount();

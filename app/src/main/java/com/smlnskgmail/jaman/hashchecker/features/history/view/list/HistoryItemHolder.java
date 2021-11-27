@@ -29,84 +29,48 @@ class HistoryItemHolder extends RecyclerView.ViewHolder {
 
     HistoryItemHolder(@NonNull View itemView) {
         super(itemView);
-        ivHistoryItemObjectIcon = itemView.findViewById(
-                R.id.iv_item_history_object_type_icon
-        );
-        tvHistoryItemObjectTitle = itemView.findViewById(
-                R.id.tv_item_history_object_title
-        );
-        tvHistoryItemObjectData = itemView.findViewById(
-                R.id.tv_item_history_object_data
-        );
-        tvHistoryItemHashType = itemView.findViewById(
-                R.id.tv_item_history_hash_type
-        );
-        tvHistoryItemHashData = itemView.findViewById(
-                R.id.tv_item_history_hash_data
-        );
-        tvHistoryItemDateTitle = itemView.findViewById(
-                R.id.tv_item_history_date_title
-        );
-        tvHistoryItemDate = itemView.findViewById(
-                R.id.tv_item_history_date
-        );
+        ivHistoryItemObjectIcon = itemView.findViewById(R.id.iv_item_history_object_type_icon);
+        tvHistoryItemObjectTitle = itemView.findViewById(R.id.tv_item_history_object_title);
+        tvHistoryItemObjectData = itemView.findViewById(R.id.tv_item_history_object_data);
+        tvHistoryItemHashType = itemView.findViewById(R.id.tv_item_history_hash_type);
+        tvHistoryItemHashData = itemView.findViewById(R.id.tv_item_history_hash_data);
+        tvHistoryItemDateTitle = itemView.findViewById(R.id.tv_item_history_date_title);
+        tvHistoryItemDate = itemView.findViewById(R.id.tv_item_history_date);
     }
 
-    protected void bind(
-            @NonNull HistoryItem historyItem
-    ) {
+    protected void bind(@NonNull HistoryItem historyItem) {
         Context context = itemView.getContext();
         initializeObjectData(context, historyItem);
         initializeHashType(context, historyItem);
         initializeDate(context, historyItem);
-        itemView.setOnClickListener(v -> new Clipboard(
-                context,
-                historyItem.getHashValue()
-        ).copy());
+        itemView.setOnClickListener(v -> new Clipboard(context, historyItem.getHashValue()).copy());
     }
 
-    private void initializeObjectData(
-            @NonNull Context context,
-            @NonNull HistoryItem historyItem
-    ) {
+    private void initializeObjectData(@NonNull Context context, @NonNull HistoryItem historyItem) {
         boolean isFile = historyItem.isFile();
         ivHistoryItemObjectIcon.setImageResource(
-                isFile
-                        ? R.drawable.ic_file
-                        : R.drawable.ic_from_text
+                isFile ? R.drawable.ic_file : R.drawable.ic_from_text
         );
         String objectTitle = String.format(
                 DEFAULT_TITLE_PATTERN,
                 context.getString(
-                        isFile
-                                ? R.string.common_file
-                                : R.string.common_text
+                        isFile ? R.string.common_file : R.string.common_text
                 )
         );
         tvHistoryItemObjectTitle.setText(objectTitle);
-        tvHistoryItemObjectData.setText(
-                historyItem.getObjectValue()
-        );
+        tvHistoryItemObjectData.setText(historyItem.getObjectValue());
     }
 
-    private void initializeHashType(
-            @NonNull Context context,
-            @NonNull HistoryItem historyItem
-    ) {
+    private void initializeHashType(@NonNull Context context, @NonNull HistoryItem historyItem) {
         String hashType = String.format(
                 DEFAULT_TITLE_PATTERN,
                 historyItem.getHashType().getTitle(context)
         );
         tvHistoryItemHashType.setText(hashType);
-        tvHistoryItemHashData.setText(
-                historyItem.getHashValue()
-        );
+        tvHistoryItemHashData.setText(historyItem.getHashValue());
     }
 
-    private void initializeDate(
-            @NonNull Context context,
-            @NonNull HistoryItem historyItem
-    ) {
+    private void initializeDate(@NonNull Context context, @NonNull HistoryItem historyItem) {
         String dateTitle = String.format(
                 DEFAULT_TITLE_PATTERN,
                 context.getString(R.string.common_date)

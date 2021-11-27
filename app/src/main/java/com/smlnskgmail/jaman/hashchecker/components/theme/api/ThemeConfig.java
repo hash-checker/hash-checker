@@ -7,16 +7,12 @@ import androidx.annotation.NonNull;
 
 public interface ThemeConfig {
 
-    void setCurrentTheme(
-            @NonNull Theme theme
-    );
+    void setCurrentTheme(@NonNull Theme theme);
 
     @NonNull
     Theme currentTheme();
 
-    void applyAccentColorToImage(
-            @NonNull Drawable drawable
-    );
+    void applyAccentColorToImage(@NonNull Drawable drawable);
 
     @SuppressLint("ResourceType")
     int getAccentColor();

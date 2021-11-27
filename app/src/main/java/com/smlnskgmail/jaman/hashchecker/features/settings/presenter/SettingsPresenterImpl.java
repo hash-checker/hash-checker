@@ -18,10 +18,7 @@ public class SettingsPresenterImpl implements SettingsPresenter {
     private SettingsView view;
 
     @Override
-    public void init(
-            @NonNull SettingsView view,
-            @NonNull LocalDataStorage localDataStorage
-    ) {
+    public void init(@NonNull SettingsView view, @NonNull LocalDataStorage localDataStorage) {
         this.localDataStorage = localDataStorage;
         this.view = view;
         view.initLanguageSettings();
@@ -49,32 +46,14 @@ public class SettingsPresenterImpl implements SettingsPresenter {
                 Intent saveFileIntent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
                 saveFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
                 saveFileIntent.setType("application/zip");
-                saveFileIntent.putExtra(
-                        Intent.EXTRA_TITLE,
-                        LocalDataExporter.EXPORT_FILE
-                );
-                view.saveUserDataResult(
-                        Pair.create(
-                                SaveUserDataResult.DONE,
-                                saveFileIntent
-                        )
-                );
+                saveFileIntent.putExtra(Intent.EXTRA_TITLE, LocalDataExporter.EXPORT_FILE);
+                view.saveUserDataResult(Pair.create(SaveUserDataResult.DONE, saveFileIntent));
             } catch (ActivityNotFoundException e) {
                 LogUtils.e(e);
-                view.saveUserDataResult(
-                        Pair.create(
-                                SaveUserDataResult.ERROR,
-                                null
-                        )
-                );
+                view.saveUserDataResult(Pair.create(SaveUserDataResult.ERROR, null));
             }
         } else {
-            view.saveUserDataResult(
-                    Pair.create(
-                            SaveUserDataResult.EMPTY,
-                            null
-                    )
-            );
+            view.saveUserDataResult(Pair.create(SaveUserDataResult.EMPTY, null));
         }
     }
 

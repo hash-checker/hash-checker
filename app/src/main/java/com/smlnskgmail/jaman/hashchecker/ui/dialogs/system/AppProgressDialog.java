@@ -24,13 +24,8 @@ public class AppProgressDialog {
 
     @NonNull
     public ProgressDialog getDialog() {
-        ProgressDialog progressDialog = new ProgressDialog(
-                context,
-                R.style.AppAlertDialog
-        );
-        progressDialog.setMessage(
-                context.getText(textMessageResId)
-        );
+        ProgressDialog progressDialog = new ProgressDialog(context, R.style.AppAlertDialog);
+        progressDialog.setMessage(context.getText(textMessageResId));
         progressDialog.setCancelable(false);
         progressDialog.getWindow().setBackgroundDrawable(
                 ContextCompat.getDrawable(

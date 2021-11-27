@@ -52,7 +52,8 @@ import java.io.InputStream;
 
 import javax.inject.Inject;
 
-public class SettingsFragment extends PreferenceFragmentCompat implements SettingsView, AppBackClickTarget, AppResumeTarget {
+public class SettingsFragment extends PreferenceFragmentCompat
+        implements SettingsView, AppBackClickTarget, AppResumeTarget {
 
     @Inject
     public LocalDataStorage localDataStorage;
@@ -80,10 +81,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
     @SuppressWarnings("MethodParametersAnnotationCheck")
     @SuppressLint("ResourceType")
     @Override
-    public void onCreatePreferences(
-            Bundle savedInstanceState,
-            String rootKey
-    ) {
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.settings);
         fragmentManager = getActivity().getSupportFragmentManager();
         context = getContext();
@@ -110,15 +108,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
     }
 
     @Override
-    public void onViewCreated(
-            @NonNull View view,
-            @Nullable Bundle savedInstanceState
-    ) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setHasOptionsMenu(true);
-        view.setBackgroundColor(
-                themeConfig.getCommonBackgroundColor()
-        );
+        view.setBackgroundColor(themeConfig.getCommonBackgroundColor());
         setDividerHeight(0);
     }
 
@@ -131,33 +124,21 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
         if (data != null
                 && requestCode == Settings.FILE_CREATE
                 && resultCode == Activity.RESULT_OK) {
-            copyUserDataToUserFolder(
-                    data.getData()
-            );
+            copyUserDataToUserFolder(data.getData());
         }
     }
 
     private void copyUserDataToUserFolder(@Nullable Uri uri) {
         if (uri != null) {
             try {
-                LocalDataExporter.exportDatabase(
-                        context,
-                        localDataStorage
-                );
+                LocalDataExporter.exportDatabase(context, localDataStorage);
                 ParcelFileDescriptor descriptor = context.getApplicationContext().getContentResolver()
                         .openFileDescriptor(uri, "w");
                 if (descriptor != null) {
                     FileOutputStream outputStream = new FileOutputStream(
                             descriptor.getFileDescriptor()
                     );
-                    copyFile(
-                            new File(
-                                    LocalDataExporter.getUserDataZip(
-                                            context
-                                    )
-                            ),
-                            outputStream
-                    );
+                    copyFile(new File(LocalDataExporter.getUserDataZip(context)), outputStream);
                 }
             } catch (IOException e) {
                 LogUtils.e(e);
@@ -165,10 +146,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
         }
     }
 
-    private void copyFile(
-            @NonNull File source,
-            @NonNull FileOutputStream outputStream
-    ) throws IOException {
+    private void copyFile(@NonNull File source, @NonNull FileOutputStream outputStream) throws IOException {
         try (InputStream inputStream = new FileInputStream(source)) {
             int bufferSize = 1024;
             byte[] buffer = new byte[bufferSize];
@@ -187,10 +165,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
         if (languagePreference != null) {
             languagePreference.setOnPreferenceClickListener(preference -> {
                 LanguagesBottomSheet languagesBottomSheet = new LanguagesBottomSheet();
-                languagesBottomSheet.show(
-                        fragmentManager,
-                        languagesBottomSheet.key()
-                );
+                languagesBottomSheet.show(fragmentManager, languagesBottomSheet.key());
                 return false;
             });
         }
@@ -202,10 +177,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
         if (themePreference != null) {
             themePreference.setOnPreferenceClickListener(preference -> {
                 ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
-                themesBottomSheet.show(
-                        fragmentManager,
-                        themesBottomSheet.key()
-                );
+                themesBottomSheet.show(fragmentManager, themesBottomSheet.key());
                 return false;
             });
         }
@@ -216,12 +188,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
         Preference privacyPolicyPreference = findPreference(getString(R.string.key_privacy_policy));
         if (privacyPolicyPreference != null) {
             privacyPolicyPreference.setOnPreferenceClickListener(preference -> {
-                PrivacyPolicyWebLinksBottomSheet privacyPolicyWebLinksBottomSheet
-                        = new PrivacyPolicyWebLinksBottomSheet();
-                privacyPolicyWebLinksBottomSheet.show(
-                        fragmentManager,
-                        privacyPolicyWebLinksBottomSheet.key()
-                );
+                PrivacyPolicyWebLinksBottomSheet privacyPolicyWebLinksBottomSheet = new PrivacyPolicyWebLinksBottomSheet();
+                privacyPolicyWebLinksBottomSheet.show(fragmentManager, privacyPolicyWebLinksBottomSheet.key());
                 return false;
             });
         }
@@ -243,12 +211,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
         Preference authorPreference = findPreference(getString(R.string.key_author));
         if (authorPreference != null) {
             authorPreference.setOnPreferenceClickListener(preference -> {
-                AuthorWebLinksBottomSheet authorWebLinksBottomSheet
-                        = new AuthorWebLinksBottomSheet();
-                authorWebLinksBottomSheet.show(
-                        fragmentManager,
-                        authorWebLinksBottomSheet.key()
-                );
+                AuthorWebLinksBottomSheet authorWebLinksBottomSheet = new AuthorWebLinksBottomSheet();
+                authorWebLinksBottomSheet.show(fragmentManager, authorWebLinksBottomSheet.key());
                 return false;
             });
         }
@@ -259,12 +223,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
         Preference librariesPreference = findPreference(getString(R.string.key_libraries));
         if (librariesPreference != null) {
             librariesPreference.setOnPreferenceClickListener(preference -> {
-                LibrariesWebLinksBottomSheet librariesWebLinksBottomSheet
-                        = new LibrariesWebLinksBottomSheet();
-                librariesWebLinksBottomSheet.show(
-                        fragmentManager,
-                        librariesWebLinksBottomSheet.key()
-                );
+                LibrariesWebLinksBottomSheet librariesWebLinksBottomSheet = new LibrariesWebLinksBottomSheet();
+                librariesWebLinksBottomSheet.show(fragmentManager, librariesWebLinksBottomSheet.key());
                 return false;
             });
         }
@@ -329,10 +289,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
     public void saveUserDataResult(@NonNull Pair<SettingsPresenter.SaveUserDataResult, Intent> result) {
         switch (result.first) {
             case DONE:
-                startActivityForResult(
-                        result.second,
-                        Settings.FILE_CREATE
-                );
+                startActivityForResult(result.second, Settings.FILE_CREATE);
                 break;
             case ERROR:
                 View v1 = getView();
@@ -368,17 +325,12 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
     }
 
     @Override
-    public void onCreateOptionsMenu(
-            @NonNull Menu menu,
-            @NonNull MenuInflater inflater
-    ) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         menu.clear();
     }
 
     @Override
-    public boolean onOptionsItemSelected(
-            @NonNull MenuItem item
-    ) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             Activity activity = getActivity();
             if (activity != null) {
@@ -391,10 +343,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
 
     @Override
     public void appBackClick() {
-        UIUtils.removeFragment(
-                fragmentManager,
-                this
-        );
+        UIUtils.removeFragment(fragmentManager, this);
     }
 
     @Override

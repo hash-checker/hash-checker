@@ -37,9 +37,7 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
         this.themeConfig = themeConfig;
         tvItemTitle = itemView.findViewById(R.id.tv_item_list_title);
         ivItemPrimaryIcon = itemView.findViewById(R.id.iv_item_list_icon);
-        ivItemAdditionalIcon = itemView.findViewById(
-                R.id.iv_item_list_additional_icon
-        );
+        ivItemAdditionalIcon = itemView.findViewById(R.id.iv_item_list_additional_icon);
     }
 
     protected void bind(@NonNull final T listItem) {
@@ -47,12 +45,8 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
         tvItemTitle.setText(listItem.getTitle(context));
         int primaryIconResId = listItem.getPrimaryIconResId();
         if (primaryIconResId != DEFAULT_ICON_VALUE) {
-            ivItemPrimaryIcon.setImageResource(
-                    listItem.getPrimaryIconResId()
-            );
-            themeConfig.applyAccentColorToImage(
-                    ivItemPrimaryIcon.getDrawable()
-            );
+            ivItemPrimaryIcon.setImageResource(listItem.getPrimaryIconResId());
+            themeConfig.applyAccentColorToImage(ivItemPrimaryIcon.getDrawable());
         }
         ivItemPrimaryIcon.setVisibility(
                 getConditionToPrimaryIconVisibleState()
@@ -61,12 +55,8 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
         );
         int additionalIconResId = listItem.getAdditionalIconResId();
         if (additionalIconResId != DEFAULT_ICON_VALUE) {
-            ivItemAdditionalIcon.setImageResource(
-                    listItem.getAdditionalIconResId()
-            );
-            themeConfig.applyAccentColorToImage(
-                    ivItemAdditionalIcon.getDrawable()
-            );
+            ivItemAdditionalIcon.setImageResource(listItem.getAdditionalIconResId());
+            themeConfig.applyAccentColorToImage(ivItemAdditionalIcon.getDrawable());
         }
         ivItemAdditionalIcon.setVisibility(
                 getConditionToAdditionalIconVisibleState()

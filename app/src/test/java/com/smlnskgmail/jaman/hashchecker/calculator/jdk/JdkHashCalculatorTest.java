@@ -25,7 +25,7 @@ public class JdkHashCalculatorTest {
     }
 
     @Test
-    public void md5FromString() throws NoSuchAlgorithmException, NoSuchProviderException {
+    public void md5FromString() {
         assertEquals(
                 "0cbc6611f5540bd0809a388dc95a615b",
                 getJdkHashCalculatorFor(HashType.MD5).fromString(inputText)

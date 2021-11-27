@@ -16,8 +16,6 @@ import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashCa
 import org.junit.Before;
 import org.junit.Test;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
 import java.security.Security;
 
 public abstract class BaseJdkHashCalculatorTest {

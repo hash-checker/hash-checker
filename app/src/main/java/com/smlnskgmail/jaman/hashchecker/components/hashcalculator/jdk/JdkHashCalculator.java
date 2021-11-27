@@ -49,15 +49,9 @@ public class JdkHashCalculator implements HashCalculator {
 
     @Nullable
     @Override
-    public String fromFile(
-            @NonNull Context context,
-            @NonNull Uri path
-    ) {
+    public String fromFile(@NonNull Context context, @NonNull Uri path) {
         try {
-            InputStream fileStream = inputStreamFromUri(
-                    context,
-                    path
-            );
+            InputStream fileStream = inputStreamFromUri(context, path);
             return fromFile(fileStream);
         } catch (Exception e) {
             LogUtils.e(e);
@@ -75,10 +69,7 @@ public class JdkHashCalculator implements HashCalculator {
                 do {
                     read = inputStream.read(buffer);
                     if (read > 0) {
-                        jdkHashCalculatorDigest.update(
-                                buffer,
-                                read
-                        );
+                        jdkHashCalculatorDigest.update(buffer, read);
                     }
                 } while (read != -1);
                 return jdkHashCalculatorDigest.result();
@@ -90,10 +81,7 @@ public class JdkHashCalculator implements HashCalculator {
     }
 
     @Nullable
-    private InputStream inputStreamFromUri(
-            @NonNull Context context,
-            @NonNull Uri path
-    ) throws Exception {
+    private InputStream inputStreamFromUri(@NonNull Context context, @NonNull Uri path) throws Exception {
         return context.getContentResolver().openInputStream(path);
     }
 

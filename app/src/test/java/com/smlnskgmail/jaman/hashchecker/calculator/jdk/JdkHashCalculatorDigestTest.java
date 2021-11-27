@@ -16,9 +16,7 @@ public class JdkHashCalculatorDigestTest {
 
     @Test
     public void md5HashDigest() throws NoSuchAlgorithmException, NoSuchProviderException {
-        JdkHashCalculatorDigest jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(
-                HashType.MD5
-        );
+        JdkHashCalculatorDigest jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(HashType.MD5);
         jdkHashCalculatorDigest.update(input);
         assertEquals(
                 "0cbc6611f5540bd0809a388dc95a615b",
@@ -28,9 +26,7 @@ public class JdkHashCalculatorDigestTest {
 
     @Test
     public void crc32HashDigest() throws NoSuchAlgorithmException, NoSuchProviderException {
-        JdkHashCalculatorDigest jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(
-                HashType.CRC_32
-        );
+        JdkHashCalculatorDigest jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(HashType.CRC_32);
         jdkHashCalculatorDigest.update(input);
         assertEquals(
                 "784dd132",

@@ -29,23 +29,11 @@ public class WebUtils {
         Uri link;
         try {
             link = Uri.parse("market://details?id=" + appPackageName);
-            context.startActivity(
-                    new Intent(
-                            Intent.ACTION_VIEW,
-                            link
-                    )
-            );
+            context.startActivity(new Intent(Intent.ACTION_VIEW, link));
         } catch (ActivityNotFoundException e) {
             try {
-                link = Uri.parse(
-                        "https://play.google.com/store/apps/details?id=" + appPackageName
-                );
-                context.startActivity(
-                        new Intent(
-                                Intent.ACTION_VIEW,
-                                link
-                        )
-                );
+                link = Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName);
+                context.startActivity(new Intent(Intent.ACTION_VIEW, link));
             } catch (ActivityNotFoundException e2) {
                 LogUtils.e(e2);
                 new AppSnackbar(
@@ -59,16 +47,10 @@ public class WebUtils {
         }
     }
 
-    public static void openWebLink(
-            @NonNull Context context,
-            @NonNull String link
-    ) {
+    public static void openWebLink(@NonNull Context context, @NonNull String link) {
         try {
             context.startActivity(
-                    new Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse(link)
-                    )
+                    new Intent(Intent.ACTION_VIEW, Uri.parse(link))
             );
         } catch (ActivityNotFoundException e) {
             LogUtils.e(e);

@@ -9,14 +9,8 @@ import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.ListItem;
 
 public enum Theme implements ListItem {
 
-    LIGHT(
-            R.string.title_theme_light,
-            R.style.AppThemeLight
-    ),
-    DARK(
-            R.string.title_theme_dark,
-            R.style.AppThemeDark
-    );
+    LIGHT(R.string.title_theme_light, R.style.AppThemeLight),
+    DARK(R.string.title_theme_dark, R.style.AppThemeDark);
 
     private final int titleResId;
     private final int themeResId;

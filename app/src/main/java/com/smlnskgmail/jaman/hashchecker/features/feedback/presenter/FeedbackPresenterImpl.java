@@ -35,32 +35,14 @@ public class FeedbackPresenterImpl implements FeedbackPresenter {
             @NonNull String text,
             @NonNull String subject
     ) {
-        Intent emailIntent = new Intent(
-                Intent.ACTION_SEND
-        );
-        emailIntent.putExtra(
-                Intent.EXTRA_EMAIL,
-                new String[]{email}
-        );
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, feedback.getConfiguredMessage(text));
 
-        emailIntent.putExtra(
-                Intent.EXTRA_SUBJECT,
-                subject
-        );
-        emailIntent.putExtra(
-                Intent.EXTRA_TEXT,
-                feedback.getConfiguredMessage(text)
-        );
-
-        Intent selectorIntent = new Intent(
-                Intent.ACTION_SENDTO
-        );
-        selectorIntent.setData(
-                Uri.parse("mailto:")
-        );
-        emailIntent.setSelector(
-                selectorIntent
-        );
+        Intent selectorIntent = new Intent(Intent.ACTION_SENDTO);
+        selectorIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setSelector(selectorIntent);
         return emailIntent;
     }
 

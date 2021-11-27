@@ -12,9 +12,7 @@ public class SettingsHelperModule {
 
     private final Settings settings;
 
-    public SettingsHelperModule(
-            @NonNull Settings settings
-    ) {
+    public SettingsHelperModule(@NonNull Settings settings) {
         this.settings = settings;
     }
 

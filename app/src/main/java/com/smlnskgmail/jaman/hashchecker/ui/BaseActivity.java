@@ -23,10 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public Resources.Theme getTheme() {
         Resources.Theme theme = super.getTheme();
-        theme.applyStyle(
-                themeHelper().currentTheme().getThemeResId(),
-                true
-        );
+        theme.applyStyle(themeHelper().currentTheme().getThemeResId(), true);
         return theme;
     }
 

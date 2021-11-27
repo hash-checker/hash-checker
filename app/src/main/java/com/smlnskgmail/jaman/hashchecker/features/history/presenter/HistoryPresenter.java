@@ -8,10 +8,7 @@ import com.smlnskgmail.jaman.hashchecker.features.history.view.loader.HistoryIte
 
 public interface HistoryPresenter extends HistoryItemsLoaderTaskTarget {
 
-    void init(
-            @NonNull HistoryView historyView,
-            @NonNull LocalDataStorage localDataStorage
-    );
+    void init(@NonNull HistoryView historyView, @NonNull LocalDataStorage localDataStorage);
 
     boolean isLoaded();
 

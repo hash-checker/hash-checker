@@ -81,9 +81,7 @@ public class AppSnackbar {
                             COMMON_SNACKBAR_MARGIN
                     );
         }
-        snackbar.setActionTextColor(
-                themeConfig.getAccentColor()
-        );
+        snackbar.setActionTextColor(themeConfig.getAccentColor());
         snackbar.getView().setBackground(
                 ContextCompat.getDrawable(
                         context,
@@ -91,12 +89,8 @@ public class AppSnackbar {
                 )
         );
 
-        TextView tvSnackbar = snackbar.getView().findViewById(
-                R.id.snackbar_text
-        );
-        tvSnackbar.setTextColor(
-                themeConfig.getCommonTextColor()
-        );
+        TextView tvSnackbar = snackbar.getView().findViewById(R.id.snackbar_text);
+        tvSnackbar.setTextColor(themeConfig.getCommonTextColor());
         snackbar.show();
 
         if (settings.getVibrateAccess()) {

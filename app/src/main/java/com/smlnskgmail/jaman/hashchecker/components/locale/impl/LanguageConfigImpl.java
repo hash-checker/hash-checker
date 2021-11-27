@@ -19,10 +19,7 @@ public class LanguageConfigImpl implements LanguageConfig {
     private final Context context;
     private final Settings settings;
 
-    public LanguageConfigImpl(
-            @NonNull Context context,
-            @NonNull Settings settings
-    ) {
+    public LanguageConfigImpl(@NonNull Context context, @NonNull Settings settings) {
         this.context = context;
         this.settings = settings;
     }
@@ -33,10 +30,7 @@ public class LanguageConfigImpl implements LanguageConfig {
         settings.saveLanguage(language);
     }
 
-    private void setLanguage(
-            @NonNull Context context,
-            @NonNull Language language
-    ) {
+    private void setLanguage(@NonNull Context context, @NonNull Language language) {
         Locale locale;
         if (language != Language.ZH) {
             locale = new Locale(
@@ -50,18 +44,13 @@ public class LanguageConfigImpl implements LanguageConfig {
         Locale.setDefault(locale);
         Configuration config = context.getResources().getConfiguration();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            config.setLocales(
-                    new LocaleList(locale)
-            );
+            config.setLocales(new LocaleList(locale));
         } else {
             config.locale = locale;
         }
 
         Resources resources = context.getResources();
-        resources.updateConfiguration(
-                config,
-                resources.getDisplayMetrics()
-        );
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
 
     @Override

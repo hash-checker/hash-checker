@@ -18,7 +18,6 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
 
     private final HashCalculatorTaskTarget completeListener;
     private final HashType hashType;
-//    private final SettingsHelper settingsHelper;
 
     private Uri fileUri;
     private String textValue;

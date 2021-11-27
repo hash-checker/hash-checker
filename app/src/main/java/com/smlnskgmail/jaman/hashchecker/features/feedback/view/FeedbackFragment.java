@@ -71,19 +71,13 @@ public class FeedbackFragment extends BaseFragment implements FeedbackView {
         } else if (item.getItemId() == R.id.menu_action_send_feedback) {
             String feedbackMessage = etFeedbackMessage.getText().toString();
             if (!feedbackMessage.isEmpty()) {
-                sendEmail(
-                        feedbackMessage,
-                        getString(R.string.common_email)
-                );
+                sendEmail(feedbackMessage, getString(R.string.common_email));
             }
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void sendEmail(
-            @NonNull String text,
-            @NonNull String email
-    ) {
+    private void sendEmail(@NonNull String text, @NonNull String email) {
         String subject = getString(R.string.common_app_name);
         String chooseMessage = String.format(
                 "%s:",

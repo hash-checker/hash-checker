@@ -20,24 +20,16 @@ public class ThemeConfigImpl implements ThemeConfig {
     private final Context context;
     private final Settings settings;
 
-    public ThemeConfigImpl(
-            @NonNull Context context,
-            @NonNull Settings settings
-    ) {
+    public ThemeConfigImpl(@NonNull Context context, @NonNull Settings settings) {
         this.context = context;
         this.settings = settings;
     }
 
     @Override
-    public void setCurrentTheme(
-            @NonNull Theme theme
-    ) {
+    public void setCurrentTheme(@NonNull Theme theme) {
         settings.saveTheme(theme);
         Resources.Theme appTheme = context.getTheme();
-        appTheme.applyStyle(
-                theme.getThemeResId(),
-                true
-        );
+        appTheme.applyStyle(theme.getThemeResId(), true);
     }
 
     @NonNull
@@ -47,49 +39,32 @@ public class ThemeConfigImpl implements ThemeConfig {
     }
 
     @Override
-    public void applyAccentColorToImage(
-            @NonNull Drawable drawable
-    ) {
-        drawable.setColorFilter(
-                getAccentColor(),
-                PorterDuff.Mode.SRC_ATOP
-        );
+    public void applyAccentColorToImage(@NonNull Drawable drawable) {
+        drawable.setColorFilter(getAccentColor(), PorterDuff.Mode.SRC_ATOP);
     }
 
     @SuppressLint("ResourceType")
     @Override
     public int getAccentColor() {
-        return getColorFromAttrs(
-                R.attr.colorAccent
-        );
+        return getColorFromAttrs(R.attr.colorAccent);
     }
 
     @SuppressLint("ResourceType")
     @Override
     public int getCommonTextColor() {
-        return getColorFromAttrs(
-                R.attr.colorCommonText
-        );
+        return getColorFromAttrs(R.attr.colorCommonText);
     }
 
     @SuppressLint("ResourceType")
     @Override
     public int getCommonBackgroundColor() {
-        return getColorFromAttrs(
-                R.attr.colorBackground
-        );
+        return getColorFromAttrs(R.attr.colorBackground);
     }
 
-    private int getColorFromAttrs(
-            @IdRes int themeColor
-    ) {
+    private int getColorFromAttrs(@IdRes int themeColor) {
         TypedValue typedValue = new TypedValue();
         Resources.Theme theme = context.getTheme();
-        theme.resolveAttribute(
-                themeColor,
-                typedValue,
-                true
-        );
+        theme.resolveAttribute(themeColor, typedValue, true);
         return typedValue.data;
     }
 

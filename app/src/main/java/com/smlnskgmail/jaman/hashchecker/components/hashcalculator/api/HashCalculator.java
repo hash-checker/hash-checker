@@ -16,10 +16,7 @@ public interface HashCalculator {
     String fromString(@NonNull String text);
 
     @Nullable
-    String fromFile(
-            @NonNull Context context,
-            @NonNull Uri path
-    );
+    String fromFile(@NonNull Context context, @NonNull Uri path);
 
     @Nullable
     String fromFile(@Nullable InputStream inputStream);

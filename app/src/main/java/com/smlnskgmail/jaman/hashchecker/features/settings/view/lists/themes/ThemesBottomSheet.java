@@ -26,10 +26,7 @@ public class ThemesBottomSheet extends BaseListBottomSheet<Theme> {
     public ThemeConfig themeConfig;
 
     @Override
-    public void onViewCreated(
-            @NonNull View view,
-            @Nullable Bundle savedInstanceState
-    ) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         App.appComponent.inject(this);
         super.onViewCreated(view, savedInstanceState);
     }

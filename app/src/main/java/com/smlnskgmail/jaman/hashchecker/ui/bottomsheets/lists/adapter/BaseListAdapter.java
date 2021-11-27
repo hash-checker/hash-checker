@@ -21,20 +21,14 @@ public abstract class BaseListAdapter<T extends ListItem>
     private final BaseListBottomSheet<T> bottomSheet;
     private final List<T> items = new ArrayList<>();
 
-    protected BaseListAdapter(
-            @NonNull List<T> items,
-            @NonNull BaseListBottomSheet<T> bottomSheet
-    ) {
+    protected BaseListAdapter(@NonNull List<T> items, @NonNull BaseListBottomSheet<T> bottomSheet) {
         this.items.addAll(items);
         this.bottomSheet = bottomSheet;
     }
 
     @NonNull
     @Override
-    public BaseListHolder<T> onCreateViewHolder(
-            @NonNull ViewGroup parent,
-            int viewType
-    ) {
+    public BaseListHolder<T> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return getItemsHolder(
                 parent.getContext(),
                 LayoutInflater.from(parent.getContext()).inflate(
@@ -46,10 +40,7 @@ public abstract class BaseListAdapter<T extends ListItem>
     }
 
     @Override
-    public void onBindViewHolder(
-            @NonNull BaseListHolder<T> holder,
-            int position
-    ) {
+    public void onBindViewHolder(@NonNull BaseListHolder<T> holder, int position) {
         holder.bind(items.get(position));
     }
 

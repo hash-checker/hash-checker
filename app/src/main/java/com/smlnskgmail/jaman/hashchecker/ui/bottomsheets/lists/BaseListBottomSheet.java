@@ -32,22 +32,13 @@ public abstract class BaseListBottomSheet<T extends ListItem> extends BottomShee
     }
 
     @Override
-    public void onViewCreated(
-            @NonNull View view,
-            @Nullable Bundle savedInstanceState
-    ) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Dialog dialog = getDialog();
         if (dialog != null) {
             dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         }
-        RecyclerView rvItems = view.findViewById(
-                R.id.rv_bottom_sheet_list_items
-        );
-        rvItems.setLayoutManager(
-                new LinearLayoutManager(
-                        getContext()
-                )
-        );
+        RecyclerView rvItems = view.findViewById(R.id.rv_bottom_sheet_list_items);
+        rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
         rvItems.setAdapter(getItemsAdapter());
     }
 

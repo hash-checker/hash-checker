@@ -10,11 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashCalculator;
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.Language;
 import com.smlnskgmail.jaman.hashchecker.components.settings.api.Settings;
 import com.smlnskgmail.jaman.hashchecker.components.theme.api.Theme;
-import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
-import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashCalculator;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
