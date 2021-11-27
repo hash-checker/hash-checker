@@ -6,12 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.smlnskgmail.jaman.hashchecker.App;
-import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;
 
 import java.util.Arrays;
 
@@ -23,7 +23,7 @@ public class GenerateToBottomSheet extends BaseListBottomSheet<HashType> {
     public SettingsHelper settingsHelper;
 
     @Inject
-    public ThemeHelper themeHelper;
+    public ThemeConfig themeConfig;
 
     // CPD-OFF
     @Override
@@ -44,7 +44,7 @@ public class GenerateToBottomSheet extends BaseListBottomSheet<HashType> {
                 this,
                 (HashTypeSelectTarget) fragment,
                 settingsHelper.getLastHashType(),
-                themeHelper
+                themeConfig
         );
     }
 

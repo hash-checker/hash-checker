@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.ListItem;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.ListItem;
 
 import java.util.Arrays;
 import java.util.List;

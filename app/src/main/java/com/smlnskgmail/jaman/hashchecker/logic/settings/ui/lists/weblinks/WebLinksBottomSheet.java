@@ -2,9 +2,9 @@ package com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ abstract class WebLinksBottomSheet extends BaseListBottomSheet<WebLink> {
     }
 
     @NonNull
-    protected abstract ThemeHelper themeHelper();
+    protected abstract ThemeConfig themeHelper();
 
     @NonNull
     protected abstract List<WebLink> getLinks();

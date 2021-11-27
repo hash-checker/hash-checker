@@ -7,10 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.locale.api.Language;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.Theme;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.Theme;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
 public class SharedPreferencesSettingsHelper implements SettingsHelper {

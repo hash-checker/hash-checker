@@ -6,8 +6,8 @@ import android.os.Environment;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
-import com.smlnskgmail.jaman.hashchecker.components.TestFileUtils;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
+import com.smlnskgmail.jaman.hashchecker.ui.TestFileUtils;
 
 import java.io.File;
 import java.io.IOException;

@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import androidx.test.InstrumentationRegistry;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
 
 import java.util.ArrayList;

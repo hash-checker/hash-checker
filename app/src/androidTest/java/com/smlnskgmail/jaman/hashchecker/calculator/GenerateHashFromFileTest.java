@@ -6,8 +6,8 @@ import android.content.SharedPreferences;
 import androidx.test.InstrumentationRegistry;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
-import com.smlnskgmail.jaman.hashchecker.components.TestFileUtils;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
+import com.smlnskgmail.jaman.hashchecker.ui.TestFileUtils;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static com.smlnskgmail.jaman.hashchecker.components.matchers.TextMatcher.getText;
+import static com.smlnskgmail.jaman.hashchecker.ui.matchers.TextMatcher.getText;
 
 public class GenerateHashFromFileTest extends BaseUITest {
 

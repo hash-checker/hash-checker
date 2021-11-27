@@ -9,9 +9,9 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.ui.dialogs.system.AppSnackbar;
 
 public class WebUtils {
 
@@ -23,7 +23,7 @@ public class WebUtils {
             @NonNull Context context,
             @NonNull View view,
             @NonNull SettingsHelper settingsHelper,
-            @NonNull ThemeHelper themeHelper
+            @NonNull ThemeConfig themeConfig
     ) {
         final String appPackageName = context.getPackageName();
         Uri link;
@@ -53,7 +53,7 @@ public class WebUtils {
                         view,
                         R.string.message_error_start_google_play,
                         settingsHelper,
-                        themeHelper
+                        themeConfig
                 ).show();
             }
         }

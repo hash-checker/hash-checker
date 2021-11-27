@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.BaseDialog;
+import com.smlnskgmail.jaman.hashchecker.ui.dialogs.BaseDialog;
 
 public class TextInputDialog extends BaseDialog {
 

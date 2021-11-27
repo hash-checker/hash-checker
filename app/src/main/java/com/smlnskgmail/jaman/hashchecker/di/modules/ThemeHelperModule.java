@@ -2,7 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.di.modules;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
 
 import dagger.Module;
 import dagger.Provides;
@@ -10,18 +10,18 @@ import dagger.Provides;
 @Module
 public class ThemeHelperModule {
 
-    private final ThemeHelper themeHelper;
+    private final ThemeConfig themeConfig;
 
     public ThemeHelperModule(
-            @NonNull ThemeHelper themeHelper
+            @NonNull ThemeConfig themeConfig
     ) {
-        this.themeHelper = themeHelper;
+        this.themeConfig = themeConfig;
     }
 
     @NonNull
     @Provides
-    public ThemeHelper themeHelper() {
-        return themeHelper;
+    public ThemeConfig themeHelper() {
+        return themeConfig;
     }
 
 }

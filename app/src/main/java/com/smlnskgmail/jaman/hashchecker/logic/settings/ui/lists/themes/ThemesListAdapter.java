@@ -7,27 +7,27 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.Theme;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.Theme;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListHolder;
+import com.smlnskgmail.jaman.hashchecker.ui.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
 import java.util.List;
 
 public class ThemesListAdapter extends BaseListAdapter<Theme> {
 
-    private final ThemeHelper themeHelper;
+    private final ThemeConfig themeConfig;
 
     ThemesListAdapter(
             @NonNull List<Theme> items,
             @NonNull BaseListBottomSheet<Theme> bottomSheet,
-            @NonNull ThemeHelper themeHelper
+            @NonNull ThemeConfig themeConfig
     ) {
         super(items, bottomSheet);
-        this.themeHelper = themeHelper;
+        this.themeConfig = themeConfig;
     }
 
     @NonNull
@@ -50,12 +50,12 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
                 @NonNull Context themeContext,
                 @NonNull View itemView
         ) {
-            super(themeContext, itemView, themeHelper);
+            super(themeContext, itemView, themeConfig);
         }
 
         @Override
         protected void callItemClick() {
-            if (themeAtPosition == themeHelper.currentTheme()) {
+            if (themeAtPosition == themeConfig.currentTheme()) {
                 dismissBottomSheet();
             } else {
                 showThemeApplyDialog();
@@ -82,12 +82,12 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
                             AppUtils.restartApp(activity);
                         }
                     },
-                    themeHelper
+                    themeConfig
             ).show();
         }
 
         private void configureNewTheme() {
-            themeHelper.setCurrentTheme(themeAtPosition);
+            themeConfig.setCurrentTheme(themeAtPosition);
         }
 
         @Override
@@ -97,7 +97,7 @@ public class ThemesListAdapter extends BaseListAdapter<Theme> {
 
         @Override
         protected boolean getConditionToAdditionalIconVisibleState() {
-            return themeAtPosition == themeHelper.currentTheme();
+            return themeAtPosition == themeConfig.currentTheme();
         }
 
     }

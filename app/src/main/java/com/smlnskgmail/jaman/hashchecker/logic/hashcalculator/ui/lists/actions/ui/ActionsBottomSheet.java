@@ -3,12 +3,12 @@ package com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.Action;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.types.UserActionTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ abstract class ActionsBottomSheet extends BaseListBottomSheet<Action> {
     }
 
     @NonNull
-    protected abstract ThemeHelper themeHelper();
+    protected abstract ThemeConfig themeHelper();
 
     @NonNull
     protected abstract List<Action> getActions();

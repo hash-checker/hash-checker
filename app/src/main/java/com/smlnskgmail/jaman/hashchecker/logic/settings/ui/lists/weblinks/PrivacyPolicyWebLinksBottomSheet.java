@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.App;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
 
 import java.util.Collections;
 import java.util.List;
@@ -15,7 +15,7 @@ import javax.inject.Inject;
 public class PrivacyPolicyWebLinksBottomSheet extends WebLinksBottomSheet {
 
     @Inject
-    public ThemeHelper themeHelper;
+    public ThemeConfig themeConfig;
 
     // CPD-OFF
     @Override
@@ -27,8 +27,8 @@ public class PrivacyPolicyWebLinksBottomSheet extends WebLinksBottomSheet {
 
     @NonNull
     @Override
-    protected ThemeHelper themeHelper() {
-        return themeHelper;
+    protected ThemeConfig themeHelper() {
+        return themeConfig;
     }
 
     @NonNull

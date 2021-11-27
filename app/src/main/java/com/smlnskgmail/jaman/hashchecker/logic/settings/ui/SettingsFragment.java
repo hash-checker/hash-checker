@@ -25,19 +25,19 @@ import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
-import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
-import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseExporter;
-import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.feedback.ui.FeedbackFragment;
+import com.smlnskgmail.jaman.hashchecker.components.localdatastorage.api.LocalDataExporter;
+import com.smlnskgmail.jaman.hashchecker.components.localdatastorage.api.LocalDataStorage;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
+import com.smlnskgmail.jaman.hashchecker.features.feedback.view.FeedbackFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.languages.LanguagesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.themes.ThemesBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.AuthorWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.LibrariesWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.lists.weblinks.PrivacyPolicyWebLinksBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.ui.dialogs.system.AppSnackbar;
+import com.smlnskgmail.jaman.hashchecker.ui.states.AppBackClickTarget;
+import com.smlnskgmail.jaman.hashchecker.ui.states.AppResumeTarget;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.UIUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
@@ -53,13 +53,13 @@ import javax.inject.Inject;
 public class SettingsFragment extends PreferenceFragmentCompat implements AppBackClickTarget, AppResumeTarget {
 
     @Inject
-    public DatabaseHelper databaseHelper;
+    public LocalDataStorage localDataStorage;
 
     @Inject
     public SettingsHelper settingsHelper;
 
     @Inject
-    public ThemeHelper themeHelper;
+    public ThemeConfig themeConfig;
 
     private ActionBar actionBar;
     private FragmentManager fragmentManager;
@@ -154,14 +154,14 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     }
 
     private void saveUserData() {
-        if (databaseHelper.isHistoryItemsListIsEmpty()) {
+        if (localDataStorage.isHistoryItemsListIsEmpty()) {
             try {
                 Intent saveFileIntent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
                 saveFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
                 saveFileIntent.setType("application/zip");
                 saveFileIntent.putExtra(
                         Intent.EXTRA_TITLE,
-                        DatabaseExporter.EXPORT_FILE
+                        LocalDataExporter.EXPORT_FILE
                 );
                 startActivityForResult(
                         saveFileIntent,
@@ -174,7 +174,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                         getView(),
                         R.string.message_error_start_file_selector,
                         settingsHelper,
-                        themeHelper
+                        themeConfig
                 ).show();
             }
         } else {
@@ -183,7 +183,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                     getView(),
                     R.string.history_empty_view_message,
                     settingsHelper,
-                    themeHelper
+                    themeConfig
             ).show();
         }
     }
@@ -232,7 +232,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                             context,
                             getView(),
                             settingsHelper,
-                            themeHelper
+                            themeConfig
                     );
                     return false;
                 });
@@ -275,7 +275,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
         super.onViewCreated(view, savedInstanceState);
         setHasOptionsMenu(true);
         view.setBackgroundColor(
-                themeHelper.getCommonBackgroundColor()
+                themeConfig.getCommonBackgroundColor()
         );
         setDividerHeight(0);
     }
@@ -298,9 +298,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
     private void copyUserDataToUserFolder(@Nullable Uri uri) {
         if (uri != null) {
             try {
-                DatabaseExporter.exportDatabase(
+                LocalDataExporter.exportDatabase(
                         context,
-                        databaseHelper
+                        localDataStorage
                 );
                 ParcelFileDescriptor descriptor = context.getApplicationContext().getContentResolver()
                         .openFileDescriptor(uri, "w");
@@ -310,7 +310,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements AppBac
                     );
                     copyFile(
                             new File(
-                                    DatabaseExporter.getUserDataZip(
+                                    LocalDataExporter.getUserDataZip(
                                             context
                                     )
                             ),

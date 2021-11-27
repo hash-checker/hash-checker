@@ -5,25 +5,25 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListHolder;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
 import java.util.List;
 
 public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
 
-    private final ThemeHelper themeHelper;
+    private final ThemeConfig themeConfig;
 
     WebLinksListAdapter(
             @NonNull List<WebLink> items,
             @NonNull BaseListBottomSheet<WebLink> bottomSheet,
-            @NonNull ThemeHelper themeHelper
+            @NonNull ThemeConfig themeConfig
     ) {
         super(items, bottomSheet);
-        this.themeHelper = themeHelper;
+        this.themeConfig = themeConfig;
     }
 
     @NonNull
@@ -46,7 +46,7 @@ public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
                 @NonNull Context themeContext,
                 @NonNull View itemView
         ) {
-            super(themeContext, itemView, themeHelper);
+            super(themeContext, itemView, themeConfig);
         }
 
         @Override

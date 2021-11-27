@@ -2,7 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.screenshots;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
 
 import org.junit.Before;
 

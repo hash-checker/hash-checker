@@ -6,29 +6,29 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.Action;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.types.UserActionTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListHolder;
 
 import java.util.List;
 
 public class ActionsListAdapter extends BaseListAdapter<Action> {
 
     private final UserActionTarget userActionTarget;
-    private final ThemeHelper themeHelper;
+    private final ThemeConfig themeConfig;
 
     ActionsListAdapter(
             @NonNull List<Action> items,
             @NonNull BaseListBottomSheet<Action> bottomSheet,
             @Nullable UserActionTarget userActionTarget,
-            @NonNull ThemeHelper themeHelper
+            @NonNull ThemeConfig themeConfig
     ) {
         super(items, bottomSheet);
         this.userActionTarget = userActionTarget;
-        this.themeHelper = themeHelper;
+        this.themeConfig = themeConfig;
     }
 
     @NonNull
@@ -51,7 +51,7 @@ public class ActionsListAdapter extends BaseListAdapter<Action> {
                 @NonNull Context themeContext,
                 @NonNull View itemView
         ) {
-            super(themeContext, itemView, themeHelper);
+            super(themeContext, itemView, themeConfig);
         }
 
         @Override

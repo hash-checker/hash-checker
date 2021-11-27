@@ -7,13 +7,13 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.components.locale.api.Language;
+import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListHolder;
+import com.smlnskgmail.jaman.hashchecker.ui.dialogs.system.AppAlertDialog;
 import com.smlnskgmail.jaman.hashchecker.utils.AppUtils;
 
 import java.util.List;
@@ -21,20 +21,20 @@ import java.util.List;
 public class LanguagesListAdapter extends BaseListAdapter<Language> {
 
     private final Language selectedLanguage;
-    private final LangHelper langHelper;
-    private final ThemeHelper themeHelper;
+    private final LanguageConfig languageConfig;
+    private final ThemeConfig themeConfig;
 
     LanguagesListAdapter(
             @NonNull List<Language> items,
             @NonNull BaseListBottomSheet<Language> bottomSheet,
             @NonNull Language selectedLanguage,
-            @NonNull LangHelper langHelper,
-            @NonNull ThemeHelper themeHelper
+            @NonNull LanguageConfig languageConfig,
+            @NonNull ThemeConfig themeConfig
     ) {
         super(items, bottomSheet);
         this.selectedLanguage = selectedLanguage;
-        this.langHelper = langHelper;
-        this.themeHelper = themeHelper;
+        this.languageConfig = languageConfig;
+        this.themeConfig = themeConfig;
     }
 
     @NonNull
@@ -57,7 +57,7 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
                 @NonNull Context themeContext,
                 @NonNull View itemView
         ) {
-            super(themeContext, itemView, themeHelper);
+            super(themeContext, itemView, themeConfig);
         }
 
         @Override
@@ -68,7 +68,7 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
                     R.string.message_change_language,
                     R.string.common_ok,
                     (dialog, which) -> {
-                        langHelper.setLanguage(
+                        languageConfig.setLanguage(
                                 languageAtPosition
                         );
                         dialog.dismiss();
@@ -77,7 +77,7 @@ public class LanguagesListAdapter extends BaseListAdapter<Language> {
                             AppUtils.restartApp(activity);
                         }
                     },
-                    themeHelper
+                    themeConfig
             ).show();
         }
 

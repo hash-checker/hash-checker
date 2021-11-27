@@ -29,12 +29,10 @@ import androidx.fragment.app.FragmentManager;
 import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppAlertDialog;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppProgressDialog;
-import com.smlnskgmail.jaman.hashchecker.components.dialogs.system.AppSnackbar;
-import com.smlnskgmail.jaman.hashchecker.components.watchers.AppTextWatcher;
-import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
+import com.smlnskgmail.jaman.hashchecker.components.clipboard.Clipboard;
+import com.smlnskgmail.jaman.hashchecker.components.localdatastorage.api.LocalDataStorage;
+import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
 import com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui.FileManagerActivity;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashCalculatorTask;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
@@ -46,11 +44,13 @@ import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.u
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.actions.ui.SourceSelectActionsBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtypes.GenerateToBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.lists.hashtypes.HashTypeSelectTarget;
-import com.smlnskgmail.jaman.hashchecker.logic.history.HistoryItem;
-import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
+import com.smlnskgmail.jaman.hashchecker.components.localdatastorage.models.HistoryItem;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.support.Clipboard;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.ui.dialogs.system.AppAlertDialog;
+import com.smlnskgmail.jaman.hashchecker.ui.dialogs.system.AppProgressDialog;
+import com.smlnskgmail.jaman.hashchecker.ui.dialogs.system.AppSnackbar;
+import com.smlnskgmail.jaman.hashchecker.ui.watchers.AppTextWatcher;
 import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
@@ -69,16 +69,16 @@ public class HashCalculatorFragment extends BaseFragment
     private static final int TEXT_SINGLE_LINE_LINES_COUNT = 1;
 
     @Inject
-    public DatabaseHelper databaseHelper;
+    public LocalDataStorage localDataStorage;
 
     @Inject
     public SettingsHelper settingsHelper;
 
     @Inject
-    public LangHelper langHelper;
+    public LanguageConfig languageConfig;
 
     @Inject
-    public ThemeHelper themeHelper;
+    public ThemeConfig themeConfig;
 
     private View mainScreen;
 
@@ -123,7 +123,7 @@ public class HashCalculatorFragment extends BaseFragment
                         objectValue,
                         hashValue
                 );
-                databaseHelper.addHistoryItem(historyItem);
+                localDataStorage.addHistoryItem(historyItem);
             }
             if (settingsHelper.canShowRateAppDialog()) {
                 settingsHelper.increaseHashGenerationCount();
@@ -136,9 +136,9 @@ public class HashCalculatorFragment extends BaseFragment
                                 context,
                                 getView(),
                                 settingsHelper,
-                                themeHelper
+                                themeConfig
                         ),
-                        themeHelper
+                        themeConfig
                 ).show();
             } else {
                 settingsHelper.increaseHashGenerationCount();
@@ -165,7 +165,7 @@ public class HashCalculatorFragment extends BaseFragment
                 mainScreen,
                 messageResId,
                 settingsHelper,
-                themeHelper
+                themeConfig
         ).show();
     }
 
@@ -449,7 +449,7 @@ public class HashCalculatorFragment extends BaseFragment
                 actionText,
                 action,
                 settingsHelper,
-                themeHelper
+                themeConfig
         ).show();
     }
 
@@ -559,8 +559,8 @@ public class HashCalculatorFragment extends BaseFragment
 
     @NonNull
     @Override
-    protected LangHelper langHelper() {
-        return langHelper;
+    protected LanguageConfig langHelper() {
+        return languageConfig;
     }
 
     @NonNull

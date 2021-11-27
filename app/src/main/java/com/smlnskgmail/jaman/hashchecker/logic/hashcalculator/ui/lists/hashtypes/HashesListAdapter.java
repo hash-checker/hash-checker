@@ -6,11 +6,11 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListHolder;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListHolder;
 
 import java.util.List;
 
@@ -18,19 +18,19 @@ public class HashesListAdapter extends BaseListAdapter<HashType> {
 
     private final HashType selectedHashType;
     private final HashTypeSelectTarget hashTypeSelectListener;
-    private final ThemeHelper themeHelper;
+    private final ThemeConfig themeConfig;
 
     HashesListAdapter(
             @NonNull List<HashType> items,
             @NonNull BaseListBottomSheet<HashType> bottomSheet,
             @NonNull HashTypeSelectTarget hashTypeSelectListener,
             @NonNull HashType selectedHashType,
-            @NonNull ThemeHelper themeHelper
+            @NonNull ThemeConfig themeConfig
     ) {
         super(items, bottomSheet);
         this.hashTypeSelectListener = hashTypeSelectListener;
         this.selectedHashType = selectedHashType;
-        this.themeHelper = themeHelper;
+        this.themeConfig = themeConfig;
     }
 
     @NonNull
@@ -53,7 +53,7 @@ public class HashesListAdapter extends BaseListAdapter<HashType> {
                 @NonNull Context themeContext,
                 @NonNull View itemView
         ) {
-            super(themeContext, itemView, themeHelper);
+            super(themeContext, itemView, themeConfig);
         }
 
         @Override

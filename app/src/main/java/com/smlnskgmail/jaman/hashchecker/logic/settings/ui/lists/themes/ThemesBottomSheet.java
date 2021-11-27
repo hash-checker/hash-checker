@@ -7,11 +7,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.App;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.BaseListBottomSheet;
-import com.smlnskgmail.jaman.hashchecker.components.bottomsheets.lists.adapter.BaseListAdapter;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.Theme;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.Theme;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;
 
 import java.util.Arrays;
 
@@ -23,7 +23,7 @@ public class ThemesBottomSheet extends BaseListBottomSheet<Theme> {
     public SettingsHelper settingsHelper;
 
     @Inject
-    public ThemeHelper themeHelper;
+    public ThemeConfig themeConfig;
 
     @Override
     public void onViewCreated(
@@ -40,7 +40,7 @@ public class ThemesBottomSheet extends BaseListBottomSheet<Theme> {
         return new ThemesListAdapter(
                 Arrays.asList(Theme.values()),
                 this,
-                themeHelper
+                themeConfig
         );
     }
 

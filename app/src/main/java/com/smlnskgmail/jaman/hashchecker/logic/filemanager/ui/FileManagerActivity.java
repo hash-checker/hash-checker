@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.logic.filemanager.ui;
 
-import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseActivity;
 
 public abstract class FileManagerActivity extends BaseActivity implements FileSelectTarget {
 

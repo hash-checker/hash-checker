@@ -23,16 +23,16 @@ import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.InstallStatus;
 import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.android.play.core.tasks.Task;
-import com.smlnskgmail.jaman.hashchecker.components.BaseActivity;
-import com.smlnskgmail.jaman.hashchecker.components.BaseFragment;
-import com.smlnskgmail.jaman.hashchecker.components.states.AppBackClickTarget;
-import com.smlnskgmail.jaman.hashchecker.components.states.AppResumeTarget;
+import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;
+import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseActivity;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseFragment;
+import com.smlnskgmail.jaman.hashchecker.ui.states.AppBackClickTarget;
+import com.smlnskgmail.jaman.hashchecker.ui.states.AppResumeTarget;
 import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.ui.HashCalculatorFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.history.ui.HistoryFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
+import com.smlnskgmail.jaman.hashchecker.features.history.view.HistoryFragment;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.ui.SettingsFragment;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.api.ThemeHelper;
 
 import java.util.List;
 
@@ -52,10 +52,10 @@ public class MainActivity extends BaseActivity {
     SettingsHelper settingsHelper;
 
     @Inject
-    LangHelper langHelper;
+    LanguageConfig languageConfig;
 
     @Inject
-    ThemeHelper themeHelper;
+    ThemeConfig themeConfig;
 
     private AppUpdateManager appUpdateManager;
 
@@ -79,14 +79,14 @@ public class MainActivity extends BaseActivity {
 
     @NonNull
     @Override
-    protected LangHelper langHelper() {
-        return langHelper;
+    protected LanguageConfig langHelper() {
+        return languageConfig;
     }
 
     @NonNull
     @Override
-    protected ThemeHelper themeHelper() {
-        return themeHelper;
+    protected ThemeConfig themeHelper() {
+        return themeConfig;
     }
 
     @Override

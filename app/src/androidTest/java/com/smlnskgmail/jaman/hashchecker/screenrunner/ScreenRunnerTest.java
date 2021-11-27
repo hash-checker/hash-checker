@@ -3,7 +3,7 @@ package com.smlnskgmail.jaman.hashchecker.screenrunner;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;

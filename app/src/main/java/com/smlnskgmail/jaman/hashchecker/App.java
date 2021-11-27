@@ -13,20 +13,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import com.github.aelstad.keccakj.provider.KeccakjProvider;
+import com.smlnskgmail.jaman.hashchecker.components.localdatastorage.api.LocalDataStorage;
+import com.smlnskgmail.jaman.hashchecker.components.localdatastorage.impl.ormlite.OrmLiteLocalDataStorage;
+import com.smlnskgmail.jaman.hashchecker.components.locale.api.Language;
+import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;
+import com.smlnskgmail.jaman.hashchecker.components.locale.impl.LanguageConfigImpl;
+import com.smlnskgmail.jaman.hashchecker.components.theme.impl.ThemeConfigImpl;
 import com.smlnskgmail.jaman.hashchecker.di.components.AppComponent;
 import com.smlnskgmail.jaman.hashchecker.di.components.DaggerAppComponent;
 import com.smlnskgmail.jaman.hashchecker.di.modules.DatabaseHelperModule;
 import com.smlnskgmail.jaman.hashchecker.di.modules.LangHelperModule;
 import com.smlnskgmail.jaman.hashchecker.di.modules.SettingsHelperModule;
 import com.smlnskgmail.jaman.hashchecker.di.modules.ThemeHelperModule;
-import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.database.impl.ormlite.OrmLiteDatabaseHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.locale.api.LangHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.locale.api.Language;
-import com.smlnskgmail.jaman.hashchecker.logic.locale.impl.LangHelperImpl;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
 import com.smlnskgmail.jaman.hashchecker.logic.settings.impl.SharedPreferencesSettingsHelper;
-import com.smlnskgmail.jaman.hashchecker.logic.themes.impl.ThemeHelperImpl;
 
 import java.security.Security;
 import java.util.Arrays;
@@ -44,17 +44,17 @@ public class App extends android.app.Application {
     private static final String SHORTCUT_TEXT_ID = "shortcut_text";
     private static final String SHORTCUT_FILE_ID = "shortcut_file";
 
-    private DatabaseHelper databaseHelper;
+    private LocalDataStorage localDataStorage;
     private SettingsHelper settingsHelper;
-    private LangHelper langHelper;
+    private LanguageConfig languageConfig;
 
     @Override
     public void onCreate() {
         super.onCreate();
         Security.addProvider(new KeccakjProvider());
-        databaseHelper = new OrmLiteDatabaseHelper(this);
+        localDataStorage = new OrmLiteLocalDataStorage(this);
         settingsHelper = new SharedPreferencesSettingsHelper(this);
-        langHelper = new LangHelperImpl(
+        languageConfig = new LanguageConfigImpl(
                 this,
                 settingsHelper
         );
@@ -63,7 +63,7 @@ public class App extends android.app.Application {
                 .builder()
                 .databaseHelperModule(
                         new DatabaseHelperModule(
-                                databaseHelper
+                                localDataStorage
                         )
                 )
                 .settingsHelperModule(
@@ -73,12 +73,12 @@ public class App extends android.app.Application {
                 )
                 .langHelperModule(
                         new LangHelperModule(
-                                langHelper
+                                languageConfig
                         )
                 )
                 .themeHelperModule(
                         new ThemeHelperModule(
-                                new ThemeHelperImpl(
+                                new ThemeConfigImpl(
                                         this,
                                         settingsHelper
                                 )
@@ -171,7 +171,7 @@ public class App extends android.app.Application {
             if (language == null) {
                 language = Language.EN;
             }
-            langHelper.setLanguage(language);
+            languageConfig.setLanguage(language);
         }
     }
 
@@ -187,7 +187,7 @@ public class App extends android.app.Application {
     public void onTerminate() {
         super.onTerminate();
         settingsHelper.savePathForInnerFileManager(null);
-        databaseHelper.releaseHelper();
+        localDataStorage.releaseHelper();
     }
 
 }
