@@ -90,7 +90,6 @@ jobs:
         run: ./gradlew licenseGooglePlayReleaseReport
 
       - name: Check Google Play flavor licenses
-        id: license_check_report
         uses: pilosus/action-pip-license-checker@v0.5.0
         with:
           external: 'build/reports/licenses/licenseGooglePlayReleaseReport.json'
@@ -104,7 +103,6 @@ jobs:
         run: ./gradlew licenseThirdPartyStoresReleaseReport
 
       - name: Check Third Party Stored flavor licenses
-        id: license_check_report
         uses: pilosus/action-pip-license-checker@v0.5.0
         with:
           external: 'build/reports/licenses/licenseThirdPartyStoresReleaseReport.json'
