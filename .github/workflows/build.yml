@@ -100,7 +100,7 @@ jobs:
           external: 'app/build/reports/licenses/licenseGooglePlayReleaseReport.json'
           external-format: 'gradle'
           external-options: '{:fully-qualified-names false}'
-          fail: 'StrongCopyleft,NetworkCopyleft,Other,Error'
+          fail: 'StrongCopyleft,NetworkCopyleft,Error'
           fails-only: true
           with-totals: true
 
@@ -113,6 +113,6 @@ jobs:
           external: 'app/build/reports/licenses/licenseThirdPartyStoresReleaseReport.json'
           external-format: 'gradle'
           external-options: '{:fully-qualified-names false}'
-          fail: 'StrongCopyleft,NetworkCopyleft,Other,Error'
+          fail: 'StrongCopyleft,NetworkCopyleft,Error'
           fails-only: true
           with-totals: true
