@@ -30,11 +30,7 @@ public class JdkHashCalculatorExceptionsTest {
     public void runTest() {
         JdkHashCalculator jdkHashCalculator = new JdkHashCalculator();
         jdkHashCalculator.setHashType(HashType.MD5);
-        assertNull(
-                jdkHashCalculator.fromFile(
-                        new InputStreamMock()
-                )
-        );
+        assertNull(jdkHashCalculator.fromFile(new InputStreamMock()));
         assertNull(jdkHashCalculator.fromFile(null));
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertNull(
@@ -52,116 +48,4 @@ class InputStreamMock extends InputStream {
     public int read() throws IOException {
         throw new IOException();
     }
-}
-
-class SettingsMock implements Settings {
-
-    @Override
-    public void saveHashTypeAsLast(@NonNull HashType hashType) {
-
-    }
-
-    @NonNull
-    @Override
-    public HashType getLastHashType() {
-        return null;
-    }
-
-    @Override
-    public boolean languageIsInitialized() {
-        return false;
-    }
-
-    @Override
-    public void saveLanguage(@NonNull Language language) {
-
-    }
-
-    @NonNull
-    @Override
-    public Language getLanguage() {
-        return null;
-    }
-
-    @Override
-    public boolean isUsingInnerFileManager() {
-        return false;
-    }
-
-    @Override
-    public void savePathForInnerFileManager(@Nullable String path) {
-
-    }
-
-    @Override
-    public boolean isUsingMultilineHashFields() {
-        return false;
-    }
-
-    @Override
-    public boolean canSaveResultToHistory() {
-        return false;
-    }
-
-    @Override
-    public boolean getVibrateAccess() {
-        return false;
-    }
-
-    @NonNull
-    @Override
-    public Theme getSelectedTheme() {
-        return null;
-    }
-
-    @Override
-    public void saveTheme(@NonNull Theme theme) {
-
-    }
-
-    @Override
-    public boolean useUpperCase() {
-        return false;
-    }
-
-    @Override
-    public boolean isShortcutsIsCreated() {
-        return false;
-    }
-
-    @Override
-    public void saveShortcutsStatus(boolean value) {
-
-    }
-
-    @Override
-    public boolean getGenerateFromShareIntentStatus() {
-        return false;
-    }
-
-    @Override
-    public void setGenerateFromShareIntentMode(boolean status) {
-
-    }
-
-    @Override
-    public boolean refreshSelectedFile() {
-        return false;
-    }
-
-    @Override
-    public void setRefreshSelectedFileStatus(boolean status) {
-
-    }
-
-    @Override
-    public boolean canShowRateAppDialog() {
-        return false;
-    }
-
-    @Override
-    public void increaseHashGenerationCount() {
-
-    }
-
 }

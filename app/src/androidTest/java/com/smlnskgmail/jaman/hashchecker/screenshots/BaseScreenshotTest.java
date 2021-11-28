@@ -6,25 +6,19 @@ import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
 
 import org.junit.Before;
 
-import tools.fastlane.screengrab.Screengrab;
-import tools.fastlane.screengrab.UiAutomatorScreenshotStrategy;
+//import tools.fastlane.screengrab.Screengrab;
+//import tools.fastlane.screengrab.UiAutomatorScreenshotStrategy;
 
 public abstract class BaseScreenshotTest extends BaseUITest {
 
-    @Before
-    public void setup() {
-        Screengrab.setDefaultScreenshotStrategy(
-                new UiAutomatorScreenshotStrategy()
-        );
-    }
-
-    public void makeScreenshot(
-            @NonNull String screenshotName
-    ) {
-        secondDelay();
-        Screengrab.screenshot(
-                screenshotName
-        );
-    }
+//    @Before
+//    public void setup() {
+//        Screengrab.setDefaultScreenshotStrategy(new UiAutomatorScreenshotStrategy());
+//    }
+//
+//    public void makeScreenshot(@NonNull String screenshotName) {
+//        secondDelay();
+//        Screengrab.screenshot(screenshotName);
+//    }
 
 }

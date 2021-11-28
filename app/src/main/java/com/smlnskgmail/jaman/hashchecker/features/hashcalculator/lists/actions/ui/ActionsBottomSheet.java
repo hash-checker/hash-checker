@@ -1,11 +1,11 @@
-package com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.lists.actions.ui;
+package com.smlnskgmail.jaman.hashchecker.features.hashcalculator.lists.actions.ui;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
-import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.lists.actions.Action;
-import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.lists.actions.types.UserActionTarget;
+import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.lists.actions.Action;
+import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.lists.actions.types.UserActionTarget;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;

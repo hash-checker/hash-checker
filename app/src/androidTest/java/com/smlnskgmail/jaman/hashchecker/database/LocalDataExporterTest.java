@@ -26,12 +26,7 @@ public class LocalDataExporterTest {
             if (databaseCopy.exists()) {
                 assertTrue(databaseCopy.delete());
             }
-            LocalDataExporter.exportDatabase(
-                    context,
-                    new OrmLiteLocalDataStorage(
-                            context
-                    )
-            );
+            LocalDataExporter.exportDatabase(context, new OrmLiteLocalDataStorage(context));
             assertTrue(databaseCopy.exists());
         } catch (IOException e) {
             e.printStackTrace();

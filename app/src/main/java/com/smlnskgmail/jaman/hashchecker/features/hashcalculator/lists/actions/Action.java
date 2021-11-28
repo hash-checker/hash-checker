@@ -1,11 +1,11 @@
-package com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.lists.actions;
+package com.smlnskgmail.jaman.hashchecker.features.hashcalculator.lists.actions;
 
 import android.content.Context;
 
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.lists.actions.types.UserActionType;
+import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.lists.actions.types.UserActionType;
 import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.ListItem;
 
 public enum Action implements ListItem {

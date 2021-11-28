@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.input;
+package com.smlnskgmail.jaman.hashchecker.features.hashcalculator.input;
 
 import android.content.Context;
 import android.view.WindowManager;

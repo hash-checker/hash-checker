@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.lists.actions.ui;
+package com.smlnskgmail.jaman.hashchecker.features.hashcalculator.lists.actions.ui;
 
 import android.content.Context;
 
@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
-import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.lists.actions.Action;
+import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.lists.actions.Action;
 
 import java.util.Arrays;
 import java.util.List;

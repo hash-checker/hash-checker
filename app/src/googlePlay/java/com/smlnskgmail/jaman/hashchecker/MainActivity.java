@@ -26,7 +26,7 @@ import com.google.android.play.core.tasks.Task;
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;
 import com.smlnskgmail.jaman.hashchecker.components.settings.api.Settings;
 import com.smlnskgmail.jaman.hashchecker.components.theme.api.ThemeConfig;
-import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.HashCalculatorFragment;
+import com.smlnskgmail.jaman.hashchecker.features.hashcalculator.HashCalculatorFragment;
 import com.smlnskgmail.jaman.hashchecker.features.history.view.HistoryFragment;
 import com.smlnskgmail.jaman.hashchecker.features.settings.view.SettingsFragment;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseActivity;
@@ -106,25 +106,13 @@ public class MainActivity extends BaseActivity {
         HashCalculatorFragment mainFragment = new HashCalculatorFragment();
         if (scheme != null
                 && (scheme.equals(ContentResolver.SCHEME_CONTENT) || scheme.equals(ContentResolver.SCHEME_FILE))) {
-            mainFragment.setArguments(
-                    getConfiguredBundleWithDataUri(
-                            intent.getData()
-                    )
-            );
+            mainFragment.setArguments(getConfiguredBundleWithDataUri(intent.getData()));
             settings.setGenerateFromShareIntentMode(true);
         } else if (externalFileUri != null) {
-            mainFragment.setArguments(
-                    getConfiguredBundleWithDataUri(
-                            externalFileUri
-                    )
-            );
+            mainFragment.setArguments(getConfiguredBundleWithDataUri(externalFileUri));
             settings.setGenerateFromShareIntentMode(true);
         } else if (intent != null) {
-            mainFragment.setArguments(
-                    getBundleForShortcutAction(
-                            intent.getAction()
-                    )
-            );
+            mainFragment.setArguments(getBundleForShortcutAction(intent.getAction()));
             settings.setGenerateFromShareIntentMode(false);
         }
         showFragment(mainFragment);
@@ -134,15 +122,8 @@ public class MainActivity extends BaseActivity {
     public void showFragment(@NonNull Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(
-                        android.R.id.content,
-                        fragment,
-                        BaseFragment.CURRENT_FRAGMENT_TAG
-                )
-                .setCustomAnimations(
-                        android.R.anim.fade_in,
-                        android.R.anim.fade_out
-                )
+                .add(android.R.id.content, fragment, BaseFragment.CURRENT_FRAGMENT_TAG)
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .addToBackStack(null)
                 .commit();
     }
@@ -150,29 +131,18 @@ public class MainActivity extends BaseActivity {
     @NonNull
     private Bundle getConfiguredBundleWithDataUri(@NonNull Uri uri) {
         Bundle bundle = new Bundle();
-        bundle.putString(
-                URI_FROM_EXTERNAL_APP,
-                uri.toString()
-        );
+        bundle.putString(URI_FROM_EXTERNAL_APP, uri.toString());
         return bundle;
     }
 
     @NonNull
-    private Bundle getBundleForShortcutAction(
-            @Nullable String action
-    ) {
+    private Bundle getBundleForShortcutAction(@Nullable String action) {
         Bundle shortcutArguments = new Bundle();
         if (action != null) {
             if (action.equals(App.ACTION_START_WITH_TEXT)) {
-                shortcutArguments.putBoolean(
-                        App.ACTION_START_WITH_TEXT,
-                        true
-                );
+                shortcutArguments.putBoolean(App.ACTION_START_WITH_TEXT, true);
             } else if (action.equals(App.ACTION_START_WITH_FILE)) {
-                shortcutArguments.putBoolean(
-                        App.ACTION_START_WITH_FILE,
-                        true
-                );
+                shortcutArguments.putBoolean(App.ACTION_START_WITH_FILE, true);
             }
         }
         return shortcutArguments;
@@ -194,9 +164,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void hideKeyboard() {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(
-                Activity.INPUT_METHOD_SERVICE
-        );
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null) {
             inputMethodManager.hideSoftInputFromWindow(
                     findViewById(android.R.id.content).getWindowToken(),
@@ -208,9 +176,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = fragmentManager.findFragmentByTag(
-                BaseFragment.CURRENT_FRAGMENT_TAG
-        );
+        Fragment fragment = fragmentManager.findFragmentByTag(BaseFragment.CURRENT_FRAGMENT_TAG);
         if (fragment instanceof AppBackClickTarget) {
             ((AppBackClickTarget) fragment).appBackClick();
         }

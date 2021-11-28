@@ -53,20 +53,14 @@ public class RateAppDialogTest extends BaseUITest {
                 context.getPackageName() + "_preferences",
                 Context.MODE_PRIVATE
         );
-        prefs.edit().putInt(
-                context.getString(R.string.key_hash_generation_count),
-                0
-        ).apply();
+        prefs.edit().putInt(context.getString(R.string.key_hash_generation_count), 0).apply();
     }
 
     private void showInputDialog() {
         clickById(R.id.btn_generate_from);
         secondDelay();
 
-        inRecyclerViewClickOnPosition(
-                R.id.rv_bottom_sheet_list_items,
-                TEXT_BUTTON_POSITION
-        );
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, TEXT_BUTTON_POSITION);
         secondDelay();
     }
 
@@ -83,19 +77,11 @@ public class RateAppDialogTest extends BaseUITest {
         clickById(R.id.tv_selected_hash_type);
         secondDelay();
 
-        List<HashType> hashTypes = new ArrayList<>(
-                Arrays.asList(HashType.values())
-        );
+        List<HashType> hashTypes = new ArrayList<>(Arrays.asList(HashType.values()));
         int hashTypePosition = hashTypes.indexOf(TEST_HASH_TYPE);
         assertTrue(hashTypePosition >= 0);
-        inRecyclerViewClickOnPosition(
-                R.id.rv_bottom_sheet_list_items,
-                hashTypePosition
-        );
-        textEquals(
-                TEST_HASH_TYPE.getTypeAsString(),
-                R.id.tv_selected_hash_type
-        );
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, hashTypePosition);
+        textEquals(TEST_HASH_TYPE.getTypeAsString(), R.id.tv_selected_hash_type);
     }
 
     private void generateHashFromText() throws InterruptedException {
@@ -103,14 +89,8 @@ public class RateAppDialogTest extends BaseUITest {
         secondDelay();
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
-        inRecyclerViewClickOnPosition(
-                R.id.rv_bottom_sheet_list_items,
-                GENERATE_BUTTON_POSITION
-        );
-        countDownLatch.await(
-                SECOND_IN_MILLIS,
-                TimeUnit.MILLISECONDS
-        );
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, GENERATE_BUTTON_POSITION);
+        countDownLatch.await(SECOND_IN_MILLIS, TimeUnit.MILLISECONDS);
         secondDelay();
     }
 

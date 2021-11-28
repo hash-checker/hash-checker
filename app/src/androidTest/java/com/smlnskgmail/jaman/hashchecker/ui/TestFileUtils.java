@@ -15,17 +15,13 @@ public class TestFileUtils {
 
     public static void createTestFileInDownloadFolder() throws IOException {
         File file = Environment.getExternalStorageDirectory();
-        File[] filteredFiles = file.listFiles(
-                (dir, name) -> name.equals(DOWNLOAD_DIRECTORY)
-        );
+        File[] filteredFiles = file.listFiles((dir, name) -> name.equals(DOWNLOAD_DIRECTORY));
         assertEquals(
                 1,
                 filteredFiles.length
         );
         File downloads = filteredFiles[0];
-        File tokensFile = new File(
-                downloads.getAbsolutePath() + "/" + TEST_FILE_NAME
-        );
+        File tokensFile = new File(downloads.getAbsolutePath() + "/" + TEST_FILE_NAME);
         if (tokensFile.exists()) {
             assertTrue(tokensFile.delete());
         }

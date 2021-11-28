@@ -1,4 +1,4 @@
-package com.smlnskgmail.jaman.hashchecker.features.hashcalculator.view.lists.hashtypes;
+package com.smlnskgmail.jaman.hashchecker.features.hashcalculator.lists.hashtypes;
 
 import android.content.Context;
 import android.view.View;

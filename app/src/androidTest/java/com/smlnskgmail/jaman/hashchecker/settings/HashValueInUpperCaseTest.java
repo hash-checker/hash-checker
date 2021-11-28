@@ -11,10 +11,7 @@ public class HashValueInUpperCaseTest extends BaseSettingsTest {
                 true
         );
         generateHashValueFromText();
-        textEquals(
-                TEST_RESULT.toUpperCase(),
-                R.id.et_field_generated_hash
-        );
+        textEquals(TEST_RESULT.toUpperCase(), R.id.et_field_generated_hash);
     }
 
 }

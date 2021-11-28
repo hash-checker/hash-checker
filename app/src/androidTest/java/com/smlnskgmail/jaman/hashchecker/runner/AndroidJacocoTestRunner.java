@@ -20,20 +20,13 @@ public class AndroidJacocoTestRunner extends AndroidJUnitRunner {
         try {
             Class rt = Class.forName("org.jacoco.agent.rt.RT");
             Method getAgent = rt.getMethod("getAgent");
-            Method dump = getAgent.getReturnType().getMethod(
-                    "dump",
-                    boolean.class
-            );
+            Method dump = getAgent.getReturnType().getMethod("dump", boolean.class);
             Object agent = getAgent.invoke(null);
             dump.invoke(agent, false);
         } catch (Throwable e) {
             final String trace = Log.getStackTraceString(e);
             try {
-                System.out.write(
-                        trace.getBytes(
-                                StandardCharsets.UTF_8
-                        )
-                );
+                System.out.write(trace.getBytes(StandardCharsets.UTF_8));
             } catch (IOException e1) {
                 LogUtils.e(e1);
             }

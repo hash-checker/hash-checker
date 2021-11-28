@@ -15,8 +15,6 @@ import com.smlnskgmail.jaman.hashchecker.database.LocalDataExporterTest;
 import com.smlnskgmail.jaman.hashchecker.feedback.FeedbackTest;
 import com.smlnskgmail.jaman.hashchecker.rateapp.RateAppDialogTest;
 import com.smlnskgmail.jaman.hashchecker.screenrunner.ScreenRunnerTest;
-import com.smlnskgmail.jaman.hashchecker.settings.HashValueInLowerCaseTest;
-import com.smlnskgmail.jaman.hashchecker.settings.HashValueInUpperCaseTest;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -37,8 +35,8 @@ import org.junit.runners.Suite;
         FeedbackTest.class,
         RateAppDialogTest.class,
         LocalDataExporterTest.class,
-        HashValueInUpperCaseTest.class,
-        HashValueInLowerCaseTest.class,
+//        HashValueInUpperCaseTest.class,
+//        HashValueInLowerCaseTest.class,
         ScreenRunnerTest.class,
 })
 public class AndroidTestSuite {

@@ -12,4 +12,5 @@ import org.junit.runners.Suite;
         CompareHashesScreenshotTest.class,
 })
 public class ScreenshotsTestSuite {
+
 }

@@ -31,8 +31,7 @@ public class HashCalculatorTaskExceptionTest {
                 context,
                 HashType.MD5,
                 Uri.fromFile(new File("")),
-                hashValue -> hashValueToAssert[0] = hashValue,
-                null
+                hashValue -> hashValueToAssert[0] = hashValue
         );
         hashCalculatorTask.execute();
 

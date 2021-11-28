@@ -329,6 +329,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
         menu.clear();
     }
 
+    // CPD-OFF
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -340,6 +341,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
         }
         return super.onOptionsItemSelected(item);
     }
+    // CPD-ON
 
     @Override
     public void appBackClick() {

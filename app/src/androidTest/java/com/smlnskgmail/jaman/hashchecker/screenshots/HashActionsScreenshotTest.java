@@ -12,9 +12,7 @@ public class HashActionsScreenshotTest extends BaseScreenshotTest {
     @Override
     public void runTest() {
         clickById(R.id.btn_hash_actions);
-        makeScreenshot(
-                "3_hash_actions"
-        );
+//        makeScreenshot("3_hash_actions");
     }
 
 }

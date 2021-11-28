@@ -43,9 +43,7 @@ public class FeedbackTest {
                         osVersion,
                         manufacturer,
                         model
-                ).getConfiguredMessage(
-                        message
-                )
+                ).getConfiguredMessage(message)
         );
     }
 

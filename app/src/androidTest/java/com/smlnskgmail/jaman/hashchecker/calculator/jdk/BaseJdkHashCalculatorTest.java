@@ -57,9 +57,7 @@ public abstract class BaseJdkHashCalculatorTest {
         String hashValue = getHashValueForTestFile();
         assertNotNull(hashValue);
 
-        String hashFromFile = jdkHashCalculator.fromFile(
-                context.getResources().getAssets().open(TESTING_FILE)
-        );
+        String hashFromFile = jdkHashCalculator.fromFile(context.getResources().getAssets().open(TESTING_FILE));
         assertNotNull(hashFromFile);
         assertEquals(hashValue, hashFromFile);
     }

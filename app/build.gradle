@@ -6,7 +6,7 @@ apply from: 'utils.gradle'
 
 android {
     compileSdkVersion 31
-    buildToolsVersion '30.0.3'
+    buildToolsVersion '31.0.0'
     defaultConfig {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
@@ -187,31 +187,30 @@ dependencies {
     implementation 'com.github.fartem:adaptive-recycler-view:1.1.1'
 
     // Dagger
-    implementation 'com.google.dagger:dagger:2.34.1'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.34.1'
-    androidTestAnnotationProcessor 'com.google.dagger:dagger-compiler:2.34.1'
+    implementation 'com.google.dagger:dagger:2.40.2'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.40.2'
+    androidTestAnnotationProcessor 'com.google.dagger:dagger-compiler:2.40.2'
 
     // ORMLite
-    implementation 'com.j256.ormlite:ormlite-core:5.3'
-    implementation 'com.j256.ormlite:ormlite-android:5.3'
+    implementation 'com.j256.ormlite:ormlite-core:5.7'
+    implementation 'com.j256.ormlite:ormlite-android:5.7'
 
     // Checkstyle
     checkstyle 'com.github.fartem:checkstyle-checks-java:1.1.0'
     checkstyle 'com.github.fartem:checkstyle-checks-android:1.2.3'
 
     // Unit tests
-    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.2'
 
     // Android tests
-    //noinspection GradleDependency
-    androidTestImplementation 'androidx.annotation:annotation:1.1.0'
+    androidTestImplementation 'androidx.annotation:annotation:1.3.0'
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test:rules:1.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
 
     // Screenshots
-    androidTestImplementation 'tools.fastlane:screengrab:2.0.0'
+//    androidTestImplementation 'tools.fastlane:screengrab:2.1.1'
 
     // Google Play Core Library
     googlePlayImplementation 'com.google.android.play:core:1.10.2'

@@ -45,35 +45,18 @@ public class CompareHashesScreenshotTest extends BaseScreenshotTest {
         ).commit();
 
         clickById(R.id.btn_generate_from);
-        inRecyclerViewClickOnPosition(
-                R.id.rv_bottom_sheet_list_items,
-                SELECT_FILE_BUTTON_POSITION
-        );
-        inRecyclerViewClickOnPosition(
-                R.id.rv_file_explorer_list,
-                FIRST_STORAGE_IN_FILE_MANAGER_MENU
-        );
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, SELECT_FILE_BUTTON_POSITION);
+        inRecyclerViewClickOnPosition(R.id.rv_file_explorer_list, FIRST_STORAGE_IN_FILE_MANAGER_MENU);
         onView(withText(TestFileUtils.DOWNLOAD_DIRECTORY)).perform(click());
-        inRecyclerViewClickOnPosition(
-                R.id.rv_file_explorer_list,
-                TOKENS_FILE_POSITION_IN_FILE_MANAGER
-        );
+        inRecyclerViewClickOnPosition(R.id.rv_file_explorer_list, TOKENS_FILE_POSITION_IN_FILE_MANAGER);
         clickById(R.id.btn_hash_actions);
-        inRecyclerViewClickOnPosition(
-                R.id.rv_bottom_sheet_list_items,
-                GENERATE_HASH_BUTTON_POSITION
-        );
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, GENERATE_HASH_BUTTON_POSITION);
         onView(withId(R.id.et_field_custom_hash)).perform(
                 replaceText(getText(withId(R.id.et_field_generated_hash)))
         );
         clickById(R.id.btn_hash_actions);
-        inRecyclerViewClickOnPosition(
-                R.id.rv_bottom_sheet_list_items,
-                COMPARE_HASHES_BUTTON_POSITION
-        );
-        makeScreenshot(
-                "5_compare_hashes"
-        );
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, COMPARE_HASHES_BUTTON_POSITION);
+//        makeScreenshot("5_compare_hashes");
     }
 
 }
