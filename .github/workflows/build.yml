@@ -81,11 +81,28 @@ jobs:
         with:
           java-version: 11
 
-      - name: Check licenses
+      - name: Generate Google Play flavor licenses report
+        run: ./gradlew licenseGooglePlayReleaseReport
+
+      - name: Check Google Play flavor licenses
         id: license_check_report
         uses: pilosus/action-pip-license-checker@v0.5.0
         with:
-          external: 'gradle-license-plugin.json'
+          external: 'build/reports/licenses/licenseGooglePlayReleaseReport.json'
+          external-format: 'gradle'
+          external-options: '{:fully-qualified-names false}'
+          fail: 'StrongCopyleft,NetworkCopyleft,Other,Error'
+          fails-only: true
+          with-totals: true
+
+      - name: Generate Third Party Stores flavor licenses report
+        run: ./gradlew licenseThirdPartyStoresReleaseReport
+
+      - name: Check Third Party Stored flavor licenses
+        id: license_check_report
+        uses: pilosus/action-pip-license-checker@v0.5.0
+        with:
+          external: 'build/reports/licenses/licenseThirdPartyStoresReleaseReport.json'
           external-format: 'gradle'
           external-options: '{:fully-qualified-names false}'
           fail: 'StrongCopyleft,NetworkCopyleft,Other,Error'
