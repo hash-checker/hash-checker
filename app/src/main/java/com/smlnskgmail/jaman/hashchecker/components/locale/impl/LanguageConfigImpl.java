@@ -33,10 +33,7 @@ public class LanguageConfigImpl implements LanguageConfig {
     private void setLanguage(@NonNull Context context, @NonNull Language language) {
         Locale locale;
         if (language != Language.ZH) {
-            locale = new Locale(
-                    language.code(),
-                    Locale.getDefault().getCountry()
-            );
+            locale = new Locale(language.code(), Locale.getDefault().getCountry());
         } else {
             locale = Locale.SIMPLIFIED_CHINESE;
         }

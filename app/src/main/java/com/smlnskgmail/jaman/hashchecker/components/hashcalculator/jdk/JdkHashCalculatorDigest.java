@@ -26,10 +26,7 @@ public class JdkHashCalculatorDigest {
             @NonNull HashType hashType
     ) throws NoSuchAlgorithmException, NoSuchProviderException {
         JdkHashCalculatorDigest jdkHashCalculatorDigest = new JdkHashCalculatorDigest();
-        jdkHashCalculatorDigest.setHashType(
-                hashType,
-                null
-        );
+        jdkHashCalculatorDigest.setHashType(hashType, null);
         return jdkHashCalculatorDigest;
     }
 
@@ -51,10 +48,7 @@ public class JdkHashCalculatorDigest {
             if (provider == null) {
                 messageDigest = MessageDigest.getInstance(hashType.getHashName());
             } else {
-                messageDigest = MessageDigest.getInstance(
-                        hashType.getHashName(),
-                        provider
-                );
+                messageDigest = MessageDigest.getInstance(hashType.getHashName(), provider);
             }
         } else {
             crc32 = new CRC32();

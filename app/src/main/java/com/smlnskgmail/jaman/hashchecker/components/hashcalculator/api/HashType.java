@@ -65,10 +65,7 @@ public enum HashType implements ListItem {
     }
 
     public boolean isKeccakj() {
-        return this == SHA3_224
-                || this == SHA3_256
-                || this == SHA3_384
-                || this == SHA3_512;
+        return this == SHA3_224 || this == SHA3_256 || this == SHA3_384 || this == SHA3_512;
     }
 
 }

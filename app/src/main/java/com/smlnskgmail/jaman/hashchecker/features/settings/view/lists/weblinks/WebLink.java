@@ -12,42 +12,22 @@ import java.util.List;
 
 public enum WebLink implements ListItem {
 
-    SOURCE_CODE(
-            R.string.title_web_link_github,
-            R.drawable.ic_github,
-            R.string.web_link_source_code
-    ),
-    GOOGLE_PLAY(
-            R.string.title_web_link_google_play,
-            R.drawable.ic_google_play,
-            R.string.web_link_my_apps
-    ),
-    PRIVACY_POLICY(
-            R.string.settings_title_privacy_policy,
-            R.drawable.ic_settings_privacy_policy,
-            R.string.web_link_privacy_policy
-    ),
+    SOURCE_CODE(R.string.title_web_link_github, R.drawable.ic_github, R.string.web_link_source_code),
+    GOOGLE_PLAY(R.string.title_web_link_google_play, R.drawable.ic_google_play, R.string.web_link_my_apps),
+    PRIVACY_POLICY(R.string.settings_title_privacy_policy, R.drawable.ic_settings_privacy_policy, R.string.web_link_privacy_policy),
 
     ADAPTIVERECYCLERVIEW(
             R.string.library_name_adaptiverecyclerview,
             R.drawable.ic_adaptiverecyclerview,
             R.string.web_link_adaptiverecyclerview
     ),
-    ORMLITE(
-            R.string.library_name_ormlite,
-            R.drawable.ic_ormlite,
-            R.string.web_link_ormlite
-    );
+    ORMLITE(R.string.library_name_ormlite, R.drawable.ic_ormlite, R.string.web_link_ormlite);
 
     private final int titleResId;
     private final int iconResId;
     private final int linkResId;
 
-    WebLink(
-            int titleResId,
-            int iconResId,
-            int linkResId
-    ) {
+    WebLink(int titleResId, int iconResId, int linkResId) {
         this.titleResId = titleResId;
         this.iconResId = iconResId;
         this.linkResId = linkResId;

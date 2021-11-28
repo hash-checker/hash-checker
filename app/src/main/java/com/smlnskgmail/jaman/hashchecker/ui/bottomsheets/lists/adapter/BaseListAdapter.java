@@ -45,10 +45,7 @@ public abstract class BaseListAdapter<T extends ListItem>
     }
 
     @NonNull
-    protected abstract BaseListHolder<T> getItemsHolder(
-            @NonNull Context themeContext,
-            @NonNull View view
-    );
+    protected abstract BaseListHolder<T> getItemsHolder(@NonNull Context themeContext, @NonNull View view);
 
     @NonNull
     public BaseListBottomSheet<T> getBottomSheet() {

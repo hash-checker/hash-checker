@@ -33,24 +33,15 @@ public class ActionsListAdapter extends BaseListAdapter<Action> {
 
     @NonNull
     @Override
-    protected BaseListHolder<Action> getItemsHolder(
-            @NonNull Context themeContext,
-            @NonNull View view
-    ) {
-        return new ActionHolder(
-                themeContext,
-                view
-        );
+    protected BaseListHolder<Action> getItemsHolder(@NonNull Context themeContext, @NonNull View view) {
+        return new ActionHolder(themeContext, view);
     }
 
     private class ActionHolder extends BaseListHolder<Action> {
 
         private Action action;
 
-        ActionHolder(
-                @NonNull Context themeContext,
-                @NonNull View itemView
-        ) {
+        ActionHolder(@NonNull Context themeContext, @NonNull View itemView) {
             super(themeContext, itemView, themeConfig);
         }
 
@@ -63,9 +54,7 @@ public class ActionsListAdapter extends BaseListAdapter<Action> {
         @Override
         protected void callItemClick() {
             if (userActionTarget != null) {
-                userActionTarget.userActionSelect(
-                        action.getUserActionType()
-                );
+                userActionTarget.userActionSelect(action.getUserActionType());
             }
             dismissBottomSheet();
         }

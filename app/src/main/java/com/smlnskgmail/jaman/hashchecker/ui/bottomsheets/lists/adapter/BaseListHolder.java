@@ -49,9 +49,7 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
             themeConfig.applyAccentColorToImage(ivItemPrimaryIcon.getDrawable());
         }
         ivItemPrimaryIcon.setVisibility(
-                getConditionToPrimaryIconVisibleState()
-                        ? View.VISIBLE
-                        : View.GONE
+                getConditionToPrimaryIconVisibleState() ? View.VISIBLE : View.GONE
         );
         int additionalIconResId = listItem.getAdditionalIconResId();
         if (additionalIconResId != DEFAULT_ICON_VALUE) {
@@ -59,9 +57,7 @@ public abstract class BaseListHolder<T extends ListItem> extends RecyclerView.Vi
             themeConfig.applyAccentColorToImage(ivItemAdditionalIcon.getDrawable());
         }
         ivItemAdditionalIcon.setVisibility(
-                getConditionToAdditionalIconVisibleState()
-                        ? View.VISIBLE
-                        : View.INVISIBLE
+                getConditionToAdditionalIconVisibleState() ? View.VISIBLE : View.INVISIBLE
         );
     }
 

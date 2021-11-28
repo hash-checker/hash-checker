@@ -17,9 +17,7 @@ abstract class ActionsBottomSheet extends BaseListBottomSheet<Action> {
     @NonNull
     @Override
     protected BaseListAdapter<Action> getItemsAdapter() {
-        Fragment parentFragment = getParentFragmentManager().findFragmentByTag(
-                BaseFragment.CURRENT_FRAGMENT_TAG
-        );
+        Fragment parentFragment = getParentFragmentManager().findFragmentByTag(BaseFragment.CURRENT_FRAGMENT_TAG);
         UserActionTarget userActionTarget = parentFragment == null
                 ? null
                 : (UserActionTarget) parentFragment;

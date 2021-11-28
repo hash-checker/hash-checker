@@ -24,11 +24,7 @@ public abstract class BaseListBottomSheet<T extends ListItem> extends BottomShee
             @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState
     ) {
-        return inflater.inflate(
-                R.layout.bottom_sheet_list_items,
-                container,
-                false
-        );
+        return inflater.inflate(R.layout.bottom_sheet_list_items, container, false);
     }
 
     @Override

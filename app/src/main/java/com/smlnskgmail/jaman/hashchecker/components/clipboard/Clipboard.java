@@ -19,15 +19,9 @@ public class Clipboard {
     }
 
     public void copy() {
-        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(
-                Context.CLIPBOARD_SERVICE
-        );
-        ClipData clip = ClipData.newPlainText(
-                context.getString(R.string.common_app_name),
-                text
-        );
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         if (clipboard != null) {
-            clipboard.setPrimaryClip(clip);
+            clipboard.setPrimaryClip(ClipData.newPlainText(context.getString(R.string.common_app_name), text));
         }
     }
 

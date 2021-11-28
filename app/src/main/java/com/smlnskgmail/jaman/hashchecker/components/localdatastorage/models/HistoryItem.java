@@ -22,34 +22,19 @@ public class HistoryItem extends DbEntity {
     public static final String COLUMN_OBJECT_VALUE = "object_value";
     public static final String COLUMN_HASH_VALUE = "hash_value";
 
-    @DatabaseField(
-            columnName = HistoryItem.COLUMN_GENERATION_DATE,
-            dataType = DataType.DATE_STRING
-    )
+    @DatabaseField(columnName = HistoryItem.COLUMN_GENERATION_DATE, dataType = DataType.DATE_STRING)
     private Date generationDate;
 
-    @DatabaseField(
-            columnName = HistoryItem.COLUMN_HASH_TYPE,
-            dataType = DataType.ENUM_STRING
-    )
+    @DatabaseField(columnName = HistoryItem.COLUMN_HASH_TYPE, dataType = DataType.ENUM_STRING)
     private HashType hashType;
 
-    @DatabaseField(
-            columnName = HistoryItem.COLUMN_IS_FILE,
-            dataType = DataType.BOOLEAN
-    )
+    @DatabaseField(columnName = HistoryItem.COLUMN_IS_FILE, dataType = DataType.BOOLEAN)
     private boolean isFile;
 
-    @DatabaseField(
-            columnName = HistoryItem.COLUMN_OBJECT_VALUE,
-            dataType = DataType.STRING
-    )
+    @DatabaseField(columnName = HistoryItem.COLUMN_OBJECT_VALUE, dataType = DataType.STRING)
     private String objectValue;
 
-    @DatabaseField(
-            columnName = HistoryItem.COLUMN_HASH_VALUE,
-            dataType = DataType.STRING
-    )
+    @DatabaseField(columnName = HistoryItem.COLUMN_HASH_VALUE, dataType = DataType.STRING)
     private String hashValue;
 
     public HistoryItem(
@@ -112,13 +97,7 @@ public class HistoryItem extends DbEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                generationDate,
-                hashType,
-                isFile,
-                objectValue,
-                hashValue
-        );
+        return Objects.hash(generationDate, hashType, isFile, objectValue, hashValue);
     }
 
 }

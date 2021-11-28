@@ -113,10 +113,7 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
     public void appBackClick() {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if (activity != null) {
-            UIUtils.removeFragment(
-                    activity.getSupportFragmentManager(),
-                    this
-            );
+            UIUtils.removeFragment(activity.getSupportFragmentManager(), this);
         }
     }
 

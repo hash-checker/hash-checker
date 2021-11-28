@@ -27,9 +27,7 @@ public class SharedPreferencesSettings implements Settings {
     }
 
     @Override
-    public void saveHashTypeAsLast(
-            @NonNull HashType hashType
-    ) {
+    public void saveHashTypeAsLast(@NonNull HashType hashType) {
         saveStringPreference(
                 keyExtractor.extractById(R.string.key_last_type_value),
                 hashType.toString()

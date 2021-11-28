@@ -14,10 +14,7 @@ public class AppProgressDialog {
     private final Context context;
     private final int textMessageResId;
 
-    public AppProgressDialog(
-            @NonNull Context context,
-            @StringRes int textMessageResId
-    ) {
+    public AppProgressDialog(@NonNull Context context, @StringRes int textMessageResId) {
         this.context = context;
         this.textMessageResId = textMessageResId;
     }

@@ -62,24 +62,14 @@ public class App extends android.app.Application {
                     }
                 }
         );
-        languageConfig = new LanguageConfigImpl(
-                this,
-                settings
-        );
+        languageConfig = new LanguageConfigImpl(this, settings);
         setTheme(settings.getSelectedTheme().getThemeResId());
         appComponent = DaggerAppComponent
                 .builder()
                 .databaseHelperModule(new DatabaseHelperModule(localDataStorage))
                 .settingsHelperModule(new SettingsHelperModule(settings))
                 .langHelperModule(new LangHelperModule(languageConfig))
-                .themeHelperModule(
-                        new ThemeHelperModule(
-                                new ThemeConfigImpl(
-                                        this,
-                                        settings
-                                )
-                        )
-                )
+                .themeHelperModule(new ThemeHelperModule(new ThemeConfigImpl(this, settings)))
                 .build();
         if (!settings.isShortcutsIsCreated()) {
             createShortcuts();

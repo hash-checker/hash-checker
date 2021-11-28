@@ -32,9 +32,7 @@ public class OrmLiteLocalDataStorage extends OrmLiteSqliteOpenHelper implements 
 
     private static final int DATABASE_VERSION = DATABASE_VERSION_1;
 
-    private static final List<Class<? extends DbEntity>> tablesClasses = Collections.singletonList(
-            HistoryItem.class
-    );
+    private static final List<Class<? extends DbEntity>> tablesClasses = Collections.singletonList(HistoryItem.class);
 
     public OrmLiteLocalDataStorage(@NonNull Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
@@ -55,12 +53,7 @@ public class OrmLiteLocalDataStorage extends OrmLiteSqliteOpenHelper implements 
 
     @SuppressWarnings("MethodParametersAnnotationCheck")
     @Override
-    public void onUpgrade(
-            SQLiteDatabase database,
-            ConnectionSource connectionSource,
-            int oldVersion,
-            int newVersion
-    ) {
+    public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {
 
     }
 

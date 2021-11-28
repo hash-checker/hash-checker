@@ -35,9 +35,7 @@ public class TextInputDialog extends BaseDialog {
 
         Button btnAddText = findViewById(R.id.btn_dialog_input_text_add);
         btnAddText.setOnClickListener(v -> {
-            textValueCallback.textValueEntered(
-                    etTextValue.getText().toString()
-            );
+            textValueCallback.textValueEntered(etTextValue.getText().toString());
             dismiss();
         });
 
@@ -53,9 +51,7 @@ public class TextInputDialog extends BaseDialog {
     @Override
     public void setupDialogStyle() {
         super.setupDialogStyle();
-        getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
-        );
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
     @Override

@@ -121,9 +121,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
             int resultCode,
             @Nullable Intent data
     ) {
-        if (data != null
-                && requestCode == Settings.FILE_CREATE
-                && resultCode == Activity.RESULT_OK) {
+        if (data != null && requestCode == Settings.FILE_CREATE && resultCode == Activity.RESULT_OK) {
             copyUserDataToUserFolder(data.getData());
         }
     }
@@ -135,9 +133,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
                 ParcelFileDescriptor descriptor = context.getApplicationContext().getContentResolver()
                         .openFileDescriptor(uri, "w");
                 if (descriptor != null) {
-                    FileOutputStream outputStream = new FileOutputStream(
-                            descriptor.getFileDescriptor()
-                    );
+                    FileOutputStream outputStream = new FileOutputStream(descriptor.getFileDescriptor());
                     copyFile(new File(LocalDataExporter.getUserDataZip(context)), outputStream);
                 }
             } catch (IOException e) {
@@ -164,8 +160,8 @@ public class SettingsFragment extends PreferenceFragmentCompat
         Preference languagePreference = findPreference(getString(R.string.key_language));
         if (languagePreference != null) {
             languagePreference.setOnPreferenceClickListener(preference -> {
-                LanguagesBottomSheet languagesBottomSheet = new LanguagesBottomSheet();
-                languagesBottomSheet.show(fragmentManager, languagesBottomSheet.key());
+                LanguagesBottomSheet bottomSheet = new LanguagesBottomSheet();
+                bottomSheet.show(fragmentManager, bottomSheet.key());
                 return false;
             });
         }
@@ -176,8 +172,8 @@ public class SettingsFragment extends PreferenceFragmentCompat
         Preference themePreference = findPreference(getString(R.string.key_theme));
         if (themePreference != null) {
             themePreference.setOnPreferenceClickListener(preference -> {
-                ThemesBottomSheet themesBottomSheet = new ThemesBottomSheet();
-                themesBottomSheet.show(fragmentManager, themesBottomSheet.key());
+                ThemesBottomSheet bottomSheet = new ThemesBottomSheet();
+                bottomSheet.show(fragmentManager, bottomSheet.key());
                 return false;
             });
         }
@@ -188,8 +184,8 @@ public class SettingsFragment extends PreferenceFragmentCompat
         Preference privacyPolicyPreference = findPreference(getString(R.string.key_privacy_policy));
         if (privacyPolicyPreference != null) {
             privacyPolicyPreference.setOnPreferenceClickListener(preference -> {
-                PrivacyPolicyWebLinksBottomSheet privacyPolicyWebLinksBottomSheet = new PrivacyPolicyWebLinksBottomSheet();
-                privacyPolicyWebLinksBottomSheet.show(fragmentManager, privacyPolicyWebLinksBottomSheet.key());
+                PrivacyPolicyWebLinksBottomSheet bottomSheet = new PrivacyPolicyWebLinksBottomSheet();
+                bottomSheet.show(fragmentManager, bottomSheet.key());
                 return false;
             });
         }
@@ -211,8 +207,8 @@ public class SettingsFragment extends PreferenceFragmentCompat
         Preference authorPreference = findPreference(getString(R.string.key_author));
         if (authorPreference != null) {
             authorPreference.setOnPreferenceClickListener(preference -> {
-                AuthorWebLinksBottomSheet authorWebLinksBottomSheet = new AuthorWebLinksBottomSheet();
-                authorWebLinksBottomSheet.show(fragmentManager, authorWebLinksBottomSheet.key());
+                AuthorWebLinksBottomSheet bottomSheet = new AuthorWebLinksBottomSheet();
+                bottomSheet.show(fragmentManager, bottomSheet.key());
                 return false;
             });
         }
@@ -223,8 +219,8 @@ public class SettingsFragment extends PreferenceFragmentCompat
         Preference librariesPreference = findPreference(getString(R.string.key_libraries));
         if (librariesPreference != null) {
             librariesPreference.setOnPreferenceClickListener(preference -> {
-                LibrariesWebLinksBottomSheet librariesWebLinksBottomSheet = new LibrariesWebLinksBottomSheet();
-                librariesWebLinksBottomSheet.show(fragmentManager, librariesWebLinksBottomSheet.key());
+                LibrariesWebLinksBottomSheet bottomSheet = new LibrariesWebLinksBottomSheet();
+                bottomSheet.show(fragmentManager, bottomSheet.key());
                 return false;
             });
         }

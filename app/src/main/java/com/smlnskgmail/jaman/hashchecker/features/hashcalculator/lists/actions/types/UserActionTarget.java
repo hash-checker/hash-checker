@@ -4,8 +4,6 @@ import androidx.annotation.NonNull;
 
 public interface UserActionTarget {
 
-    void userActionSelect(
-            @NonNull UserActionType userActionType
-    );
+    void userActionSelect(@NonNull UserActionType userActionType);
 
 }

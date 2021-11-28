@@ -60,11 +60,7 @@ public class AppSnackbar {
     }
 
     public void show() {
-        Snackbar snackbar = Snackbar.make(
-                parent,
-                messageResId,
-                Snackbar.LENGTH_SHORT
-        );
+        Snackbar snackbar = Snackbar.make(parent, messageResId, Snackbar.LENGTH_SHORT);
         if (action != null) {
             snackbar.setAction(actionText, action);
         } else {
@@ -73,13 +69,12 @@ public class AppSnackbar {
                     context.getResources().getString(R.string.common_ok),
                     v -> closableSnackbar.dismiss()
             );
-            ((ViewGroup) snackbar.getView()).getChildAt(0)
-                    .setPadding(
-                            COMMON_SNACKBAR_MARGIN,
-                            COMMON_SNACKBAR_MARGIN,
-                            COMMON_SNACKBAR_MARGIN,
-                            COMMON_SNACKBAR_MARGIN
-                    );
+            ((ViewGroup) snackbar.getView()).getChildAt(0).setPadding(
+                    COMMON_SNACKBAR_MARGIN,
+                    COMMON_SNACKBAR_MARGIN,
+                    COMMON_SNACKBAR_MARGIN,
+                    COMMON_SNACKBAR_MARGIN
+            );
         }
         snackbar.setActionTextColor(themeConfig.getAccentColor());
         snackbar.getView().setBackground(

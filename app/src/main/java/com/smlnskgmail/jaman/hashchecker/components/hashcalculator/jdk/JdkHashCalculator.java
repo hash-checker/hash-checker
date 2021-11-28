@@ -22,15 +22,10 @@ public class JdkHashCalculator implements HashCalculator {
     private JdkHashCalculatorDigest jdkHashCalculatorDigest;
 
     @Override
-    public void setHashType(
-            @NonNull HashType hashType
-    ) {
+    public void setHashType(@NonNull HashType hashType) {
         try {
             if (hashType.isKeccakj()) {
-                jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(
-                        hashType,
-                        Constants.PROVIDER
-                );
+                jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(hashType, Constants.PROVIDER);
             } else {
                 jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(hashType);
             }

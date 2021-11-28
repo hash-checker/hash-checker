@@ -34,9 +34,7 @@ public class LocalDataExporter {
             @NonNull File database
     ) throws IOException {
         FileInputStream inputStream = new FileInputStream(database);
-        ZipOutputStream zipOutputStream = new ZipOutputStream(
-                new FileOutputStream(getUserDataZip(context))
-        );
+        ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(getUserDataZip(context)));
         zipOutputStream.putNextEntry(new ZipEntry(databaseName));
 
         int bufferSize = 1024;

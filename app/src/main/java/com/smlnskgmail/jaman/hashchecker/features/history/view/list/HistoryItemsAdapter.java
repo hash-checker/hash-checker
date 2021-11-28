@@ -18,7 +18,7 @@ public class HistoryItemsAdapter extends RecyclerView.Adapter<HistoryItemHolder>
 
     public void addHistoryItems(@NonNull List<HistoryItem> historyItems) {
         this.historyItems.addAll(historyItems);
-        notifyDataSetChanged();
+        notifyItemRangeInserted(getItemCount(), historyItems.size());
     }
 
     @Override

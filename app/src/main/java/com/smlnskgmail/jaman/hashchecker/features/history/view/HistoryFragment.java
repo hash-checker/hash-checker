@@ -58,7 +58,6 @@ public class HistoryFragment extends BaseFragment implements HistoryView {
         pbHistory = view.findViewById(R.id.pb_history);
         arvHistoryItems = view.findViewById(R.id.rv_history_items);
         arvHistoryItems.setMessageView(view.findViewById(R.id.ll_history_empty_view));
-        arvHistoryItems.setAdapter(new HistoryItemsAdapter());
         arvHistoryItems.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -118,6 +117,10 @@ public class HistoryFragment extends BaseFragment implements HistoryView {
         HistoryItemsAdapter adapter = (HistoryItemsAdapter) arvHistoryItems.getAdapter();
         if (adapter != null) {
             adapter.addHistoryItems(items);
+        } else {
+            HistoryItemsAdapter historyItemsAdapter = new HistoryItemsAdapter();
+            historyItemsAdapter.addHistoryItems(items);
+            arvHistoryItems.setAdapter(historyItemsAdapter);
         }
     }
 

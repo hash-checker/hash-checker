@@ -36,9 +36,7 @@ public class GenerateToBottomSheet extends BaseListBottomSheet<HashType> {
     @NonNull
     @Override
     public BaseListAdapter<HashType> getItemsAdapter() {
-        Fragment fragment = getFragmentManager().findFragmentByTag(
-                BaseFragment.CURRENT_FRAGMENT_TAG
-        );
+        Fragment fragment = getFragmentManager().findFragmentByTag(BaseFragment.CURRENT_FRAGMENT_TAG);
         return new HashesListAdapter(
                 Arrays.asList(HashType.values()),
                 this,
