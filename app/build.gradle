@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.jaredsburrows.license'
 apply from: 'checkstyle.gradle'
 apply from: 'cpd.gradle'
 apply from: 'jacoco.gradle'

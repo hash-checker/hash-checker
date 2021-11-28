@@ -69,3 +69,25 @@ jobs:
 
       - name: Send JaCoCo coverage report to Codecov
         uses: codecov/codecov-action@v1
+
+  check_licenses:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Check licenses
+        id: license_check_report
+        uses: pilosus/action-pip-license-checker@v0.5.0
+        with:
+          external: 'gradle-license-plugin.json'
+          external-format: 'gradle'
+          external-options: '{:fully-qualified-names false}'
+          fail: 'StrongCopyleft,NetworkCopyleft,Other,Error'
+          fails-only: true
+          with-totals: true
