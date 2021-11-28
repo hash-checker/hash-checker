@@ -97,7 +97,7 @@ jobs:
       - name: Check Google Play flavor licenses
         uses: pilosus/action-pip-license-checker@v0.5.0
         with:
-          external: 'build/reports/licenses/licenseGooglePlayReleaseReport.json'
+          external: 'app/build/reports/licenses/licenseGooglePlayReleaseReport.json'
           external-format: 'gradle'
           external-options: '{:fully-qualified-names false}'
           fail: 'StrongCopyleft,NetworkCopyleft,Other,Error'
@@ -110,7 +110,7 @@ jobs:
       - name: Check Third Party Stored flavor licenses
         uses: pilosus/action-pip-license-checker@v0.5.0
         with:
-          external: 'build/reports/licenses/licenseThirdPartyStoresReleaseReport.json'
+          external: 'app/build/reports/licenses/licenseThirdPartyStoresReleaseReport.json'
           external-format: 'gradle'
           external-options: '{:fully-qualified-names false}'
           fail: 'StrongCopyleft,NetworkCopyleft,Other,Error'
