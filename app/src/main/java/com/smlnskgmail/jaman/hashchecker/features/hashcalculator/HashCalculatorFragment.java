@@ -152,13 +152,7 @@ public class HashCalculatorFragment extends BaseFragment
     // CPD-ON
 
     private void showSnackbarWithoutAction(@StringRes int messageResId) {
-        new AppSnackbar(
-                context,
-                mainScreen,
-                messageResId,
-                settings,
-                themeConfig
-        ).show();
+        new AppSnackbar(context, mainScreen, messageResId, settings, themeConfig).show();
     }
 
     @Override

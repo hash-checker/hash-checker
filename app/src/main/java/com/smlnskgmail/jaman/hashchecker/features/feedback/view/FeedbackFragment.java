@@ -43,10 +43,7 @@ public class FeedbackFragment extends BaseFragment implements FeedbackView {
     // CPD-ON
 
     @Override
-    public void onViewCreated(
-            @NonNull View view,
-            @Nullable Bundle savedInstanceState
-    ) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         etFeedbackMessage = view.findViewById(R.id.et_feedback_message);
         this.contentView = view;
@@ -71,44 +68,14 @@ public class FeedbackFragment extends BaseFragment implements FeedbackView {
         } else if (item.getItemId() == R.id.menu_action_send_feedback) {
             String feedbackMessage = etFeedbackMessage.getText().toString();
             if (!feedbackMessage.isEmpty()) {
-                sendEmail(feedbackMessage, getString(R.string.common_email));
+                feedbackPresenter.sendFeedback(
+                        getString(R.string.common_email),
+                        feedbackMessage,
+                        getString(R.string.common_app_name)
+                );
             }
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void sendEmail(@NonNull String text, @NonNull String email) {
-        String subject = getString(R.string.common_app_name);
-        String chooseMessage = String.format(
-                "%s:",
-                getString(R.string.message_email_app_chooser)
-        );
-        Intent emailIntent = feedbackPresenter.prepareEmailIntent(
-                text,
-                email,
-                subject
-        );
-        try {
-            startActivity(
-                    Intent.createChooser(
-                            emailIntent,
-                            chooseMessage
-                    )
-            );
-        } catch (ActivityNotFoundException e) {
-            Activity activity = getActivity();
-            if (activity != null) {
-                LogUtils.e(e);
-                ShareCompat.IntentBuilder
-                        .from(getActivity())
-                        .setText("message/rfc822")
-                        .addEmailTo(email)
-                        .setSubject(subject)
-                        .setText(text)
-                        .setChooserTitle(chooseMessage)
-                        .startChooser();
-            }
-        }
     }
 
     @Override
@@ -129,6 +96,35 @@ public class FeedbackFragment extends BaseFragment implements FeedbackView {
     @Override
     public void showModel(@NonNull String model) {
         ((TextView) contentView.findViewById(R.id.tv_model_value)).setText(model);
+    }
+
+    @Override
+    public void sendEmail(@NonNull Intent intent) {
+        String chooseMessage = String.format(
+                "%s:",
+                getString(R.string.message_email_app_chooser)
+        );
+        try {
+            startActivity(
+                    Intent.createChooser(
+                            intent,
+                            chooseMessage
+                    )
+            );
+        } catch (ActivityNotFoundException e) {
+            Activity activity = getActivity();
+            LogUtils.e(e);
+            if (activity != null) {
+                ShareCompat.IntentBuilder
+                        .from(activity)
+                        .setText("message/rfc822")
+                        .addEmailTo(intent.getStringExtra(Intent.EXTRA_EMAIL))
+                        .setSubject(intent.getStringExtra(Intent.EXTRA_SUBJECT))
+                        .setText(intent.getStringExtra(Intent.EXTRA_TEXT))
+                        .setChooserTitle(chooseMessage)
+                        .startChooser();
+            }
+        }
     }
 
     @Override

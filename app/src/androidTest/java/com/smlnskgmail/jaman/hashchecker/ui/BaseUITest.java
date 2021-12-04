@@ -45,9 +45,7 @@ public abstract class BaseUITest {
     }
 
     protected void textEquals(@NonNull String text, int textViewId) {
-        onView(withId(textViewId)).check(
-                matches(TextMatcher.hasStringEqualsTo(text))
-        );
+        onView(withId(textViewId)).check(matches(TextMatcher.hasStringEqualsTo(text)));
     }
 
     @SuppressWarnings("SameParameterValue")

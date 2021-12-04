@@ -48,14 +48,10 @@ class HistoryItemHolder extends RecyclerView.ViewHolder {
 
     private void initializeObjectData(@NonNull Context context, @NonNull HistoryItem historyItem) {
         boolean isFile = historyItem.isFile();
-        ivHistoryItemObjectIcon.setImageResource(
-                isFile ? R.drawable.ic_file : R.drawable.ic_from_text
-        );
+        ivHistoryItemObjectIcon.setImageResource(isFile ? R.drawable.ic_file : R.drawable.ic_from_text);
         String objectTitle = String.format(
                 DEFAULT_TITLE_PATTERN,
-                context.getString(
-                        isFile ? R.string.common_file : R.string.common_text
-                )
+                context.getString(isFile ? R.string.common_file : R.string.common_text)
         );
         tvHistoryItemObjectTitle.setText(objectTitle);
         tvHistoryItemObjectData.setText(historyItem.getObjectValue());

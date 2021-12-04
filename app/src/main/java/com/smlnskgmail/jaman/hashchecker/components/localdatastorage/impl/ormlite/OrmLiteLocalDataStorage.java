@@ -97,9 +97,7 @@ public class OrmLiteLocalDataStorage extends OrmLiteSqliteOpenHelper implements 
     @Override
     public void deleteAllHistoryItems() {
         try {
-            getDao(HistoryItem.class)
-                    .deleteBuilder()
-                    .delete();
+            getDao(HistoryItem.class).deleteBuilder().delete();
         } catch (SQLException e) {
             LogUtils.e(e);
         }

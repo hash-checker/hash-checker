@@ -110,7 +110,7 @@ public class SharedPreferencesSettings implements Settings {
     }
 
     /*
-     * Saved for old versions compatibility (where themes count > 2)
+     * Saved for compatibility with old versions (where themes count more than 2)
      */
     @NonNull
     private String getTheme() {
@@ -228,10 +228,7 @@ public class SharedPreferencesSettings implements Settings {
     }
 
     private void saveBooleanPreference(@NonNull String key, boolean value) {
-        sharedPreferences
-                .edit()
-                .putBoolean(key, value)
-                .apply();
+        sharedPreferences.edit().putBoolean(key, value).apply();
     }
 
     private boolean getBooleanPreference(@NonNull String key, boolean defaultValue) {
@@ -239,10 +236,7 @@ public class SharedPreferencesSettings implements Settings {
     }
 
     private void saveIntPreference(@NonNull String key, int value) {
-        sharedPreferences
-                .edit()
-                .putInt(key, value)
-                .apply();
+        sharedPreferences.edit().putInt(key, value).apply();
     }
 
     private int getIntPreference(@NonNull String key) {

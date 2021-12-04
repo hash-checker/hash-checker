@@ -1,6 +1,7 @@
 package com.smlnskgmail.jaman.hashchecker.ui;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import android.os.Environment;
@@ -16,6 +17,7 @@ public class TestFileUtils {
     public static void createTestFileInDownloadFolder() throws IOException {
         File file = Environment.getExternalStorageDirectory();
         File[] filteredFiles = file.listFiles((dir, name) -> name.equals(DOWNLOAD_DIRECTORY));
+        assertNotNull(filteredFiles);
         assertEquals(
                 1,
                 filteredFiles.length

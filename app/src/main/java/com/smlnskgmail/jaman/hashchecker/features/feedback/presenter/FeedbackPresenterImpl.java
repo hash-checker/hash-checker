@@ -20,21 +20,19 @@ public class FeedbackPresenterImpl implements FeedbackPresenter {
             Build.MODEL
     );
 
+    private FeedbackView view;
+
     @Override
     public void init(@NonNull FeedbackView view) {
+        this.view = view;
         view.showAppInfo(feedback.getAppInfo());
         view.showAndroidVersion(feedback.osVersion());
         view.showManufacturer(feedback.manufacturer());
         view.showModel(feedback.model());
     }
 
-    @NonNull
     @Override
-    public Intent prepareEmailIntent(
-            @NonNull String email,
-            @NonNull String text,
-            @NonNull String subject
-    ) {
+    public void sendFeedback(@NonNull String email, @NonNull String text, @NonNull String subject) {
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
@@ -43,7 +41,8 @@ public class FeedbackPresenterImpl implements FeedbackPresenter {
         Intent selectorIntent = new Intent(Intent.ACTION_SENDTO);
         selectorIntent.setData(Uri.parse("mailto:"));
         emailIntent.setSelector(selectorIntent);
-        return emailIntent;
+
+        view.sendEmail(emailIntent);
     }
 
 }
