@@ -62,22 +62,10 @@ android {
                         KEY_PASSWORD
                 )
                 if (hasSignConfigInProperties) {
-                    keystoreProperties.put(
-                            KEYSTORE_PATH,
-                            System.getenv(KEYSTORE_PATH)
-                    )
-                    keystoreProperties.put(
-                            KEYSTORE_PASSWORD,
-                            System.getenv(KEYSTORE_PASSWORD)
-                    )
-                    keystoreProperties.put(
-                            KEY_ALIAS,
-                            System.getenv(KEY_ALIAS)
-                    )
-                    keystoreProperties.put(
-                            KEY_PASSWORD,
-                            System.getenv(KEY_PASSWORD)
-                    )
+                    keystoreProperties.put(KEYSTORE_PATH, System.getenv(KEYSTORE_PATH))
+                    keystoreProperties.put(KEYSTORE_PASSWORD, System.getenv(KEYSTORE_PASSWORD))
+                    keystoreProperties.put(KEY_ALIAS, System.getenv(KEY_ALIAS))
+                    keystoreProperties.put(KEY_PASSWORD, System.getenv(KEY_PASSWORD))
                 }
             }
             if (hasSignConfigInProperties) {
@@ -87,14 +75,10 @@ android {
                     keyAlias keystoreProperties[KEY_ALIAS]
                     keyPassword keystoreProperties[KEY_PASSWORD]
                 } catch (ignore) {
-                    throw new InvalidUserDataException(
-                            "You should define sign keys in gradle.properties or int ENV."
-                    )
+                    throw new InvalidUserDataException("You should define sign keys in gradle.properties or int ENV.")
                 }
             } else if (System.getenv('CI')) {
-                throw new InvalidUserDataException(
-                        "You should define sign keys in gradle.properties or in ENV."
-                )
+                throw new InvalidUserDataException("You should define sign keys in gradle.properties or in ENV.")
             }
         }
     }
@@ -108,8 +92,7 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'),
-                    'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             signingConfig signingConfigs.release
         }
