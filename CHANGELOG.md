@@ -4,6 +4,10 @@ This file contains all release notes from current project.
 
 Based on [keep a changelog](https://keepachangelog.com/en/1.0.0).
 
+## [3.6.8](https://github.com/fartem/hash-checker/releases/tag/3.6.8) - 2021-12-05
+
+Closed [3.6.8](https://github.com/hash-checker/hash-checker/projects/7).
+
 ## [3.6.7](https://github.com/fartem/hash-checker/releases/tag/3.6.7) - 2021-11-26
 
 Closed [3.6.7](https://github.com/hash-checker/hash-checker/projects/4).
