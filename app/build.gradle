@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.jaredsburrows.license'
 apply from: 'checkstyle.gradle'
 apply from: 'cpd.gradle'
 apply from: 'jacoco.gradle'
@@ -6,13 +7,13 @@ apply from: 'utils.gradle'
 
 android {
     compileSdkVersion 31
-    buildToolsVersion '30.0.3'
+    buildToolsVersion '31.0.0'
     defaultConfig {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 93
-        versionName '3.6.7'
+        versionCode 94
+        versionName '3.6.8'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
@@ -61,22 +62,10 @@ android {
                         KEY_PASSWORD
                 )
                 if (hasSignConfigInProperties) {
-                    keystoreProperties.put(
-                            KEYSTORE_PATH,
-                            System.getenv(KEYSTORE_PATH)
-                    )
-                    keystoreProperties.put(
-                            KEYSTORE_PASSWORD,
-                            System.getenv(KEYSTORE_PASSWORD)
-                    )
-                    keystoreProperties.put(
-                            KEY_ALIAS,
-                            System.getenv(KEY_ALIAS)
-                    )
-                    keystoreProperties.put(
-                            KEY_PASSWORD,
-                            System.getenv(KEY_PASSWORD)
-                    )
+                    keystoreProperties.put(KEYSTORE_PATH, System.getenv(KEYSTORE_PATH))
+                    keystoreProperties.put(KEYSTORE_PASSWORD, System.getenv(KEYSTORE_PASSWORD))
+                    keystoreProperties.put(KEY_ALIAS, System.getenv(KEY_ALIAS))
+                    keystoreProperties.put(KEY_PASSWORD, System.getenv(KEY_PASSWORD))
                 }
             }
             if (hasSignConfigInProperties) {
@@ -86,14 +75,10 @@ android {
                     keyAlias keystoreProperties[KEY_ALIAS]
                     keyPassword keystoreProperties[KEY_PASSWORD]
                 } catch (ignore) {
-                    throw new InvalidUserDataException(
-                            "You should define sign keys in gradle.properties or int ENV."
-                    )
+                    throw new InvalidUserDataException("You should define sign keys in gradle.properties or int ENV.")
                 }
             } else if (System.getenv('CI')) {
-                throw new InvalidUserDataException(
-                        "You should define sign keys in gradle.properties or in ENV."
-                )
+                throw new InvalidUserDataException("You should define sign keys in gradle.properties or in ENV.")
             }
         }
     }
@@ -107,8 +92,7 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'),
-                    'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             signingConfig signingConfigs.release
         }
@@ -187,32 +171,31 @@ dependencies {
     implementation 'com.github.fartem:adaptive-recycler-view:1.1.1'
 
     // Dagger
-    implementation 'com.google.dagger:dagger:2.34.1'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.34.1'
-    androidTestAnnotationProcessor 'com.google.dagger:dagger-compiler:2.34.1'
+    implementation 'com.google.dagger:dagger:2.40.2'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.40.2'
+    androidTestAnnotationProcessor 'com.google.dagger:dagger-compiler:2.40.2'
 
     // ORMLite
-    implementation 'com.j256.ormlite:ormlite-core:5.3'
-    implementation 'com.j256.ormlite:ormlite-android:5.3'
+    implementation 'com.j256.ormlite:ormlite-core:5.7'
+    implementation 'com.j256.ormlite:ormlite-android:5.7'
 
     // Checkstyle
     checkstyle 'com.github.fartem:checkstyle-checks-java:1.1.0'
     checkstyle 'com.github.fartem:checkstyle-checks-android:1.2.3'
 
     // Unit tests
-    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.2'
 
     // Android tests
-    //noinspection GradleDependency
-    androidTestImplementation 'androidx.annotation:annotation:1.1.0'
+    androidTestImplementation 'androidx.annotation:annotation:1.3.0'
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test:rules:1.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
 
     // Screenshots
-    androidTestImplementation 'tools.fastlane:screengrab:2.0.0'
+//    androidTestImplementation 'tools.fastlane:screengrab:2.1.1'
 
     // Google Play Core Library
-    googlePlayImplementation 'com.google.android.play:core:1.10.0'
+    googlePlayImplementation 'com.google.android.play:core:1.10.2'
 }

@@ -9,20 +9,20 @@
         android:name=".App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/common_app_name"
+        android:resizeableActivity="false"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeLight"
-        android:resizeableActivity="false"
-        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
-        tools:targetApi="n">
+        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
 
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:label="@string/common_app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
-            android:exported="true">
+            tools:node="merge">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,8 +54,6 @@
             </intent-filter>
 
         </activity>
-
-        <!--        <activity android:name=".logic.filemanager.ui.FileManagerActivity" />-->
 
     </application>
 

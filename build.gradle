@@ -1,22 +1,23 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven {
             url 'https://plugins.gradle.org/m2/'
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.0'
+        classpath 'com.android.tools.build:gradle:7.0.3'
         classpath 'de.aaschmid:gradle-cpd-plugin:3.2'
         classpath 'com.hiya:jacoco-android:0.2'
+        classpath 'com.jaredsburrows:gradle-license-plugin:0.8.90'
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven { url "https://jitpack.io" }
     }
 }

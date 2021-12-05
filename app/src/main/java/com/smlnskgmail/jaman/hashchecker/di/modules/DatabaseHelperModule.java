@@ -2,7 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.di.modules;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.logic.database.api.DatabaseHelper;
+import com.smlnskgmail.jaman.hashchecker.components.localdatastorage.api.LocalDataStorage;
 
 import dagger.Module;
 import dagger.Provides;
@@ -10,18 +10,16 @@ import dagger.Provides;
 @Module
 public class DatabaseHelperModule {
 
-    private final DatabaseHelper databaseHelper;
+    private final LocalDataStorage localDataStorage;
 
-    public DatabaseHelperModule(
-            @NonNull DatabaseHelper databaseHelper
-    ) {
-        this.databaseHelper = databaseHelper;
+    public DatabaseHelperModule(@NonNull LocalDataStorage localDataStorage) {
+        this.localDataStorage = localDataStorage;
     }
 
     @NonNull
     @Provides
-    public DatabaseHelper databaseHelper() {
-        return databaseHelper;
+    public LocalDataStorage databaseHelper() {
+        return localDataStorage;
     }
 
 }

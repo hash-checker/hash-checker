@@ -11,10 +11,7 @@ public class HashValueInLowerCaseTest extends BaseSettingsTest {
                 false
         );
         generateHashValueFromText();
-        textEquals(
-                TEST_RESULT,
-                R.id.et_field_generated_hash
-        );
+        textEquals(TEST_RESULT, R.id.et_field_generated_hash);
     }
 
 }

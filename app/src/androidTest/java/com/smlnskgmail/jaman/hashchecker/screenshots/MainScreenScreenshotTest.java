@@ -14,9 +14,7 @@ public class MainScreenScreenshotTest extends BaseScreenshotTest {
     @Override
     public void runTest() {
         clickById(R.id.tv_selected_object_name);
-        makeScreenshot(
-                "1_main_screen"
-        );
+//        makeScreenshot("1_main_screen");
     }
 
 }

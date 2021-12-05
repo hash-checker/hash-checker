@@ -2,7 +2,7 @@ package com.smlnskgmail.jaman.hashchecker.di.modules;
 
 import androidx.annotation.NonNull;
 
-import com.smlnskgmail.jaman.hashchecker.logic.settings.api.SettingsHelper;
+import com.smlnskgmail.jaman.hashchecker.components.settings.api.Settings;
 
 import dagger.Module;
 import dagger.Provides;
@@ -10,18 +10,16 @@ import dagger.Provides;
 @Module
 public class SettingsHelperModule {
 
-    private final SettingsHelper settingsHelper;
+    private final Settings settings;
 
-    public SettingsHelperModule(
-            @NonNull SettingsHelper settingsHelper
-    ) {
-        this.settingsHelper = settingsHelper;
+    public SettingsHelperModule(@NonNull Settings settings) {
+        this.settings = settings;
     }
 
     @NonNull
     @Provides
-    public SettingsHelper settingsHelper() {
-        return settingsHelper;
+    public Settings settingsHelper() {
+        return settings;
     }
 
 }
