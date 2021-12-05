@@ -13,13 +13,8 @@ public class AppUtils {
 
     }
 
-    public static void restartApp(
-            @NonNull Activity activity
-    ) {
-        Intent intent = new Intent(
-                activity,
-                MainActivity.class
-        );
+    public static void restartApp(@NonNull Activity activity) {
+        Intent intent = new Intent(activity, MainActivity.class);
         activity.startActivity(intent);
         activity.finish();
     }

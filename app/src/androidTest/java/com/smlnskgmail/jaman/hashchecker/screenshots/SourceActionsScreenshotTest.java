@@ -14,9 +14,7 @@ public class SourceActionsScreenshotTest extends BaseScreenshotTest {
     @Override
     public void runTest() {
         clickById(R.id.btn_generate_from);
-        makeScreenshot(
-                "2_source_actions"
-        );
+//        makeScreenshot("2_source_actions");
     }
 
 }

@@ -33,10 +33,10 @@ jobs:
           path: ~/.gradle/wrapper
           key: wrapper-${{ runner.os }}-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
 
-      - name: Set up JDK 1.8
+      - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
 
       - name: Build Release Bundle
         run: ./gradlew bundleRelease --stacktrace
@@ -50,8 +50,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.head_commit.message }}
-          release_name: ${{ github.event.head_commit.message }}
+          tag_name: '3.6.8'
+          release_name: '3.6.8'
           draft: false
           prerelease: false
 

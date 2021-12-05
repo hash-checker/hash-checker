@@ -3,7 +3,7 @@ package com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha;
 import androidx.annotation.NonNull;
 
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.BaseJdkHashCalculatorTest;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
 
 public class SHA256JdkHashCalculatorTest extends BaseJdkHashCalculatorTest {
 

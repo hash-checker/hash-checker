@@ -1,20 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker.rateapp;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import androidx.test.InstrumentationRegistry;
-
-import com.smlnskgmail.jaman.hashchecker.R;
-import com.smlnskgmail.jaman.hashchecker.components.BaseUITest;
-import com.smlnskgmail.jaman.hashchecker.logic.hashcalculator.api.HashType;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -24,6 +9,21 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.assertTrue;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import androidx.test.InstrumentationRegistry;
+
+import com.smlnskgmail.jaman.hashchecker.R;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
+import com.smlnskgmail.jaman.hashchecker.ui.BaseUITest;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class RateAppDialogTest extends BaseUITest {
 
@@ -53,20 +53,14 @@ public class RateAppDialogTest extends BaseUITest {
                 context.getPackageName() + "_preferences",
                 Context.MODE_PRIVATE
         );
-        prefs.edit().putInt(
-                context.getString(R.string.key_hash_generation_count),
-                0
-        ).apply();
+        prefs.edit().putInt(context.getString(R.string.key_hash_generation_count), 0).apply();
     }
 
     private void showInputDialog() {
         clickById(R.id.btn_generate_from);
         secondDelay();
 
-        inRecyclerViewClickOnPosition(
-                R.id.rv_bottom_sheet_list_items,
-                TEXT_BUTTON_POSITION
-        );
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, TEXT_BUTTON_POSITION);
         secondDelay();
     }
 
@@ -83,19 +77,11 @@ public class RateAppDialogTest extends BaseUITest {
         clickById(R.id.tv_selected_hash_type);
         secondDelay();
 
-        List<HashType> hashTypes = new ArrayList<>(
-                Arrays.asList(HashType.values())
-        );
+        List<HashType> hashTypes = new ArrayList<>(Arrays.asList(HashType.values()));
         int hashTypePosition = hashTypes.indexOf(TEST_HASH_TYPE);
         assertTrue(hashTypePosition >= 0);
-        inRecyclerViewClickOnPosition(
-                R.id.rv_bottom_sheet_list_items,
-                hashTypePosition
-        );
-        textEquals(
-                TEST_HASH_TYPE.getTypeAsString(),
-                R.id.tv_selected_hash_type
-        );
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, hashTypePosition);
+        textEquals(TEST_HASH_TYPE.getTypeAsString(), R.id.tv_selected_hash_type);
     }
 
     private void generateHashFromText() throws InterruptedException {
@@ -103,14 +89,8 @@ public class RateAppDialogTest extends BaseUITest {
         secondDelay();
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
-        inRecyclerViewClickOnPosition(
-                R.id.rv_bottom_sheet_list_items,
-                GENERATE_BUTTON_POSITION
-        );
-        countDownLatch.await(
-                SECOND_IN_MILLIS,
-                TimeUnit.MILLISECONDS
-        );
+        inRecyclerViewClickOnPosition(R.id.rv_bottom_sheet_list_items, GENERATE_BUTTON_POSITION);
+        countDownLatch.await(SECOND_IN_MILLIS, TimeUnit.MILLISECONDS);
         secondDelay();
     }
 

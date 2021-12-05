@@ -11,7 +11,7 @@ import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA256JdkHashCalcula
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA384JdkHashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.sha.SHA512JdkHashCalculatorTest;
 import com.smlnskgmail.jaman.hashchecker.calculator.jdk.zeroleads.MessageDigestZeroLeadsJdkHashCalculatorTest;
-import com.smlnskgmail.jaman.hashchecker.database.DatabaseExporterTest;
+import com.smlnskgmail.jaman.hashchecker.database.LocalDataExporterTest;
 import com.smlnskgmail.jaman.hashchecker.feedback.FeedbackTest;
 import com.smlnskgmail.jaman.hashchecker.rateapp.RateAppDialogTest;
 import com.smlnskgmail.jaman.hashchecker.screenrunner.ScreenRunnerTest;
@@ -30,14 +30,11 @@ import org.junit.runners.Suite;
         CRC32JdkHashCalculatorTest.class,
         JdkHashCalculatorExceptionsTest.class,
         MessageDigestZeroLeadsJdkHashCalculatorTest.class,
-//        GenerateHashFromFileTest.class,
         GenerateHashFromTextTest.class,
         HashCalculatorTaskExceptionTest.class,
-//        OpenAppWithIntentTest.class,
-//        OpenAppWithClipDataTest.class,
         FeedbackTest.class,
         RateAppDialogTest.class,
-        DatabaseExporterTest.class,
+        LocalDataExporterTest.class,
 //        HashValueInUpperCaseTest.class,
 //        HashValueInLowerCaseTest.class,
         ScreenRunnerTest.class,

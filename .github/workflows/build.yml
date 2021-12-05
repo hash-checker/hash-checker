@@ -28,10 +28,10 @@ jobs:
           path: ~/.gradle/wrapper
           key: wrapper-${{ runner.os }}-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
 
-      - name: Set up JDK 1.8
+      - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
 
       - name: Build with Gradle
         run: ./gradlew check --stacktrace
@@ -60,6 +60,11 @@ jobs:
           path: ~/.gradle/wrapper
           key: wrapper-${{ runner.os }}-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
 
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
       - name: Run Instrumentation tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -69,3 +74,45 @@ jobs:
 
       - name: Send JaCoCo coverage report to Codecov
         uses: codecov/codecov-action@v1
+
+  check_licenses:
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_KEYSTORE_PATH: ${{ secrets.RELEASE_KEYSTORE_PATH }}
+      RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+      RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+      RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Generate Google Play flavor licenses report
+        run: ./gradlew licenseGooglePlayReleaseReport
+
+      - name: Check Google Play flavor licenses
+        uses: pilosus/action-pip-license-checker@v0.5.0
+        with:
+          external: 'app/build/reports/licenses/licenseGooglePlayReleaseReport.json'
+          external-format: 'gradle'
+          external-options: '{:fully-qualified-names false}'
+          fail: 'StrongCopyleft,NetworkCopyleft,Error'
+          fails-only: true
+          with-totals: true
+
+      - name: Generate Third Party Stores flavor licenses report
+        run: ./gradlew licenseThirdPartyStoresReleaseReport
+
+      - name: Check Third Party Stored flavor licenses
+        uses: pilosus/action-pip-license-checker@v0.5.0
+        with:
+          external: 'app/build/reports/licenses/licenseThirdPartyStoresReleaseReport.json'
+          external-format: 'gradle'
+          external-options: '{:fully-qualified-names false}'
+          fail: 'StrongCopyleft,NetworkCopyleft,Error'
+          fails-only: true
+          with-totals: true

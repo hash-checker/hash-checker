@@ -1,13 +1,13 @@
 package com.smlnskgmail.jaman.hashchecker.feedback;
 
+import static org.junit.Assert.assertEquals;
+
 import android.os.Build;
 
 import com.smlnskgmail.jaman.hashchecker.BuildConfig;
-import com.smlnskgmail.jaman.hashchecker.logic.feedback.Feedback;
+import com.smlnskgmail.jaman.hashchecker.features.feedback.Feedback;
 
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
 
 public class FeedbackTest {
 
@@ -43,9 +43,7 @@ public class FeedbackTest {
                         osVersion,
                         manufacturer,
                         model
-                ).getConfiguredMessage(
-                        message
-                )
+                ).getConfiguredMessage(message)
         );
     }
 
