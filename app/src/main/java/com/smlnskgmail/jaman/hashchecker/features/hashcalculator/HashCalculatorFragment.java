@@ -234,9 +234,7 @@ public class HashCalculatorFragment extends BaseFragment
 
     private void saveGeneratedHashAsTextFile() {
         if ((fileUri != null || isTextSelected) && fieldIsNotEmpty(etGeneratedHash)) {
-            saveTextFile(
-                    getString(isTextSelected ? R.string.filename_hash_from_text : R.string.filename_hash_from_file)
-            );
+            saveTextFile(tvSelectedObjectName.getText().toString());
         } else {
             showSnackbarWithoutAction(R.string.message_generate_hash_before_export);
         }
@@ -247,7 +245,14 @@ public class HashCalculatorFragment extends BaseFragment
             Intent saveTextFileIntent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
             saveTextFileIntent.addCategory(Intent.CATEGORY_OPENABLE);
             saveTextFileIntent.setType("text/plain");
-            saveTextFileIntent.putExtra(Intent.EXTRA_TITLE, filename + ".txt");
+            saveTextFileIntent.putExtra(
+                    Intent.EXTRA_TITLE,
+                    String.format(
+                            "%s.%s.txt",
+                            filename,
+                            settings.getLastHashType().getFileExtension()
+                    )
+            );
             startActivityForResult(saveTextFileIntent, Settings.FILE_CREATE);
         } catch (ActivityNotFoundException e) {
             LogUtils.e(e);
