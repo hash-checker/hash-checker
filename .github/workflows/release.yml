@@ -23,16 +23,6 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           path: './metadata'
 
-      - uses: actions/cache@v1
-        with:
-          path: ~/.gradle/caches
-          key: caches-${{ runner.os }}-${{ hashFiles('**/*.gradle') }}
-
-      - uses: actions/cache@v1
-        with:
-          path: ~/.gradle/wrapper
-          key: wrapper-${{ runner.os }}-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
-
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
@@ -44,14 +34,17 @@ jobs:
       - name: Build Release APK
         run: ./gradlew assembleRelease --stacktrace
 
+      - name: Put version name to ENV
+        run: echo ::set-env name=RELEASE_NAME::$(echo "3.6.9")
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: '3.6.8'
-          release_name: '3.6.8'
+          tag_name: env.RELEASE_NAME
+          release_name: env.RELEASE_NAME
           draft: false
           prerelease: false
 
@@ -62,7 +55,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: 'app/build/outputs/bundle/googlePlayRelease/hash-checker_release.aab'
-          asset_name: hash-checker_google-play_${{ github.event.head_commit.message }}.aab
+          asset_name: hash-checker_google-play_${{ env.RELEASE_NAME }}.aab
           asset_content_type: application/zip
 
       - name: Upload Release Bundle without Google Play services
@@ -72,7 +65,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: 'app/build/outputs/bundle/thirdPartyStoresRelease/hash-checker_release.aab'
-          asset_name: hash-checker_no-google-play_${{ github.event.head_commit.message }}.aab
+          asset_name: hash-checker_no-google-play_${{ env.RELEASE_NAME }}.aab
           asset_content_type: application/zip
 
       - name: Upload Release APK with Google Play services
@@ -82,7 +75,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: 'app/build/outputs/apk/googlePlay/release/hash-checker_release.apk'
-          asset_name: hash-checker_google-play_${{ github.event.head_commit.message }}.apk
+          asset_name: hash-checker_google-play_${{ env.RELEASE_NAME }}.apk
           asset_content_type: application/zip
 
       - name: Upload Release APK without Google Play services
@@ -92,5 +85,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: 'app/build/outputs/apk/thirdPartyStores/release/hash-checker_release.apk'
-          asset_name: hash-checker_no-google-play_${{ github.event.head_commit.message }}.apk
+          asset_name: hash-checker_no-google-play_${{ env.RELEASE_NAME }}.apk
           asset_content_type: application/zip
