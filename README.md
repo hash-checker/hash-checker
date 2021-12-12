@@ -8,6 +8,9 @@
 <a href="https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker">
   <img src="media/banners/bn_google_play.png" height="75px" />
 </a>
+<a href="https://apt.izzysoft.de/fdroid/index/apk/com.smlnskgmail.jaman.hashchecker.thirdparty">
+  <img src="media/banners/bn_izzy_on_droid.png" height="75px" />
+</a>
 <a href="https://www.androidfilehost.com/?w=files&flid=316843">
   <img src="media/banners/bn_android_file_host.png" height="75px" />
 </a>
