@@ -35,6 +35,8 @@ jobs:
         run: ./gradlew assembleRelease --stacktrace
 
       - name: Put version name to ENV
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         run: echo ::set-env name=RELEASE_NAME::$(echo "3.6.9")
 
       - name: Create Release
