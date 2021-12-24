@@ -127,8 +127,6 @@ If you have any question or feature idea for app, you can open issue on [this pa
 
 ## How to contribute
 
-Start with [How to build a project](https://github.com/hash-checker/hash-checker/wiki/How-to-build-a-project).
-
 Before commit, read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
 
 ```shell
