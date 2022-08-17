@@ -9,6 +9,10 @@ import com.smlnskgmail.jaman.hashchecker.features.settings.presenter.SettingsPre
 
 public interface SettingsView {
 
+    void initHashChecker2GitHubButton();
+
+    void initHashChecker2GooglePlayButton();
+
     void initLanguageSettings();
 
     void initThemeSettings();

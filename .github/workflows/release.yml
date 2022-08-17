@@ -37,7 +37,7 @@ jobs:
       - name: Put version name to ENV
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-        run: echo ::set-env name=RELEASE_NAME::$(echo "3.6.9")
+        run: echo ::set-env name=RELEASE_NAME::$(echo "3.6.9-1")
 
       - name: Create Release
         id: create_release

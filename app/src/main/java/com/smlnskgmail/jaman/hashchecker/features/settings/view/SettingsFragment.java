@@ -156,6 +156,32 @@ public class SettingsFragment extends PreferenceFragmentCompat
     }
 
     @Override
+    public void initHashChecker2GitHubButton() {
+        initWebButton(
+                getString(R.string.key_hash_checker_2_github),
+                context.getString(R.string.web_link_hash_checker_2_github)
+        );
+    }
+
+    private void initWebButton(@NonNull String key, @NonNull String webLink) {
+        Preference hashChecker2LinkPreference = findPreference(key);
+        if (hashChecker2LinkPreference != null) {
+            hashChecker2LinkPreference.setOnPreferenceClickListener(preference -> {
+                WebUtils.openWebLink(context, webLink);
+                return false;
+            });
+        }
+    }
+
+    @Override
+    public void initHashChecker2GooglePlayButton() {
+        initWebButton(
+                getString(R.string.key_hash_checker_2_google_play),
+                context.getString(R.string.web_link_hash_checker_2_google_play)
+        );
+    }
+
+    @Override
     public void initLanguageSettings() {
         Preference languagePreference = findPreference(getString(R.string.key_language));
         if (languagePreference != null) {
@@ -228,16 +254,10 @@ public class SettingsFragment extends PreferenceFragmentCompat
 
     @Override
     public void initHelpWithTranslations() {
-        Preference helpWithTranslationPreference = findPreference(getString(R.string.key_help_with_translation));
-        if (helpWithTranslationPreference != null) {
-            helpWithTranslationPreference.setOnPreferenceClickListener(preference -> {
-                WebUtils.openWebLink(
-                        context,
-                        context.getString(R.string.web_link_help_with_translation)
-                );
-                return false;
-            });
-        }
+        initWebButton(
+                getString(R.string.key_help_with_translation),
+                context.getString(R.string.web_link_help_with_translation)
+        );
     }
 
     @Override

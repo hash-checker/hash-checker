@@ -7,6 +7,8 @@
     <string name="common_email" translatable="false">jaman.smlnsk@gmail.com</string>
 
     <!-- settings -->
+    <string name="key_hash_checker_2_github" translatable="false">hash_checker_2_github</string>
+    <string name="key_hash_checker_2_google_play" translatable="false">hash_checker_2_google_play</string>
     <string name="key_category_app" translatable="false">category_app</string>
     <string name="key_inner_file_manager" translatable="false">app_file_manager</string>
     <string name="key_vibrate" translatable="false">vibrate</string>
@@ -36,6 +38,8 @@
     <string name="title_web_link_google_play" translatable="false">Google Play</string>
 
     <!-- web links -->
+    <string name="web_link_hash_checker_2_github" translatable="false">https://github.com/hash-checker/hash-checker-2</string>
+    <string name="web_link_hash_checker_2_google_play" translatable="false">https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker2</string>
     <string name="web_link_source_code" translatable="false">https://github.com/hash-checker/hash-checker</string>
     <string name="web_link_my_apps" translatable="false">https://play.google.com/store/apps/developer?id=fartem</string>
     <string name="web_link_privacy_policy" translatable="false">https://hash-checker.github.io/hash-checker-privacy-policy.io</string>

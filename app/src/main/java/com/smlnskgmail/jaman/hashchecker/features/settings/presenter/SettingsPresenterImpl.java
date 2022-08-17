@@ -21,6 +21,8 @@ public class SettingsPresenterImpl implements SettingsPresenter {
     public void init(@NonNull SettingsView view, @NonNull LocalDataStorage localDataStorage) {
         this.localDataStorage = localDataStorage;
         this.view = view;
+        view.initHashChecker2GitHubButton();
+        view.initHashChecker2GooglePlayButton();
         view.initLanguageSettings();
         view.initThemeSettings();
         view.initPrivacyPolicy();
