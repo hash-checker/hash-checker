@@ -49,8 +49,6 @@
     <!-- hints -->
     <string name="hint_input_text">Text here</string>
     <!-- settings titles -->
-    <string name="settings_title_hash_checker_2_github">Hash Checker 2 on GitHub</string>
-    <string name="settings_title_hash_checker_2_google_play">Hash Checker 2 on Google Play</string>
     <string name="settings_title_general">General</string>
     <string name="settings_title_app">Application</string>
     <string name="settings_title_interface">Interface</string>

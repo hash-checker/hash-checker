@@ -34,6 +34,8 @@
     <string name="key_help_with_translation" translatable="false">help_with_translation</string>
 
     <!-- links -->
+    <string name="settings_title_hash_checker_2_github" translatable="false">Hash Checker 2 on GitHub</string>
+    <string name="settings_title_hash_checker_2_google_play" translatable="false">Hash Checker 2 on Google Play</string>
     <string name="title_web_link_github" translatable="false">GitHub</string>
     <string name="title_web_link_google_play" translatable="false">Google Play</string>
 
