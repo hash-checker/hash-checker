@@ -55,7 +55,7 @@ __Languages in app__
 | Italiano | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/12) |
 | Magyar | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/21#) |
 | Nederlands | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/12#) |
-| Norsk | 3.6.9 | `Translated` |
+| Norsk | 3.6.9-1 | `Translated` |
 | Svenska | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/17#) |
 | Ελληνικά | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/17#) |
 | Русский | 2.9.6 | `Translated` |
