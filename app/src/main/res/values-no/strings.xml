@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<resources>
+    <!-- menu -->
+    <string name="menu_title_settings">Instillinger</string>
+    <string name="menu_title_feedback">Tilbakemelding</string>
+    <string name="menu_title_history">Historie</string>
+    <!-- dialog titles -->
+    <string name="title_dialog_enter_text">Legg til tekst</string>
+    <string name="title_warning_dialog">Advarsel</string>
+    <string name="title_permission_dialog">Tilgang</string>
+    <!-- messages -->
+    <string name="message_exit">Hold inne tilbakeknappen lenge for å avslutte applikasjonen</string>
+    <string name="message_fill_fields">Fyll inn alle felt for sammenligning</string>
+    <string name="message_generate_hash_before_export">Generer hash-verdier før eksportering</string>
+    <string name="message_match_result">Samsvarer</string>
+    <string name="message_do_not_match_result">Samsvarer ikke</string>
+    <string name="message_generate_dialog">Genererer hash. Vennligst vent...</string>
+    <string name="message_select_object">Trykk på Fra for å velge ønsket type</string>
+    <string name="message_request_storage_permission_error">Ingen lese-tilgang. Vennligst prøv igjen</string>
+    <string name="message_request_storage_permission_denied">Ingen skrive-tilgang. Vennligst prøv igjen</string>
+    <string name="message_error_start_file_selector">Finner ingen filhåndterer på din enhet. Gå til instillinger på din enhet og gi tilgang.</string>
+    <string name="message_error_start_google_play">Finner ingen Google Play-app eller nettleser på din enhet.</string>
+    <string name="message_email_app_chooser">Velg app for å sende e-post</string>
+    <string name="message_change_theme">For å endre tema må du restarte applikasjonen</string>
+    <string name="message_change_language">For å endre språk må du restarte applikasjonen</string>
+    <string name="message_invalid_selected_source">Klarte ikke å generere en hash-verdi fra kilden du oppga. Vennligst sjekk valgt kilde</string>
+    <string name="message_delete_all_history_items">Slette alle historieobjektene?</string>
+    <!-- commons -->
+    <string name="common_text">Tekst</string>
+    <string name="common_file">Fil</string>
+    <string name="common_add">Legg til</string>
+    <string name="common_ok">Ok</string>
+    <string name="common_cancel">Avbryt</string>
+    <string name="common_again">Igjen</string>
+    <string name="common_date">Dato</string>
+    <!-- actions -->
+    <string name="action_from">Fra</string>
+    <string name="action_select">Action</string>
+    <string name="action_exit_now">Avslutt nå</string>
+    <string name="action_generate">Generer</string>
+    <string name="action_compare">Sammenlign</string>
+    <string name="action_export_to_txt">Eksporter som \".txt\"</string>
+    <!-- themes -->
+    <string name="title_theme_light">Lys</string>
+    <string name="title_theme_dark">Mørk</string>
+    <!-- titles -->
+    <string name="title_custom_hash">Tilpasset hash</string>
+    <string name="title_generated_hash">Generert hash</string>
+    <!-- hints -->
+    <string name="hint_input_text">Skriv her</string>
+    <!-- settings titles -->
+    <string name="settings_title_general">Generelt</string>
+    <string name="settings_title_app">Applikasjon</string>
+    <string name="settings_title_interface">Grensesnitt</string>
+    <string name="settings_title_about">Om</string>
+    <string name="settings_title_upper_case">Stor bokstav</string>
+    <string name="settings_title_author">Forfatter</string>
+    <string name="settings_title_libraries">Bibliotek</string>
+    <string name="settings_title_app_file_manager">Indre filhåndterer</string>
+    <string name="settings_title_version">Versjon</string>
+    <string name="settings_title_vibration">Vibrasjon</string>
+    <string name="settings_title_privacy">Personvern</string>
+    <string name="settings_title_export_user_data">Eksporter brukerdata</string>
+    <string name="settings_title_privacy_policy">Personvernerklæring</string>
+    <string name="settings_title_theme">Tema</string>
+    <string name="settings_title_rate_app">Vurder app</string>
+    <string name="settings_title_save_result_to_history">Lagre resultat i historikken</string>
+    <string name="settings_title_multiline">Flerlinje hash-felt</string>
+    <string name="settings_title_language">Språk</string>
+    <string name="settings_title_support">Support</string>
+    <string name="settings_title_help_with_translation">Hjelp med oversetting</string>
+    <!-- feedback -->
+    <string name="feedback_manufacturer">Produsent</string>
+    <string name="feedback_model">Modell</string>
+    <string name="feedback_message">Melding</string>
+    <!-- file manager -->
+    <string name="file_manager_select_storage_title">Velg lagringssted</string>
+    <!-- history -->
+    <string name="history_item_click_text">Hash-verdi kopiert til utklipstavle</string>
+    <string name="history_empty_view_message">Historieartikkel ikke funnet</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Hvis du likte appen kan du gi en vurdering på Google Play</string>
+    <string name="rate_app_action">Vurder</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">En oppdatering har akkurat blitt nedlastet</string>
+    <string name="update_restart_action">Restart</string>
+</resources>
