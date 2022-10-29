@@ -147,6 +147,7 @@ If you don't see any error messages, submit your pull request.
 * [@AmrDeveloper](https://github.com/AmrDeveloper) as Amr Hesham
 * [@vipozdn](https://github.com/vipozdn) as Victor
 * [@itamarc](https://github.com/itamarc) as Itamar Carvalho
+* [@StianVaage](https://github.com/StianVaage) as Stian Vaage
 
 ## Special thanks
 
