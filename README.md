@@ -113,7 +113,7 @@ __Not translated__
 
 | Forum | Language |
 | --- | --- |
-| [4PDA](https://4pda.to/forum/index.php?showtopic=1015172) | RU |
+| [4PDA](https://4pda.to/forum/index.php?showtopic=1015172) | Русский |
 
 ## Videos
 
