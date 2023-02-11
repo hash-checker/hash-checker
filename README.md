@@ -58,6 +58,7 @@ __Languages in app__
 | Norsk | 3.6.9-1 | `Translated` |
 | Svenska | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/17#) |
 | Ελληνικά | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/17#) |
+| Română | 3.7.0 | `Translated` |
 | Русский | 2.9.6 | `Translated` |
 | Polski | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/16#) |
 | Português (Brasil) | 3.7.0 | `Translated` |
@@ -154,6 +155,7 @@ If you don't see any error messages, submit your pull request.
 * [@vipozdn](https://github.com/vipozdn) as Victor
 * [@itamarc](https://github.com/itamarc) as Itamar Carvalho
 * [@StianVaage](https://github.com/StianVaage) as Stian Vaage
+* [@Alexandru51](https://github.com/Alexandru51) as Alexandru51
 
 ## Special thanks
 
