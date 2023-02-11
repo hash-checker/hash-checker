@@ -109,6 +109,12 @@ __Not translated__
 
 * [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
 
+## Forums
+
+| Forum | Language |
+| --- | --- |
+| [4PDA](https://4pda.to/forum/index.php?showtopic=1015172) | RU |
+
 ## Videos
 
 * [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
