@@ -22,6 +22,7 @@ public enum Language implements ListItem {
     NL("Nederlands", "nl"),
     PL("Polski", "pl"),
     PT("Português (Brasil)", "pt-rBR"),
+    RO("Română", "ro"),
     RU("Русский", "ru"),
     SV("Svenska", "sv"),
     ZH("中文(简体)", "zh-rCN"),

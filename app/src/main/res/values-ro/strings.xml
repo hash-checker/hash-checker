@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<resources>
+    <!-- menu -->
+    <string name="menu_title_settings">Setări</string>
+    <string name="menu_title_feedback">Feedback</string>
+    <string name="menu_title_history">Istoric</string>
+    <!-- dialog titles -->
+    <string name="title_dialog_enter_text">Adaugă Text</string>
+    <string name="title_warning_dialog">Avertisment</string>
+    <string name="title_permission_dialog">Permisiune</string>
+    <!-- messages -->
+    <string name="message_exit">Ține apăsat pe butonul de înapoi pentru a închide aplicația</string>
+    <string name="message_fill_fields">Completează fiecare câmp pentru comparație</string>
+    <string name="message_generate_hash_before_export">Generază valoarea hash înainte de exportare</string>
+    <string name="message_match_result">Se potrivește</string>
+    <string name="message_do_not_match_result">Nu se potrivește</string>
+    <string name="message_generate_dialog">Se generează hash-ul, vă rugăm așteptați…</string>
+    <string name="message_select_object">Tap From to select a needed source type</string>
+    <string name="message_request_storage_permission_error">Nu se poate acorda permisiunea de a citi fișierele de stocare ale dispozitivului. Vă rugăm să încercați din nou</string>
+    <string name="message_request_storage_permission_denied">Nu se poate acorda permisiunea de a citi fișierele de stocare ale dispozitivului. Trebuie să mergeți la Setări și să o acordați dumneavoastră.</string>
+    <string name="message_error_start_file_selector">Nu se poate căuta un manager de fișiere în dispozitivul tău.</string>
+    <string name="message_error_start_google_play">Nu se poate căuta aplicația Google Play sau un browser web în dispozitivul tău.</string>
+    <string name="message_email_app_chooser">Alege o aplicație pentru a trimite un email.</string>
+    <string name="message_change_theme">Pentru a schimba tema, este necesar să reporniți aplicația</string>
+    <string name="message_change_language">Pentru a schimba limba, este necesar să reporniți aplicația</string>
+    <string name="message_invalid_selected_source">Nu se poate genera o valoare hash din sursa de intrare. Vă rugăm să verificați sursa selectată</string>
+    <string name="message_delete_all_history_items">Ștergi toate elementele din istoric?</string>
+    <!-- commons -->
+    <string name="common_text">Text</string>
+    <string name="common_file">Fișier</string>
+    <string name="common_add">Adaugă</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Anulează</string>
+    <string name="common_again">Din nou</string>
+    <string name="common_date">Data</string>
+    <!-- actions -->
+    <string name="action_from">De la</string>
+    <string name="action_select">Acțiune</string>
+    <string name="action_exit_now">Ieșiți acum</string>
+    <string name="action_generate">Generează</string>
+    <string name="action_compare">Compară</string>
+    <string name="action_export_to_txt">Exportă ca \".txt\"</string>
+    <!-- themes -->
+    <string name="title_theme_light">Luminos</string>
+    <string name="title_theme_dark">Întuneric</string>
+    <!-- titles -->
+    <string name="title_custom_hash">Hash personalizat</string>
+    <string name="title_generated_hash">Hash generat</string>
+    <!-- hints -->
+    <string name="hint_input_text">Text aici</string>
+    <!-- settings titles -->
+    <string name="settings_title_general">General</string>
+    <string name="settings_title_app">Aplicație</string>
+    <string name="settings_title_interface">Interfață</string>
+    <string name="settings_title_about">Despre</string>
+    <string name="settings_title_upper_case">Litere mari</string>
+    <string name="settings_title_author">Autor</string>
+    <string name="settings_title_libraries">Biblioteci</string>
+    <string name="settings_title_app_file_manager">Inner File manager</string>
+    <string name="settings_title_version">Versiune</string>
+    <string name="settings_title_vibration">Vibrație</string>
+    <string name="settings_title_privacy">Confidențialitate</string>
+    <string name="settings_title_export_user_data">Exportă datele de utilizator</string>
+    <string name="settings_title_privacy_policy">Politica de confidențialitate</string>
+    <string name="settings_title_theme">Temă</string>
+    <string name="settings_title_rate_app">Evaluează aplicația</string>
+    <string name="settings_title_save_result_to_history">Salvează rezultatul în Istoric</string>
+    <string name="settings_title_multiline">Câmpuri hash cu mai multe linii</string>
+    <string name="settings_title_language">Limbă</string>
+    <string name="settings_title_support">Suport</string>
+    <string name="settings_title_help_with_translation">Ajută cu traducerea</string>
+    <!-- feedback -->
+    <string name="feedback_manufacturer">Producător</string>
+    <string name="feedback_model">Model</string>
+    <string name="feedback_message">Mesaj</string>
+    <!-- file manager -->
+    <string name="file_manager_select_storage_title">Selectează spațiul</string>
+    <!-- history -->
+    <string name="history_item_click_text">Valoarea hash este copiată în clipboard</string>
+    <string name="history_empty_view_message">Elemente din istoric nu au fost găsite</string>
+    <!-- rate app -->
+    <string name="rate_app_message">Dacă îți place aplicația, evaluează-l în Google Play</string>
+    <string name="rate_app_action">Evaluează</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">Tocmai a fost descărcată o actualizare</string>
+    <string name="update_restart_action">Repornește</string>
+</resources>
