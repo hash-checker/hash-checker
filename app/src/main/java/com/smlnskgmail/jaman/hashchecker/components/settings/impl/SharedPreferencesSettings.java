@@ -243,7 +243,7 @@ public class SharedPreferencesSettings implements Settings {
         return sharedPreferences.getInt(key, 0);
     }
 
-    public static abstract class SharedPreferencesSettingsKeyExtractor {
+    public abstract static class SharedPreferencesSettingsKeyExtractor {
 
         @NonNull
         public abstract String extractById(@StringRes int id);
