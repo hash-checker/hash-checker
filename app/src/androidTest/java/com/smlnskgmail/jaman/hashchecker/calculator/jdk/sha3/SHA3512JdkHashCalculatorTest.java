@@ -10,7 +10,7 @@ public class SHA3512JdkHashCalculatorTest extends BaseJdkHashCalculatorTest {
     @NonNull
     @Override
     protected HashType getHashType() {
-        return HashType.SHA_512;
+        return HashType.SHA3_512;
     }
 
     @NonNull
