@@ -156,6 +156,7 @@ If you don't see any error messages, submit your pull request.
 * [@itamarc](https://github.com/itamarc) as Itamar Carvalho
 * [@StianVaage](https://github.com/StianVaage) as Stian Vaage
 * [@Alexandru51](https://github.com/Alexandru51) as Alexandru51
+* [@elliotwutingfeng](https://github.com/elliotwutingfeng) as Wu Tingfeng
 
 ## Special thanks
 
