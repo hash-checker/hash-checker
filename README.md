@@ -159,6 +159,7 @@ If you don't see any error messages, submit your pull request.
 * [@StianVaage](https://github.com/StianVaage) as Stian Vaage
 * [@Alexandru51](https://github.com/Alexandru51) as Alexandru51
 * [@elliotwutingfeng](https://github.com/elliotwutingfeng) as Wu Tingfeng
+* [@Abhisht01](https://github.com/Abhisht01) as Abhisht Dixit
 
 ## Special thanks
 
