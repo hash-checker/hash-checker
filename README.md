@@ -132,7 +132,7 @@ __Not translated__
 
 ## Feedback
 
-If you have any question or feature idea for app, you can open issue on [this page](https://github.com/hash-checker/hash-checker/issues) or contact me by email jaman.smlnsk@gmail.com.
+If you have any question or feature idea for this application, you can open an issue on [this page](https://github.com/hash-checker/hash-checker/issues) or contact me by email jaman.smlnsk@gmail.com.
 
 ## How to contribute
 
