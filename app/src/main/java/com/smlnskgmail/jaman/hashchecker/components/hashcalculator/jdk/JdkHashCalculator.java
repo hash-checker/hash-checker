@@ -1,7 +1,10 @@
 package com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
+import android.provider.DocumentsContract;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +19,8 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JdkHashCalculator implements HashCalculator {
 
@@ -76,8 +81,76 @@ public class JdkHashCalculator implements HashCalculator {
     }
 
     @Nullable
+    @Override
+    public String fromFolder(@NonNull Context context, @NonNull Uri path) {
+        try {
+            List<InputStream> fileStream = inputStreamsFormFolder(context, path);
+            return fromFolder(fileStream);
+        } catch (Exception e) {
+            LogUtils.e(e);
+        }
+        return null;
+    }
+
+    @Nullable
+
+    public String fromFolder(@Nullable List<InputStream> inputStream) {
+        if (inputStream != null) {
+            for(InputStream stream:inputStream){
+                try {
+                    byte[] buffer = new byte[1024];
+                    int read;
+                    do {
+                        read = stream.read(buffer);
+                        if (read > 0) {
+                            jdkHashCalculatorDigest.update(buffer, read);
+                        }
+                    } while (read != -1);
+                }
+                catch (IOException e) {
+                    LogUtils.e(e);
+                }
+            }
+            return jdkHashCalculatorDigest.result();
+        }
+        return null;
+    }
+
+    @Nullable
     private InputStream inputStreamFromUri(@NonNull Context context, @NonNull Uri path) throws Exception {
         return context.getContentResolver().openInputStream(path);
+    }
+
+    @Nullable
+    private List<InputStream> inputStreamsFormFolder(Context context, Uri folderUri) throws IOException {
+        List<InputStream> inputStreams = new ArrayList<>();
+
+        ContentResolver contentResolver = context.getContentResolver();
+        Uri childrenUri = DocumentsContract.buildChildDocumentsUriUsingTree(folderUri,
+                DocumentsContract.getTreeDocumentId(folderUri));
+
+        Cursor cursor = contentResolver.query(childrenUri,
+                new String[]{DocumentsContract.Document.COLUMN_DOCUMENT_ID}, null, null, null);
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                String documentId = cursor.getString(0);
+                Uri documentUri = DocumentsContract.buildDocumentUriUsingTree(folderUri, documentId);
+
+                try {
+                    InputStream inputStream = inputStreamFromUri(context, documentUri);
+                    if (inputStream != null) {
+                        inputStreams.add(inputStream);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            cursor.close();
+        }
+
+        return inputStreams;
     }
 
 }

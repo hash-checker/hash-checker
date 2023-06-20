@@ -28,6 +28,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT_SELECTION" />
                 <action android:name="com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FILE_SELECTION" />
+                <action android:name="com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FOLDER_SELECTION" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

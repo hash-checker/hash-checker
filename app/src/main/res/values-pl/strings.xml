@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">Tekst</string>
     <string name="common_file">Plik</string>
+    <string name="common_folder">Teczka</string>
     <string name="common_add">Dodaj</string>
     <string name="common_ok">Dobrze</string>
     <string name="common_cancel">Anuluj</string>

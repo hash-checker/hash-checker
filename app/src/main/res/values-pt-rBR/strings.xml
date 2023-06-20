@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">Texto</string>
     <string name="common_file">Arquivo</string>
+    <string name="common_folder">Pasta</string>
     <string name="common_add">Adicionar</string>
     <string name="common_ok">OK</string>
     <string name="common_cancel">Cancelar</string>

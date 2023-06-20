@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.io.InputStream;
+import java.util.List;
 
 public interface HashCalculator {
 
@@ -20,5 +21,11 @@ public interface HashCalculator {
 
     @Nullable
     String fromFile(@Nullable InputStream inputStream);
+
+    @Nullable
+    String fromFolder(@NonNull Context context, @NonNull Uri path);
+
+    @Nullable
+    String fromFolder(@Nullable List<InputStream> inputStream);
 
 }

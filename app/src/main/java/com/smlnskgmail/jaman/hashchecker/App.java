@@ -39,9 +39,11 @@ public class App extends android.app.Application {
 
     public static final String ACTION_START_WITH_TEXT = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_TEXT";
     public static final String ACTION_START_WITH_FILE = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FILE";
+    public static final String ACTION_START_WITH_FOLDER = "com.smlnskgmail.jaman.hashchecker.ACTION_START_WITH_FOLDER";
 
     private static final String SHORTCUT_TEXT_ID = "shortcut_text";
     private static final String SHORTCUT_FILE_ID = "shortcut_file";
+    private static final String SHORTCUT_FOLDER_ID = "shortcut_file";
 
     private LocalDataStorage localDataStorage;
     private Settings settings;
@@ -85,7 +87,8 @@ public class App extends android.app.Application {
                 shortcutManager.setDynamicShortcuts(
                         Arrays.asList(
                                 getShortcutForTextType(),
-                                getShortcutForFileType()
+                                getShortcutForFileType(),
+                                getShortcutForFolderType()
                         )
                 );
             }
@@ -113,6 +116,18 @@ public class App extends android.app.Application {
                 R.string.common_file,
                 R.drawable.ic_shortcut_file,
                 ACTION_START_WITH_FILE
+        );
+    }
+
+    @NonNull
+    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
+    @SuppressLint("ResourceType")
+    private ShortcutInfo getShortcutForFolderType() {
+        return getShortcut(
+                SHORTCUT_FOLDER_ID,
+                R.string.common_folder,
+                R.drawable.ic_folder,
+                ACTION_START_WITH_FOLDER
         );
     }
 

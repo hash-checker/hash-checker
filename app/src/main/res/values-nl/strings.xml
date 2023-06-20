@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">Tekst</string>
     <string name="common_file">Bestand</string>
+    <string name="common_folder">Map</string>
     <string name="common_add">Toevoegen</string>
     <string name="common_ok">OK</string>
     <string name="common_cancel">Annuleren</string>

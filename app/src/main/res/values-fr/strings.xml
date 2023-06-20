@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">Texte</string>
     <string name="common_file">Fichier</string>
+    <string name="common_folder">Dossier</string>
     <string name="common_add">Ajouter</string>
     <string name="common_ok">OK</string>
     <string name="common_cancel">Annuler</string>

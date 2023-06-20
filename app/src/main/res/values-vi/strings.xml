@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">Văn bản</string>
     <string name="common_file">File</string>
+    <string name="common_folder">Thư mục</string>
     <string name="common_add">Thêm</string>
     <string name="common_ok">Ok</string>
     <string name="common_cancel">Hủy bỏ</string>

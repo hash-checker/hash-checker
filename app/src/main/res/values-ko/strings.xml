@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">텍스트</string>
     <string name="common_file">파일</string>
+    <string name="common_folder">폴더</string>
     <string name="common_add">추가</string>
     <string name="common_ok">확인</string>
     <string name="common_cancel">취소</string>
