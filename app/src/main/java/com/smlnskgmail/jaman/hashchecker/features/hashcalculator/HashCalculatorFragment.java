@@ -593,10 +593,8 @@ public class HashCalculatorFragment extends BaseFragment
                     }
                     break;
                 case FOLDER_SELECT:
-                    if (resultCode == Activity.RESULT_OK) {
-                        if (data != null) {
-                            selectFolderFromSystemFileManager(data.getData());
-                        }
+                    if (resultCode == Activity.RESULT_OK && data != null) {
+                        selectFolderFromSystemFileManager(data.getData());
                     }
                     break;
             }
