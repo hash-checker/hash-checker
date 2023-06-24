@@ -12,7 +12,7 @@
 </a>
 <a href="https://apt.izzysoft.de/fdroid/index/apk/com.smlnskgmail.jaman.hashchecker.thirdparty">
   <img src="media/banners/bn_izzy_on_droid.png" height="75px" />
-</a>¡
+</a>
 <a href="https://www.androidfilehost.com/?w=files&flid=316843">
   <img src="media/banners/bn_android_file_host.png" height="75px" />
 </a>
