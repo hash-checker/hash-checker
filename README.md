@@ -160,6 +160,7 @@ If you don't see any error messages, submit your pull request.
 * [@Alexandru51](https://github.com/Alexandru51) as Alexandru51
 * [@elliotwutingfeng](https://github.com/elliotwutingfeng) as Wu Tingfeng
 * [@Abhisht01](https://github.com/Abhisht01) as Abhisht Dixit
+* [@panchal20bhavin](https://github.com/panchal20bhavin) as panchal20bhavin
 
 ## Special thanks
 
