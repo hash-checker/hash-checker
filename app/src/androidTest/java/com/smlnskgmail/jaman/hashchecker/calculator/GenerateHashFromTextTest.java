@@ -35,21 +35,21 @@ public class GenerateHashFromTextTest extends BaseUITest {
 
     private void showInputDialog() {
         clickById(R.id.btn_generate_from);
-        secondDelay();
+        delay();
 
         inRecyclerViewClickOnPosition(
                 R.id.rv_bottom_sheet_list_items,
                 TEXT_BUTTON_POSITION
         );
-        secondDelay();
+        delay();
     }
 
     private void enterText() {
         onView(withId(R.id.et_dialog_input_text)).perform(typeText(TEST_TEXT));
-        secondDelay();
+        delay();
 
         clickById(R.id.btn_dialog_input_text_add);
-        secondDelay();
+        delay();
 
         textEquals(
                 TEST_TEXT,
@@ -59,7 +59,7 @@ public class GenerateHashFromTextTest extends BaseUITest {
 
     private void selectHashType() {
         clickById(R.id.tv_selected_hash_type);
-        secondDelay();
+        delay();
 
         List<HashType> hashTypes = new ArrayList<>(
                 Arrays.asList(HashType.values())
@@ -78,7 +78,7 @@ public class GenerateHashFromTextTest extends BaseUITest {
 
     private void generateHashFromText() throws InterruptedException {
         clickById(R.id.btn_hash_actions);
-        secondDelay();
+        delay();
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
         inRecyclerViewClickOnPosition(
@@ -86,10 +86,10 @@ public class GenerateHashFromTextTest extends BaseUITest {
                 GENERATE_BUTTON_POSITION
         );
         countDownLatch.await(
-                SECOND_IN_MILLIS,
+                DELAY_IN_MILLIS,
                 TimeUnit.MILLISECONDS
         );
-        secondDelay();
+        delay();
         textEquals(
                 TEST_RESULT,
                 R.id.et_field_generated_hash
