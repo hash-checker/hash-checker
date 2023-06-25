@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">पाठ</string>
     <string name="common_file">फ़ाइल</string>
+    <string name="common_folder">फ़ोल्डर</string>
     <string name="common_add">जोड़ें</string>
     <string name="common_ok">ठीक है</string>
     <string name="common_cancel">रद्द करना</string>
