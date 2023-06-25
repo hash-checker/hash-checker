@@ -1,5 +1,3 @@
-# If you like this project and want to support it, just tap on "Star" on GitHub. This motivate to maintain app and develop new features!
-
 <img src="media/logo/ic_app.png" height="100px" />
 
 # Hash Checker
