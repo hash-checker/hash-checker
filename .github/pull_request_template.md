@@ -1,15 +1,15 @@
 ## Checklist
 
-__Common__
+### Common
 
 - [ ] I am ran the app before creating PR
 - [ ] I am ran all tests before creating PR
 
-__UI__
+### UI
 
 - [ ] I am ran the app for visual checks.
 
-__Logic__
+### Logic
 
 - [ ] I am tested basic app functionality.
 
