@@ -161,10 +161,10 @@ static boolean envHasSignConfig(
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.preference:preference:1.1.1'
 
     // SHA-3
     implementation 'com.github.aelstad:keccakj:1.1.0'
@@ -189,15 +189,15 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 
     // Android tests
-    androidTestImplementation 'androidx.annotation:annotation:1.6.0'
-    androidTestImplementation 'androidx.test:runner:1.5.2'
-    androidTestImplementation 'androidx.test:rules:1.5.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
+    androidTestImplementation 'androidx.annotation:annotation:1.3.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
 
     // Screenshots
 //    androidTestImplementation 'tools.fastlane:screengrab:2.1.1'
 
     // Google Play Core Library
-    googlePlayImplementation 'com.google.android.play:core:1.10.3'
+    googlePlayImplementation 'com.google.android.play:core:1.10.2'
 }
