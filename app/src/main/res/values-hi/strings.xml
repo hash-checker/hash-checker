@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<resources>
+    <!-- menu -->
+    <string name="menu_title_settings">सेटिंग्स</string>
+    <string name="menu_title_feedback">प्रतिक्रिया</string>
+    <string name="menu_title_history">इतिहास</string>
+    <!-- dialog titles -->
+    <string name="title_dialog_enter_text">लेख जोड़ें</string>
+    <string name="title_warning_dialog">चेतावनी</string>
+    <string name="title_permission_dialog">अनुमति</string>
+    <!-- messages -->
+    <string name="message_exit">एप्लिकेशन को बंद करने के लिए बैक बटन पर लंबा प्रेस</string>
+    <string name="message_fill_fields">तुलना के लिए प्रत्येक फ़ील्ड भरें</string>
+    <string name="message_generate_hash_before_export">एक्सपोर्ट से पहले हैश वैल्यू उत्पन्न करें</string>
+    <string name="message_match_result">मैच</string>
+    <string name="message_do_not_match_result">मेल नहीं खाता</string>
+    <string name="message_generate_dialog">हैश उत्पन्न करना, कृपया प्रतीक्षा करें…</string>
+    <string name="message_select_object">एक आवश्यक स्रोत प्रकार का सिलेक्ट करने के लिए टैप करें</string>
+    <string name="message_request_storage_permission_error">डिवाइस फ़ाइल संग्रहण पढ़ने की अनुमति नहीं दी जा सकती. कृपया पुन: प्रयास करें</string>
+    <string name="message_request_storage_permission_denied">डिवाइस फ़ाइल संग्रहण पढ़ने की अनुमति नहीं दी जा सकती. आपको सेटिंग्स पर जाने और इसे स्वयं प्रदान करने की आवश्यकता है</string>
+    <string name="message_error_start_file_selector">अपने डिवाइस पर फ़ाइल प्रबंधक नहीं पा सकते हैं</string>
+    <string name="message_error_start_google_play">अपने डिवाइस पर Google Play ऐप या वेब ब्राउज़र नहीं ढूंढ सकता</string>
+    <string name="message_email_app_chooser">ईमेल भेजने के लिए ऐप चुनें</string>
+    <string name="message_change_theme">विषय बदलने के लिए, आपको एप्लिकेशन को पुनरारंभ करना होगा</string>
+    <string name="message_change_language">भाषा बदलने के लिए, आपको एप्लिकेशन को पुनरारंभ करना हो</string>
+    <string name="message_invalid_selected_source">इनपुट स्रोत से हैश मान उत्पन्न नहीं कर सकता. कृपया सिलेक्ट  स्रोत की जाँच करें</string>
+    <string name="message_delete_all_history_items">सभी इतिहास आइटम हटाएं?</string>
+    <!-- commons -->
+    <string name="common_text">पाठ</string>
+    <string name="common_file">फ़ाइल</string>
+    <string name="common_add">जोड़ें</string>
+    <string name="common_ok">ठीक है</string>
+    <string name="common_cancel">रद्द करना</string>
+    <string name="common_again">फिर</string>
+    <string name="common_date">तारीख</string>
+    <!-- actions -->
+    <string name="action_from">से</string>
+    <string name="action_select">कार्रवाई</string>
+    <string name="action_exit_now">अब बाहर निकलें</string>
+    <string name="action_generate">उत्पन्न करना</string>
+    <string name="action_compare">तुलना</string>
+    <string name="action_export_to_txt">के रूप में निर्यात करें \".txt\"</string>
+    <!-- themes -->
+    <string name="title_theme_light">प्रकाश</string>
+    <string name="title_theme_dark">अंधेरा</string>
+    <!-- titles -->
+    <string name="title_custom_hash">कस्टम हैश</string>
+    <string name="title_generated_hash">उत्पन्न हैश</string>
+    <!-- hints -->
+    <string name="hint_input_text">यहाँ पाठ</string>
+    <!-- settings titles -->
+    <string name="settings_title_general">जनरल</string>
+    <string name="settings_title_app">आवेदन</string>
+    <string name="settings_title_interface">इंटरफ़ेस</string>
+    <string name="settings_title_about">के बारे में</string>
+    <string name="settings_title_upper_case">ऊपरी मामला</string>
+    <string name="settings_title_author">लेखक</string>
+    <string name="settings_title_libraries">पुस्तकालयों</string>
+    <string name="settings_title_app_file_manager">इनर फाइल मैनेजर</string>
+    <string name="settings_title_version">वर्शन</string>
+    <string name="settings_title_vibration">कंपन</string>
+    <string name="settings_title_privacy">गोपनीयता</string>
+    <string name="settings_title_export_user_data">उपयोगकर्ता डेटा एक्सपोर्ट करें</string>
+    <string name="settings_title_privacy_policy">गोपनीयता नीति</string>
+    <string name="settings_title_theme">थीम</string>
+    <string name="settings_title_rate_app">मूल्यांकन ऐप</string>
+    <string name="settings_title_save_result_to_history">इतिहास के लिए परिणाम सहेजें</string>
+    <string name="settings_title_multiline">बहुमूत्र हैश फ़ील्ड</string>
+    <string name="settings_title_language">भाषा</string>
+    <string name="settings_title_support">समर्थन</string>
+    <string name="settings_title_help_with_translation">अनुवाद में मदद करें</string>
+    <!-- feedback -->
+    <string name="feedback_manufacturer">निर्माता</string>
+    <string name="feedback_model">नमूना</string>
+    <string name="feedback_message">संदेश</string>
+    <!-- file manager -->
+    <string name="file_manager_select_storage_title">स्टोरेज का सिलेक्ट करें</string>
+    <!-- history -->
+    <string name="history_item_click_text">हैश मान क्लिपबोर्ड पर कॉपी किया गया</string>
+    <string name="history_empty_view_message">इतिहास की वस्तुएं नहीं मिलीं</string>
+    <!-- rate app -->
+    <string name="rate_app_message">यदि आपको ऐप पसंद है, तो आप इसे Google Play में रेट कर सकते हैं</string>
+    <string name="rate_app_action">मूल्यांकन</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">अभी एक अपडेट डाउनलोड किया गया है</string>
+    <string name="update_restart_action">पुनः आरंभ करें</string>
+</resources>

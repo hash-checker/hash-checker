@@ -28,63 +28,63 @@ Fast and simple application that allows you to generate and compare hashes from 
 
 ## Supporting algorithms
 
-| Name | Since version | Status |
-| --- | --- | --- |
-| [MD5](https://en.wikipedia.org/wiki/MD5) | 1.0.0 | `Supporting` |
-| [SHA-1](https://en.wikipedia.org/wiki/SHA-1) | 1.0.0 | `Supporting` |
-| [SHA-224](https://en.wikipedia.org/wiki/SHA-2) | 1.4.0 | `Supporting` |
-| [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
-| [SHA-384](https://en.wikipedia.org/wiki/SHA-2) | 1.4.0 | `Supporting` |
-| [SHA-512](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0 | `Supporting` |
-| [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0 | `Supporting` |
-| [SHA3-224](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
-| [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
-| [SHA3-384](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
-| [SHA3-512](https://en.wikipedia.org/wiki/SHA-3) | 3.6.5 | `Supporting` |
+| Name                                                            | Since version | Status       |
+|-----------------------------------------------------------------|---------------|--------------|
+| [MD5](https://en.wikipedia.org/wiki/MD5)                        | 1.0.0         | `Supporting` |
+| [SHA-1](https://en.wikipedia.org/wiki/SHA-1)                    | 1.0.0         | `Supporting` |
+| [SHA-224](https://en.wikipedia.org/wiki/SHA-2)                  | 1.4.0         | `Supporting` |
+| [SHA-256](https://en.wikipedia.org/wiki/SHA-2)                  | 1.0.0         | `Supporting` |
+| [SHA-384](https://en.wikipedia.org/wiki/SHA-2)                  | 1.4.0         | `Supporting` |
+| [SHA-512](https://en.wikipedia.org/wiki/SHA-2)                  | 1.0.0         | `Supporting` |
+| [CRC-32](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) | 2.9.0         | `Supporting` |
+| [SHA3-224](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
+| [SHA3-256](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
+| [SHA3-384](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
+| [SHA3-512](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 
 ## Supporting languages
 
 You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
 
-__Languages in app__
+### Languages in app
 
-| Language | Since version | Status |
-| --- | --- | --- |
-| English | 1.0.0 | `Translated` |
-| Español | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/79#) |
-| Deutsch | 2.9.6 | `Translated` |
-| Français | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/5#) |
-| Italiano | 2.9.9 | [Help wanted](https://github.com/hash-checker/hash-checker/issues/12) |
-| Magyar | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/21#) |
-| Nederlands | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/12#) |
-| Norsk | 3.6.9-1 | `Translated` |
-| Svenska | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/17#) |
-| Ελληνικά | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/17#) |
-| Română | 3.7.0 | `Translated` |
-| Русский | 2.9.6 | `Translated` |
-| Polski | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/16#) |
-| Português (Brasil) | 3.7.0 | `Translated` |
-| 简体中文 | 2.9.9 | `Translated` |
-| 한국어 | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/9#) |
-| עברית | 2.9.9 | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/42#) |
-| فارسی | 2.9.9 | `Translated` |
-| 日本語 | 3.6.3 | `Translated` |
-| Tiếng Việt | 3.6.5 | `Translated` |
+| Language           | Since version | Status                                                                                                   |
+|--------------------|---------------|----------------------------------------------------------------------------------------------------------|
+| English            | 1.0.0         | `Translated`                                                                                             |
+| Español            | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/79#) |
+| Deutsch            | 2.9.6         | `Translated`                                                                                             |
+| Français           | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/5#)  |
+| Italiano           | 2.9.9         | [Help wanted](https://github.com/hash-checker/hash-checker/issues/12)                                    |
+| Magyar             | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/21#) |
+| Nederlands         | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/12#) |
+| Norsk              | 3.6.9-1       | `Translated`                                                                                             |
+| Svenska            | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/17#) |
+| Ελληνικά           | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/17#) |
+| Română             | 3.7.0         | `Translated`                                                                                             |
+| Русский            | 2.9.6         | `Translated`                                                                                             |
+| Polski             | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/16#) |
+| Português (Brasil) | 3.7.0         | `Translated`                                                                                             |
+| 简体中文               | 2.9.9         | `Translated`                                                                                             |
+| 한국어                | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/9#)  |
+| עברית              | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/42#) |
+| فارسی              | 2.9.9         | `Translated`                                                                                             |
+| 日本語                | 3.6.3         | `Translated`                                                                                             |
+| Tiếng Việt         | 3.6.5         | `Translated`                                                                                             |
 
-__Not translated__
+### Not translated
 
-| Language | Since version | Status |
-| --- | --- | --- |
-| Bahasa Indonesia | - | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/54#) |
-| हिंदी | - | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/587#) |
-| Українська мова | - | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/36#) |
-| čeština | - | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/13#) |
-| suomi | - | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/18#) |
-| Tiếng Việt | - | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/50#) |
-| srpski | - | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/462#) |
-| dansk | - | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/27#) |
-| Türk | - | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/14#) |
-| Slovenščina | - | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/659#) |
+| Language         | Since version | Status                                                                                                    |
+|------------------|---------------|-----------------------------------------------------------------------------------------------------------|
+| Bahasa Indonesia | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/54#)  |
+| हिंदी            | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/587#) |
+| Українська мова  | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/36#)  |
+| čeština          | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/13#)  |
+| suomi            | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/18#)  |
+| Tiếng Việt       | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/50#)  |
+| srpski           | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/462#) |
+| dansk            | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/27#)  |
+| Türk             | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/14#)  |
+| Slovenščina      | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/659#) |
 
 ## Screenshots (Light theme)
 
@@ -114,9 +114,9 @@ __Not translated__
 
 ## Forums
 
-| Forum | Language |
-| --- | --- |
-| [4PDA](https://4pda.to/forum/index.php?showtopic=1015172) | Русский |
+| Forum                                                     | Language |
+|-----------------------------------------------------------|----------|
+| [4PDA](https://4pda.to/forum/index.php?showtopic=1015172) | Русский  |
 
 ## Videos
 
@@ -160,6 +160,7 @@ If you don't see any error messages, submit your pull request.
 * [@Alexandru51](https://github.com/Alexandru51) as Alexandru51
 * [@elliotwutingfeng](https://github.com/elliotwutingfeng) as Wu Tingfeng
 * [@Abhisht01](https://github.com/Abhisht01) as Abhisht Dixit
+* [@panchal20bhavin](https://github.com/panchal20bhavin) as panchal20bhavin
 
 ## Special thanks
 

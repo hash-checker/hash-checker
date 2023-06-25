@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public abstract class BaseUITest {
 
-    protected static final int SECOND_IN_MILLIS = 1000;
+    protected static final int DELAY_IN_MILLIS = 5000;
 
     @Rule
     public final ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(
@@ -59,14 +59,14 @@ public abstract class BaseUITest {
     }
 
     protected void delayAndBack() {
-        secondDelay();
+        delay();
         pressBack();
-        secondDelay();
+        delay();
     }
 
-    protected void secondDelay() {
+    protected void delay() {
         try {
-            Thread.sleep(SECOND_IN_MILLIS);
+            Thread.sleep(DELAY_IN_MILLIS);
         } catch (InterruptedException e) {
             LogUtils.e(e);
         }
