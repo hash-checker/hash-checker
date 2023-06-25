@@ -76,7 +76,6 @@ on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
 | Language         | Since version | Status                                                                                                    |
 |------------------|---------------|-----------------------------------------------------------------------------------------------------------|
 | Bahasa Indonesia | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/54#)  |
-| हिंदी            | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/587#) |
 | Українська мова  | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/36#)  |
 | čeština          | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/13#)  |
 | suomi            | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/18#)  |
