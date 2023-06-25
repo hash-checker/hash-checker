@@ -44,7 +44,8 @@ Fast and simple application that allows you to generate and compare hashes from 
 
 ## Supporting languages
 
-You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
+You can help with translation
+on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
 
 ### Languages in app
 
@@ -70,6 +71,7 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 | فارسی              | 2.9.9         | `Translated`                                                                                             |
 | 日本語                | 3.6.3         | `Translated`                                                                                             |
 | Tiếng Việt         | 3.6.5         | `Translated`                                                                                             |
+| हिंदी              | 3.7.0         | `Translated`                                                                                             |
 
 ### Not translated
 
@@ -132,11 +134,15 @@ You can help with translation on [OneSky](https://osbvnmv.oneskyapp.com/collabor
 
 ## Feedback
 
-If you have any question or feature idea for this application, you can open an issue on [this page](https://github.com/hash-checker/hash-checker/issues) or contact me by email jaman.smlnsk@gmail.com.
+If you have any question or feature idea for this application, you can open an issue
+on [this page](https://github.com/hash-checker/hash-checker/issues) or contact me by email
+jaman.smlnsk@gmail.com.
 
 ## How to contribute
 
-Before commit, read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
+Before commit,
+read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md)
+. Make sure your build is green before you contribute your pull request. Then:
 
 ```shell
 $ ./gradlew clean
@@ -165,5 +171,6 @@ If you don't see any error messages, submit your pull request.
 
 ## Special thanks
 
-* [@IzzySoft](https://github.com/IzzySoft) as Izzy for uploading the app to [IzzySoft Apt Repositories](https://apt.izzysoft.de)
+* [@IzzySoft](https://github.com/IzzySoft) as Izzy for uploading the app
+  to [IzzySoft Apt Repositories](https://apt.izzysoft.de)
 * [@lexterror](https://github.com/lexterror) as mrrmx for useful feature requests
