@@ -37,7 +37,8 @@ public class SourceSelectActionsBottomSheet extends ActionsBottomSheet {
     protected List<Action> getActions() {
         return Arrays.asList(
                 Action.TEXT,
-                Action.FILE
+                Action.FILE,
+                Action.FOLDER
         );
     }
 

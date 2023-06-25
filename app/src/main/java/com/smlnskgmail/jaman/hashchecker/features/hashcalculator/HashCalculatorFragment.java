@@ -65,6 +65,7 @@ public class HashCalculatorFragment extends BaseFragment
         implements TextValueTarget, UserActionTarget, HashTypeSelectTarget {
 
     private static final int FILE_SELECT = 193;
+    private static final int FOLDER_SELECT = 194;
 
     private static final int TEXT_MULTILINE_LINES_COUNT = 3;
     private static final int TEXT_SINGLE_LINE_LINES_COUNT = 1;
@@ -94,12 +95,14 @@ public class HashCalculatorFragment extends BaseFragment
     private ProgressDialog progressDialog;
 
     private Uri fileUri;
+    private Uri folderUri;
 
     private Context context;
     private FragmentManager fragmentManager;
 
     private boolean startWithTextSelection;
     private boolean startWithFileSelection;
+    private boolean startWithFolderSelection;
 
     private boolean isTextSelected;
 
@@ -164,6 +167,9 @@ public class HashCalculatorFragment extends BaseFragment
             case SEARCH_FILE:
                 openSystemFileManager();
                 break;
+            case SEARCH_FOLDER:
+                openSystemFolderManager();
+                break;
             case GENERATE_HASH:
                 generateHash();
                 break;
@@ -190,9 +196,20 @@ public class HashCalculatorFragment extends BaseFragment
         }
     }
 
+    private void openSystemFolderManager() {
+        try {
+            Intent openExplorerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+            openExplorerIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivityForResult(openExplorerIntent, FOLDER_SELECT);
+        } catch (ActivityNotFoundException e) {
+            LogUtils.e(e);
+            showSnackbarWithoutAction(R.string.message_error_start_file_selector);
+        }
+    }
+
     @SuppressLint("ResourceType")
     private void generateHash() {
-        if (fileUri != null || isTextSelected) {
+        if (fileUri != null || isTextSelected || folderUri != null) {
             HashType hashType = HashType.getHashTypeFromString(tvSelectedHashType.getText().toString());
             progressDialog = new AppProgressDialog(context, R.string.message_generate_dialog).getDialog();
             progressDialog.show();
@@ -203,11 +220,20 @@ public class HashCalculatorFragment extends BaseFragment
                         tvSelectedObjectName.getText().toString(),
                         hashCalculatorTaskTarget
                 ).execute();
+            } else if(fileUri != null) {
+                new HashCalculatorTask(
+                        context,
+                        hashType,
+                        fileUri,
+                        folderUri,
+                        hashCalculatorTaskTarget
+                ).execute();
             } else {
                 new HashCalculatorTask(
                         context,
                         hashType,
                         fileUri,
+                        folderUri,
                         hashCalculatorTaskTarget
                 ).execute();
             }
@@ -233,7 +259,7 @@ public class HashCalculatorFragment extends BaseFragment
     }
 
     private void saveGeneratedHashAsTextFile() {
-        if ((fileUri != null || isTextSelected) && fieldIsNotEmpty(etGeneratedHash)) {
+        if ((fileUri != null || isTextSelected || folderUri != null) && fieldIsNotEmpty(etGeneratedHash)) {
             saveTextFile(tvSelectedObjectName.getText().toString());
         } else {
             showSnackbarWithoutAction(R.string.message_generate_hash_before_export);
@@ -276,16 +302,28 @@ public class HashCalculatorFragment extends BaseFragment
     private void checkShortcutActionPresence(@NonNull Bundle shortcutsArguments) {
         startWithTextSelection = shortcutsArguments.getBoolean(App.ACTION_START_WITH_TEXT, false);
         startWithFileSelection = shortcutsArguments.getBoolean(App.ACTION_START_WITH_FILE, false);
+        startWithFolderSelection = shortcutsArguments.getBoolean(App.ACTION_START_WITH_FOLDER, false);
 
         shortcutsArguments.remove(App.ACTION_START_WITH_TEXT);
         shortcutsArguments.remove(App.ACTION_START_WITH_FILE);
+        shortcutsArguments.remove(App.ACTION_START_WITH_FOLDER);
     }
 
     private void validateSelectedFile(@Nullable Uri uri) {
         if (uri != null) {
             fileUri = uri;
+            folderUri = null;
             isTextSelected = false;
             setResult(fileNameFromUri(fileUri), false);
+        }
+    }
+
+    private void validateSelectedFolder(@Nullable Uri uri) {
+        if (uri != null) {
+            folderUri = uri;
+            fileUri = null;
+            isTextSelected = false;
+            setResult(folderNameFromUri(folderUri), false);
         }
     }
 
@@ -301,6 +339,10 @@ public class HashCalculatorFragment extends BaseFragment
                 LogUtils.e(e);
             }
         }
+        return new File(uri.getPath()).getName();
+    }
+
+    private String folderNameFromUri(@NonNull Uri uri) {
         return new File(uri.getPath()).getName();
     }
 
@@ -446,6 +488,9 @@ public class HashCalculatorFragment extends BaseFragment
         } else if (startWithFileSelection) {
             userActionSelect(UserActionType.SEARCH_FILE);
             startWithFileSelection = false;
+        } else if (startWithFolderSelection) {
+            userActionSelect(UserActionType.SEARCH_FOLDER);
+            startWithFolderSelection = false;
         }
 
         Bundle bundle = getArguments();
@@ -547,6 +592,11 @@ public class HashCalculatorFragment extends BaseFragment
                         LogUtils.e(e);
                     }
                     break;
+                case FOLDER_SELECT:
+                    if (resultCode == Activity.RESULT_OK && data != null) {
+                        selectFolderFromSystemFileManager(data.getData());
+                    }
+                    break;
             }
         }
     }
@@ -554,6 +604,11 @@ public class HashCalculatorFragment extends BaseFragment
     private void selectFileFromSystemFileManager(@Nullable Uri uri) {
         settings.setGenerateFromShareIntentMode(false);
         validateSelectedFile(uri);
+    }
+
+    private void selectFolderFromSystemFileManager(@Nullable Uri uri) {
+        settings.setGenerateFromShareIntentMode(false);
+        validateSelectedFolder(uri);
     }
 
     private void writeHashToFile(@Nullable Uri uri) throws IOException {

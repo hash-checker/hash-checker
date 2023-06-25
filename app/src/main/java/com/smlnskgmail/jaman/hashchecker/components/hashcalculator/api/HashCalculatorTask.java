@@ -20,6 +20,7 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
     private final HashType hashType;
 
     private Uri fileUri;
+    private Uri folderUri;
     private String textValue;
 
     private final boolean isText;
@@ -28,10 +29,12 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
             @NonNull Context context,
             @NonNull HashType hashType,
             @NonNull Uri fileUri,
+            @NonNull Uri folderUri,
             @NonNull HashCalculatorTaskTarget completeListener
     ) {
         this(context, hashType, completeListener, false);
         this.fileUri = fileUri;
+        this.folderUri = folderUri;
     }
 
     public HashCalculatorTask(
@@ -64,10 +67,14 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
         try {
             HashCalculator hashCalculator = new JdkHashCalculator();
             hashCalculator.setHashType(hashType);
-            return !isText
-                    ? hashCalculator.fromFile(context, fileUri)
-                    : hashCalculator.fromString(textValue);
-        } catch (Exception e) {
+            if(isText){
+                return hashCalculator.fromString(textValue);
+            } else if(fileUri != null) {
+                return hashCalculator.fromFile(context, fileUri);
+            } else {
+                return hashCalculator.fromFolder(context,folderUri);
+            }
+            } catch (Exception e) {
             LogUtils.e(e);
             return null;
         }

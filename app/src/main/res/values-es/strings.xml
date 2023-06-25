@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">Añadir texto</string>
     <string name="common_file">Expediente</string>
+    <string name="common_folder">Carpeta</string>
     <string name="common_add">Añadir</string>
     <string name="common_ok">Ok</string>
     <string name="common_cancel">Cancelar</string>

@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">Текст</string>
     <string name="common_file">Файл</string>
+    <string name="common_folder">Папка</string>
     <string name="common_add">Добавить</string>
     <string name="common_ok">OK</string>
     <string name="common_cancel">Отмена</string>

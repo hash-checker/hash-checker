@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">טקסט</string>
     <string name="common_file">קובץ</string>
+    <string name="common_folder">תיקיה</string>
     <string name="common_add">הוסף</string>
     <string name="common_ok">בסדר</string>
     <string name="common_cancel">בטל</string>

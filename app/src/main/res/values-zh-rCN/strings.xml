@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">文本</string>
     <string name="common_file">文件</string>
+    <string name="common_folder">文件夹</string>
     <string name="common_add">添加</string>
     <string name="common_ok">确定</string>
     <string name="common_cancel">取消</string>

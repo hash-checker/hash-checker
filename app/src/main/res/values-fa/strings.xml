@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">متن</string>
     <string name="common_file">فایل</string>
+    <string name="common_folder">پوشه</string>
     <string name="common_add">اضافه کردن</string>
     <string name="common_ok">خوب</string>
     <string name="common_cancel">لغو</string>

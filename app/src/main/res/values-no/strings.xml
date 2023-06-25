@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">Tekst</string>
     <string name="common_file">Fil</string>
+    <string name="common_folder">Mappe</string>
     <string name="common_add">Legg til</string>
     <string name="common_ok">Ok</string>
     <string name="common_cancel">Avbryt</string>

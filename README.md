@@ -161,6 +161,7 @@ If you don't see any error messages, submit your pull request.
 * [@elliotwutingfeng](https://github.com/elliotwutingfeng) as Wu Tingfeng
 * [@Abhisht01](https://github.com/Abhisht01) as Abhisht Dixit
 * [@panchal20bhavin](https://github.com/panchal20bhavin) as panchal20bhavin
+* [@ManishDait](https://github.com/ManishDait) as Manish Dait
 
 ## Special thanks
 

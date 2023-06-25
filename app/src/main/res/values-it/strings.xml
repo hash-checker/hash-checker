@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">Testo</string>
     <string name="common_file">File</string>
+    <string name="common_folder">Cartella</string>
     <string name="common_add">Aggiungi</string>
     <string name="common_ok">ok</string>
     <string name="common_cancel">Annulla</string>

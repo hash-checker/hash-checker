@@ -28,6 +28,7 @@
     <!-- commons -->
     <string name="common_text">Szöveg</string>
     <string name="common_file">Fájl</string>
+    <string name="common_folder">Mappa</string>
     <string name="common_add">Hozzáad</string>
     <string name="common_ok">OK</string>
     <string name="common_cancel">Megszünteti</string>
