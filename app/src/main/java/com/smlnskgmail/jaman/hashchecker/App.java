@@ -43,7 +43,7 @@ public class App extends android.app.Application {
 
     private static final String SHORTCUT_TEXT_ID = "shortcut_text";
     private static final String SHORTCUT_FILE_ID = "shortcut_file";
-    private static final String SHORTCUT_FOLDER_ID = "shortcut_file";
+    private static final String SHORTCUT_FOLDER_ID = "shortcut_folder";
 
     private LocalDataStorage localDataStorage;
     private Settings settings;
@@ -126,7 +126,7 @@ public class App extends android.app.Application {
         return getShortcut(
                 SHORTCUT_FOLDER_ID,
                 R.string.common_folder,
-                R.drawable.ic_folder,
+                R.drawable.ic_shortcut_folder,
                 ACTION_START_WITH_FOLDER
         );
     }

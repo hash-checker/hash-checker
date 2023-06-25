@@ -139,10 +139,16 @@ public class MainActivity extends BaseActivity {
     private Bundle getBundleForShortcutAction(@Nullable String action) {
         Bundle shortcutArguments = new Bundle();
         if (action != null) {
-            if (action.equals(App.ACTION_START_WITH_TEXT)) {
-                shortcutArguments.putBoolean(App.ACTION_START_WITH_TEXT, true);
-            } else if (action.equals(App.ACTION_START_WITH_FILE)) {
-                shortcutArguments.putBoolean(App.ACTION_START_WITH_FILE, true);
+            switch (action) {
+                case App.ACTION_START_WITH_TEXT:
+                    shortcutArguments.putBoolean(App.ACTION_START_WITH_TEXT, true);
+                    break;
+                case App.ACTION_START_WITH_FILE:
+                    shortcutArguments.putBoolean(App.ACTION_START_WITH_FILE, true);
+                    break;
+                case App.ACTION_START_WITH_FOLDER:
+                    shortcutArguments.putBoolean(App.ACTION_START_WITH_FOLDER, true);
+                    break;
             }
         }
         return shortcutArguments;
