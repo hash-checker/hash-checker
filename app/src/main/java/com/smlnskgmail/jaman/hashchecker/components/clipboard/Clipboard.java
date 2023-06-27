@@ -28,7 +28,7 @@ public class Clipboard {
         if (clipboard != null) {
             clipboard.setPrimaryClip(ClipData.newPlainText(context.getString(R.string.common_app_name), text));
             handler.removeCallbacks(runnable);
-            handler.postDelayed(runnable, 60000);
+            handler.postDelayed(runnable, 60_000);
         }
     }
 
