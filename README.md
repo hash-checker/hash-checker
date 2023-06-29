@@ -137,20 +137,95 @@ If you don't see any error messages, submit your pull request.
 
 ## Contributors
 
-* [@fartem](https://github.com/fartem) as Artem Fomchenkov
-* [@Marwa-Eltayeb](https://github.com/Marwa-Eltayeb) as Marwa Said
-* [@vaqueraexe](https://github.com/vaqueraexe) as Sergio Amaya
-* [@firaja](https://github.com/firaja) as David Bertoldi
-* [@fu7mu4](https://github.com/fu7mu4) as fu7mu4
-* [@AmrDeveloper](https://github.com/AmrDeveloper) as Amr Hesham
-* [@vipozdn](https://github.com/vipozdn) as Victor
-* [@itamarc](https://github.com/itamarc) as Itamar Carvalho
-* [@StianVaage](https://github.com/StianVaage) as Stian Vaage
-* [@Alexandru51](https://github.com/Alexandru51) as Alexandru51
-* [@elliotwutingfeng](https://github.com/elliotwutingfeng) as Wu Tingfeng
-* [@Abhisht01](https://github.com/Abhisht01) as Abhisht Dixit
-* [@panchal20bhavin](https://github.com/panchal20bhavin) as panchal20bhavin
-* [@ManishDait](https://github.com/ManishDait) as Manish Dait
+<table id='team'>
+<tr>
+<td id='fartem'>
+<a href='https://github.com/fartem'>
+<img src='https://github.com/fartem.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/fartem'>Artem Fomchenkov</a></h4>
+</td>
+<td id='ManishDait'>
+<a href='https://github.com/ManishDait'>
+<img src='https://github.com/ManishDait.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/ManishDait'>Manish Dait</a></h4>
+</td>
+<td id='Marwa-Eltayeb'>
+<a href='https://github.com/Marwa-Eltayeb'>
+<img src='https://github.com/Marwa-Eltayeb.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/Marwa-Eltayeb'>Marwa Said</a></h4>
+</td>
+<td id='firaja'>
+<a href='https://github.com/firaja'>
+<img src='https://github.com/firaja.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/firaja'>David Bertoldi</a></h4>
+</td>
+<td id='fu7mu4'>
+<a href='https://github.com/fu7mu4'>
+<img src='https://github.com/fu7mu4.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/fu7mu4'>fu7mu4</a></h4>
+</td>
+</tr>
+<td id='AmrDeveloper'>
+<a href='https://github.com/AmrDeveloper'>
+<img src='https://github.com/AmrDeveloper.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/AmrDeveloper'>Amr Hesham</a></h4>
+</td>
+<td id='vipozdn'>
+<a href='https://github.com/vipozdn'>
+<img src='https://github.com/vipozdn.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/vipozdn'>Victor</a></h4>
+</td>
+<td id='itamarc'>
+<a href='https://github.com/itamarc'>
+<img src='https://github.com/itamarc.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/itamarc'>Itamar Carvalho</a></h4>
+</td>
+<td id='StianVaage'>
+<a href='https://github.com/StianVaage'>
+<img src='https://github.com/StianVaage.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/StianVaage'>Stian Vaage</a></h4>
+</td>
+<td id='Alexandru51'>
+<a href='https://github.com/Alexandru51'>
+<img src='https://github.com/Alexandru51.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/Alexandru51'>Alexandru51</a></h4>
+</td>
+</tr>
+<td id='elliotwutingfeng'>
+<a href='https://github.com/elliotwutingfeng'>
+<img src='https://github.com/elliotwutingfeng.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/elliotwutingfeng'>Wu Tingfeng</a></h4>
+</td>
+<td id='Abhisht01'>
+<a href='https://github.com/Abhisht01'>
+<img src='https://github.com/Abhisht01.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/Abhisht01'>Abhisht Dixit</a></h4>
+</td>
+<td id='panchal20bhavin'>
+<a href='https://github.com/panchal20bhavin'>
+<img src='https://github.com/panchal20bhavin.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/panchal20bhavin'>panchal20bhavin</a></h4>
+</td>
+<td id='vaqueraexe'>
+<a href='https://github.com/vaqueraexe'>
+<img src='https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/vaqueraexe'>Sergio Amaya</a></h4>
+</td>
+</table>
 
 ## Special thanks
 
