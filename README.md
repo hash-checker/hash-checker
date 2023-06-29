@@ -40,6 +40,32 @@ Fast and simple application that allows you to generate and compare hashes from 
 | [SHA3-384](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 | [SHA3-512](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 
+## Screenshots (Light theme)
+
+<br/>
+<p align="center">
+  <img src="media/screenshots/screenshot_01.png" width="130" />
+  <img src="media/screenshots/screenshot_02.png" width="130" />
+  <img src="media/screenshots/screenshot_03.png" width="130" />
+  <img src="media/screenshots/screenshot_04.png" width="130" />
+  <img src="media/screenshots/screenshot_05.png" width="130" />
+</p>
+
+## Screenshots (Dark theme)
+
+<br/>
+<p align="center">
+  <img src="media/screenshots/screenshot_06.png" width="130" />
+  <img src="media/screenshots/screenshot_07.png" width="130" />
+  <img src="media/screenshots/screenshot_08.png" width="130" />
+  <img src="media/screenshots/screenshot_09.png" width="130" />
+  <img src="media/screenshots/screenshot_10.png" width="130" />
+</p>
+
+## How to use
+
+* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
+
 ## Supporting languages
 
 You can help with translation
@@ -69,47 +95,7 @@ on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
 | فارسی              | 2.9.9         | `Translated`                                                                                             |
 | 日本語                | 3.6.3         | `Translated`                                                                                             |
 | Tiếng Việt         | 3.6.5         | `Translated`                                                                                             |
-| हिंदी              | 3.7.0         | `Translated`                                                                                             |
-
-### Not translated
-
-| Language         | Since version | Status                                                                                                    |
-|------------------|---------------|-----------------------------------------------------------------------------------------------------------|
-| Bahasa Indonesia | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/54#)  |
-| Українська мова  | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/36#)  |
-| čeština          | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/13#)  |
-| suomi            | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/18#)  |
-| Tiếng Việt       | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/50#)  |
-| srpski           | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/462#) |
-| dansk            | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/27#)  |
-| Türk             | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/14#)  |
-| Slovenščina      | -             | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/659#) |
-
-## Screenshots (Light theme)
-
-<br/>
-<p align="center">
-  <img src="media/screenshots/screenshot_01.png" width="130" />
-  <img src="media/screenshots/screenshot_02.png" width="130" />
-  <img src="media/screenshots/screenshot_03.png" width="130" />
-  <img src="media/screenshots/screenshot_04.png" width="130" />
-  <img src="media/screenshots/screenshot_05.png" width="130" />
-</p>
-
-## Screenshots (Dark theme)
-
-<br/>
-<p align="center">
-  <img src="media/screenshots/screenshot_06.png" width="130" />
-  <img src="media/screenshots/screenshot_07.png" width="130" />
-  <img src="media/screenshots/screenshot_08.png" width="130" />
-  <img src="media/screenshots/screenshot_09.png" width="130" />
-  <img src="media/screenshots/screenshot_10.png" width="130" />
-</p>
-
-## How to use
-
-* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
+| हिंदी              | 3.7.0         | `Translated`   
 
 ## Forums
 
