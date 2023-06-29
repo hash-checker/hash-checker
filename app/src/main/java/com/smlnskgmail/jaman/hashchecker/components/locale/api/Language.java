@@ -19,6 +19,7 @@ public enum Language implements ListItem {
     IT("Italiano", "it"),
     IW("ברית", "iw"),
     KO("한국어", "ko"),
+    MY("မြန်မာ", "my"),
     NL("Nederlands", "nl"),
     PL("Polski", "pl"),
     PT("Português (Brasil)", "pt-rBR"),
