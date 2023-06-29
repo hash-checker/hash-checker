@@ -70,6 +70,7 @@ on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
 | 日本語                | 3.6.3         | `Translated`                                                                                             |
 | Tiếng Việt         | 3.6.5         | `Translated`                                                                                             |
 | हिंदी              | 3.7.0         | `Translated`                                                                                             |
+| မြန်မာ               | 3.7.1          | `Translated`                                                                                             |
 
 ### Not translated
 
