@@ -44,22 +44,22 @@ Fast and simple application that allows you to generate and compare hashes from 
 
 <br/>
 <p align="center">
-  <img src="media/screenshots/screenshot_01.png" width="130" />
-  <img src="media/screenshots/screenshot_02.png" width="130" />
-  <img src="media/screenshots/screenshot_03.png" width="130" />
-  <img src="media/screenshots/screenshot_04.png" width="130" />
-  <img src="media/screenshots/screenshot_05.png" width="130" />
+  <img src="media/screenshots/screenshot_01.png" width="190" />
+  <img src="media/screenshots/screenshot_02.png" width="190" />
+  <img src="media/screenshots/screenshot_03.png" width="190" />
+  <img src="media/screenshots/screenshot_04.png" width="190" />
+  <img src="media/screenshots/screenshot_05.png" width="190" />
 </p>
 
 ## Screenshots (Dark theme)
 
 <br/>
 <p align="center">
-  <img src="media/screenshots/screenshot_06.png" width="130" />
-  <img src="media/screenshots/screenshot_07.png" width="130" />
-  <img src="media/screenshots/screenshot_08.png" width="130" />
-  <img src="media/screenshots/screenshot_09.png" width="130" />
-  <img src="media/screenshots/screenshot_10.png" width="130" />
+  <img src="media/screenshots/screenshot_06.png" width="190" />
+  <img src="media/screenshots/screenshot_07.png" width="190" />
+  <img src="media/screenshots/screenshot_08.png" width="190" />
+  <img src="media/screenshots/screenshot_09.png" width="190" />
+  <img src="media/screenshots/screenshot_10.png" width="190" />
 </p>
 
 ## Supporting languages
