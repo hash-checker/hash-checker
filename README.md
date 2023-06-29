@@ -151,6 +151,12 @@ If you don't see any error messages, submit your pull request.
 </a>
 <h4 align='center'><a href='https://github.com/ManishDait'>Manish Dait</a></h4>
 </td>
+<td id='vipozdn'>
+<a href='https://github.com/vipozdn'>
+<img src='https://github.com/vipozdn.png' width='140px;'>
+</a>
+<h4 align='center'><a href='https://github.com/vipozdn'>Victor</a></h4>
+</td>
 <td id='Marwa-Eltayeb'>
 <a href='https://github.com/Marwa-Eltayeb'>
 <img src='https://github.com/Marwa-Eltayeb.png' width='140px;'>
@@ -163,24 +169,18 @@ If you don't see any error messages, submit your pull request.
 </a>
 <h4 align='center'><a href='https://github.com/firaja'>David Bertoldi</a></h4>
 </td>
+</tr>
 <td id='fu7mu4'>
 <a href='https://github.com/fu7mu4'>
 <img src='https://github.com/fu7mu4.png' width='140px;'>
 </a>
 <h4 align='center'><a href='https://github.com/fu7mu4'>fu7mu4</a></h4>
 </td>
-</tr>
 <td id='AmrDeveloper'>
 <a href='https://github.com/AmrDeveloper'>
 <img src='https://github.com/AmrDeveloper.png' width='140px;'>
 </a>
 <h4 align='center'><a href='https://github.com/AmrDeveloper'>Amr Hesham</a></h4>
-</td>
-<td id='vipozdn'>
-<a href='https://github.com/vipozdn'>
-<img src='https://github.com/vipozdn.png' width='140px;'>
-</a>
-<h4 align='center'><a href='https://github.com/vipozdn'>Victor</a></h4>
 </td>
 <td id='itamarc'>
 <a href='https://github.com/itamarc'>
