@@ -62,10 +62,6 @@ Fast and simple application that allows you to generate and compare hashes from 
   <img src="media/screenshots/screenshot_10.png" width="130" />
 </p>
 
-## How to use
-
-* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
-
 ## Supporting languages
 
 You can help with translation
@@ -96,6 +92,10 @@ on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
 | 日本語                | 3.6.3         | `Translated`                                                                                             |
 | Tiếng Việt         | 3.6.5         | `Translated`                                                                                             |
 | हिंदी              | 3.7.0         | `Translated`   
+
+## How to use
+
+* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
 
 ## Forums
 
