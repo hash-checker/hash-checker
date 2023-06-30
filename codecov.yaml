@@ -2,4 +2,4 @@ coverage:
   status:
     patch: false
 
-  range: 50..55
+  range: 50..70
