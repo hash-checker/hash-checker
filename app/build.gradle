@@ -33,6 +33,7 @@ android {
                 'ro',
                 'ru',
                 'sv',
+                'pt-rBR',
                 'zh-rCN',
                 'vi',
                 'ja',
