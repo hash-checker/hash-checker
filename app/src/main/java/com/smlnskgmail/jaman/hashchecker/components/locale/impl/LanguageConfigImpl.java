@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
-import android.os.LocaleList;
 
 import androidx.annotation.NonNull;
+import androidx.core.os.LocaleListCompat;
 
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.Language;
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;
@@ -32,22 +32,20 @@ public class LanguageConfigImpl implements LanguageConfig {
 
     private void setLanguage(@NonNull Context context, @NonNull Language language) {
         Locale locale;
-        if (language != Language.ZH) {
-            locale = new Locale(language.code(), Locale.getDefault().getCountry());
-        } else {
+        if (language == Language.ZH) {
             locale = Locale.SIMPLIFIED_CHINESE;
+        } else if (language == Language.PT) {
+            locale = new Locale(language.code(), "BR");
+        } else {
+            locale = new Locale(language.code(), Locale.getDefault().getCountry());
         }
 
         Locale.setDefault(locale);
-        Configuration config = context.getResources().getConfiguration();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            config.setLocales(new LocaleList(locale));
-        } else {
-            config.locale = locale;
-        }
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
 
         Resources resources = context.getResources();
-        resources.updateConfiguration(config, resources.getDisplayMetrics());
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
     @Override
