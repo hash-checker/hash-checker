@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<resources>
+    <!-- menu -->
+    <string name="menu_title_settings">ဆက်တင်များ</string>
+    <string name="menu_title_feedback">တုံ့ပြန်ချက်</string>
+    <string name="menu_title_history">သမိုင်း</string>
+    <!-- dialog titles -->
+    <string name="title_dialog_enter_text">စာသားထည့်ပါ။</string>
+    <string name="title_warning_dialog">သတိပေးချက်</string>
+    <string name="title_permission_dialog">ခွင့်ပြုချက်</string>
+    <!-- messages -->
+    <string name="message_exit">အပလီကေးရှင်းကိုပိတ်ရန် နောက်ကျောခလုတ်ကို ကြာကြာနှိပ်ပါ။</string>
+    <string name="message_fill_fields">နှိုင်းယှဉ်မှုအတွက် အကွက်တစ်ခုစီကို ဖြည့်ပါ။</string>
+    <string name="message_generate_hash_before_export">တင်ပို့ခြင်းမပြုမီ ဟာရ်ဆော့ကျေ တန်ဖိုးကို ဖန်တီးပါ။</string>
+    <string name="message_match_result">တစ်ပွဲ</string>
+    <string name="message_do_not_match_result">မတိုက်ဆိုင်ပါ။</string>
+    <string name="message_generate_dialog">ဟာရ်ဆော့ကျေ ကို ဖန်တီးနေသည်၊ ခဏစောင့်ပါ...</string>
+    <string name="message_select_object">လိုအပ်သောရင်းမြစ်အမျိုးအစားကို ရွေးချယ်ရန် ထံမှ ကိုနှိပ်ပါ။</string>
+    <string name="message_request_storage_permission_error">စက်ပစ္စည်း ဖိုင်သိုလှောင်မှုကို ဖတ်ရန် ခွင့်ပြုချက် မပေးနိုင်ပါ။ ထပ်စမ်းကြည့်ပါ။</string>
+    <string name="message_request_storage_permission_denied">စက်ပစ္စည်း ဖိုင်သိုလှောင်မှုကို ဖတ်ရန် ခွင့်ပြုချက် မပေးနိုင်ပါ။ ဆက်တင်များသို့သွား၍ ၎င်းကို သင်ကိုယ်တိုင်ပေးဆောင်ရန် လိုအပ်သည်။</string>
+    <string name="message_error_start_file_selector">သင့်စက်တွင် ဖိုင်မန်နေဂျာကို ရှာမတွေ့ပါ။</string>
+    <string name="message_error_start_google_play">သင့်စက်ပေါ်တွင် Google Play အက်ပ် သို့မဟုတ် ဝဘ်ဘရောက်ဆာကို ရှာမတွေ့ပါ။</string>
+    <string name="message_email_app_chooser">အီးမေးလ်ပို့ရန် အက်ပ်ကို ရွေးပါ။</string>
+    <string name="message_change_theme">အပြင်အဆင်ကိုပြောင်းရန်၊ သင်သည် အပလီကေးရှင်းကို ပြန်လည်စတင်ရန် လိုအပ်သည်။</string>
+    <string name="message_change_language">ဘာသာစကားကိုပြောင်းရန်၊ အက်ပ်ကို ပြန်လည်စတင်ရန် လိုအပ်သည်။</string>
+    <string name="message_invalid_selected_source">ထည့်သွင်းမှုရင်းမြစ်မှ ဟာရ်ဆော့ကျေ တန်ဖိုးကို မထုတ်ပေးနိုင်ပါ။ ရွေးချယ်ထားသော အရင်းအမြစ်ကို စစ်ဆေးပါ။</string>
+    <string name="message_delete_all_history_items">မှတ်တမ်းအရာအားလုံးကို ဖျက်မလား။</string>
+    <!-- commons -->
+    <string name="common_text">စာသား</string>
+    <string name="common_file">ဖို</string>
+    <string name="common_folder">ဖိုလ်</string>
+    <string name="common_add">ထည့်ပါ။</string>
+    <string name="common_ok">အိုကေ</string>
+    <string name="common_cancel">မလုပ်တော့</string>
+    <string name="common_again">တဖန်</string>
+    <string name="common_date">ရက်စွဲ</string>
+    <!-- actions -->
+    <string name="action_from">ထံမှ</string>
+    <string name="action_select">အက်ရှင်</string>
+    <string name="action_exit_now">ယခုထွက်လိုက်ပါ။</string>
+    <string name="action_generate">ထုတ်လုပ်ပါ။</string>
+    <string name="action_compare">နှိုင်းယှဉ်ပါ။</string>
+    <string name="action_export_to_txt">\".txt\" အဖြစ် ထုတ်ယူရန်</string>
+    <!-- themes -->
+    <string name="title_theme_light">အလင်း</string>
+    <string name="title_theme_dark">မှောငျမိုကျသော</string>
+    <!-- titles -->
+    <string name="title_custom_hash">စိတ်ကြိုက် ဟာရ်ဆော့ကျေ</string>
+    <string name="title_generated_hash">ဟာရ်ဆော့ကျေ ထုတ်ပေးသည်။</string>
+    <!-- hints -->
+    <string name="hint_input_text">ဤနေရာတွင် စာပို့ပါ။</string>
+    <!-- settings titles -->
+    <string name="settings_title_general">အထွေထွေ</string>
+    <string name="settings_title_app">လျှောက်လွှာ</string>
+    <string name="settings_title_interface">အင်တာဖေ့စ်</string>
+    <string name="settings_title_about">အကြောင်း</string>
+    <string name="settings_title_upper_case">စာလုံးကြီး</string>
+    <string name="settings_title_author">စာရေးသူ</string>
+    <string name="settings_title_libraries">စာကြည့်တိုက်များ</string>
+    <string name="settings_title_app_file_manager">အတွင်းဖိုင်မန်နေဂျာ</string>
+    <string name="settings_title_version">ဗားရှင်း</string>
+    <string name="settings_title_vibration">တုန်ခါမှု</string>
+    <string name="settings_title_privacy">ကိုယ်ရေးကိုယ်တာ</string>
+    <string name="settings_title_export_user_data">အသုံးပြုသူဒေတာကို ထုတ်ယူပါ။</string>
+    <string name="settings_title_privacy_policy">ကိုယ်ရေးအချက်အလက်မူဝါဒ</string>
+    <string name="settings_title_theme">အပြင်အဆင်</string>
+    <string name="settings_title_rate_app">အက်ပ်ကို အဆင့်သတ်မှတ်ပါ။</string>
+    <string name="settings_title_save_result_to_history">ရလဒ်ကို သမိုင်းတွင် သိမ်းဆည်းပါ။</string>
+    <string name="settings_title_multiline">လိုင်းပေါင်းစုံ ဟာရ်ဆော့ကျေ အကွက်များ</string>
+    <string name="settings_title_language">ဘာသာစကား</string>
+    <string name="settings_title_support">အထောက်အပံ့</string>
+    <string name="settings_title_help_with_translation">ဘာသာပြန်ခြင်းဖြင့်ကူညီပါ။</string>
+    <!-- feedback -->
+    <string name="feedback_manufacturer">ထုတ်လုပ်သူ</string>
+    <string name="feedback_model">မော်ဒယ်</string>
+    <string name="feedback_message">မက်ဆေ့ချ်</string>
+    <!-- file manager -->
+    <string name="file_manager_select_storage_title">သိုလှောင်မှုကို ရွေးပါ။</string>
+    <!-- history -->
+    <string name="history_item_click_text">ဟာရ်ဆော့ကျေ တန်ဖိုးကို ကလစ်ဘုတ်သို့ ကူးယူထားသည်။</string>
+    <string name="history_empty_view_message">မှတ်တမ်းပစ္စည်းများကို ရှာမတွေ့ပါ။</string>
+    <!-- rate app -->
+    <string name="rate_app_message">အက်ပ်ကို သင်နှစ်သက်ပါက၊ ၎င်းကို Google Play တွင် အဆင့်သတ်မှတ်နိုင်သည်။</string>
+    <string name="rate_app_action">နှုန်းထား</string>
+    <!-- in-app updates -->
+    <string name="update_downloaded_message">အပ်ဒိတ်တစ်ခုကို ယခုလေးတင် ဒေါင်းလုဒ်လုပ်ပြီးပါပြီ။</string>
+    <string name="update_restart_action">ပြန်စတင်သည်</string>
+</resources>
