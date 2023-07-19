@@ -203,7 +203,6 @@ If you don't see any error messages, submit your pull request.
 </a>
 <h4 align='center'><a href='https://github.com/Alexandru51'>Alexandru51</a></h4>
 </td>
-</tr>
 <td id='elliotwutingfeng'>
 <a href='https://github.com/elliotwutingfeng'>
 <img src='https://github.com/elliotwutingfeng.png' width='140px;'>
