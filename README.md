@@ -64,34 +64,37 @@ Fast and simple application that allows you to generate and compare hashes from 
 
 ## Supporting languages
 
-You can help with translation
-on [OneSky](https://osbvnmv.oneskyapp.com/collaboration/project?id=353871).
+If you want to help with the translation (add a language or update the current one), you can create and
+issue [here](https://github.com/hash-checker/hash-checker/issues) or directly download and process languages
+from [here](https://github.com/hash-checker/hash-checker/blob/master/app/src/main/res/values/strings.xml) (reference for
+English, if you want to work with other language that already exists in app, find it in `values` folder with specific to
+your language code (for example, if you want to update Russian locale, it places in `values-ru`).
 
 ### Languages in app
 
-| Language           | Since version | Status                                                                                                   |
-|--------------------|---------------|----------------------------------------------------------------------------------------------------------|
-| English            | 1.0.0         | `Translated`                                                                                             |
-| Español            | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/79#) |
-| Deutsch            | 2.9.6         | `Translated`                                                                                             |
-| Français           | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/5#)  |
-| Italiano           | 2.9.9         | [Help wanted](https://github.com/hash-checker/hash-checker/issues/12)                                    |
-| Magyar             | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/21#) |
-| Nederlands         | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/12#) |
-| Norsk              | 3.6.9-1       | `Translated`                                                                                             |
-| Svenska            | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/17#) |
-| Ελληνικά           | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/17#) |
-| Română             | 3.7.0         | `Translated`                                                                                             |
-| Русский            | 2.9.6         | `Translated`                                                                                             |
-| Polski             | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/16#) |
-| Português (Brasil) | 3.7.0         | `Translated`                                                                                             |
-| 简体中文               | 2.9.9         | `Translated`                                                                                             |
-| 한국어                | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/9#)  |
-| עברית              | 2.9.9         | [Help wanted](https://osbvnmv.oneskyapp.com/collaboration/translate/project/project/353871/language/42#) |
-| فارسی              | 2.9.9         | `Translated`                                                                                             |
-| 日本語                | 3.6.3         | `Translated`                                                                                             |
-| Tiếng Việt         | 3.6.5         | `Translated`                                                                                             |
-| မြန်မာ               | 3.7.1          | `Translated`                                                                                             |
+| Language           | Since version | Status       |
+|--------------------|---------------|--------------|
+| English            | 1.0.0         | `Translated` |
+| Español            | 2.9.9         | `Translated` |
+| Deutsch            | 2.9.6         | `Translated` |
+| Français           | 2.9.9         | `Translated` |
+| Italiano           | 2.9.9         | `Translated` |
+| Magyar             | 2.9.9         | `Translated` |
+| Nederlands         | 2.9.9         | `Translated` |
+| Norsk              | 3.6.9-1       | `Translated` |
+| Svenska            | 2.9.9         | `Translated` |
+| Ελληνικά           | 2.9.9         | `Translated` |
+| Română             | 3.7.0         | `Translated` |
+| Русский            | 2.9.6         | `Translated` |
+| Polski             | 2.9.9         | `Translated` |
+| Português (Brasil) | 3.7.0         | `Translated` |
+| 简体中文               | 2.9.9         | `Translated` |
+| 한국어                | 2.9.9         | `Translated` |
+| עברית              | 2.9.9         | `Translated` |
+| فارسی              | 2.9.9         | `Translated` |
+| 日本語                | 3.6.3         | `Translated` |
+| Tiếng Việt         | 3.6.5         | `Translated` |
+| မြန်မာ             | 3.7.1         | `Translated` |
 
 ## How to use
 
