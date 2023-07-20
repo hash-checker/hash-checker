@@ -20,7 +20,8 @@ public enum HashType implements ListItem {
     SHA3_256(Constants.SHA3_256, "sha3_256"),
     SHA3_384(Constants.SHA3_384, "sha3_384"),
     SHA3_512(Constants.SHA3_512, "sha3_512"),
-    CRC_32("CRC-32", "crc32");
+    CRC_32("CRC-32", "crc32"),
+    BLAKE_2B("BLAKE_2B", "blake2b");
 
     private final String hashName;
     private final String hashFileExtension;
