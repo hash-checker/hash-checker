@@ -110,6 +110,14 @@ public class JdkHashCalculatorTest {
         );
     }
 
+    @Test
+    public void blake2bFromString() {
+        assertEquals(
+                "3d896914f86ae22c48b06140adb4492fa3f8e2686a83cec0c8b1dcd6903168751370078bbd6bbfe02a6ab1df12a19b5991b58e65e243ec279f6a5770b2dd0e31",
+                getJdkHashCalculatorFor(HashType.BLAKE_2B).fromString(inputText)
+        );
+    }
+
     private JdkHashCalculator getJdkHashCalculatorFor(@NonNull HashType hashType) {
         JdkHashCalculator jdkHashCalculator = new JdkHashCalculator();
         jdkHashCalculator.setHashType(hashType);
