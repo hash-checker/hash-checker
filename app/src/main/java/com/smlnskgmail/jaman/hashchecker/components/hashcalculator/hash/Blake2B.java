@@ -187,14 +187,14 @@ public class Blake2B {
         }
 
         for (int round = 0; round < ROUNDS; round++) {
-            G(m[SIGMA[round][0]], m[SIGMA[round][1]], 0, 4, 8, 12);
-            G(m[SIGMA[round][2]], m[SIGMA[round][3]], 1, 5, 9, 13);
-            G(m[SIGMA[round][4]], m[SIGMA[round][5]], 2, 6, 10, 14);
-            G(m[SIGMA[round][6]], m[SIGMA[round][7]], 3, 7, 11, 15);
-            G(m[SIGMA[round][8]], m[SIGMA[round][9]], 0, 5, 10, 15);
-            G(m[SIGMA[round][10]], m[SIGMA[round][11]], 1, 6, 11, 12);
-            G(m[SIGMA[round][12]], m[SIGMA[round][13]], 2, 7, 8, 13);
-            G(m[SIGMA[round][14]], m[SIGMA[round][15]], 3, 4, 9, 14);
+            mix(m[SIGMA[round][0]], m[SIGMA[round][1]], 0, 4, 8, 12);
+            mix(m[SIGMA[round][2]], m[SIGMA[round][3]], 1, 5, 9, 13);
+            mix(m[SIGMA[round][4]], m[SIGMA[round][5]], 2, 6, 10, 14);
+            mix(m[SIGMA[round][6]], m[SIGMA[round][7]], 3, 7, 11, 15);
+            mix(m[SIGMA[round][8]], m[SIGMA[round][9]], 0, 5, 10, 15);
+            mix(m[SIGMA[round][10]], m[SIGMA[round][11]], 1, 6, 11, 12);
+            mix(m[SIGMA[round][12]], m[SIGMA[round][13]], 2, 7, 8, 13);
+            mix(m[SIGMA[round][14]], m[SIGMA[round][15]], 3, 4, 9, 14);
         }
 
         for (int offset = 0; offset < h.length; offset++) {
@@ -202,7 +202,7 @@ public class Blake2B {
         }
     }
 
-    private void G(long m1, long m2, int posA, int posB, int posC, int posD) {
+    private void mix(long m1, long m2, int posA, int posB, int posC, int posD) {
         vector[posA] = vector[posA] + vector[posB] + m1;
         vector[posD] = rotateRight(vector[posD] ^ vector[posA], 32);
         vector[posC] = vector[posC] + vector[posD];
@@ -215,17 +215,24 @@ public class Blake2B {
 
     private static int littleEndianToInt(byte[] bs, int off) {
         int n = bs[off] & 0xff;
-        n |= (bs[++off] & 0xff) << 8;
-        n |= (bs[++off] & 0xff) << 16;
-        n |= bs[++off] << 24;
+        int byte2 = bs[off + 1] & 0xff;
+        int byte3 = bs[off + 2] & 0xff;
+        int byte4 = bs[off + 3] & 0xff;
+
+        n |= byte2 << 8;
+        n |= byte3 << 16;
+        n |= byte4 << 24;
         return n;
     }
 
     private static void intToLittleEndian(int n, byte[] bs, int off) {
         bs[off] = (byte) (n);
-        bs[++off] = (byte) (n >>> 8);
-        bs[++off] = (byte) (n >>> 16);
-        bs[++off] = (byte) (n >>> 24);
+        int nextOff = off + 1;
+        bs[nextOff] = (byte) (n >>> 8);
+        nextOff++;
+        bs[nextOff] = (byte) (n >>> 16);
+        nextOff++;
+        bs[nextOff] = (byte) (n >>> 24);
     }
 
     private static long littleEndianToLong(byte[] bs, int off) {
