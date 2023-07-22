@@ -72,4 +72,12 @@ public class HashTypeTest {
         );
     }
 
+    @Test
+    public void parseBlake2bFromString() {
+        assertEquals(
+                HashType.BLAKE_2B,
+                HashType.getHashTypeFromString("BLAKE_2B")
+        );
+    }
+
 }

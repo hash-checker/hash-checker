@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import com.github.aelstad.keccakj.provider.Constants;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.ListItem;
-
 public enum HashType implements ListItem {
 
     MD5("MD5", "md5"),
@@ -20,7 +19,8 @@ public enum HashType implements ListItem {
     SHA3_256(Constants.SHA3_256, "sha3_256"),
     SHA3_384(Constants.SHA3_384, "sha3_384"),
     SHA3_512(Constants.SHA3_512, "sha3_512"),
-    CRC_32("CRC-32", "crc32");
+    CRC_32(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.CRC_32, "crc32"),
+    BLAKE_2B(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.BLAKE_2B, "blake2b");
 
     private final String hashName;
     private final String hashFileExtension;
