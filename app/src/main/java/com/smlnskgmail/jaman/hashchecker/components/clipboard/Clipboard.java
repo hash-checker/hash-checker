@@ -3,7 +3,6 @@ package com.smlnskgmail.jaman.hashchecker.components.clipboard;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 
