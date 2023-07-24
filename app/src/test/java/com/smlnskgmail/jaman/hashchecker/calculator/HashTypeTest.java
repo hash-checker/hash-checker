@@ -80,4 +80,52 @@ public class HashTypeTest {
         );
     }
 
+    @Test
+    public void parseFnv1a32FromString() {
+        assertEquals(
+                HashType.FNV_1A_32,
+                HashType.getHashTypeFromString("FNV-1A-32")
+        );
+    }
+
+    @Test
+    public void parseFnv1a64FromString() {
+        assertEquals(
+                HashType.FNV_1A_64,
+                HashType.getHashTypeFromString("FNV-1A-64")
+        );
+    }
+
+    @Test
+    public void parseFnv1a128FromString() {
+        assertEquals(
+                HashType.FNV_1A_128,
+                HashType.getHashTypeFromString("FNV-1A-128")
+        );
+    }
+
+    @Test
+    public void parseFnv1a256FromString() {
+        assertEquals(
+                HashType.FNV_1A_256,
+                HashType.getHashTypeFromString("FNV-1A-256")
+        );
+    }
+
+    @Test
+    public void parseFnv1a512FromString() {
+        assertEquals(
+                HashType.FNV_1A_512,
+                HashType.getHashTypeFromString("FNV-1A-512")
+        );
+    }
+
+    @Test
+    public void parseFnv1a1024FromString() {
+        assertEquals(
+                HashType.FNV_1A_1024,
+                HashType.getHashTypeFromString("FNV-1A-1024")
+        );
+    }
+
 }
