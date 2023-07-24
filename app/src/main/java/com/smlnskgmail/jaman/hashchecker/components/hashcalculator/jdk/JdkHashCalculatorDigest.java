@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Blake2B;
-import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Fnv1A;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.FNV1a;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,7 +19,7 @@ public class JdkHashCalculatorDigest {
     private MessageDigest messageDigest;
     private CRC32 crc32;
     private Blake2B blake2B;
-    private Fnv1A fnv1A;
+    private FNV1a fnv1A;
 
     private boolean useCRC32;
     private boolean useBLAKE2B;
@@ -59,7 +59,7 @@ public class JdkHashCalculatorDigest {
             blake2B = new Blake2B();
             useBLAKE2B = true;
         } else if (hashType == HashType.FNV_1A_32 || hashType == HashType.FNV_1A_64 || hashType == HashType.FNV_1A_128 || hashType == HashType.FNV_1A_256 || hashType == HashType.FNV_1A_512 || hashType == HashType.FNV_1A_1024) {
-            fnv1A = new Fnv1A();
+            fnv1A = new FNV1a();
             fnv1A.setInstance(hashType.getTypeAsString());
             useFNV1A = true;
         } else {
