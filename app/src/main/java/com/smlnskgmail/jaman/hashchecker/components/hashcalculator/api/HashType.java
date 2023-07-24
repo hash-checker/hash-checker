@@ -20,7 +20,14 @@ public enum HashType implements ListItem {
     SHA3_384(Constants.SHA3_384, "sha3_384"),
     SHA3_512(Constants.SHA3_512, "sha3_512"),
     CRC_32(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.CRC_32, "crc32"),
-    BLAKE_2B(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.BLAKE_2B, "blake2b");
+    BLAKE_2B(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.BLAKE_2B, "blake2b"),
+    FNV_1A_32(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.FNV_1A_32, "fnv1a32"),
+    FNV_1A_64(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.FNV_1A_64, "fnv1a64"),
+    FNV_1A_128(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.FNV_1A_128, "fnv1a128"),
+    FNV_1A_256(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.FNV_1A_256, "fnv1a256"),
+    FNV_1A_512(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.FNV_1A_512, "fnv1a512"),
+    FNV_1A_1024(com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Constants.FNV_1A_1024, "fnv1a1024");
+
 
     private final String hashName;
     private final String hashFileExtension;
