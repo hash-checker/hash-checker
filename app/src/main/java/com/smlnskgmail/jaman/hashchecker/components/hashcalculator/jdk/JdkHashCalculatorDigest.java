@@ -1,7 +1,5 @@
 package com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
