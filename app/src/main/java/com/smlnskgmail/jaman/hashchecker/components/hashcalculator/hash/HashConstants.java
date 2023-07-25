@@ -1,6 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash;
 
-public class CustomConstants {
+public class HashConstants {
     public static final String CRC_32 = "CRC-32";
     public static final String BLAKE_2B = "BLAKE_2B";
     public static final String FNV_1A_32 = "FNV-1A-32";

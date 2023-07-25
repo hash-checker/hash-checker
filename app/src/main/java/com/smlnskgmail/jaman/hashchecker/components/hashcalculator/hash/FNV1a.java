@@ -61,22 +61,22 @@ public class FNV1a {
 
     public void update(byte[] b) {
         switch (this.type) {
-            case CustomConstants.FNV_1A_32:
+            case HashConstants.FNV_1A_32:
                 update32(b);
                 break;
-            case CustomConstants.FNV_1A_64:
+            case HashConstants.FNV_1A_64:
                 update64(b);
                 break;
-            case CustomConstants.FNV_1A_128:
+            case HashConstants.FNV_1A_128:
                 update128(b);
                 break;
-            case CustomConstants.FNV_1A_256:
+            case HashConstants.FNV_1A_256:
                 update256(b);
                 break;
-            case CustomConstants.FNV_1A_512:
+            case HashConstants.FNV_1A_512:
                 update512(b);
                 break;
-            case CustomConstants.FNV_1A_1024:
+            case HashConstants.FNV_1A_1024:
                 update1024(b);
                 break;
             default:
@@ -86,22 +86,22 @@ public class FNV1a {
 
     public void update(byte[] b, int offset, int len) {
         switch (this.type) {
-            case CustomConstants.FNV_1A_32:
+            case HashConstants.FNV_1A_32:
                 update32(b, offset, len);
                 break;
-            case CustomConstants.FNV_1A_64:
+            case HashConstants.FNV_1A_64:
                 update64(b, offset, len);
                 break;
-            case CustomConstants.FNV_1A_128:
+            case HashConstants.FNV_1A_128:
                 update128(b, offset, len);
                 break;
-            case CustomConstants.FNV_1A_256:
+            case HashConstants.FNV_1A_256:
                 update256(b, offset, len);
                 break;
-            case CustomConstants.FNV_1A_512:
+            case HashConstants.FNV_1A_512:
                 update512(b, offset, len);
                 break;
-            case CustomConstants.FNV_1A_1024:
+            case HashConstants.FNV_1A_1024:
                 update1024(b, offset, len);
                 break;
             default:

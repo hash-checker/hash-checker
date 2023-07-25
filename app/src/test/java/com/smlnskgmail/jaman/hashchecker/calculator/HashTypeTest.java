@@ -3,7 +3,7 @@ package com.smlnskgmail.jaman.hashchecker.calculator;
 import static org.junit.Assert.assertEquals;
 
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
-import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.CustomConstants;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.HashConstants;
 
 import org.junit.Test;
 
@@ -61,7 +61,7 @@ public class HashTypeTest {
     public void parseCRC32FromString() {
         assertEquals(
                 HashType.CRC_32,
-                HashType.getHashTypeFromString(CustomConstants.CRC_32)
+                HashType.getHashTypeFromString(HashConstants.CRC_32)
         );
     }
 
@@ -77,7 +77,7 @@ public class HashTypeTest {
     public void parseBlake2bFromString() {
         assertEquals(
                 HashType.BLAKE_2B,
-                HashType.getHashTypeFromString(CustomConstants.BLAKE_2B)
+                HashType.getHashTypeFromString(HashConstants.BLAKE_2B)
         );
     }
 
@@ -85,7 +85,7 @@ public class HashTypeTest {
     public void parseFnv1a32FromString() {
         assertEquals(
                 HashType.FNV_1A_32,
-                HashType.getHashTypeFromString(CustomConstants.FNV_1A_32)
+                HashType.getHashTypeFromString(HashConstants.FNV_1A_32)
         );
     }
 
@@ -93,7 +93,7 @@ public class HashTypeTest {
     public void parseFnv1a64FromString() {
         assertEquals(
                 HashType.FNV_1A_64,
-                HashType.getHashTypeFromString(CustomConstants.FNV_1A_64)
+                HashType.getHashTypeFromString(HashConstants.FNV_1A_64)
         );
     }
 
@@ -101,7 +101,7 @@ public class HashTypeTest {
     public void parseFnv1a128FromString() {
         assertEquals(
                 HashType.FNV_1A_128,
-                HashType.getHashTypeFromString(CustomConstants.FNV_1A_128)
+                HashType.getHashTypeFromString(HashConstants.FNV_1A_128)
         );
     }
 
@@ -109,7 +109,7 @@ public class HashTypeTest {
     public void parseFnv1a256FromString() {
         assertEquals(
                 HashType.FNV_1A_256,
-                HashType.getHashTypeFromString(CustomConstants.FNV_1A_256)
+                HashType.getHashTypeFromString(HashConstants.FNV_1A_256)
         );
     }
 
@@ -117,7 +117,7 @@ public class HashTypeTest {
     public void parseFnv1a512FromString() {
         assertEquals(
                 HashType.FNV_1A_512,
-                HashType.getHashTypeFromString(CustomConstants.FNV_1A_512)
+                HashType.getHashTypeFromString(HashConstants.FNV_1A_512)
         );
     }
 
@@ -125,7 +125,7 @@ public class HashTypeTest {
     public void parseFnv1a1024FromString() {
         assertEquals(
                 HashType.FNV_1A_1024,
-                HashType.getHashTypeFromString(CustomConstants.FNV_1A_1024)
+                HashType.getHashTypeFromString(HashConstants.FNV_1A_1024)
         );
     }
 
