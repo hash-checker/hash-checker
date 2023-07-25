@@ -4,22 +4,21 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.github.aelstad.keccakj.provider.Constants;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.HashConstants;
 import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.ListItem;
 public enum HashType implements ListItem {
 
-    MD5("MD5", "md5"),
-    SHA_1("SHA-1", "sha1"),
-    SHA_224("SHA-224", "sha224"),
-    SHA_256("SHA-256", "sha256"),
-    SHA_384("SHA-384", "sha384"),
-    SHA_512("SHA-512", "sha512"),
-    SHA3_224(Constants.SHA3_224, "sha3_224"),
-    SHA3_256(Constants.SHA3_256, "sha3_256"),
-    SHA3_384(Constants.SHA3_384, "sha3_384"),
-    SHA3_512(Constants.SHA3_512, "sha3_512"),
+    MD5(HashConstants.MD5, "md5"),
+    SHA_1(HashConstants.SHA_1, "sha1"),
+    SHA_224(HashConstants.SHA_224, "sha224"),
+    SHA_256(HashConstants.SHA_256, "sha256"),
+    SHA_384(HashConstants.SHA_384, "sha384"),
+    SHA_512(HashConstants.SHA_512, "sha512"),
+    SHA3_224(HashConstants.SHA3_224, "sha3_224"),
+    SHA3_256(HashConstants.SHA3_256, "sha3_256"),
+    SHA3_384(HashConstants.SHA3_384, "sha3_384"),
+    SHA3_512(HashConstants.SHA3_512, "sha3_512"),
     CRC_32(HashConstants.CRC_32, "crc32"),
     BLAKE_2B(HashConstants.BLAKE_2B, "blake2b"),
     FNV_1A_32(HashConstants.FNV_1A_32, "fnv1a32"),
