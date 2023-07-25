@@ -13,7 +13,7 @@ public class HashTypeTest {
     public void parseMD5FromString() {
         assertEquals(
                 HashType.MD5,
-                HashType.getHashTypeFromString("MD5")
+                HashType.getHashTypeFromString(HashConstants.MD5)
         );
     }
 
@@ -21,7 +21,7 @@ public class HashTypeTest {
     public void parseSHA1FromString() {
         assertEquals(
                 HashType.SHA_1,
-                HashType.getHashTypeFromString("SHA-1")
+                HashType.getHashTypeFromString(HashConstants.SHA_1)
         );
     }
 
@@ -29,7 +29,7 @@ public class HashTypeTest {
     public void parseSHA224FromString() {
         assertEquals(
                 HashType.SHA_224,
-                HashType.getHashTypeFromString("SHA-224")
+                HashType.getHashTypeFromString(HashConstants.SHA_224)
         );
     }
 
@@ -37,7 +37,7 @@ public class HashTypeTest {
     public void parseSHA256FromString() {
         assertEquals(
                 HashType.SHA_256,
-                HashType.getHashTypeFromString("SHA-256")
+                HashType.getHashTypeFromString(HashConstants.SHA_256)
         );
     }
 
@@ -45,7 +45,7 @@ public class HashTypeTest {
     public void parseSHA384FromString() {
         assertEquals(
                 HashType.SHA_384,
-                HashType.getHashTypeFromString("SHA-384")
+                HashType.getHashTypeFromString(HashConstants.SHA_384)
         );
     }
 
@@ -53,7 +53,7 @@ public class HashTypeTest {
     public void parseSHA512FromString() {
         assertEquals(
                 HashType.SHA_512,
-                HashType.getHashTypeFromString("SHA-512")
+                HashType.getHashTypeFromString(HashConstants.SHA_512)
         );
     }
 
@@ -69,7 +69,7 @@ public class HashTypeTest {
     public void parseMD4FromString() {
         assertEquals(
                 HashType.MD5,
-                HashType.getHashTypeFromString("MD4")
+                HashType.getHashTypeFromString(HashConstants.MD5)
         );
     }
 
