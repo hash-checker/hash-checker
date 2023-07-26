@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.HashConstants;
 import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.ListItem;
+
 public enum HashType implements ListItem {
 
     MD5(HashConstants.MD5, "md5"),
