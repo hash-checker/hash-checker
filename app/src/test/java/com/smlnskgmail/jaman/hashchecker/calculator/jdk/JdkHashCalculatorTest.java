@@ -7,10 +7,13 @@ import androidx.annotation.NonNull;
 import com.github.aelstad.keccakj.provider.KeccakjProvider;
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashCalculator;
+import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashCalculatorDigest;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.Security;
 
 public class JdkHashCalculatorTest {
@@ -115,6 +118,54 @@ public class JdkHashCalculatorTest {
         assertEquals(
                 "3d896914f86ae22c48b06140adb4492fa3f8e2686a83cec0c8b1dcd6903168751370078bbd6bbfe02a6ab1df12a19b5991b58e65e243ec279f6a5770b2dd0e31",
                 getJdkHashCalculatorFor(HashType.BLAKE_2B).fromString(inputText)
+        );
+    }
+
+    @Test
+    public void fnv1a32FromString() throws NoSuchAlgorithmException, NoSuchProviderException {
+        assertEquals(
+                "2ffcbe05",
+                getJdkHashCalculatorFor(HashType.FNV_1A_32).fromString(inputText)
+        );
+    }
+
+    @Test
+    public void fnv1a64FromString() throws NoSuchAlgorithmException, NoSuchProviderException {
+        assertEquals(
+                "2474e7fb1aec9f05",
+                getJdkHashCalculatorFor(HashType.FNV_1A_64).fromString(inputText)
+        );
+    }
+
+    @Test
+    public void fnv1a128FromString() throws NoSuchAlgorithmException, NoSuchProviderException {
+        assertEquals(
+                "68e554f9c5757277b806e94c1fb4fcc5",
+                getJdkHashCalculatorFor(HashType.FNV_1A_128).fromString(inputText)
+        );
+    }
+
+    @Test
+    public void fnv1a256FromString() throws NoSuchAlgorithmException, NoSuchProviderException {
+        assertEquals(
+                "e46ddd4ed460b28c4ece66459f2a8e9d123f79d831721584cc463c5a98bd4c65",
+                getJdkHashCalculatorFor(HashType.FNV_1A_256).fromString(inputText)
+        );
+    }
+
+    @Test
+    public void fnv1a512FromString() throws NoSuchAlgorithmException, NoSuchProviderException {
+        assertEquals(
+                "f9fe9eefe38ca43fcf36c8fbc0d25bef51797ddeec00000000002a5259a146c7f24cae042d99828e5baba0a28b18bf530de9c3137ca2a36973f8d0786c7072b5",
+                getJdkHashCalculatorFor(HashType.FNV_1A_512).fromString(inputText)
+        );
+    }
+
+    @Test
+    public void fnv1a1024FromString() throws NoSuchAlgorithmException, NoSuchProviderException {
+        assertEquals(
+                "26f791f9147aedad1354bef7d238f3219005cbd6e8d664f6b4eefdbe94929e41548c17f600860000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001ba08046e07e0418fb7be0ec07b8ea87a61bb4f073e2bab740db8398ef60cb9b50bff5f3dd1081",
+                getJdkHashCalculatorFor(HashType.FNV_1A_1024).fromString(inputText)
         );
     }
 
