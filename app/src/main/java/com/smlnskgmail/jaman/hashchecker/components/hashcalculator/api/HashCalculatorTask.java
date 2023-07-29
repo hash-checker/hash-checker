@@ -67,14 +67,14 @@ public class HashCalculatorTask extends AsyncTask<Void, String, String> {
         try {
             HashCalculator hashCalculator = new JdkHashCalculator();
             hashCalculator.setHashType(hashType);
-            if(isText){
+            if (isText) {
                 return hashCalculator.fromString(textValue);
-            } else if(fileUri != null) {
+            } else if (fileUri != null) {
                 return hashCalculator.fromFile(context, fileUri);
             } else {
-                return hashCalculator.fromFolder(context,folderUri);
+                return hashCalculator.fromFolder(context, folderUri);
             }
-            } catch (Exception e) {
+        } catch (Exception e) {
             LogUtils.e(e);
             return null;
         }

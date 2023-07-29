@@ -96,7 +96,7 @@ public class JdkHashCalculator implements HashCalculator {
 
     public String fromFolder(@Nullable List<InputStream> inputStream) {
         if (inputStream != null) {
-            for(InputStream stream:inputStream){
+            for (InputStream stream : inputStream) {
                 try {
                     byte[] buffer = new byte[1024];
                     int read;
@@ -106,8 +106,7 @@ public class JdkHashCalculator implements HashCalculator {
                             jdkHashCalculatorDigest.update(buffer, read);
                         }
                     } while (read != -1);
-                }
-                catch (IOException e) {
+                } catch (IOException e) {
                     LogUtils.e(e);
                 }
             }

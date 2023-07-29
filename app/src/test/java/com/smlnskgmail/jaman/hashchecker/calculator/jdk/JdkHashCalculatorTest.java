@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import com.github.aelstad.keccakj.provider.KeccakjProvider;
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashCalculator;
-import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.jdk.JdkHashCalculatorDigest;
 
 import org.junit.Before;
 import org.junit.Test;

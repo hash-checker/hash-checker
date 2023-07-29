@@ -3,10 +3,8 @@ package com.smlnskgmail.jaman.hashchecker.components.locale.impl;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Build;
 
 import androidx.annotation.NonNull;
-import androidx.core.os.LocaleListCompat;
 
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.Language;
 import com.smlnskgmail.jaman.hashchecker.components.locale.api.LanguageConfig;

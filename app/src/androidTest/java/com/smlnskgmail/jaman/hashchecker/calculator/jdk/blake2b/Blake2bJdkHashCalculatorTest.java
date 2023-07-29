@@ -9,7 +9,9 @@ import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
 public class Blake2bJdkHashCalculatorTest extends BaseJdkHashCalculatorTest {
     @NonNull
     @Override
-    protected HashType getHashType() {return HashType.BLAKE_2B;}
+    protected HashType getHashType() {
+        return HashType.BLAKE_2B;
+    }
 
     @Nullable
     @Override
