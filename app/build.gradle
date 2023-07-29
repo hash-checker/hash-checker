@@ -72,7 +72,7 @@ android {
                     keystoreProperties.put(KEY_PASSWORD, System.getenv(KEY_PASSWORD))
                 }
             }
-            if (hasSignConfigInProperties) {
+            if (!System.getenv('CI')) {
                 try {
                     storeFile file(keystoreProperties[KEYSTORE_PATH])
                     storePassword keystoreProperties[KEYSTORE_PASSWORD]
@@ -81,8 +81,6 @@ android {
                 } catch (ignore) {
                     throw new InvalidUserDataException("You should define sign keys in gradle.properties or int ENV.")
                 }
-            } else if (System.getenv('CI')) {
-                throw new InvalidUserDataException("You should define sign keys in gradle.properties or in ENV.")
             }
         }
     }
