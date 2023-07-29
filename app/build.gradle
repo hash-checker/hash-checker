@@ -42,37 +42,37 @@ android {
     }
     signingConfigs {
         release {
-            final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
-            final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
-            final KEY_ALIAS = 'RELEASE_KEY_ALIAS'
-            final KEY_PASSWORD = 'RELEASE_KEY_PASSWORD'
-            def keystoreProperties = new Properties()
-            def keystorePropertiesFile = rootProject.file("local.properties")
-            if (keystorePropertiesFile.exists()) {
-                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-            }
-            def hasSignConfigInProperties = propertiesHasSignConfig(
-                    keystoreProperties,
-                    KEYSTORE_PATH,
-                    KEYSTORE_PASSWORD,
-                    KEY_ALIAS,
-                    KEY_PASSWORD
-            )
-            if (!hasSignConfigInProperties) {
-                hasSignConfigInProperties = envHasSignConfig(
+            if (!System.getenv('CI')) {
+                final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
+                final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
+                final KEY_ALIAS = 'RELEASE_KEY_ALIAS'
+                final KEY_PASSWORD = 'RELEASE_KEY_PASSWORD'
+                def keystoreProperties = new Properties()
+                def keystorePropertiesFile = rootProject.file("local.properties")
+                if (keystorePropertiesFile.exists()) {
+                    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+                }
+                def hasSignConfigInProperties = propertiesHasSignConfig(
+                        keystoreProperties,
                         KEYSTORE_PATH,
                         KEYSTORE_PASSWORD,
                         KEY_ALIAS,
                         KEY_PASSWORD
                 )
-                if (hasSignConfigInProperties) {
-                    keystoreProperties.put(KEYSTORE_PATH, System.getenv(KEYSTORE_PATH))
-                    keystoreProperties.put(KEYSTORE_PASSWORD, System.getenv(KEYSTORE_PASSWORD))
-                    keystoreProperties.put(KEY_ALIAS, System.getenv(KEY_ALIAS))
-                    keystoreProperties.put(KEY_PASSWORD, System.getenv(KEY_PASSWORD))
+                if (!hasSignConfigInProperties) {
+                    hasSignConfigInProperties = envHasSignConfig(
+                            KEYSTORE_PATH,
+                            KEYSTORE_PASSWORD,
+                            KEY_ALIAS,
+                            KEY_PASSWORD
+                    )
+                    if (hasSignConfigInProperties) {
+                        keystoreProperties.put(KEYSTORE_PATH, System.getenv(KEYSTORE_PATH))
+                        keystoreProperties.put(KEYSTORE_PASSWORD, System.getenv(KEYSTORE_PASSWORD))
+                        keystoreProperties.put(KEY_ALIAS, System.getenv(KEY_ALIAS))
+                        keystoreProperties.put(KEY_PASSWORD, System.getenv(KEY_PASSWORD))
+                    }
                 }
-            }
-            if (!System.getenv('CI')) {
                 try {
                     storeFile file(keystoreProperties[KEYSTORE_PATH])
                     storePassword keystoreProperties[KEYSTORE_PASSWORD]
