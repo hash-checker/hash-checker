@@ -42,7 +42,7 @@ android {
     }
     signingConfigs {
         release {
-            if (System.getenv('CI')) {
+            if (!System.getenv('CI')) {
                 final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
                 final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
                 final KEY_ALIAS = 'RELEASE_KEY_ALIAS'
