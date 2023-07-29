@@ -79,7 +79,7 @@ public class JdkHashCalculatorDigest {
         } else if (useFNV1A) {
             fnv1A.reset();
             fnv1A.update(input);
-        }  else {
+        } else {
             messageDigest.reset();
             messageDigest.update(input);
         }
@@ -102,7 +102,7 @@ public class JdkHashCalculatorDigest {
         if (useCRC32) {
             return JdkHashUtils.getStringFromLong(crc32.getValue());
         } else if (useBLAKE2B) {
-            return  blake2B.getValue();
+            return blake2B.getValue();
         } else if (useFNV1A) {
             return fnv1A.getValue();
         }

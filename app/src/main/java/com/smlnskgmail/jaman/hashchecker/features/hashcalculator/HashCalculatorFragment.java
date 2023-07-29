@@ -220,7 +220,7 @@ public class HashCalculatorFragment extends BaseFragment
                         tvSelectedObjectName.getText().toString(),
                         hashCalculatorTaskTarget
                 ).execute();
-            } else if(fileUri != null) {
+            } else if (fileUri != null) {
                 new HashCalculatorTask(
                         context,
                         hashType,

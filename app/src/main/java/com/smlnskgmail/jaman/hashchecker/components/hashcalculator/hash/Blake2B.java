@@ -38,6 +38,7 @@ public class Blake2B {
     public Blake2B() {
         this(512);
     }
+
     public Blake2B(int digestSize) {
         if (digestSize < 8 || digestSize > 512 || digestSize % 8 != 0) {
             throw new IllegalArgumentException("BLAKE2b digest bit length must be a multiple of 8 and not greater than 512");
@@ -72,29 +73,29 @@ public class Blake2B {
         vector[15] = IV[7];
     }
 
-    public void update(byte[] b){
-        for(byte i : b) {
+    public void update(byte[] b) {
+        for (byte i : b) {
             update(i);
         }
     }
 
     private void update(byte b) {
-            int remainingLength = 0;
-            remainingLength = BLOCK_LENGTH - bufferPos;
-            if (remainingLength == 0) {
-                t0 += BLOCK_LENGTH;
-                if (t0 == 0) {
-                    t1++;
-                }
-                compress(buffer, 0);
-                Arrays.fill(buffer, (byte) 0);
-                buffer[0] = b;
-                bufferPos = 1;
-            } else {
-                buffer[bufferPos] = b;
-                bufferPos++;
-                return;
+        int remainingLength = 0;
+        remainingLength = BLOCK_LENGTH - bufferPos;
+        if (remainingLength == 0) {
+            t0 += BLOCK_LENGTH;
+            if (t0 == 0) {
+                t1++;
             }
+            compress(buffer, 0);
+            Arrays.fill(buffer, (byte) 0);
+            buffer[0] = b;
+            bufferPos = 1;
+        } else {
+            buffer[bufferPos] = b;
+            bufferPos++;
+            return;
+        }
     }
 
     public void update(byte[] message, int offset, int len) {
