@@ -8,6 +8,8 @@ public class Blake2B {
             0xa54ff53a5f1d36f1L, 0x510e527fade682d1L, 0x9b05688c2b3e6c1fL,
             0x1f83d9abfb41bd6bL, 0x5be0cd19137e2179L
     };
+
+    // CPD-OFF
     private final static byte[][] SIGMA = {
             {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
             {14, 10, 4, 8, 9, 15, 13, 6, 1, 12, 0, 2, 11, 7, 5, 3},
@@ -22,6 +24,8 @@ public class Blake2B {
             {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
             {14, 10, 4, 8, 9, 15, 13, 6, 1, 12, 0, 2, 11, 7, 5, 3}
     };
+    // CPD-ON
+
     private final static int BLOCK_LENGTH = 128;
     private static final int ROUNDS = 12;
     private int digestLength = 64;
