@@ -2,6 +2,13 @@
 
 # Hash Checker
 
+[![GitHubActions](https://github.com/hash-checker/hash-checker/workflows/Build/badge.svg)](https://github.com/hash-checker/hash-checker/actions?query=workflow%3ABuild)
+[![Codacy](https://api.codacy.com/project/badge/Grade/51f19c1c57a443bba0713785abe708c3)](https://app.codacy.com/gh/hash-checker/hash-checker?utm_source=github.com&utm_medium=referral&utm_content=hash-checker/hash-checker&utm_campaign=Badge_Grade)
+[![Codecov](https://codecov.io/gh/hash-checker/hash-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/hash-checker/hash-checker)
+[![GitHub Downloads](https://img.shields.io/github/downloads/hash-checker/hash-checker/total?label=GitHub%20downloads)](https://github.com/hash-checker/hash-checker/releases)
+
+## Download
+
 <a href="https://github.com/hash-checker/hash-checker/releases">
   <img src="media/banners/bn_github.png" height="75px" />
 </a>
@@ -14,11 +21,6 @@
 <a href="https://www.androidfilehost.com/?w=files&flid=316843">
   <img src="media/banners/bn_android_file_host.png" height="75px" />
 </a>
-
-[![GitHubActions](https://github.com/hash-checker/hash-checker/workflows/Build/badge.svg)](https://github.com/hash-checker/hash-checker/actions?query=workflow%3ABuild)
-[![Codacy](https://api.codacy.com/project/badge/Grade/51f19c1c57a443bba0713785abe708c3)](https://app.codacy.com/gh/hash-checker/hash-checker?utm_source=github.com&utm_medium=referral&utm_content=hash-checker/hash-checker&utm_campaign=Badge_Grade)
-[![Codecov](https://codecov.io/gh/hash-checker/hash-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/hash-checker/hash-checker)
-[![GitHub Downloads](https://img.shields.io/github/downloads/hash-checker/hash-checker/total?label=GitHub%20downloads)](https://github.com/hash-checker/hash-checker/releases)
 
 ## About application
 
