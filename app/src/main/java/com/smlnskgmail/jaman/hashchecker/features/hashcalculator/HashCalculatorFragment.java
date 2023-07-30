@@ -113,7 +113,8 @@ public class HashCalculatorFragment extends BaseFragment
             etGeneratedHash.setText("");
             showSnackbarWithoutAction(R.string.message_invalid_selected_source);
         } else {
-            etGeneratedHash.setText(hashValue);
+            boolean useUpperCase = settings.useUpperCase();
+            etGeneratedHash.setText(useUpperCase ? hashValue.toUpperCase() : hashValue);
             if (settings.canSaveResultToHistory()) {
                 Date date = Calendar.getInstance().getTime();
                 String objectValue = tvSelectedObjectName.getText().toString();
@@ -220,7 +221,7 @@ public class HashCalculatorFragment extends BaseFragment
                         tvSelectedObjectName.getText().toString(),
                         hashCalculatorTaskTarget
                 ).execute();
-            } else if(fileUri != null) {
+            } else if (fileUri != null) {
                 new HashCalculatorTask(
                         context,
                         hashType,
