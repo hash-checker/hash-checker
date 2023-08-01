@@ -23,6 +23,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.smlnskgmail.jaman.hashchecker.App;
+import com.smlnskgmail.jaman.hashchecker.BuildConfig;
 import com.smlnskgmail.jaman.hashchecker.MainActivity;
 import com.smlnskgmail.jaman.hashchecker.R;
 import com.smlnskgmail.jaman.hashchecker.components.localdatastorage.api.LocalDataExporter;
@@ -116,11 +117,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
     }
 
     @Override
-    public void onActivityResult(
-            int requestCode,
-            int resultCode,
-            @Nullable Intent data
-    ) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (data != null && requestCode == Settings.FILE_CREATE && resultCode == Activity.RESULT_OK) {
             copyUserDataToUserFolder(data.getData());
         }
@@ -130,7 +127,9 @@ public class SettingsFragment extends PreferenceFragmentCompat
         if (uri != null) {
             try {
                 LocalDataExporter.exportDatabase(context, localDataStorage);
-                ParcelFileDescriptor descriptor = context.getApplicationContext().getContentResolver()
+                ParcelFileDescriptor descriptor = context
+                        .getApplicationContext()
+                        .getContentResolver()
                         .openFileDescriptor(uri, "w");
                 if (descriptor != null) {
                     FileOutputStream outputStream = new FileOutputStream(descriptor.getFileDescriptor());
@@ -244,17 +243,17 @@ public class SettingsFragment extends PreferenceFragmentCompat
     public void initRate() {
         Preference rateAppPreference = findPreference(getString(R.string.key_rate_app));
         if (rateAppPreference != null) {
-            View view = getView();
-            if (view != null) {
+            //noinspection ConstantConditions
+            if (BuildConfig.FLAVOR.equals("googlePlay")) {
                 rateAppPreference.setOnPreferenceClickListener(preference -> {
-                    WebUtils.openGooglePlay(
-                            context,
-                            view,
-                            settings,
-                            themeConfig
-                    );
+                    View view = getView();
+                    if (view != null) {
+                        WebUtils.openGooglePlay(context, view, settings, themeConfig);
+                    }
                     return false;
                 });
+            } else {
+                rateAppPreference.setVisible(false);
             }
         }
     }
