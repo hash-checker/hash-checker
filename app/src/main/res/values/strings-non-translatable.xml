@@ -39,7 +39,7 @@
     <string name="web_link_source_code" translatable="false">https://github.com/hash-checker/hash-checker</string>
     <string name="web_link_my_apps" translatable="false">https://play.google.com/store/apps/developer?id=fartem</string>
     <string name="web_link_privacy_policy" translatable="false">https://hash-checker.github.io/hash-checker-privacy-policy.io</string>
-    <string name="web_link_help_with_translation" translatable="false">https://osbvnmv.oneskyapp.com/collaboration/project?id=353871</string>
+    <string name="web_link_help_with_translation" translatable="false">https://github.com/hash-checker/hash-checker/issues</string>
     <string name="web_link_adaptiverecyclerview" translatable="false">https://github.com/fartem/adaptive-recycler-view</string>
     <string name="web_link_ormlite" translatable="false">https://ormlite.com</string>
 
