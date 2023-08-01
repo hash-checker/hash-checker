@@ -12,75 +12,56 @@ android {
         applicationId 'com.smlnskgmail.jaman.hashchecker'
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 98
-        versionName '3.7.2'
+        versionCode 99
+        versionName '3.7.3'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner 'com.smlnskgmail.jaman.hashchecker.runner.AndroidJacocoTestRunner'
 
-        resConfigs 'en',
-                'de',
-                'el',
-                'es',
-                'fa',
-                'fr',
-                'hu',
-                'it',
-                'iw',
-                'ko',
-                'my',
-                'nl',
-                'pl',
-                'ro',
-                'ru',
-                'sv',
-                'pt-rBR',
-                'zh-rCN',
-                'vi',
-                'ja',
-                'hi'
+        resConfigs 'en', 'de', 'el', 'es', 'fa', 'fr', 'hu', 'it', 'iw', 'ko', 'my', 'nl', 'pl', 'ro', 'ru', 'sv',
+                'pt-rBR', 'zh-rCN', 'vi', 'ja', 'hi'
     }
     signingConfigs {
         release {
             if (!System.getenv('CI')) {
-                final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
-                final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
-                final KEY_ALIAS = 'RELEASE_KEY_ALIAS'
-                final KEY_PASSWORD = 'RELEASE_KEY_PASSWORD'
-                def keystoreProperties = new Properties()
-                def keystorePropertiesFile = rootProject.file("local.properties")
-                if (keystorePropertiesFile.exists()) {
-                    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-                }
-                def hasSignConfigInProperties = propertiesHasSignConfig(
-                        keystoreProperties,
-                        KEYSTORE_PATH,
-                        KEYSTORE_PASSWORD,
-                        KEY_ALIAS,
-                        KEY_PASSWORD
-                )
-                if (!hasSignConfigInProperties) {
-                    hasSignConfigInProperties = envHasSignConfig(
-                            KEYSTORE_PATH,
-                            KEYSTORE_PASSWORD,
-                            KEY_ALIAS,
-                            KEY_PASSWORD
-                    )
-                    if (hasSignConfigInProperties) {
-                        keystoreProperties.put(KEYSTORE_PATH, System.getenv(KEYSTORE_PATH))
-                        keystoreProperties.put(KEYSTORE_PASSWORD, System.getenv(KEYSTORE_PASSWORD))
-                        keystoreProperties.put(KEY_ALIAS, System.getenv(KEY_ALIAS))
-                        keystoreProperties.put(KEY_PASSWORD, System.getenv(KEY_PASSWORD))
-                    }
-                }
-                try {
-                    storeFile file(keystoreProperties[KEYSTORE_PATH])
-                    storePassword keystoreProperties[KEYSTORE_PASSWORD]
-                    keyAlias keystoreProperties[KEY_ALIAS]
-                    keyPassword keystoreProperties[KEY_PASSWORD]
-                } catch (ignore) {
-                    throw new InvalidUserDataException("You should define sign keys in gradle.properties or int ENV.")
-                }
+//                final KEYSTORE_PATH = 'RELEASE_KEYSTORE_PATH'
+//                final KEYSTORE_PASSWORD = 'RELEASE_KEYSTORE_PASSWORD'
+//                final KEY_ALIAS = 'RELEASE_KEY_ALIAS'
+//                final KEY_PASSWORD = 'RELEASE_KEY_PASSWORD'
+//                def keystoreProperties = new Properties()
+//                def keystorePropertiesFile = rootProject.file("local.properties")
+//                if (keystorePropertiesFile.exists()) {
+//                    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+//                }
+//                def hasSignConfigInProperties = propertiesHasSignConfig(
+//                        keystoreProperties,
+//                        KEYSTORE_PATH,
+//                        KEYSTORE_PASSWORD,
+//                        KEY_ALIAS,
+//                        KEY_PASSWORD
+//                )
+//                if (!hasSignConfigInProperties) {
+//                    hasSignConfigInProperties = envHasSignConfig(
+//                            KEYSTORE_PATH,
+//                            KEYSTORE_PASSWORD,
+//                            KEY_ALIAS,
+//                            KEY_PASSWORD
+//                    )
+//                    if (hasSignConfigInProperties) {
+//                        keystoreProperties.put(KEYSTORE_PATH, System.getenv(KEYSTORE_PATH))
+//                        keystoreProperties.put(KEYSTORE_PASSWORD, System.getenv(KEYSTORE_PASSWORD))
+//                        keystoreProperties.put(KEY_ALIAS, System.getenv(KEY_ALIAS))
+//                        keystoreProperties.put(KEY_PASSWORD, System.getenv(KEY_PASSWORD))
+//                    }
+//                }
+//                try {
+//                    storeFile file(keystoreProperties[KEYSTORE_PATH])
+//                    storePassword keystoreProperties[KEYSTORE_PASSWORD]
+//                    keyAlias keystoreProperties[KEY_ALIAS]
+//                    keyPassword keystoreProperties[KEY_PASSWORD]
+//                } catch (ignore) {
+//                    throw new InvalidUserDataException("You should define sign keys in gradle.properties or int ENV.")
+//                }
             }
         }
     }
@@ -139,32 +120,32 @@ android {
     }
 }
 
-static boolean propertiesHasSignConfig(
-        properties,
-        path,
-        password,
-        keyAlias,
-        keyPassword
-) {
-    def has = { key -> properties.containsKey(key) }
-    return has(path) && has(password) && has(keyAlias) && has(keyPassword)
-}
+//static boolean propertiesHasSignConfig(
+//        properties,
+//        path,
+//        password,
+//        keyAlias,
+//        keyPassword
+//) {
+//    def has = { key -> properties.containsKey(key) }
+//    return has(path) && has(password) && has(keyAlias) && has(keyPassword)
+//}
 
-static boolean envHasSignConfig(
-        path,
-        password,
-        keyAlias,
-        keyPassword
-) {
-    def has = { key -> System.getenv().containsKey(key) }
-    return has(path) && has(password) && has(keyAlias) && has(keyPassword)
-}
+//static boolean envHasSignConfig(
+//        path,
+//        password,
+//        keyAlias,
+//        keyPassword
+//) {
+//    def has = { key -> System.getenv().containsKey(key) }
+//    return has(path) && has(password) && has(keyAlias) && has(keyPassword)
+//}
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.preference:preference:1.2.1'
 
     // SHA-3
     implementation 'com.github.aelstad:keccakj:1.1.0'
@@ -199,5 +180,5 @@ dependencies {
 //    androidTestImplementation 'tools.fastlane:screengrab:2.1.1'
 
     // Google Play Core Library
-    googlePlayImplementation 'com.google.android.play:core:1.10.2'
+    googlePlayImplementation 'com.google.android.play:core:1.10.3'
 }
