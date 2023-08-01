@@ -41,6 +41,13 @@ Fast and simple application that allows you to generate and compare hashes from 
 | [SHA3-256](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 | [SHA3-384](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 | [SHA3-512](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
+| [BLAKE2b](https://en.wikipedia.org/wiki/BLAKE_(hash_function))  | 3.7.2         | `Supporting` |
+| [FNV-1A-32](https://ru.wikipedia.org/wiki/FNV)                  | 3.7.2         | `Supporting` |
+| [FNV-1A-64](https://ru.wikipedia.org/wiki/FNV)                  | 3.7.2         | `Supporting` |
+| [FNV-1A-128](https://ru.wikipedia.org/wiki/FNV)                 | 3.7.2         | `Supporting` |
+| [FNV-1A-256](https://ru.wikipedia.org/wiki/FNV)                 | 3.7.2         | `Supporting` |
+| [FNV-1A-512](https://ru.wikipedia.org/wiki/FNV)                 | 3.7.2         | `Supporting` |
+| [FNV-1A-1024](https://ru.wikipedia.org/wiki/FNV)                | 3.7.2         | `Supporting` |
 
 ## Screenshots (Light theme)
 
