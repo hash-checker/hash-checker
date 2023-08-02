@@ -120,8 +120,8 @@ public class JdkHashCalculator implements HashCalculator {
         return context.getContentResolver().openInputStream(path);
     }
 
-    @Nullable
-    private List<InputStream> inputStreamsFormFolder(Context context, Uri folderUri) throws IOException {
+    @NonNull
+    private List<InputStream> inputStreamsFormFolder(@NonNull Context context, @NonNull Uri folderUri) {
         List<InputStream> inputStreams = new ArrayList<>();
 
         ContentResolver contentResolver = context.getContentResolver();

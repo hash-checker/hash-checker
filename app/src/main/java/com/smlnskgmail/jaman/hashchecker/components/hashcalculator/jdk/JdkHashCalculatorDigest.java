@@ -56,7 +56,12 @@ public class JdkHashCalculatorDigest {
         } else if (hashType == HashType.BLAKE_2B) {
             blake2B = new Blake2B();
             useBLAKE2B = true;
-        } else if (hashType == HashType.FNV_1A_32 || hashType == HashType.FNV_1A_64 || hashType == HashType.FNV_1A_128 || hashType == HashType.FNV_1A_256 || hashType == HashType.FNV_1A_512 || hashType == HashType.FNV_1A_1024) {
+        } else if (hashType == HashType.FNV_1A_32
+                || hashType == HashType.FNV_1A_64
+                || hashType == HashType.FNV_1A_128
+                || hashType == HashType.FNV_1A_256
+                || hashType == HashType.FNV_1A_512
+                || hashType == HashType.FNV_1A_1024) {
             fnv1A = new FNV1a();
             fnv1A.setInstance(hashType.getTypeAsString());
             useFNV1A = true;
