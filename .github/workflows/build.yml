@@ -7,7 +7,29 @@ on:
     branches: [ master ]
 
 jobs:
-  checks_and_tests:
+  unit_tests:
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_KEYSTORE_PATH: ${{ secrets.RELEASE_KEYSTORE_PATH }}
+      RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+      RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+      RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Run tests
+        run: ./gradlew :app:test --stacktrace
+
+      - name: Send JaCoCo coverage report to Codecov
+        uses: codecov/codecov-action@v1
+
+  checkstyle:
     runs-on: ubuntu-latest
     env:
       RELEASE_KEYSTORE_PATH: ${{ secrets.RELEASE_KEYSTORE_PATH }}
@@ -23,11 +45,27 @@ jobs:
         with:
           java-version: 11
 
-      - name: Build with Gradle
-        run: ./gradlew check --stacktrace
+      - name: Run CheckStyle
+        run: ./gradlew checkstyle --stacktrace
 
-      - name: Send JaCoCo coverage report to Codecov
-        uses: codecov/codecov-action@v1
+  cpd:
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_KEYSTORE_PATH: ${{ secrets.RELEASE_KEYSTORE_PATH }}
+      RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+      RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+      RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Run CPD
+        run: ./gradlew cpdCheck --stacktrace
 
   integration_tests:
     runs-on: macos-latest
