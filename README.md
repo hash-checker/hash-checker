@@ -21,9 +21,6 @@
 <a href="https://www.androidfilehost.com/?w=files&flid=316843">
   <img src="media/banners/bn_android_file_host.png" height="55px" />
 </a>
-<a href="https://www.amazon.com/gp/product/B07GX2VJKZ">
-  <img src="media/banners/bn_amazon_appstore.png" height="35px" />
-</a>
 
 ## About application
 
