@@ -10,19 +10,19 @@
 ## Download
 
 <a href="https://github.com/hash-checker/hash-checker/releases">
-  <img src="media/banners/bn_github.png" height="75px" />
+  <img src="media/banners/bn_github.png" height="55px" />
 </a>
 <a href="https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker">
-  <img src="media/banners/bn_google_play.png" height="75px" />
+  <img src="media/banners/bn_google_play.png" height="55px" />
 </a>
 <a href="https://apt.izzysoft.de/fdroid/index/apk/com.smlnskgmail.jaman.hashchecker.thirdparty">
-  <img src="media/banners/bn_izzy_on_droid.png" height="75px" />
+  <img src="media/banners/bn_izzy_on_droid.png" height="55px" />
 </a>
 <a href="https://www.androidfilehost.com/?w=files&flid=316843">
-  <img src="media/banners/bn_android_file_host.png" height="75px" />
+  <img src="media/banners/bn_android_file_host.png" height="55px" />
 </a>
 <a href="https://www.amazon.com/gp/product/B07GX2VJKZ">
-  <img src="media/banners/bn_amazon_appstore.png" height="75px" />
+  <img src="media/banners/bn_amazon_appstore.png" height="55px" />
 </a>
 
 ## About application
