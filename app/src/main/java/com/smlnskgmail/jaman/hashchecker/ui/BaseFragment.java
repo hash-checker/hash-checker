@@ -25,9 +25,9 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     public static final String CURRENT_FRAGMENT_TAG = "CURRENT_FRAGMENT";
 
-    private ActionBar actionBar;
-
     public MenuItem primaryMenuButton;
+
+    private ActionBar actionBar;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
