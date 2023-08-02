@@ -277,6 +277,13 @@ public class SettingsFragment extends PreferenceFragmentCompat
         Preference versionPreference = findPreference(getString(R.string.key_version));
         if (versionPreference != null) {
             versionPreference.setSummary(appVersion);
+            versionPreference.setOnPreferenceClickListener(preference -> {
+                WebUtils.openWebLink(
+                        context,
+                        context.getString(R.string.web_link_github_repository)
+                );
+                return false;
+            });
         }
     }
 

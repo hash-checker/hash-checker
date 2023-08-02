@@ -47,6 +47,7 @@
     <string name="web_link_rubygems" translatable="false">https://rubygems.org/profiles/fartem</string>
     <string name="web_link_stack_overflow" translatable="false">https://stackoverflow.com/users/10684765/fartem</string>
     <string name="web_link_privacy_policy" translatable="false">https://hash-checker.github.io/hash-checker-privacy-policy.io</string>
+    <string name="web_link_github_repository" translatable="false">https://github.com/hash-checker/hash-checker</string>
     <string name="web_link_help_with_translation" translatable="false">https://github.com/hash-checker/hash-checker/issues</string>
     <string name="web_link_adaptive_recycler_view" translatable="false">https://github.com/fartem/adaptive-recycler-view</string>
     <string name="web_link_ormlite" translatable="false">https://ormlite.com</string>
