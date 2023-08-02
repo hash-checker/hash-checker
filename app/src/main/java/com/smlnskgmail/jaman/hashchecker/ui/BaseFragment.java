@@ -27,6 +27,8 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
 
     private ActionBar actionBar;
 
+    public MenuItem primaryMenuButton;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         langHelper().applyLanguage(view.getContext());
@@ -65,9 +67,18 @@ public abstract class BaseFragment extends Fragment implements AppBackClickTarge
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         menu.clear();
         inflater.inflate(getMenuResId(), menu);
+
+        int primaryMenuButton = getPrimaryMenuButton();
+        if (primaryMenuButton != -1) {
+            this.primaryMenuButton = menu.findItem(primaryMenuButton);
+        }
     }
 
     protected abstract int getMenuResId();
+
+    protected int getPrimaryMenuButton() {
+        return -1;
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
