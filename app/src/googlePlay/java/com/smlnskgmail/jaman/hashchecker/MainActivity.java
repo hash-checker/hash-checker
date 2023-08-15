@@ -33,6 +33,7 @@ import com.smlnskgmail.jaman.hashchecker.ui.BaseActivity;
 import com.smlnskgmail.jaman.hashchecker.ui.BaseFragment;
 import com.smlnskgmail.jaman.hashchecker.ui.states.AppBackClickTarget;
 import com.smlnskgmail.jaman.hashchecker.ui.states.AppResumeTarget;
+import com.smlnskgmail.jaman.hashchecker.utils.MainActivitySingletone;
 
 import java.util.List;
 
@@ -63,6 +64,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         App.appComponent.inject(this);
         super.onCreate(savedInstanceState);
+        MainActivitySingletone.setInstance(this);
     }
 
     @Override

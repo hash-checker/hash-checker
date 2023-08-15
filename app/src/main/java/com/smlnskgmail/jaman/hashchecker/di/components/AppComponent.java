@@ -20,6 +20,7 @@ import com.smlnskgmail.jaman.hashchecker.features.settings.view.lists.themes.The
 import com.smlnskgmail.jaman.hashchecker.features.settings.view.lists.weblinks.AuthorWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.features.settings.view.lists.weblinks.LibrariesWebLinksBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.features.settings.view.lists.weblinks.PrivacyPolicyWebLinksBottomSheet;
+import com.smlnskgmail.jaman.hashchecker.features.webview.WebFragment;
 
 import dagger.Component;
 
@@ -57,5 +58,7 @@ public interface AppComponent {
     void inject(@NonNull LibrariesWebLinksBottomSheet librariesWebLinksBottomSheet);
 
     void inject(@NonNull PrivacyPolicyWebLinksBottomSheet privacyPolicyWebLinksBottomSheet);
+
+    void inject(@NonNull WebFragment wEbViewFragment);
 
 }
