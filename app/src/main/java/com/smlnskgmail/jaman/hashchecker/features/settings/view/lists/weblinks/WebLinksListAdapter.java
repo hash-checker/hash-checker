@@ -54,7 +54,7 @@ public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
             if (webLink.getLinkResId() == WebLink.PRIVACY_POLICY.getLinkResId()) {
                 MainActivity activity = MainActivitySingletone.getInstance();
                 if (activity != null) {
-                    activity.showFragment(new WebFragment(getContext().getString(WebLink.PRIVACY_POLICY.getLinkResId())));
+                    activity.showFragment(new WebFragment(getContext().getString(webLink.getLinkResId())));
                 }
                 dismissBottomSheet();
                 return;
