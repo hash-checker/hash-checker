@@ -1,7 +1,6 @@
 package com.smlnskgmail.jaman.hashchecker.features.settings.view.lists.weblinks;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;

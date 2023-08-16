@@ -13,8 +13,6 @@ import android.webkit.WebViewClient;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.fragment.app.FragmentManager;
 
 import com.smlnskgmail.jaman.hashchecker.App;
 import com.smlnskgmail.jaman.hashchecker.R;
@@ -26,7 +24,6 @@ import javax.inject.Inject;
 public class WebFragment extends BaseFragment {
 
     private String url;
-    private WebView webView;
 
     @Inject
     public LanguageConfig languageConfig;
@@ -44,16 +41,8 @@ public class WebFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        webView = view.findViewById(R.id.browser);
-        webView.setWebViewClient(new WebViewClient(){
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    Log.e("WebView", "Error: " + error.getDescription());
-                }
-            }
-
-        });
+        WebView webView = view.findViewById(R.id.browser);
+        webView.setWebViewClient(new WebViewClient());
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webView.loadUrl(url);
