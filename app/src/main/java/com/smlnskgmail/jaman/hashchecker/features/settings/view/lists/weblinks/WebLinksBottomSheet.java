@@ -13,7 +13,7 @@ abstract class WebLinksBottomSheet extends BaseListBottomSheet<WebLink> {
     @NonNull
     @Override
     public BaseListAdapter<WebLink> getItemsAdapter() {
-        return new WebLinksListAdapter(getLinks(), this, themeHelper(), this.getContext());
+        return new WebLinksListAdapter(this.getContext(), getLinks(), this, themeHelper());
     }
 
     @NonNull

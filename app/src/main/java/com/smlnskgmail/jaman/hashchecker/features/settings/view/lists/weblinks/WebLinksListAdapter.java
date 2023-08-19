@@ -21,10 +21,10 @@ public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
     private final Context context;
 
     WebLinksListAdapter(
+            @NonNull Context context,
             @NonNull List<WebLink> items,
             @NonNull BaseListBottomSheet<WebLink> bottomSheet,
-            @NonNull ThemeConfig themeConfig,
-            Context context
+            @NonNull ThemeConfig themeConfig
     ) {
         super(items, bottomSheet);
         this.themeConfig = themeConfig;
