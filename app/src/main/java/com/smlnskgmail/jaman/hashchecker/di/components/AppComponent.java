@@ -59,6 +59,6 @@ public interface AppComponent {
 
     void inject(@NonNull PrivacyPolicyWebLinksBottomSheet privacyPolicyWebLinksBottomSheet);
 
-    void inject(@NonNull WebFragment wEbViewFragment);
+    void inject(@NonNull WebFragment webViewFragment);
 
 }
