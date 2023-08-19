@@ -19,10 +19,10 @@ import javax.inject.Inject;
 
 public class WebFragment extends BaseFragment {
 
-    private String url;
-
     @Inject
     public LanguageConfig languageConfig;
+
+    private String url;
 
     public WebFragment(String url) {
         this.url = url;
