@@ -22,9 +22,10 @@ public class WebFragment extends BaseFragment {
     @Inject
     public LanguageConfig languageConfig;
 
-    private String url;
+    @NonNull
+    private final String url;
 
-    public WebFragment(String url) {
+    public WebFragment(@NonNull String url) {
         this.url = url;
     }
 
