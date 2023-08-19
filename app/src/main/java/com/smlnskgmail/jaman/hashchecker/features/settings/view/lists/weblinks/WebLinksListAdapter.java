@@ -11,7 +11,6 @@ import com.smlnskgmail.jaman.hashchecker.features.webview.WebFragment;
 import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.BaseListBottomSheet;
 import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListAdapter;
 import com.smlnskgmail.jaman.hashchecker.ui.bottomsheets.lists.adapter.BaseListHolder;
-import com.smlnskgmail.jaman.hashchecker.utils.MainActivitySingletone;
 import com.smlnskgmail.jaman.hashchecker.utils.WebUtils;
 
 import java.util.List;
@@ -19,14 +18,17 @@ import java.util.List;
 public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
 
     private final ThemeConfig themeConfig;
+    private final Context context;
 
     WebLinksListAdapter(
             @NonNull List<WebLink> items,
             @NonNull BaseListBottomSheet<WebLink> bottomSheet,
-            @NonNull ThemeConfig themeConfig
+            @NonNull ThemeConfig themeConfig,
+            Context context
     ) {
         super(items, bottomSheet);
         this.themeConfig = themeConfig;
+        this.context = context;
     }
 
     @NonNull
@@ -51,15 +53,15 @@ public class WebLinksListAdapter extends BaseListAdapter<WebLink> {
 
         @Override
         protected void callItemClick() {
+            String link = getContext().getString(webLink.getLinkResId());
             if (webLink.getLinkResId() == WebLink.PRIVACY_POLICY.getLinkResId()) {
-                MainActivity activity = MainActivitySingletone.getInstance();
+                MainActivity activity = (MainActivity) context;
                 if (activity != null) {
-                    activity.showFragment(new WebFragment(getContext().getString(webLink.getLinkResId())));
+                    activity.showFragment(new WebFragment(link));
                 }
                 dismissBottomSheet();
                 return;
             }
-            String link = getContext().getString(webLink.getLinkResId());
             WebUtils.openWebLink(getContext(), link);
             dismissBottomSheet();
         }
