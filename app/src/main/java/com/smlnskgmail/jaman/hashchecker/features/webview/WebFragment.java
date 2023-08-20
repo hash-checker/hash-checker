@@ -3,7 +3,6 @@ package com.smlnskgmail.jaman.hashchecker.features.webview;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -40,9 +39,7 @@ public class WebFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         WebView webView = view.findViewById(R.id.browser);
         webView.setWebViewClient(new WebViewClient());
-        WebSettings webSettings = webView.getSettings();
         webView.loadUrl(url);
-
     }
 
     @NonNull
