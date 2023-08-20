@@ -130,14 +130,17 @@ public class HashCalculatorFragment extends BaseFragment
             }
             if (settings.canShowRateAppDialog()) {
                 settings.increaseHashGenerationCount();
-                new AppAlertDialog(
-                        context,
-                        R.string.settings_title_rate_app,
-                        R.string.rate_app_message,
-                        R.string.rate_app_action,
-                        (dialog, which) -> WebUtils.openGooglePlay(context, getView(), settings, themeConfig),
-                        themeConfig
-                ).show();
+                View view = getView();
+                if (view != null) {
+                    new AppAlertDialog(
+                            context,
+                            R.string.settings_title_rate_app,
+                            R.string.rate_app_message,
+                            R.string.rate_app_action,
+                            (dialog, which) -> WebUtils.openGooglePlay(context, view, settings, themeConfig),
+                            themeConfig
+                    ).show();
+                }
             } else {
                 settings.increaseHashGenerationCount();
             }
@@ -343,6 +346,7 @@ public class HashCalculatorFragment extends BaseFragment
         return new File(uri.getPath()).getName();
     }
 
+    @NonNull
     private String folderNameFromUri(@NonNull Uri uri) {
         return new File(uri.getPath()).getName();
     }

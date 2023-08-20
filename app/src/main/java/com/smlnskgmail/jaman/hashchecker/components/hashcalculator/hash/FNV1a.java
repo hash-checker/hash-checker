@@ -1,12 +1,17 @@
 package com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash;
 
+import androidx.annotation.NonNull;
+
 import java.math.BigInteger;
 
 public class FNV1a {
     private static final BigInteger FNV_OFFSET_BASIS32 = new BigInteger("811c9dc5", 16);
     private static final BigInteger FNV_OFFSET_BASIS64 = new BigInteger("cbf29ce484222325", 16);
     private static final BigInteger FNV_OFFSET_BASIS128 = new BigInteger("6c62272e07bb014262b821756295c58d", 16);
-    private static final BigInteger FNV_OFFSET_BASIS256 = new BigInteger("dd268dbcaac550362d98c384c4e576ccc8b1536847b6bbb31023b4c8caee0535", 16);
+    private static final BigInteger FNV_OFFSET_BASIS256 = new BigInteger(
+            "dd268dbcaac550362d98c384c4e576ccc8b1536847b6bbb31023b4c8caee0535",
+            16
+    );
     private static final BigInteger FNV_OFFSET_BASIS512 = new BigInteger(
             "b86db0b1171f4416dca1e50f309990ac" +
                     "ac87d059c90000000000000000000d21" +
@@ -26,7 +31,10 @@ public class FNV1a {
     private static final BigInteger FNV_PRIME32 = new BigInteger("01000193", 16);
     private static final BigInteger FNV_PRIME64 = new BigInteger("100000001b3", 16);
     private static final BigInteger FNV_PRIME128 = new BigInteger("0000000001000000000000000000013B", 16);
-    private static final BigInteger FNV_PRIME256 = new BigInteger("0000000000000000000001000000000000000000000000000000000000000163", 16);
+    private static final BigInteger FNV_PRIME256 = new BigInteger(
+            "0000000000000000000001000000000000000000000000000000000000000163",
+            16
+    );
     private static final BigInteger FNV_PRIME512 = new BigInteger(
             "00000000000000000000000000000000" +
                     "00000000010000000000000000000000" +
@@ -55,11 +63,11 @@ public class FNV1a {
 
     private String type;
 
-    public void setInstance(String type) {
+    public void setInstance(@NonNull String type) {
         this.type = type;
     }
 
-    public void update(byte[] b) {
+    public void update(@NonNull byte[] b) {
         switch (this.type) {
             case HashConstants.FNV_1A_32:
                 update32(b);
@@ -84,7 +92,7 @@ public class FNV1a {
         }
     }
 
-    public void update(byte[] b, int offset, int len) {
+    public void update(@NonNull byte[] b, int offset, int len) {
         switch (this.type) {
             case HashConstants.FNV_1A_32:
                 update32(b, offset, len);
@@ -109,7 +117,7 @@ public class FNV1a {
         }
     }
 
-    private void update32(byte[] b) {
+    private void update32(@NonNull byte[] b) {
         hash = FNV_OFFSET_BASIS32;
 
         for (byte i : b) {
@@ -118,7 +126,16 @@ public class FNV1a {
         }
     }
 
-    private void update64(byte[] b) {
+    private void update32(@NonNull byte[] b, int offset, int len) {
+        hash = FNV_OFFSET_BASIS32;
+
+        for (int i = offset; i < offset + len; i++) {
+            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
+            hash = hash.multiply(FNV_PRIME32).mod(MOD32);
+        }
+    }
+
+    private void update64(@NonNull byte[] b) {
         hash = FNV_OFFSET_BASIS64;
 
         for (byte i : b) {
@@ -127,7 +144,16 @@ public class FNV1a {
         }
     }
 
-    private void update128(byte[] b) {
+    private void update64(@NonNull byte[] b, int offset, int len) {
+        hash = FNV_OFFSET_BASIS64;
+
+        for (int i = offset; i < offset + len; i++) {
+            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
+            hash = hash.multiply(FNV_PRIME64).mod(MOD64);
+        }
+    }
+
+    private void update128(@NonNull byte[] b) {
         hash = FNV_OFFSET_BASIS128;
 
         for (byte i : b) {
@@ -136,7 +162,16 @@ public class FNV1a {
         }
     }
 
-    private void update256(byte[] b) {
+    private void update128(@NonNull byte[] b, int offset, int len) {
+        hash = FNV_OFFSET_BASIS128;
+
+        for (int i = offset; i < offset + len; i++) {
+            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
+            hash = hash.multiply(FNV_PRIME128).mod(MOD128);
+        }
+    }
+
+    private void update256(@NonNull byte[] b) {
         hash = FNV_OFFSET_BASIS256;
         for (byte i : b) {
             hash = hash.xor(BigInteger.valueOf((int) i & 0xff));
@@ -144,7 +179,16 @@ public class FNV1a {
         }
     }
 
-    private void update512(byte[] b) {
+    private void update256(@NonNull byte[] b, int offset, int len) {
+        hash = FNV_OFFSET_BASIS256;
+
+        for (int i = offset; i < offset + len; i++) {
+            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
+            hash = hash.multiply(FNV_PRIME256).mod(MOD256);
+        }
+    }
+
+    private void update512(@NonNull byte[] b) {
         hash = FNV_OFFSET_BASIS512;
 
         for (byte i : b) {
@@ -153,7 +197,16 @@ public class FNV1a {
         }
     }
 
-    private void update1024(byte[] b) {
+    private void update512(@NonNull byte[] b, int offset, int len) {
+        hash = FNV_OFFSET_BASIS512;
+
+        for (int i = offset; i < offset + len; i++) {
+            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
+            hash = hash.multiply(FNV_PRIME512).mod(MOD512);
+        }
+    }
+
+    private void update1024(@NonNull byte[] b) {
         hash = FNV_OFFSET_BASIS1024;
 
         for (byte i : b) {
@@ -162,52 +215,8 @@ public class FNV1a {
         }
     }
 
-    private void update32(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS32;
 
-        for (int i = offset; i < offset + len; i++) {
-            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME32).mod(MOD32);
-        }
-    }
-
-    private void update64(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS64;
-
-        for (int i = offset; i < offset + len; i++) {
-            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME64).mod(MOD64);
-        }
-    }
-
-    private void update128(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS128;
-
-        for (int i = offset; i < offset + len; i++) {
-            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME128).mod(MOD128);
-        }
-    }
-
-    private void update256(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS256;
-
-        for (int i = offset; i < offset + len; i++) {
-            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME256).mod(MOD256);
-        }
-    }
-
-    private void update512(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS512;
-
-        for (int i = offset; i < offset + len; i++) {
-            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME512).mod(MOD512);
-        }
-    }
-
-    private void update1024(byte[] b, int offset, int len) {
+    private void update1024(@NonNull byte[] b, int offset, int len) {
         hash = FNV_OFFSET_BASIS1024;
 
         for (int i = offset; i < offset + len; i++) {
@@ -220,6 +229,7 @@ public class FNV1a {
         hash = null;
     }
 
+    @NonNull
     public String getValue() {
         return hash.toString(16);
     }

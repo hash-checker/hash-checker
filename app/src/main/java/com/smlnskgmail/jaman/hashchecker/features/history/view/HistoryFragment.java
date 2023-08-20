@@ -95,7 +95,10 @@ public class HistoryFragment extends BaseFragment implements HistoryView {
                         R.string.title_warning_dialog,
                         R.string.message_delete_all_history_items,
                         R.string.common_ok,
-                        (dialog, which) -> historyPresenter.clearHistory(),
+                        (dialog, which) -> {
+                            historyPresenter.clearHistory();
+                            primaryMenuButton.setVisible(false);
+                        },
                         themeConfig
                 ).show();
             }
@@ -121,6 +124,10 @@ public class HistoryFragment extends BaseFragment implements HistoryView {
             HistoryItemsAdapter historyItemsAdapter = new HistoryItemsAdapter();
             historyItemsAdapter.addHistoryItems(items);
             arvHistoryItems.setAdapter(historyItemsAdapter);
+
+            if (items.isEmpty()) {
+                primaryMenuButton.setVisible(false);
+            }
         }
     }
 
@@ -132,6 +139,11 @@ public class HistoryFragment extends BaseFragment implements HistoryView {
     @Override
     public int getMenuResId() {
         return R.menu.menu_history;
+    }
+
+    @Override
+    protected int getPrimaryMenuButton() {
+        return R.id.menu_item_clean_history;
     }
 
     @Override

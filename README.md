@@ -10,16 +10,16 @@
 ## Download
 
 <a href="https://github.com/hash-checker/hash-checker/releases">
-  <img src="media/banners/bn_github.png" height="75px" />
+  <img src="media/banners/bn_github.png" height="55px" />
 </a>
 <a href="https://play.google.com/store/apps/details?id=com.smlnskgmail.jaman.hashchecker">
-  <img src="media/banners/bn_google_play.png" height="75px" />
+  <img src="media/banners/bn_google_play.png" height="55px" />
 </a>
 <a href="https://apt.izzysoft.de/fdroid/index/apk/com.smlnskgmail.jaman.hashchecker.thirdparty">
-  <img src="media/banners/bn_izzy_on_droid.png" height="75px" />
+  <img src="media/banners/bn_izzy_on_droid.png" height="55px" />
 </a>
 <a href="https://www.androidfilehost.com/?w=files&flid=316843">
-  <img src="media/banners/bn_android_file_host.png" height="75px" />
+  <img src="media/banners/bn_android_file_host.png" height="55px" />
 </a>
 
 ## About application
@@ -41,6 +41,13 @@ Fast and simple application that allows you to generate and compare hashes from 
 | [SHA3-256](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 | [SHA3-384](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 | [SHA3-512](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
+| [BLAKE2b](https://en.wikipedia.org/wiki/BLAKE_(hash_function))  | 3.7.2         | `Supporting` |
+| [FNV-1A-32](https://ru.wikipedia.org/wiki/FNV)                  | 3.7.2         | `Supporting` |
+| [FNV-1A-64](https://ru.wikipedia.org/wiki/FNV)                  | 3.7.2         | `Supporting` |
+| [FNV-1A-128](https://ru.wikipedia.org/wiki/FNV)                 | 3.7.2         | `Supporting` |
+| [FNV-1A-256](https://ru.wikipedia.org/wiki/FNV)                 | 3.7.2         | `Supporting` |
+| [FNV-1A-512](https://ru.wikipedia.org/wiki/FNV)                 | 3.7.2         | `Supporting` |
+| [FNV-1A-1024](https://ru.wikipedia.org/wiki/FNV)                | 3.7.2         | `Supporting` |
 
 ## Screenshots (Light theme)
 
