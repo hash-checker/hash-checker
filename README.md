@@ -7,6 +7,24 @@
 [![Codecov](https://codecov.io/gh/hash-checker/hash-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/hash-checker/hash-checker)
 [![GitHub Downloads](https://img.shields.io/github/downloads/hash-checker/hash-checker/total?label=GitHub%20downloads)](https://github.com/hash-checker/hash-checker/releases)
 
+## Table of Contents
+
+- [Download](#download)
+- [About the Application](#about-the-application)
+- [Supporting Algorithms](#supporting-algorithms)
+- [Screenshots (Light Theme)](#screenshots-light-theme)
+- [Screenshots (Dark Theme)](#screenshots-dark-theme)
+- [Supporting Languages](#supporting-languages)
+- [How to Use](#how-to-use)
+- [Forums](#forums)
+- [Videos](#videos)
+- [Black Duck Open Hub](#black-duck-open-hub)
+- [Privacy Policy](#privacy-policy)
+- [Feedback](#feedback)
+- [How to Contribute](#how-to-contribute)
+- [Contributors](#contributors)
+- [Special Thanks](#special-thanks)
+
 ## Download
 
 <a href="https://github.com/hash-checker/hash-checker/releases">
@@ -22,14 +40,14 @@
   <img src="media/banners/bn_android_file_host.png" height="75px" />
 </a>
 
-## About application
+## About the Application
 
-Fast and simple application that allows you to generate and compare hashes from files and text.
+Hash Checker is a fast and simple tool for generating and comparing hashes from files and text. It supports various algorithms, including MD5, SHA-1, SHA-256, and more (see table below), ensuring rapid and straightforward data integrity verification.
 
-## Supporting algorithms
+## Supporting Algorithms
 
 | Name                                                            | Since version | Status       |
-|-----------------------------------------------------------------|---------------|--------------|
+| --------------------------------------------------------------- | ------------- | ------------ |
 | [MD5](https://en.wikipedia.org/wiki/MD5)                        | 1.0.0         | `Supporting` |
 | [SHA-1](https://en.wikipedia.org/wiki/SHA-1)                    | 1.0.0         | `Supporting` |
 | [SHA-224](https://en.wikipedia.org/wiki/SHA-2)                  | 1.4.0         | `Supporting` |
@@ -42,7 +60,7 @@ Fast and simple application that allows you to generate and compare hashes from 
 | [SHA3-384](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 | [SHA3-512](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 
-## Screenshots (Light theme)
+## Screenshots (Light Theme)
 
 <br/>
 <p align="center">
@@ -53,7 +71,7 @@ Fast and simple application that allows you to generate and compare hashes from 
   <img src="media/screenshots/screenshot_05.png" width="150" />
 </p>
 
-## Screenshots (Dark theme)
+## Screenshots (Dark Theme)
 
 <br/>
 <p align="center">
@@ -64,18 +82,26 @@ Fast and simple application that allows you to generate and compare hashes from 
   <img src="media/screenshots/screenshot_10.png" width="150" />
 </p>
 
-## Supporting languages
+## Supporting Languages
 
-If you want to help with the translation (add a language or update the current one), you can create and
-issue [here](https://github.com/hash-checker/hash-checker/issues) or directly download and process languages
-from [here](https://github.com/hash-checker/hash-checker/blob/master/app/src/main/res/values/strings.xml) (reference for
-English, if you want to work with other language that already exists in app, find it in `values` folder with specific to
-your language code (for example, if you want to update Russian locale, it places in `values-ru`).
+If you're interested in contributing to the translation efforts, whether it's adding a new language or updating an existing one, here's how you can get involved. You have two options:
 
-### Languages in app
+Option 1: Create an Issue:
+
+- Head to the [Issues section](https://github.com/hash-checker/hash-checker/issues) and open a new issue, indicating your intention to contribute to translation.
+- Specify the language you're interested in or any updates you plan to make.
+
+Option 2: Direct Download and Processing:
+
+- For reference in English, you can download the language files [here](https://github.com/hash-checker/hash-checker/blob/master/app/src/main/res/values/strings.xml).
+- If you're working on an existing language, locate the corresponding language code in the 'values' folder (for instance, if updating the Russian locale, it's in 'values-ru').
+
+Your contributions play a crucial role in making the application accessible to a wider audience, and your efforts in translation are highly appreciated. If you have any questions or need guidance, feel free to reach out through the issues section or contact us directly.
+
+### Languages in the App
 
 | Language           | Since version | Status       |
-|--------------------|---------------|--------------|
+| ------------------ | ------------- | ------------ |
 | English            | 1.0.0         | `Translated` |
 | Español            | 2.9.9         | `Translated` |
 | Deutsch            | 2.9.6         | `Translated` |
@@ -90,47 +116,45 @@ your language code (for example, if you want to update Russian locale, it places
 | Русский            | 2.9.6         | `Translated` |
 | Polski             | 2.9.9         | `Translated` |
 | Português (Brasil) | 3.7.0         | `Translated` |
-| 简体中文               | 2.9.9         | `Translated` |
-| 한국어                | 2.9.9         | `Translated` |
+| 简体中文           | 2.9.9         | `Translated` |
+| 한국어             | 2.9.9         | `Translated` |
 | עברית              | 2.9.9         | `Translated` |
 | فارسی              | 2.9.9         | `Translated` |
-| 日本語                | 3.6.3         | `Translated` |
+| 日本語             | 3.6.3         | `Translated` |
 | Tiếng Việt         | 3.6.5         | `Translated` |
 | မြန်မာ             | 3.7.1         | `Translated` |
 
-## How to use
+## How to Use
 
-* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
+- [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html) - Guide Link
 
 ## Forums
 
 | Forum                                                     | Language |
-|-----------------------------------------------------------|----------|
+| --------------------------------------------------------- | -------- |
 | [4PDA](https://4pda.to/forum/index.php?showtopic=1015172) | Русский  |
 
 ## Videos
 
-* [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
+- [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx) - Video Demonstration
 
 ## Black Duck Open Hub
 
-* [Hash Checker (Android)](https://www.openhub.net/p/hash-checker)
+- [Hash Checker (Android)](https://www.openhub.net/p/hash-checker) - Explore project analytics and insights
 
 ## Privacy Policy
 
-* [Web version](https://hash-checker.github.io/hash-checker-privacy-policy.io/)
+- [Web Version](https://hash-checker.github.io/hash-checker-privacy-policy.io/)
 
 ## Feedback
 
-If you have any question or feature idea for this application, you can open an issue
-on [this page](https://github.com/hash-checker/hash-checker/issues) or contact me by email
+If you have any questions or feature ideas, you can [open an issue](https://github.com/hash-checker/hash-checker/issues) or contact us by email at
 jaman.smlnsk@gmail.com.
 
-## How to contribute
+## How to Contribute
 
-Before commit,
-read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md)
-. Make sure your build is green before you contribute your pull request. Then:
+Before committing, read our [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md)
+. Ensure your build is green before contributing your pull request. Then:
 
 ```shell
 $ ./gradlew clean
@@ -232,8 +256,8 @@ If you don't see any error messages, submit your pull request.
 </td>
 </table>
 
-## Special thanks
+## Special Thanks
 
-* [@IzzySoft](https://github.com/IzzySoft) as Izzy for uploading the app
+- [@IzzySoft](https://github.com/IzzySoft) as Izzy for uploading the app
   to [IzzySoft Apt Repositories](https://apt.izzysoft.de)
-* [@lexterror](https://github.com/lexterror) as mrrmx for useful feature requests
+- [@lexterror](https://github.com/lexterror) as mrrmx for useful feature requests
