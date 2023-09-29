@@ -2,12 +2,91 @@
 
 # Hash Checker
 
+
 [![GitHubActions](https://github.com/hash-checker/hash-checker/workflows/Build/badge.svg)](https://github.com/hash-checker/hash-checker/actions?query=workflow%3ABuild)
 [![Codacy](https://api.codacy.com/project/badge/Grade/51f19c1c57a443bba0713785abe708c3)](https://app.codacy.com/gh/hash-checker/hash-checker?utm_source=github.com&utm_medium=referral&utm_content=hash-checker/hash-checker&utm_campaign=Badge_Grade)
 [![Codecov](https://codecov.io/gh/hash-checker/hash-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/hash-checker/hash-checker)
 [![GitHub Downloads](https://img.shields.io/github/downloads/hash-checker/hash-checker/total?label=GitHub%20downloads)](https://github.com/hash-checker/hash-checker/releases)
 
-## Download
+## Table of Contents
+- [What is Hash Checker](#what-is-hash-checker)
+- [How to Use](#how-to-use)
+- [Downloads](#downloads)
+- [Supporting Algorithms](#supporting-algorithms)
+- [Screenshots (Light Theme)](#screenshots-light-theme)
+- [Screenshots (Dark Theme)](#screenshots-dark-theme)
+- [Supporting Languages](#supporting-languages)
+- [Forums](#forums)
+- [Videos](#videos)
+- [Black Duck Open Hub](#black-duck-open-hub)
+- [Privacy Policy](#privacy-policy)
+- [Feedback](#feedback)
+- [How to Contribute](#how-to-contribute)
+- [Contributors](#contributors)
+- [Special Thanks](#special-thanks)
+
+
+## What is Hash Checker
+Hash Checker is a a fast and simple application that can allow you to generate and compare hashes from files and text.
+Hashing is a powerful and useful tool that can enable users to create encrypted keys for use in the online world.
+Alteratively, you can use this app to verify the legitimacy and authenticity of data sent through channels.
+
+Unlike computers, Anndroid phones do not come with a native Hash Checker. This project aims to provide this functionality while also simplifying the process and making it less intimidating.
+
+This application can be downloaed through a variety of mediums such as the Google Play Store and GitHub itself. 
+
+## How to Use
+
+To Run and Open this Appplication:
+
+
+1) Begin by following one of the links in the [Downloads](#downloads) section to download the free application on your Android device
+   
+2) Let the download complete on your device (it may take a moment) and open the application
+<br>
+
+How to Check the Hash of an Existing File:
+
+1) You should see two tabs labeled "From" and "Action" when the app is opened
+
+2) Select the "From" button and then click "File" from the menu that appears
+
+3) The default file manager on Android will open and prompt you to select a file
+
+4) Choose a locally saved or cloud file you wish to check the hash of
+
+5)  Once the file is in the Hash Checker, click the "Action" button and then "Generate"
+  
+6)  The MD5 Checksum hash of the file will now appear
+<br>
+
+How to Change the Hashing Algorithm
+
+1) Click on the drop down icon located next to the defaultly set "MD5" text in the app
+
+2) Select the algorithm that best suites your needs
+
+3) A list of supported algorithms can be found here: [Supporting Algorithms](#supporting-algorithms)
+<br>
+
+How to Compare a Hash
+
+1) Enter your hash into the "Custom hash" box (make sure you are checking the same algorithm)
+
+2) Click on "Action" then "Compare"
+<br>
+
+How to Calculate the Hash of Text
+
+1) Click on "From" then "File" then "Text"
+
+2) Enter the text and then click on "Action" then "Generate"
+<br>
+
+For more information and detailed steps with visual guides, visit:
+* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
+
+## Downloads
 
 <a href="https://github.com/hash-checker/hash-checker/releases">
   <img src="media/banners/bn_github.png" height="75px" />
@@ -22,11 +101,7 @@
   <img src="media/banners/bn_android_file_host.png" height="75px" />
 </a>
 
-## About application
-
-Fast and simple application that allows you to generate and compare hashes from files and text.
-
-## Supporting algorithms
+## Supporting Algorithms
 
 | Name                                                            | Since version | Status       |
 |-----------------------------------------------------------------|---------------|--------------|
@@ -42,7 +117,7 @@ Fast and simple application that allows you to generate and compare hashes from 
 | [SHA3-384](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 | [SHA3-512](https://en.wikipedia.org/wiki/SHA-3)                 | 3.6.5         | `Supporting` |
 
-## Screenshots (Light theme)
+## Screenshots (Light Theme)
 
 <br/>
 <p align="center">
@@ -53,7 +128,7 @@ Fast and simple application that allows you to generate and compare hashes from 
   <img src="media/screenshots/screenshot_05.png" width="150" />
 </p>
 
-## Screenshots (Dark theme)
+## Screenshots (Dark Theme)
 
 <br/>
 <p align="center">
@@ -64,15 +139,18 @@ Fast and simple application that allows you to generate and compare hashes from 
   <img src="media/screenshots/screenshot_10.png" width="150" />
 </p>
 
-## Supporting languages
+## Supporting Languages
 
-If you want to help with the translation (add a language or update the current one), you can create and
-issue [here](https://github.com/hash-checker/hash-checker/issues) or directly download and process languages
+If you want to help with the translation (add a language or update the current one):
+
+1) You can create and issue [here](https://github.com/hash-checker/hash-checker/issues)
+
+2) Directly download and process languages
 from [here](https://github.com/hash-checker/hash-checker/blob/master/app/src/main/res/values/strings.xml) (reference for
 English, if you want to work with other language that already exists in app, find it in `values` folder with specific to
 your language code (for example, if you want to update Russian locale, it places in `values-ru`).
 
-### Languages in app
+### Languages in App
 
 | Language           | Since version | Status       |
 |--------------------|---------------|--------------|
@@ -98,10 +176,6 @@ your language code (for example, if you want to update Russian locale, it places
 | Tiếng Việt         | 3.6.5         | `Translated` |
 | မြန်မာ             | 3.7.1         | `Translated` |
 
-## How to use
-
-* [H2S Media](https://www.how2shout.com/how-to/how-to-calculate-the-hash-of-a-file-or-create-custom-hash-on-android.html)
-
 ## Forums
 
 | Forum                                                     | Language |
@@ -109,7 +183,7 @@ your language code (for example, if you want to update Russian locale, it places
 | [4PDA](https://4pda.to/forum/index.php?showtopic=1015172) | Русский  |
 
 ## Videos
-
+The following videos give a demonstartion on how the application looks like and how it runs:
 * [YouTube](https://www.youtube.com/watch?v=Q7Otn971kJk&list=PLOIwDRWd_SDdBz2aiVtMocFunaXaKSPMx)
 
 ## Black Duck Open Hub
@@ -122,13 +196,13 @@ your language code (for example, if you want to update Russian locale, it places
 
 ## Feedback
 
-If you have any question or feature idea for this application, you can open an issue
+If you have any questions or feature ideas for this application, you can open an issue
 on [this page](https://github.com/hash-checker/hash-checker/issues) or contact me by email
 jaman.smlnsk@gmail.com.
 
-## How to contribute
+## How to Contribute
 
-Before commit,
+Before committing,
 read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md)
 . Make sure your build is green before you contribute your pull request. Then:
 
