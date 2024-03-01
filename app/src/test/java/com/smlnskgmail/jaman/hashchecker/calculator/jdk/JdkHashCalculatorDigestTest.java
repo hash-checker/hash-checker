@@ -104,4 +104,89 @@ public class JdkHashCalculatorDigestTest {
         );
     }
 
+    @Test
+    public void fnv1a32HashDigestWithOffsetAndLength() throws NoSuchAlgorithmException, NoSuchProviderException {
+
+        JdkHashCalculatorDigest jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(HashType.FNV_1A_32);
+
+        jdkHashCalculatorDigest.update(input, 2);
+
+        // Assert the result against the expected hash value
+        assertEquals(
+                "3bf58cd2",
+                jdkHashCalculatorDigest.result()
+        );
+    }
+
+    @Test
+    public void fnv1a64HashDigestWithOffsetAndLength() throws NoSuchAlgorithmException, NoSuchProviderException {
+
+        JdkHashCalculatorDigest jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(HashType.FNV_1A_64);
+
+        jdkHashCalculatorDigest.update(input, 2);
+
+        // Assert the result against the expected hash value
+        assertEquals(
+                "9353307b5c78852",
+                jdkHashCalculatorDigest.result()
+        );
+    }
+
+    @Test
+    public void fnv1a128HashDigestWithOffsetAndLength() throws NoSuchAlgorithmException, NoSuchProviderException {
+
+        JdkHashCalculatorDigest jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(HashType.FNV_1A_128);
+
+        jdkHashCalculatorDigest.update(input, 2);
+
+        // Assert the result against the expected hash value
+        assertEquals(
+                "8809516baab1be95aa07330559ac382",
+                jdkHashCalculatorDigest.result()
+        );
+    }
+
+    @Test
+    public void fnv1a256HashDigestWithOffsetAndLength() throws NoSuchAlgorithmException, NoSuchProviderException {
+
+        JdkHashCalculatorDigest jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(HashType.FNV_1A_256);
+
+        jdkHashCalculatorDigest.update(input, 2);
+
+        // Assert the result against the expected hash value
+        assertEquals(
+                "f4f7a1c2efd0e1e4bb3e544525c0721a06dd328fa3d7a91439a0734350367df2",
+                jdkHashCalculatorDigest.result()
+        );
+    }
+
+    @Test
+    public void fnv1a512HashDigestWithOffsetAndLength() throws NoSuchAlgorithmException, NoSuchProviderException {
+
+        JdkHashCalculatorDigest jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(HashType.FNV_1A_512);
+
+        jdkHashCalculatorDigest.update(input, 2);
+
+        // Assert the result against the expected hash value
+        assertEquals(
+                "7317dfed6c70dfec6adfced2a5e04d7eec744dc9520000000000000017933d7af45d70def423a316f14117df272cd0fd6b85f0f7c9bf6c5196b3160d0249b142",
+                jdkHashCalculatorDigest.result()
+        );
+    }
+
+    @Test
+    public void fnv1a1024HashDigestWithOffsetAndLength() throws NoSuchAlgorithmException, NoSuchProviderException {
+
+        JdkHashCalculatorDigest jdkHashCalculatorDigest = JdkHashCalculatorDigest.instanceFor(HashType.FNV_1A_1024);
+
+        jdkHashCalculatorDigest.update(input, 2);
+
+        // Assert the result against the expected hash value
+        assertEquals(
+                "f46ef41cd23a4dcdd406834963b78e82241a6f5cb06f403cbd5a7c8903cef6a5f4fe13da0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b7cd7fb20c3631dc8903952e9eeb7f618698f4c87da23ad74b2c5f6f1fec4a64b5498cfc6",
+                jdkHashCalculatorDigest.result()
+        );
+    }
+
+
 }
