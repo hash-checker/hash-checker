@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.smlnskgmail.jaman.hashchecker.thirdparty",
+  "variantName": "thirdPartyStoresRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 99,
+      "versionName": "3.7.3-thirdparty",
+      "outputFile": "hash-checker_release.apk"
+    }
+  ],
+  "elementType": "File"
+}
