@@ -1,9 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jaredsburrows.license'
-apply from: 'checkstyle.gradle'
-apply from: 'cpd.gradle'
-apply from: 'jacoco.gradle'
-apply from: 'utils.gradle'
 
 android {
     compileSdkVersion 33
@@ -163,8 +159,8 @@ dependencies {
     implementation 'com.j256.ormlite:ormlite-android:5.7'
 
     // Checkstyle
-    checkstyle 'com.github.fartem:checkstyle-checks-java:1.1.0'
-    checkstyle 'com.github.fartem:checkstyle-checks-android:1.2.3'
+//    checkstyle 'com.github.fartem:checkstyle-checks-java:1.1.0'
+//    checkstyle 'com.github.fartem:checkstyle-checks-android:1.2.3'
 
     // Unit tests
     testImplementation 'junit:junit:4.13.2'

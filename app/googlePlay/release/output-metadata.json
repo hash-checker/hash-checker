@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.smlnskgmail.jaman.hashchecker",
+  "variantName": "googlePlayRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 98,
+      "versionName": "3.7.2",
+      "outputFile": "hash-checker_release.apk"
+    }
+  ],
+  "elementType": "File"
+}
