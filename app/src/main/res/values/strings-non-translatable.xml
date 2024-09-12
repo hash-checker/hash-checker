@@ -34,13 +34,22 @@
     <!-- links -->
     <string name="title_web_link_github" translatable="false">GitHub</string>
     <string name="title_web_link_google_play" translatable="false">Google Play</string>
+    <string name="title_web_link_linkedin" translatable="false">LinkedIn</string>
+    <string name="title_web_link_twitter" translatable="false">Twitter</string>
+    <string name="title_web_link_rubygems" translatable="false">RubyGems</string>
+    <string name="title_web_link_stack_overflow" translatable="false">Stack Overflow</string>
 
     <!-- web links -->
-    <string name="web_link_source_code" translatable="false">https://github.com/hash-checker/hash-checker</string>
+    <string name="web_link_github" translatable="false">https://github.com/fartem</string>
     <string name="web_link_my_apps" translatable="false">https://play.google.com/store/apps/developer?id=fartem</string>
+    <string name="web_link_linkedin" translatable="false">https://linkedin.com/in/fartem</string>
+    <string name="web_link_twitter" translatable="false">https://twitter.com/fartem67</string>
+    <string name="web_link_rubygems" translatable="false">https://rubygems.org/profiles/fartem</string>
+    <string name="web_link_stack_overflow" translatable="false">https://stackoverflow.com/users/10684765/fartem</string>
     <string name="web_link_privacy_policy" translatable="false">https://hash-checker.github.io/hash-checker-privacy-policy.io</string>
+    <string name="web_link_github_repository" translatable="false">https://github.com/hash-checker/hash-checker</string>
     <string name="web_link_help_with_translation" translatable="false">https://github.com/hash-checker/hash-checker/issues</string>
-    <string name="web_link_adaptiverecyclerview" translatable="false">https://github.com/fartem/adaptive-recycler-view</string>
+    <string name="web_link_adaptive_recycler_view" translatable="false">https://github.com/fartem/adaptive-recycler-view</string>
     <string name="web_link_ormlite" translatable="false">https://ormlite.com</string>
 
     <!-- files -->
@@ -52,6 +61,6 @@
     <string name="feedback_android_title" translatable="false">Android</string>
 
     <!-- libraries -->
-    <string name="library_name_adaptiverecyclerview" translatable="false">AdaptiveRecyclerView</string>
+    <string name="library_name_adaptive_recycler_view" translatable="false">AdaptiveRecyclerView</string>
     <string name="library_name_ormlite" translatable="false">OrmLite</string>
 </resources>
