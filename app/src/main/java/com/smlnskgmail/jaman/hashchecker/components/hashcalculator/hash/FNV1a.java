@@ -162,58 +162,37 @@ public class FNV1a {
         }
     }
 
-    private void update32(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS32;
+    private void updateHash(byte[] b, int offset, int len, BigInteger offsetBasis, BigInteger prime, BigInteger modulus) {
+        hash = offsetBasis;
 
         for (int i = offset; i < offset + len; i++) {
             hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME32).mod(MOD32);
+            hash = hash.multiply(prime).mod(modulus);
         }
+    }
+
+    private void update32(byte[] b, int offset, int len) {
+        updateHash(b, offset, len, FNV_OFFSET_BASIS32, FNV_PRIME32, MOD32);
     }
 
     private void update64(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS64;
-
-        for (int i = offset; i < offset + len; i++) {
-            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME64).mod(MOD64);
-        }
+        updateHash(b, offset, len, FNV_OFFSET_BASIS64, FNV_PRIME64, MOD64);
     }
 
     private void update128(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS128;
-
-        for (int i = offset; i < offset + len; i++) {
-            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME128).mod(MOD128);
-        }
+        updateHash(b, offset, len, FNV_OFFSET_BASIS128, FNV_PRIME128, MOD128);
     }
 
     private void update256(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS256;
-
-        for (int i = offset; i < offset + len; i++) {
-            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME256).mod(MOD256);
-        }
+        updateHash(b, offset, len, FNV_OFFSET_BASIS256, FNV_PRIME256, MOD256);
     }
 
     private void update512(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS512;
-
-        for (int i = offset; i < offset + len; i++) {
-            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME512).mod(MOD512);
-        }
+        updateHash(b, offset, len, FNV_OFFSET_BASIS512, FNV_PRIME512, MOD512);
     }
 
     private void update1024(byte[] b, int offset, int len) {
-        hash = FNV_OFFSET_BASIS1024;
-
-        for (int i = offset; i < offset + len; i++) {
-            hash = hash.xor(BigInteger.valueOf((int) b[i] & 0xff));
-            hash = hash.multiply(FNV_PRIME1024).mod(MOD1024);
-        }
+        updateHash(b, offset, len, FNV_OFFSET_BASIS1024, FNV_PRIME1024, MOD1024);
     }
 
     public void reset() {

@@ -6,7 +6,10 @@ import androidx.annotation.Nullable;
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.api.HashType;
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.Blake2B;
 import com.smlnskgmail.jaman.hashchecker.components.hashcalculator.hash.FNV1a;
+import com.smlnskgmail.jaman.hashchecker.utils.LogUtils;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -23,9 +26,7 @@ public class JdkHashCalculatorDigest {
     private boolean useBLAKE2B;
     private boolean useFNV1A;
 
-    private JdkHashCalculatorDigest() {
 
-    }
 
     @NonNull
     public static JdkHashCalculatorDigest instanceFor(
@@ -56,7 +57,7 @@ public class JdkHashCalculatorDigest {
         } else if (hashType == HashType.BLAKE_2B) {
             blake2B = new Blake2B();
             useBLAKE2B = true;
-        } else if (hashType == HashType.FNV_1A_32 || hashType == HashType.FNV_1A_64 || hashType == HashType.FNV_1A_128 || hashType == HashType.FNV_1A_256 || hashType == HashType.FNV_1A_512 || hashType == HashType.FNV_1A_1024) {
+        } else if (isFNV1AType(hashType)) {
             fnv1A = new FNV1a();
             fnv1A.setInstance(hashType.getTypeAsString());
             useFNV1A = true;
@@ -69,7 +70,16 @@ public class JdkHashCalculatorDigest {
         }
     }
 
-    public void update(@NonNull byte[] input) {
+    private boolean isFNV1AType(HashType hashType) {
+        return hashType == HashType.FNV_1A_32 ||
+                hashType == HashType.FNV_1A_64 ||
+                hashType == HashType.FNV_1A_128 ||
+                hashType == HashType.FNV_1A_256 ||
+                hashType == HashType.FNV_1A_512 ||
+                hashType == HashType.FNV_1A_1024;
+    }
+
+    public void updateHash(@NonNull byte[] input) {
         if (useCRC32) {
             crc32.reset();
             crc32.update(input);
@@ -85,7 +95,7 @@ public class JdkHashCalculatorDigest {
         }
     }
 
-    public void update(@NonNull byte[] input, int length) {
+    public void updateHashWithOffset(@NonNull byte[] input, int length) {
         if (useCRC32) {
             crc32.update(input, 0, length);
         } else if (useBLAKE2B) {
@@ -98,7 +108,7 @@ public class JdkHashCalculatorDigest {
     }
 
     @NonNull
-    public String result() {
+    public String getResult() {
         if (useCRC32) {
             return JdkHashUtils.getStringFromLong(crc32.getValue());
         } else if (useBLAKE2B) {
@@ -108,5 +118,6 @@ public class JdkHashCalculatorDigest {
         }
         return JdkHashUtils.getStringFromByteArray(messageDigest.digest());
     }
+
 
 }
