@@ -10,7 +10,7 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/common_app_name"
-        android:resizeableActivity="false"
+        android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeLight"
@@ -19,7 +19,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/common_app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             tools:node="merge">
