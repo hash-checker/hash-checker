@@ -1,5 +1,11 @@
 <img src="media/logo/ic_app.png" height="100px" />
 
+# Current app state
+
+The app is currently unsupported. You can create new [issues](https://github.com/hash-checker/hash-checker/issues) or ask me [questions](https://github.com/hash-checker/hash-checker/issues), but anything that involves making edits will at best be done by a third-party contributor. I will accept all new features and build new app versions by request.
+
+New versions of the application will be published on all the resources listed above except Google Play. If you want download latest app version, check [GitHub Releases](https://github.com/hash-checker/hash-checker/releases) or [IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/apk/com.smlnskgmail.jaman.hashchecker.thirdparty). I do not guarantee the availability of the latest versions on other sites or stores and if you find (for example) version `3.7.3` on APKPure - it's not an official publication.
+
 # Hash Checker
 
 [![GitHubActions](https://github.com/hash-checker/hash-checker/workflows/Build/badge.svg)](https://github.com/hash-checker/hash-checker/actions?query=workflow%3ABuild)
