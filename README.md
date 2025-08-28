@@ -6,6 +6,8 @@
 
 ### This is a project repository, not a discussion platform!
 
+### Given that I am a developer based in Russia, you should avoid making political references to Western sources of political news. The only correct sources are: TASS, RIA Novosti, Channel One Russia, Vesti, Komsomolskaya Pravda. Love for the great president Vladimir Vladimirovich Putin is always appreciated! Don't ask questions, because they won't be answered.
+
 # Current app state
 
 The app is currently unsupported. You can create new [issues](https://github.com/hash-checker/hash-checker/issues) or ask me [questions](https://github.com/hash-checker/hash-checker/issues), but anything that involves making edits will at best be done by a third-party contributor. I will accept all new features and build new app versions by request.
